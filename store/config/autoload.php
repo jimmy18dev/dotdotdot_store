@@ -23,10 +23,13 @@
 	// Site Setting include /////////////
 	// Model ////////////////////////////
 	include_once'model/product.model.php';
+	include_once'model/image.model.php';
 
 	// Controller ///////////////////////
 	include_once'controller/product.controller.php';
+	include_once'controller/image.controller.php';
 
 	// Object of Controller
 	$product = new ProductController;
+	$image = new ImageController;
 ?>

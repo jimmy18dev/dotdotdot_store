@@ -37,10 +37,27 @@ require_once'config/autoload.php';
 </head>
 
 <body>
+	<?php include'header.php';?>
 	<h1>List Product</h1>
 	<a href="product_create.php">New Product</a>
 	<hr>
 
+	<table border="1">
+	<tr>
+		<td>ID</td>
+		<td>Title</td>
+		<td>Description</td>
+		<td>D</td>
+		<td>SS</td>
+		<td>S</td>
+		<td>M</td>
+		<td>L</td>
+		<td>XL</td>
+		<td>Price</td>
+		<td>Create</td>
+		<td>Update</td>
+	</tr>
 	<?php $product->ListProduct(array('null' => 0));?>
+	</table>
 </body>
 </html>

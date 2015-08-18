@@ -7,6 +7,10 @@ class ProductController extends ProductModel{
 		$this->Render('null',$dataset);
 	}
 
+	public function CreateProduct($param){
+		parent::CreateProductProcess($param);
+	}
+
 	private function Render($mode,$data){
         foreach ($data as $var){
         	include'template/product/product.items.php';

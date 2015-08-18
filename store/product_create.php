@@ -33,10 +33,29 @@ require_once'config/autoload.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/product-form.js"></script>
 
 </head>
+<?php include'header.php';?>
 
 <body>
 	<h1>Create New Product</h1>
+	<hr>
+	<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
+		<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
+		<input type="text" name="title" placeholder="title">
+		<input type="text" name="description" placeholder="description">
+		<input type="text" name="material" placeholder="material" value="normal">
+		<input type="text" name="size_d" placeholder="size d" value="0">
+		<input type="text" name="size_ss" placeholder="size ss" value="0">
+		<input type="text" name="size_s" placeholder="size s" value="0">
+		<input type="text" name="size_m" placeholder="size m" value="0">
+		<input type="text" name="size_l" placeholder="size l" value="0">
+		<input type="text" name="size_xl" placeholder="size xl" value="0">
+		<input type="text" name="price" placeholder="price" value="0">
+		<input type="text" name="group" placeholder="group" value="shrit"><br>
+		<button type="submit">Create</button>
+	</form>
 </body>
 </html>

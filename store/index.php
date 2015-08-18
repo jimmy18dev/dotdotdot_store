@@ -37,11 +37,7 @@ require_once'config/autoload.php';
 </head>
 
 <body>
-<h1>dotdotdot limited</h1>
+<?php include'header.php';?>
 
-
-<p>Option</p>
-<hr>
-<a href="product.php">Product page.</a>
 </body>
 </html>
