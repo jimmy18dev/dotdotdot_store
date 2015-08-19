@@ -2,6 +2,8 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+
+$product->GetProduct(array('product_id' => $_GET['id']));
 ?>
 
 <!DOCTYPE html>
@@ -37,6 +39,21 @@ require_once'config/autoload.php';
 </head>
 
 <body>
-<?php echo 'Product Text : '.$product->status;?>
+
+<?php include'header.php';?>
+
+<img src="<?php echo $product->image_normal;?>" alt="">
+
+<h1><?php echo $product->title;?></h1>
+
+<p><?php echo $product->description;?></p>
+<p>Size D : <?php echo $product->size_d;?></p>
+<p>Size SS : <?php echo $product->size_ss;?></p>
+<p>Size S : <?php echo $product->size_s;?></p>
+<p>Size M : <?php echo $product->size_m;?></p>
+<p>Size L : <?php echo $product->size_l;?></p>
+<p>Size XL : <?php echo $product->size_lx;?></p>
+
+<b>Price: <?php echo $product->price;?></b>
 </body>
 </html>
