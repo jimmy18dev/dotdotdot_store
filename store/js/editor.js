@@ -43,9 +43,9 @@ $(document).ready(function(){
             // Redirect page
             console.log('action:'+action);
 
-            setTimeout(function(){
-                window.location = 'place.php?id='+$('#place_id').val()+'#newsfeed';
-            },3000);
+            // setTimeout(function(){
+            //     window.location = 'place.php?id='+$('#place_id').val()+'#newsfeed';
+            // },3000);
         },
         resetForm:true
     };

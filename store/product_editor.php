@@ -2,6 +2,10 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+
+if(isset($_GET['id'])){
+	$product->GetProduct(array('product_id' => $_GET['id']));
+}
 ?>
 
 <!DOCTYPE html>
@@ -44,18 +48,37 @@ require_once'config/autoload.php';
 	<hr>
 	<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
-		<input type="text" name="title" placeholder="title">
-		<input type="text" name="description" placeholder="description">
-		<input type="text" name="material" placeholder="material" value="normal">
-		<input type="text" name="size_d" placeholder="size d" value="0">
-		<input type="text" name="size_ss" placeholder="size ss" value="0">
-		<input type="text" name="size_s" placeholder="size s" value="0">
-		<input type="text" name="size_m" placeholder="size m" value="0">
-		<input type="text" name="size_l" placeholder="size l" value="0">
-		<input type="text" name="size_xl" placeholder="size xl" value="0">
+
+		<p>id</p>
+		<input type="text" name="product_id" value="<?php echo $product->id;?>">
+
+		<p>title</p>
+		<input type="text" name="title" placeholder="title" value="<?php echo $product->title;?>">
+
+		<p>description</p>
+		<input type="text" name="description" placeholder="description" value="<?php echo $product->description;?>">
+		<p>material</p>
+		<input type="text" name="material" placeholder="material" value="normal" value="<?php echo $product->material;?>">
+
+		<br><br><p>Size</p>
+		<p>D</p>
+		<input type="text" name="size_d" placeholder="size d" value="<?php echo (isset($product->size_d)?$product->size_d:0);?>">
+		<p>SS</p>
+		<input type="text" name="size_ss" placeholder="size ss" value="<?php echo (isset($product->size_ss)?$product->size_ss:0);?>">
+		<p>S</p>
+		<input type="text" name="size_s" placeholder="size s" value="<?php echo (isset($product->size_s)?$product->size_s:0);?>">
+		<p>M</p>
+		<input type="text" name="size_m" placeholder="size m" value="<?php echo (isset($product->size_m)?$product->size_m:0);?>">
+		<p>L</p>
+		<input type="text" name="size_l" placeholder="size l" value="<?php echo (isset($product->size_l)?$product->size_l:0);?>">
+		<p>XL</p>
+		<input type="text" name="size_xl" placeholder="size xl" value="<?php echo (isset($product->size_xl)?$product->size_xl:0);?>">
+
+		<p>price</p>
 		<input type="text" name="price" placeholder="price" value="0">
 		<input type="text" name="group" placeholder="group" value="shrit"><br>
-		<button type="submit">Create</button>
+		<br><br>
+		<button type="submit"><?php echo (isset($product->id)?'Save':'Create')?></button>
 	</form>
 </body>
 </html>

@@ -39,7 +39,7 @@ require_once'config/autoload.php';
 <body>
 	<?php include'header.php';?>
 	<h1>List Product</h1>
-	<a href="product_create.php">New Product</a>
+	<a href="product_editor.php">New Product</a>
 	<hr>
 
 	<table border="1">

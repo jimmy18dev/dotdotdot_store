@@ -55,5 +55,12 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <p>Size XL : <?php echo $product->size_lx;?></p>
 
 <b>Price: <?php echo $product->price;?></b>
+
+<hr>
+<h3>สินค้า</h3>
+<a href="product_add.php">เติม</a>
+<a href="">โอนของ</a>
+<a href="product_editor.php?id=<?php echo $product->id;?>">แก้ไข</a>
+
 </body>
 </html>

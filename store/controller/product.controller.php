@@ -65,6 +65,10 @@ class ProductController extends ProductModel{
 		return parent::CreateProductProcess($param);
 	}
 
+	public function EditProduct($param){
+		parent::EditProductProcess($param);
+	}
+
 	private function Render($mode,$data){
         foreach ($data as $var){
         	include'template/product/product.items.php';

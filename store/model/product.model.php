@@ -39,11 +39,24 @@ class ProductModel extends Database{
 	}
 
 	public function EditProductProcess($param){
-		parent::query('SELECT * FROM dd_product');
+		parent::query('UPDATE dd_product SET pd_title = :title, pd_description = :description, pd_material = :material, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_type = :type, pd_status = :status WHERE pd_id = :product_id');
+
+		parent::bind(':product_id', 			$param['product_id']);
+		parent::bind(':title', 			$param['title']);
+		parent::bind(':description', 	$param['description']);
+		parent::bind(':material', 		$param['material']);
+		parent::bind(':price', 			$param['price']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':group', 			$param['group']);
+		parent::bind(':type',			$param['type']);
+		parent::bind(':status',			$param['status']);
 		parent::execute();
+	}
+
+	public function DeleteProductProcess($param){
+		parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
+		parent::bind(':product_id', 	$param['product_id']);
 		parent::execute();
-		$dataset = parent::resultset();
-		return $dataset;
 	}
 }
 ?>
