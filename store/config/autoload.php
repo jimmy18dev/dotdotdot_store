@@ -28,8 +28,10 @@
 	// Controller ///////////////////////
 	include_once'controller/product.controller.php';
 	include_once'controller/image.controller.php';
+	include_once'controller/api.controller.php';
 
 	// Object of Controller
 	$product = new ProductController;
 	$image = new ImageController;
+	$api = new APIController;
 ?>

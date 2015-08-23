@@ -35,6 +35,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/product.service.js"></script>
 
 </head>
 
@@ -61,6 +62,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <a href="product_add.php">เติม</a>
 <a href="">โอนของ</a>
 <a href="product_editor.php?id=<?php echo $product->id;?>">แก้ไข</a>
+<a href="javascript:DeleteProduct(<?php echo $product->id;?>);">[ลบสินค้า]</a>
 
 </body>
 </html>

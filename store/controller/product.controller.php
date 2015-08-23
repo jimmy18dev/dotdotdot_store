@@ -69,6 +69,10 @@ class ProductController extends ProductModel{
 		parent::EditProductProcess($param);
 	}
 
+	public function DeleteProduct($param){
+		parent::DeleteProductProcess($param);
+	}
+
 	private function Render($mode,$data){
         foreach ($data as $var){
         	include'template/product/product.items.php';

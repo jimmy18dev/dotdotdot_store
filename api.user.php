@@ -24,6 +24,18 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'LoginUser':
+					if(true){
+						$login = $user->LoginUserProcess(array(
+							'username' 	=> $_POST['username'],
+							'password'	=> $_POST['password'],
+						));
+						$api->successMessage('User Logined.',$login,'');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

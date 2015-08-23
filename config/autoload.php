@@ -37,4 +37,23 @@
 	$image = new ImageController;
 	$user = new UserController;
 	$api = new APIController;
+
+	// Cookie Checking
+	if($user->CookieChecking()){
+		$_SESSION['member_id'] = $_COOKIE['member_id'];
+	}	
+
+	// Member online checking
+	define('PRIVETE_KEY','dinsorsee');
+	define('MEMBER_ONLINE',$user->SessionMemberOnline());
+
+	// Get member info
+	if(MEMBER_ONLINE){
+		$user->GetUser(array('member_id' => $_SESSION['member_id']));
+	}
+
+	// Define member data
+	define('MEMBER_ID',			$user->id);
+	define('MEMBER_TOKEN',		$user->token);
+	define('MEMBER_TYPE',		$user->type);
 ?>
