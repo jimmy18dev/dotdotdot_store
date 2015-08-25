@@ -2,8 +2,7 @@
 <hr>
 
 <?php if(MEMBER_ONLINE){?>
-<p><?php echo $user->name;?></p>
-<a href="logout.php">[Logout]</a>
+<p><a href="me.php"><?php echo $user->name;?></a> <a href="logout.php">[Logout]</a></p>
 <?php }else{?>
 <a href="register.php">Register</a>
 <a href="login.php">Login</a>

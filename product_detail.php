@@ -35,6 +35,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/order.service.js"></script>
 
 </head>
 
@@ -57,10 +58,9 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <b>Price: <?php echo $product->price;?></b>
 
 <hr>
-<h3>สินค้า</h3>
-<a href="product_add.php">เติม</a>
-<a href="">โอนของ</a>
-<a href="product_editor.php?id=<?php echo $product->id;?>">แก้ไข</a>
+<hr>
+<label for="">จำนวน <input type="number" id="amount" value="1"></label>
+<button onclick="javascript:AddItemToOrder(<?php echo $product->id;?>);">ซื้อเลย <?php echo $product->price;?> บาท</button>
 
 </body>
 </html>

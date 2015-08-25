@@ -25,18 +25,21 @@
 	include_once'model/product.model.php';
 	include_once'model/image.model.php';
 	include_once'model/user.model.php';
+	include_once'model/order.model.php';
 
 	// Controller ///////////////////////
 	include_once'controller/product.controller.php';
 	include_once'controller/image.controller.php';
 	include_once'controller/user.controller.php';
 	include_once'controller/api.controller.php';
+	include_once'controller/order.controller.php';
 
 	// Object of Controller
 	$product = new ProductController;
 	$image = new ImageController;
 	$user = new UserController;
 	$api = new APIController;
+	$order = new OrderController;
 
 	// Cookie Checking
 	if($user->CookieChecking()){
