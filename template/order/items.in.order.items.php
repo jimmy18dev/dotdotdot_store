@@ -1,0 +1,1 @@
+<p>[<?php echo $var['odt_id'];?>] <?php echo $var['pd_title'];?> ราคา <?php echo $var['pd_price'];?>.-</p>

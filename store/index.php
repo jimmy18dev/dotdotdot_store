@@ -39,5 +39,6 @@ require_once'config/autoload.php';
 <body>
 <?php include'header.php';?>
 
+<?php $order->ListOrder(array('id' => 0));?>
 </body>
 </html>

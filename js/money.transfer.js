@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // Textarea Autosize
     // $('.normal').autosize();
-    $('.animated').autosize({append: "\n"});
+    //$('.animated').autosize({append: "\n"});
 
     var $body = window.document.body;
     var action = $('#action').val();
@@ -44,22 +44,13 @@ $(document).ready(function(){
             console.log('action:'+action);
 
             // setTimeout(function(){
-            //     window.location = 'place.php?id='+$('#place_id').val()+'#newsfeed';
+            //     window.location = 'product.php';
             // },3000);
         },
         resetForm:true
     };
 
-    $('#PostCreate').submit(function() {
-        if(!BeforePostSubmit()){
-            return false;
-            console.log('return false');
-        }
-        $(this).ajaxSubmit(optionsActivity);
-        return false; 
-    });
-
-    $('#PostEdit').submit(function() {
+    $('#MoneyTransfer').submit(function() {
         if(!BeforePostSubmit()){
             return false;
             console.log('return false');
@@ -106,37 +97,4 @@ function BeforePostSubmit(){
         $("#output").html('<i class="fa fa-exclamation"></i>Browser ของคุณ ไม่รอบรับการทำงานนี้ กรุณาอัพเกรดหรือใช้ Google Chrome').slideDown(700).delay(3000).slideUp(700);
         return true;
     }
-}
-
-// List all comment on post
-function OffensiveWord(){
-    var href = 'api.site.php';
-    var message = $('#post-text').val();
-
-    if(message.length % 2 != 0 || message == '')
-        return false;
-
-    $.ajax({
-        url         :href,
-        cache       :false,
-        dataType    :"json",
-        type        :"POST",
-        data:{
-            calling             :'Site',
-            action              :'OffensiveWord',
-            message             :message,
-        },
-        error: function (request, status, error) {
-            console.log("Request Error");
-        }
-    }).done(function(data){
-        console.clear();
-        console.log(message.length+' Check: '+data.return+' ('+data.execute+')');
-
-        if(data.return == false){
-            $('#post-text').addClass('offensive-word');
-        }else{
-            $('#post-text').removeClass('offensive-word'); 
-        }
-    }).error();
 }

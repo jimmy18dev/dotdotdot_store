@@ -29,6 +29,30 @@ if($_POST['calling'] != ''){
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> $_POST['order_action'],
 						));
+
+						if($_POST['order_action'] == "TransferAgain"){
+							$bank->KillTransferMoney(array('order_id' => $_POST['order_id']));
+						}
+
+						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'EmsUpdate':
+					if(true){
+						$order->UpdateEmsOrder(array(
+							'order_id' 		=> $_POST['order_id'],
+							'ems' 			=> $_POST['ems'],
+						));
+
+						$order->OrderProcess(array(
+							'member_id' 	=> MEMBER_ID,
+							'order_id' 		=> $_POST['order_id'],
+							'order_action' 	=> "Shipping",
+						));
+
 						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
 					}
 					else{

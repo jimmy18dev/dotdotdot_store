@@ -12,35 +12,14 @@ class OrderController extends OrderModel{
 	// - Expire
 	// - Shopping
 	// - Paying
-	// - TransferRequest, TransferAgain 
-	// - TransferSuccess
+	// - TransferRequest
+	// - TransferConfirm
 	// - Shipping
 	// - Complete
 	// -----------------
 
-	public function AddtoOrder($param){
-		// Order checking
-		$order_checking = parent::CheckingAlreadyOrderProcess($param);
-		if(empty($order_checking)){
-			$order_id = parent::CreateOrderProcess($param);
-			$param['order_id'] = $order_id;
-		}
-		else{
-			$param['order_id'] = $order_checking;
-		}
-
-		if(parent::CheckingAlreadyItemInOrderProcess($param)){
-			$items_id = parent::AddItemsInOrderProcess($param);
-			// add product to order success.
-			return true;
-		}
-		else{
-			return false;
-		}
-	}
-
-	public function ListMyOrder($param){
-		$data = parent::ListMyOrderProcess($param);
+	public function ListOrder($param){
+		$data = parent::ListOrderProcess($param);
 		$this->RenderOrder('null',$data);
 	}
 
@@ -77,14 +56,8 @@ class OrderController extends OrderModel{
     	parent::UpdateStatusOrderProcess($param);
     }
 
-    // EMS Number update in Order
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
-    }
-
-
-    public function Checking($param){
-    	return parent::CheckingAlreadyOrderProcess($param);
     }
 }
 ?>

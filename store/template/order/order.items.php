@@ -1,0 +1,1 @@
+<p><a href="order_detail.php?id=<?php echo $var['od_id'];?>">Order ID <?php echo $var['od_id'];?></a> | status: <b><?php echo $var['od_status'];?></b></p>

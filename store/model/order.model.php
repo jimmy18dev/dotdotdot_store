@@ -1,58 +1,8 @@
 <?php
 class OrderModel extends Database{
-
-	public function CreateOrderProcess($param){
-		parent::query('INSERT INTO dd_order(od_member_id,od_create_time,od_update_time,od_type,od_status) VALUE(:member_id,:create_time,:update_time,:type,:status)');
-
-		parent::bind(':member_id', 		$param['member_id']);
-		parent::bind(':create_time',	date('Y-m-d H:i:s'));
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
-
-		parent::execute();
-		return parent::lastInsertId();
-	}
-
-	public function AddItemsInOrderProcess($param){
-		parent::query('INSERT INTO dd_order_detail(odt_order_id,odt_product_id,odt_total,odt_create_time,odt_update_time,odt_type,odt_status) VALUE(:order_id,:product_id,:total,:create_time,:update_time,:type,:status)');
-
-		parent::bind(':order_id', 		$param['order_id']);
-		parent::bind(':product_id', 	$param['product_id']);
-		parent::bind(':total', 			$param['total']);
-		parent::bind(':create_time',	date('Y-m-d H:i:s'));
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
-
-		parent::execute();
-		return parent::lastInsertId();
-	}
-
-	public function CheckingAlreadyOrderProcess($param){
-		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status != "success"');
-		parent::bind(':member_id', 		$param['member_id']);
-		parent::execute();
-		$data = parent::single();
-		return $data['od_id'];
-	}
-
-	public function CheckingAlreadyItemInOrderProcess($param){
-		parent::query('SELECT odt_id FROM dd_order_detail WHERE odt_order_id = :order_id AND odt_product_id = :product_id');
-		parent::bind(':order_id', 		$param['order_id']);
-		parent::bind(':product_id', 	$param['product_id']);
-		parent::execute();
-		$data = parent::single();
-		
-		if(empty($data['odt_id']))
-			return true; // Items ID is empty in order.
-		else
-			return false;
-	}
-
-	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_create_time,od_update_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id');
-		parent::bind(':member_id', 		$param['member_id']);
+	
+	public function ListOrderProcess($param){
+		parent::query('SELECT od_id,od_create_time,od_update_time,od_type,od_status FROM dd_order');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
@@ -76,6 +26,13 @@ class OrderModel extends Database{
 	public function UpdateStatusOrderProcess($param){
 		parent::query('UPDATE dd_order SET od_status = :status WHERE od_id = :order_id');
 		parent::bind(':status', $param['order_action']);
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+	}
+
+	public function UpdateEmsOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_ems = :ems WHERE od_id = :order_id');
+		parent::bind(':ems', $param['ems']);
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}
