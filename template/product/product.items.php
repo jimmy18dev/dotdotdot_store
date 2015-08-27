@@ -12,4 +12,5 @@
 	<td><?php echo $var['pd_create_time'];?></td>
 	<td><?php echo $var['pd_update_time'];?></td>
 	<td><img src="<?php echo $var['im_thumbnail'];?>" alt="" width="80"></td>
+	<td><button onclick="javascript:AddItemToOrder(<?php echo $var['pd_id'];?>);">ซื้อเลย</button></td>
 </tr>

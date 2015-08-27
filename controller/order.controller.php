@@ -82,6 +82,47 @@ class OrderController extends OrderModel{
     	parent::UpdateEmsOrderProcess($param);
     }
 
+    public function MyCurrentOrder($param){
+    	$dataset = parent::ListMyCurrentOrderProcess($param);
+
+    	$payments = 0;
+    	foreach ($dataset as $var){
+    		$payments += $var['pd_price'];
+    	}
+
+    	$data = array(
+			"apiVersion" => "1.0",
+			"data" => array(
+				"time_now" => date('Y-m-d H:i:s'),
+				"payments" => $payments,
+				"execute" => round(microtime(true)-StTime,4)."s",
+				"amount" => floatval(count($dataset)),
+				"items" => $dataset,
+			),
+		);
+
+	    // JSON Encode and Echo.
+	    echo json_encode($data);
+    }
+
+    // Export to json
+	public function ExportToJson($message,$dataset){
+		$data = array(
+			"apiVersion" => "1.0",
+			"data" => array(
+				// "update" => time(),
+				"time_now" => date('Y-m-d H:i:s'),
+				"message" => $message,
+				"execute" => round(microtime(true)-StTime,4)."s",
+				"totalFeeds" => floatval(count($dataset)),
+				"items" => $dataset,
+			),
+		);
+
+	    // JSON Encode and Echo.
+	    echo json_encode($data);
+	}
+
 
     public function Checking($param){
     	return parent::CheckingAlreadyOrderProcess($param);

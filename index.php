@@ -33,12 +33,14 @@ require_once'config/autoload.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/order.service.js"></script>
 
 </head>
 
 <body>
 <?php include'header.php';?>
 
+<button onclick="javascript:MyCurrentOrder()">อัพเดท</button>
 <table border="1">
 	<tr>
 		<td>ID</td>

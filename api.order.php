@@ -48,9 +48,10 @@ if($_POST['calling'] != ''){
 // API Request $_GET
 else if($_GET['calling'] != ''){
 	switch ($_GET['calling']) {
-		case 'Comment':
+		case 'Order':
 			switch ($_GET['action']) {
-				case 'List':
+				case 'MyCurrentOrder':
+					$order->MyCurrentOrder(array('member_id' => MEMBER_ID));
 					break;
 				case 'LiveComment':
 					break;

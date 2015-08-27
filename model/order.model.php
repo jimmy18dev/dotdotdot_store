@@ -80,6 +80,14 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 
+	public function ListMyCurrentOrderProcess($param){
+		parent::query('SELECT * FROM dd_order_detail LEFT JOIN dd_order ON odt_order_id = od_id LEFT JOIN dd_product ON odt_product_id = pd_id WHERE od_member_id = :member_id AND od_status = "shopping"');
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
+
 
 
 

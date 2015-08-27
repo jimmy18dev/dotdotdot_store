@@ -20,6 +20,7 @@ function AddItemToOrder(product_id){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        MyCurrentOrder();
     }).error();
 }
 
@@ -44,5 +45,27 @@ function OrderProcess(order_id,order_action){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+    }).error();
+}
+
+function MyCurrentOrder(){
+    var href = 'api.order.php';
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"GET",
+        data:{
+            calling             :'Order',
+            action              :'MyCurrentOrder',
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.apiVersion);
+        $('#amount').html(data.data.amount);
+        $('#payments').html(data.data.payments);
     }).error();
 }
