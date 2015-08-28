@@ -3,7 +3,7 @@ class BankController extends BankModel{
 	public $status = 'Call ProductController success.';
 
 	public function CreateMoneyTransfer($param){
-        parent::CreateMoneyTransferProcess($param);
+        return parent::CreateMoneyTransferProcess($param);
     }
 
     public function ListBank($param){

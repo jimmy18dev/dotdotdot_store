@@ -10,6 +10,7 @@ class OrderController extends OrderModel{
 	// ORDER STATE.
 	// -----------------
 	// - Expire
+	// - Cancel
 	// - Shopping
 	// - Paying
 	// - TransferRequest, TransferAgain 

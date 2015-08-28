@@ -75,7 +75,7 @@ if(isset($_GET['id'])){
 		<input type="text" name="size_xl" placeholder="size xl" value="<?php echo (isset($product->size_xl)?$product->size_xl:0);?>">
 
 		<p>price</p>
-		<input type="text" name="price" placeholder="price" value="0">
+		<input type="text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
 		<input type="text" name="group" placeholder="group" value="shrit"><br>
 		<br><br>
 		<button type="submit"><?php echo (isset($product->id)?'Save':'Create')?></button>

@@ -51,7 +51,11 @@ else if($_GET['calling'] != ''){
 		case 'Order':
 			switch ($_GET['action']) {
 				case 'MyCurrentOrder':
-					$order->MyCurrentOrder(array('member_id' => MEMBER_ID));
+					if(!empty(MEMBER_ID)){
+						$order->MyCurrentOrder(array('member_id' => MEMBER_ID));
+					}else{
+						$api->successMessage('Successed!','','');
+					}
 					break;
 				case 'LiveComment':
 					break;

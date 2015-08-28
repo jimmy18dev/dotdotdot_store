@@ -48,6 +48,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <hr>
 
 <?php if($order->status == 'shopping'){?>
+<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</button>
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'paying');">ชำระเงิน</button>
 <?php }else if($order->status == 'paying' || $order->status == 'TransferAgain'){?>
 <form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
@@ -65,6 +66,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	<br><br>
 	<button type="submit">ยืนยันการโอนเงิน</button>
 </form>
+<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิกการสั่งซื้อ</button>
 <?php }else if($order->status == "Shipping"){?>
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ได้รับสินค้าแล้ว</button>
 <?php }?>

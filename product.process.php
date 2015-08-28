@@ -101,6 +101,7 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
 
         $image->CreateImage(array(
             'product_id'    => $product_id,
+            'transfer_id'   => '',
             'member_id'     => 'member',
             'caption'       => 'caption',
             'thumbnail'     => $save_folder['thumbnail'],

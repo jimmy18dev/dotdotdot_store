@@ -64,7 +64,6 @@ function MyCurrentOrder(){
             console.log("Request Error");
         }
     }).done(function(data){
-        console.log('Return: '+data.apiVersion);
         $('#amount').html(data.data.amount);
         $('#payments').html(data.data.payments);
     }).error();
