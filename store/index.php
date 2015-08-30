@@ -39,6 +39,19 @@ require_once'config/autoload.php';
 <body>
 <?php include'header.php';?>
 
-<?php $order->ListOrder(array('id' => 0));?>
+<h3>รายการสั่งซื้อสินค้า</h3>
+<table border="1">
+	<tr>
+		<td>OrderID</td>
+		<td>Name</td>
+		<td>Total</td>
+		<td>Amount</td>
+		<td>Shipping</td>
+		<td>Status</td>
+		<td>Update</td>
+		<td>Create</td>
+	</tr>
+	<?php $order->ListOrder(array('id' => 0));?>
+</table>
 </body>
 </html>
