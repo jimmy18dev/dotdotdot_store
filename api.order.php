@@ -12,7 +12,7 @@ if($_POST['calling'] != ''){
 						$order->AddtoOrder(array(
 							'member_id' 	=> MEMBER_ID,
 							'type' 			=> 'normal',
-							'status' 		=> 'shopping',
+							'status' 		=> 'Shopping',
 							'product_id' 	=> $_POST['product_id'],
 							'total' 		=> $_POST['amount'],
 						));
@@ -28,6 +28,7 @@ if($_POST['calling'] != ''){
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> $_POST['order_action'],
+							'order_shipping_type' => $_POST['order_shipping_type'],
 						));
 						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
 					}

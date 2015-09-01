@@ -46,6 +46,8 @@ require_once'config/autoload.php';
 		<td>Name</td>
 		<td>Total</td>
 		<td>Amount</td>
+		<td>Payments</td>
+		<td>Billing_Payment</td>
 		<td>Shipping</td>
 		<td>Status</td>
 		<td>Update</td>

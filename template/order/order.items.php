@@ -1,1 +1,1 @@
-<p>Order ID: <?php echo $var['od_id'];?> <a href="order_detail.php?id=<?php echo $var['od_id'];?>">[Detail]</a> - <?php echo $var['od_status'];?></p>
+<p><b>หมายเลขสั่งซื้อ <?php echo $var['od_id'];?></b> สินค้า <?php echo $var['od_total'];?> รายการ <?php echo $var['od_amount'];?> ชิ้น ยอดชำระ <?php echo $var['od_payments'];?> บาท, สถานะ <?php echo $var['od_status'];?>, <a href="order_detail.php?id=<?php echo $var['od_id'];?>">รายละเอียด</a></p>

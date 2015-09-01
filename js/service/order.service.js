@@ -1,6 +1,8 @@
 function AddItemToOrder(product_id){
     var href = 'api.order.php';
     var amount = $('#amount').val();
+    
+    if(!amount){amount = 1;}
 
     console.log('Send:: '+product_id+' ,amount: '+amount);
 
@@ -26,8 +28,9 @@ function AddItemToOrder(product_id){
 
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
+    var shipping_type = $('#shipping_type').val();
 
-    console.log(order_id+order_action);
+    console.log(order_id+','+order_action+','+shipping_type);
 
     $.ajax({
         url         :href,
@@ -39,6 +42,7 @@ function OrderProcess(order_id,order_action){
             action              :'OrderProcess',
             order_id            :order_id,
             order_action        :order_action,
+            order_shipping_type :shipping_type,
         },
         error: function (request, status, error) {
             console.log("Request Error");

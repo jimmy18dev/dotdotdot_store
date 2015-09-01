@@ -2,7 +2,7 @@
 class OrderModel extends Database{
 	
 	public function ListOrderProcess($param){
-		parent::query('SELECT od_id,me_name,od_create_time,od_update_time,od_type,od_status FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id');
+		parent::query('SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;

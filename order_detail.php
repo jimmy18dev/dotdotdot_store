@@ -48,9 +48,18 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <hr>
 
 <?php if($order->status == 'shopping'){?>
+<p>เลือกการส่งสินค้า
+<select id="shipping_type">
+  <option value="Ems">EMS (50 บาท)</option>
+  <option value="Register">ลงทะเบียน (30 บาท)</option>
+</select>
+</p>
+
+<hr>
+<p>ยอดชำระรวม <?php echo $order->payments;?> บาท</p>
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</button>
-<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'paying');">ชำระเงิน</button>
-<?php }else if($order->status == 'paying' || $order->status == 'TransferAgain'){?>
+<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</button>
+<?php }else if($order->status == 'Paying' || $order->status == 'TransferAgain'){?>
 <form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 	<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
 
@@ -61,7 +70,10 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	<p>จำนวนเงินที่โอน</p>
 	<input type="text" name="total" placeholder="จำนวนเงินที่โอนเข้า" value="0">
 	<p>หมายเหตุเพิ่มเติม</p>
-	<textarea name="description" cols="30" rows="10" placeholder="เพิ่มเติม"></textarea>
+	<textarea name="description" cols="60" rows="10" placeholder="เพิ่มเติม"></textarea>
+
+	<p>ที่อยู่สำหรับส่งของ</p>
+	<textarea name="address" cols="60" rows="10" placeholder="ที่อยู่"></textarea>
 
 	<br><br>
 	<button type="submit">ยืนยันการโอนเงิน</button>

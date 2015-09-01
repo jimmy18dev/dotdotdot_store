@@ -1,6 +1,9 @@
 <?php
 class OrderController extends OrderModel{
 	public $id;
+	public $total;
+	public $amount;
+	public $payments;
 	public $create_time;
 	public $update_time;
 	public $type;
@@ -22,6 +25,7 @@ class OrderController extends OrderModel{
 	public function AddtoOrder($param){
 		// Order checking
 		$order_checking = parent::CheckingAlreadyOrderProcess($param);
+		
 		if(empty($order_checking)){
 			$order_id = parent::CreateOrderProcess($param);
 			$param['order_id'] = $order_id;
@@ -31,7 +35,12 @@ class OrderController extends OrderModel{
 		}
 
 		if(parent::CheckingAlreadyItemInOrderProcess($param)){
+			// Add product items to Order
 			$items_id = parent::AddItemsInOrderProcess($param);
+
+			// Update order summary
+			$this->UpdateOrderProcess($param);
+
 			// add product to order success.
 			return true;
 		}
@@ -54,6 +63,9 @@ class OrderController extends OrderModel{
         $data = parent::GetOrderProcess($param);
 
         $this->id = $data['od_id'];
+        $this->total = $data['od_total'];
+        $this->amount = $data['od_amount'];
+        $this->payments = $data['od_payments'];
         $this->create_time = $data['od_create_time'];
         $this->update_time = $data['od_update_time'];
         $this->type = $data['od_type'];
@@ -76,11 +88,32 @@ class OrderController extends OrderModel{
 
     public function OrderProcess($param){
     	parent::UpdateStatusOrderProcess($param);
+
+    	// Update Shipping Type (EMS,Register)
+    	if($param['order_action'] == 'Paying'){
+    		parent::UpdateShippingTypeOrderProcess($param);
+    	}
+    	// Update Address id to Order
+    	else if($param['order_action'] == 'TransferRequest'){
+    		parent::UpdateAddressOrderProcess($param);
+    	}
     }
 
     // EMS Number update in Order
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
+    }
+
+    // Update Order amount, payments, update time
+    public function UpdateOrderProcess($param){
+    	// Get Order Summary.
+    	$order_summary_data = parent::GetSummaryProcess($param);
+
+    	$param['amount'] 	= $order_summary_data['amount'];
+    	$param['payments'] 	= $order_summary_data['payments'];
+    	$param['total'] 	= $order_summary_data['total'];
+    	// Update Order Summary.
+    	parent::UpdateSummaryOrderProcess($param);
     }
 
     public function MyCurrentOrder($param){

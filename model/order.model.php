@@ -30,7 +30,7 @@ class OrderModel extends Database{
 	}
 
 	public function CheckingAlreadyOrderProcess($param){
-		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status != "success"');
+		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$data = parent::single();
@@ -51,7 +51,7 @@ class OrderModel extends Database{
 	}
 
 	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_create_time,od_update_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -79,6 +79,18 @@ class OrderModel extends Database{
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}
+	public function UpdateShippingTypeOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_shipping_type = :shipping_type WHERE od_id = :order_id');
+		parent::bind(':shipping_type', $param['order_shipping_type']);
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+	}
+	public function UpdateAddressOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_address_id = :address_id WHERE od_id = :order_id');
+		parent::bind(':address_id', $param['address_id']);
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+	}
 
 	public function ListMyCurrentOrderProcess($param){
 		parent::query('SELECT * FROM dd_order_detail LEFT JOIN dd_order ON odt_order_id = od_id LEFT JOIN dd_product ON odt_product_id = pd_id WHERE od_member_id = :member_id AND od_status = "shopping"');
@@ -86,6 +98,24 @@ class OrderModel extends Database{
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
+	}
+
+	public function GetSummaryProcess($param){
+		parent::query('SELECT COUNT(odt_id) total,SUM(odt_total) amount,SUM(odt_total*pd_price) payments FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+		return parent::single();
+	}
+
+	// Update Order amount, payments, update time
+	public function UpdateSummaryOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_total = :total, od_amount = :amount, od_payments = :payments, od_update_time = :update_time WHERE od_id = :order_id');
+		parent::bind(':total', 			$param['total']);
+		parent::bind(':amount', 		$param['amount']);
+		parent::bind(':payments', 		$param['payments']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
 	}
 
 
