@@ -14,7 +14,7 @@ if($_POST['calling'] != ''){
 							'type' 			=> 'normal',
 							'status' 		=> 'Shopping',
 							'product_id' 	=> $_POST['product_id'],
-							'total' 		=> $_POST['amount'],
+							'amount' 		=> $_POST['amount'],
 						));
 						$api->successMessage('Add Product to Order Successed.','','');
 					}

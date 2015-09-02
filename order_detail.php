@@ -47,7 +47,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
 <hr>
 
-<?php if($order->status == 'shopping'){?>
+<?php if($order->status == 'Shopping'){?>
 <p>เลือกการส่งสินค้า
 <select id="shipping_type">
   <option value="Ems">EMS (50 บาท)</option>

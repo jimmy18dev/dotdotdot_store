@@ -15,11 +15,11 @@ class OrderModel extends Database{
 	}
 
 	public function AddItemsInOrderProcess($param){
-		parent::query('INSERT INTO dd_order_detail(odt_order_id,odt_product_id,odt_total,odt_create_time,odt_update_time,odt_type,odt_status) VALUE(:order_id,:product_id,:total,:create_time,:update_time,:type,:status)');
+		parent::query('INSERT INTO dd_order_detail(odt_order_id,odt_product_id,odt_amount,odt_create_time,odt_update_time,odt_type,odt_status) VALUE(:order_id,:product_id,:amount,:create_time,:update_time,:type,:status)');
 
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::bind(':product_id', 	$param['product_id']);
-		parent::bind(':total', 			$param['total']);
+		parent::bind(':amount', 		$param['amount']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':type',			$param['type']);
@@ -101,7 +101,7 @@ class OrderModel extends Database{
 	}
 
 	public function GetSummaryProcess($param){
-		parent::query('SELECT COUNT(odt_id) total,SUM(odt_total) amount,SUM(odt_total*pd_price) payments FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
+		parent::query('SELECT COUNT(odt_id) total,SUM(odt_amount) amount,SUM(odt_amount*pd_price) payments FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 		return parent::single();
