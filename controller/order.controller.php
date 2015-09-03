@@ -49,6 +49,10 @@ class OrderController extends OrderModel{
 		}
 	}
 
+	public function EditItemsInOrder($param){
+		parent::EditItemsInOrderProcess($param);
+	}
+
 	public function ListMyOrder($param){
 		$data = parent::ListMyOrderProcess($param);
 		$this->RenderOrder('null',$data);

@@ -37,6 +37,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
 <script type="text/javascript" src="js/money.transfer.js"></script>
+<script type="text/javascript" src="js/order.app.js"></script>
 
 </head>
 
@@ -49,16 +50,18 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 <?php if($order->status == 'Shopping'){?>
 <p>เลือกการส่งสินค้า
-<select id="shipping_type">
+<select id="shipping_type" onchange="javascript:SummaryPayments();">
   <option value="Ems">EMS (50 บาท)</option>
   <option value="Register">ลงทะเบียน (30 บาท)</option>
 </select>
 </p>
 
 <hr>
-<p>ยอดชำระรวม <?php echo $order->payments;?> บาท</p>
+<p>ยอดชำระรวม <input type="text" id="all-payments" value="<?php echo $order->payments;?>"> บาท</p>
+
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</button>
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</button>
+
 <?php }else if($order->status == 'Paying' || $order->status == 'TransferAgain'){?>
 <form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 	<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
