@@ -7,10 +7,12 @@ class UserController extends UserModel{
     public $name;
     public $facebook_id;
     public $facebook_name;
+    public $current_order_id;
 
     public function GetUser($param){
         // Get MemberData
         $data = parent::GetUserProcess($param);
+        $this->current_order_id = parent::CurrentOrderProcess($param);
 
         // Setdata
         $this->id =             $data['me_id'];

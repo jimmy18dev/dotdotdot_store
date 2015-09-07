@@ -6,6 +6,10 @@ require_once'config/autoload.php';
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
+
+if(!empty($_GET['address'])){
+	$address->GetAddress(array('address_id' => $_GET['address']));
+}
 ?>
 
 <!DOCTYPE html>
@@ -38,27 +42,19 @@ if(!empty($user->current_order_id)){
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	// MyCurrentOrder();
-});
-</script>
+<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
 <body>
 <?php include'header.php';?>
 
-<table border="1">
-	<tr>
-		<td>ID</td>
-		<td>Title</td>
-		<td>Description</td>
-		<td>Price</td>
-		<td>Create</td>
-		<td>Update</td>
-	</tr>
-	<?php $product->ListProduct(array('null' => 0));?>
-	</table>
+<p>สร้างที่อยู่ใหม่</p>
+
+<input type="text" id="address_id" value="<?php echo (empty($address->id)?0:$address->id);?>"><br>
+<textarea name="address" id="address" cols="60" rows="10" placeholder="ที่อยู่"><?php echo $address->address;?></textarea>
+<div onclick="javascript:SubmitAddress();">สร้าง</div>
+
+<input type="text" id="order_id" value="<?php echo $_GET['order'];?>">
 </body>
 </html>

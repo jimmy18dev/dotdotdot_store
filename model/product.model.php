@@ -2,14 +2,14 @@
 class ProductModel extends Database{
 
 	public function GetProductProcess($param){
-		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_id,im_thumbnail,im_square,im_mini,im_normal,im_large,im_format FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id WHERE pd_id = :product_id');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_unit,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_id,im_thumbnail,im_square,im_mini,im_normal,im_large,im_format FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id WHERE pd_id = :product_id');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		return parent::single();
 	}
 
 	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_thumbnail FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_unit,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_thumbnail FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;

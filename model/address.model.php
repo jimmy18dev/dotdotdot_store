@@ -18,5 +18,27 @@ class AddressModel extends Database{
 		parent::execute();
 		return parent::lastInsertId();
 	}
+
+	public function EditAddressProcess($param){
+		parent::query('UPDATE dd_address SET ad_address = :address, ad_update_time = :update_time WHERE ad_id = :address_id');
+		parent::bind(':address_id', 	$param['address_id']);
+		parent::bind(':address', 		$param['address']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::execute();
+	}
+
+	public function ListAddressProcess($param){
+		parent::query('SELECT * FROM dd_address');
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
+
+	public function GetAddressProcess($param){
+		parent::query('SELECT * FROM dd_address WHERE ad_id = :address_id');
+		parent::bind(':address_id', $param['address_id']);
+		parent::execute();
+		return parent::single();
+	}
 }
 ?>

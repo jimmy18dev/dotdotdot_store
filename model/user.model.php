@@ -44,6 +44,14 @@ class UserModel extends Database{
 		return parent::single();
 	}
 
+	public function CurrentOrderProcess($param){
+		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+		$data = parent::single();
+		return $data['od_id'];
+	}
+
 	// Get Member Data //////////////////////
 	public function LoginUserProcess($param){
 		parent::query('SELECT me_id FROM dd_member WHERE (me_email = :email OR me_phone = :phone) AND me_password = :password');

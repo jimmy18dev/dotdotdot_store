@@ -61,3 +61,41 @@ function LoginUser(){
         }
     }).error();
 }
+
+function SubmitAddress(){
+    var href = 'api.user.php';
+    var address_id = $('#address_id').val();
+    var address = $('#address').val();
+    var order_id = $('#order_id').val();
+
+    console.log(address);
+
+    if(!address){
+        return false;
+    }
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'SubmitAddress',
+            address             :address,
+            address_id          :address_id,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.message);
+
+        // Redirect page after submit address.
+        if(order_id)
+            setTimeout(function(){window.location = 'order_detail.php?id='+order_id;},1000);
+        else
+            setTimeout(function(){window.location = 'me.php'},1000);
+
+    }).error();
+}

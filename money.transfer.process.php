@@ -10,16 +10,16 @@ $transfer_id = $bank->CreateMoneyTransfer(array(
     'type'          => 'bank_transfer',
 ));
 
-$address_id = $address->CreateAddress(array(
-    'member_id'     => MEMBER_ID,
-    'address'       => $_POST['address'],
-));
+// $address_id = $address->CreateAddress(array(
+//     'member_id'     => MEMBER_ID,
+//     'address'       => $_POST['address'],
+// ));
 
 $order->OrderProcess(array(
     'member_id'     => MEMBER_ID,
     'order_id'      => $_POST['order_id'],
     'order_action'  => 'TransferRequest',
-    'address_id'    => $address_id,
+    'address_id'    => $_POST['address_id'],
 ));
 
 if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && empty($_POST['post_id'])){

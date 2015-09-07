@@ -23,6 +23,7 @@ function ChangeAmount(order_id,product_id,action){
 	console.log(amount+' x '+price+' = '+ amount*price);
 
 	SummaryPayments();
+	EditItemInOrder(order_id,product_id);
 }
 
 function SummaryPayments(){

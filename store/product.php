@@ -45,14 +45,11 @@ require_once'config/autoload.php';
 	<table border="1">
 	<tr>
 		<td>ID</td>
+		<td>Parent</td>
+		<td>Code</td>
 		<td>Title</td>
 		<td>Description</td>
-		<td>D</td>
-		<td>SS</td>
-		<td>S</td>
-		<td>M</td>
-		<td>L</td>
-		<td>XL</td>
+		<td>Unit</td>
 		<td>Price</td>
 		<td>Create</td>
 		<td>Update</td>

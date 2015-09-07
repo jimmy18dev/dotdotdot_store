@@ -5,30 +5,35 @@ require_once'config/autoload.php';
 echo 'ProductID: '.$_POST['product_id'];
 
 if(empty($_POST['product_id'])){
+    
+    if($_POST['parent'] > 0){
+        // Update Root Product
+        $product->UpdateRootProduct(array('product_id' => $_POST['parent']));
+    }
+
+    // Create new Product
     $product_id = $product->CreateProduct(array(
-        'title' => $_POST['title'],
-        'description' => $_POST['description'],
-        'material' => $_POST['material'],
-        'size_d' => $_POST['size_d'],
-        'size_ss' => $_POST['size_ss'],
-        'size_s' => $_POST['size_s'],
-        'size_m' => $_POST['size_m'],
-        'size_l' => $_POST['size_l'],
-        'size_xl' => $_POST['size_xl'],
-        'price' => $_POST['price'],
-        'group' => $_POST['group'],
-        'type' => 'normal',
-        'status' => 'active',
+        'parent'        => $_POST['parent'],
+        'code'          => $_POST['code'],
+        'title'         => $_POST['title'],
+        'description'   => $_POST['description'],
+        'unit'          => $_POST['unit'],
+        'price'         => $_POST['price'],
+        'group'         => $_POST['group'],
+        'type'          => 'normal',
+        'status'        => 'active',
     ));
 }
 else{
 
     $product_id = $_POST['product_id'];
     $product->EditProduct(array(
-        'product_id'            => $product_id,
+        'product_id'    => $product_id,
+        'parent'        => $_POST['parent'],
+        'code'          => $_POST['code'],
         'title'         => $_POST['title'],
         'description'   => $_POST['description'],
-        'material'      => $_POST['material'],
+        'unit'          => $_POST['unit'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
         'type'          => 'normal',

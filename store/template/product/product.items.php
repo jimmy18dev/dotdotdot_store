@@ -1,15 +1,13 @@
 <tr>
 	<td><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_id'];?></a></td>
+	<td><?php echo ($var['pd_type'] == "root"?'Root':$var['pd_parent']);?></td>
+	<td><?php echo $var['pd_code'];?></td>
 	<td><?php echo $var['pd_title'];?></td>
 	<td><?php echo $var['pd_description'];?></td>
-	<td><?php echo $var['pd_size_d'];?></td>
-	<td><?php echo $var['pd_size_ss'];?></td>
-	<td><?php echo $var['pd_size_s'];?></td>
-	<td><?php echo $var['pd_size_m'];?></td>
-	<td><?php echo $var['pd_size_l'];?></td>
-	<td><?php echo $var['pd_size_xl'];?></td>
+	<td><?php echo $var['pd_unit'];?></td>
 	<td><?php echo $var['pd_price'];?></td>
 	<td><?php echo $var['pd_create_time'];?></td>
 	<td><?php echo $var['pd_update_time'];?></td>
 	<td><img src="<?php echo $var['im_thumbnail'];?>" alt="" width="80"></td>
+	<td><?php if($var['pd_parent'] == 0){?><a href="product_editor.php?parent=<?php echo $var['pd_id'];?>">เพิ่มสินค้า</a><?php }?></td>
 </tr>

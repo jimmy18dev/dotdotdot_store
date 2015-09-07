@@ -1,15 +1,11 @@
 <?php
 class ProductController extends ProductModel{
 	public $id;
+	public $parent;
+	public $code;
 	public $title;
 	public $description;
-	public $material;
-	public $size_d;
-	public $size_ss;
-	public $size_s;
-	public $size_m;
-	public $size_l;
-	public $size_xl;
+	public $unit;
 	public $price;
 	public $create_time;
 	public $update_time;
@@ -30,15 +26,11 @@ class ProductController extends ProductModel{
         $data = parent::GetProductProcess($param);
 
         $this->id = $data['pd_id'];
+        $this->parent = $data['pd_parent'];
+        $this->code = $data['pd_code'];
         $this->title = $data['pd_title'];
         $this->description = $data['pd_description'];
-        $this->material = $data['pd_material'];
-        $this->size_d = $data['pd_size_d'];
-        $this->size_ss = $data['pd_size_ss'];
-        $this->size_s = $data['pd_size_s'];
-        $this->size_m = $data['pd_size_m'];
-        $this->size_l = $data['pd_size_l'];
-        $this->size_xl = $data['pd_size_xl'];
+        $this->unit = $data['pd_unit'];
         $this->price = $data['pd_price'];
         $this->create_time = $data['pd_create_time'];
         $this->update_time = $data['pd_update_time'];
@@ -67,6 +59,10 @@ class ProductController extends ProductModel{
 
 	public function EditProduct($param){
 		parent::EditProductProcess($param);
+	}
+
+	public function UpdateRootProduct($param){
+		parent::UpdateRootProductProcess($param);
 	}
 
 	public function DeleteProduct($param){

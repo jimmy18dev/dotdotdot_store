@@ -2,6 +2,10 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+
+if(!empty($user->current_order_id)){
+	$order->GetOrder(array('order_id' => $user->current_order_id));
+}
 ?>
 
 <!DOCTYPE html>

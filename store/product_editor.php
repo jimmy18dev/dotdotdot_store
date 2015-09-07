@@ -6,6 +6,9 @@ require_once'config/autoload.php';
 if(isset($_GET['id'])){
 	$product->GetProduct(array('product_id' => $_GET['id']));
 }
+else if(isset($_GET['parent'])){
+	$product->GetProduct(array('product_id' => $_GET['parent']));
+}
 ?>
 
 <!DOCTYPE html>
@@ -50,29 +53,21 @@ if(isset($_GET['id'])){
 		<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
 
 		<p>id</p>
-		<input type="text" name="product_id" value="<?php echo $product->id;?>">
+		<input type="text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
+
+		<p>Parent</p>
+		<input type="text" name="parent" value="<?php echo (isset($_GET['parent'])?$product->id:'0');?>">
+
+		<p>CODE</p>
+		<input type="text" name="code" value="<?php echo $product->code;?>">
 
 		<p>title</p>
 		<input type="text" name="title" placeholder="title" value="<?php echo $product->title;?>">
 
 		<p>description</p>
 		<input type="text" name="description" placeholder="description" value="<?php echo $product->description;?>">
-		<p>material</p>
-		<input type="text" name="material" placeholder="material" value="normal" value="<?php echo $product->material;?>">
-
-		<br><br><p>Size</p>
-		<p>D</p>
-		<input type="text" name="size_d" placeholder="size d" value="<?php echo (isset($product->size_d)?$product->size_d:0);?>">
-		<p>SS</p>
-		<input type="text" name="size_ss" placeholder="size ss" value="<?php echo (isset($product->size_ss)?$product->size_ss:0);?>">
-		<p>S</p>
-		<input type="text" name="size_s" placeholder="size s" value="<?php echo (isset($product->size_s)?$product->size_s:0);?>">
-		<p>M</p>
-		<input type="text" name="size_m" placeholder="size m" value="<?php echo (isset($product->size_m)?$product->size_m:0);?>">
-		<p>L</p>
-		<input type="text" name="size_l" placeholder="size l" value="<?php echo (isset($product->size_l)?$product->size_l:0);?>">
-		<p>XL</p>
-		<input type="text" name="size_xl" placeholder="size xl" value="<?php echo (isset($product->size_xl)?$product->size_xl:0);?>">
+		<p>UNIT</p>
+		<input type="text" name="unit" placeholder="unit" value="normal" value="<?php echo $product->unit;?>">
 
 		<p>price</p>
 		<input type="text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">

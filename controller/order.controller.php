@@ -4,10 +4,14 @@ class OrderController extends OrderModel{
 	public $total;
 	public $amount;
 	public $payments;
+	public $summary_payments;
 	public $create_time;
 	public $update_time;
 	public $type;
 	public $status;
+
+	public $shipping_type;
+	public $shipping_payments;
 
 	// -----------------
 	// ORDER STATE.
@@ -51,6 +55,14 @@ class OrderController extends OrderModel{
 
 	public function EditItemsInOrder($param){
 		parent::EditItemsInOrderProcess($param);
+		// Update order summary
+		$this->UpdateOrderProcess($param);
+	}
+
+	public function RemoveItemsInOrder($param){
+		parent::RemoveItemsInOrderProcess($param);
+		// Update order summary
+		$this->UpdateOrderProcess($param);
 	}
 
 	public function ListMyOrder($param){
@@ -74,6 +86,17 @@ class OrderController extends OrderModel{
         $this->update_time = $data['od_update_time'];
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
+
+        $this->shipping_type = $data['od_shipping_type'];
+
+        if($this->shipping_type == "Ems")
+        	$this->shipping_payments = 50;
+        else if($this->shipping_type == "Register")
+        	$this->shipping_payments = 30;
+        else
+        	;
+
+        $this->summary_payments = $this->payments + $this->shipping_payments;
     }
 
     private function RenderOrder($mode,$data){

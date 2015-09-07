@@ -38,6 +38,13 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 
+	public function RemoveItemsInOrderProcess($param){
+		parent::query('DELETE FROM dd_order_detail WHERE odt_order_id = :order_id AND odt_product_id = :product_id');
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
 	public function CheckingAlreadyOrderProcess($param){
 		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
 		parent::bind(':member_id', 		$param['member_id']);

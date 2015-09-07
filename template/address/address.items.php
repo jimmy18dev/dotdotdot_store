@@ -1,0 +1,1 @@
+<p><input type="radio" name="address_id" value="<?php echo $var['ad_id'];?>"> <?php echo $var['ad_address'];?> <a href="address_editor.php?address=<?php echo $var['ad_id'];?>">แก้ไข</a></p>

@@ -36,6 +36,19 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'RemoveInOrder':
+					if(true){
+						$order->RemoveItemsInOrder(array(
+							'member_id' 	=> MEMBER_ID,
+							'order_id' 		=> $_POST['order_id'],
+							'product_id' 	=> $_POST['product_id'],
+						));
+						$api->successMessage('Remove Product in Order Successed.','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				case 'OrderProcess':
 					if(true){
 						$order->OrderProcess(array(

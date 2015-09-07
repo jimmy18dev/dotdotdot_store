@@ -36,6 +36,28 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'SubmitAddress':
+					if(true){
+						if($_POST['address_id'] == 0){
+							$address->CreateAddress(array(
+								'member_id' => MEMBER_ID,
+								'address' 	=> $_POST['address'],
+							));
+							$api->successMessage('Address Created.','','');
+						}
+						else{
+							$address->EditAddress(array(
+								'member_id' => MEMBER_ID,
+								'address' 	=> $_POST['address'],
+								'address_id' => $_POST['address_id'],
+							));
+							$api->successMessage('Address Created.','','');
+						}
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}
