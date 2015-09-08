@@ -54,9 +54,21 @@ class OrderController extends OrderModel{
 	}
 
 	public function EditItemsInOrder($param){
-		parent::EditItemsInOrderProcess($param);
-		// Update order summary
-		$this->UpdateOrderProcess($param);
+		if($this->CheckProductAmount($param)){
+			parent::EditItemsInOrderProcess($param);
+			// Update order summary
+			$this->UpdateOrderProcess($param);
+		}
+	}
+
+	public function CheckProductAmount($param){
+		// Check amount of Product.
+		$unit = parent::CheckProductAmountProcess($param);
+		
+		if($param['amount'] <= $unit)
+			return true;
+		else
+			return false;
 	}
 
 	public function RemoveItemsInOrder($param){

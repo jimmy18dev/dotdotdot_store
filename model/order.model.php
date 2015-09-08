@@ -134,6 +134,13 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 
+	public function CheckProductAmountProcess($param){
+		parent::query('SELECT pd_unit FROM dd_product WHERE pd_id = :product_id');
+		parent::bind(':product_id', 		$param['product_id']);
+		parent::execute();
+		$data = parent::single();
+		return $data['pd_unit'];
+	}
 
 
 
