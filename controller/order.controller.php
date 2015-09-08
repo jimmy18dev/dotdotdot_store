@@ -106,8 +106,8 @@ class OrderController extends OrderModel{
         else if($this->shipping_type == "Register")
         	$this->shipping_payments = 30;
         else
-        	;
-
+        	$this->shipping_payments = 50;
+        
         $this->summary_payments = $this->payments + $this->shipping_payments;
     }
 
@@ -130,11 +130,19 @@ class OrderController extends OrderModel{
 
     	// Update Shipping Type (EMS,Register)
     	if($param['order_action'] == 'Paying'){
-    		parent::UpdateShippingTypeOrderProcess($param);
+    		if($this->CheckingAllAmountInOrder($param)){
+    			$param['action'] = 'subtraction';
+    			$this->UpdateProductAmount($param);
+    			parent::UpdateShippingTypeOrderProcess($param);
+    		}
     	}
     	// Update Address id to Order
     	else if($param['order_action'] == 'TransferRequest'){
     		parent::UpdateAddressOrderProcess($param);
+    	}
+    	else if($param['order_action'] == 'Cancel'){
+    		$param['action'] = 'restore';
+    		$this->UpdateProductAmount($param);
     	}
     }
 
@@ -196,9 +204,46 @@ class OrderController extends OrderModel{
 	    echo json_encode($data);
 	}
 
+	public function CheckingAllAmountInOrder($param){
+		$checking = false;
+		$dataset = parent::ListItemsInOrderProcess($param);
+
+		foreach ($dataset as $var){
+    		$unit = parent::CheckProductAmountProcess(array('product_id' => $var['odt_product_id']));
+
+    		if($var['odt_amount'] <= $unit){
+    			$checking = true;
+    		}
+    		else{
+    			$checking = false;
+    			break;
+    		}
+    	}
+
+    	return $checking;
+	}
+
+	public function UpdateProductAmount($param){
+		$action = $param['action'];
+		$dataset = parent::ListItemsInOrderProcess($param);
+
+		foreach ($dataset as $var){
+	    	$unit = parent::CheckProductAmountProcess(array('product_id' => $var['odt_product_id']));
+
+	    	if($action == 'subtraction')
+	    		$param['unit'] = $unit - $var['odt_amount'];
+	    	else if($action == 'restore')
+	    		$param['unit'] = $unit + $var['odt_amount'];
+	    	else
+	    		return false;
+
+	    	$param['product_id'] = $var['odt_product_id'];
+	    	parent::UpdateProductAmountProcess($param);
+	    }
+	}
+
 
     public function Checking($param){
-    	return parent::CheckingAlreadyOrderProcess($param);
     }
 }
 ?>

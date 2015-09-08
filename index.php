@@ -54,6 +54,7 @@ $(document).ready(function(){
 		<td>ID</td>
 		<td>Title</td>
 		<td>Description</td>
+		<td>Amount</td>
 		<td>Price</td>
 		<td>Create</td>
 		<td>Update</td>

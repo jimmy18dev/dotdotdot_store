@@ -143,6 +143,14 @@ class OrderModel extends Database{
 	}
 
 
+	// Update product amount after Order paying
+	public function UpdateProductAmountProcess($param){
+		parent::query('UPDATE dd_product SET pd_unit = :unit WHERE pd_id = :product_id');
+		parent::bind(':unit', 			$param['unit']);
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
 
 
 

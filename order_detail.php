@@ -46,6 +46,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <?php include'header.php';?>
 
 <h1>Order Detail of <?php echo $user->name;?> (<?php echo $order->status;?>)</h1>
+<h3>Order Checking : <?php echo $order->CheckingAllAmountInOrder(array('order_id' => $order->id));?></h3>
 <?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
 <hr>
 
@@ -58,7 +59,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 </p>
 
 <hr>
-<p>ยอดชำระรวม <input type="text" id="all-payments" value="<?php echo $order->payments;?>"> บาท</p>
+<p>ยอดชำระรวม <input type="text" id="all-payments" value="<?php echo $order->summary_payments;?>"> บาท</p>
 
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</button>
 <button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</button>
