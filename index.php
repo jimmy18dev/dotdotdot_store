@@ -6,6 +6,9 @@ require_once'config/autoload.php';
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
+
+echo'CheckingOrder();<br>';
+$order->CheckingOrder(array('id' => 0));
 ?>
 
 <!DOCTYPE html>

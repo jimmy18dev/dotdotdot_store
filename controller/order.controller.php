@@ -243,7 +243,47 @@ class OrderController extends OrderModel{
 	}
 
 
-    public function Checking($param){
+    public function CheckingOrder($param){
+    	$dataset = parent::ListOrderProcess($param);
+
+    	foreach ($dataset as $var){
+    		$expire_time = strtotime($var['od_update_time']) + 60;
+    		$delete_time = $expire_time + 60;
+
+    		$time_to_expire = $expire_time-time();
+    		$time_to_delete = $delete_time-time();
+
+    		if($var['od_status'] == 'Paying'){
+    			if(time() > $expire_time){
+	    			echo'[Expire] ';
+	    			$this->OrderProcess(array(
+						'member_id' 	=> MEMBER_ID,
+						'order_id' 		=> $var['od_id'],
+						'order_action' 	=> 'Expire',
+					));
+	    		}
+    		}
+
+    		if($var['od_status'] == 'Expire'){
+	    		if(time() > $delete_time){
+
+	    			// Restore all product items in order to Stock
+    				$this->UpdateProductAmount(array(
+    					'order_id' 		=> $var['od_id'],
+    					'action' 		=> 'restore',
+    				));
+	    			
+	    			echo'[Delete] ';
+	    			$this->OrderProcess(array(
+						'member_id' 	=> MEMBER_ID,
+						'order_id' 		=> $var['od_id'],
+						'order_action' 	=> 'Delete',
+					));
+	    		}
+    		}
+
+    		echo time().' Expire ('.$time_to_expire.' วืนาที) / Delete ('.$time_to_delete.' วินาที)'.' / Status: '.$var['od_status'].'<br>';
+    	}
     }
 }
 ?>

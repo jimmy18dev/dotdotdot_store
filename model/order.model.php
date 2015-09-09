@@ -66,6 +66,20 @@ class OrderModel extends Database{
 			return false;
 	}
 
+	public function ListOrderProcess($param){
+		$select = 'SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order';
+		$where = ' WHERE od_status = "Paying" OR od_status = "Expire"';
+		$order = ' ORDER BY od_update_time DESC';
+		$limit = '';
+
+		$sql = $select.$where.$order.$limit;
+
+		parent::query($sql);
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
+
 	public function ListMyOrderProcess($param){
 		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id');
 		parent::bind(':member_id', 		$param['member_id']);
@@ -90,7 +104,8 @@ class OrderModel extends Database{
 	}
 
 	public function UpdateStatusOrderProcess($param){
-		parent::query('UPDATE dd_order SET od_status = :status WHERE od_id = :order_id');
+		parent::query('UPDATE dd_order SET od_status = :status, od_update_time = :update_time WHERE od_id = :order_id');
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':status', $param['order_action']);
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();

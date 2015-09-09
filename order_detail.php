@@ -47,6 +47,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 <h1>Order Detail of <?php echo $user->name;?> (<?php echo $order->status;?>)</h1>
 <h3>Order Checking : <?php echo $order->CheckingAllAmountInOrder(array('order_id' => $order->id));?></h3>
+<h5>สร้างเมื่อ <?php echo $order->create_time;?> | หมดอายุ <?php echo date('Y-m-d H:i:s', strtotime($order->create_time) + 86400);?> | ลบถาวร <?php echo date('Y-m-d H:i:s', strtotime($order->create_time) + 86400);?>,<?php echo strtotime($order->create_time);?></h5>
 <?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
 <hr>
 
