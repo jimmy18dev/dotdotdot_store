@@ -144,6 +144,12 @@ class OrderController extends OrderModel{
     		$param['action'] = 'restore';
     		$this->UpdateProductAmount($param);
     	}
+
+    	// Save order activity log
+    	if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
+    		$param['member_id'] = 0; // 0 = System
+    	}
+    	parent::CreateOrderActivityProcess($param);
     }
 
     // EMS Number update in Order

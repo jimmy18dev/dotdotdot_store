@@ -110,6 +110,22 @@ class OrderModel extends Database{
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}
+
+	// Order activity log
+	public function CreateOrderActivityProcess($param){
+		parent::query('INSERT INTO dd_order_activity(odac_member_id,odac_order_id,odac_action,odac_description,odac_create_time,odac_update_time) VALUE(:member_id,:order_id,:order_action,:description,:create_time,:update_time)');
+
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::bind(':order_action', 	$param['order_action']);
+		parent::bind(':description', 	$param['description']);
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+
 	public function UpdateShippingTypeOrderProcess($param){
 		parent::query('UPDATE dd_order SET od_shipping_type = :shipping_type WHERE od_id = :order_id');
 		parent::bind(':shipping_type', $param['order_shipping_type']);

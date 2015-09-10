@@ -1,1 +1,10 @@
-<p><b>หมายเลขสั่งซื้อ <?php echo $var['od_id'];?></b> สินค้า <?php echo $var['od_total'];?> รายการ <?php echo $var['od_amount'];?> ชิ้น ยอดชำระ <?php echo $var['od_payments'];?> บาท, สถานะ <?php echo $var['od_status'];?>, <a href="order_detail.php?id=<?php echo $var['od_id'];?>">รายละเอียด</a></p>
+<a href="order_detail.php?id=<?php echo $var['od_id'];?>">
+<div class="order-items">
+	<div class="detail">
+		<div class="time"><?php echo $var['od_create_time'];?></div>
+		<div class="title">Order <?php echo $var['od_id'];?></div>
+		<div class="status"><?php echo $var['od_status'];?></div>
+	</div>
+	<div class="payments">+฿<?php echo $var['od_payments'];?></div>
+</div>
+</a>

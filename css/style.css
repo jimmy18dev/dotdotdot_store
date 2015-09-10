@@ -113,387 +113,292 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
-table tr td {
-  border: 1px solid #CCCCCC;
-  padding: 20px;
-}
-nav.navigator {
-  width: 60%;
-  padding: 0% 20%;
-  float: left;
-  display: inline-block;
+.header {
   position: fixed;
-  top: 0px;
-  left: 0px;
-  background: rgba(255, 255, 255, 0.95);
+  top: 0%;
+  left: 0%;
+  width: 70%;
+  padding: 0% 15%;
   height: 60px;
-  z-index: 10;
-}
-nav.navigator ul {
-  width: 100%;
   float: left;
   display: inline-block;
+  background: rgba(255, 255, 255, 0.9);
 }
-nav.navigator ul li {
-  width: 16%;
-  padding: 0% 2%;
-  float: left;
-  display: inline-block;
-  padding-top: 20px;
-  height: 40px;
-  font-size: 1em;
-  text-align: center;
-}
-nav.navigator ul li i {
-  margin-right: 10px;
-}
-nav.navigator ul li:hover {
-  color: #1abc9c;
-}
-nav.navigator ul li.logo {
-  width: 20%;
-  padding: 0%;
-  padding-top: 18px;
-  height: 42px;
-  font-family: 'oswald';
-  font-size: 1.3em;
-  text-align: left;
-}
-nav.navigator ul li.logo a {
-  color: #333333;
+.header a {
   text-decoration: none;
 }
-nav.navigator ul li.profile {
-  width: 20%;
-  padding: 0%;
-  padding-top: 18px;
-  height: 42px;
-}
-nav.navigator ul li.profile .name {
-  width: 80%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  text-align: right;
-}
-nav.navigator ul li.profile img {
-  width: 15%;
-  float: right;
-  display: inline-block;
-  border-radius: 50%;
-  overflow: hidden;
-}
-figure.cover {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  position: relative;
-  z-index: 1;
-}
-figure.cover .filter {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 100%;
-  height: 100%;
-  float: left;
-  display: inline-block;
-  background: rgba(0, 0, 0, 0.3);
-}
-figure.cover img {
-  width: 100%;
+.header .header-items {
   float: left;
   display: inline-block;
 }
-figure.cover figcaption {
-  position: absolute;
-  top: 35%;
-  left: 0%;
-  width: 60%;
-  padding: 0% 20%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  color: #FFFFFF;
-  font-size: 3em;
-  z-index: 5;
-  font-weight: bold;
-  text-shadow: 1px 1px 2px #000000;
-}
-article.article-content {
-  width: 60%;
-  padding: 0% 20%;
-  float: left;
-  display: inline-block;
-}
-article.article-content h1 {
-  font-size: 3em;
-  line-height: 1.6em;
-  font-weight: bold;
-  margin-top: 5%;
-  border-bottom: 1px solid #EEEEEE;
+.header .logo {
+  padding: 20px 1%;
+  height: 20px;
+  font-size: 1.2em;
   color: #000000;
 }
-article.article-content section.article-section {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  padding-bottom: 3%;
+.header .logo a {
+  color: #000000;
 }
-article.article-content section.article-section h2 {
-  font-size: 2em;
-  line-height: 1.6em;
-  color: #333333;
-}
-article.article-content section.article-section h2 .count {
-  color: #1abc9c;
-}
-article.article-content section.article-section .text {
-  font-size: 1.2em;
-  line-height: 1.6em;
-  color: #555555;
-}
-article.article-content section.article-section .photo {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .photo figure.photo-items {
-  width: 100%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .photo figure.photo-items img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .photo figure.photo-items figcaption {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
+.header .cart {
+  float: right;
+  padding: 22px 1%;
+  height: 16px;
   font-size: 0.9em;
-  text-align: right;
-  line-height: 1.5em;
-  font-style: italic;
-  color: #777777;
+  color: #DDDDDD;
 }
-article.article-content section.article-section .gallery {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
+.header .cart i {
+  margin-right: 5px;
 }
-article.article-content section.article-section .gallery .gallery-items {
-  width: 32%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 2%;
-  margin-right: 2%;
+.header .cart .payments {
+  color: #4EA827;
 }
-article.article-content section.article-section .gallery .gallery-items img {
-  width: 100%;
-  float: left;
-  display: inline-block;
+.header .avatar {
+  float: right;
+  padding: 15px 1%;
+  height: 30px;
 }
-article.article-content section.article-section .gallery .gallery-items:nth-child(3n) {
-  margin-right: 0%;
-}
-article.article-content section.article-section .comment-container {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items {
-  width: 100%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.6em;
-}
-article.article-content section.article-section .comment-container .comment-items .photo {
-  width: 5%;
-  margin-right: 3%;
-  float: left;
-  display: inline-block;
+.header .avatar img {
+  height: 30px;
   border-radius: 50%;
   overflow: hidden;
 }
-article.article-content section.article-section .comment-container .comment-items .photo img {
+.content {
   width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items .content {
-  width: 92%;
-  float: right;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items .content .info {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  padding-bottom: 1%;
-  font-size: 1em;
-}
-article.article-content section.article-section .comment-container .comment-items .content .info .username {
-  width: 60%;
-  float: left;
-  display: inline-block;
-  font-weight: bold;
-}
-article.article-content section.article-section .comment-container .comment-items .content .info .timer {
-  width: 40%;
-  float: right;
-  display: inline-block;
-  text-align: right;
-  font-size: 0.8em;
-  color: #777777;
-}
-article.article-content section.article-section .comment-container .comment-items .content .message {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input {
-  border-bottom: 1px solid #EEEEEE;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input .input {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input .input .input-text {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.6em;
-  border: 0px;
-  resize: none;
-  outline: 0;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input .control {
-  width: 100%;
-  padding-bottom: 3%;
-  float: left;
-  display: inline-block;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input .control .input-submit {
-  float: right;
-  display: inline-block;
-  padding: 1%;
-  font-size: 0.8em;
-  line-height: 1.5em;
-  background: #FFFFFF;
-  border: 2px solid #1abc9c;
-  color: #1abc9c;
-}
-article.article-content section.article-section .comment-container .comment-items .content-input .control .input-submit:hover {
-  cursor: pointer;
-  background: #1abc9c;
-  color: #FFFFFF;
-}
-section.container {
-  width: 60%;
-  margin: 0% 20%;
   float: left;
   display: inline-block;
   margin-top: 60px;
 }
-section.container .review-item {
-  width: 49%;
-  float: left;
-  display: inline-block;
-  position: relative;
-  margin-top: 2%;
-}
-section.container .review-item img {
-  width: 100%;
-  min-height: 200px;
-  background: #EEEEEE;
-  float: left;
-  display: inline-block;
-}
-section.container .review-item .description {
-  position: absolute;
-  left: 0%;
-  bottom: 0%;
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
-  color: #333333;
-  background: rgba(255, 255, 255, 0.9);
-}
-section.container .review-item .description h2 {
-  font-size: 1.2em;
-}
-section.container .review-item .description p.info {
-  font-size: 0.9em;
-  line-height: 1.6em;
-  color: #555555;
-}
-section.container .review-item:nth-child(even) {
-  margin-left: 2%;
-}
-.sponsor {
-  width: 60%;
-  padding: 5% 20%;
+.content .profile {
+  width: 70%;
+  padding: 2% 15%;
   float: left;
   display: inline-block;
   text-align: center;
+  background: #F0F0F0;
 }
-.sponsor h3 {
+.content .profile .avatar {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .profile .avatar img {
+  height: 100px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.content .profile .name {
   font-size: 1.5em;
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
+  line-height: 2em;
+}
+.content .profile .address {
+  font-size: 0.8em;
   line-height: 1.5em;
-  color: #555555;
 }
-.sponsor .sponsor-items {
-  width: 20%;
+.container {
+  width: 70%;
+  padding: 1% 15%;
   float: left;
   display: inline-block;
 }
-.sponsor .sponsor-items img {
-  width: 50%;
+.container .topic {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
 }
-.sponsor .sponsor-items figcaption {
+.container .topic .topic-caption {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.container .topic .filter {
+  width: 50%;
+  float: right;
+  display: inline-block;
+}
+.container .list {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #eeeeee;
+}
+.container .list .items-in-order:hover {
+  background: #FAFAFA;
+}
+.container .list .items-in-order .thumbnail {
+  width: 15%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .detail {
+  width: 56%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .detail .product-code {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  line-height: 1.5em;
+  color: #CCCCCC;
+}
+.container .list .items-in-order .detail .product-title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.container .list .items-in-order .detail .product-price {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 3em;
+  color: #777777;
+}
+.container .list .items-in-order .pay {
+  width: 21%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .pay .quantity {
+  width: 30%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .pay .quantity .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  line-height: 1.5em;
+  text-align: center;
+}
+.container .list .items-in-order .pay .quantity .input {
   width: 100%;
   padding: 5% 0%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
-  line-height: 1.5em;
-  color: #555555;
+  text-align: center;
+  font-size: 1.5em;
+  border: 0px;
+  border-bottom: 1px solid #EEEEEE;
 }
-.footer {
-  width: 60%;
-  padding: 5% 20%;
+.container .list .items-in-order .pay .payments {
+  padding-top: 1px;
+  width: 70%;
+  float: right;
+  display: inline-block;
+  color: #4EA827;
+  text-align: right;
+  font-size: 2.5em;
+}
+.container .list .items-in-order .control {
+  width: 100%;
+  float: left;
+  display: none;
+}
+.container .list .total-items {
+  width: 100%;
   float: left;
   display: inline-block;
-  background: #1abc9c;
+  border-top: 1px solid #EEEEEE;
+}
+.container .list .total-items .caption {
+  width: 54%;
+  padding: 2%;
+  padding-left: 17%;
+  float: left;
+  display: inline-block;
+}
+.container .list .total-items .value {
+  width: 21%;
+  padding: 2%;
+  float: right;
+  display: inline-block;
+  color: #4EA827;
+  text-align: right;
+  font-size: 2.5em;
+}
+.container .list .total-payments {
+  border-top: 5px solid #EEEEEE;
+}
+.container .list .payments-submit {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .payments-submit .button {
+  float: right;
+  display: inline-block;
+  background: #CCCCCC;
   text-align: center;
+  padding: 2% 4%;
+  margin-left: 5px;
 }
-.footer p {
-  font-size: 0.9em;
+.container .list .payments-submit .cancel {
+  background: #FFFFFF;
+  text-decoration: underline;
+  color: #CCCCCC;
+}
+.container .list .order-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #eeeeee;
+}
+.container .list .order-items:hover {
+  background: #FAFAFA;
+}
+.container .list .order-items .detail {
+  width: 70%;
+  float: left;
+  display: inline-block;
   line-height: 1.5em;
-  color: #EEEEEE;
+  color: #000000;
 }
-.footer p.license {
-  padding: 1% 0%;
-  margin: 1% 0%;
-  border-bottom: 1px solid #17a98c;
+.container .list .order-items .detail .time {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #AAAAAA;
+}
+.container .list .order-items .detail .title {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .order-items .detail .status {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 3em;
+}
+.container .list .order-items .payments {
+  width: 30%;
+  float: right;
+  display: inline-block;
+  text-align: right;
+  color: #4EA827;
 }
 /**** OTHER DEVICE AND SCREEN ****/
 @media only screen and (min-width: 520px) and (max-width: 759px) {

@@ -7,7 +7,6 @@ if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
 
-echo'CheckingOrder();<br>';
 $order->CheckingOrder(array('id' => 0));
 ?>
 
@@ -34,9 +33,9 @@ $order->CheckingOrder(array('id' => 0));
 <title>Homepage</title>
 
 <!-- CSS -->
-<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/> -->
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>

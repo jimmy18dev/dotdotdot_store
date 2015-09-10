@@ -28,9 +28,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <title>Order Detail</title>
 
 <!-- CSS -->
-<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/> -->
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -45,26 +45,40 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <body>
 <?php include'header.php';?>
 
-<h1>Order Detail of <?php echo $user->name;?> (<?php echo $order->status;?>)</h1>
-<h3>Order Checking : <?php echo $order->CheckingAllAmountInOrder(array('order_id' => $order->id));?></h3>
-<h5>สร้างเมื่อ <?php echo $order->create_time;?> | หมดอายุ <?php echo date('Y-m-d H:i:s', strtotime($order->create_time) + 86400);?> | ลบถาวร <?php echo date('Y-m-d H:i:s', strtotime($order->create_time) + 86400);?>,<?php echo strtotime($order->create_time);?></h5>
-<?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
-<hr>
+<div class="content">
+	<div class="container">
+		<div class="topic">
+			<div class="topic-caption">หมายเลขการสั่งซื้อ <?php echo $order->id;?></div>
+			<div class="filter"></div>
+		</div>
 
-<?php if($order->status == 'Shopping'){?>
-<p>เลือกการส่งสินค้า
-<select id="shipping_type" onchange="javascript:SummaryPayments();">
+		<div class="list">
+			<?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
+
+			<div class="total-items">
+				<div class="caption">ค่าจัดส่งสินค้าแบบ <select id="shipping_type" onchange="javascript:SummaryPayments();">
   <option value="Ems">EMS (50 บาท)</option>
   <option value="Register">ลงทะเบียน (30 บาท)</option>
-</select>
-</p>
+</select></div>
+				<div class="value">50</div>
+			</div>
 
-<hr>
-<p>ยอดชำระรวม <input type="text" id="all-payments" value="<?php echo $order->summary_payments;?>"> บาท</p>
+			<div class="total-items total-payments">
+				<div class="caption">ยอดเงินที่ต้องชำระ</div>
+				<div class="value"><?php echo $order->summary_payments;?></div>
 
-<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</button>
-<button onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</button>
+				<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
+			</div>
 
+			<div class="payments-submit">
+				<div class="button">ชำระเงิน</div>
+				<div class="button cancel">ยกเลิก</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php if($order->status == 'Shopping'){?>
 <?php }else if($order->status == 'Paying' || $order->status == 'TransferAgain'){?>
 <p>ค่าสินค้าทั้งหมด <?php echo $order->payments;?> บาท</p>
 <p>ค่าจัดส่งสินค้า(<?php echo $order->shipping_type;?>) <?php echo $order->shipping_payments;?> บาท</p>

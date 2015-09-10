@@ -31,9 +31,9 @@ if(!empty($user->current_order_id)){
 <title>Homepage</title>
 
 <!-- CSS -->
-<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/> -->
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -43,8 +43,25 @@ if(!empty($user->current_order_id)){
 <body>
 <?php include'header.php';?>
 
-<h1>My Profile of <?php echo $user->name;?></h1>
+<div class="content">
+	<div class="profile">
+		<div class="avatar">
+			<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xat1/v/t1.0-1/p160x160/11262102_10203354443781334_6934107217499553852_n.jpg?oh=c4cb5727426538443f0aafb2060155e9&oe=566E4F8F&__gda__=1453461472_b6d2f73a017aece7244956f2d898de52" alt="">
+		</div>
+		<div class="name">Puwadon Sricharoen</div>
+		<div class="address">ยอดการสั่งซื้อ 5600 บาท</div>
+	</div>
 
-<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+	<div class="container">
+		<div class="topic">
+			<div class="topic-caption">รายการสั่งซื้อ (5)</div>
+			<div class="filter"></div>
+		</div>
+
+		<div class="list">
+			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+		</div>
+	</div>
+</div>
 </body>
 </html>
