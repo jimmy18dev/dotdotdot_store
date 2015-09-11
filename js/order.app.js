@@ -1,26 +1,32 @@
 function ChangeAmount(order_id,product_id,action){
-	var amount = $('#product-amount-'+order_id+product_id).val();
-	var price = $('#product-price-'+order_id+product_id).val();
 
-	if(action == "up"){
+	// Setup
+	var reference_id 	= order_id+''+product_id;
+	var amount 			= $('#product-amount-'+order_id+product_id).val();
+	var price 			= $('#product-price-'+order_id+product_id).val();
+
+	// Function
+	if(action == "up")
 		amount++;
-	}
-	else if(action == "down"){
-		if(amount > 1){
+	else if(action == "down")
+		if(amount > 1)
 			amount--;
-		}
-		else{
+		else
 			return false;
-		}
-	}
-	else{
+	else
 		return false;
-	}
 
-	$('#product-amount-'+order_id+product_id).val(amount);
-	$('#product-payments-'+order_id+product_id).val(amount*price);
+	// Render to Input
+	$('#product-amount-'+reference_id).val(amount);
+	$('#product-payments-'+reference_id).val(amount*price);
 
-	console.log(amount+' x '+price+' = '+ amount*price);
+	// Render to HTML
+	var payments_string =  numeral(amount*price).format('0,0');
+	$('#payments-display-'+reference_id).html(payments_string);
+	$('#quantity-display-'+reference_id).html(amount);
+
+	// Render to Console
+	console.log('Reference_id:'+reference_id+','+amount+' x '+price+' = '+ amount*price);
 
 	SummaryPayments();
 

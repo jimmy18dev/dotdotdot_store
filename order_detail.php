@@ -35,6 +35,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
 <script type="text/javascript" src="js/service/user.service.js"></script>
 <script type="text/javascript" src="js/money.transfer.js"></script>
@@ -55,20 +56,35 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		<div class="list">
 			<?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
 
-			<div class="total-items">
-				<div class="caption">ค่าจัดส่งสินค้าแบบ <select id="shipping_type" onchange="javascript:SummaryPayments();">
-  <option value="Ems">EMS (50 บาท)</option>
-  <option value="Register">ลงทะเบียน (30 บาท)</option>
-</select></div>
-				<div class="value">50</div>
+			<div class="items-payments subtotal">
+				<div class="detail"><i class="fa fa-clone"></i>ราคาสินค้ารวม : </div>
+				<div class="value">
+					<?php echo number_format($order->payments);?>
+				</div>
 			</div>
 
-			<div class="total-items total-payments">
-				<div class="caption">ยอดเงินที่ต้องชำระ</div>
-				<div class="value"><?php echo $order->summary_payments;?></div>
-
-				<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
+			<div class="items-payments">
+				<div class="detail">
+					<i class="fa fa-truck"></i>ค่าบิรการส่งสินค้า : 
+					
+					<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
+						<option value="Ems">EMS (50 บาท)</option>
+						<option value="Register">ลงทะเบียน (30 บาท)</option>
+					</select>
+				</div>
+				<div class="value">
+					<?php echo $order->shipping_payments;?>
+				</div>
 			</div>
+
+			<div class="items-payments total-payments">
+				<div class="detail"><i class="fa fa-barcode"></i>ยอดเงินที่ต้องชำระ : </div>
+				<div class="value">
+					<?php echo number_format($order->summary_payments);?>
+				</div>
+			</div>
+
+			<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
 
 			<div class="payments-submit">
 				<div class="button">ชำระเงิน</div>

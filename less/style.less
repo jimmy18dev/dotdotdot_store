@@ -109,8 +109,8 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
 
     .topic{
-        width: 96%;
-        padding: 2%;
+        width: 94%;
+        padding: 3%;
         float: left;
         display: inline-block;
 
@@ -136,13 +136,11 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             border-top: 1px solid #eeeeee;
-
-            &:hover{
-                background: #FAFAFA;
-            }
+            background: #FFFFFF;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 
             .thumbnail{
-                width: 15%;
+                width: 20%;
                 float: left;
                 display: inline-block;
 
@@ -153,114 +151,143 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
             }
             .detail{
-                width: 56%;
-                padding: 2%;
+                width: 74%;
+                padding: 3%;
                 float: left;
                 display: inline-block;
 
-                .product-code{
+                .product-control{
                     width: 100%;
                     float: left;
                     display: inline-block;
-                    font-size: 0.7em;
+                    font-size: 0.8em;
                     line-height: 1.5em;
-                    color: #CCCCCC;
+                    color: #DDDDDD;
+
+                    .product-id{
+                        width: 50%;
+                        float: left;
+                        display: inline-block;
+                    }
+                    .control{
+                        width: 50%;
+                        float: right;
+                        display: inline-block;
+                        text-align: right;
+                    }
                 }
                 .product-title{
                     width: 100%;
                     float: left;
                     display: inline-block;
-                    font-size: 1em;
-                    line-height: 1.5em;
+                    font-size: 1.1em;
+                    line-height: 2em;
+                    font-weight: bold;
                 }
-                .product-price{
+                .product-payments{
                     width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    line-height: 3em;
-                    color: #777777;
-                }
-            }
-            .pay{
-                width: 21%;
-                padding: 2%;
-                float: left;
-                display: inline-block;
-
-                .quantity{
-                    width: 30%;
+                    padding: 2% 0%;
                     float: left;
                     display: inline-block;
 
-                    .caption{
-                        width: 100%;
+                    .quantity{
+                        width: 50%;
                         float: left;
                         display: inline-block;
-                        font-size: 0.7em;
-                        line-height: 1.5em;
-                        text-align: center;
+                        color: #555555;
+
+                        .quantity-caption{
+                            width: 25%;
+                            padding: 2% 0%;
+                            float: left;
+                            display: inline-block;
+                        }
+
+                        .quantity-button{
+                            width: 6%;
+                            padding: 2%;
+                            float: left;
+                            display: inline-block;
+                            font-size: 1em;
+                            text-align: center;
+                            color: #DDDDDD;
+
+                            &:hover{
+                                background: #EEEEEE;
+                                cursor: pointer;
+                            }
+                        }
+                        .quantity-value{
+                            width: 6%;
+                            padding: 2%;
+                            float: left;
+                            display: inline-block;
+                            font-size: 1em;
+                            text-align: center;
+                        }
                     }
-
-                    .input{
-                        width: 100%;
-                        padding: 5% 0%;
-                        float: left;
+                    .payments{
+                        width: 30%;
+                        padding-bottom: 2%;
+                        margin-left: 20%;
+                        float: right;
                         display: inline-block;
-                        text-align: center;
+                        text-align: right;
                         font-size: 1.5em;
-                        border: 0px;
-                        border-bottom: 1px solid #EEEEEE;
                     }
                 }
-                .payments{
-                    padding-top: 1px;
-                    width: 70%;
-                    float: right;
-                    display: inline-block;
-                    color: #4EA827;
-                    text-align: right;
-                    font-size: 2.5em;
-                }
-            }
-
-            .control{
-                width: 100%;
-                float: left;
-                display: none;
             }
         }
 
-        .total-items{
+        .items-payments{
             width: 100%;
             float: left;
             display: inline-block;
-            border-top: 1px solid #EEEEEE;
 
-            .caption{
+            .detail{
                 width: 54%;
-                padding: 2%;
-                padding-left: 17%;
+                padding: 3%;
                 float: left;
                 display: inline-block;
+                font-size: 1.1em;
+
+                i{
+                    margin-right: 20px;
+                }
+
+                .shipping-select{
+                    font-size: 1em;
+                    border: 0px;
+                    border-bottom: 1px solid #DDDDDD;
+                    margin-left: 10px;
+                    background: #FFFFFF;
+                }
             }
+
             .value{
-                width: 21%;
-                padding: 2%;
+                width: 34%;
+                padding: 3%;
                 float: right;
                 display: inline-block;
-                color: #4EA827;
                 text-align: right;
+                font-size: 1.5em;
+            }
+        }
+
+        .subtotal{
+            color: #AAAAAA;
+        }
+
+        .total-payments{
+            border-top: 1px solid #EEEEEE;
+            .value{
                 font-size: 2.5em;
             }
         }
 
-        .total-payments{
-            border-top: 5px solid #EEEEEE;
-        }
-
         .payments-submit{
             width: 100%;
+            margin: 5% 0%;
             float: left;
             display: inline-block;
 
@@ -274,7 +301,8 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
 
             .cancel{
-                background: #FFFFFF;
+                float: left;
+                background: #FAFAFA;
                 text-decoration: underline;
                 color: #CCCCCC;
             }

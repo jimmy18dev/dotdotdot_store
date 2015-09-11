@@ -53,7 +53,7 @@ button {
 }
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #ffffff;
+  background: #fafafa;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -202,8 +202,8 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .topic {
-  width: 96%;
-  padding: 2%;
+  width: 94%;
+  padding: 3%;
   float: left;
   display: inline-block;
 }
@@ -227,12 +227,11 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   border-top: 1px solid #eeeeee;
-}
-.container .list .items-in-order:hover {
-  background: #FAFAFA;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 .container .list .items-in-order .thumbnail {
-  width: 15%;
+  width: 20%;
   float: left;
   display: inline-block;
 }
@@ -242,104 +241,128 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .list .items-in-order .detail {
-  width: 56%;
-  padding: 2%;
+  width: 74%;
+  padding: 3%;
   float: left;
   display: inline-block;
 }
-.container .list .items-in-order .detail .product-code {
+.container .list .items-in-order .detail .product-control {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.7em;
+  font-size: 0.8em;
   line-height: 1.5em;
-  color: #CCCCCC;
+  color: #DDDDDD;
+}
+.container .list .items-in-order .detail .product-control .product-id {
+  width: 50%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .detail .product-control .control {
+  width: 50%;
+  float: right;
+  display: inline-block;
+  text-align: right;
 }
 .container .list .items-in-order .detail .product-title {
   width: 100%;
   float: left;
   display: inline-block;
+  font-size: 1.1em;
+  line-height: 2em;
+  font-weight: bold;
+}
+.container .list .items-in-order .detail .product-payments {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .detail .product-payments .quantity {
+  width: 50%;
+  float: left;
+  display: inline-block;
+  color: #555555;
+}
+.container .list .items-in-order .detail .product-payments .quantity .quantity-caption {
+  width: 25%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+}
+.container .list .items-in-order .detail .product-payments .quantity .quantity-button {
+  width: 6%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
   font-size: 1em;
-  line-height: 1.5em;
+  text-align: center;
+  color: #DDDDDD;
 }
-.container .list .items-in-order .detail .product-price {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 3em;
-  color: #777777;
+.container .list .items-in-order .detail .product-payments .quantity .quantity-button:hover {
+  background: #EEEEEE;
+  cursor: pointer;
 }
-.container .list .items-in-order .pay {
-  width: 21%;
+.container .list .items-in-order .detail .product-payments .quantity .quantity-value {
+  width: 6%;
   padding: 2%;
   float: left;
   display: inline-block;
+  font-size: 1em;
+  text-align: center;
 }
-.container .list .items-in-order .pay .quantity {
+.container .list .items-in-order .detail .product-payments .payments {
   width: 30%;
-  float: left;
+  padding-bottom: 2%;
+  margin-left: 20%;
+  float: right;
   display: inline-block;
-}
-.container .list .items-in-order .pay .quantity .caption {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.7em;
-  line-height: 1.5em;
-  text-align: center;
-}
-.container .list .items-in-order .pay .quantity .input {
-  width: 100%;
-  padding: 5% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
+  text-align: right;
   font-size: 1.5em;
-  border: 0px;
-  border-bottom: 1px solid #EEEEEE;
 }
-.container .list .items-in-order .pay .payments {
-  padding-top: 1px;
-  width: 70%;
-  float: right;
-  display: inline-block;
-  color: #4EA827;
-  text-align: right;
-  font-size: 2.5em;
-}
-.container .list .items-in-order .control {
-  width: 100%;
-  float: left;
-  display: none;
-}
-.container .list .total-items {
+.container .list .items-payments {
   width: 100%;
   float: left;
   display: inline-block;
-  border-top: 1px solid #EEEEEE;
 }
-.container .list .total-items .caption {
+.container .list .items-payments .detail {
   width: 54%;
-  padding: 2%;
-  padding-left: 17%;
+  padding: 3%;
   float: left;
   display: inline-block;
+  font-size: 1.1em;
 }
-.container .list .total-items .value {
-  width: 21%;
-  padding: 2%;
+.container .list .items-payments .detail i {
+  margin-right: 20px;
+}
+.container .list .items-payments .detail .shipping-select {
+  font-size: 1em;
+  border: 0px;
+  border-bottom: 1px solid #DDDDDD;
+  margin-left: 10px;
+  background: #FFFFFF;
+}
+.container .list .items-payments .value {
+  width: 34%;
+  padding: 3%;
   float: right;
   display: inline-block;
-  color: #4EA827;
   text-align: right;
-  font-size: 2.5em;
+  font-size: 1.5em;
+}
+.container .list .subtotal {
+  color: #AAAAAA;
 }
 .container .list .total-payments {
-  border-top: 5px solid #EEEEEE;
+  border-top: 1px solid #EEEEEE;
+}
+.container .list .total-payments .value {
+  font-size: 2.5em;
 }
 .container .list .payments-submit {
   width: 100%;
+  margin: 5% 0%;
   float: left;
   display: inline-block;
 }
@@ -352,7 +375,8 @@ Copyright (c) 2015 Daniel Eden
   margin-left: 5px;
 }
 .container .list .payments-submit .cancel {
-  background: #FFFFFF;
+  float: left;
+  background: #FAFAFA;
   text-decoration: underline;
   color: #CCCCCC;
 }
@@ -678,7 +702,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     margin: 3%;
-    background: #ffffff;
+    background: #fafafa;
     text-align: center;
     color: #555555;
   }
@@ -1759,7 +1783,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     border: 0px;
     font-size: 0.9em;
-    background: #ffffff;
+    background: #fafafa;
     color: #1abc9c;
   }
   #feature #category-form .input-submit:hover {
@@ -2464,7 +2488,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     margin: 3%;
-    background: #ffffff;
+    background: #fafafa;
     text-align: center;
     color: #555555;
   }
@@ -3545,7 +3569,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     border: 0px;
     font-size: 0.9em;
-    background: #ffffff;
+    background: #fafafa;
     color: #1abc9c;
   }
   #feature #category-form .input-submit:hover {
