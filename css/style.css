@@ -202,8 +202,8 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .topic {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
 }
@@ -212,10 +212,38 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
+.container .topic .topic-caption i {
+  margin-right: 10px;
+}
 .container .topic .filter {
   width: 50%;
   float: right;
   display: inline-block;
+}
+.container .order-state {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order-state .state-items {
+  width: 20%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .order-state .state-items .icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+}
+.container .order-state .state-items .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 2em;
 }
 .container .list {
   width: 100%;
@@ -379,6 +407,54 @@ Copyright (c) 2015 Daniel Eden
   background: #FAFAFA;
   text-decoration: underline;
   color: #CCCCCC;
+}
+.container .list .money-transfer-form {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.container .list .money-transfer-form .topic {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .list .money-transfer-form .form {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .money-transfer-form .form .form-items {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+}
+.container .list .money-transfer-form .form .form-items .label {
+  width: 30%;
+  float: left;
+  display: inline-block;
+}
+.container .list .money-transfer-form .form .form-items .input {
+  width: 65%;
+  margin-left: 5%;
+  float: right;
+  display: inline-block;
+}
+.container .list .money-transfer-form .form .form-submit {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .list .money-transfer-form .form .form-submit .submit-button {
+  float: right;
+  display: inline-block;
+  text-align: center;
+  padding: 2%;
 }
 .container .list .order-items {
   width: 96%;

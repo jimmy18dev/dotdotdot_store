@@ -109,8 +109,8 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
 
     .topic{
-        width: 94%;
-        padding: 3%;
+        width: 100%;
+        padding: 3% 0%;
         float: left;
         display: inline-block;
 
@@ -118,11 +118,43 @@ Copyright (c) 2015 Puwadon Sricharoen
             width: 50%;
             float: left;
             display: inline-block;
+
+            i{
+                margin-right: 10px;
+            }
         }
         .filter{
             width: 50%;
             float: right;
             display: inline-block;
+        }
+    }
+
+    .order-state{
+        width: 100%;
+        float: left;
+        display: inline-block;
+
+        .state-items{
+            width: 20%;
+            padding: 2% 0%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+
+            .icon{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                font-size: 1.5em;
+            }
+            .caption{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                font-size: 0.8em;
+                line-height: 2em;
+            }
         }
     }
 
@@ -305,6 +337,61 @@ Copyright (c) 2015 Puwadon Sricharoen
                 background: #FAFAFA;
                 text-decoration: underline;
                 color: #CCCCCC;
+            }
+        }
+
+        .money-transfer-form{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            background: #FFFFFF;
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+
+            .topic{
+                width: 94%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+            }
+
+            .form{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                .form-items{
+                    width: 94%;
+                    padding: 3%;
+                    float: left;
+                    display: inline-block;
+                    border-top: 1px solid #EEEEEE;
+
+                    .label{
+                        width: 30%;
+                        float: left;
+                        display: inline-block;
+                    }
+                    .input{
+                        width: 65%;
+                        margin-left: 5%;
+                        float: right;
+                        display: inline-block;
+                    }
+                }
+
+                .form-submit{
+                    width: 94%;
+                    padding: 3%;
+                    float: left;
+                    display: inline-block;
+
+                    .submit-button{
+                        float: right;
+                        display: inline-block;
+                        text-align: center;
+                        padding: 2%;
+                    }
+                }
             }
         }
 
