@@ -51,6 +51,69 @@ $(document).ready(function(){
 <body>
 <?php include'header.php';?>
 
+<div class="content">
+	<div class="product">
+
+		<?php for($i=0;$i<3;$i++){?>
+		<div class="product-items">
+			<div class="thumbnail">
+				<img src="image/site/1.jpg" alt="">
+			</div>
+			<div class="detail">
+				<div class="title">เสื้อ Thailand not for Sale.</div>
+				<div class="control">
+					<div class="buy-button">245.00 ฿</div>
+				</div>
+			</div>
+		</div>
+		<div class="product-items">
+			<div class="thumbnail">
+				<img src="image/site/2.jpg" alt="">
+			</div>
+			<div class="detail">
+				<div class="title">เสื้อ Thailand not for Sale.</div>
+				<div class="control">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+		</div>
+		<div class="product-items product-higtlight">
+			<div class="thumbnail">
+				<img src="image/site/3.jpg" alt="">
+			</div>
+			<div class="detail">
+				<div class="title">เสื้อ Thailand not for Sale.</div>
+				<div class="control">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+		</div>
+		<div class="product-items">
+			<div class="thumbnail">
+				<img src="image/site/1.jpg" alt="">
+			</div>
+			<div class="detail">
+				<div class="title">เสื้อ Thailand not for Sale.</div>
+				<div class="control">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+		</div>
+		<div class="product-items">
+			<div class="thumbnail">
+				<img src="image/site/4.jpg" alt="">
+			</div>
+			<div class="detail">
+				<div class="title">เสื้อ Thailand not for Sale.</div>
+				<div class="control">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+		</div>
+		<?php }?>
+	</div>
+</div>
+
 <table border="1">
 	<tr>
 		<td>ID</td>
@@ -63,5 +126,9 @@ $(document).ready(function(){
 	</tr>
 	<?php $product->ListProduct(array('null' => 0));?>
 	</table>
+
+<?php
+include'footer.php';
+?>
 </body>
 </html>

@@ -77,6 +77,11 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 
 		<div class="list">
+			<div class="shopping">
+				<p class="icon"><i class="fa fa-truck"></i></p>
+				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
+				<p class="shipping-code">EDR2343563</p>
+			</div>
 
 			<div class="money-transfer-form">
 				<div class="topic">ยืนยันการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>

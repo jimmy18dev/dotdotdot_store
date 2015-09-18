@@ -43,6 +43,64 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <?php include'header.php';?>
 
+<div class="content">
+	<div class="product-detail">
+		<h1>เสื้อ Thailand Not For Sale.</h1>
+
+		<div class="thumbnail">
+			<img src="image/site/1.jpg" alt="">
+		</div>
+
+		<div class="description">
+			การคัดเลือกบุคคลเข้าทำงานในบริษัท  องค์กร  หน่วยงาน  เป็นเรื่องสำคัญ  และจำเป็นที่จะต้องได้คนที่มีความรู้ความสามารถตรงกับงาน  ผู้ที่จะทำการคัดเลือกบุคคลเข้าทำงานจึงต้องมีความรู้ในเบื้องต้นก่อนว่า  บุคคลที่จะทำงานในตำแหน่งงานที่กำหนดนั้น  จะต้องมีคุณสมบัติเบื้องต้นอะไรบ้าง  และจะต้องมีคุณสมบัติอื่นอะไรอีก  นอกจากนี้จะต้องมีคุณลักษณะ  ความรู้  ความสามารถ  อะไรต่อมา
+
+	โดยทั่วไป  การคัดเลือกบุคคลเข้าทำงานมักจะกำหนดคุณวุฒิทางการศึกษาก่อน  เช่น  สำเร็จการศึกษาระดับใด  หรือสำเร็จการศึกษาในด้านใด  หลังจากนั้นจึงจะกำหนดคุณสมบัติและคุณลักษณะเพิ่มเติม  แล้วจึงประกาศรับสมัครเพื่อทำการคัดเลือกต่อไป
+		</div>
+
+		<div class="action">
+			<div class="action-items">
+				<div class="caption">เบอร์ S (21x30)</div>
+				<div class="buy">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+			<div class="action-items">
+				<div class="caption">เบอร์ M (21x30)</div>
+				<div class="buy">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+			<div class="action-items">
+				<div class="caption">เบอร์ L (21x30)</div>
+				<div class="buy">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+			<div class="action-items">
+				<div class="caption">เบอร์ XL (21x30)</div>
+				<div class="buy">
+					<div class="buy-button">390.00 ฿</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="picture">
+			<div class="picture-items">
+				<img src="image/site/1.jpg" alt="">
+			</div>
+			<div class="picture-items">
+				<img src="image/site/2.jpg" alt="">
+			</div>
+			<div class="picture-items">
+				<img src="image/site/3.jpg" alt="">
+			</div>
+			<div class="picture-items">
+				<img src="image/site/4.jpg" alt="">
+			</div>
+		</div>
+	</div>
+</div>
+
 <img src="<?php echo $product->image_normal;?>" alt="">
 
 <h1><?php echo $product->title;?></h1>
@@ -61,6 +119,10 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <hr>
 <label for="">จำนวน <input type="number" id="amount" value="1"></label>
 <button onclick="javascript:AddItemToOrder(<?php echo $product->id;?>);">ซื้อเลย <?php echo $product->price;?> บาท</button>
+
+<?php
+include'footer.php';
+?>
 
 </body>
 </html>

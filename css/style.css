@@ -169,6 +169,172 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   margin-top: 60px;
 }
+.content .product-detail {
+  width: 70%;
+  margin: 0% 15%;
+  float: left;
+  display: inline-block;
+}
+.content .product-detail h1 {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+.content .product-detail .thumbnail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .product-detail .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .product-detail .description {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.content .product-detail .action {
+  width: 60%;
+  margin: 0% 20%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+}
+.content .product-detail .action .action-items {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.content .product-detail .action .action-items .caption {
+  width: 80%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.content .product-detail .action .action-items .buy {
+  width: 20%;
+  float: right;
+  display: inline-block;
+}
+.content .product-detail .action .action-items .buy .buy-button {
+  width: 90%;
+  float: right;
+  color: #4EA827;
+  border: 1px solid #4EA827;
+  background: #FFFFFF;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  padding: 3% 5%;
+  border-radius: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.content .product-detail .picture {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.content .product-detail .picture .picture-items {
+  width: 49%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+}
+.content .product-detail .picture .picture-items img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .product-detail .picture .picture-items:nth-child(even) {
+  margin-left: 1%;
+  float: right;
+}
+.content .product {
+  width: 70%;
+  margin: 0% 15%;
+  float: left;
+  display: inline-block;
+}
+.content .product .product-items {
+  width: 49%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 2%;
+  background: #FFFFFF;
+}
+.content .product .product-items:nth-child(even) {
+  margin-left: 1%;
+  float: right;
+}
+.content .product .product-items .thumbnail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .product .product-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .product .product-items .detail {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.content .product .product-items .detail .title {
+  width: 80%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.content .product .product-items .detail .control {
+  width: 20%;
+  float: right;
+  display: inline-block;
+}
+.content .product .product-items .detail .control .buy-button {
+  width: 90%;
+  float: right;
+  color: #4EA827;
+  border: 1px solid #4EA827;
+  background: #FFFFFF;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  padding: 3% 5%;
+  border-radius: 15px;
+  font-weight: bold;
+  text-align: center;
+}
+.content .product .product-higtlight {
+  width: 100%;
+}
+.content .product .product-higtlight .detail {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.content .product .product-higtlight .detail .title {
+  width: 90%;
+}
+.content .product .product-higtlight .detail .control {
+  width: 10%;
+}
 .content .profile {
   width: 70%;
   padding: 2% 15%;
@@ -249,6 +415,25 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+}
+.container .list .shopping {
+  width: 90%;
+  padding: 5%;
+  margin-bottom: 2%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  background: #FFFFFF;
+}
+.container .list .shopping p {
+  font-size: 1em;
+  line-height: 2em;
+}
+.container .list .shopping p.icon {
+  font-size: 2em;
+}
+.container .list .shopping p.shipping-code {
+  font-size: 2em;
 }
 .container .list .items-in-order {
   width: 100%;
@@ -499,6 +684,18 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
   color: #4EA827;
+}
+.footer {
+  width: 70%;
+  padding: 3% 15%;
+  float: left;
+  display: inline-block;
+  background: #DDDDDD;
+}
+.footer p {
+  text-align: center;
+  font-size: 1em;
+  color: #555555;
 }
 /**** OTHER DEVICE AND SCREEN ****/
 @media only screen and (min-width: 520px) and (max-width: 759px) {
