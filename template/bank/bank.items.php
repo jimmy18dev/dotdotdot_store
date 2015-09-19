@@ -1,1 +1,3 @@
-<div class=""><input type="radio" name="to_bank" value="<?php echo $var['bk_id']?>"> <?php echo $var['bk_name'].''.$var['bk_account_name'].' ['.$var['bk_account_number'].']';?></div>
+<option value="<?php echo $var['bk_id']?>">
+<?php echo 'ธนาคาร'.$var['bk_name'].' เลขบัญชี '.$var['bk_account_number'];?>
+</option>

@@ -18,10 +18,10 @@ $product_quantity = $var['odt_amount'];
 
 		<div class="product-payments">
 			<div class="quantity">
-				<div class="quantity-caption">จำนวนสินค้า</div>
-				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'down');"><i class="fa fa-minus"></i></div>
+				<div class="quantity-caption">ราคาชิ้นละ <?php echo number_format($var['pd_price']);?> x </div>
+				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'down');">-</div>
 				<div class="quantity-value" id="quantity-display-<?php echo $reference_id;?>"><?php echo $product_quantity;?></div>
-				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'up');"><i class="fa fa-plus"></i></div>
+				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'up');">+</div>
 			</div>
 			<div class="payments" id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments);?></div>
 		</div>

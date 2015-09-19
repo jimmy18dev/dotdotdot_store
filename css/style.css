@@ -416,37 +416,136 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .list .shopping {
+.container .list .order-box {
   width: 90%;
-  padding: 5%;
+  padding: 3% 5%;
   margin-bottom: 2%;
   float: left;
   display: inline-block;
-  text-align: center;
   background: #FFFFFF;
 }
-.container .list .shopping p {
+.container .list .order-box .topic {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+  font-size: 0.8em;
+  color: #CCCCCC;
+}
+.container .list .order-box .form-submit {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+}
+.container .list .order-box .form-submit .submit-button {
+  float: right;
+  display: inline-block;
+  text-align: center;
+  padding: 2% 3%;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  background: #4EA827;
+  color: #FFFFFF;
+  border: 0px;
+  border-radius: 3px;
+}
+.container .list .order-box .form-submit .cancel-button {
+  float: left;
+  display: inline-block;
+  text-align: center;
+  padding: 2% 3%;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  background: #EEEEEE;
+  color: #CCCCCC;
+  border: 0px;
+  border-radius: 3px;
+}
+.container .list .order-message {
+  text-align: center;
+}
+.container .list .order-message p {
   font-size: 1em;
   line-height: 2em;
 }
-.container .list .shopping p.icon {
+.container .list .order-message p.icon {
   font-size: 2em;
 }
-.container .list .shopping p.shipping-code {
-  font-size: 2em;
+.container .list .order-message p.shipping-code {
+  font-size: 3em;
+}
+.container .list .order-money-transfer .form {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .list .order-money-transfer .form .form-items {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #F0F0F0;
+}
+.container .list .order-money-transfer .form .form-items .label {
+  width: 30%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+}
+.container .list .order-money-transfer .form .form-items .input {
+  width: 65%;
+  margin-left: 5%;
+  float: right;
+  display: inline-block;
+}
+.container .list .order-money-transfer .form .form-items .input .image-input {
+  width: 80%;
+  padding: 20% 10%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  text-align: center;
+}
+.container .list .order-money-transfer .form .form-items .input .input-select {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+  border: 0px;
+  background: #FFFFFF;
+}
+.container .list .order-money-transfer .form .form-items .input .input-file {
+  width: 100%;
+  line-height: 1.5em;
+}
+.container .list .order-money-transfer .form .form-items .input .input-text {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+  border: 0px;
+}
+.container .list .order-money-transfer .form .form-items .input .input-textarea {
+  height: 50px;
+}
+.container .list .order-money-transfer .form .full-size .input {
+  width: 100%;
+  margin-left: 0%;
 }
 .container .list .items-in-order {
   width: 100%;
   float: left;
   display: inline-block;
-  border-top: 1px solid #eeeeee;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+  border-top: 1px solid #EEEEEE;
 }
 .container .list .items-in-order .thumbnail {
   width: 20%;
   float: left;
   display: inline-block;
+  margin-right: 5%;
 }
 .container .list .items-in-order .thumbnail img {
   width: 100%;
@@ -454,8 +553,8 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .list .items-in-order .detail {
-  width: 74%;
-  padding: 3%;
+  width: 75%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
 }
@@ -482,15 +581,15 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.1em;
-  line-height: 2em;
+  font-size: 1em;
+  line-height: 1.5em;
   font-weight: bold;
 }
 .container .list .items-in-order .detail .product-payments {
   width: 100%;
-  padding: 2% 0%;
   float: left;
   display: inline-block;
+  line-height: 1.5em;
 }
 .container .list .items-in-order .detail .product-payments .quantity {
   width: 50%;
@@ -500,18 +599,17 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .list .items-in-order .detail .product-payments .quantity .quantity-caption {
   width: 25%;
-  padding: 2% 0%;
   float: left;
   display: inline-block;
 }
 .container .list .items-in-order .detail .product-payments .quantity .quantity-button {
   width: 6%;
-  padding: 2%;
+  padding: 0% 2%;
   float: left;
   display: inline-block;
   font-size: 1em;
   text-align: center;
-  color: #DDDDDD;
+  color: #555555;
 }
 .container .list .items-in-order .detail .product-payments .quantity .quantity-button:hover {
   background: #EEEEEE;
@@ -519,7 +617,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .list .items-in-order .detail .product-payments .quantity .quantity-value {
   width: 6%;
-  padding: 2%;
+  padding: 0% 2%;
   float: left;
   display: inline-block;
   font-size: 1em;
@@ -527,21 +625,21 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .list .items-in-order .detail .product-payments .payments {
   width: 30%;
-  padding-bottom: 2%;
   margin-left: 20%;
   float: right;
   display: inline-block;
   text-align: right;
-  font-size: 1.5em;
+  font-size: 1em;
 }
 .container .list .items-payments {
-  width: 100%;
+  width: 75%;
   float: left;
   display: inline-block;
+  margin-left: 25%;
 }
 .container .list .items-payments .detail {
-  width: 54%;
-  padding: 3%;
+  width: 60%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
   font-size: 1.1em;
@@ -557,8 +655,8 @@ Copyright (c) 2015 Daniel Eden
   background: #FFFFFF;
 }
 .container .list .items-payments .value {
-  width: 34%;
-  padding: 3%;
+  width: 40%;
+  padding: 3% 0%;
   float: right;
   display: inline-block;
   text-align: right;
@@ -592,54 +690,6 @@ Copyright (c) 2015 Daniel Eden
   background: #FAFAFA;
   text-decoration: underline;
   color: #CCCCCC;
-}
-.container .list .money-transfer-form {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
-}
-.container .list .money-transfer-form .topic {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .list .money-transfer-form .form {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .list .money-transfer-form .form .form-items {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  border-top: 1px solid #EEEEEE;
-}
-.container .list .money-transfer-form .form .form-items .label {
-  width: 30%;
-  float: left;
-  display: inline-block;
-}
-.container .list .money-transfer-form .form .form-items .input {
-  width: 65%;
-  margin-left: 5%;
-  float: right;
-  display: inline-block;
-}
-.container .list .money-transfer-form .form .form-submit {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .list .money-transfer-form .form .form-submit .submit-button {
-  float: right;
-  display: inline-block;
-  text-align: center;
-  padding: 2%;
 }
 .container .list .order-items {
   width: 96%;
