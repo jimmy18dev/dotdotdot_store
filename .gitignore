@@ -1,6 +1,9 @@
 */config.php
 *.sql
 
+image/upload/*
+store/image/upload/*
+
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
