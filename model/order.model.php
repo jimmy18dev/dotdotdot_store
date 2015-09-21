@@ -133,8 +133,8 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 	public function UpdateAddressOrderProcess($param){
-		parent::query('UPDATE dd_order SET od_address_id = :address_id WHERE od_id = :order_id');
-		parent::bind(':address_id', $param['address_id']);
+		parent::query('UPDATE dd_order SET od_address = :address WHERE od_id = :order_id');
+		parent::bind(':address', $param['address']);
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}

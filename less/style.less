@@ -328,6 +328,13 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
 
+        .state-active{
+            .icon{
+                color: #FF0000;
+            }
+            .caption{}
+        }
+
         .state-items{
             width: 20%;
             padding: 2% 0%;
@@ -347,6 +354,18 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
                 font-size: 0.8em;
                 line-height: 2em;
+            }
+        }
+
+        .state-items-fullsize{
+            width: 100%;
+            padding: 3% 0%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+
+            i{
+                margin-right: 10px;
             }
         }
     }
@@ -371,6 +390,27 @@ Copyright (c) 2015 Puwadon Sricharoen
                 text-align: right;
                 font-size: 0.8em;
                 color: #CCCCCC;
+            }
+
+            .control{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                .complete-button{
+                    width: 30%;
+                    padding: 1% 0%;
+                    margin: 2% 35%;
+                    float: left;
+                    display: inline-block;
+                    text-align: center;
+                    background: #DADADA;
+                    font-size: 0.9em;
+                    line-height: 1.5em;
+                    i{
+                        margin-right: 10px;
+                    }
+                }
             }
 
             .form-submit{
@@ -495,6 +535,31 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
         }
 
+        .topic-caption{
+            width: 100%;
+            padding: 2% 0%;
+            float: left;
+            display: inline-block;
+            font-size: 0.8em;
+
+            .title{
+                width: 79%;
+                float: left;
+                display: inline-block;
+            }
+            .quantity{
+                width: 9%;
+                float: right;
+                display: inline-block;
+                text-align: center;
+            }
+            .pay{
+                width: 12%;
+                float: right;
+                display: inline-block;
+                text-align: right;
+            }
+        }
         .items-in-order{
             width: 100%;
             float: left;
@@ -502,10 +567,10 @@ Copyright (c) 2015 Puwadon Sricharoen
             border-top: 1px solid #EEEEEE;
 
             .thumbnail{
-                width: 20%;
+                width: 15%;
                 float: left;
                 display: inline-block;
-                margin-right: 5%;
+                margin-right: 3%;
 
                 img{
                     width: 100%;
@@ -514,105 +579,80 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
             }
             .detail{
-                width: 75%;
+                width: 82%;
                 padding: 3% 0%;
                 float: left;
                 display: inline-block;
 
-                .product-control{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    line-height: 1.5em;
-                    color: #DDDDDD;
-
-                    .product-id{
-                        width: 50%;
-                        float: left;
-                        display: inline-block;
-                    }
-                    .control{
-                        width: 50%;
-                        float: right;
-                        display: inline-block;
-                        text-align: right;
-                    }
-                }
                 .product-title{
-                    width: 100%;
+                    width: 75%;
                     float: left;
                     display: inline-block;
                     font-size: 1em;
                     line-height: 1.5em;
-                    font-weight: bold;
+
+                    .title{
+                        font-weight: bold;
+                    }
+                    .description{
+                        font-size: 0.8em;
+                        color: #AAAAAA;
+
+                        .remove-button{
+                            margin-left: 10px;
+                            text-decoration: underline;
+
+                            &:hover{
+                                cursor: pointer;
+                            }
+                        }
+                    }
                 }
                 .product-payments{
-                    width: 100%;
+                    width: 25%;
                     float: left;
                     display: inline-block;
                     line-height: 1.5em;
 
                     .quantity{
-                        width: 50%;
+                        width: 40%;
                         float: left;
                         display: inline-block;
-                        color: #555555;
 
-                        .quantity-caption{
-                            width: 25%;
-                            float: left;
-                            display: inline-block;
-                        }
-
-                        .quantity-button{
-                            width: 6%;
-                            padding: 0% 2%;
+                        input{
+                            width: 100%;
                             float: left;
                             display: inline-block;
                             font-size: 1em;
                             text-align: center;
-                            color: #555555;
-
-                            &:hover{
-                                background: #EEEEEE;
-                                cursor: pointer;
-                            }
-                        }
-                        .quantity-value{
-                            width: 6%;
-                            padding: 0% 2%;
-                            float: left;
-                            display: inline-block;
-                            font-size: 1em;
-                            text-align: center;
+                            border: 0px;
+                            line-height: 1.5em;
+                            border-bottom: 1px solid #DDDDDD;
                         }
                     }
-
                     .payments{
-                        width: 30%;
-                        margin-left: 20%;
-                        float: right;
+                        width: 60%;
+                        float: left;
                         display: inline-block;
                         text-align: right;
-                        font-size: 1em;
+                        line-height: 1.5em;
                     }
                 }
             }
         }
 
         .items-payments{
-            width: 75%;
+            width: 82%;
             float: left;
             display: inline-block;
-            margin-left: 25%;
+            margin-left: 18%;
 
             .detail{
                 width: 60%;
                 padding: 3% 0%;
                 float: left;
                 display: inline-block;
-                font-size: 1.1em;
+                font-size: 1em;
 
                 i{
                     margin-right: 20px;
@@ -633,18 +673,20 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: right;
                 display: inline-block;
                 text-align: right;
-                font-size: 1.5em;
+                font-size: 1em;
             }
         }
 
         .subtotal{
             color: #AAAAAA;
+            font-weight: bold;
         }
 
         .total-payments{
             border-top: 1px solid #EEEEEE;
             .value{
-                font-size: 2.5em;
+                font-size: 1.5em;
+                font-weight: bold;
             }
         }
 

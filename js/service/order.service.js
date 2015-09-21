@@ -96,6 +96,7 @@ function OrderProcess(order_id,order_action){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        location.reload();
     }).error();
 }
 

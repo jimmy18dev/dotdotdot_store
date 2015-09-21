@@ -4,9 +4,12 @@ class OrderController extends OrderModel{
 	public $total;
 	public $amount;
 	public $payments;
+	public $description;
+	public $address;
 	public $summary_payments;
 	public $create_time;
 	public $update_time;
+	public $ems;
 	public $type;
 	public $status;
 
@@ -94,8 +97,11 @@ class OrderController extends OrderModel{
         $this->total = $data['od_total'];
         $this->amount = $data['od_amount'];
         $this->payments = $data['od_payments'];
+        $this->description = $data['od_description'];
+        $this->address = $data['od_address'];
         $this->create_time = $data['od_create_time'];
         $this->update_time = $data['od_update_time'];
+        $this->ems = $data['od_ems'];
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
 

@@ -10,24 +10,19 @@ $product_quantity = $var['odt_amount'];
 	</div>
 
 	<div class="detail">
-		<div class="product-control">
-			<div class="product-id">รหัสสินค้า <?php echo $var['pd_id'];?></div>
-			<div class="control"><span onclick="javascript:RemoveItemInOrder(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);"><i class="fa fa-trash-o"></i> ลบ</span></div>
+		<div class="product-title">
+			<p class="title">Notebook "he is our king" Stamp Foiled ขนาด A5 ปกแข็งไม่มีเส้น</p>
+			<p class="description">รหัสสินค้า <?php echo $var['pd_id'];?> ราคาชื้นละ <?php echo number_format($var['pd_price']);?> บาท <span class="remove-button" onclick="javascript:RemoveItemInOrder(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);">ลบจากรายการ</span>
+			</p>
 		</div>
-		<div class="product-title">Notebook "he is our king" Stamp Foiled ขนาด A5 ปกแข็งไม่มีเส้น</div>
-
 		<div class="product-payments">
 			<div class="quantity">
-				<div class="quantity-caption">ราคาชิ้นละ <?php echo number_format($var['pd_price']);?> x </div>
-				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'down');">-</div>
-				<div class="quantity-value" id="quantity-display-<?php echo $reference_id;?>"><?php echo $product_quantity;?></div>
-				<div class="quantity-button" onclick="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>,'up');">+</div>
+				<input type="text" id="product-amount-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);">
 			</div>
 			<div class="payments" id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments);?></div>
 		</div>
 	</div>
 
-	<input type="hidden" id="product-amount-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>">
-	<input type="hidden" id="product-payments-<?php echo $reference_id;?>" value="<?php echo $product_payments;?>">
+	<input type="hidden" id="product-payments-<?php echo $reference_id;?>" class="items-payments" value="<?php echo $product_payments;?>">
 	<input type="hidden" id="product-price-<?php echo $reference_id;?>" value="<?php echo $var['pd_price'];?>">
 </div>

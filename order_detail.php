@@ -54,45 +54,56 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 
 		<div class="order-state">
-			<div class="state-items">
+			<?php if($order->status != "Complete"){?>
+			<div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 				<div class="caption">ช็อป</div>
 			</div>
-			<div class="state-items">
+			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-barcode"></i></div>
 				<div class="caption">ชำระเงิน</div>
 			</div>
-			<div class="state-items">
+			<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-money"></i></div>
 				<div class="caption">โอนเงิน</div>
 			</div>
-			<div class="state-items">
-				<div class="icon"><i class="fa fa-truck"></i></div>
-				<div class="caption">จัดส่ง</div>
-			</div>
-			<div class="state-items">
+			<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="caption">รับของ</div>
+				<div class="caption">กำลังจัดส่ง</div>
 			</div>
+			<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
+				<div class="icon"><i class="fa fa-truck"></i></div>
+				<div class="caption">รอรับของ</div>
+			</div>
+			<?php }else{?>
+			<div class="state-items-fullsize"><i class="fa fa-smile-o"></i>การสั่งซื้อเสร็จสมบูรณ์</div>
+			<?php }?>
 		</div>
 
 		<div class="list">
 
+			<?php if($order->status == "Shipping"){?>
 			<!-- Shipping -->
 			<div class="order-box order-message">
 				<div class="topic">สถานะการส่งสินค้า</div>
 				<p class="icon"><i class="fa fa-truck"></i></p>
 				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
-				<p class="shipping-code">EDR2343563</p>
+				<p class="shipping-code"><?php echo $order->ems;?></p>
+
+				<div class="control">
+					<div class="complete-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ได้รับสินค้าแล้ว</div>
+				</div>
 			</div>
+			<?php }?>
 
 			<!-- Message -->
-			<div class="order-box order-message">
+			<!-- <div class="order-box order-message">
 				<div class="topic">สถานะการส่งสินค้า</div>
 				<p class="icon"><i class="fa fa-truck"></i></p>
 				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
-			</div>
+			</div> -->
 
+			<?php if($order->status == "Paying"){?>
 			<!-- Money Transfer -->
 			<div class="order-box order-money-transfer">
 				<div class="topic">ยืนยันการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
@@ -102,6 +113,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 						<div class="label">โอนเข้าธนาคาร</div>
 						<div class="input">
 							<select name="to_bank" class="input-select">
+								<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
 								<?php $bank->ListBank(array('null' => 0));?>
 							</select>
 						</div>
@@ -112,7 +124,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							ยอดเงินที่โอน
 						</div>
 						<div class="input">
-							<input type="text" class="input-text" name="total" placeholder="จำนวนเงินที่โอนเข้า" value="0">
+							<input type="text" class="input-text" name="total" placeholder="ยอดชำระ <?php echo number_format($order->summary_payments);?> บาท">
 						</div>
 					</div>
 
@@ -131,21 +143,13 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 					<div class="form-items full-size">
 						<div class="input">
-							<textarea name="address" class="input-text input-textarea" cols="60" rows="10" placeholder="ที่อยู่สำหรับส่งสินค้า"></textarea>
+							<textarea name="address" class="input-text input-textarea" cols="60" rows="10" placeholder="ที่อยู่สำหรับส่งสินค้า"><?php echo $order->address;?></textarea>
 						</div>
 					</div>
 
-					<!-- <div class="form-items">
-						<div class="label">ที่อยู่สำหรับส่งสินค้า</div>
-						<div class="input">
-							<?php echo $address->ListAddress(array('member_id' => MEMBER_ID));?>
-							<a href="address_editor.php?order=<?php echo $order->id;?>">ที่อยู่ใหม่</a>
-						</div>
-					</div> -->
-
 					<div class="form-items full-size">
 						<div class="input">
-							<textarea name="description" class="input-text input-textarea" cols="60" rows="10" placeholder="เพิ่มเติม"></textarea>
+							<textarea name="description" class="input-text input-textarea" cols="60" rows="10" placeholder="เพิ่มเติม"><?php echo $order->description;?></textarea>
 						</div>
 					</div>
 
@@ -159,45 +163,53 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 				</form>
 			</div>
+			<?php }?>
 
 			<div class="order-box order-list">
-				<div class="topic">รายการสินค้า</div>
+				<div class="topic-caption">
+					<div class="title">รายการสินค้า</div>
+					<div class="pay">รวม</div>
+					<div class="quantity">จำนวน</div>
+				</div>
+
 				<?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
 
 				<div class="items-payments subtotal">
 					<div class="detail"><i class="fa fa-clone"></i>ราคาสินค้ารวม : </div>
-					<div class="value">
+					<div class="value" id="subpayments-display">
 						<?php echo number_format($order->payments);?>
 					</div>
 				</div>
 
 				<div class="items-payments">
 					<div class="detail">
-						<i class="fa fa-truck"></i>ค่าบิรการส่งสินค้า : 
+						<i class="fa fa-truck"></i>ค่าบริการส่ง : 
 						
 						<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
 							<option value="Ems">EMS</option>
 							<option value="Register">ลงทะเบียน</option>
 						</select>
 					</div>
-					<div class="value">
+					<div class="value" id="shipping_payments">
 						<?php echo $order->shipping_payments;?>
 					</div>
 				</div>
 
 				<div class="items-payments total-payments">
 					<div class="detail"><i class="fa fa-barcode"></i>ยอดเงินที่ต้องชำระ : </div>
-					<div class="value">
+					<div class="value" id="payments-display">
 						<?php echo number_format($order->summary_payments);?>
 					</div>
 				</div>
 
 				<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
 
+				<?php if($order->status == "Shopping"){?>
 				<div class="form-submit">
 					<div class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</div>
-					<div class="cancel-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</div>
+					<!-- <div class="cancel-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</div> -->
 				</div>
+				<?php }?>
 			</div>
 		</div>
 	</div>

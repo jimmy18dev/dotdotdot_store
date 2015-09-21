@@ -1,29 +1,16 @@
-function ChangeAmount(order_id,product_id,action){
+function ChangeAmount(order_id,product_id){
 
 	// Setup
 	var reference_id 	= order_id+''+product_id;
 	var amount 			= $('#product-amount-'+order_id+product_id).val();
 	var price 			= $('#product-price-'+order_id+product_id).val();
 
-	// Function
-	if(action == "up")
-		amount++;
-	else if(action == "down")
-		if(amount > 1)
-			amount--;
-		else
-			return false;
-	else
-		return false;
-
 	// Render to Input
-	$('#product-amount-'+reference_id).val(amount);
 	$('#product-payments-'+reference_id).val(amount*price);
 
 	// Render to HTML
 	var payments_string =  numeral(amount*price).format('0,0');
 	$('#payments-display-'+reference_id).html(payments_string);
-	$('#quantity-display-'+reference_id).html(amount);
 
 	// Render to Console
 	console.log('Reference_id:'+reference_id+','+amount+' x '+price+' = '+ amount*price);
@@ -36,6 +23,8 @@ function ChangeAmount(order_id,product_id,action){
 
 function SummaryPayments(){
 	var all_payments = 0;
+	var sub_payments = 0;
+	var shipping_payments = 0;
 	var shipping_type = $('#shipping_type').val();
 
 	// Summary all payments
@@ -43,12 +32,20 @@ function SummaryPayments(){
         all_payments += Number($(this).val());
     });
 
-	if(shipping_type == "Ems")
-		all_payments += 50;
-	else if(shipping_type == "Register")
-		all_payments += 30;
-	else
-		all_payments;
+    sub_payments = all_payments;
 
+	if(shipping_type == "Ems"){
+		all_payments += 50;
+		shipping_payments = 50;
+	}else if(shipping_type == "Register"){
+		all_payments += 30;
+		shipping_payments = 30;
+	}else{
+		all_payments;
+	}
+
+	$('#shipping_payments').html(shipping_payments);
     $('#all-payments').val(all_payments);
+    $('#payments-display').html(numeral(all_payments).format('0,0'));
+    $('#subpayments-display').html(numeral(sub_payments).format('0,0'));
 }

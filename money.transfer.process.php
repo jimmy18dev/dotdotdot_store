@@ -7,6 +7,7 @@ $transfer_id = $bank->CreateMoneyTransfer(array(
     'member_id'     => MEMBER_ID,
     'total'         => $_POST['total'],
     'description'   => $_POST['description'],
+    'address'       => $_POST['address'],
     'type'          => 'bank_transfer',
 ));
 
