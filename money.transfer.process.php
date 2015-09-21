@@ -7,7 +7,6 @@ $transfer_id = $bank->CreateMoneyTransfer(array(
     'member_id'     => MEMBER_ID,
     'total'         => $_POST['total'],
     'description'   => $_POST['description'],
-    'address'       => $_POST['address'],
     'type'          => 'bank_transfer',
 ));
 
@@ -20,7 +19,7 @@ $order->OrderProcess(array(
     'member_id'     => MEMBER_ID,
     'order_id'      => $_POST['order_id'],
     'order_action'  => 'TransferRequest',
-    'address_id'    => $_POST['address_id'],
+    'address'       => $_POST['address'],
 ));
 
 if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && empty($_POST['post_id'])){

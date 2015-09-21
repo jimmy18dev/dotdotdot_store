@@ -53,13 +53,16 @@ if(!empty($user->current_order_id)){
 	</div>
 
 	<div class="container">
-		<div class="topic">
-			<div class="topic-caption">รายการสั่งซื้อ (5)</div>
-			<div class="filter"></div>
-		</div>
-
 		<div class="list">
-			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+			<div class="order-box order-list">
+				<div class="topic-caption">
+					<div class="title">รายการสั่งซื้อ</div>
+					<div class="pay">รวม</div>
+					<div class="quantity">จำนวน</div>
+				</div>
+
+				<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+			</div>
 		</div>
 	</div>
 </div>

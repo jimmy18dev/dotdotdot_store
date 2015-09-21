@@ -13,6 +13,13 @@ class OrderController extends OrderModel{
 	public $type;
 	public $status;
 
+	// Money Transfer
+	public $m_total;
+	public $m_description;
+	public $m_bank;
+	public $m_photo;
+
+	// Shipping
 	public $shipping_type;
 	public $shipping_payments;
 
@@ -115,6 +122,13 @@ class OrderController extends OrderModel{
         	$this->shipping_payments = 50;
         
         $this->summary_payments = $this->payments + $this->shipping_payments;
+
+        // Get Money transfer
+        $transfer = parent::GetMoneyTransferProcess(array('order_id' => $this->id));
+        $this->m_total = $transfer['mf_total'];
+        $this->m_description = $transfer['mf_description'];
+        $this->m_bank = $transfer['bk_name'];
+        $this->m_photo = $transfer['im_normal'];
     }
 
     private function RenderOrder($mode,$data){

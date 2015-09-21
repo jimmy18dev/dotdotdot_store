@@ -103,6 +103,13 @@ class OrderModel extends Database{
 		return parent::single();
 	}
 
+	public function GetMoneyTransferProcess($param){
+		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_name,bk_account_name,bk_account_number,im_id,im_thumbnail,im_normal,im_large FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id');
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+		return parent::single();
+	}
+
 	public function UpdateStatusOrderProcess($param){
 		parent::query('UPDATE dd_order SET od_status = :status, od_update_time = :update_time WHERE od_id = :order_id');
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));

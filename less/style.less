@@ -271,7 +271,6 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
         text-align: center;
-        background: #F0F0F0;
 
         .avatar{
             width: 100%;
@@ -320,6 +319,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             width: 50%;
             float: right;
             display: inline-block;
+            text-align: right;
         }
     }
 
@@ -541,6 +541,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             font-size: 0.8em;
+            border-bottom: 1px dotted #EEEEEE;
 
             .title{
                 width: 79%;
@@ -564,7 +565,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             width: 100%;
             float: left;
             display: inline-block;
-            border-top: 1px solid #EEEEEE;
+            border-bottom: 1px dotted #EEEEEE;
 
             .thumbnail{
                 width: 15%;
@@ -585,11 +586,15 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
 
                 .product-title{
-                    width: 75%;
+                    width: 73%;
+                    padding-right: 2%;
                     float: left;
                     display: inline-block;
                     font-size: 1em;
                     line-height: 1.5em;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
 
                     .title{
                         font-weight: bold;
@@ -714,50 +719,69 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
 
         .order-items{
-            width: 96%;
-            padding: 2%;
+            width: 100%;
+            padding: 3% 0%;
             float: left;
             display: inline-block;
-            border-top: 1px solid #eeeeee;
+            border-top: 1px solid #EEEEEE;
 
             &:hover{
-                background: #FAFAFA;
+                cursor: pointer;
+
+                .order-detail{
+                    .title{
+                        text-decoration: underline;
+                    }
+                }
             }
 
-            .detail{
-                width: 70%;
+            .order-icon{
+                width: 10%;
                 float: left;
                 display: inline-block;
-                line-height: 1.5em;
-                color: #000000;
+                text-align: center;
+                font-size: 3em;
+            }
 
-                .time{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    font-weight: bold;
-                    color: #AAAAAA;
-                }
+            .order-detail{
+                width: 65%;
+                float: left;
+                display: inline-block;
+                color: #000000;
+                line-height: 1.5em;
+
                 .title{
                     width: 100%;
                     float: left;
                     display: inline-block;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    overflow: hidden;
                 }
                 .status{
                     width: 100%;
                     float: left;
                     display: inline-block;
                     font-size: 0.8em;
-                    line-height: 3em;
                 }
             }
-            .payments{
-                width: 30%;
+            .order-payments{
+                width: 20%;
                 float: right;
                 display: inline-block;
                 text-align: right;
-                color: #4EA827;
+
+                .quantity{
+                    width: 40%;
+                    float: left;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .payments{
+                    width: 60%;
+                    float: left;
+                    display: inline-block;
+                }
             }
         }
     }

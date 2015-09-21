@@ -50,7 +50,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	<div class="container">
 		<div class="topic">
 			<div class="topic-caption"><i class="fa fa-file-text-o"></i>รายการสั่งซื้อ #<?php echo $order->id;?></div>
-			<div class="filter"></div>
+			<div class="filter"><a href="me.php">รายการทั้งหมด</a></div>
 		</div>
 
 		<div class="order-state">
@@ -97,11 +97,11 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<?php }?>
 
 			<!-- Message -->
-			<!-- <div class="order-box order-message">
-				<div class="topic">สถานะการส่งสินค้า</div>
-				<p class="icon"><i class="fa fa-truck"></i></p>
-				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
-			</div> -->
+			<div class="order-box order-message">
+				<p class="icon"><i class="fa fa-clock-o"></i></p>
+				<p>กรุณาชำระภายในวันที่ 24 ก.ย. 2558 ก่อน 14.00น.</p>
+				<p class="note">หากเกินกำหนดชำระเงินแล้ว สินค้าจะหลุดจอง ขอบคุณค่ะ</p>
+			</div>
 
 			<?php if($order->status == "Paying"){?>
 			<!-- Money Transfer -->
@@ -164,6 +164,41 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</form>
 			</div>
 			<?php }?>
+
+
+			<div class="order-box order-money-transfer">
+				<div class="topic">ยืนยันการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
+				<div class="form">
+					<div class="form-items">
+						<div class="label">โอนเข้าธนาคาร</div>
+						<div class="input"><?php echo $order->m_bank;?></div>
+					</div>
+
+					<div class="form-items">
+						<div class="label">
+							ยอดเงินที่โอน
+						</div>
+						<div class="input"><?php echo number_format($order->m_total);?></div>
+					</div>
+
+					<div class="form-items">
+						<div class="label">
+							ภาพถ่ายสลิปใบโอนเงิน
+						</div>
+						<div class="input">
+							<img src="<?php echo $order->m_photo;?>" alt="">
+						</div>
+					</div>
+
+					<div class="form-items full-size">
+						<div class="input"><i class="fa fa-truck"></i><?php echo $order->address;?></div>
+					</div>
+
+					<div class="form-items full-size">
+						<div class="input"><i class="fa fa-comments"></i><?php echo $order->m_description;?></div>
+					</div>
+				</div>
+			</div>
 
 			<div class="order-box order-list">
 				<div class="topic-caption">
