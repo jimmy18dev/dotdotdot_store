@@ -182,28 +182,30 @@ class Database{
 
     // Get age by Datetime
     function dateDifference($date){
-        
-        $year   = date_create($date)->diff(date_create('today'))->y;
-        $month  = date_create($date)->diff(date_create('today'))->m;
-        $day    = date_create($date)->diff(date_create('today'))->d;
 
-        if($year > 0)
-            $year = $year.' ปี';
-        else
-            $year = '';
+        $diff = strtotime($date) - time();
 
-        if($month > 0)
-            $month = $month.' เดือน';
-        else
-            $month = '';
+        if($diff < 10){
+            $text   = 'ขณะนี้'; 
+        }
+        else if($diff < 60){
+            $text   = $diff.' วินาที'; 
+        }
+        else if($diff < 3600){
+            $diff   = round($diff/60);
+            $text   = $diff.' นาที'; 
+        }
+        else if($diff < 86400){
+            // 1 Day
+            $diff   = floor($diff/3600);
+            $text   = $diff.' ชั่วโมง'; 
+        }
+        else{
+            $diff   = round($diff/86400);
+            $text   = $diff.' วัน';                
+        }
 
-        if($day > 0)
-            $day = $day.' วัน';
-        else
-            $day = '';
-
-        $date_string = $year.' '.$month.' '.$day;
-        return $date_string;
+        return $text;
     }
 }
 ?>

@@ -76,13 +76,31 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<div class="caption">รอรับของ</div>
 			</div>
 			<?php }else{?>
-			<div class="state-items-fullsize"><i class="fa fa-smile-o"></i>การสั่งซื้อเสร็จสมบูรณ์</div>
+			<div class="state-items-fullsize"><i class="fa fa-thumbs-o-up"></i>การสั่งซื้อเสร็จสมบูรณ์</div>
 			<?php }?>
 		</div>
 
 		<div class="list">
 
-			<?php if($order->status == "Shipping"){?>
+			<?php if($order->status == "Complete"){?>
+			<!-- Shipping -->
+			<div class="order-box order-message">
+				<p class="icon"><i class="fa fa-commenting-o"></i></p>
+				<p>รับสินค้าเรียบร้อย ขอบคุณที่ใช้บริการค่ะ</p>
+				<p>dotdotdot store</p>
+			</div>
+			<?php }?>
+
+			<?php if($order->status == "TransferSuccess"){?>
+			<!-- Shipping -->
+			<div class="order-box order-message">
+				<p class="icon"><i class="fa fa-check"></i></p>
+				<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+				<p title="<?php echo $order->confirm_time_thai_format;?>">เมื่อ <?php echo $order->confirm_time_facebook_format;?></p>
+			</div>
+			<?php }?>
+
+			<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 			<!-- Shipping -->
 			<div class="order-box order-message">
 				<div class="topic">สถานะการส่งสินค้า</div>
@@ -90,18 +108,23 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 				<p class="shipping-code"><?php echo $order->ems;?></p>
 
-				<div class="control">
-					<div class="complete-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ได้รับสินค้าแล้ว</div>
+				<?php if($order->status == "Shipping"){?>
+				<div class="question">
+					<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+					<div class="complete-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ฉันได้รับสินค้าแล้ว</div>
 				</div>
+				<?php }?>
 			</div>
 			<?php }?>
 
+			<?php if($order->status == "Paying"){?>
 			<!-- Message -->
 			<div class="order-box order-message">
 				<p class="icon"><i class="fa fa-clock-o"></i></p>
-				<p>กรุณาชำระภายในวันที่ 24 ก.ย. 2558 ก่อน 14.00น.</p>
+				<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
 				<p class="note">หากเกินกำหนดชำระเงินแล้ว สินค้าจะหลุดจอง ขอบคุณค่ะ</p>
 			</div>
+			<?php }?>
 
 			<?php if($order->status == "Paying"){?>
 			<!-- Money Transfer -->
@@ -159,26 +182,27 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 						<button class="submit-button" type="submit">ยืนยันการโอนเงิน</button>
 					</div>
 
-					<input type="hidden" name="order_id" value="<?php echo $order->id?>">
+					<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
 				</div>
 				</form>
 			</div>
 			<?php }?>
 
-
+			<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
+			<!-- Money transfer info -->
 			<div class="order-box order-money-transfer">
-				<div class="topic">ยืนยันการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
+				<div class="topic">หลักฐานการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
 				<div class="form">
 					<div class="form-items">
 						<div class="label">โอนเข้าธนาคาร</div>
-						<div class="input"><?php echo $order->m_bank;?></div>
+						<div class="input">ธนาคาร<?php echo $order->m_bank.' '.$order->m_bank_number;?></div>
 					</div>
 
 					<div class="form-items">
 						<div class="label">
 							ยอดเงินที่โอน
 						</div>
-						<div class="input"><?php echo number_format($order->m_total);?></div>
+						<div class="input"><?php echo number_format($order->m_total);?><span class="currency">฿</span></div>
 					</div>
 
 					<div class="form-items">
@@ -199,6 +223,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 					</div>
 				</div>
 			</div>
+			<?php }?>
 
 			<div class="order-box order-list">
 				<div class="topic-caption">
@@ -207,33 +232,44 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 					<div class="quantity">จำนวน</div>
 				</div>
 
-				<?php $order->ListItemsInOrder(array('order_id' => $order->id));?>
+				<?php
+				$order->ListItemsInOrder(array(
+					'order_id' 		=> $order->id,
+					'order_status' 	=> $order->status,
+				));
+				?>
 
 				<div class="items-payments subtotal">
 					<div class="detail"><i class="fa fa-clone"></i>ราคาสินค้ารวม : </div>
-					<div class="value" id="subpayments-display">
-						<?php echo number_format($order->payments);?>
+					<div class="value">
+						<span id="subpayments-display"><?php echo number_format($order->payments);?></span>
+						<span class="currency">฿</span>
 					</div>
 				</div>
 
 				<div class="items-payments">
 					<div class="detail">
 						<i class="fa fa-truck"></i>ค่าบริการส่ง : 
-						
+						<?php if($order->status == "Shopping"){?>
 						<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
 							<option value="Ems">EMS</option>
 							<option value="Register">ลงทะเบียน</option>
 						</select>
+						<?php }else{
+							echo $order->shipping_type;
+						}?>
 					</div>
-					<div class="value" id="shipping_payments">
-						<?php echo $order->shipping_payments;?>
+					<div class="value">
+						<span id="shipping_payments"><?php echo $order->shipping_payments;?></span>
+						<span class="currency">฿</span>
 					</div>
 				</div>
 
 				<div class="items-payments total-payments">
 					<div class="detail"><i class="fa fa-barcode"></i>ยอดเงินที่ต้องชำระ : </div>
-					<div class="value" id="payments-display">
-						<?php echo number_format($order->summary_payments);?>
+					<div class="value">
+						<span id="payments-display"><?php echo number_format($order->summary_payments);?></span>
+						<span class="currency">฿</span>
 					</div>
 				</div>
 
@@ -249,5 +285,15 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 	</div>
 </div>
+
+
+<!-- Loading process submit photo to uploading. -->
+<div id="filter">
+	<div class="logo">dotdotdot</div>
+	<div id="loading-bar"></div>
+	<div id="loading-message"></div>
+	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
+</div>
+
 </body>
 </html>

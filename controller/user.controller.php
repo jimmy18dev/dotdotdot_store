@@ -9,6 +9,10 @@ class UserController extends UserModel{
     public $facebook_name;
     public $current_order_id;
 
+    // time
+    public $create_time_facebook_format;
+    public $create_time_thai_format;
+
     public function GetUser($param){
         // Get MemberData
         $data = parent::GetUserProcess($param);
@@ -21,6 +25,9 @@ class UserController extends UserModel{
         $this->name =           $data['me_name'];
         $this->facebook_id =    $data['me_fb_id'];
         $this->facebook_name =  $data['me_fb_name'];
+
+        $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
+        $this->create_time_thai_format = $data['user_create_time_thai_format'];
     }
 
     public function RegisterUser($param){

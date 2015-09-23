@@ -54,6 +54,11 @@ class OrderController extends OrderModel{
 
     public function OrderProcess($param){
     	parent::UpdateStatusOrderProcess($param);
+
+    	// Update Confirm time in Order
+    	if($param['order_action'] == 'TransferSuccess'){
+    		parent::UpdateConfirmTimeProcess($param);
+    	}
     }
 
     public function UpdateEmsOrder($param){

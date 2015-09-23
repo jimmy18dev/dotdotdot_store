@@ -10,7 +10,7 @@
 
 	<a href="order_detail.php?id=<?php echo $order->id;?>">
 	<div class="header-items cart">
-		<i class="fa fa-shopping-cart"></i><span class="payments">+฿<span id="payments"><?php echo $order->payments;?></span></span>
+		<i class="fa fa-shopping-cart"></i><span class="payments"><span id="payments"><?php echo $order->payments;?></span></span>
 	</div>
 	</a>
 	<?php }else{?>

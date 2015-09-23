@@ -76,21 +76,38 @@ class OrderModel extends Database{
 
 		parent::query($sql);
 		parent::execute();
+
 		$dataset = parent::resultset();
 		return $dataset;
 	}
 
 	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id ORDER BY od_update_time DESC');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();
+
+		foreach ($dataset as $k => $var) {
+			$dataset[$k]['order_create_time_facebook_format'] 	= parent::date_facebookformat($var['od_create_time']);
+			$dataset[$k]['order_update_time_facebook_format'] 	= parent::date_facebookformat($var['od_update_time']);
+			$dataset[$k]['order_paying_time_facebook_format'] 	= parent::date_facebookformat($var['od_paying_time']);
+			$dataset[$k]['order_expire_time_facebook_format'] 	= parent::date_facebookformat($var['od_expire_time']);
+			$dataset[$k]['order_shipping_time_facebook_format'] = parent::date_facebookformat($var['od_shipping_time']);
+			$dataset[$k]['order_create_time_thai_format'] 		= parent::date_thaiformat($var['od_create_time']);
+			$dataset[$k]['order_update_time_thai_format'] 		= parent::date_thaiformat($var['od_update_time']);
+			$dataset[$k]['order_paying_time_thai_format'] 		= parent::date_thaiformat($var['od_paying_time']);
+			$dataset[$k]['order_expire_time_thai_format'] 		= parent::date_thaiformat($var['od_expire_time']);
+			$dataset[$k]['order_confirm_time_thai_format'] 		= parent::date_thaiformat($var['od_confirm_time']);
+			$dataset[$k]['order_shipping_time_thai_format'] 	= parent::date_thaiformat($var['od_shipping_time']);
+			$dataset[$k]['order_expire_time_datediff'] 			= parent::dateDifference($var['od_expire_time']);
+		}
+
 		return $dataset;
 	}
 
 	public function ListItemsInOrderProcess($param){
 		parent::query('SELECT * FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
-		parent::bind(':order_id', 		$param['order_id']);
+		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
@@ -100,7 +117,23 @@ class OrderModel extends Database{
 		parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
-		return parent::single();
+		$dataset = parent::single();
+
+		$dataset['order_create_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_create_time']);
+		$dataset['order_update_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_update_time']);
+		$dataset['order_paying_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_paying_time']);
+		$dataset['order_expire_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_expire_time']);
+		$dataset['order_confirm_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_confirm_time']);
+		$dataset['order_shipping_time_facebook_format'] = parent::date_facebookformat($dataset['od_shipping_time']);
+		$dataset['order_create_time_thai_format'] 		= parent::date_thaiformat($dataset['od_create_time']);
+		$dataset['order_update_time_thai_format'] 		= parent::date_thaiformat($dataset['od_update_time']);
+		$dataset['order_paying_time_thai_format'] 		= parent::date_thaiformat($dataset['od_paying_time']);
+		$dataset['order_expire_time_thai_format'] 		= parent::date_thaiformat($dataset['od_expire_time']);
+		$dataset['order_confirm_time_thai_format'] 		= parent::date_thaiformat($dataset['od_confirm_time']);
+		$dataset['order_shipping_time_thai_format'] 	= parent::date_thaiformat($dataset['od_shipping_time']);
+		$dataset['order_expire_time_datediff'] 			= parent::dateDifference($dataset['od_expire_time']);
+
+		return $dataset;
 	}
 
 	public function GetMoneyTransferProcess($param){
@@ -131,6 +164,22 @@ class OrderModel extends Database{
 
 		parent::execute();
 		return parent::lastInsertId();
+	}
+
+	public function UpdatePayingTimeProcess($param){
+		parent::query('UPDATE dd_order SET od_paying_time = :paying_time, od_expire_time = :expire_time WHERE od_id = :order_id');
+
+		parent::bind(':paying_time',	date('Y-m-d H:i:s'));
+		parent::bind(':expire_time',	date('Y-m-d H:i:s',time()+86400)); // Order's Expire within 1 day.
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+	}
+
+	public function UpdateConfirmTimeProcess($param){
+		parent::query('UPDATE dd_order SET od_confirm_time = :confirm_time WHERE od_id = :order_id');
+		parent::bind(':confirm_time',	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
 	}
 
 	public function UpdateShippingTypeOrderProcess($param){

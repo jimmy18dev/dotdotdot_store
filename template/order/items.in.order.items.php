@@ -11,15 +11,18 @@ $product_quantity = $var['odt_amount'];
 
 	<div class="detail">
 		<div class="product-title">
-			<p class="title">Notebook "he is our king" Stamp Foiled ขนาด A5 ปกแข็งไม่มีเส้น</p>
-			<p class="description">รหัสสินค้า <?php echo $var['pd_id'];?> ราคาชื้นละ <?php echo number_format($var['pd_price']);?> บาท <span class="remove-button" onclick="javascript:RemoveItemInOrder(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);">ลบจากรายการ</span>
+			<p class="title"><?php echo $var['pd_title'];?></p>
+			<p class="description">รหัสสินค้า <?php echo $var['pd_id'];?> ราคาชื้นละ <?php echo number_format($var['pd_price']);?> บาท <?php if($order_status == "Shopping"){?><span class="remove-button" onclick="javascript:RemoveItemInOrder(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);">ลบจากรายการ</span><?php }?>
 			</p>
 		</div>
 		<div class="product-payments">
 			<div class="quantity">
-				<input type="text" id="product-amount-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);">
+				<input type="text" id="product-amount-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeAmount(<?php echo $var['odt_order_id'];?>,<?php echo $var['odt_product_id'];?>);" <?php echo ($order_status != "Shopping"?'disabled':'');?>>
 			</div>
-			<div class="payments" id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments);?></div>
+			<div class="payments">
+				<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments);?></span>
+				<span class="currency">฿</span>
+			</div>
 		</div>
 	</div>
 

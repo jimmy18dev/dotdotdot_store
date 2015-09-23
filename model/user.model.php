@@ -41,7 +41,12 @@ class UserModel extends Database{
 		parent::query('SELECT * FROM dd_member WHERE me_id = :member_id');
 		parent::bind(':member_id',		$param['member_id']);
 		parent::execute();
-		return parent::single();
+		$dataset = parent::single();
+
+		$dataset['user_create_time_facebook_format'] 	= parent::date_facebookformat($dataset['me_create_time']);
+		$dataset['user_create_time_thai_format'] 		= parent::date_thaiformat($dataset['me_create_time']);
+
+		return $dataset;
 	}
 
 	public function CurrentOrderProcess($param){

@@ -7,8 +7,14 @@ class OrderController extends OrderModel{
 	public $description;
 	public $address;
 	public $summary_payments;
+
+	// Time Update
 	public $create_time;
 	public $update_time;
+	public $expire_time_thai_format;
+	public $expire_time_datediff;
+	public $confirm_time_facebook_format;
+	public $confirm_time_thai_format;
 	public $ems;
 	public $type;
 	public $status;
@@ -17,6 +23,7 @@ class OrderController extends OrderModel{
 	public $m_total;
 	public $m_description;
 	public $m_bank;
+	public $m_bank_number;
 	public $m_photo;
 
 	// Shipping
@@ -94,7 +101,8 @@ class OrderController extends OrderModel{
 
 	public function ListItemsInOrder($param){
 		$data = parent::ListItemsInOrderProcess($param);
-		$this->RenderItemsInOrder('null',$data);
+		$order_status = $param['order_status'];
+		$this->RenderItemsInOrder('null',$data,$order_status);
 	}
 
 	public function GetOrder($param){
@@ -106,8 +114,15 @@ class OrderController extends OrderModel{
         $this->payments = $data['od_payments'];
         $this->description = $data['od_description'];
         $this->address = $data['od_address'];
+
+        // time update
         $this->create_time = $data['od_create_time'];
         $this->update_time = $data['od_update_time'];
+        $this->expire_time_thai_format = $data['order_expire_time_thai_format'];
+        $this->expire_time_datediff = $data['order_expire_time_datediff'];
+        $this->confirm_time_facebook_format = $data['order_confirm_time_facebook_format'];
+        $this->confirm_time_thai_format = $data['order_confirm_time_thai_format'];
+
         $this->ems = $data['od_ems'];
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
@@ -128,6 +143,7 @@ class OrderController extends OrderModel{
         $this->m_total = $transfer['mf_total'];
         $this->m_description = $transfer['mf_description'];
         $this->m_bank = $transfer['bk_name'];
+        $this->m_bank_number = $transfer['bk_account_number'];
         $this->m_photo = $transfer['im_normal'];
     }
 
@@ -138,27 +154,41 @@ class OrderController extends OrderModel{
         unset($data);
     }
 
-    private function RenderItemsInOrder($mode,$data){
+    private function RenderItemsInOrder($mode,$data,$order_status){
         foreach ($data as $var){
         	include'template/order/items.in.order.items.php';
         }
         unset($data);
     }
 
+    public function Test($param){
+    	parent::UpdatePayingTimeProcess($param);
+    }
+
     public function OrderProcess($param){
+
+    	// Update order status
     	parent::UpdateStatusOrderProcess($param);
 
     	// Update Shipping Type (EMS,Register)
     	if($param['order_action'] == 'Paying'){
     		if($this->CheckingAllAmountInOrder($param)){
+
+    			// Subtraction of Product
     			$param['action'] = 'subtraction';
     			$this->UpdateProductAmount($param);
+
+    			// Update Shipping in Order
     			parent::UpdateShippingTypeOrderProcess($param);
+
+    			// Update Paying and Expire time to Order
+    			parent::UpdatePayingTimeProcess($param);
     		}
     	}
     	// Update Address id to Order
     	else if($param['order_action'] == 'TransferRequest'){
     		parent::UpdateAddressOrderProcess($param);
+    		parent::UpdateConfirmTimeProcess($param);
     	}
     	else if($param['order_action'] == 'Cancel'){
     		$param['action'] = 'restore';
