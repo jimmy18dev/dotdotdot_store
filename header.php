@@ -1,5 +1,5 @@
 <header class="header">
-	<div class="header-items logo"><a href="index.php">dotdotdot store</a></div>
+	<div class="header-items logo"><a href="index.php">dotdotdot limited</a></div>
 
 	<?php if(MEMBER_ONLINE){?>
 	<a href="me.php">
@@ -8,9 +8,9 @@
 	</div>
 	</a>
 
-	<a href="order_detail.php?id=<?php echo $order->id;?>">
-	<div class="header-items cart">
-		<i class="fa fa-shopping-cart"></i><span class="payments"><span id="payments"><?php echo $order->payments;?></span></span>
+	<a href="order_detail.php?id=<?php echo $user->current_order_id;?>">
+	<div class="header-items cart animated" id="my-cart">
+		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i><span class="payments">Checkout: <span id="payments"><?php echo number_format($order->payments,2);?> ฿</span></span>
 	</div>
 	</a>
 	<?php }else{?>

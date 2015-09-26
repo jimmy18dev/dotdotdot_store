@@ -3,7 +3,12 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 
-$product->GetProduct(array('product_id' => $_GET['id']));
+$product->GetProduct(array(
+	'product_id' => $_GET['id'],
+	'order_id' => $user->current_order_id,
+));
+
+$product->UpdateView(array('product_id' => $product->id));
 ?>
 
 <!DOCTYPE html>
@@ -35,7 +40,11 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/init.js"></script>
+<script type="text/javascript" src="js/lib/numeral.min.js"></script>
+<script type="text/javascript" src="js/service/product.service.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
+<script type="text/javascript" src="js/product.app.js"></script>
 
 </head>
 
@@ -48,103 +57,51 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 		<!-- Photo -->
 		<div class="product-photos">
 			<img src="store/<?php echo $product->image_normal;?>" alt="">
-			<img src="image/site/2.jpg" alt="">
-			<img src="image/site/1.jpg" alt="">
-			<img src="image/site/3.jpg" alt="">
-			<img src="image/site/4.jpg" alt="">
-			<img src="image/site/1.jpg" alt="">
+			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
 		</div>
 
 		<!-- Detail -->
 		<div class="product-details">
 			<h1><?php echo $product->title;?></h1>
-			<p class="code">รหัสสินค้า #<?php echo $product->id;?></p>
-			<p><?php echo $product->price;?></p>
+			<p class="code"><?php echo number_format($product->read);?> คนดูสินค้านี้ <span class="price"><?php echo number_format($product->price,2);?> ฿</span></p>
 			<div class="description"><?php echo $product->description;?></div>
 
 			<div class="action">
+				<p class="topic">สั่งซื้อสินค้า <?php echo 'InOrder: '.$product->in_order;?></p>
+				<?php
+				if($product->type == "normal"){
+					if(empty($product->in_order)){
+						$button_msg = 'Buy';
+						$button_price = number_format($product->price,2).' ฿';
+					}
+					else{
+						$button_msg = '<i class="fa fa-check"></i>';
+						$button_price = 'Checkout';
+					}
+				?>
 				<div class="action-items">
-					<div class="caption">เบอร์ S (21x30)</div>
-					<div class="buy">
-						<div class="buy-button">390.00 ฿</div>
+					<div class="detail">
+						<div class="caption">รหัสสินค้า #<?php echo $product->id;?></div>
+						<div class="desc">หยิบสินค้าใส่ตระกร้า</div>
+					</div>
+					<div class="buy-button" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)">
+						<p id="buy-button-msg-<?php echo $product->id;?>" class="animated"><?php echo $button_msg;?></p>
+						<p id="buy-button-price-<?php echo $product->id;?>" class="msg"><?php echo $button_price;?></p>
 					</div>
 				</div>
-				<div class="action-items">
-					<div class="caption">เบอร์ M (21x30)</div>
-					<div class="buy">
-						<div class="buy-button">390.00 ฿</div>
-					</div>
-				</div>
-				<div class="action-items">
-					<div class="caption">เบอร์ L (21x30)</div>
-					<div class="buy">
-						<div class="buy-button">390.00 ฿</div>
-					</div>
-				</div>
-				<div class="action-items">
-					<div class="caption">เบอร์ XL (21x30)</div>
-					<div class="buy">
-						<div class="buy-button">390.00 ฿</div>
-					</div>
-				</div>
+				<?php }else{
+					$product->ListSubProduct(array(
+						'product_id' => $product->id,
+						'order_id' => $user->current_order_id,
+					));
+				}?>
 			</div>
 		</div>
 
-		<!-- <div class="picture">
-			<div class="picture-items">
-				<img src="image/site/1.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/2.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/3.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/4.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/1.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/2.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/3.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/4.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/1.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/2.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/3.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/4.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/1.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/2.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/3.jpg" alt="">
-			</div>
-			<div class="picture-items">
-				<img src="image/site/4.jpg" alt="">
-			</div>
-		</div> -->
+		<!-- Product ID -->
+		<input type="hidden" id="product_id" value="<?php echo $product->id;?>">
 	</div>
 </div>
-<label for="">จำนวน <input type="number" id="amount" value="1"></label>
-<button onclick="javascript:AddItemToOrder(<?php echo $product->id;?>);">ซื้อเลย <?php echo $product->price;?> บาท</button>
-
 <?php
 include'footer.php';
 ?>

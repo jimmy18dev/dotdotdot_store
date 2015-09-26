@@ -49,7 +49,7 @@ else{
 	</div>
 	<div class="order-payments">
 		<div class="quantity"><?php echo $var['od_total'];?></div>
-		<div class="payments"><?php echo number_format($var['od_payments']);?><span class="currency">฿</span></div>
+		<div class="payments"><?php echo number_format($var['od_payments'],2);?> <span class="currency">฿</span></div>
 	</div>
 </div>
 </a>

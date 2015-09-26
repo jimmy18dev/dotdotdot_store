@@ -3,11 +3,7 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 
-if(!empty($user->current_order_id)){
-	$order->GetOrder(array('order_id' => $user->current_order_id));
-}
-
-$order->CheckingOrder(array('id' => 0));
+// $order->CheckingOrder(array('id' => 0));
 ?>
 
 <!DOCTYPE html>
@@ -39,12 +35,8 @@ $order->CheckingOrder(array('id' => 0));
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){
-	// MyCurrentOrder();
-});
-</script>
 
 </head>
 
@@ -53,7 +45,7 @@ $(document).ready(function(){
 
 <div class="content">
 	<div class="product">
-		<?php $product->ListProduct(array('null' => 0));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>
 <?php

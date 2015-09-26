@@ -42,7 +42,7 @@ class OrderController extends OrderModel{
 	// - Shipping
 	// - Complete
 	// -----------------
-
+	
 	public function AddtoOrder($param){
 		// Order checking
 		$order_checking = parent::CheckingAlreadyOrderProcess($param);

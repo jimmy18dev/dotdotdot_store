@@ -50,7 +50,7 @@ else if(isset($_GET['parent'])){
 	<h1>Create New Product</h1>
 	<hr>
 	<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
-		<input type="file" class="input-file" id="post_files" name="image_file" accept="image/*"><br>
+		<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple"><br>
 
 		<p>id</p>
 		<input type="text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">

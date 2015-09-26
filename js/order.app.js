@@ -1,15 +1,15 @@
-function ChangeAmount(order_id,product_id){
+function ChangeQuantity(order_id,product_id){
 
 	// Setup
 	var reference_id 	= order_id+''+product_id;
-	var amount 			= $('#product-amount-'+order_id+product_id).val();
+	var amount 			= $('#product-quantity-'+order_id+product_id).val();;
 	var price 			= $('#product-price-'+order_id+product_id).val();
 
 	// Render to Input
 	$('#product-payments-'+reference_id).val(amount*price);
 
 	// Render to HTML
-	var payments_string =  numeral(amount*price).format('0,0');
+	var payments_string =  numeral(amount*price).format('0,0.00');
 	$('#payments-display-'+reference_id).html(payments_string);
 
 	// Render to Console
@@ -44,8 +44,8 @@ function SummaryPayments(){
 		all_payments;
 	}
 
-	$('#shipping_payments').html(shipping_payments);
+	$('#shipping_payments').html(numeral(shipping_payments).format('0,0.00'));
     $('#all-payments').val(all_payments);
-    $('#payments-display').html(numeral(all_payments).format('0,0'));
-    $('#subpayments-display').html(numeral(sub_payments).format('0,0'));
+    $('#payments-display').html(numeral(all_payments).format('0,0.00'));
+    $('#subpayments-display').html(numeral(sub_payments).format('0,0.00'));
 }

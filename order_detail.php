@@ -242,7 +242,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<div class="items-payments subtotal">
 					<div class="detail"><i class="fa fa-clone"></i>ราคาสินค้ารวม : </div>
 					<div class="value">
-						<span id="subpayments-display"><?php echo number_format($order->payments);?></span>
+						<span id="subpayments-display"><?php echo number_format($order->payments,2);?></span>
 						<span class="currency">฿</span>
 					</div>
 				</div>
@@ -260,7 +260,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 						}?>
 					</div>
 					<div class="value">
-						<span id="shipping_payments"><?php echo $order->shipping_payments;?></span>
+						<span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span>
 						<span class="currency">฿</span>
 					</div>
 				</div>
@@ -268,7 +268,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<div class="items-payments total-payments">
 					<div class="detail"><i class="fa fa-barcode"></i>ยอดเงินที่ต้องชำระ : </div>
 					<div class="value">
-						<span id="payments-display"><?php echo number_format($order->summary_payments);?></span>
+						<span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span>
 						<span class="currency">฿</span>
 					</div>
 				</div>

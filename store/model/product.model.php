@@ -16,7 +16,7 @@ class ProductModel extends Database{
 	}
 
 	public function CreateProductProcess($param){
-		parent::query('INSERT INTO dd_product(pd_parent,pd_code,pd_title,pd_description,pd_unit,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status) VALUE(:parent,:code,:title,:description,:unit,:price,:create_time,:update_time,:group,:type,:status)');
+		parent::query('INSERT INTO dd_product(pd_parent,pd_code,pd_title,pd_description,pd_unit,pd_price,pd_create_time,pd_update_time,pd_visit_time,pd_order_time,pd_group,pd_type,pd_status) VALUE(:parent,:code,:title,:description,:unit,:price,:create_time,:update_time,:visit_time,:order_time,:group,:type,:status)');
 
 		parent::bind(':parent', 		$param['parent']);
 		parent::bind(':code', 			$param['code']);
@@ -26,6 +26,8 @@ class ProductModel extends Database{
 		parent::bind(':price', 			$param['price']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':visit_time',		date('Y-m-d H:i:s'));
+		parent::bind(':order_time',		date('Y-m-d H:i:s'));
 		parent::bind(':group', 			$param['group']);
 		parent::bind(':type',			$param['type']);
 		parent::bind(':status',			$param['status']);

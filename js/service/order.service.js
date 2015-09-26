@@ -1,10 +1,9 @@
 function AddItemToOrder(product_id){
-    var href = 'api.order.php';
-    var amount = $('#amount').val();
-    
-    if(!amount){amount = 1;}
+    // Clear animation
+    $('#buy-button-price-'+product_id).removeClass('pulse');
 
-    console.log('Send:: '+product_id+' ,amount: '+amount);
+    var href = 'api.order.php';
+    var amount = 1;
 
     $.ajax({
         url         :href,
@@ -21,14 +20,27 @@ function AddItemToOrder(product_id){
             console.log("Request Error");
         }
     }).done(function(data){
-        console.log('Return: '+data.message);
-        MyCurrentOrder();
+        console.log('Return: '+data.message+','+data.return);
+
+        $('#buy-button-msg-'+product_id).html('<i class="fa fa-check"></i>');
+        $('#buy-button-price-'+product_id).html('Checkout');
+
+        // Add animation
+        $('#buy-button-msg-'+product_id).addClass('pulse');
+
+        if(data.message){
+            MyCurrentOrder();
+        }
+        else{
+            window.location='order_detail.php?id='+data.return;
+        }
+
     }).error();
 }
 
 function EditItemInOrder(order_id,product_id){
     var href = 'api.order.php';
-    var amount = $('#product-amount-'+order_id+product_id).val();
+    var quantity = $('#product-quantity-'+order_id+product_id).val();
 
     $.ajax({
         url         :href,
@@ -38,7 +50,7 @@ function EditItemInOrder(order_id,product_id){
         data:{
             calling             :'Order',
             action              :'EditInOrder',
-            amount              :amount,
+            amount              :quantity,
             order_id            :order_id,
             product_id          :product_id,
         },
@@ -69,7 +81,8 @@ function RemoveItemInOrder(order_id,product_id){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
-        $('#items-in-order-'+product_id).fadeOut();
+        $('#items-in-order-'+product_id).slideUp();
+        MyCurrentOrder();
     }).error();
 }
 
@@ -102,6 +115,7 @@ function OrderProcess(order_id,order_action){
 
 function MyCurrentOrder(){
     var href = 'api.order.php';
+    $('#my-cart').removeClass('pulse');
 
     $.ajax({
         url         :href,
@@ -116,7 +130,16 @@ function MyCurrentOrder(){
             console.log("Request Error");
         }
     }).done(function(data){
+        var payments = numeral(data.data.payments).format('0,0.00');
+        $('#my-cart').addClass('pulse');
         $('#amount').html(data.data.amount);
-        $('#payments').html(data.data.payments);
+        $('#payments').html(payments+' ฿');
+
+        if(data.data.payments > 0){
+            $('#my-cart i').addClass('animated infinite pulse');
+        }
+        else{
+            $('#my-cart i').removeClass('animated infinite pulse');   
+        }
     }).error();
 }

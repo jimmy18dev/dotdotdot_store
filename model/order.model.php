@@ -2,13 +2,10 @@
 class OrderModel extends Database{
 
 	public function CreateOrderProcess($param){
-		parent::query('INSERT INTO dd_order(od_member_id,od_create_time,od_update_time,od_type,od_status) VALUE(:member_id,:create_time,:update_time,:type,:status)');
-
+		parent::query('INSERT INTO dd_order(od_member_id,od_create_time,od_update_time) VALUE(:member_id,:create_time,:update_time)');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
 
 		parent::execute();
 		return parent::lastInsertId();
@@ -17,15 +14,13 @@ class OrderModel extends Database{
 	// Items in Order
 	// Add items to Order
 	public function AddItemsInOrderProcess($param){
-		parent::query('INSERT INTO dd_order_detail(odt_order_id,odt_product_id,odt_amount,odt_create_time,odt_update_time,odt_type,odt_status) VALUE(:order_id,:product_id,:amount,:create_time,:update_time,:type,:status)');
+		parent::query('INSERT INTO dd_order_detail(odt_order_id,odt_product_id,odt_amount,odt_create_time,odt_update_time) VALUE(:order_id,:product_id,:amount,:create_time,:update_time)');
 
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::bind(':product_id', 	$param['product_id']);
 		parent::bind(':amount', 		$param['amount']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
 
 		parent::execute();
 		return parent::lastInsertId();
@@ -68,7 +63,7 @@ class OrderModel extends Database{
 
 	public function ListOrderProcess($param){
 		$select = 'SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order';
-		$where = ' WHERE od_status = "Paying" OR od_status = "Expire"';
+		$where = ' WHERE (od_status = "Paying" OR od_status = "Expire")';
 		$order = ' ORDER BY od_update_time DESC';
 		$limit = '';
 
@@ -106,7 +101,13 @@ class OrderModel extends Database{
 	}
 
 	public function ListItemsInOrderProcess($param){
-		parent::query('SELECT * FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
+		parent::query('SELECT odt_id,odt_order_id order_id,odt_amount product_amount,product.pd_id product_id,product.pd_title product_title,product.pd_description product_description,product.pd_price product_price,product.pd_type product_type,p_image.im_id product_image_id,p_image.im_thumbnail product_image_thumbnail,parent.pd_id parent_id,parent.pd_title parent_title,parent.pd_description parent_description,parent_image.im_id parent_image_id,parent_image.im_thumbnail parent_image_thumbnail 
+			FROM dd_order_detail 
+			LEFT JOIN dd_product AS product ON odt_product_id = pd_id 
+			LEFT JOIN dd_product AS parent ON product.pd_parent = parent.pd_id 
+			LEFT JOIN dd_image AS p_image ON product.pd_id = p_image.im_product_id 
+			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id
+			WHERE odt_order_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::resultset();

@@ -56,6 +56,10 @@
 	// Get member info
 	if(MEMBER_ONLINE){
 		$user->GetUser(array('member_id' => $_SESSION['member_id']));
+
+		if(!empty($user->current_order_id)){
+			$order->GetOrder(array('order_id' => $user->current_order_id));
+		}
 	}
 
 	// Define member data

@@ -9,14 +9,16 @@ if($_POST['calling'] != ''){
 			switch ($_POST['action']) {
 				case 'AddToOrder':
 					if(true){
-						$order->AddtoOrder(array(
+						$msg_return = $order->AddtoOrder(array(
 							'member_id' 	=> MEMBER_ID,
-							'type' 			=> 'normal',
-							'status' 		=> 'Shopping',
 							'product_id' 	=> $_POST['product_id'],
 							'amount' 		=> $_POST['amount'],
 						));
-						$api->successMessage('Add Product to Order Successed.','','');
+
+						// return value
+						// - message for action status.
+						// - return for current order id.
+						$api->successMessage($msg_return,$user->current_order_id,'');
 					}
 					else{
 						$api->errorMessage('Access Token Error!');

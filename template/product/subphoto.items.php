@@ -1,0 +1,1 @@
+<img src="store/<?php echo $var['im_normal'];?>" alt="">

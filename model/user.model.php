@@ -49,7 +49,7 @@ class UserModel extends Database{
 		return $dataset;
 	}
 
-	public function CurrentOrderProcess($param){
+	public function GetCurrentOrderProcess($param){
 		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
@@ -66,6 +66,26 @@ class UserModel extends Database{
 		parent::execute();
 		$data = parent::single();
 		return $data['me_id'];
+	}
+
+	// Order Management
+	// Automation Create Order.
+	public function CreateOrderProcess($param){
+		parent::query('INSERT INTO dd_order(od_member_id,od_create_time,od_update_time) VALUE(:member_id,:create_time,:update_time)');
+
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+	public function CheckingAlreadyOrderProcess($param){
+		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+		$data = parent::single();
+		return $data['od_id'];
 	}
 
 

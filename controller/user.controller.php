@@ -16,7 +16,6 @@ class UserController extends UserModel{
     public function GetUser($param){
         // Get MemberData
         $data = parent::GetUserProcess($param);
-        $this->current_order_id = parent::CurrentOrderProcess($param);
 
         // Setdata
         $this->id =             $data['me_id'];
@@ -28,6 +27,15 @@ class UserController extends UserModel{
 
         $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
         $this->create_time_thai_format = $data['user_create_time_thai_format'];
+
+        // Current Order
+        $this->current_order_id = parent::GetCurrentOrderProcess($param);
+
+        if(empty($this->current_order_id)){
+            $order_checking = parent::CheckingAlreadyOrderProcess($param); // return order_id
+            if(empty($order_checking))
+                $this->current_order_id = parent::CreateOrderProcess($param);
+        }
     }
 
     public function RegisterUser($param){
