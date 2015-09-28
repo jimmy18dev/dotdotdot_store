@@ -46,12 +46,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <body>
 <?php include'header.php';?>
 
-<div class="content">
+<div class="content content-order">
 	<div class="container">
-		<div class="topic">
-			<div class="topic-caption"><i class="fa fa-file-text-o"></i>รายการสั่งซื้อ #<?php echo $order->id;?></div>
-			<div class="filter"><a href="me.php">รายการทั้งหมด</a></div>
-		</div>
+		<div class="topic"><i class="fa fa-file-text-o"></i>รายการสั่งซื้อ #<?php echo $order->id;?></div>
 
 		<div class="order-state">
 			<?php if($order->status != "Complete"){?>
@@ -81,7 +78,6 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 
 		<div class="list">
-
 			<?php if($order->status == "Complete"){?>
 			<!-- Shipping -->
 			<div class="order-box order-message">
@@ -129,7 +125,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<?php if($order->status == "Paying"){?>
 			<!-- Money Transfer -->
 			<div class="order-box order-money-transfer">
-				<div class="topic">ยืนยันการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
+				<div class="topic">ยืนยันการโอนเงิน</div>
 				<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 				<div class="form">
 					<div class="form-items">
@@ -278,7 +274,6 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<?php if($order->status == "Shopping"){?>
 				<div class="form-submit">
 					<div class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</div>
-					<!-- <div class="cancel-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิก</div> -->
 				</div>
 				<?php }?>
 			</div>

@@ -85,6 +85,519 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-top: 80px;
     margin-bottom: 5%;
 
+    .container{
+        width: @page_width;
+        padding: 0% ((100 - @page_width) / 2);
+        float: left;
+        display: inline-block;
+
+        .topic{
+            width: 98%;
+            padding: 1%;
+            float: left;
+            display: inline-block;
+            background: #FAFAFA;
+            font-size: 0.9em;
+            line-height: 1.5em;
+
+            i{
+                margin-right: 10px;
+            }
+        }
+
+        .order-state{
+            width: 100%;
+            float: left;
+            display: inline-block;
+
+            .state-items{
+                width: 20%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+                border-bottom: 2px solid #EEEEEE;
+
+                .icon{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 2em;
+                    margin-bottom: 2%;
+                    color: #EEEEEE;
+                }
+                .caption{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 0.8em;
+                    line-height: 2em;
+                    color: #EEEEEE;
+                }
+            }
+
+            .state-active{
+                border-bottom: 2px solid #000000;
+                .icon{
+                    color: #000000;
+                }
+                .caption{
+                    color: #000000;
+                    font-weight: bold;
+                }
+            }
+
+            .state-items-fullsize{
+                width: 100%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .list{
+            width: 100%;
+            float: left;
+            display: inline-block;
+
+            .order-box{
+                width: 100%;
+                padding: 0% 0%;
+                margin-bottom: 5%;
+                float: left;
+                display: inline-block;
+
+                .topic{
+                    width: 98%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 0.9em;
+                    color: #AAAAAA;
+                    text-align: right;
+                }
+
+                .question{
+                    width: 100%;
+                    padding-top: 2%;
+                    float: left;
+                    display: inline-block;
+                    border-top: 1px dotted #EEEEEE;
+
+                    .complete-button{
+                        width: 30%;
+                        padding: 2% 0%;
+                        margin: 2% 35%;
+                        float: left;
+                        display: inline-block;
+                        text-align: center;
+                        background: #DADADA;
+                        font-size: 0.9em;
+                        line-height: 1.5em;
+                        i{
+                            margin-right: 10px;
+                        }
+
+                        &:hover{
+                            cursor: pointer;
+                        }
+                    }
+                }
+
+                .form-submit{
+                    width: 100%;
+                    padding: 3% 0%;
+                    float: left;
+                    display: inline-block;
+
+                    .submit-button{
+                        float: right;
+                        display: inline-block;
+                        text-align: center;
+                        padding: 2% 5%;
+                        font-size: 0.9em;
+                        line-height: 1.5em;
+                        background: #000000;
+                        color: #FFFFFF;
+                        border: 0px;
+
+                        &:hover{
+                            background: #333333;
+                            cursor: pointer;
+                        }
+                    }
+                }
+            }
+
+            .order-message{
+                text-align: center;
+                padding: 5% 0%;
+
+                p{
+                    font-size: 1em;
+                    line-height: 2em;
+                }
+                p.icon{
+                    font-size: 2.5em;
+                }
+                p.shipping-code{
+                    font-size: 3em;
+                }
+            }
+
+            .order-money-transfer{
+                .form{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+
+                    .form-items{
+                        width: 100%;
+                        padding: 3% 0%;
+                        float: left;
+                        display: inline-block;
+                        border-top: 1px solid #F0F0F0;
+
+                        .label{
+                            width: 30%;
+                            float: left;
+                            display: inline-block;
+                            line-height: 1.5em;
+                        }
+                        .input{
+                            width: 65%;
+                            margin-left: 5%;
+                            float: right;
+                            display: inline-block;
+
+                            .image-input{
+                                width: 80%;
+                                padding: 20% 10%;
+                                float: left;
+                                display: inline-block;
+                                background: #EEEEEE;
+                                text-align: center;
+                            }
+
+                            .input-select{
+                                width: 100%;
+                                float: left;
+                                display: inline-block;
+                                font-size: 1em;
+                                line-height: 1.5em;
+                                border: 0px;
+                                background: #FFFFFF;
+                            }
+
+                            .input-file{
+                                width: 100%;
+                                line-height: 1.5em;
+                            }
+
+                            .input-text{
+                                width: 100%;
+                                float: left;
+                                display: inline-block;
+                                font-size: 1em;
+                                font-family: @FontStylePrimary;
+                                line-height: 1.5em;
+                                border: 0px;
+                                outline: 0;
+                            }
+
+                            .input-textarea{
+                                height: 50px;
+
+                            }
+                        }
+                    }
+
+                    .full-size{
+                        .input{
+                            width: 100%;
+                            margin-left: 0%;
+                        }
+                    }
+                }
+            }
+
+            .topic-caption{
+                width: 100%;
+                padding: 2% 0%;
+                float: left;
+                display: inline-block;
+                font-size: 0.9em;
+                border-bottom: 1px solid #000000;
+                line-height: 1.5em;
+
+                .title{
+                    width: 79%;
+                    float: left;
+                    display: inline-block;
+                }
+                .quantity{
+                    width: 9%;
+                    float: right;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .pay{
+                    width: 12%;
+                    float: right;
+                    display: inline-block;
+                    text-align: right;
+                }
+            }
+
+            .items-in-order{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                border-bottom: 1px dotted #EEEEEE;
+
+                .thumbnail{
+                    width: 15%;
+                    float: left;
+                    display: inline-block;
+                    margin-right: 3%;
+
+                    img{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+                .detail{
+                    width: 82%;
+                    padding: 4% 0%;
+                    float: left;
+                    display: inline-block;
+
+                    .product-title{
+                        width: 73%;
+                        padding-right: 2%;
+                        float: left;
+                        display: inline-block;
+                        font-size: 1em;
+                        line-height: 1.5em;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+
+                        .title{
+                            font-weight: bold;
+                        }
+                        .description{
+                            font-size: 0.8em;
+                            color: #AAAAAA;
+
+                            .remove-button{
+                                margin-left: 10px;
+                                text-decoration: underline;
+
+                                &:hover{
+                                    cursor: pointer;
+                                    color: #000000;
+                                }
+                            }
+                        }
+                    }
+                    .product-payments{
+                        width: 25%;
+                        float: left;
+                        display: inline-block;
+                        line-height: 1.5em;
+
+                        .quantity{
+                            width: 40%;
+                            float: left;
+                            display: inline-block;
+
+                            input{
+                                width: 100%;
+                                float: left;
+                                display: inline-block;
+                                font-size: 1em;
+                                text-align: center;
+                                border: 0px;
+                                line-height: 1.5em;
+                                border-bottom: 1px solid #CCCCCC;
+                            }
+                        }
+                        .payments{
+                            width: 60%;
+                            float: left;
+                            display: inline-block;
+                            text-align: right;
+                            line-height: 1.5em;
+
+                            .currency{
+                                font-size: 0.8em;
+                            }
+                        }
+                    }
+                }
+            }
+
+            .items-payments{
+                width: 82%;
+                float: left;
+                display: inline-block;
+                margin-left: 18%;
+
+                .detail{
+                    width: 60%;
+                    padding: 4% 0%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 1em;
+
+                    i{
+                        margin-right: 20px;
+                    }
+
+                    .shipping-select{
+                        font-size: 1em;
+                        border: 0px;
+                        border-bottom: 1px solid #CCCCCC;
+                        margin-left: 10px;
+                        background: #FFFFFF;
+                    }
+                }
+
+                .value{
+                    width: 40%;
+                    padding: 4% 0%;
+                    float: right;
+                    display: inline-block;
+                    text-align: right;
+                    font-size: 1em;
+
+                    .currency{
+                        font-size: 0.8em;
+                    }
+                }
+            }
+
+            .subtotal{
+                color: #555555;
+                font-weight: bold;
+            }
+
+            .total-payments{
+                border-top: 3px solid #CCCCCC;
+                .value{
+                    font-size: 1.5em;
+                    font-weight: bold;
+                }
+            }
+
+            .payments-submit{
+                width: 100%;
+                margin: 5% 0%;
+                float: left;
+                display: inline-block;
+
+                .button{
+                    float: right;
+                    display: inline-block;
+                    background: #000000;
+                    text-align: center;
+                    padding: 2% 4%;
+                    margin-left: 5px;
+                }
+
+                .cancel{
+                    float: left;
+                    background: #FAFAFA;
+                    text-decoration: underline;
+                    color: #CCCCCC;
+                }
+            }
+
+            // Order items in me page
+            .order-items{
+                width: 100%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                border-top: 1px solid #EEEEEE;
+
+                &:hover{
+                    cursor: pointer;
+
+                    .order-detail{
+                        .title{
+                            text-decoration: underline;
+                        }
+                    }
+                }
+
+                .order-icon{
+                    width: 10%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 3em;
+                    color: #000000;
+                }
+
+                .order-detail{
+                    width: 65%;
+                    float: left;
+                    display: inline-block;
+                    color: #000000;
+                    line-height: 1.5em;
+
+                    .title{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                        text-overflow: ellipsis;
+                        white-space: nowrap;
+                        overflow: hidden;
+
+                        .status{
+                            color: #AAAAAA;
+                            font-weight: bold;
+                        }
+                    }
+
+                    .note{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                        font-size: 0.9em;
+                        color: #AAAAAA;
+                    }
+                }
+                .order-payments{
+                    width: 20%;
+                    float: right;
+                    display: inline-block;
+                    text-align: right;
+                    line-height: 1.5em;
+                    color: #000000;
+
+                    .quantity{
+                        width: 40%;
+                        float: left;
+                        display: inline-block;
+                        text-align: center;
+                    }
+                    .payments{
+                        width: 60%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+            }
+        }
+    }
+
     .product-detail{
         width: @page_width;
         margin: 0% ((100 - @page_width) / 2);
@@ -369,6 +882,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
         text-align: center;
+        background: #EEEEEE;
 
         .avatar{
             width: 100%;
@@ -376,9 +890,12 @@ Copyright (c) 2015 Puwadon Sricharoen
             display: inline-block;
 
             img{
+                width: 100px;
                 height: 100px;
                 border-radius: 50%;
                 overflow: hidden;
+                border: 2px solid #000000;
+                background: #000000;
             }
         }
         .name{
@@ -386,514 +903,14 @@ Copyright (c) 2015 Puwadon Sricharoen
             line-height: 2em;
         }
         .address{
-            font-size: 0.8em;
+            font-size: 0.9em;
             line-height: 1.5em;
+            color: #AAAAAA;
         }
     }
 }
-
-.container{
-    width: @page_width;
-    padding: 1% ((100 - @page_width) / 2);
-    float: left;
-    display: inline-block;
-
-    .topic{
-        width: 100%;
-        padding: 3% 0%;
-        float: left;
-        display: inline-block;
-
-        .topic-caption{
-            width: 50%;
-            float: left;
-            display: inline-block;
-
-            i{
-                margin-right: 10px;
-            }
-        }
-        .filter{
-            width: 50%;
-            float: right;
-            display: inline-block;
-            text-align: right;
-        }
-    }
-
-    .order-state{
-        width: 100%;
-        float: left;
-        display: inline-block;
-
-        .state-active{
-            .icon{
-                color: #FF0000;
-            }
-            .caption{}
-        }
-
-        .state-items{
-            width: 20%;
-            padding: 2% 0%;
-            float: left;
-            display: inline-block;
-            text-align: center;
-
-            .icon{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                font-size: 1.5em;
-            }
-            .caption{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                font-size: 0.8em;
-                line-height: 2em;
-            }
-        }
-
-        .state-items-fullsize{
-            width: 100%;
-            padding: 3% 0%;
-            float: left;
-            display: inline-block;
-            text-align: center;
-
-            i{
-                margin-right: 10px;
-            }
-        }
-    }
-
-    .list{
-        width: 100%;
-        float: left;
-        display: inline-block;
-
-        .order-box{
-            width: 90%;
-            padding: 3% 5%;
-            margin-bottom: 2%;
-            float: left;
-            display: inline-block;
-            background: #FFFFFF;
-
-            .topic{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                text-align: right;
-                font-size: 0.8em;
-                color: #CCCCCC;
-            }
-
-            .question{
-                width: 100%;
-                padding-top: 2%;
-                float: left;
-                display: inline-block;
-                border-top: 1px dotted #EEEEEE;
-
-                .complete-button{
-                    width: 30%;
-                    padding: 2% 0%;
-                    margin: 2% 35%;
-                    float: left;
-                    display: inline-block;
-                    text-align: center;
-                    background: #DADADA;
-                    font-size: 0.9em;
-                    line-height: 1.5em;
-                    i{
-                        margin-right: 10px;
-                    }
-
-                    &:hover{
-                        cursor: pointer;
-                    }
-                }
-            }
-
-            .form-submit{
-                width: 100%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-
-                .submit-button{
-                    float: right;
-                    display: inline-block;
-                    text-align: center;
-                    padding: 2% 3%;
-                    font-size: 0.9em;
-                    line-height: 1.5em;
-                    background: #4EA827;
-                    color: #FFFFFF;
-                    border: 0px;
-                    border-radius: 3px;
-                }
-                .cancel-button{
-                    float: left;
-                    display: inline-block;
-                    text-align: center;
-                    padding: 2% 3%;
-                    font-size: 0.9em;
-                    line-height: 1.5em;
-                    background: #EEEEEE;
-                    color: #CCCCCC;
-                    border: 0px;
-                    border-radius: 3px;
-                }
-            }
-        }
-
-        .order-message{
-            text-align: center;
-
-            p{
-                font-size: 1em;
-                line-height: 2em;
-            }
-            p.icon{
-                font-size: 2em;
-            }
-            p.shipping-code{
-                font-size: 3em;
-            }
-        }
-
-        .order-money-transfer{
-
-            .form{
-                width: 100%;
-                float: left;
-                display: inline-block;
-
-                .form-items{
-                    width: 100%;
-                    padding: 3% 0%;
-                    float: left;
-                    display: inline-block;
-                    border-top: 1px solid #F0F0F0;
-
-                    .label{
-                        width: 30%;
-                        float: left;
-                        display: inline-block;
-                        line-height: 1.5em;
-                    }
-                    .input{
-                        width: 65%;
-                        margin-left: 5%;
-                        float: right;
-                        display: inline-block;
-
-                        .image-input{
-                            width: 80%;
-                            padding: 20% 10%;
-                            float: left;
-                            display: inline-block;
-                            background: #EEEEEE;
-                            text-align: center;
-                        }
-
-                        .input-select{
-                            width: 100%;
-                            float: left;
-                            display: inline-block;
-                            font-size: 1em;
-                            line-height: 1.5em;
-                            border: 0px;
-                            background: #FFFFFF;
-                        }
-
-                        .input-file{
-                            width: 100%;
-                            line-height: 1.5em;
-                        }
-
-                        .input-text{
-                            width: 100%;
-                            float: left;
-                            display: inline-block;
-                            font-size: 1em;
-                            line-height: 1.5em;
-                            border: 0px;
-                        }
-
-                        .input-textarea{
-                            height: 50px;
-                        }
-                    }
-                }
-
-                .full-size{
-                    .input{
-                        width: 100%;
-                        margin-left: 0%;
-                    }
-                }
-            }
-        }
-
-        .topic-caption{
-            width: 100%;
-            padding: 2% 0%;
-            float: left;
-            display: inline-block;
-            font-size: 0.8em;
-            border-bottom: 1px dotted #EEEEEE;
-
-            .title{
-                width: 79%;
-                float: left;
-                display: inline-block;
-            }
-            .quantity{
-                width: 9%;
-                float: right;
-                display: inline-block;
-                text-align: center;
-            }
-            .pay{
-                width: 12%;
-                float: right;
-                display: inline-block;
-                text-align: right;
-            }
-        }
-        .items-in-order{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            border-bottom: 1px dotted #EEEEEE;
-
-            .thumbnail{
-                width: 15%;
-                float: left;
-                display: inline-block;
-                margin-right: 3%;
-
-                img{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                }
-            }
-            .detail{
-                width: 82%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-
-                .product-title{
-                    width: 73%;
-                    padding-right: 2%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 1em;
-                    line-height: 1.5em;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
-
-                    .title{
-                        font-weight: bold;
-                    }
-                    .description{
-                        font-size: 0.8em;
-                        color: #AAAAAA;
-
-                        .remove-button{
-                            margin-left: 10px;
-                            text-decoration: underline;
-
-                            &:hover{
-                                cursor: pointer;
-                            }
-                        }
-                    }
-                }
-                .product-payments{
-                    width: 25%;
-                    float: left;
-                    display: inline-block;
-                    line-height: 1.5em;
-
-                    .quantity{
-                        width: 40%;
-                        float: left;
-                        display: inline-block;
-
-                        input{
-                            width: 100%;
-                            float: left;
-                            display: inline-block;
-                            font-size: 1em;
-                            text-align: center;
-                            border: 0px;
-                            line-height: 1.5em;
-                            border-bottom: 1px solid #DDDDDD;
-                        }
-                    }
-                    .payments{
-                        width: 60%;
-                        float: left;
-                        display: inline-block;
-                        text-align: right;
-                        line-height: 1.5em;
-                    }
-                }
-            }
-        }
-
-        .items-payments{
-            width: 82%;
-            float: left;
-            display: inline-block;
-            margin-left: 18%;
-
-            .detail{
-                width: 60%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-                font-size: 1em;
-
-                i{
-                    margin-right: 20px;
-                }
-
-                .shipping-select{
-                    font-size: 1em;
-                    border: 0px;
-                    border-bottom: 1px solid #DDDDDD;
-                    margin-left: 10px;
-                    background: #FFFFFF;
-                }
-            }
-
-            .value{
-                width: 40%;
-                padding: 3% 0%;
-                float: right;
-                display: inline-block;
-                text-align: right;
-                font-size: 1em;
-            }
-        }
-
-        .subtotal{
-            color: #AAAAAA;
-            font-weight: bold;
-        }
-
-        .total-payments{
-            border-top: 1px solid #EEEEEE;
-            .value{
-                font-size: 1.5em;
-                font-weight: bold;
-            }
-        }
-
-        .payments-submit{
-            width: 100%;
-            margin: 5% 0%;
-            float: left;
-            display: inline-block;
-
-            .button{
-                float: right;
-                display: inline-block;
-                background: #CCCCCC;
-                text-align: center;
-                padding: 2% 4%;
-                margin-left: 5px;
-            }
-
-            .cancel{
-                float: left;
-                background: #FAFAFA;
-                text-decoration: underline;
-                color: #CCCCCC;
-            }
-        }
-
-        .order-items{
-            width: 100%;
-            padding: 3% 0%;
-            float: left;
-            display: inline-block;
-            border-top: 1px solid #EEEEEE;
-
-            &:hover{
-                cursor: pointer;
-
-                .order-detail{
-                    .title{
-                        text-decoration: underline;
-                    }
-                }
-            }
-
-            .order-icon{
-                width: 10%;
-                float: left;
-                display: inline-block;
-                font-size: 3em;
-            }
-
-            .order-detail{
-                width: 65%;
-                float: left;
-                display: inline-block;
-                color: #000000;
-                line-height: 1.5em;
-
-                .title{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    text-overflow: ellipsis;
-                    white-space: nowrap;
-                    overflow: hidden;
-
-                    .status{
-                        color: #555555;
-                    }
-                }
-
-                .note{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                }
-            }
-            .order-payments{
-                width: 20%;
-                float: right;
-                display: inline-block;
-                text-align: right;
-                line-height: 1.5em;
-
-                .quantity{
-                    width: 40%;
-                    float: left;
-                    display: inline-block;
-                    text-align: center;
-                }
-                .payments{
-                    width: 60%;
-                    float: left;
-                    display: inline-block;
-                }
-            }
-        }
-    }
+.content-order{
+    // background: #F5F5F5;
 }
 
 #filter{
@@ -965,6 +982,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     p{
         font-size: 0.8em;
         color: #FFFFFF;
+        line-height: 1.5em;
     }
 }
 
