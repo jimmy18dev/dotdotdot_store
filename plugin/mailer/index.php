@@ -1,70 +1,28 @@
 <?php
-require_once'config/autoload.php';
-header("Content-type: text/json");
+require 'PHPMailerAutoload.php';
 
-// API Request $_POST
-if($_POST['calling'] != ''){
-	switch ($_POST['calling']) {
-		case 'Order':
-			switch ($_POST['action']) {
-				case 'AddToOrder':
-					if(true){
-						$msg_return = $order->AddtoOrder(array(
-							'member_id' 	=> MEMBER_ID,
-							'product_id' 	=> $_POST['product_id'],
-							'amount' 		=> $_POST['amount'],
-						));
+$mail = new PHPMailer;
 
-						// return value
-						// - message for action status.
-						// - return for current order id.
-						$api->successMessage($msg_return,$user->current_order_id,'');
-					}
-					else{
-						$api->errorMessage('Access Token Error!');
-					}
-					break;
-				case 'EditInOrder':
-					if(true){
-						$order->EditItemsInOrder(array(
-							'member_id' 	=> MEMBER_ID,
-							'order_id' 		=> $_POST['order_id'],
-							'product_id' 	=> $_POST['product_id'],
-							'amount' 		=> $_POST['amount'],
-						));
-						$api->successMessage('Edit Product in Order Successed.','','');
-					}
-					else{
-						$api->errorMessage('Access Token Error!');
-					}
-					break;
-				case 'RemoveInOrder':
-					if(true){
-						$order->RemoveItemsInOrder(array(
-							'member_id' 	=> MEMBER_ID,
-							'order_id' 		=> $_POST['order_id'],
-							'product_id' 	=> $_POST['product_id'],
-						));
-						$api->successMessage('Remove Product in Order Successed.','','');
-					}
-					else{
-						$api->errorMessage('Access Token Error!');
-					}
-					break;
-				case 'OrderProcess':
-					if(true){
-						$order->OrderProcess(array(
-							'member_id' 	=> MEMBER_ID,
-							'order_id' 		=> $_POST['order_id'],
-							'order_action' 	=> $_POST['order_action'],
-							'order_shipping_type' => $_POST['order_shipping_type'],
-						));
+//$mail->SMTPDebug = 3;                               // Enable verbose debug output
 
-						if($_POST['order_action'] == "Paying"){
-							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject = 'ทดสอบส่ง email จาก igensite.com';
+$mail->isSMTP();                                      // Set mailer to use SMTP
+$mail->Host = 'igensite.com'; 				  // Specify main and backup SMTP servers
+$mail->SMTPAuth = true;                               // Enable SMTP authentication
+$mail->Username = 'igensit2';                 // SMTP username
+$mail->Password = 'Q09uuH1jp8';                          // Enable TLS encryption, `ssl` also accepted
+$mail->Port = 25;                                    // TCP port to connect to
 
-							$message = '
+$mail->setFrom('igensit2@igensite.com','IGensite Email');
+//$mail->addAddress('joe@example.net', 'Joe User');     // Add a recipient
+$mail->addAddress('mrjimmy18@gmail.com');               // Name is optional
+//$mail->addReplyTo('info@example.com', 'Information');
+//$mail->addCC('cc@example.com');
+//$mail->addBCC('bcc@example.com');
+
+//$mail->addAttachment('/var/tmp/file.tar.gz');         // Add attachments
+//$mail->addAttachment('/tmp/image.jpg', 'new.jpg');    // Optional name
+
+$message = '
 <html>
 <head>
 <meta charset="utf-8">
@@ -112,61 +70,18 @@ if($_POST['calling'] != ''){
 </body>
 </html>
 ';
-							$mail->Body    = $message;
-							$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
-							if(!$mail->send()){
-								// $mail->ErrorInfo;
-								$email_send = "Mailer Error";
-							}else {
-								$email_send = "Message has been sent";
-							}
-						}
+$mail->Subject = 'ทดสอบส่ง email จาก igensite.com';
+$mail->Body    = $message;
+$mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+//$mail->isHTML(true);                                  // Set email format to HTML
+$mail->CharSet = 'UTF-8';
 
-						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
-					}
-					else{
-						$api->errorMessage('Access Token Error!');
-					}
-					break;
-				default:
-					break;
-			}
-			break;
-		default:
-			$api->errorMessage('COMMENT POST API ERROR!');
-			break;
-	}
+if(!$mail->send()) {
+    echo 'Message could not be sent.<br>';
+    echo 'Mailer Error: ' . $mail->ErrorInfo;
+} else {
+    echo 'Message has been sent';
 }
 
-// API Request $_GET
-else if($_GET['calling'] != ''){
-	switch ($_GET['calling']) {
-		case 'Order':
-			switch ($_GET['action']) {
-				case 'MyCurrentOrder':
-					$member_id = MEMBER_ID;
-					if(!empty($member_id)){
-						$order->MyCurrentOrder(array('member_id' => MEMBER_ID));
-					}
-					else{
-						$api->successMessage('Successed!','','');
-					}
-					break;
-				default:
-					break;
-			}
-			break;
-		default:
-			$api->errorMessage('COMMENT GET API ERROR!');
-			break;
-	}
-}
-
-// API Request is Fail or Null calling
-else{
-	$api->errorMessage('API NOT FOUND!');
-}
-
-exit();
 ?>

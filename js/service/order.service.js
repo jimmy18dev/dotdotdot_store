@@ -1,6 +1,7 @@
 function AddItemToOrder(product_id){
     // Clear animation
     $('#buy-button-price-'+product_id).removeClass('pulse');
+    $('#buy-button-msg-'+product_id).html('<i class="fa fa-spinner fa-spin"></i>');
 
     var href = 'api.order.php';
     var amount = 1;
