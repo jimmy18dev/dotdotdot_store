@@ -40,22 +40,22 @@
 	include_once'controller/bank.controller.php';
 
 	// Object of Controller
-	$product = new ProductController;
-	$image = new ImageController;
-	$user = new UserController;
-	$api = new APIController;
-	$order = new OrderController;
-	$bank = new BankController;
+	$product 		= new ProductController;
+	$image 			= new ImageController;
+	$user 			= new UserController;
+	$api 			= new APIController;
+	$order 			= new OrderController;
+	$bank 			= new BankController;
 
 	// Mailer
-	$mail = new PHPMailer;
+	$mail 			= new PHPMailer;
 	$mail->isSMTP();
-	$mail->Host 	= $email_settig->host;
+	$mail->Host 	= $email_settig['host'];
 	$mail->SMTPAuth = true;
-	$mail->Username = $email_settig->username;
-	$mail->Password = $email_settig->password;
-	$mail->Port 	= $email_settig->port;
-	$mail->setFrom($email_settig->email_address,$email_settig->name);
+	$mail->Username = $email_settig['username'];
+	$mail->Password = $email_settig['password'];
+	$mail->Port 	= $email_settig['port'];
+	$mail->setFrom($email_settig['email_address'],$email_settig['name']);
 	$mail->isHTML(true);
 	$mail->CharSet 	= 'UTF-8';
 

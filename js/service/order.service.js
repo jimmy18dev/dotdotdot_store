@@ -91,8 +91,6 @@ function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
     var shipping_type = $('#shipping_type').val();
 
-    console.log(order_id+','+order_action+','+shipping_type);
-
     $.ajax({
         url         :href,
         cache       :false,
@@ -109,7 +107,7 @@ function OrderProcess(order_id,order_action){
             console.log("Request Error");
         }
     }).done(function(data){
-        console.log('Return: '+data.message);
+        console.log(data.message);
         location.reload();
     }).error();
 }
