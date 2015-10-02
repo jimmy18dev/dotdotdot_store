@@ -30,11 +30,11 @@ body{
 	float: left;
 	display: inline-block;
 }
-.info .expire{
+.info .text{
 	font-size: 1.2em;
 	line-height: 1.5em;
 }
-.info .expire .cout{
+.info .text .cout{
 	color: #F44336;
 }
 .info .payments{
@@ -51,7 +51,7 @@ body{
 	line-height: 1.5em;
 }
 
-.bank{
+.box{
 	width: 94%;
 	padding: 3%;
 	float: left;
@@ -60,11 +60,11 @@ body{
 	font-size: 1.2em;
 	text-align: left;
 }
-.bank .caption{
+.box .caption{
 	color: #AAAAAA;
 	font-size: 0.8em;
 }
-.bank .bank-items{
+.box .bank-items{
 	width: 100%;
 	padding: 1% 0%;
 	float: left;
@@ -73,10 +73,10 @@ body{
 	color: #777777;
 	line-height: 2em;
 }
-.bank .bank-items .name{
+.box .bank-items .name{
 	color: #000000;
 }
-.bank .bank-items .account b{
+.box .bank-items .account b{
 	color: #000000;
 }
 
@@ -120,35 +120,28 @@ a{
 </head>
 <body>
 <div class="container">
-<div class="topic">#324502 :: ยืนยันการสั่งซื้อ</div>
+<div class="topic">#%order_id% :: ยืนยันการสั่งซื้อสินค้า</div>
 <div class="info">
-	<div class="expire">กรุณาชำระภายใน 30 กันยายน 2558 เวลา 16:40 <span class="cout">(1 วัน)</span></div>
-	<div class="payments">7,390.00 <span class="currency">฿</span></div>
+	<div class="text">กรุณาชำระภายใน %expire_date% <span class="cout">(%expire_count% วัน)</span></div>
+	<div class="payments">%summary_payment% <span class="currency">฿</span></div>
 	<div class="note">หากเกินกำหนดชำระเงินแล้ว สินค้าจะหลุดจอง ขอบคุณค่ะ</div>
 </div>
-<div class="bank">
+<div class="box">
 	<div class="caption">ช่องทางการโอนเงิน</div>
-	<div class="bank-items">
+	<!-- <div class="bank-items">
 		<div class="name">ธนาคารกรุงไทย</div>
 		<div class="account"><b>235-345244-3</b> ชื่อบัญชี Puwadon Sricharoen</div>
-	</div>
-	<div class="bank-items">
-		<div class="name">ธนาคารกรุงไทย</div>
-		<div class="account"><b>235-345244-3</b> ชื่อบัญชี Puwadon Sricharoen</div>
-	</div>
-	<div class="bank-items">
-		<div class="name">ธนาคารกรุงไทย</div>
-		<div class="account"><b>235-345244-3</b> ชื่อบัญชี Puwadon Sricharoen</div>
-	</div>
+	</div> -->
+	%bank_list%
 </div>
 <div class="confirm">
-	<a href="http://dotdotdot.local/order_detail.php?id=1">
+	<a href="http://dotdotdot.local/order_detail.php?id=%order_id%">
 	<div class="button">ยืนยันการโอนเงิน</div>
 	</a>
 </div>
 <div class="footer">
 	<span class="text">dotdotdot limited 2016</span>
-	<a href="http://dotdotdot.local/order_detail.php?id=1">ตรวจสอบรายการสินค้า</a></div>
+	<a href="http://dotdotdot.local/order_detail.php?id=%order_id%">ตรวจสอบรายการสินค้า</a></div>
 </div>
 </body>
 </html>

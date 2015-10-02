@@ -42,6 +42,9 @@ body{
 	font-weight: bold;
 	line-height: 2em;
 }
+.info .success{
+	color: #388E3C;
+}
 .info .payments .currency{
 	font-size: 0.7em;
 }
@@ -51,7 +54,7 @@ body{
 	line-height: 1.5em;
 }
 
-.bank{
+.box{
 	width: 94%;
 	padding: 3%;
 	float: left;
@@ -60,11 +63,11 @@ body{
 	font-size: 1.2em;
 	text-align: left;
 }
-.bank .caption{
+.box .caption{
 	color: #AAAAAA;
 	font-size: 0.8em;
 }
-.bank .bank-items{
+.box .bank-items{
 	width: 100%;
 	padding: 1% 0%;
 	float: left;
@@ -73,10 +76,10 @@ body{
 	color: #777777;
 	line-height: 2em;
 }
-.bank .bank-items .name{
+.box .bank-items .name{
 	color: #000000;
 }
-.bank .bank-items .account b{
+.box .bank-items .account b{
 	color: #000000;
 }
 
@@ -120,11 +123,19 @@ a{
 </head>
 <body>
 <div class="container">
-<div class="topic">#%order_id% :: รับสินค้าเรียบร้อย</div>
+<div class="topic">#%order_id% :: ชำระสินค้าแล้ว!</div>
 <div class="info">
-	<div class="text">dotdotdot ขอขอบคุณที่อุดหนุนสินค้าของเราค่ะ</div>
-	<div class="payments">Thank You!</div>
-	<div class="note">หากต้องการสินค้าเพิ่มเติม dotdotdot ยินดีให้บิรการอีกครั้งค่ะ</div>
+	<div class="text">ยอดชำระ %summary_payment% ฿ ตรวจสอบหลักฐานการโอนเงินแล้ว</div>
+	<div class="payments success">ชำระเงินแล้ว!</div>
+	<div class="note">หลังจากที่เราจัดส่งสินค้าแล้ว จะมีอีเมลแจ้งเตือนหมายเลขพัสดุให้ทราบค่ะ</div>
+</div>
+<div class="box">
+	<div class="caption">จัดส่งสินค้าตามที่อยู่</div>
+	<div class="address">
+		<p>%address_name%</p>
+		<p>%address_text%</p>
+		<p>%address_phone%</p>
+	</div>
 </div>
 <div class="footer">
 	<span class="text">dotdotdot limited 2016</span>

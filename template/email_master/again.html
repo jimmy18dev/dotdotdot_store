@@ -42,6 +42,9 @@ body{
 	font-weight: bold;
 	line-height: 2em;
 }
+.info .fail{
+	color: #D50000;
+}
 .info .payments .currency{
 	font-size: 0.7em;
 }
@@ -51,7 +54,7 @@ body{
 	line-height: 1.5em;
 }
 
-.bank{
+.box{
 	width: 94%;
 	padding: 3%;
 	float: left;
@@ -60,11 +63,11 @@ body{
 	font-size: 1.2em;
 	text-align: left;
 }
-.bank .caption{
+.box .caption{
 	color: #AAAAAA;
 	font-size: 0.8em;
 }
-.bank .bank-items{
+.box .bank-items{
 	width: 100%;
 	padding: 1% 0%;
 	float: left;
@@ -73,10 +76,10 @@ body{
 	color: #777777;
 	line-height: 2em;
 }
-.bank .bank-items .name{
+.box .bank-items .name{
 	color: #000000;
 }
-.bank .bank-items .account b{
+.box .bank-items .account b{
 	color: #000000;
 }
 
@@ -120,11 +123,11 @@ a{
 </head>
 <body>
 <div class="container">
-<div class="topic">#%order_id% :: รับสินค้าเรียบร้อย</div>
+<div class="topic">#%order_id% :: หลักฐานไม่ถูกต้อง!</div>
 <div class="info">
-	<div class="text">dotdotdot ขอขอบคุณที่อุดหนุนสินค้าของเราค่ะ</div>
-	<div class="payments">Thank You!</div>
-	<div class="note">หากต้องการสินค้าเพิ่มเติม dotdotdot ยินดีให้บิรการอีกครั้งค่ะ</div>
+	<div class="text">ยอดชำระ %summary_payment% ฿ หลักฐานการโอนเงินของคุณไม่ถูกต้อง</div>
+	<div class="payments fail">ส่งหลักฐานอีกครั้ง!</div>
+	<div class="note">หากพบปัญหา กรุณาต่อฝ่ายบริการลูกค้า</div>
 </div>
 <div class="footer">
 	<span class="text">dotdotdot limited 2016</span>

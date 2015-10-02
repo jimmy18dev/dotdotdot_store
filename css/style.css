@@ -141,12 +141,33 @@ Copyright (c) 2015 Daniel Eden
   background: #000000;
   border: 1px solid #555555;
 }
+.header .login {
+  float: right;
+  margin: 23px 0px;
+  padding: 1% 3%;
+  font-size: 0.9em;
+  background: #000000;
+  color: #FFFFFF;
+}
 .content {
   width: 100%;
   float: left;
   display: inline-block;
   margin-top: 80px;
   margin-bottom: 5%;
+}
+.content .login-dialog {
+  width: 66%;
+  padding: 0% 17%;
+  float: left;
+  display: inline-block;
+}
+.content .login-dialog .logo {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 2em;
 }
 .content .container {
   width: 66%;
@@ -842,7 +863,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   text-align: center;
-  background: #EEEEEE;
+  background: #F5F5F5;
 }
 .content .profile .avatar {
   width: 100%;
@@ -861,10 +882,17 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1.5em;
   line-height: 2em;
 }
-.content .profile .address {
+.content .profile .info {
   font-size: 0.9em;
-  line-height: 1.5em;
+  line-height: 2em;
   color: #AAAAAA;
+}
+.content .profile .info .logout {
+  background: #000000;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 0.7em;
+  padding: 0.4% 1.5%;
 }
 #filter {
   position: fixed;

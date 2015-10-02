@@ -3,41 +3,52 @@
 <meta charset="utf-8">
 <style>
 body{
+	padding: 0px;
+	margin: 0px;
 	background: #FFFFFF;
 	font-family: sans-serif;
-	line-height: 1.5em;
+	text-align: center;
 }
+
 .container{
 	width: 100%;
 	float: left;
 	display: inline-block;
-	text-align: center;
 }
 .topic{
-	width: 100%;
-	padding: 3% 0%;
+	background: #000000;
+	width: 94%;
+	padding: 3%;
 	float: left;
 	display: inline-block;
-	border-bottom: 1px solid #000000;
 	font-size: 1.2em;
-	font-weight: bold;
+	color: #FFFFFF;
 }
 .info{
-	width: 100%;
-	padding: 3% 0%;
+	width: 94%;
+	padding: 3%;
 	float: left;
 	display: inline-block;
 }
-.info p{
+.info .text{
 	font-size: 1.2em;
+	line-height: 1.5em;
+}
+.info .text .cout{
+	color: #F44336;
 }
 .info .payments{
 	font-size: 3em;
 	font-weight: bold;
+	line-height: 2em;
+}
+.info .payments .currency{
+	font-size: 0.7em;
 }
 .info .note{
 	font-size: 1em;
 	color: #AAAAAA;
+	line-height: 1.5em;
 }
 
 .box{
@@ -55,16 +66,23 @@ body{
 }
 .box .bank-items{
 	width: 100%;
+	padding: 1% 0%;
 	float: left;
 	display: inline-block;
 	border-bottom: 1px dotted #CCCCCC;
+	color: #777777;
+	line-height: 2em;
 }
 .box .bank-items .name{
+	color: #000000;
+}
+.box .bank-items .account b{
+	color: #000000;
 }
 
 .confirm{
-	width: 60%;
-	padding: 10% 20%;
+	width: 50%;
+	padding: 10% 25%;
 	float: left;
 	display: inline-block;
 }
@@ -73,13 +91,13 @@ a{
 	text-decoration: none;
 }
 .confirm .button{
-	text-decoration: none;
 	background: #000000;
 	color: #FFFFFF;
 	padding: 7% 10%;
 	font-size: 1.2em;
-	text-decoration: none;
+	box-shadow: 1px 1px 3px #555555;
 }
+
 .footer{
 	width: 100%;
 	float: left;
@@ -102,23 +120,23 @@ a{
 </head>
 <body>
 <div class="container">
-<div class="topic">#324502 ชำระสินค้าแล้ว!</div>
+<div class="topic">#%order_id% :: กำลังตรวจสอบหลักฐานการโอนเงิน...</div>
 <div class="info">
-	<p>ยอดที่ต้องชำระ 2,499.00 ฿ ตรวจสอบหลักฐานการโอนเงินแล้ว</p>
-	<p class="payments">ชำระเงินแล้ว!</p>
-	<p class="note">หลังจากที่เราจัดส่งสินค้าแล้ว จะมีอีเมลแจ้งเตือนหมายเลขพัสดุให้ทราบค่ะ</p>
+	<div class="text">ยอดชำระ %summary_payment% ฿ การตรวจสอบใช้เวลาไม่เกิน 24 ชั่วโมง</div>
+	<div class="payments">กำลังตรวจสอบ...</div>
+	<div class="note">หลังจากที่เราตรวจสอบหลักฐานแล้ว จะมีอีเมลแจ้งเตือนให้ทราบค่ะ</div>
 </div>
 <div class="box">
 	<div class="caption">จัดส่งสินค้าตามที่อยู่</div>
 	<div class="address">
-		<p>ภูวดล ศรีเจริญ</p>
-		<p>5 ม.1 ต.โนนห้อม อ.เมืองปราจีนบุรี จ.ปราจีนบุรี 25000</p>
-		<p>080-1051930</p>
+		<p>%address_name%</p>
+		<p>%address_text%</p>
+		<p>%address_phone%</p>
 	</div>
 </div>
 <div class="footer">
 	<span class="text">dotdotdot limited 2016</span>
-	<a href="http://dotdotdot.local/order_detail.php?id=1">ตรวจสอบรายการสินค้า</a></div>
+	<a href="http://dotdotdot.local/order_detail.php?id=%order_id%">ตรวจสอบรายการสินค้า</a></div>
 </div>
 </body>
 </html>
