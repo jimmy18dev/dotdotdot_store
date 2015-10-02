@@ -6,6 +6,9 @@ header("Content-type: text/json");
 if($_POST['calling'] != ''){
 	switch ($_POST['calling']) {
 		case 'Order':
+			// Get Order data
+			$order->GetOrder(array('order_id' => $_POST['order_id']));
+
 			switch ($_POST['action']) {
 				case 'AddToOrder':
 					if(true){
@@ -34,7 +37,47 @@ if($_POST['calling'] != ''){
 							$bank->KillTransferMoney(array('order_id' => $_POST['order_id']));
 						}
 
-						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
+						// // Send Notification Email to Customer
+						// if($_POST['order_action'] == "Expire"){}
+						// else if($_POST['order_action'] == "Cancel"){}
+						// else if($_POST['order_action'] == "Paying"){
+						// 	// Sending to Customer
+						// 	$mail->addAddress('mrjimmy18@gmail.com');
+						// 	$mail->Subject 	= '#'.$order->id.' :: ยืนยันการสั่งซื้อสินค้า';
+						// 	$message 		= file_get_contents('template/email/paying.html');
+						// 	$message 		= str_replace('%order_id%', $order->id, $message);
+						// 	$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
+						// 	$message 		= str_replace('%expire_date%', $order->expire_time_thai_format, $message);
+						// 	$message 		= str_replace('%expire_count%', $order->expire_time_datediff, $message);
+						// 	// $message 		= str_replace('%bank_list%',, $message);
+						// 	$mail->Body    	= $message;
+						// 	$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+						// 	if(!$mail->send())
+						// 		$email_send = $mail->ErrorInfo;
+						// 	else
+						// 		$email_send = "Message has been sent";
+						// }
+						// else if($_POST['order_action'] == "TransferRequest"){}
+						// else if($_POST['order_action'] == "TransferAgain"){}
+						// else if($_POST['order_action'] == "TransferSuccess"){}
+						// else if($_POST['order_action'] == "Shipping"){}
+						// else if($_POST['order_action'] == "Complete"){
+						// 	// Sending to Customer
+						// 	$mail->addAddress('mrjimmy18@gmail.com');
+						// 	$mail->Subject 	= '#'.$order->id.' :: รับสินค้าเรียบร้อย';
+						// 	$message 		= file_get_contents('template/email/complete.html');
+						// 	$message 		= str_replace('%order_id%', $order->id, $message);
+						// 	$mail->Body    	= $message;
+						// 	$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+						// 	if(!$mail->send())
+						// 		$email_send = $mail->ErrorInfo;
+						// 	else
+						// 		$email_send = "Message has been sent";
+						// }
+
+						$api->successMessage('#'.$_POST['order_id'].' - '.$_POST['order_action'].' Successed! ('.$email_send.')','','');
 					}
 					else{
 						$api->errorMessage('Access Token Error!');

@@ -1,9 +1,22 @@
 <?php
-
 	define("DB_HOST", "localhost");
-	define("DB_USER", "admin");
-	define("DB_PASS", "1234");
-	define("DB_NAME", "dotdotdot_store");
+	define("DB_USER", "igensit2_demo");
+	define("DB_PASS", "dinsorsee");
+	define("DB_NAME", "igensit2_demo");
+
+	// define("DB_USER", "admin");
+	// define("DB_PASS", "1234");
+	// define("DB_NAME", "dotdotdot_store");
+
+	// Email Config
+	$email_settig = array(
+		'host' 			=> 'igensite.com',
+		'username' 		=> 'igensit2',
+		'password' 		=> 'Q09uuH1jp8',
+		'port' 			=> 25,
+		'email_address' => 'igensit2@igensite.com',
+		'email_name' 	=> 'IGensite Email',
+	);
 
 	// Photo Upload config ///////////////////////
 	// Photo desctination folder /////////////////

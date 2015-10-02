@@ -1,0 +1,31 @@
+<html>
+<head>
+<meta charset="utf-8">
+</head>
+<body style="padding-top:0px;padding-bottom:0px;padding-right:0px;padding-left:0px;margin-top:0px;margin-bottom:0px;margin-right:0px;margin-left:0px;background-color:#FFFFFF;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-family:sans-serif;text-align:center;" >
+<div class="container" style="width:100%;float:left;display:inline-block;" >
+<div class="topic" style="background-color:#000000;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;width:94%;padding-top:3%;padding-bottom:3%;padding-right:3%;padding-left:3%;float:left;display:inline-block;font-size:1.2em;color:#FFFFFF;" >#%order_id% :: ยืนยันการสั่งซื้อสินค้า</div>
+<div class="info" style="width:94%;padding-top:3%;padding-bottom:3%;padding-right:3%;padding-left:3%;float:left;display:inline-block;" >
+	<div class="text" style="font-size:1.2em;line-height:1.5em;" >กรุณาชำระภายใน %expire_date% <span class="cout" style="color:#F44336;" >(%expire_count% วัน)</span></div>
+	<div class="payments" style="font-size:3em;font-weight:bold;line-height:2em;" >%summary_payment% <span class="currency" style="font-size:0.7em;" >฿</span></div>
+	<div class="note" style="font-size:1em;color:#AAAAAA;line-height:1.5em;" >หากเกินกำหนดชำระเงินแล้ว สินค้าจะหลุดจอง ขอบคุณค่ะ</div>
+</div>
+<div class="box" style="width:94%;padding-top:3%;padding-bottom:3%;padding-right:3%;padding-left:3%;float:left;display:inline-block;background-color:#FAFAFA;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;font-size:1.2em;text-align:left;" >
+	<div class="caption" style="color:#AAAAAA;font-size:0.8em;" >ช่องทางการโอนเงิน</div>
+	<!-- <div class="bank-items" style="width:100%;padding-top:1%;padding-bottom:1%;padding-right:0%;padding-left:0%;float:left;display:inline-block;border-bottom-width:1px;border-bottom-style:dotted;border-bottom-color:#CCCCCC;color:#777777;line-height:2em;" >
+		<div class="name" style="color:#000000;" >ธนาคารกรุงไทย</div>
+		<div class="account"><b style="color:#000000;" >235-345244-3</b> ชื่อบัญชี Puwadon Sricharoen</div>
+	</div> -->
+	%bank_list%
+</div>
+<div class="confirm" style="width:50%;padding-top:10%;padding-bottom:10%;padding-right:25%;padding-left:25%;float:left;display:inline-block;" >
+	<a href="http://dotdotdot.local/order_detail.php?id=%order_id%" style="text-decoration:none;" >
+	<div class="button" style="background-color:#000000;background-image:none;background-repeat:repeat;background-position:top left;background-attachment:scroll;color:#FFFFFF;padding-top:7%;padding-bottom:7%;padding-right:10%;padding-left:10%;font-size:1.2em;box-shadow:1px 1px 3px #555555;" >ยืนยันการโอนเงิน</div>
+	</a>
+</div>
+<div class="footer" style="width:100%;float:left;display:inline-block;border-top-width:1px;border-top-style:solid;border-top-color:#000000;font-size:1em;padding-top:3%;padding-bottom:3%;padding-right:0%;padding-left:0%;font-weight:bold;" >
+	<span class="text" style="text-align:right;float:left;" >dotdotdot limited 2016</span>
+	<a href="http://dotdotdot.local/order_detail.php?id=%order_id%" style="text-decoration:none;color:#000000;float:right;" >ตรวจสอบรายการสินค้า</a></div>
+</div>
+</body>
+</html>
