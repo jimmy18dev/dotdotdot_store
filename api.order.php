@@ -5,9 +5,6 @@ header("Content-type: text/json");
 if($_POST['calling'] != ''){
 	switch ($_POST['calling']) {
 		case 'Order':
-			// Get Order data
-			$order->GetOrder(array('order_id' => $_POST['order_id']));
-
 			switch ($_POST['action']) {
 				case 'AddToOrder':
 					if(true){
@@ -62,6 +59,9 @@ if($_POST['calling'] != ''){
 							'order_shipping_type' => $_POST['order_shipping_type'],
 						));
 
+						// Get Order data
+						$order->GetOrder(array('order_id' => $_POST['order_id']));
+
 						// Send Notification Email to Customer
 						if($_POST['order_action'] == "Expire"){}
 						else if($_POST['order_action'] == "Cancel"){}
@@ -74,7 +74,7 @@ if($_POST['calling'] != ''){
 							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
 							$message 		= str_replace('%expire_date%', $order->expire_time_thai_format, $message);
 							$message 		= str_replace('%expire_count%', $order->expire_time_datediff, $message);
-							// $message 		= str_replace('%bank_list%',, $message);
+							$message 		= str_replace('%bank_list%',$bank->ListBankToEmail(array('id' => 0)), $message);
 							$mail->Body    	= $message;
 							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 

@@ -37,45 +37,62 @@ if($_POST['calling'] != ''){
 							$bank->KillTransferMoney(array('order_id' => $_POST['order_id']));
 						}
 
-						// // Send Notification Email to Customer
-						// if($_POST['order_action'] == "Expire"){}
-						// else if($_POST['order_action'] == "Cancel"){}
-						// else if($_POST['order_action'] == "Paying"){
-						// 	// Sending to Customer
-						// 	$mail->addAddress('mrjimmy18@gmail.com');
-						// 	$mail->Subject 	= '#'.$order->id.' :: ยืนยันการสั่งซื้อสินค้า';
-						// 	$message 		= file_get_contents('template/email/paying.html');
-						// 	$message 		= str_replace('%order_id%', $order->id, $message);
-						// 	$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
-						// 	$message 		= str_replace('%expire_date%', $order->expire_time_thai_format, $message);
-						// 	$message 		= str_replace('%expire_count%', $order->expire_time_datediff, $message);
-						// 	// $message 		= str_replace('%bank_list%',, $message);
-						// 	$mail->Body    	= $message;
-						// 	$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+						// Send Notification Email to Customer
+						if($_POST['order_action'] == "Expire"){}
+						else if($_POST['order_action'] == "Cancel"){}
+						else if($_POST['order_action'] == "Paying"){}
+						else if($_POST['order_action'] == "TransferRequest"){}
+						else if($_POST['order_action'] == "TransferAgain"){
+							// Sending to Customer
+							$mail->addAddress('mrjimmy18@gmail.com');
+							$mail->Subject 	= '#'.$order->id.' :: หลักฐานการโอนเงินไม่ถูกต้อง!';
+							$message 		= file_get_contents('template/email/again.html');
+							$message 		= str_replace('%order_id%', $order->id, $message);
+							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
+							$mail->Body    	= $message;
+							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
-						// 	if(!$mail->send())
-						// 		$email_send = $mail->ErrorInfo;
-						// 	else
-						// 		$email_send = "Message has been sent";
-						// }
-						// else if($_POST['order_action'] == "TransferRequest"){}
-						// else if($_POST['order_action'] == "TransferAgain"){}
-						// else if($_POST['order_action'] == "TransferSuccess"){}
-						// else if($_POST['order_action'] == "Shipping"){}
-						// else if($_POST['order_action'] == "Complete"){
-						// 	// Sending to Customer
-						// 	$mail->addAddress('mrjimmy18@gmail.com');
-						// 	$mail->Subject 	= '#'.$order->id.' :: รับสินค้าเรียบร้อย';
-						// 	$message 		= file_get_contents('template/email/complete.html');
-						// 	$message 		= str_replace('%order_id%', $order->id, $message);
-						// 	$mail->Body    	= $message;
-						// 	$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+							if(!$mail->send())
+								$email_send = $mail->ErrorInfo;
+							else
+								$email_send = "Message has been sent";
+						}
+						else if($_POST['order_action'] == "TransferSuccess"){
+							// Sending to Customer
+							$mail->addAddress('mrjimmy18@gmail.com');
+							$mail->Subject 	= '#'.$order->id.' :: ชำระเงินค่าสินค้าแล้ว!';
+							$message 		= file_get_contents('template/email/success.html');
+							$message 		= str_replace('%order_id%', $order->id, $message);
+							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
+							$message 		= str_replace('%address_name%', '', $message);
+							$message 		= str_replace('%address_text%', '', $message);
+							$message 		= str_replace('%address_phone%', '', $message);
+							// $message 		= str_replace('%bank_list%',, $message);
+							$mail->Body    	= $message;
+							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
-						// 	if(!$mail->send())
-						// 		$email_send = $mail->ErrorInfo;
-						// 	else
-						// 		$email_send = "Message has been sent";
-						// }
+							if(!$mail->send())
+								$email_send = $mail->ErrorInfo;
+							else
+								$email_send = "Message has been sent";
+						}
+						else if($_POST['order_action'] == "Shipping"){
+							// Sending to Customer
+							$mail->addAddress('mrjimmy18@gmail.com');
+							$mail->Subject 	= '#'.$order->id.' :: จัดส่งสินค้าแล้ว!';
+							$message 		= file_get_contents('template/email/shipping.html');
+							$message 		= str_replace('%order_id%', $order->id, $message);
+							$message 		= str_replace('%ems%', $order->ems, $message);
+							// $message 		= str_replace('%bank_list%',, $message);
+							$mail->Body    	= $message;
+							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+							if(!$mail->send())
+								$email_send = $mail->ErrorInfo;
+							else
+								$email_send = "Message has been sent";
+						}
+						else if($_POST['order_action'] == "Complete"){}
 
 						$api->successMessage('#'.$_POST['order_id'].' - '.$_POST['order_action'].' Successed! ('.$email_send.')','','');
 					}
