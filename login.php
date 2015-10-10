@@ -37,25 +37,25 @@ require_once'config/autoload.php';
 
 </head>
 
-<body>
-<div class="content">
-	<div class="login-dialog">
-		<div class="logo">dotdotdot limited</div>
-
+<body class="bg-full-screen">
+<div class="login-dialog">
+	<div class="login-container">
+		<div class="logo">dotdotdot limited.</div>
 		<div class="form">
 			<div class="caption">Email or Phone Number</div>
-			<input type="text" id="username" placeholder="Email of Phone number">
+			<input type="text" class="input-text" id="username">
 			<div class="caption">Password</div>
-			<input type="text" id="password" placeholder="Password">
+			<input type="text" class="input-text" id="password">
 
-			<button onclick="javascript:LoginUser();">Login</button>
-			<div class="status" id="login-status">logining...</div>
-			<div class="facebook-button"></div>
-		</div>
+			<div class="status" id="login-status"></div>
+			<button class="button-submit" onclick="javascript:LoginUser();">Login</button>
+			<div class="mini-caption">หรือ</div>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 
-		<div class="option">
-			<div class="option-items">สมัครสมาชิก</div>
-			<div class="option-items">ลืมรหัสผ่าน</div>
+			<div class="option">
+				<a href="#">สมัครสมาชิก</a>
+				 · <a href="#">ลืมรหัสผ่าน</a>
+			</div>
 		</div>
 	</div>
 </div>
