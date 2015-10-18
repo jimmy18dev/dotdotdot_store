@@ -83,7 +83,9 @@ if($_POST['calling'] != ''){
 							else
 								$email_send = "Message has been sent";
 						}
-						else if($_POST['order_action'] == "TransferRequest"){}
+						else if($_POST['order_action'] == "TransferRequest"){
+							// Call Money Transfer file.
+						}
 						else if($_POST['order_action'] == "TransferAgain"){}
 						else if($_POST['order_action'] == "TransferSuccess"){}
 						else if($_POST['order_action'] == "Shipping"){}

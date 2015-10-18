@@ -77,20 +77,7 @@ if($_POST['calling'] != ''){
 								$email_send = "Message has been sent";
 						}
 						else if($_POST['order_action'] == "Shipping"){
-							// Sending to Customer
-							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject 	= '#'.$order->id.' :: จัดส่งสินค้าแล้ว!';
-							$message 		= file_get_contents('template/email/shipping.html');
-							$message 		= str_replace('%order_id%', $order->id, $message);
-							$message 		= str_replace('%ems%', $order->ems, $message);
-							// $message 		= str_replace('%bank_list%',, $message);
-							$mail->Body    	= $message;
-							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
-
-							if(!$mail->send())
-								$email_send = $mail->ErrorInfo;
-							else
-								$email_send = "Message has been sent";
+							// Call case: EmsUpdate
 						}
 						else if($_POST['order_action'] == "Complete"){}
 
@@ -112,6 +99,21 @@ if($_POST['calling'] != ''){
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> "Shipping",
 						));
+
+						// Sending to Customer
+						$mail->addAddress('mrjimmy18@gmail.com');
+						$mail->Subject 	= '#'.$order->id.' :: จัดส่งสินค้าแล้ว!';
+						$message 		= file_get_contents('template/email/shipping.html');
+						$message 		= str_replace('%order_id%', $order->id, $message);
+						$message 		= str_replace('%ems%', $order->ems, $message);
+						// $message 		= str_replace('%bank_list%',, $message);
+						$mail->Body    	= $message;
+						$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+						if(!$mail->send())
+							$email_send = $mail->ErrorInfo;
+						else
+							$email_send = "Message has been sent";
 
 						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
 					}

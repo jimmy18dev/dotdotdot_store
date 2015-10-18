@@ -24,9 +24,9 @@ $order->OrderProcess(array(
 
 // Sending to Customer
 $mail->addAddress('mrjimmy18@gmail.com');
-$mail->Subject  = '#'.$order->id.' :: กำลังตรวจสอบหลักฐานการโอนเงิน...';
+$mail->Subject  = '#'.$_POST['order_id'].' :: กำลังตรวจสอบหลักฐานการโอนเงิน...';
 $message        = file_get_contents('template/email/confirm.html');
-$message        = str_replace('%order_id%', $order->id, $message);
+$message        = str_replace('%order_id%', $_POST['order_id'], $message);
 $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
 $mail->Body     = $message;
 $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
