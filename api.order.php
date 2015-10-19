@@ -68,7 +68,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Paying"){
 							// Sending to Customer
 							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject 	= '#'.$order->id.' :: ยืนยันการสั่งซื้อสินค้า';
+							$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
 							$message 		= file_get_contents('template/email/paying.html');
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
@@ -92,7 +92,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Complete"){
 							// Sending to Customer
 							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject 	= '#'.$order->id.' :: รับสินค้าเรียบร้อย';
+							$mail->Subject 	= 'รับสินค้าเรียบร้อย';
 							$message 		= file_get_contents('template/email/complete.html');
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$mail->Body    	= $message;

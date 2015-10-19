@@ -45,7 +45,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "TransferAgain"){
 							// Sending to Customer
 							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject 	= '#'.$order->id.' :: หลักฐานการโอนเงินไม่ถูกต้อง!';
+							$mail->Subject 	= 'หลักฐานการโอนเงินไม่ถูกต้อง!';
 							$message 		= file_get_contents('template/email/again.html');
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
@@ -60,7 +60,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "TransferSuccess"){
 							// Sending to Customer
 							$mail->addAddress('mrjimmy18@gmail.com');
-							$mail->Subject 	= '#'.$order->id.' :: ชำระเงินค่าสินค้าแล้ว!';
+							$mail->Subject 	= 'ชำระเงินค่าสินค้าแล้ว!';
 							$message 		= file_get_contents('template/email/success.html');
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
@@ -102,7 +102,7 @@ if($_POST['calling'] != ''){
 
 						// Sending to Customer
 						$mail->addAddress('mrjimmy18@gmail.com');
-						$mail->Subject 	= '#'.$order->id.' :: จัดส่งสินค้าแล้ว!';
+						$mail->Subject 	= 'จัดส่งสินค้าแล้ว!';
 						$message 		= file_get_contents('template/email/shipping.html');
 						$message 		= str_replace('%order_id%', $order->id, $message);
 						$message 		= str_replace('%ems%', $order->ems, $message);
