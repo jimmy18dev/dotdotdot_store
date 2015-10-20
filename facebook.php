@@ -15,7 +15,7 @@ if(!MEMBER_ONLINE){
 	// Initialize application by Application ID and Secret
 	FacebookSession::setDefaultApplication(APP_ID,APP_SECRET);
 	// Login Healper with reditect URI
-	$helper = new FacebookRedirectLoginHelper('http://'.$_SERVER['SERVER_NAME'].'/dotdotdot/index.php');
+	$helper = new FacebookRedirectLoginHelper('http://'.$_SERVER['SERVER_NAME'].'/index.php');
 
 	try{
 		$session = $helper->getSessionFromRedirect();

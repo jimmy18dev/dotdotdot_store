@@ -40,12 +40,22 @@
 	include_once'controller/bank.controller.php';
 
 	// Object of Controller
+	$detect 		= new Mobile_Detect;
 	$product 		= new ProductController;
 	$image 			= new ImageController;
 	$user 			= new UserController;
 	$api 			= new APIController;
 	$order 			= new OrderController;
 	$bank 			= new BankController;
+
+	// Device access detact process
+	include'device.access.php';
+
+	// Device define data
+	define('DEVICE_TYPE',		$deviceType);
+	define('DEVICE_MODEL',		$deviceModel);
+	define('DEVICE_OS', 		$deviceOS);
+	define('DEVICE_BROWSER',	$deviceBrowser);
 
 	// Mailer
 	$mail 			= new PHPMailer;
