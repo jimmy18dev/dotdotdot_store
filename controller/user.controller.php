@@ -41,11 +41,13 @@ class UserController extends UserModel{
     public function RegisterUser($param){
         if(parent::AlreadyUserProcess($param)){
             // Register new user
-            parent::RegisterUserProcess($param);
+            $member_id = parent::RegisterUserProcess($param);
         }
         else{
             // Update user info
         }
+
+        return $member_id;
     }
 
     public function LoginUserProcess($param){

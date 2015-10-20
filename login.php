@@ -1,7 +1,7 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
+include'sdk/facebook-sdk/autoload.php';
+include'facebook.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ require_once'config/autoload.php';
 //include'favicon.php';
 ?>
 
-<title>Homepage</title>
+<title>Login</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -53,7 +53,7 @@ require_once'config/autoload.php';
 			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 
 			<div class="option">
-				<a href="#">สมัครสมาชิก</a>
+				<a href="register.php">สมัครสมาชิก</a>
 				 · <a href="#">ลืมรหัสผ่าน</a>
 			</div>
 		</div>

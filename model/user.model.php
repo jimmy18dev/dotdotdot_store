@@ -3,11 +3,12 @@ class UserModel extends Database{
 
 	// Create New Post /////////////
 	public function RegisterUserProcess($param){
-		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_name,:password,:create_time,:update_time,:ip,:type,:status)');
+		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:ip,:type,:status)');
 
 		parent::bind(':email', 			$param['email']);
 		parent::bind(':phone', 			$param['phone']);
 		parent::bind(':name', 			$param['name']);
+		parent::bind(':fb_id', 		$param['fb_id']);
 		parent::bind(':fb_name', 		$param['fb_name']);
 		parent::bind(':password', 		$param['password']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));

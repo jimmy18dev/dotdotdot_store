@@ -13,6 +13,7 @@ if($_POST['calling'] != ''){
 							'email' 	=> $_POST['email'],
 							'phone' 	=> $_POST['phone'],
 							'name' 		=> $_POST['name'],
+							'fb_id' 	=> $_POST['fb_id'],
 							'fb_name' 	=> $_POST['fb_name'],
 							'password' 	=> $_POST['password'],
 							'type' 		=> 'member',

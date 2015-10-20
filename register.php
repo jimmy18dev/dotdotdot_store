@@ -24,12 +24,12 @@ require_once'config/autoload.php';
 //include'favicon.php';
 ?>
 
-<title>register</title>
+<title>Register</title>
 
 <!-- CSS -->
-<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/> -->
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -37,28 +37,37 @@ require_once'config/autoload.php';
 
 </head>
 
-<body>
-<?php include'header.php';?>
+<body class="bg-full-screen">
+<div class="login-dialog">
+	<div class="login-container">
+		<div class="logo">Register</div>
+		<div class="form">
+			<div class="caption">Email</div>
+			<input type="text" class="input-text" id="email" placeholder="Email">
 
-<h3>Register</h3>
-<p>Email</p>
-<input type="text" id="email" placeholder="Email">
+			<div class="caption">Phone Number</div>
+			<input type="text" class="input-text" id="phone" placeholder="Phone number">
 
-<p>Phone</p>
-<input type="text" id="phone" placeholder="Phone number">
+			<div class="caption">Full Name</div>
+			<input type="text" class="input-text" id="name" placeholder="Fullname">
 
-<p>Name</p>
-<input type="text" id="name" placeholder="Fullname">
+			<!-- <p>Facebook Name</p> -->
+			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
 
-<p>Facebook Name</p>
-<input type="text" id="fb_name" placeholder="Facebook name">
+			<div class="caption">Password</div>
+			<input type="text" class="input-text" id="password" placeholder="Password">
 
-<p>Password</p>
-<input type="text" id="password" placeholder="Password">
+			<div class="status" id="login-status"></div>
+			<button class="button-submit" onclick="javascript:RegisterUser();">Register</button>
+			<div class="mini-caption">หรือ</div>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 
-<br><br>
-<button onclick="javascript:RegisterUser();">Register</button>
-
-
+			<div class="option">
+				<a href="login.php">เข้าระบบ</a>
+				 · <a href="#">ลืมรหัสผ่าน</a>
+			</div>
+		</div>
+	</div>
+</div>
 </body>
 </html>
