@@ -8,9 +8,9 @@
 </header>
 <navigator class="navigator">
 	<ul>
-		<a href="index.php"><li>Order</li></a>
-		<a href="product.php"><li>Product</li></a>
-		<a href="analytic.php"><li>Analytics</li></a>
-		<a href="../" target="_blank"><li>Site</li></a>
+		<a href="index.php"><li><i class="fa fa-list"></i>Order</li></a>
+		<a href="product.php"><li><i class="fa fa-database"></i>Product</li></a>
+		<a href="analytic.php"><li><i class="fa fa-line-chart"></i>Analytics</li></a>
+		<a href="../" target="_blank"><li><i class="fa fa-share"></i>Site</li></a>
 	</ul>
 </navigator>

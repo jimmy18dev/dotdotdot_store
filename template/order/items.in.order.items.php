@@ -23,21 +23,15 @@ $product_quantity = $var['product_amount'];
 	</div>
 
 	<div class="detail">
-		<div class="product-title">
-			<p class="title"><?php echo $title;?></p>
-
-			<p class="description">Product ID #<?php echo $var['product_id'];?> · <?php echo number_format($var['product_price'],2);?> ฿ <?php if($order_status == "Shopping"){?><span class="remove-button" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">Remove items</span><?php }?>
-			</p>
-		</div>
-		<div class="product-payments">
-			<div class="quantity">
-				<input type="text" id="product-quantity-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);" <?php echo ($order_status != "Shopping"?'disabled':'');?>>
-			</div>
-			<div class="payments">
-				<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
-				<span class="currency">฿</span>
-			</div>
-		</div>
+		<p class="title"><?php echo $title;?></p>
+		<p class="description">Product ID #<?php echo $var['product_id'];?> · <?php echo number_format($var['product_price'],2);?> ฿ <?php if($order_status == "Shopping"){?><span class="remove-button" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">Remove items</span><?php }?></p>
+	</div>
+	<div class="quantity">
+		<input type="text" id="product-quantity-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);" <?php echo ($order_status != "Shopping"?'disabled':'');?>>
+	</div>
+	<div class="payments">
+		<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
+		<span class="currency">฿</span>
 	</div>
 
 	<input type="hidden" id="product-payments-<?php echo $reference_id;?>" class="items-payments" value="<?php echo $product_payments;?>">

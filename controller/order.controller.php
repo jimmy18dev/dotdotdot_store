@@ -144,7 +144,7 @@ class OrderController extends OrderModel{
         $this->m_description = $transfer['mf_description'];
         $this->m_bank = $transfer['bk_name'];
         $this->m_bank_number = $transfer['bk_account_number'];
-        $this->m_photo = $transfer['im_normal'];
+        $this->m_photo = $transfer['im_filename'];
     }
 
     private function RenderOrder($mode,$data){

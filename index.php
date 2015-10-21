@@ -26,7 +26,7 @@ include'facebook.php';
 //include'favicon.php';
 ?>
 
-<title>Homepage</title>
+<title>dotdotdot products.</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -42,14 +42,11 @@ include'facebook.php';
 
 <body>
 <?php include'header.php';?>
-
 <div class="content">
 	<div class="product">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>
-<?php
-include'footer.php';
-?>
+<?php include'footer.php';?>
 </body>
 </html>

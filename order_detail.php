@@ -25,7 +25,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 //include'favicon.php';
 ?>
 
-<title>Order Detail</title>
+<title>ใบสั่งซื้อ <?php echo $order->id;?></title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -46,12 +46,12 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <body>
 <?php include'header.php';?>
 
-<div class="content content-order">
+<div class="content">
 	<div class="container">
-		<div class="topic"><i class="fa fa-file-text-o"></i>รายการสั่งซื้อ #<?php echo $order->id;?></div>
+		<div class="topic"><i class="fa fa-file-text-o"></i>ใบสั่งซื้อ <?php echo $order->id;?></div>
 
+		<?php if($order->status != "Complete"){?>
 		<div class="order-state">
-			<?php if($order->status != "Complete"){?>
 			<div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 				<div class="caption">ช็อป</div>
@@ -72,18 +72,16 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<div class="icon"><i class="fa fa-truck"></i></div>
 				<div class="caption">รอรับของ</div>
 			</div>
-			<?php }else{?>
-			<div class="state-items-fullsize"><i class="fa fa-thumbs-o-up"></i>การสั่งซื้อเสร็จสมบูรณ์</div>
-			<?php }?>
 		</div>
+		<?php }?>
 
 		<div class="list">
 			<?php if($order->status == "Complete"){?>
 			<!-- Shipping -->
 			<div class="order-box order-message">
-				<p class="icon"><i class="fa fa-commenting-o"></i></p>
-				<p>รับสินค้าเรียบร้อย ขอบคุณที่ใช้บริการค่ะ</p>
-				<p>dotdotdot store</p>
+				<p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
+				<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
+				<p class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</p>
 			</div>
 			<?php }?>
 
@@ -99,15 +97,15 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 			<!-- Shipping -->
 			<div class="order-box order-message">
-				<div class="topic">สถานะการส่งสินค้า</div>
 				<p class="icon"><i class="fa fa-truck"></i></p>
 				<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 				<p class="shipping-code"><?php echo $order->ems;?></p>
+				<p class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</p>
 
 				<?php if($order->status == "Shipping"){?>
-				<div class="question">
-					<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
-					<div class="complete-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ฉันได้รับสินค้าแล้ว</div>
+				<div class="form-submit">
+					<button class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
+					<div class="form-caption">คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</div>
 				</div>
 				<?php }?>
 			</div>
@@ -206,7 +204,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							ภาพถ่ายสลิปใบโอนเงิน
 						</div>
 						<div class="input">
-							<img src="<?php echo $order->m_photo;?>" alt="">
+							<img src="image/upload/normal/<?php echo $order->m_photo;?>" alt="">
 						</div>
 					</div>
 
@@ -273,13 +271,15 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 				<?php if($order->status == "Shopping"){?>
 				<div class="form-submit">
-					<div class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน</div>
+					<div class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-check"></i>ชำระเงิน</div>
 				</div>
 				<?php }?>
 			</div>
 		</div>
 	</div>
 </div>
+
+<?php include'footer.php';?>
 
 
 <!-- Loading process submit photo to uploading. -->

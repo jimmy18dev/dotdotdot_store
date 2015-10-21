@@ -28,9 +28,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <title>Order Detail</title>
 
 <!-- CSS -->
-<!-- <link rel="stylesheet" type="text/css" href="css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/> -->
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -40,6 +40,16 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 <body>
 <?php include'header.php';?>
+
+<div class="container">
+	<div class="topic">
+		<div class="topic-caption">ใบสั่งซื้อ <?php echo $order-id;?></div>
+	</div>
+
+	<div class="content">
+		
+	</div>
+</div>
 
 <h1>Order Detail (<?php echo $order->status;?>)</h1>
 <?php $order->ListItemsInOrder(array('order_id' => $order->id));?>

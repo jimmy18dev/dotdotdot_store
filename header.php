@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header header-shadow">
 	<div class="header-items logo"><a href="index.php">dotdotdot limited</a></div>
 
 	<?php if(MEMBER_ONLINE){?>

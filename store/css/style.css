@@ -168,6 +168,10 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   color: #AAAAAA;
 }
+.navigator ul li i {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
 .container {
   width: 60%;
   padding: 0% 20%;
@@ -180,10 +184,27 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   color: #AAAAAA;
+  font-size: 0.9em;
 }
 .container .topic .topic-caption {
+  padding: 2% 0%;
   float: left;
   display: inline-block;
+}
+.container .topic .button {
+  float: right;
+  padding: 1%;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  color: #555555;
+}
+.container .content {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
 }
 .container .order {
   width: 100%;
@@ -224,6 +245,45 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   text-align: center;
+}
+.container .order .product-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.container .order .product-items p {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #000000;
+}
+.container .order .product-items p.mini {
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.container .order .product-items .thumbnail {
+  width: 10%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .detail {
+  width: 76%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .summary {
+  width: 6%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  text-align: right;
 }
 table tr td {
   border: 1px solid #CCCCCC;
