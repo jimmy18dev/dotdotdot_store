@@ -45,6 +45,9 @@ class UserController extends UserModel{
         }
         else{
             // Update user info
+            if(!empty($param['fb_id'])){
+                parent::UpdateUserProcess($param);
+            }
         }
 
         return $member_id;

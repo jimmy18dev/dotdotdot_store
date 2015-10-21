@@ -101,7 +101,7 @@ class OrderModel extends Database{
 	}
 
 	public function ListItemsInOrderProcess($param){
-		parent::query('SELECT odt_id,odt_order_id order_id,odt_amount product_amount,product.pd_id product_id,product.pd_title product_title,product.pd_description product_description,product.pd_price product_price,product.pd_type product_type,p_image.im_id product_image_id,p_image.im_thumbnail product_image_thumbnail,parent.pd_id parent_id,parent.pd_title parent_title,parent.pd_description parent_description,parent_image.im_id parent_image_id,parent_image.im_thumbnail parent_image_thumbnail 
+		parent::query('SELECT odt_id,odt_order_id order_id,odt_amount product_amount,product.pd_id product_id,product.pd_title product_title,product.pd_description product_description,product.pd_price product_price,product.pd_type product_type,p_image.im_id product_image_id,p_image.im_filename product_image_filename,parent.pd_id parent_id,parent.pd_title parent_title,parent.pd_description parent_description,parent_image.im_id parent_image_id,parent_image.im_filename parent_image_filename 
 			FROM dd_order_detail 
 			LEFT JOIN dd_product AS product ON odt_product_id = pd_id 
 			LEFT JOIN dd_product AS parent ON product.pd_parent = parent.pd_id 
@@ -138,7 +138,7 @@ class OrderModel extends Database{
 	}
 
 	public function GetMoneyTransferProcess($param){
-		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_name,bk_account_name,bk_account_number,im_id,im_thumbnail,im_normal,im_large FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id');
+		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_name,bk_account_name,bk_account_number,im_id,im_filename FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		return parent::single();
@@ -247,7 +247,7 @@ class OrderModel extends Database{
 
 
 	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_thumbnail FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
+		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;

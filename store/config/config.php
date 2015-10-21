@@ -1,12 +1,12 @@
 <?php
 	define("DB_HOST", "localhost");
-	define("DB_USER", "igensit2_demo");
-	define("DB_PASS", "dinsorsee");
-	define("DB_NAME", "igensit2_demo");
+	// define("DB_USER", "igensit2_demo");
+	// define("DB_PASS", "dinsorsee");
+	// define("DB_NAME", "igensit2_demo");
 
-	// define("DB_USER", "admin");
-	// define("DB_PASS", "1234");
-	// define("DB_NAME", "dotdotdot_store");
+	define("DB_USER", "admin");
+	define("DB_PASS", "1234");
+	define("DB_NAME", "dotdotdot_store");
 
 	// Email Config
 	$email_settig = array(

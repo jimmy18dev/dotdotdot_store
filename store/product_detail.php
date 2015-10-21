@@ -43,7 +43,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <?php include'header.php';?>
 
-<img src="<?php echo $product->image_normal;?>" alt="">
+<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
 
 <h1><?php echo $product->title;?></h1>
 

@@ -53,7 +53,7 @@ button {
 }
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #ffffff;
+  background: #fafafa;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -112,6 +112,118 @@ Copyright (c) 2015 Daniel Eden
 .pulse {
   -webkit-animation-name: pulse;
   animation-name: pulse;
+}
+.header {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 60%;
+  padding: 0% 20%;
+  height: 50px;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+}
+.header .logo {
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  padding: 10px 0px;
+  height: 30px;
+}
+.header .account {
+  float: right;
+  display: inline-block;
+  padding: 10px 0px;
+  height: 30px;
+}
+.header .account .avatar img {
+  height: 30px;
+  width: 30px;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.navigator {
+  width: 60%;
+  padding: 0% 20%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-top: 50px;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.navigator ul {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.navigator ul li {
+  padding: 2% 0%;
+  padding-right: 5%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #DDDDDD;
+  font-size: 0.9em;
+  color: #AAAAAA;
+}
+.container {
+  width: 60%;
+  padding: 0% 20%;
+  float: left;
+  display: inline-block;
+}
+.container .topic {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  color: #AAAAAA;
+}
+.container .topic .topic-caption {
+  float: left;
+  display: inline-block;
+}
+.container .order {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order .order-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  border-bottom: 1px solid #FAFAFA;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+}
+.container .order .order-items p {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #000000;
+}
+.container .order .order-items p.mini {
+  font-size: 0.8em;
+  color: #555555;
+}
+.container .order .order-items .detail {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+.container .order .order-items .summary {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.container .order .order-items .status {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  text-align: center;
 }
 table tr td {
   border: 1px solid #CCCCCC;
@@ -773,7 +885,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     margin: 3%;
-    background: #ffffff;
+    background: #fafafa;
     text-align: center;
     color: #555555;
   }
@@ -1854,7 +1966,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     border: 0px;
     font-size: 0.9em;
-    background: #ffffff;
+    background: #fafafa;
     color: #1abc9c;
   }
   #feature #category-form .input-submit:hover {
@@ -2559,7 +2671,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     margin: 3%;
-    background: #ffffff;
+    background: #fafafa;
     text-align: center;
     color: #555555;
   }
@@ -3640,7 +3752,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     border: 0px;
     font-size: 0.9em;
-    background: #ffffff;
+    background: #fafafa;
     color: #1abc9c;
   }
   #feature #category-form .input-submit:hover {

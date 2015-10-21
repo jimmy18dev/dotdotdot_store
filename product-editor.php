@@ -56,15 +56,22 @@ $product->UpdateView(array('product_id' => $product->id));
 	<div class="product">
 		<!-- Photo -->
 		<div class="product-photos">
-			<img src="store/image/upload/square/<?php echo $product->image_filename;?>" alt="">
-			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
+			<div class="cover-input">
+				<div class="icon"><i class="fa fa-camera"></i> เลือกภาพ</div>
+			</div>
 		</div>
 
 		<!-- Detail -->
 		<div class="product-details">
-			<h1><?php echo $product->title;?></h1>
-			<p class="code"><?php echo number_format($product->read);?> คนดูสินค้านี้ <span class="price"><?php echo number_format($product->price,2);?> ฿</span></p>
-			<div class="description"><?php echo $product->description;?></div>
+			<div class="product-title">
+				<input type="text" class="input-name" placeholder="Product name...">
+			</div>
+			<p class="code">
+				<?php echo number_format($product->read);?> คนดูสินค้านี้ <span class="price"><?php echo number_format($product->price,2);?> ฿</span>
+			</p>
+			<div class="description">
+				<textarea class="input-textarea" placeholder="Product description..."></textarea>
+			</div>
 
 			<div class="action">
 				<p class="topic">สั่งซื้อสินค้า <?php echo 'InOrder: '.$product->in_order;?></p>

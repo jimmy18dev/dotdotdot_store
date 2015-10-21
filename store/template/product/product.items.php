@@ -8,6 +8,6 @@
 	<td><?php echo $var['pd_price'];?></td>
 	<td><?php echo $var['pd_create_time'];?></td>
 	<td><?php echo $var['pd_update_time'];?></td>
-	<td><img src="<?php echo $var['im_thumbnail'];?>" alt="" width="80"></td>
+	<td><img src="image/upload/thumbnail/<?php echo $var['im_filename'];?>" alt="" width="80"></td>
 	<td><?php if($var['pd_parent'] == 0){?><a href="product_editor.php?parent=<?php echo $var['pd_id'];?>">เพิ่มสินค้า</a><?php }?></td>
 </tr>

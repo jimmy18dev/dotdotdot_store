@@ -15,11 +15,7 @@ class ProductController extends ProductModel{
 
 	// Image of product
 	public $image_id;
-	public $image_thumbnail;
-	public $image_square;
-	public $image_mini;
-	public $image_normal;
-	public $image_large;
+	public $image_filename;
 	public $image_format;
 
 	public function GetProduct($param){
@@ -39,11 +35,7 @@ class ProductController extends ProductModel{
         $this->status = $data['pd_status'];
 
         $this->image_id = $data['im_id'];
-        $this->image_thumbnail = $data['im_thumbnail'];
-        $this->image_square = $data['im_square'];
-        $this->image_mini = $data['im_mini'];
-        $this->image_normal = $data['im_normal'];
-        $this->image_large = $data['im_large'];
+        $this->image_filename = $data['im_filename'];
         $this->image_format = $data['im_format'];
 
     }
