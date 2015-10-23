@@ -4,7 +4,11 @@
 	<?php if(MEMBER_ONLINE){?>
 	<a href="me.php">
 	<div class="header-items avatar">
-		<img src="https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xat1/v/t1.0-1/p160x160/11262102_10203354443781334_6934107217499553852_n.jpg?oh=c4cb5727426538443f0aafb2060155e9&oe=566E4F8F&__gda__=1453461472_b6d2f73a017aece7244956f2d898de52" alt="">
+		<?php if(empty($user->facebook_id)){?>
+		<img src="image/avatar.png" alt="">
+		<?php }else{?>
+		<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
+		<?php }?>
 	</div>
 	</a>
 

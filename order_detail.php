@@ -113,20 +113,20 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 				<?php }?>
 
-				<?php if($order->status == "Paying"){?>
-				<!-- Message -->
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-message">
-					<p class="icon"><i class="fa fa-clock-o"></i></p>
-					<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
-					<p class="note">หากเกินกำหนดชำระเงินแล้ว สินค้าจะหลุดจอง ขอบคุณค่ะ</p>
-				</div>
-				<?php }?>
-
 				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 				<!-- Money Transfer -->
 				<div class="order-box order-money-transfer">
 					<div class="topic">ยืนยันการโอนเงิน</div>
+					
+					<div class="message">
+						<p>ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> ฿</p>
+						<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
+					</div>
+
+					<div class="bank">
+						<?php $bank->ListBank(array('mode' => 'items'));?>
+					</div>
+
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 					<div class="form">
 						<div class="form-items">
@@ -134,7 +134,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							<div class="input">
 								<select name="to_bank" class="input-select">
 									<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
-									<?php $bank->ListBank(array('null' => 0));?>
+									<?php $bank->ListBank(array('mode' => 'select'));?>
 								</select>
 							</div>
 						</div>

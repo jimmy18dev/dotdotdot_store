@@ -8,7 +8,7 @@ class BankController extends BankModel{
 
     public function ListBank($param){
 		$dataset = parent::ListBankProcess($param);
-		$this->Render('null',$dataset);
+		$this->Render($param['mode'],$dataset);
 	}
 
     public function ListBankToEmail($param){
@@ -24,7 +24,12 @@ class BankController extends BankModel{
 
 	private function Render($mode,$data){
         foreach ($data as $var){
-        	include'template/bank/bank.items.php';
+            if($mode == "select"){
+                include'template/bank/bank.select.items.php';
+            }
+            else if($mode == "items"){
+                include'template/bank/bank.items.php';
+            }
         }
         unset($data);
     }
