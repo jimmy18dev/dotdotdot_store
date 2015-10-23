@@ -79,29 +79,20 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
 				<div class="order-box order-message">
 					<p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
 					<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
-					<p class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</p>
-				</div>
-				<?php }?>
-
-				<?php if($order->status == "TransferSuccess"){?>
-				<!-- Shipping -->
-				<div class="order-box order-message">
-					<p class="icon"><i class="fa fa-check"></i></p>
-					<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
-					<p title="<?php echo $order->confirm_time_thai_format;?>">เมื่อ <?php echo $order->confirm_time_facebook_format;?></p>
 				</div>
 				<?php }?>
 
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
 				<div class="order-box order-message">
 					<p class="icon"><i class="fa fa-truck"></i></p>
 					<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 					<p class="shipping-code"><?php echo $order->ems;?></p>
-					<p class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</p>
 
 					<?php if($order->status == "Shipping"){?>
 					<div class="form-submit">
@@ -112,8 +103,19 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 				<?php }?>
 
+				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
+				<!-- Shipping -->
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
+				<div class="order-box order-message">
+					<p class="icon"><i class="fa fa-check"></i></p>
+					<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+					<p title="<?php echo $order->confirm_time_thai_format;?>">เมื่อ <?php echo $order->confirm_time_facebook_format;?></p>
+				</div>
+				<?php }?>
+
 				<?php if($order->status == "Paying"){?>
 				<!-- Message -->
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
 				<div class="order-box order-message">
 					<p class="icon"><i class="fa fa-clock-o"></i></p>
 					<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
@@ -121,7 +123,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 				<?php }?>
 
-				<?php if($order->status == "Paying"){?>
+				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 				<!-- Money Transfer -->
 				<div class="order-box order-money-transfer">
 					<div class="topic">ยืนยันการโอนเงิน</div>
@@ -156,7 +158,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 									<span id="photo_thumbnail">
 										<div class="icon"><i class="fa fa-camera"></i> เลือกภาพ</div>
 									</span>
-									<input type="file" class="input-file" id="photo_files" name="photo_file" accept="image/*">
+									<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
 								</div>
 							</div>
 						</div>
@@ -194,6 +196,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 				<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Money transfer info -->
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
 				<div class="order-box order-money-transfer">
 					<div class="topic">หลักฐานการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
 					<div class="form">
@@ -214,8 +217,14 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 								ภาพถ่ายสลิปใบโอนเงิน
 							</div>
 							<div class="input">
-								<img src="image/upload/normal/<?php echo $order->m_photo;?>" alt="">
+								<div class="image-input">
+									<img src="image/upload/normal/<?php echo $order->m_photo;?>" alt="">
+								</div>
 							</div>
+						</div>
+
+						<div class="form-items full-size">
+							<div class="input"><i class="fa fa-truck"></i><?php echo $user->name;?></div>
 						</div>
 
 						<div class="form-items full-size">
@@ -229,6 +238,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 				<?php }?>
 
+
+				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
 				<div class="order-box order-list">
 					<div class="topic-caption">
 						<div class="title">รายการสินค้า</div>
