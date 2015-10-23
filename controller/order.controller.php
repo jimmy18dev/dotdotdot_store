@@ -105,6 +105,10 @@ class OrderController extends OrderModel{
 		$this->RenderItemsInOrder('null',$data,$order_status);
 	}
 
+	public function CountItemInOrder($param){
+		return parent::CountItemInOrderProcess($param);
+	}
+
 	public function GetOrder($param){
         $data = parent::GetOrderProcess($param);
 

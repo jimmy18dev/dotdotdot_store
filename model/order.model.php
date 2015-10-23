@@ -114,6 +114,15 @@ class OrderModel extends Database{
 		return $dataset;
 	}
 
+	public function CountItemInOrderProcess($param){
+		parent::query('SELECT COUNT(odt_id) FROM dd_order_detail WHERE odt_order_id = :order_id');
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+		$dataset = parent::single();
+
+		return $dataset['COUNT(odt_id)'];
+	}
+
 	public function GetOrderProcess($param){
 		parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);

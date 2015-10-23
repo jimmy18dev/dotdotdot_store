@@ -22,6 +22,12 @@ $order->OrderProcess(array(
     'address'       => $_POST['address'],
 ));
 
+// Update Realname
+$user->UpdateUserName(array(
+    'member_id'     => MEMBER_ID,
+    'name'          => $_POST['realname'],
+));
+
 // Sending to Customer
 $mail->addAddress('mrjimmy18@gmail.com');
 $mail->Subject  = 'กำลังตรวจสอบหลักฐานการโอนเงิน...';

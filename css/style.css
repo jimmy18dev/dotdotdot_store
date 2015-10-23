@@ -435,12 +435,22 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .content .container .list .order-money-transfer .form .form-items .input .image-input {
-  width: 80%;
-  padding: 20% 10%;
+  width: 100%;
   float: left;
   display: inline-block;
   background: #EEEEEE;
   text-align: center;
+}
+.content .container .list .order-money-transfer .form .form-items .input .image-input img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.content .container .list .order-money-transfer .form .form-items .input .image-input .icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin: 10% 0%;
 }
 .content .container .list .order-money-transfer .form .form-items .input .input-select {
   width: 100%;
@@ -452,8 +462,7 @@ Copyright (c) 2015 Daniel Eden
   background: #FFFFFF;
 }
 .content .container .list .order-money-transfer .form .form-items .input .input-file {
-  width: 100%;
-  line-height: 1.5em;
+  display: none;
 }
 .content .container .list .order-money-transfer .form .form-items .input .input-text {
   width: 100%;

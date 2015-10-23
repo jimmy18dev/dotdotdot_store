@@ -32,6 +32,16 @@ class UserModel extends Database{
 		parent::execute();
 	}
 
+	public function UpdateUserNameProcess($param){
+		parent::query('UPDATE dd_member SET me_name = :name, me_update_time = :update_time WHERE me_id = :member_id');
+
+		parent::bind(':name', 			$param['name']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$param['member_id']);
+
+		parent::execute();
+	}
+
 	// Check Member ID already
 	public function AlreadyUserProcess($param){
 		parent::query('SELECT me_id FROM dd_member WHERE me_id = :member_id OR me_fb_id = :facebook_id OR me_email = :email OR me_phone = :phone');
