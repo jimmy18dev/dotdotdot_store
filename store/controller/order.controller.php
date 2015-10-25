@@ -38,7 +38,7 @@ class OrderController extends OrderModel{
         $this->status = $data['od_status'];
 
         echo'<pre>';
-        print_r($param);
+        print_r($data);
         echo'</pre>';
     }
 

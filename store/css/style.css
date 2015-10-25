@@ -311,25 +311,27 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .content .form .form-image .image-input {
+.container .content .form .form-image .image-input-button {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
-}
-.container .content .form .form-image .image-input .image-button {
-  float: right;
-  display: inline-block;
-  background: #DDDDDD;
+  text-align: center;
+  background: #FAFAFA;
   color: #555555;
-  padding: 1% 2%;
-  font-size: 0.9em;
+  font-size: 1em;
+  line-height: 1.5em;
+  border-top: 1px dashed #EEEEEE;
+  border-bottom: 1px dashed #EEEEEE;
 }
-.container .content .form .form-image .image-input .image-button i {
-  margin-right: 5px;
+.container .content .form .form-image .image-input-button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  border-top: 1px dashed #CCCCCC;
+  border-bottom: 1px dashed #CCCCCC;
 }
-.container .content .form .form-image .image-input .input-file {
-  display: none;
+.container .content .form .form-image .image-input-button i {
+  margin-right: 10px;
 }
 .container .content .form .form-image .image-items {
   width: 49.5%;
@@ -346,6 +348,9 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+}
+.container .content .form .form-image .image-items img:hover {
+  opacity: 0.6;
 }
 .container .content .form .form-items {
   width: 94%;

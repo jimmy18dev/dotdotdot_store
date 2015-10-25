@@ -231,28 +231,31 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
 
-                .image-input{
+                .image-input-button{
                     width: 94%;
                     padding: 3%;
                     float: left;
                     display: inline-block;
+                    text-align: center;
+                    background: #FAFAFA;
+                    color: #555555;
+                    font-size: 1em;
+                    line-height: 1.5em;
+                    border-top: 1px dashed #EEEEEE;
+                    border-bottom: 1px dashed #EEEEEE;
 
-                    .image-button{
-                        float: right;
-                        display: inline-block;
-                        background: #DDDDDD;
-                        color: #555555;
-                        padding: 1% 2%;
-                        font-size: 0.9em;
-
-                        i{
-                            margin-right: 5px;
-                        }
+                    &:hover{
+                        text-decoration: underline;
+                        cursor: pointer;
+                        border-top: 1px dashed #CCCCCC;
+                        border-bottom: 1px dashed #CCCCCC;
                     }
 
-                    .input-file{
-                        display: none;
+                    i{
+                        margin-right: 10px;
                     }
+                }
+                .input-file{
                 }
 
                 .image-items{
@@ -271,6 +274,10 @@ Copyright (c) 2015 Puwadon Sricharoen
                         width: 100%;
                         float: left;
                         display: inline-block;
+
+                        &:hover{
+                            opacity: 0.6;
+                        }
                     }
                 }
             }

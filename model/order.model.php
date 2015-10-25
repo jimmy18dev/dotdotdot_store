@@ -60,7 +60,7 @@ class OrderModel extends Database{
 		else
 			return false;
 	}
-
+	
 	public function ListOrderProcess($param){
 		$select = 'SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order';
 		$where = ' WHERE (od_status = "Paying" OR od_status = "Expire")';

@@ -16,11 +16,34 @@ class OrderModel extends Database{
 		return $dataset;
 	}
 
+	// public function GetOrderProcess($param){
+	// 	parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
+	// 	parent::bind(':order_id', $param['order_id']);
+	// 	parent::execute();
+	// 	return parent::single();
+	// }
+
 	public function GetOrderProcess($param){
 		parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
-		return parent::single();
+		$dataset = parent::single();
+
+		$dataset['order_create_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_create_time']);
+		$dataset['order_update_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_update_time']);
+		$dataset['order_paying_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_paying_time']);
+		$dataset['order_expire_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_expire_time']);
+		$dataset['order_confirm_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_confirm_time']);
+		$dataset['order_shipping_time_facebook_format'] = parent::date_facebookformat($dataset['od_shipping_time']);
+		$dataset['order_create_time_thai_format'] 		= parent::date_thaiformat($dataset['od_create_time']);
+		$dataset['order_update_time_thai_format'] 		= parent::date_thaiformat($dataset['od_update_time']);
+		$dataset['order_paying_time_thai_format'] 		= parent::date_thaiformat($dataset['od_paying_time']);
+		$dataset['order_expire_time_thai_format'] 		= parent::date_thaiformat($dataset['od_expire_time']);
+		$dataset['order_confirm_time_thai_format'] 		= parent::date_thaiformat($dataset['od_confirm_time']);
+		$dataset['order_shipping_time_thai_format'] 	= parent::date_thaiformat($dataset['od_shipping_time']);
+		$dataset['order_expire_time_datediff'] 			= parent::dateDifference($dataset['od_expire_time']);
+
+		return $dataset;
 	}
 
 	public function UpdateStatusOrderProcess($param){

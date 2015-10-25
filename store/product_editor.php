@@ -56,25 +56,13 @@ else if(isset($_GET['parent'])){
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
 			<div class="form-image">
-				<div class="image-input">
-					<div class="image-button"><i class="fa fa-camera"></i>เลือกภาพสินค้า</div>
-					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
-				</div>
+				<div class="image-input-button"><i class="fa fa-camera"></i>เลือกภาพสินค้า</div>
+				<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
+
 				<div class="image-container">
-					<?php for($i=0;$i<3;$i++){?>
-					<div class="image-items">
+					<!-- <div class="image-items">
 						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
-					</div>
-					<div class="image-items">
-						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
-					</div>
-					<div class="image-items">
-						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
-					</div>
-					<div class="image-items">
-						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
-					</div>
-					<?php }?>
+					</div> -->
 				</div>
 			</div>
 			<div class="form-items">
@@ -110,7 +98,7 @@ else if(isset($_GET['parent'])){
 			<div class="form-items">
 				<div class="caption">จำนวน</div>
 				<div class="input">
-					<input type="text" class="input-text"  name="unit" placeholder="unit" value="1" value="<?php echo $product->unit;?>">
+					<input type="text" class="input-text"  name="quantity" placeholder="quantity" value="1" value="<?php echo $product->quantity;?>">
 				</div>
 			</div>
 			<div class="form-items">

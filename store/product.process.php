@@ -17,7 +17,7 @@ if(empty($_POST['product_id'])){
         'code'          => $_POST['code'],
         'title'         => $_POST['title'],
         'description'   => $_POST['description'],
-        'unit'          => $_POST['unit'],
+        'quantity'      => $_POST['quantity'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
         'type'          => 'normal',
@@ -25,7 +25,6 @@ if(empty($_POST['product_id'])){
     ));
 }
 else{
-
     $product_id = $_POST['product_id'];
     $product->EditProduct(array(
         'product_id'    => $product_id,
@@ -33,7 +32,7 @@ else{
         'code'          => $_POST['code'],
         'title'         => $_POST['title'],
         'description'   => $_POST['description'],
-        'unit'          => $_POST['unit'],
+        'quantity'      => $_POST['quantity'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
         'type'          => 'normal',
