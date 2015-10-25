@@ -49,6 +49,11 @@ class ProductController extends ProductModel{
 		$this->Render('product-items',$dataset);
 	}
 
+	public function ListSubProduct($param){
+		$dataset = parent::ListSubProductProcess($param);
+		$this->Render('subproduct-items',$dataset);
+	}
+
 	// List all photos of Product.
 	public function ListPhotoProduct($param){
 		$dataset = parent::ListPhotoProductProcess($param);
@@ -78,6 +83,9 @@ class ProductController extends ProductModel{
         	}
         	else if($mode == "photo-items"){
         		include'template/product/photo.product.items.php';
+        	}
+        	else if($mode == "subproduct-items"){
+        		include'template/product/subproduct.items.php';
         	}
         }
         unset($data);

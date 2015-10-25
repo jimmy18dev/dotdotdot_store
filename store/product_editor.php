@@ -116,6 +116,8 @@ else if(isset($_GET['parent'])){
 			<div class="form-submit">
 				<button type="submit" class="submit-button" ><?php echo (isset($product->id)?'Save':'Create')?></button>
 			</div>
+
+			<input type="hidden" name="type" value="<?php echo ($_GET['type']=="sub"?"sub":"normal");?>">
 		</div>
 		</form>
 	</div>

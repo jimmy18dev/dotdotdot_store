@@ -20,7 +20,7 @@ if(empty($_POST['product_id'])){
         'quantity'      => $_POST['quantity'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
-        'type'          => 'normal',
+        'type'          => $_POST['type'],
         'status'        => 'active',
     ));
 }
@@ -35,7 +35,7 @@ else{
         'quantity'      => $_POST['quantity'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
-        'type'          => 'normal',
+        'type'          => $_POST['type'],
         'status'        => 'active',
     ));
 }

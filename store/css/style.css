@@ -323,6 +323,7 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   border-top: 1px dashed #EEEEEE;
   border-bottom: 1px dashed #EEEEEE;
+  margin-bottom: 1%;
 }
 .container .content .form .form-image .image-input-button:hover {
   text-decoration: underline;

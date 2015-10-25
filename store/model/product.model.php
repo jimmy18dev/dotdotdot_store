@@ -23,7 +23,7 @@ class ProductModel extends Database{
 	}
 
 	public function EditProductProcess($param){
-		parent::query('UPDATE dd_product SET pd_parent = :parent, pd_code = :code, pd_title = :title, pd_description = :description, pd_quantity = :quantity, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_type = :type, pd_status = :status WHERE pd_id = :product_id');
+		parent::query('UPDATE dd_product SET pd_parent = :parent, pd_code = :code, pd_title = :title, pd_description = :description, pd_quantity = :quantity, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_status = :status WHERE pd_id = :product_id');
 
 		parent::bind(':product_id', 	$param['product_id']);
 		parent::bind(':parent', 		$param['parent']);
@@ -34,7 +34,6 @@ class ProductModel extends Database{
 		parent::bind(':price', 			$param['price']);
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':group', 			$param['group']);
-		parent::bind(':type',			$param['type']);
 		parent::bind(':status',			$param['status']);
 		parent::execute();
 	}
@@ -70,6 +69,14 @@ class ProductModel extends Database{
 
 	public function ListProductProcess($param){
 		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id WHERE pd_type != "sub"');
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
+
+	public function ListSubProductProcess($param){
+		parent::query('SELECT * FROM dd_product WHERE pd_parent = :product_id AND pd_type = "sub"');
+		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
