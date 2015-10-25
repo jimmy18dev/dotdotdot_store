@@ -36,6 +36,10 @@ class OrderController extends OrderModel{
         $this->update_time = $data['od_update_time'];
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
+
+        echo'<pre>';
+        print_r($param);
+        echo'</pre>';
     }
 
     private function RenderOrder($mode,$data){

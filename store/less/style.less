@@ -110,6 +110,185 @@ Copyright (c) 2015 Puwadon Sricharoen
         display: inline-block;
         background: #FFFFFF;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+
+        // Product Detail
+        .detail{
+            width: 100%;
+            float: left;
+            display: inline-block;
+
+            header.info{
+                width: 94%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+                font-size: 1em;
+                line-height: 1.5em;
+
+                h1{
+                    font-size: 1.5em;
+                }
+                p{}
+
+            }
+
+            .description{
+                width: 94%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+
+            .image{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                .image-items{
+                    width: 49.5%;
+                    float: left;
+                    display: inline-block;
+                    margin-bottom: 1%;
+                    margin-right: 0.5%;
+
+                    &:nth-child(even){
+                        margin-right: 0%;
+                        margin-left: 0.5%;
+                    }
+                    
+                    img{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .control{
+                width: 94%;
+                float: left;
+                display: inline-block;
+                padding: 3%;
+
+                .control-items{
+                    float: left;
+                    display: inline-block;
+                    background: #EEEEEE;
+                    color: #555555;
+                    padding: 2% 3%;
+                    margin-right: 0.5%;
+                    font-size: 0.9em;
+                }
+
+                .delete{
+                    float: right;
+                    background: #FFFFFF;
+                    margin-right: 0%;
+                }
+            }
+        }
+
+        .form{
+            width: 100%;
+            float: left;
+            display: inline-block;
+
+            .caption{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                font-size: 0.9em;
+                line-height: 2em;
+                color: #CCCCCC;
+            }
+            .input-text{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                font-family: @fontStyle3;
+                font-size: 1em;
+                border: 0px;
+                border-bottom: 1px solid #EEEEEE;
+                line-height: 1.5em;
+                outline: 0;
+            }
+            .submit-button{
+                float: right;
+                display: inline-block;
+                border: 0px;
+                background: #EEEEEE;
+                color: #555555;
+                font-family: @fontStyle3;
+                font-size: 0.9em;
+                line-height: 1.5em;
+                padding: 1% 4%;
+            }
+
+            .form-image{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                .image-input{
+                    width: 94%;
+                    padding: 3%;
+                    float: left;
+                    display: inline-block;
+
+                    .image-button{
+                        float: right;
+                        display: inline-block;
+                        background: #DDDDDD;
+                        color: #555555;
+                        padding: 1% 2%;
+                        font-size: 0.9em;
+
+                        i{
+                            margin-right: 5px;
+                        }
+                    }
+
+                    .input-file{
+                        display: none;
+                    }
+                }
+
+                .image-items{
+                    width: 49.5%;
+                    float: left;
+                    display: inline-block;
+                    margin-bottom: 1%;
+                    margin-right: 0.5%;
+
+                    &:nth-child(even){
+                        margin-right: 0%;
+                        margin-left: 0.5%;
+                    }
+                    
+                    img{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+            }
+
+            .form-items{
+                width: 94%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+            }
+
+            .form-submit{
+                width: 94%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+            }
+        }
     }
 
     .order{

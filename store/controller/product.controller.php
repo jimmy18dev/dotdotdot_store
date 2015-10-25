@@ -5,7 +5,7 @@ class ProductController extends ProductModel{
 	public $code;
 	public $title;
 	public $description;
-	public $unit;
+	public $quantity;
 	public $price;
 	public $create_time;
 	public $update_time;
@@ -26,7 +26,7 @@ class ProductController extends ProductModel{
         $this->code = $data['pd_code'];
         $this->title = $data['pd_title'];
         $this->description = $data['pd_description'];
-        $this->unit = $data['pd_unit'];
+        $this->quantity = $data['pd_quantity'];
         $this->price = $data['pd_price'];
         $this->create_time = $data['pd_create_time'];
         $this->update_time = $data['pd_update_time'];
@@ -38,11 +38,21 @@ class ProductController extends ProductModel{
         $this->image_filename = $data['im_filename'];
         $this->image_format = $data['im_format'];
 
-    }
+        echo'<pre>';
+        print_r($data);
+        echo'</pre>';
+
+    }	
 
 	public function ListProduct($param){
 		$dataset = parent::ListProductProcess($param);
-		$this->Render('null',$dataset);
+		$this->Render('product-items',$dataset);
+	}
+
+	// List all photos of Product.
+	public function ListPhotoProduct($param){
+		$dataset = parent::ListPhotoProductProcess($param);
+		$this->Render('photo-items',$dataset);
 	}
 
 	public function CreateProduct($param){
@@ -63,7 +73,12 @@ class ProductController extends ProductModel{
 
 	private function Render($mode,$data){
         foreach ($data as $var){
-        	include'template/product/product.items.php';
+        	if($mode == "product-items"){
+        		include'template/product/product.items.php';
+        	}
+        	else if($mode == "photo-items"){
+        		include'template/product/photo.product.items.php';
+        	}
         }
         unset($data);
     }

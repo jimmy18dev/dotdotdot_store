@@ -43,26 +43,31 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <?php include'header.php';?>
 
-<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
+<div class="container">
+	<div class="topic">
+		<div class="topic-caption">รหัสสินค้า <?php echo $product->id;?></div>
+	</div>
+	<div class="content">
+		<div class="detail">
+			<header class="info">
+				<h1><?php echo $product->title;?></h1>
+				<p>ราคา <?php echo $product->price;?> บาท  · เริ่มขาย <?php echo $product->create_time;?></p>
+			</header>
+			<div class="image">
+				<?php $product->ListPhotoProduct(array('product_id' => $product->id));?>
+			</div>
+			<div class="description"><?php echo $product->description;?></div>
 
-<h1><?php echo $product->title;?></h1>
+			<div class="control">
+				<div class="control-items delete" onclick="javascript:DeleteProduct(<?php echo $product->id;?>);"><i class="fa fa-trash"></i></div>
 
-<p><?php echo $product->description;?></p>
-<p>Size D : <?php echo $product->size_d;?></p>
-<p>Size SS : <?php echo $product->size_ss;?></p>
-<p>Size S : <?php echo $product->size_s;?></p>
-<p>Size M : <?php echo $product->size_m;?></p>
-<p>Size L : <?php echo $product->size_l;?></p>
-<p>Size XL : <?php echo $product->size_lx;?></p>
-
-<b>Price: <?php echo $product->price;?></b>
-
-<hr>
-<h3>สินค้า</h3>
-<a href="product_add.php">เติม</a>
-<a href="">โอนของ</a>
-<a href="product_editor.php?id=<?php echo $product->id;?>">แก้ไข</a>
-<a href="javascript:DeleteProduct(<?php echo $product->id;?>);">[ลบสินค้า]</a>
+				<a href="product_add.php"><div class="control-items">เติมสินค้า</div></a>
+				<div class="control-items">โอนสินค้า</div>
+				<a href="product_editor.php?id=<?php echo $product->id;?>"><div class="control-items">แก้ไข</div></a>
+			</div>
+		</div>
+	</div>
+</div>
 
 </body>
 </html>

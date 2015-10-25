@@ -91,8 +91,8 @@ $product->UpdateView(array('product_id' => $product->id));
 				</div>
 				<?php }else{
 					$product->ListSubProduct(array(
-						'product_id' => $product->id,
-						'order_id' => $user->current_order_id,
+						'product_id' 	=> $product->id,
+						'order_id' 		=> $user->current_order_id,
 					));
 				}?>
 			</div>

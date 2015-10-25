@@ -44,36 +44,93 @@ else if(isset($_GET['parent'])){
 <script type="text/javascript" src="js/product-form.js"></script>
 
 </head>
+<body>
 <?php include'header.php';?>
 
-<body>
-	<h1>Create New Product</h1>
-	<hr>
-	<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
-		<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple"><br>
+<div class="container">
+	<div class="topic">
+		<div class="topic-caption">เพิ่มสินค้าใหม่</div>
+	</div>
 
-		<p>id</p>
-		<input type="text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
-
-		<p>Parent</p>
-		<input type="text" name="parent" value="<?php echo (isset($_GET['parent'])?$product->id:'0');?>">
-
-		<p>CODE</p>
-		<input type="text" name="code" value="<?php echo $product->code;?>">
-
-		<p>title</p>
-		<input type="text" name="title" placeholder="title" value="<?php echo $product->title;?>">
-
-		<p>description</p>
-		<input type="text" name="description" placeholder="description" value="<?php echo $product->description;?>">
-		<p>UNIT</p>
-		<input type="text" name="unit" placeholder="unit" value="normal" value="<?php echo $product->unit;?>">
-
-		<p>price</p>
-		<input type="text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
-		<input type="text" name="group" placeholder="group" value="shrit"><br>
-		<br><br>
-		<button type="submit"><?php echo (isset($product->id)?'Save':'Create')?></button>
-	</form>
+	<div class="content">
+		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
+		<div class="form">
+			<div class="form-image">
+				<div class="image-input">
+					<div class="image-button"><i class="fa fa-camera"></i>เลือกภาพสินค้า</div>
+					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
+				</div>
+				<div class="image-container">
+					<?php for($i=0;$i<3;$i++){?>
+					<div class="image-items">
+						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
+					</div>
+					<div class="image-items">
+						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
+					</div>
+					<div class="image-items">
+						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
+					</div>
+					<div class="image-items">
+						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
+					</div>
+					<?php }?>
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">รหัสสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">Parent</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="parent" value="<?php echo (isset($_GET['parent'])?$product->id:'0');?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">Code</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="code" value="<?php echo $product->code;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">ชื่อสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="title" placeholder="title" value="<?php echo $product->title;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">รายละเอียดสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text input-textarea"  name="description" placeholder="description" value="<?php echo $product->description;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">จำนวน</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="unit" placeholder="unit" value="1" value="<?php echo $product->unit;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">ราคาต่อชิ้น</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">กลุ่มสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text"  name="group" placeholder="group" value="shrit"><br>
+				</div>
+			</div>
+			<div class="form-submit">
+				<button type="submit" class="submit-button" ><?php echo (isset($product->id)?'Save':'Create')?></button>
+			</div>
+		</div>
+		</form>
+	</div>
+</div>
 </body>
 </html>
