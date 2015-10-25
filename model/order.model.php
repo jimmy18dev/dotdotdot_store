@@ -232,53 +232,18 @@ class OrderModel extends Database{
 	}
 
 	public function CheckProductAmountProcess($param){
-		parent::query('SELECT pd_unit FROM dd_product WHERE pd_id = :product_id');
+		parent::query('SELECT pd_quantity FROM dd_product WHERE pd_id = :product_id');
 		parent::bind(':product_id', 		$param['product_id']);
 		parent::execute();
 		$data = parent::single();
-		return $data['pd_unit'];
+		return $data['pd_quantity'];
 	}
 
 
 	// Update product amount after Order paying
 	public function UpdateProductAmountProcess($param){
-		parent::query('UPDATE dd_product SET pd_unit = :unit WHERE pd_id = :product_id');
-		parent::bind(':unit', 			$param['unit']);
-		parent::bind(':product_id', 	$param['product_id']);
-		parent::execute();
-	}
-
-
-
-
-
-
-
-
-	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
-		parent::execute();
-		$dataset = parent::resultset();
-		return $dataset;
-	}
-
-	public function EditProductProcess($param){
-		parent::query('UPDATE dd_product SET pd_title = :title, pd_description = :description, pd_material = :material, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_type = :type, pd_status = :status WHERE pd_id = :product_id');
-
-		parent::bind(':product_id', 			$param['product_id']);
-		parent::bind(':title', 			$param['title']);
-		parent::bind(':description', 	$param['description']);
-		parent::bind(':material', 		$param['material']);
-		parent::bind(':price', 			$param['price']);
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':group', 			$param['group']);
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
-		parent::execute();
-	}
-
-	public function DeleteProductProcess($param){
-		parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
+		parent::query('UPDATE dd_product SET pd_quantity = :quantity WHERE pd_id = :product_id');
+		parent::bind(':quantity', 			$param['quantity']);
 		parent::bind(':product_id', 	$param['product_id']);
 		parent::execute();
 	}
