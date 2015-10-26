@@ -437,18 +437,11 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-}
-.container .order .product-items p {
-  font-size: 1em;
-  line-height: 1.5em;
-  color: #000000;
-}
-.container .order .product-items p.mini {
-  font-size: 0.8em;
-  color: #AAAAAA;
+  font-size: 0.9em;
 }
 .container .order .product-items .thumbnail {
-  width: 10%;
+  width: 14%;
+  min-height: 50px;
   float: left;
   display: inline-block;
 }
@@ -458,17 +451,44 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .order .product-items .detail {
-  width: 76%;
-  padding: 2%;
+  width: 70%;
+  padding: 3%;
   float: left;
   display: inline-block;
+  line-height: 1.5em;
 }
-.container .order .product-items .summary {
-  width: 6%;
-  padding: 2%;
+.container .order .product-items .detail .info {
+  color: #AAAAAA;
+}
+.container .order .product-items .quantity {
+  width: 4%;
+  padding: 3%;
   float: left;
   display: inline-block;
   text-align: right;
+  line-height: 1.5em;
+}
+.container .order .subproduct-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+}
+.container .order .subproduct-items .detail {
+  margin-left: 14%;
+  width: 70%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+}
+.container .order .subproduct-items .quantity {
+  width: 4%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+  background: #FFFFFF;
 }
 table tr td {
   border: 1px solid #CCCCCC;

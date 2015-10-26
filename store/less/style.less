@@ -372,27 +372,17 @@ Copyright (c) 2015 Puwadon Sricharoen
                 text-align: center;
             }
         }
-
         .product-items{
             width: 100%;
             float: left;
             display: inline-block;
             background: #FFFFFF;
             box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-
-            p{
-                font-size: 1em;
-                line-height: 1.5em;
-                color: #000000;
-            }
-
-            p.mini{
-                font-size: 0.8em;
-                color: #AAAAAA;
-            }
+            font-size: 0.9em;
 
             .thumbnail{
-                width: 10%;
+                width: 14%;
+                min-height: 50px;
                 float: left;
                 display: inline-block;
 
@@ -404,17 +394,50 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
 
             .detail{
-                width: 76%;
-                padding: 2%;
+                width: 70%;
+                padding: 3%;
                 float: left;
                 display: inline-block;
+                line-height: 1.5em;
+
+                .title{
+                }
+                .info{
+                    color: #AAAAAA;
+                }
             }
-            .summary{
-                width: 6%;
-                padding: 2%;
+            .quantity{
+                width: 4%;
+                padding: 3%;
                 float: left;
                 display: inline-block;
                 text-align: right;
+                line-height: 1.5em;
+            }
+        }
+
+        .subproduct-items{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            font-size: 0.9em;
+
+            .detail{
+                margin-left: 14%;
+                width: 70%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+                background: #FFFFFF;
+            }
+
+            .quantity{
+                width: 4%;
+                padding: 3%;
+                float: left;
+                display: inline-block;
+                text-align: right;
+                background: #FFFFFF;
             }
         }
     }

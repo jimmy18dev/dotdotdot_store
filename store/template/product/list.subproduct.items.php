@@ -1,14 +1,8 @@
-<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
-<div class="product-items">
-	<div class="thumbnail">
-		<img src="../image/upload/thumbnail/<?php echo $var['im_filename'];?>">
-	</div>
+<div class="subproduct-items">
 	<div class="detail">
-		<p>รหัสสินค้า <?php echo $var['pd_code'].$var['pd_id'];?> <?php echo $var['pd_title'];?></p>
-		<p class="mini">ราคา <?php echo $var['pd_price'];?> ฿ | <i class="fa fa-clock-o"></i><?php echo $var['pd_update_time'];?></p>
+		<div class="id">รหัสสินค้า: <?php echo $var['pd_id'];?></div>
+		<div class="title"><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></div>
+		<div class="price">ราคา: <?php echo number_format($var['pd_price'],2);?> บาท</div>
 	</div>
-	<div class="summary">
-		<p><?php echo $var['pd_quantity'];?></p>
-	</div>
+	<div class="quantity"><?php echo $var['pd_quantity'];?></div>
 </div>
-</a>

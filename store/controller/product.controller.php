@@ -75,13 +75,6 @@ class ProductController extends ProductModel{
         foreach ($data as $var){
         	if($mode == "product-items"){
         		include'template/product/product.items.php';
-
-        		if($var['pd_type'] == "root"){
-        			$this->ListSubProduct(array(
-        				'product_id' => $var['pd_id'],
-        				'render' => 'list-subproduct-items'
-        			));
-        		}
         	}
         	else if($mode == "list-subproduct-items"){
         		include'template/product/list.subproduct.items.php';
