@@ -9,6 +9,10 @@ if(empty($_POST['product_id'])){
     if($_POST['parent'] > 0){
         // Update Root Product
         $product->UpdateRootProduct(array('product_id' => $_POST['parent']));
+        $type = "sub";
+    }
+    else{
+        $type = "normal";
     }
 
     // Create new Product
@@ -20,7 +24,7 @@ if(empty($_POST['product_id'])){
         'quantity'      => $_POST['quantity'],
         'price'         => $_POST['price'],
         'group'         => $_POST['group'],
-        'type'          => $_POST['type'],
+        'type'          => $type,
         'status'        => 'active',
     ));
 }
@@ -40,9 +44,10 @@ else{
     ));
 }
 
-if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && empty($_POST['post_id'])){
+if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest' && count($_FILES['image_file']['tmp_name']) > 0){
+    
     foreach($_FILES['image_file']['tmp_name'] as $key => $tmp_name ){
-        
+
         if(!isset($_FILES['image_file']) || !is_uploaded_file($_FILES['image_file']['tmp_name'][$key])){
             die('Image file is Missing!');
         }

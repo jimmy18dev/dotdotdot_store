@@ -230,6 +230,29 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   line-height: 1.5em;
 }
+.container .content .detail .subproduct {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail .subproduct .sub-items {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #FAFAFA;
+}
+.container .content .detail .subproduct .sub-items .detail {
+  width: 80%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail .subproduct .sub-items .summary {
+  width: 20%;
+  float: right;
+  display: inline-block;
+  text-align: right;
+}
 .container .content .detail .image {
   width: 100%;
   float: left;

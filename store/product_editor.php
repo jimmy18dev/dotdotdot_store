@@ -7,7 +7,7 @@ if(isset($_GET['id'])){
 	$product->GetProduct(array('product_id' => $_GET['id']));
 }
 else if(isset($_GET['parent'])){
-	$product->GetProduct(array('product_id' => $_GET['parent']));
+	// $product->GetProduct(array('product_id' => $_GET['parent']));
 }
 ?>
 
@@ -66,6 +66,42 @@ else if(isset($_GET['parent'])){
 				</div>
 			</div>
 			<div class="form-items">
+				<div class="caption">ชื่อสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text" name="title" placeholder="title" value="<?php echo $product->title;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">รายละเอียดสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text input-textarea" name="description" placeholder="description" value="<?php echo $product->description;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">Code</div>
+				<div class="input">
+					<input type="text" class="input-text" name="code" value="<?php echo $product->code;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">จำนวน</div>
+				<div class="input">
+					<input type="text" class="input-text" name="quantity" placeholder="quantity" value="1" value="<?php echo $product->quantity;?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">ราคาต่อชิ้น</div>
+				<div class="input">
+					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
+				</div>
+			</div>
+			<div class="form-items">
+				<div class="caption">กลุ่มสินค้า</div>
+				<div class="input">
+					<input type="text" class="input-text" name="group" placeholder="group" value="shrit"><br>
+				</div>
+			</div>
+			<div class="form-items">
 				<div class="caption">รหัสสินค้า</div>
 				<div class="input">
 					<input type="text" class="input-text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
@@ -74,50 +110,12 @@ else if(isset($_GET['parent'])){
 			<div class="form-items">
 				<div class="caption">Parent</div>
 				<div class="input">
-					<input type="text" class="input-text"  name="parent" value="<?php echo (isset($_GET['parent'])?$product->id:'0');?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">Code</div>
-				<div class="input">
-					<input type="text" class="input-text"  name="code" value="<?php echo $product->code;?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">ชื่อสินค้า</div>
-				<div class="input">
-					<input type="text" class="input-text"  name="title" placeholder="title" value="<?php echo $product->title;?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">รายละเอียดสินค้า</div>
-				<div class="input">
-					<input type="text" class="input-text input-textarea"  name="description" placeholder="description" value="<?php echo $product->description;?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">จำนวน</div>
-				<div class="input">
-					<input type="text" class="input-text"  name="quantity" placeholder="quantity" value="1" value="<?php echo $product->quantity;?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">ราคาต่อชิ้น</div>
-				<div class="input">
-					<input type="text" class="input-text"  name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">กลุ่มสินค้า</div>
-				<div class="input">
-					<input type="text" class="input-text"  name="group" placeholder="group" value="shrit"><br>
+					<input type="text" class="input-text" name="parent" value="<?php echo (isset($_GET['parent'])?$_GET['parent']:'0');?>">
 				</div>
 			</div>
 			<div class="form-submit">
-				<button type="submit" class="submit-button" ><?php echo (isset($product->id)?'Save':'Create')?></button>
+				<button type="submit" class="submit-button"><?php echo (isset($product->id)?'Save':'Create')?></button>
 			</div>
-
-			<input type="hidden" name="type" value="<?php echo ($_GET['type']=="sub"?"sub":"normal");?>">
 		</div>
 		</form>
 	</div>

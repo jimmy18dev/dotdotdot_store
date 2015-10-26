@@ -70,7 +70,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				<a href="product_add.php"><div class="control-items">เติมสินค้า</div></a>
 				<div class="control-items">โอนสินค้า</div>
 				<a href="product_editor.php?id=<?php echo $product->id;?>"><div class="control-items">แก้ไข</div></a>
-				<a href="product_editor.php?id=<?php echo $product->id;?>&type=sub"><div class="control-items">สินค้าย่อย</div></a>
+				<a href="product_editor.php?parent=<?php echo $product->id;?>"><div class="control-items">สินค้าย่อย</div></a>
 			</div>
 		</div>
 	</div>

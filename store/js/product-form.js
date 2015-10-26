@@ -43,9 +43,9 @@ $(document).ready(function(){
             // Redirect page
             console.log('action:'+action);
 
-            setTimeout(function(){
-                window.location = 'product.php';
-            },3000);
+            // setTimeout(function(){
+            //     window.location = 'product.php';
+            // },3000);
         },
         resetForm:true
     };
