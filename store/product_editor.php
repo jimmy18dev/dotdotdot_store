@@ -49,13 +49,17 @@ else if(isset($_GET['parent'])){
 
 <div class="container">
 	<div class="topic">
+		<?php if(isset($_GET['parent'])||$product->type=="sub"){?>
+		<div class="topic-caption">เพิ่มสินค้าย่อย</div>
+		<?php }else{?>
 		<div class="topic-caption">เพิ่มสินค้าใหม่</div>
+		<?php }?>
 	</div>
 
 	<div class="content">
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
-			<div class="form-image">
+			<div class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
 				<div class="image-input-button"><i class="fa fa-camera"></i>เลือกภาพสินค้า</div>
 				<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
 
@@ -95,27 +99,13 @@ else if(isset($_GET['parent'])){
 					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
 				</div>
 			</div>
-			<div class="form-items">
-				<div class="caption">กลุ่มสินค้า</div>
-				<div class="input">
-					<input type="text" class="input-text" name="group" placeholder="group" value="shrit"><br>
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">รหัสสินค้า</div>
-				<div class="input">
-					<input type="text" class="input-text" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
-				</div>
-			</div>
-			<div class="form-items">
-				<div class="caption">Parent</div>
-				<div class="input">
-					<input type="text" class="input-text" name="parent" value="<?php echo (isset($_GET['parent'])?$_GET['parent']:'0');?>">
-				</div>
-			</div>
 			<div class="form-submit">
 				<button type="submit" class="submit-button"><?php echo (isset($product->id)?'Save':'Create')?></button>
 			</div>
+
+			<input type="hidden" name="parent" value="<?php echo (isset($_GET['parent'])?$_GET['parent']:'0');?>">
+			<input type="hidden" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
+			<input type="hidden" name="group" value="null">
 		</div>
 		</form>
 	</div>

@@ -115,12 +115,15 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
                 'caption'       => 'caption',
                 'filename'      => $new_file_name,
                 'format'        => $image_format,
-                'type'          => 'cover',
+                'type'          => 'normal',
                 'status'        => 'active',
             ));
                 
             imagedestroy($image_res);
         }
     }
+
+    // Autoset cover photo
+    $product->AutosetCover(array('product_id' => $product_id));
 }
 ?>

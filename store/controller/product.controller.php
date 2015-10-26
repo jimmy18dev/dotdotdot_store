@@ -37,11 +37,6 @@ class ProductController extends ProductModel{
         $this->image_id = $data['im_id'];
         $this->image_filename = $data['im_filename'];
         $this->image_format = $data['im_format'];
-
-        echo'<pre>';
-        print_r($data);
-        echo'</pre>';
-
     }	
 
 	public function ListProduct($param){
@@ -51,7 +46,7 @@ class ProductController extends ProductModel{
 
 	public function ListSubProduct($param){
 		$dataset = parent::ListSubProductProcess($param);
-		$this->Render('subproduct-items',$dataset);
+		$this->Render($param['render'],$dataset);
 	}
 
 	// List all photos of Product.
@@ -80,6 +75,16 @@ class ProductController extends ProductModel{
         foreach ($data as $var){
         	if($mode == "product-items"){
         		include'template/product/product.items.php';
+
+        		if($var['pd_type'] == "root"){
+        			$this->ListSubProduct(array(
+        				'product_id' => $var['pd_id'],
+        				'render' => 'list-subproduct-items'
+        			));
+        		}
+        	}
+        	else if($mode == "list-subproduct-items"){
+        		include'template/product/list.subproduct.items.php';
         	}
         	else if($mode == "photo-items"){
         		include'template/product/photo.product.items.php';
@@ -89,6 +94,15 @@ class ProductController extends ProductModel{
         	}
         }
         unset($data);
+    }
+
+    // Autosetup last photo to cover of product. (Create product function)
+    function AutosetCover($param){
+    	// Check Cover already
+    	if(parent::CoverAlreadyProcess($param)){
+    		// Autoset Last file to Cover
+    		parent::AutosetCover($param);
+    	}
     }
 }
 ?>

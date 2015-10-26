@@ -60,7 +60,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 			<!-- Subproduct -->
 			<div class="subproduct">
-				<?php $product->ListSubProduct(array('product_id' => $product->id));?>
+				<?php $product->ListSubProduct(array('product_id' => $product->id,'render' => 'subproduct-items'));?>
 			</div>
 
 			<!-- Product control -->

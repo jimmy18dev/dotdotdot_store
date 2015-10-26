@@ -329,6 +329,9 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   padding: 1% 4%;
 }
+.container .content .form .form-hidden {
+  display: none !important;
+}
 .container .content .form .form-image {
   width: 100%;
   float: left;

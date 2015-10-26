@@ -39,7 +39,7 @@ else{
 <div class="product-items <?php echo ($var['pd_style'] == "highlight"?'product-higtlight':'');?>">
 	<div class="thumbnail">
 		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
-			<img src="store/image/upload/square/<?php echo $var['im_filename'];?>" alt="">
+			<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">
 		</a>
 	</div>
 	<div class="detail">

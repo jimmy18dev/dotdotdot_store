@@ -21,11 +21,11 @@
 	// Photo Upload config ///////////////////////
 	// Photo desctination folder /////////////////
 	$destination_folder = array(
-		'thumbnail' => 'image/upload/thumbnail/',
-		'mini' 		=> 'image/upload/mini/',
-		'square' 	=> 'image/upload/square/',
-		'normal' 	=> 'image/upload/normal/',
-		'large' 	=> 'image/upload/large/',
+		'thumbnail' => '../image/upload/thumbnail/',
+		'mini' 		=> '../image/upload/mini/',
+		'square' 	=> '../image/upload/square/',
+		'normal' 	=> '../image/upload/normal/',
+		'large' 	=> '../image/upload/large/',
 	);
 
 	// Photo upload resize ///////////////////////
