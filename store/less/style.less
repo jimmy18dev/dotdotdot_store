@@ -20,20 +20,21 @@ Copyright (c) 2015 Puwadon Sricharoen
     .logo{
         float: left;
         display: inline-block;
-        font-size: 1.5em;
-        padding: 10px 0px;
-        height: 30px;
+        font-size: 1.1em;
+        padding: 15px 0px;
+        height: 20px;
+        color: rgba(0, 0, 0, 0.9);
     }
     .account{
         float: right;
         display: inline-block;
-        padding: 10px 0px;
-        height: 30px;
+        padding: 13px 0px;
+        height: 24px;
 
         .avatar{
             img{
-                height: 30px;
-                width: 30px;
+                height: 24px;
+                width: 24px;
                 float: left;
                 display: inline-block;
                 border-radius: 50%;
@@ -50,7 +51,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     background: #FFFFFF;
     margin-top: 50px;
-    box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid #EEEEEE;
 
     ul{
         width: 100%;
@@ -59,17 +60,32 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         li{
             padding: 2% 0%;
-            padding-right: 5%;
+            margin-right: 4%;
             float: left;
             display: inline-block;
-            border-bottom: 1px solid #DDDDDD;
+            border-bottom: 2px solid transparent;
             font-size: 0.9em;
-            color: #AAAAAA;
+            color: rgba(0, 0, 0, 0.44);
+            text-align: center;
 
             i{
                 margin-right: 10px;
                 font-size: 0.8em;
             }
+
+            &:hover{
+                color: rgba(0, 0, 0, 0.9);
+            }
+        }
+
+        li.active{
+            color: rgba(0, 0, 0, 0.9);
+            border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+        }
+
+        li.right{
+            float: right;
+            margin-right: 0%;
         }
     }
 }
@@ -99,7 +115,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             padding: 1%;
             display: inline-block;
             background: #FFFFFF;
-            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
             color: #555555;
         }
     }
@@ -109,8 +124,17 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
         background: #FFFFFF;
-        box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
         margin-bottom: 5%;
+
+        .alert{
+            width: 94%;
+            padding: 3%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.9em;
+            color: rgba(0, 0, 0, 0.44);
+        }
 
         // Order Detail page
         .order-state{
@@ -703,18 +727,28 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             background: #FFFFFF;
-            border-bottom: 1px solid #FAFAFA;
-            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            margin-bottom: 0.5%;
+            line-height: 1.6em;
+
+            &:hover{
+                cursor: pointer;
+                opacity: 0.8;
+            }
+
+            .notification{
+                font-size: 0.5em;
+                margin-right: 10px;
+                color: #00ab6b;
+            }
 
             p{
                 font-size: 1em;
-                line-height: 1.5em;
-                color: #000000;
+                color: rgba(0, 0, 0, 0.9);
             }
 
             p.mini{
                 font-size: 0.8em;
-                color: #555555;
+                color: rgba(0, 0, 0, 0.44);
             }
 
 
@@ -728,6 +762,14 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 text-align: right;
+
+                .total{
+                    color: #00ab6b;
+
+                    .currency{
+                        font-size: 0.8em;
+                    }
+                }
             }
             .status{
                 width: 15%;
@@ -735,6 +777,9 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
                 text-align: center;
             }
+        }
+        .order-items-cencel{
+            opacity: 0.3;
         }
     }
 }

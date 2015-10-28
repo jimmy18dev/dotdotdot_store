@@ -127,19 +127,20 @@ Copyright (c) 2015 Daniel Eden
 .header .logo {
   float: left;
   display: inline-block;
-  font-size: 1.5em;
-  padding: 10px 0px;
-  height: 30px;
+  font-size: 1.1em;
+  padding: 15px 0px;
+  height: 20px;
+  color: rgba(0, 0, 0, 0.9);
 }
 .header .account {
   float: right;
   display: inline-block;
-  padding: 10px 0px;
-  height: 30px;
+  padding: 13px 0px;
+  height: 24px;
 }
 .header .account .avatar img {
-  height: 30px;
-  width: 30px;
+  height: 24px;
+  width: 24px;
   float: left;
   display: inline-block;
   border-radius: 50%;
@@ -152,7 +153,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   margin-top: 50px;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid #EEEEEE;
 }
 .navigator ul {
   width: 100%;
@@ -161,16 +162,28 @@ Copyright (c) 2015 Daniel Eden
 }
 .navigator ul li {
   padding: 2% 0%;
-  padding-right: 5%;
+  margin-right: 4%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #DDDDDD;
+  border-bottom: 2px solid transparent;
   font-size: 0.9em;
-  color: #AAAAAA;
+  color: rgba(0, 0, 0, 0.44);
+  text-align: center;
 }
 .navigator ul li i {
   margin-right: 10px;
   font-size: 0.8em;
+}
+.navigator ul li:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+.navigator ul li.active {
+  color: rgba(0, 0, 0, 0.9);
+  border-bottom: 2px solid rgba(0, 0, 0, 0.9);
+}
+.navigator ul li.right {
+  float: right;
+  margin-right: 0%;
 }
 .container {
   width: 60%;
@@ -196,7 +209,6 @@ Copyright (c) 2015 Daniel Eden
   padding: 1%;
   display: inline-block;
   background: #FFFFFF;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   color: #555555;
 }
 .container .content {
@@ -204,8 +216,16 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
   margin-bottom: 5%;
+}
+.container .content .alert {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.44);
 }
 .container .content .order-state {
   width: 100%;
@@ -721,17 +741,25 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-bottom: 1px solid #FAFAFA;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 0.5%;
+  line-height: 1.6em;
+}
+.container .order .order-items:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.container .order .order-items .notification {
+  font-size: 0.5em;
+  margin-right: 10px;
+  color: #00ab6b;
 }
 .container .order .order-items p {
   font-size: 1em;
-  line-height: 1.5em;
-  color: #000000;
+  color: rgba(0, 0, 0, 0.9);
 }
 .container .order .order-items p.mini {
   font-size: 0.8em;
-  color: #555555;
+  color: rgba(0, 0, 0, 0.44);
 }
 .container .order .order-items .detail {
   width: 70%;
@@ -744,11 +772,20 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
 }
+.container .order .order-items .summary .total {
+  color: #00ab6b;
+}
+.container .order .order-items .summary .total .currency {
+  font-size: 0.8em;
+}
 .container .order .order-items .status {
   width: 15%;
   float: left;
   display: inline-block;
   text-align: center;
+}
+.container .order .order-items-cencel {
+  opacity: 0.3;
 }
 nav.navigator {
   width: 60%;

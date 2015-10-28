@@ -5,6 +5,12 @@ class OrderModel extends Database{
 		parent::query('SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id');
 		parent::execute();
 		$dataset = parent::resultset();
+
+		foreach ($dataset as $k => $var) {
+			$dataset[$k]['order_update_time_facebook_format'] 	= parent::date_facebookformat($var['od_update_time']);
+			$dataset[$k]['order_update_time_thai_format'] 		= parent::date_thaiformat($var['od_update_time']);
+		}
+
 		return $dataset;
 	}
 
@@ -88,43 +94,6 @@ class OrderModel extends Database{
 		$dataset = parent::single();
 
 		return $dataset['COUNT(odt_id)'];
-	}
-
-
-
-
-
-
-
-
-
-
-	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_title,pd_description,pd_material,pd_size_d,pd_size_ss,pd_size_s,pd_size_m,pd_size_l,pd_size_xl,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_thumbnail FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id');
-		parent::execute();
-		$dataset = parent::resultset();
-		return $dataset;
-	}
-
-	public function EditProductProcess($param){
-		parent::query('UPDATE dd_product SET pd_title = :title, pd_description = :description, pd_material = :material, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_type = :type, pd_status = :status WHERE pd_id = :product_id');
-
-		parent::bind(':product_id', 			$param['product_id']);
-		parent::bind(':title', 			$param['title']);
-		parent::bind(':description', 	$param['description']);
-		parent::bind(':material', 		$param['material']);
-		parent::bind(':price', 			$param['price']);
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':group', 			$param['group']);
-		parent::bind(':type',			$param['type']);
-		parent::bind(':status',			$param['status']);
-		parent::execute();
-	}
-
-	public function DeleteProductProcess($param){
-		parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
-		parent::bind(':product_id', 	$param['product_id']);
-		parent::execute();
 	}
 }
 ?>
