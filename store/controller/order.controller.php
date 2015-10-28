@@ -28,6 +28,10 @@ class OrderController extends OrderModel{
 		$this->RenderItemsInOrder('null',$data);
 	}
 
+    public function CountItemInOrder($param){
+        return parent::CountItemInOrderProcess($param);
+    }
+
 	public function GetOrder($param){
         $data = parent::GetOrderProcess($param);
 
@@ -37,9 +41,9 @@ class OrderController extends OrderModel{
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
 
-        echo'<pre>';
-        print_r($data);
-        echo'</pre>';
+        // echo'<pre>';
+        // print_r($data);
+        // echo'</pre>';
     }
 
     private function RenderOrder($mode,$data){

@@ -205,6 +205,237 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 5%;
+}
+.container .content .order-state {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+.container .content .order-state .state-items {
+  width: 20%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 2px solid #EEEEEE;
+}
+.container .content .order-state .state-items .icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  margin-bottom: 3%;
+  color: #EEEEEE;
+}
+.container .content .order-state .state-items .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 2em;
+  color: #EEEEEE;
+}
+.container .content .order-state .state-active {
+  border-bottom: 2px solid #000000;
+}
+.container .content .order-state .state-active .icon {
+  color: #000000;
+}
+.container .content .order-state .state-active .caption {
+  color: #000000;
+  font-weight: bold;
+}
+.container .content .order-state .state-items-fullsize {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .content .order-state .state-items-fullsize i {
+  margin-right: 10px;
+}
+.container .content .order-dialog {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #FAFAFA;
+  line-height: 1.5em;
+}
+.container .content .order-dialog .icon {
+  width: 30%;
+  padding-top: 4.5%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 2.5em;
+}
+.container .content .order-dialog .box {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-dialog .box p {
+  line-height: 1.5em;
+}
+.container .content .order-dialog .box p.caption {
+  color: #CCCCCC;
+  margin-bottom: 1%;
+}
+.container .content .order-dialog .box p.big {
+  font-size: 2em;
+}
+.container .content .order-dialog .box p.message {
+  font-style: italic;
+}
+.container .content .order-dialog .box .image {
+  width: 100%;
+  padding: 5% 0%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-dialog .box .image img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-dialog .box .input-text {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+  line-height: 1.5em;
+  border: 0px;
+  border-bottom: 1px solid #EEEEEE;
+  outline: 0;
+}
+.container .content .order-dialog .box .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-dialog .box .control .button {
+  width: 20%;
+  padding: 2% 0%;
+  margin: 2% 0%;
+  text-align: center;
+  float: right;
+  display: inline-block;
+  border: 0px;
+  border-radius: 2px;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  background: #FFFFFF;
+  color: #AAAAAA;
+}
+.container .content .order-dialog .box .control .button i {
+  margin-right: 10px;
+}
+.container .content .order-dialog .box .control .button:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+.container .content .order-dialog .box .control .success {
+  background: #000000;
+  color: #FFFFFF;
+}
+.container .content .order-list {
+  width: 94%;
+  padding: 0% 3%;
+  padding-bottom: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .topic-caption {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #CCCCCC;
+}
+.container .content .order-list .topic-caption .detail {
+  width: 80%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .topic-caption .quantity {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .content .order-list .topic-caption .total {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.container .content .order-list .order-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  border-top: 1px solid #EEEEEE;
+}
+.container .content .order-list .order-items .order-items-thumbnail {
+  width: 10%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .order-items .order-items-thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .order-items .order-items-detail {
+  width: 66%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .order-items .order-items-detail p.detail-description {
+  font-size: 0.8em;
+}
+.container .content .order-list .order-items .order-items-quantity {
+  width: 10%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .content .order-list .order-items .order-items-total {
+  width: 10%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.container .content .order-list .summary-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .summary-items .detail {
+  width: 76%;
+  margin-left: 10%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .content .order-list .summary-items .total {
+  width: 10%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  text-align: right;
+}
+.container .content .order-list .summary-total {
+  border-top: 1px dashed #FAFAFA;
 }
 .container .content .detail {
   width: 100%;
@@ -393,8 +624,98 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order {
   width: 100%;
+  padding-bottom: 10%;
   float: left;
   display: inline-block;
+}
+.container .order .product-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+  font-size: 0.9em;
+  line-height: 1.5em;
+  border-bottom: 1px solid #FAFAFA;
+  margin-bottom: 1%;
+}
+.container .order .product-items a {
+  text-decoration: none;
+}
+.container .order .product-items .product-thumbnail {
+  width: 15%;
+  min-height: 50px;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-content {
+  width: 85%;
+  float: right;
+  display: inline-block;
+}
+.container .order .product-items .product-content .detail {
+  width: 79%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-content .detail .title {
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .order .product-items .product-content .detail .price {
+  color: #00ab6b;
+}
+.container .order .product-items .product-content .quantity {
+  width: 9%;
+  padding: 3%;
+  float: right;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5em;
+}
+.container .order .product-items .product-subproduct {
+  width: 85%;
+  float: right;
+  display: inline-block;
+}
+.container .order .product-items .product-subproduct .subproduct-title {
+  width: 94%;
+  padding: 0% 3%;
+  padding-top: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-subproduct .subproduct-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-subproduct .subproduct-items .subproduct-detail {
+  width: 79%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .order .product-items .product-subproduct .subproduct-items .subproduct-detail .id {
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .order .product-items .product-subproduct .subproduct-items .subproduct-detail .title {
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .order .product-items .product-subproduct .subproduct-items .subproduct-detail .price {
+  color: #00ab6b;
+}
+.container .order .product-items .product-subproduct .subproduct-items .subproduct-quantity {
+  width: 9%;
+  padding: 3%;
+  float: right;
+  display: inline-block;
+  text-align: center;
 }
 .container .order .order-items {
   width: 96%;
@@ -430,69 +751,6 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   text-align: center;
-}
-.container .order .product-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-  font-size: 0.9em;
-}
-.container .order .product-items .thumbnail {
-  width: 14%;
-  min-height: 50px;
-  float: left;
-  display: inline-block;
-}
-.container .order .product-items .thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .order .product-items .detail {
-  width: 70%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-}
-.container .order .product-items .detail .info {
-  color: #AAAAAA;
-}
-.container .order .product-items .quantity {
-  width: 4%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-  line-height: 1.5em;
-}
-.container .order .subproduct-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-}
-.container .order .subproduct-items .detail {
-  margin-left: 14%;
-  width: 70%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-}
-.container .order .subproduct-items .quantity {
-  width: 4%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-  background: #FFFFFF;
-}
-table tr td {
-  border: 1px solid #CCCCCC;
-  padding: 20px;
 }
 nav.navigator {
   width: 60%;

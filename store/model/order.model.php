@@ -9,8 +9,14 @@ class OrderModel extends Database{
 	}
 
 	public function ListItemsInOrderProcess($param){
-		parent::query('SELECT * FROM dd_order_detail LEFT JOIN dd_product ON odt_product_id = pd_id WHERE odt_order_id = :order_id');
-		parent::bind(':order_id', 		$param['order_id']);
+		parent::query('SELECT odt_id,odt_order_id order_id,odt_amount product_amount,product.pd_id product_id,product.pd_title product_title,product.pd_description product_description,product.pd_price product_price,product.pd_type product_type,p_image.im_id product_image_id,p_image.im_filename product_image_filename,parent.pd_id parent_id,parent.pd_title parent_title,parent.pd_description parent_description,parent_image.im_id parent_image_id,parent_image.im_filename parent_image_filename 
+			FROM dd_order_detail 
+			LEFT JOIN dd_product AS product ON odt_product_id = pd_id 
+			LEFT JOIN dd_product AS parent ON product.pd_parent = parent.pd_id 
+			LEFT JOIN dd_image AS p_image ON product.pd_id = p_image.im_product_id AND (im_type = "cover") 
+			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id
+			WHERE odt_order_id = :order_id');
+		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
@@ -66,6 +72,15 @@ class OrderModel extends Database{
 		parent::bind(':ems', $param['ems']);
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
+	}
+
+	public function CountItemInOrderProcess($param){
+		parent::query('SELECT COUNT(odt_id) FROM dd_order_detail WHERE odt_order_id = :order_id');
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+		$dataset = parent::single();
+
+		return $dataset['COUNT(odt_id)'];
 	}
 
 

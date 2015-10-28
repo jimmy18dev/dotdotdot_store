@@ -1,8 +1,7 @@
 <div class="subproduct-items">
-	<div class="detail">
-		<div class="id">รหัสสินค้า: <?php echo $var['pd_id'];?></div>
-		<div class="title"><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></div>
-		<div class="price">ราคา: <?php echo number_format($var['pd_price'],2);?> บาท</div>
+	<div class="subproduct-detail">
+		<div class="title">รหัสสินค้า: <?php echo $var['pd_id'];?> · <?php echo $var['pd_title'];?> · <span class="description"><?php echo $var['pd_description'];?></span></div>
+		<div class="price"><?php echo number_format($var['pd_price'],2);?> บาท · <a href="product_editor.php?id=<?php echo $var['pd_id'];?>">Edit</a></div>
 	</div>
-	<div class="quantity"><?php echo $var['pd_quantity'];?></div>
+	<div class="subproduct-quantity"><?php echo $var['pd_quantity'];?></div>
 </div>

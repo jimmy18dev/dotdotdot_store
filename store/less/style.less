@@ -110,6 +110,268 @@ Copyright (c) 2015 Puwadon Sricharoen
         display: inline-block;
         background: #FFFFFF;
         box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+        margin-bottom: 5%;
+
+        // Order Detail page
+        .order-state{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            margin-bottom: 3%;
+
+            .state-items{
+                width: 20%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+                border-bottom: 2px solid #EEEEEE;
+
+                .icon{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 2em;
+                    margin-bottom: 3%;
+                    color: #EEEEEE;
+                }
+                .caption{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 0.8em;
+                    line-height: 2em;
+                    color: #EEEEEE;
+                }
+            }
+
+            .state-active{
+                border-bottom: 2px solid #000000;
+                .icon{
+                    color: #000000;
+                }
+                .caption{
+                    color: #000000;
+                    font-weight: bold;
+                }
+            }
+
+            .state-items-fullsize{
+                width: 100%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .order-dialog{
+            width: 94%;
+            padding: 3%;
+            float: left;
+            display: inline-block;
+            border-bottom: 1px solid #FAFAFA;
+            line-height: 1.5em;
+
+            .icon{
+                width: 30%;
+                padding-top: 4.5%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+                font-size: 2.5em;
+            }
+            .box{
+                width: 70%;
+                float: left;
+                display: inline-block;
+
+                p{
+                    line-height: 1.5em;
+                }
+
+                p.caption{
+                    color: #CCCCCC;
+                    margin-bottom: 1%;
+                }
+
+                p.big{
+                    font-size: 2em;
+                }
+
+                p.message{
+                    font-style: italic;
+                }
+
+                .image{
+                    width: 100%;
+                    padding: 5% 0%;
+                    float: left;
+                    display: inline-block;
+
+                    img{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+
+                .input-text{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 2em;
+                    line-height: 1.5em;
+                    border: 0px;
+                    border-bottom: 1px solid #EEEEEE;
+                    outline: 0;
+                }
+
+                .control{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+
+                    .button{
+                        width: 20%;
+                        padding: 2% 0%;
+                        margin: 2% 0%;
+                        text-align: center;
+                        float: right;
+                        display: inline-block;
+                        border: 0px;
+                        border-radius: 2px;
+                        font-size: 0.9em;
+                        line-height: 1.5em;
+                        background: #FFFFFF;
+                        color: #AAAAAA;
+
+                        i{
+                            margin-right: 10px;
+                        }
+
+                        &:hover{
+                            cursor: pointer;
+                            opacity: 0.6;
+                        }
+                    }
+
+                    .success{
+                        background: #000000;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+        }
+
+        .order-list{
+            width: 94%;
+            padding: 0% 3%;
+            padding-bottom: 3%;
+            float: left;
+            display: inline-block;
+
+            .topic-caption{
+                width: 100%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                font-size: 0.8em;
+                color: #CCCCCC;
+
+                .detail{
+                    width: 80%;
+                    float: left;
+                    display: inline-block;
+                }
+                .quantity{
+                    width: 10%;
+                    float: left;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .total{
+                    width: 10%;
+                    float: left;
+                    display: inline-block;
+                    text-align: right;
+                }
+            }
+
+            .order-items{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                line-height: 1.5em;
+                border-top: 1px solid #EEEEEE;
+
+                .order-items-thumbnail{
+                    width: 10%;
+                    float: left;
+                    display: inline-block;
+
+                    img{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                    }
+                }
+                .order-items-detail{
+                    width: 66%;
+                    padding: 2%;
+                    float: left;
+                    display: inline-block;
+
+                    p.detail-title{}
+                    p.detail-description{
+                        font-size: 0.8em;
+                    }
+                }
+                .order-items-quantity{
+                    width: 10%;
+                    padding: 2% 0%;
+                    float: left;
+                    display: inline-block;
+                    text-align: center;
+                }
+                .order-items-total{
+                    width: 10%;
+                    padding: 2% 0%;
+                    float: left;
+                    display: inline-block;
+                    text-align: right;
+                }
+            }
+
+            .summary-items{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                .detail{
+                    width: 76%;
+                    margin-left: 10%;
+                    padding: 2%;
+                    float: left;
+                    display: inline-block;
+                }
+                .total{
+                    width: 10%;
+                    padding: 2% 0%;
+                    float: left;
+                    display: inline-block;
+                    text-align: center;
+                    text-align: right;
+                }
+            }
+            .summary-total{
+                border-top: 1px dashed #FAFAFA;
+            }
+        }
 
         // Product Detail
         .detail{
@@ -330,8 +592,112 @@ Copyright (c) 2015 Puwadon Sricharoen
 
     .order{
         width: 100%;
+        padding-bottom: 10%;
         float: left;
         display: inline-block;
+
+        // Product items style
+        .product-items{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            background: #FFFFFF;
+            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
+            font-size: 0.9em;
+            line-height: 1.5em;
+            border-bottom: 1px solid #FAFAFA;
+            margin-bottom: 1%;
+
+            a{
+                text-decoration: none;
+            }
+
+            // #00ab6b Color style.
+            .product-thumbnail{
+                width: 15%;
+                min-height: 50px;
+                float: left;
+                display: inline-block;
+
+                img{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                }
+            }
+
+            .product-content{
+                width: 85%;
+                float: right;
+                display: inline-block;
+
+                .detail{
+                    width: 79%;
+                    padding: 3%;
+                    float: left;
+                    display: inline-block;
+
+                    .title{
+                        color: rgba(0, 0, 0, 0.9);
+                    }
+                    .price{
+                        color: #00ab6b;
+                    }
+                }
+                .quantity{
+                    width: 9%;
+                    padding: 3%;
+                    float: right;
+                    display: inline-block;
+                    text-align: center;
+                    line-height: 1.5em;
+                }
+            }
+
+            .product-subproduct{
+                width: 85%;
+                float: right;
+                display: inline-block;
+
+                .subproduct-title{
+                    width: 94%;
+                    padding: 0% 3%;
+                    padding-top: 3%;
+                    float: left;
+                    display: inline-block;
+                }
+
+                .subproduct-items{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+
+                    .subproduct-detail{
+                        width: 79%;
+                        padding: 3%;
+                        float: left;
+                        display: inline-block;
+
+                        .id{
+                            color: rgba(0, 0, 0, 0.44);
+                        }
+                        .title{
+                            color: rgba(0, 0, 0, 0.9);
+                        }
+                        .price{
+                            color: #00ab6b;
+                        }
+                    }
+                    .subproduct-quantity{
+                        width: 9%;
+                        padding: 3%;
+                        float: right;
+                        display: inline-block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
 
         .order-items{
             width: 96%;
@@ -371,83 +737,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
                 text-align: center;
             }
-        }
-        .product-items{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            background: #FFFFFF;
-            box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.1);
-            font-size: 0.9em;
-
-            .thumbnail{
-                width: 14%;
-                min-height: 50px;
-                float: left;
-                display: inline-block;
-
-                img{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                }
-            }
-
-            .detail{
-                width: 70%;
-                padding: 3%;
-                float: left;
-                display: inline-block;
-                line-height: 1.5em;
-
-                .title{
-                }
-                .info{
-                    color: #AAAAAA;
-                }
-            }
-            .quantity{
-                width: 4%;
-                padding: 3%;
-                float: left;
-                display: inline-block;
-                text-align: right;
-                line-height: 1.5em;
-            }
-        }
-
-        .subproduct-items{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            font-size: 0.9em;
-
-            .detail{
-                margin-left: 14%;
-                width: 70%;
-                padding: 3%;
-                float: left;
-                display: inline-block;
-                background: #FFFFFF;
-            }
-
-            .quantity{
-                width: 4%;
-                padding: 3%;
-                float: left;
-                display: inline-block;
-                text-align: right;
-                background: #FFFFFF;
-            }
-        }
-    }
-}
-
-table{
-    tr{
-        td{
-            border: 1px solid #CCCCCC;
-            padding: 20px;
         }
     }
 }
