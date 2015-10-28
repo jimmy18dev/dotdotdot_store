@@ -11,6 +11,7 @@ class OrderController extends OrderModel{
     public $customer_name;
     public $customer_address;
     public $customer_phone;
+    public $customer_email;
 
     // Time Update
     public $create_time;
@@ -19,6 +20,26 @@ class OrderController extends OrderModel{
     public $expire_time_datediff;
     public $confirm_time_facebook_format;
     public $confirm_time_thai_format;
+
+
+    // Datatime facebook format
+    public $create_time_fb;
+    public $update_time_fb;
+    public $paying_time_fb;
+    public $confirm_time_fb;
+    public $shipping_time_fb;
+    public $complete_time_fb;
+    public $expire_time_fb;
+
+    // Datetime thai format
+    public $create_time_th;
+    public $update_time_th;
+    public $paying_time_th;
+    public $confirm_time_th;
+    public $shipping_time_th;
+    public $complete_time_th;
+    public $expire_time_th;
+
     public $ems;
     public $type;
     public $status;
@@ -34,17 +55,18 @@ class OrderController extends OrderModel{
     public $shipping_type;
     public $shipping_payments;
 
-	// -----------------
-	// ORDER STATE.
-	// -----------------
-	// - Expire
-	// - Shopping
-	// - Paying
-	// - TransferRequest
-	// - TransferConfirm
-	// - Shipping
-	// - Complete
-	// -----------------
+    // -----------------
+    // ORDER STATE.
+    // -----------------
+    // - Expire
+    // - Cancel
+    // - Shopping
+    // - Paying
+    // - TransferRequest, TransferAgain 
+    // - TransferSuccess
+    // - Shipping
+    // - Complete
+    // -----------------
 
 	public function ListOrder($param){
 		$data = parent::ListOrderProcess($param);
@@ -68,7 +90,12 @@ class OrderController extends OrderModel{
         $this->amount = $data['od_amount'];
         $this->payments = $data['od_payments'];
         $this->description = $data['od_description'];
-        $this->address = $data['od_address'];
+
+        // Customer data
+        $this->customer_name = $data['me_name'];
+        $this->customer_address = $data['od_address'];
+        $this->customer_phone = $data['me_phone'];
+        $this->customer_email = $data['me_email'];
 
         // time update
         $this->create_time = $data['od_create_time'];
@@ -77,6 +104,24 @@ class OrderController extends OrderModel{
         $this->expire_time_datediff = $data['order_expire_time_datediff'];
         $this->confirm_time_facebook_format = $data['order_confirm_time_facebook_format'];
         $this->confirm_time_thai_format = $data['order_confirm_time_thai_format'];
+
+        // Datatime facebook format
+        $this->create_time_fb = $data['order_create_time_facebook_format'];
+        $this->update_time_fb = $data['order_update_time_facebook_format'];
+        $this->paying_time_fb = $data['order_paying_time_facebook_format'];
+        $this->confirm_time_fb = $data['order_confirm_time_facebook_format'];
+        $this->shipping_time_fb = $data['order_shipping_time_facebook_format'];
+        $this->complete_time_fb = $data['order_complete_time_facebook_format'];
+        $this->expire_time_fb = $data['order_expire_time_facebook_format'];
+
+        // Datetime thai format
+        $this->create_time_th;
+        $this->update_time_th;
+        $this->paying_time_th;
+        $this->confirm_time_th;
+        $this->shipping_time_th;
+        $this->complete_time_th;
+        $this->expire_time_th;
 
         $this->ems = $data['od_ems'];
         $this->type = $data['od_type'];

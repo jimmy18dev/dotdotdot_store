@@ -1,34 +1,39 @@
 <?php
 class OrderController extends OrderModel{
 	public $id;
-	public $total;
-	public $amount;
-	public $payments;
-	public $description;
-	public $address;
-	public $summary_payments;
+    public $total;
+    public $amount;
+    public $payments;
+    public $description;
+    public $summary_payments;
 
-	// Time Update
-	public $create_time;
-	public $update_time;
-	public $expire_time_thai_format;
-	public $expire_time_datediff;
-	public $confirm_time_facebook_format;
-	public $confirm_time_thai_format;
-	public $ems;
-	public $type;
-	public $status;
+    // Customer
+    public $customer_name;
+    public $customer_address;
+    public $customer_phone;
+    public $customer_email;
 
-	// Money Transfer
-	public $m_total;
-	public $m_description;
-	public $m_bank;
-	public $m_bank_number;
-	public $m_photo;
+    // Time Update
+    public $create_time;
+    public $update_time;
+    public $expire_time_thai_format;
+    public $expire_time_datediff;
+    public $confirm_time_facebook_format;
+    public $confirm_time_thai_format;
+    public $ems;
+    public $type;
+    public $status;
 
-	// Shipping
-	public $shipping_type;
-	public $shipping_payments;
+    // Money Transfer
+    public $m_total;
+    public $m_message;
+    public $m_bank_name;
+    public $m_bank_number;
+    public $m_photo;
+
+    // Shipping
+    public $shipping_type;
+    public $shipping_payments;
 
 	// -----------------
 	// ORDER STATE.
@@ -117,7 +122,12 @@ class OrderController extends OrderModel{
         $this->amount = $data['od_amount'];
         $this->payments = $data['od_payments'];
         $this->description = $data['od_description'];
-        $this->address = $data['od_address'];
+
+        // Customer data
+        $this->customer_name = $data['me_name'];
+        $this->customer_address = $data['od_address'];
+        $this->customer_phone = $data['me_phone'];
+        $this->customer_email = $data['me_email'];
 
         // time update
         $this->create_time = $data['od_create_time'];
@@ -194,6 +204,9 @@ class OrderController extends OrderModel{
     		parent::UpdateAddressOrderProcess($param);
     		parent::UpdateConfirmTimeProcess($param);
     	}
+        else if($param['order_action'] == 'Complete'){
+            parent::UpdateCompleteTimeProcess($param);
+        }
     	else if($param['order_action'] == 'Cancel'){
     		$param['action'] = 'restore';
     		$this->UpdateProductAmount($param);

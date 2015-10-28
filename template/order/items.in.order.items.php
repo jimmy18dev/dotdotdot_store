@@ -18,7 +18,7 @@ $product_quantity = $var['product_amount'];
 <div class="items-in-order" id="items-in-order-<?php echo $var['product_id'];?>">
 	<div class="thumbnail">
 		<a href="product_detail.php?id=<?php echo $link;?>">
-		<img src="store/image/upload/thumbnail/<?php echo $image;?>" alt="">
+		<img src="image/upload/thumbnail/<?php echo $image;?>" alt="">
 		</a>
 	</div>
 

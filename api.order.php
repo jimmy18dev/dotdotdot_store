@@ -80,10 +80,10 @@ if($_POST['calling'] != ''){
 								$mail->Body    	= $message;
 								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
-								// if(!$mail->send())
-								// 	$email_send = $mail->ErrorInfo;
-								// else
-								// 	$email_send = "Message has been sent";
+								if(!$mail->send())
+									$email_send = $mail->ErrorInfo;
+								else
+									$email_send = "Message has been sent";
 							}
 						}
 						else if($_POST['order_action'] == "TransferRequest"){
@@ -103,10 +103,10 @@ if($_POST['calling'] != ''){
 								$mail->Body    	= $message;
 								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
-								// if(!$mail->send())
-								// 	$email_send = $mail->ErrorInfo;
-								// else
-								// 	$email_send = "Message has been sent";
+								if(!$mail->send())
+									$email_send = $mail->ErrorInfo;
+								else
+									$email_send = "Message has been sent";
 							}
 						}
 

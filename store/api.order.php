@@ -62,12 +62,13 @@ if($_POST['calling'] != ''){
 							$mail->addAddress('mrjimmy18@gmail.com');
 							$mail->Subject 	= 'ชำระเงินค่าสินค้าแล้ว!';
 							$message 		= file_get_contents('template/email/success.html');
+
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
-							$message 		= str_replace('%address_name%', '', $message);
-							$message 		= str_replace('%address_text%', '', $message);
-							$message 		= str_replace('%address_phone%', '', $message);
-							// $message 		= str_replace('%bank_list%',, $message);
+							$message        = str_replace('%customer_name%',$order->customer_name, $message);
+							$message        = str_replace('%customer_address%',$order->customer_address, $message);
+							$message        = str_replace('%customer_phone%',$order->customer_phone, $message);
+							
 							$mail->Body    	= $message;
 							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
@@ -99,6 +100,8 @@ if($_POST['calling'] != ''){
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> "Shipping",
 						));
+
+						$order->GetOrder(array('order_id' => $_POST['order_id']));
 
 						// Sending to Customer
 						$mail->addAddress('mrjimmy18@gmail.com');

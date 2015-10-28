@@ -43,7 +43,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 <div class="container">
 	<div class="topic">
-		<div class="topic-caption">ใบสั่งซื้อ <?php echo $order-id;?></div>
+		<div class="topic-caption">ใบสั่งซื้อที่ <?php echo $order->id;?></div>
 	</div>
 
 	<div class="content">
@@ -72,16 +72,31 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 		<?php }?>
 
+		<?php if($order->status == "Complete"){?>
 		<!-- Complete -->
 		<div class="order-dialog">
 			<div class="icon"><i class="fa fa-check"></i></div>
 			<div class="box">
-				<p class="caption">สถานะ</p>
+				<p class="caption"><?php echo $order->complete_time_fb;?></p>
 				<p class="big">เรียบร้อย</p>
 				<p>ลูกค้าได้รับสินค้าแล้ว</p>
 			</div>
 		</div>
+		<?php }?>
 
+		<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
+		<!-- Shipping -->
+		<div class="order-dialog">
+			<div class="icon"><i class="fa fa-truck"></i></div>
+			<div class="box">
+				<p class="caption">จัดส่งสินค้า · <?php echo $order->shipping_time_fb;?></p>
+				<p class="big"><?php echo $order->ems;?></p>
+				<p>จัดส่งสินค้าแบบ <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
+			</div>
+		</div>
+		<?php }?>
+
+		<?php if($order->status == "TransferSuccess"){?>
 		<!-- Shipping form -->
 		<div class="order-dialog">
 			<div class="icon"><i class="fa fa-commenting"></i></div>
@@ -94,17 +109,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 			</div>
 		</div>
+		<?php }?>
 
-		<!-- Shipping -->
-		<div class="order-dialog">
-			<div class="icon"><i class="fa fa-truck"></i></div>
-			<div class="box">
-				<p class="caption">จัดส่งสินค้า</p>
-				<p class="big"><?php echo $order->ems;?></p>
-				<p>จัดส่งสินค้าแบบ <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
-			</div>
-		</div>
-
+		<?php if($order->status == "TransferRequest"){?>
 		<!-- Money transfer checking -->
 		<div class="order-dialog">
 			<div class="icon"><i class="fa fa-commenting"></i></div>
@@ -117,13 +124,15 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				</div>
 			</div>
 		</div>
+		<?php }?>
 
+		<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 		<!-- Address -->
 		<div class="order-dialog">
 			<div class="icon"><i class="fa fa-map-pin"></i></div>
 			<div class="box">
 				<p class="caption">ที่อยู่ลูกค้า</p>
-				<p class="big"><?php echo $order->customer_address;?></p>
+				<p class="big"><?php echo $order->customer_name;?></p>
 				<p><?php echo $order->customer_address;?></p>
 				<p><?php echo $order->customer_phone?></p>
 			</div>
@@ -133,7 +142,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		<div class="order-dialog">
 			<div class="icon"><i class="fa fa-file-text"></i></div>
 			<div class="box">
-				<p class="caption">หลักฐานการโอนเงิน</p>
+				<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
 				<p class="big">ยอดโอน <?php echo number_format($order->m_total,2);?> บาท</p>
 				<p>โอนเข้าธานาคาร <?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
 				<div class="image">
@@ -142,31 +151,49 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<p class="message">"<?php echo $order->m_message;?>"</p>
 			</div>
 		</div>
+		<?php }?>
 
-		<!-- Order list -->
-		<div class="order-list">
-			<div class="topic-caption">
-				<div class="detail">รายการสินค้า</div>
-				<div class="quantity">จำนวน</div>
-				<div class="total">รวม</div>
-			</div>
+		<?php if($order->status != "Shopping"){?>
+		<div class="order-dialog">
+			<div class="icon"><i class="fa fa-shopping-cart"></i></div>
+			<div class="box">
+				<p class="caption">รายการสินค้า · <?php echo $order->paying_time_fb;?></p>
 
-			<?php
-			$order->ListItemsInOrder(array(
-				'order_id' 		=> $order->id,
-				'order_status' 	=> $order->status,
-			));
-			?>
+				<!-- Order list -->
+				<div class="order-list">
+					<div class="topic-caption">
+						<div class="detail"><?php echo $order->total;?> รายการ</div>
+						<div class="quantity">จำนวน</div>
+						<div class="total">รวม</div>
+					</div>
 
-			<div class="summary-items">
-				<div class="detail">ค่าบริการส่ง : <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></div>
-				<div class="total"><?php echo number_format($order->shipping_payments,2);?> ฿</div>
-			</div>
-			<div class="summary-items summary-total">
-				<div class="detail">ยอดเงินที่ต้องชำระ :</div>
-				<div class="total"><?php echo number_format($order->summary_payments,2);?> ฿</div>
+					<?php
+					$order->ListItemsInOrder(array(
+						'order_id' 		=> $order->id,
+						'order_status' 	=> $order->status,
+					));
+					?>
+
+					<div class="summary-items">
+						<div class="detail">ค่าบริการส่ง : <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></div>
+						<div class="total"><?php echo number_format($order->shipping_payments,2);?> ฿</div>
+					</div>
+					<div class="summary-items summary-total">
+						<div class="detail">ยอดเงินที่ต้องชำระ :</div>
+						<div class="total"><?php echo number_format($order->summary_payments,2);?> ฿</div>
+					</div>
+				</div>
 			</div>
 		</div>
+		<?php }else{?>
+		<div class="order-dialog">
+			<div class="icon"><i class="fa fa-shopping-cart"></i></div>
+			<div class="box">
+				<p class="caption">ใบสั่งซื้อที่ <?php echo $order->id;?></p>
+				<p class="big">กำลังเลือกสินค้า...</p>
+			</div>
+		</div>
+		<?php }?>
 	</div>
 </div>
 </body>

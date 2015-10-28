@@ -105,8 +105,8 @@ class OrderModel extends Database{
 			FROM dd_order_detail 
 			LEFT JOIN dd_product AS product ON odt_product_id = pd_id 
 			LEFT JOIN dd_product AS parent ON product.pd_parent = parent.pd_id 
-			LEFT JOIN dd_image AS p_image ON product.pd_id = p_image.im_product_id 
-			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id
+			LEFT JOIN dd_image AS p_image ON product.pd_id = p_image.im_product_id AND im_type = "cover" 
+			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id 
 			WHERE odt_order_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
@@ -124,7 +124,10 @@ class OrderModel extends Database{
 	}
 
 	public function GetOrderProcess($param){
-		parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
+		parent::query('SELECT od_id,od_member_id,me_name,me_phone,me_email,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_confirm_time,od_expire_time,od_shipping_time,od_shipping_type,od_ems,od_address,od_type,od_status 
+			FROM dd_order 
+			LEFT JOIN dd_member ON od_member_id = me_id 
+			WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::single();
@@ -188,6 +191,12 @@ class OrderModel extends Database{
 	public function UpdateConfirmTimeProcess($param){
 		parent::query('UPDATE dd_order SET od_confirm_time = :confirm_time WHERE od_id = :order_id');
 		parent::bind(':confirm_time',	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+	}
+	public function UpdateCompleteTimeProcess($param){
+		parent::query('UPDATE dd_order SET od_complete_time = :complete_time WHERE od_id = :order_id');
+		parent::bind(':complete_time',	date('Y-m-d H:i:s'));
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 	}

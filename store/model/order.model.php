@@ -22,15 +22,11 @@ class OrderModel extends Database{
 		return $dataset;
 	}
 
-	// public function GetOrderProcess($param){
-	// 	parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
-	// 	parent::bind(':order_id', $param['order_id']);
-	// 	parent::execute();
-	// 	return parent::single();
-	// }
-
 	public function GetOrderProcess($param){
-		parent::query('SELECT * FROM dd_order WHERE od_id = :order_id');
+		parent::query('SELECT od_id,od_member_id,me_name,me_phone,me_email,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_confirm_time,od_expire_time,od_shipping_time,od_complete_time,od_shipping_type,od_ems,od_address,od_type,od_status 
+			FROM dd_order 
+			LEFT JOIN dd_member ON od_member_id = me_id 
+			WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::single();
@@ -41,12 +37,16 @@ class OrderModel extends Database{
 		$dataset['order_expire_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_expire_time']);
 		$dataset['order_confirm_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_confirm_time']);
 		$dataset['order_shipping_time_facebook_format'] = parent::date_facebookformat($dataset['od_shipping_time']);
+		$dataset['order_complete_time_facebook_format'] = parent::date_facebookformat($dataset['od_complete_time']);
+
 		$dataset['order_create_time_thai_format'] 		= parent::date_thaiformat($dataset['od_create_time']);
 		$dataset['order_update_time_thai_format'] 		= parent::date_thaiformat($dataset['od_update_time']);
 		$dataset['order_paying_time_thai_format'] 		= parent::date_thaiformat($dataset['od_paying_time']);
 		$dataset['order_expire_time_thai_format'] 		= parent::date_thaiformat($dataset['od_expire_time']);
 		$dataset['order_confirm_time_thai_format'] 		= parent::date_thaiformat($dataset['od_confirm_time']);
 		$dataset['order_shipping_time_thai_format'] 	= parent::date_thaiformat($dataset['od_shipping_time']);
+		$dataset['order_complete_time_thai_format'] 	= parent::date_thaiformat($dataset['od_complete_time']);
+
 		$dataset['order_expire_time_datediff'] 			= parent::dateDifference($dataset['od_expire_time']);
 
 		return $dataset;

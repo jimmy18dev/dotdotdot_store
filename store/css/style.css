@@ -266,15 +266,15 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
 }
 .container .content .order-dialog .icon {
-  width: 30%;
-  padding-top: 4.5%;
+  width: 20%;
+  padding-top: 5%;
   float: left;
   display: inline-block;
   text-align: center;
-  font-size: 2.5em;
+  font-size: 2em;
 }
 .container .content .order-dialog .box {
-  width: 70%;
+  width: 80%;
   float: left;
   display: inline-block;
 }
@@ -342,99 +342,97 @@ Copyright (c) 2015 Daniel Eden
   background: #000000;
   color: #FFFFFF;
 }
-.container .content .order-list {
-  width: 94%;
-  padding: 0% 3%;
-  padding-bottom: 3%;
+.container .content .order-dialog .box .order-list {
+  width: 100%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .topic-caption {
+.container .content .order-dialog .box .order-list .topic-caption {
   width: 100%;
-  padding: 3% 0%;
+  padding: 1% 0%;
   float: left;
   display: inline-block;
   font-size: 0.8em;
   color: #CCCCCC;
 }
-.container .content .order-list .topic-caption .detail {
+.container .content .order-dialog .box .order-list .topic-caption .detail {
   width: 70%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .topic-caption .quantity {
+.container .content .order-dialog .box .order-list .topic-caption .quantity {
   width: 15%;
   float: left;
   display: inline-block;
   text-align: center;
 }
-.container .content .order-list .topic-caption .total {
+.container .content .order-dialog .box .order-list .topic-caption .total {
   width: 15%;
   float: left;
   display: inline-block;
   text-align: right;
 }
-.container .content .order-list .order-items {
+.container .content .order-dialog .box .order-list .order-items {
   width: 100%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
   border-top: 1px solid #EEEEEE;
 }
-.container .content .order-list .order-items .order-items-thumbnail {
-  width: 10%;
+.container .content .order-dialog .box .order-list .order-items .order-items-thumbnail {
+  width: 13%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .order-items .order-items-thumbnail img {
+.container .content .order-dialog .box .order-list .order-items .order-items-thumbnail img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .order-items .order-items-detail {
-  width: 56%;
+.container .content .order-dialog .box .order-list .order-items .order-items-detail {
+  width: 53%;
   padding: 2%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .order-items .order-items-detail p.detail-description {
+.container .content .order-dialog .box .order-list .order-items .order-items-detail p.detail-description {
   font-size: 0.8em;
 }
-.container .content .order-list .order-items .order-items-quantity {
+.container .content .order-dialog .box .order-list .order-items .order-items-quantity {
   width: 15%;
   padding: 2% 0%;
   float: left;
   display: inline-block;
   text-align: center;
 }
-.container .content .order-list .order-items .order-items-total {
+.container .content .order-dialog .box .order-list .order-items .order-items-total {
   width: 15%;
   padding: 2% 0%;
   float: left;
   display: inline-block;
   text-align: right;
 }
-.container .content .order-list .summary-items {
+.container .content .order-dialog .box .order-list .summary-items {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .summary-items .detail {
-  width: 76%;
-  margin-left: 10%;
-  padding: 2%;
+.container .content .order-dialog .box .order-list .summary-items .detail {
+  width: 66%;
+  margin-left: 13%;
+  padding: 3%;
   float: left;
   display: inline-block;
 }
-.container .content .order-list .summary-items .total {
-  width: 10%;
-  padding: 2% 0%;
+.container .content .order-dialog .box .order-list .summary-items .total {
+  width: 15%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
   text-align: center;
   text-align: right;
 }
-.container .content .order-list .summary-total {
+.container .content .order-dialog .box .order-list .summary-total {
   border-top: 1px dashed #FAFAFA;
 }
 .container .content .detail {
