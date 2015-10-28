@@ -53,8 +53,8 @@ class UserController extends UserModel{
         return $member_id;
     }
 
-    public function UpdateUserName($param){
-        parent::UpdateUserNameProcess($param);
+    public function UpdateUserInfo($param){
+        parent::UpdateUserInfoProcess($param);
     }
 
     public function LoginUserProcess($param){

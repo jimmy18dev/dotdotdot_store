@@ -100,8 +100,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<div class="icon"><i class="fa fa-truck"></i></div>
 			<div class="box">
 				<p class="caption">จัดส่งสินค้า</p>
-				<p class="big">ERD4538757</p>
-				<p>จัดส่งสินค้าแบบ EMS</p>
+				<p class="big"><?php echo $order->ems;?></p>
+				<p>จัดส่งสินค้าแบบ <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
 			</div>
 		</div>
 
@@ -123,9 +123,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<div class="icon"><i class="fa fa-map-pin"></i></div>
 			<div class="box">
 				<p class="caption">ที่อยู่ลูกค้า</p>
-				<p class="big">ภูวดล ศรีเจริญ</p>
-				<p>5 ม.1 ต.โนนห้อม อ.เมือง จ.ปราจีนบุรี 25000</p>
-				<p>0801051930</p>
+				<p class="big"><?php echo $order->customer_address;?></p>
+				<p><?php echo $order->customer_address;?></p>
+				<p><?php echo $order->customer_phone?></p>
 			</div>
 		</div>
 
@@ -134,12 +134,12 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			<div class="icon"><i class="fa fa-file-text"></i></div>
 			<div class="box">
 				<p class="caption">หลักฐานการโอนเงิน</p>
-				<p class="big">ยอดโอน 3454.00 บาท</p>
-				<p>โอนเข้าธานาคาร กรุงไทย 3325635763</p>
+				<p class="big">ยอดโอน <?php echo number_format($order->m_total,2);?> บาท</p>
+				<p>โอนเข้าธานาคาร <?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
 				<div class="image">
-					<img src="http://dotdotdot.local/image/upload/thumbnail/41fd3fa8e4b380449b766fec67f6ac74.jpg" alt="">
+					<img src="../image/upload/thumbnail/<?php echo $order->m_photo;?>" alt="">
 				</div>
-				<p class="message">"ขออภัยด้วยครับ ผมชำระเงินช้าไป 2 วัน"</p>
+				<p class="message">"<?php echo $order->m_message;?>"</p>
 			</div>
 		</div>
 
@@ -159,12 +159,12 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 			?>
 
 			<div class="summary-items">
-				<div class="detail">ค่าบริการส่ง : Ems</div>
-				<div class="total">50.00 ฿</div>
+				<div class="detail">ค่าบริการส่ง : <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></div>
+				<div class="total"><?php echo number_format($order->shipping_payments,2);?> ฿</div>
 			</div>
 			<div class="summary-items summary-total">
 				<div class="detail">ยอดเงินที่ต้องชำระ :</div>
-				<div class="total">85.00 ฿</div>
+				<div class="total"><?php echo number_format($order->summary_payments,2);?> ฿</div>
 			</div>
 		</div>
 	</div>

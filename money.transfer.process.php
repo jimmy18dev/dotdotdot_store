@@ -22,10 +22,11 @@ $order->OrderProcess(array(
     'address'       => $_POST['address'],
 ));
 
-// Update Realname
-$user->UpdateUserName(array(
+// Update Realname and Phone
+$user->UpdateUserInfo(array(
     'member_id'     => MEMBER_ID,
     'name'          => $_POST['realname'],
+    'phone'         => $_POST['phone'],
 ));
 
 // Sending to Customer

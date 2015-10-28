@@ -176,6 +176,13 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							</div>
 						</div>
 
+						<div class="form-items">
+							<div class="label">เบอร์โทรศัพท์</div>
+							<div class="input">
+								<input type="text" class="input-text" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
+							</div>
+						</div>
+
 						<div class="form-items full-size">
 							<div class="input">
 								<textarea name="description" class="input-text input-textarea" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
