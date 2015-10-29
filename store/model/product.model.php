@@ -43,11 +43,11 @@ class ProductModel extends Database{
 		parent::execute();
 	}
 
-	public function DeleteProductProcess($param){
-		parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
-		parent::bind(':product_id', 	$param['product_id']);
-		parent::execute();
-	}
+	// public function DeleteProductProcess($param){
+	// 	parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
+	// 	parent::bind(':product_id', 	$param['product_id']);
+	// 	parent::execute();
+	// }
 
 
 	// Get and List
@@ -59,7 +59,7 @@ class ProductModel extends Database{
 	}
 
 	public function ListPhotoProductProcess($param){
-		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id');
+		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id ORDER BY im_type,im_create_time');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -97,6 +97,19 @@ class ProductModel extends Database{
 	public function AutosetCover($param){
 		parent::query('UPDATE dd_image SET im_type = "cover" WHERE im_product_id = :product_id ORDER BY im_create_time DESC LIMIT 1');
 		parent::bind(':product_id', $param['product_id']);
+		parent::execute();
+	}
+
+	public function SetCoverProcess($param){
+		// Clear all cover
+		parent::query('UPDATE dd_image SET im_type = "normal" WHERE im_product_id = :product_id');
+		parent::bind(':product_id', $param['product_id']);
+		parent::execute();
+
+		// Set cover
+		parent::query('UPDATE dd_image SET im_type = "cover" WHERE im_product_id = :product_id AND im_id = :image_id');
+		parent::bind(':product_id', $param['product_id']);
+		parent::bind(':image_id', $param['image_id']);
 		parent::execute();
 	}
 }

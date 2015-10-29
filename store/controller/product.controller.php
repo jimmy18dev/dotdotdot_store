@@ -90,12 +90,16 @@ class ProductController extends ProductModel{
     }
 
     // Autosetup last photo to cover of product. (Create product function)
-    function AutosetCover($param){
+    public function AutosetCover($param){
     	// Check Cover already
     	if(parent::CoverAlreadyProcess($param)){
     		// Autoset Last file to Cover
     		parent::AutosetCover($param);
     	}
+    }
+
+    public function SetCover($param){
+    	parent::SetCoverProcess($param);
     }
 }
 ?>

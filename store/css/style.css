@@ -513,6 +513,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   margin-bottom: 1%;
   margin-right: 0.5%;
+  position: relative;
 }
 .container .content .detail .image .image-items:nth-child(even) {
   margin-right: 0%;
@@ -522,6 +523,41 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+}
+.container .content .detail .image .image-items .button-cover {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  padding: 1%;
+  display: inline-block;
+  float: left;
+  font-size: 1.5em;
+  color: #FFFFFF;
+  opacity: 0.5;
+}
+.container .content .detail .image .image-items .button-cover:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.container .content .detail .image .image-items .cover-active {
+  opacity: 1;
+  color: #FFFFFF;
+}
+.container .content .detail .image .image-items .button-delete {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  padding: 1%;
+  display: inline-block;
+  float: left;
+  font-size: 0.75em;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 2px;
+  color: #FFFFFF;
+}
+.container .content .detail .image .image-items .button-delete:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
 .container .content .detail .control {
   width: 94%;

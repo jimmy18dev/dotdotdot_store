@@ -7,15 +7,27 @@ if($_POST['calling'] != ''){
 	switch ($_POST['calling']) {
 		case 'Product':
 			switch ($_POST['action']) {
-				case 'DeleteProduct':
+				case 'SetCover':
 					if(true){
-						$product->DeleteProduct(array('product_id' => $_POST['product_id']));
-						$api->successMessage('Product ID '.$_POST['product_id'].' Deleted.','null',$dataset);
+						$product->SetCover(array(
+							'product_id' 	=> $_POST['product_id'],
+							'image_id' 		=> $_POST['image_id'],
+						));
+
+						$api->successMessage('SetCover success!','null',$dataset);
 					}
 					else{
 						$api->errorMessage('Access Token Error!');
 					}
-					break;
+				// case 'DeleteProduct':
+				// 	if(true){
+				// 		$product->DeleteProduct(array('product_id' => $_POST['product_id']));
+				// 		$api->successMessage('Product ID '.$_POST['product_id'].' Deleted.','null',$dataset);
+				// 	}
+				// 	else{
+				// 		$api->errorMessage('Access Token Error!');
+				// 	}
+				// 	break;
 				default:
 					break;
 			}
