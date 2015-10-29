@@ -6,11 +6,11 @@
 		</div>
 	</div>
 </header>
-<navigator class="navigator">
+<nav class="navigator">
 	<ul>
 		<a href="index.php"><li class="<?php echo ($current_page == "order"?'active':'');?>">Orders</li></a>
 		<a href="product.php"><li class="<?php echo ($current_page == "product"?'active':'');?>">Products</li></a>
 		<a href="analytics.php"><li class="<?php echo ($current_page == "analytics"?'active':'');?>">Analytics</li></a>
 		<a href="../" target="_blank"><li class="right"><i class="fa fa-share"></i>Go to site</li></a>
 	</ul>
-</navigator>
+</nav>

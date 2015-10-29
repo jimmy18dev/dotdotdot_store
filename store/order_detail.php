@@ -49,7 +49,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 		<div class="topic-caption">ใบสั่งซื้อที่ <?php echo $order->id;?></div>
 	</div>
 
-	<div class="content">
+	<div class="content content-container">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
 			<div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
@@ -94,7 +94,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 			<div class="box">
 				<p class="caption">จัดส่งสินค้า · <?php echo $order->shipping_time_fb;?></p>
 				<p class="big"><?php echo $order->ems;?></p>
-				<p>จัดส่งสินค้าแบบ <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
+				<p>จัดส่งสินค้า: <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
 			</div>
 		</div>
 		<?php }?>
@@ -135,9 +135,9 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 			<div class="icon"><i class="fa fa-map-pin"></i></div>
 			<div class="box">
 				<p class="caption">ที่อยู่ลูกค้า</p>
-				<p class="big"><?php echo $order->customer_name;?></p>
+				<p class="big">คุณ <?php echo $order->customer_name;?></p>
 				<p><?php echo $order->customer_address;?></p>
-				<p><?php echo $order->customer_phone?></p>
+				<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
 			</div>
 		</div>
 
@@ -146,8 +146,8 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 			<div class="icon"><i class="fa fa-file-text"></i></div>
 			<div class="box">
 				<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
-				<p class="big">ยอดโอน <?php echo number_format($order->m_total,2);?> บาท</p>
-				<p>โอนเข้าธานาคาร <?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
+				<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
+				<p>โอนเงินเข้า: ธนาคาร<?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
 
 				<?php if(!empty($order->m_message)){?>
 				<p class="message">"<?php echo $order->m_message;?>"</p>
@@ -185,11 +185,11 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 
 					<div class="summary-items">
 						<div class="detail">ค่าบริการส่ง : <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></div>
-						<div class="total"><?php echo number_format($order->shipping_payments,2);?> ฿</div>
+						<div class="total"><span class="currency">฿</span> <?php echo number_format($order->shipping_payments,2);?></div>
 					</div>
 					<div class="summary-items summary-total">
 						<div class="detail">ยอดเงินที่ต้องชำระ :</div>
-						<div class="total"><?php echo number_format($order->summary_payments,2);?> ฿</div>
+						<div class="total"><span class="currency">฿</span> <?php echo number_format($order->summary_payments,2);?></div>
 					</div>
 				</div>
 			</div>

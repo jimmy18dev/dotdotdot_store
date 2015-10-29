@@ -47,7 +47,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 	<div class="topic">
 		<div class="topic-caption">รหัสสินค้า <?php echo $product->id;?></div>
 	</div>
-	<div class="content">
+	<div class="content content-container">
 		<div class="detail">
 			<header class="info">
 				<h1><?php echo $product->title;?></h1>

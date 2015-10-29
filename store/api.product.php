@@ -19,15 +19,20 @@ if($_POST['calling'] != ''){
 					else{
 						$api->errorMessage('Access Token Error!');
 					}
-				// case 'DeleteProduct':
-				// 	if(true){
-				// 		$product->DeleteProduct(array('product_id' => $_POST['product_id']));
-				// 		$api->successMessage('Product ID '.$_POST['product_id'].' Deleted.','null',$dataset);
-				// 	}
-				// 	else{
-				// 		$api->errorMessage('Access Token Error!');
-				// 	}
-				// 	break;
+					break;
+				case 'DeletePhoto':
+					if(true){
+						$product->DeletePhoto(array(
+							'product_id' 	=> $_POST['product_id'],
+							'image_id' 		=> $_POST['image_id'],
+						));
+
+						$api->successMessage('Photo\'s Deleted!','null',$dataset);
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

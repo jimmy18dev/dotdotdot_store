@@ -44,7 +44,7 @@ $current_page = "analytics";
 		<div class="topic-caption">Analytics</div>
 	</div>
 
-	<div class="content">
+	<div class="content content-container">
 		<div class="alert">
 			ข้อมูลยังไม่เพียงพอสำหรับการวิเคราะห์ข้อมูล!
 		</div>

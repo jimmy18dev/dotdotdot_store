@@ -15,20 +15,20 @@ $product_payments = $var['product_amount'] * $var['product_price'];
 $product_quantity = $var['product_amount'];
 ?>
 
-<div class="order-items">
-	<div class="order-items-thumbnail">
+<div class="items-in-order">
+	<div class="items-in-order-thumbnail">
 		<a href="product_detail.php?id=<?php echo $link;?>">
 		<img src="../image/upload/thumbnail/<?php echo $image;?>" alt="">
 		</a>
 	</div>
-	<div class="order-items-detail">
+	<div class="items-in-order-detail">
 		<p class="detail-title"><?php echo $title;?></p>
-		<p class="detail-description">Product ID #<?php echo $var['product_id'];?> · <?php echo number_format($var['product_price'],2);?> ฿ </p>
+		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท</p>
 	</div>
-	<div class="order-items-quantity">
+	<div class="items-in-order-quantity">
 		<?php echo $product_quantity;?>
 	</div>
-	<div class="order-items-total">
-		<?php echo number_format($product_payments,2);?>
+	<div class="items-in-order-total">
+		<span class="currency">฿</span> <?php echo number_format($product_payments,2);?>
 	</div>
 </div>

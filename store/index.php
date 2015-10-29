@@ -45,7 +45,7 @@ $current_page = "order";
 		<div class="topic-caption">รายการสั่งซื้อ</div>
 	</div>
 
-	<div class="order">
+	<div class="content">
 		<?php $order->ListOrder(array('id' => 0));?>
 	</div>
 </div>

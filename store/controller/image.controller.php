@@ -36,7 +36,7 @@ class ImageController extends ImageModel{
     //////////////////////////////////////
     // Lib Image function ////////////////
     //////////////////////////////////////
-    public function normal_resize_image($source, $destination,$image_type,$max_size, $image_width, $image_height, $quality){
+    public function resize_image($source, $destination,$image_type,$max_size, $image_width, $image_height, $quality){
         echo'Max Size: {'.$max_size.'px}';
         if($image_width <= 0 || $image_height <= 0){
             return false;
@@ -64,7 +64,7 @@ class ImageController extends ImageModel{
         return true;
     }
 
-    public function crop_image_square($source, $destination, $image_type, $square_size, $image_width, $image_height, $quality){
+    public function crop_image($source, $destination, $image_type, $square_size, $image_width, $image_height, $quality){
         if($image_width <= 0 || $image_height <= 0){
             return false;
         }

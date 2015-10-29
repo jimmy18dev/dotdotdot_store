@@ -29,7 +29,7 @@
 	);
 
 	// Photo upload resize ///////////////////////
-	$photo_size = array(
+	$size = array(
 		'thumbnail' => 400,
 		'mini' 		=> 400,
 		'square' 	=> 800,
@@ -38,17 +38,13 @@
 	);
 
 	// Photo Quality
-	$photo_quality = array(
+	$quality = array(
 		'thumbnail' => 65,
 		'mini' 		=> 65,
 		'square' 	=> 65,
 		'normal' 	=> 65,
 		'large' 	=> 65,
 	);
-
-	// Photo Quality /////////////////////////////
-	$jpeg_quality = 65;
-	// *******************************************************
 
 	// Facebook App Setting
 	// define("APP_ID", 		"218590748331719");

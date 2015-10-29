@@ -59,7 +59,7 @@ class ProductModel extends Database{
 	}
 
 	public function ListPhotoProductProcess($param){
-		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id ORDER BY im_type,im_create_time');
+		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id AND im_status = "active" ORDER BY im_type,im_create_time');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -108,6 +108,13 @@ class ProductModel extends Database{
 
 		// Set cover
 		parent::query('UPDATE dd_image SET im_type = "cover" WHERE im_product_id = :product_id AND im_id = :image_id');
+		parent::bind(':product_id', $param['product_id']);
+		parent::bind(':image_id', $param['image_id']);
+		parent::execute();
+	}
+
+	public function DeletePhotoProcess($param){
+		parent::query('UPDATE dd_image SET im_status = "disable" WHERE (im_product_id = :product_id AND im_id = :image_id)');
 		parent::bind(':product_id', $param['product_id']);
 		parent::bind(':image_id', $param['image_id']);
 		parent::execute();

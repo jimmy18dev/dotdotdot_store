@@ -101,5 +101,9 @@ class ProductController extends ProductModel{
     public function SetCover($param){
     	parent::SetCoverProcess($param);
     }
+
+    public function DeletePhoto($param){
+        parent::DeletePhotoProcess($param);
+    }
 }
 ?>

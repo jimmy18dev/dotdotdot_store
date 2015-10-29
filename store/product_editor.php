@@ -56,7 +56,7 @@ else if(isset($_GET['parent'])){
 		<?php }?>
 	</div>
 
-	<div class="content">
+	<div class="content content-container">
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
 			<div class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">

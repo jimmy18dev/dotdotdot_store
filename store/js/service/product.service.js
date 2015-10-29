@@ -21,6 +21,29 @@ function SetCover(product_id,image_id){
     }).error();
 }
 
+function RemovePhoto(product_id,image_id){
+    // URL API
+    var href = 'api.product.php';
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Product',
+            action              :'DeletePhoto',
+            product_id          :product_id,
+            image_id            :image_id,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        $('#image-'+image_id).hide(500);
+    }).error();
+}
+
 
 // function DeleteProduct(product_id){
 

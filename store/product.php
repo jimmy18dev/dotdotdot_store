@@ -25,7 +25,7 @@ $current_page = "product";
 //include'favicon.php';
 ?>
 
-<title>Product</title>
+<title>รายการสินค้า</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -44,11 +44,11 @@ $current_page = "product";
 		<div class="topic-caption">สินค้า</div>
 
 		<a href="product_editor.php">
-		<div class="button"><i class="fa fa-plus"></i> New</div>
+		<div class="button">New Product</div>
 		</a>
 	</div>
 
-	<div class="order">
+	<div class="content">
 		<?php $product->ListProduct(array('null' => 0));?>
 	</div>
 </div>
