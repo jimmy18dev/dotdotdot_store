@@ -2,7 +2,10 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+
 $order->GetOrder(array('order_id' => $_GET['id']));
+// Update admin read
+if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 ?>
 
 <!DOCTYPE html>
@@ -145,10 +148,16 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
 				<p class="big">ยอดโอน <?php echo number_format($order->m_total,2);?> บาท</p>
 				<p>โอนเข้าธานาคาร <?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
+
+				<?php if(!empty($order->m_message)){?>
+				<p class="message">"<?php echo $order->m_message;?>"</p>
+				<?php }?>
+
+				<?php if(!empty($order->m_photo)){?>
 				<div class="image">
 					<img src="../image/upload/thumbnail/<?php echo $order->m_photo;?>" alt="">
 				</div>
-				<p class="message">"<?php echo $order->m_message;?>"</p>
+				<?php }?>
 			</div>
 		</div>
 		<?php }?>

@@ -2,7 +2,7 @@
 class OrderModel extends Database{
 	
 	public function ListOrderProcess($param){
-		parent::query('SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id');
+		parent::query('SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id WHERE od_status != "Shopping" ORDER BY od_update_time DESC');
 		parent::execute();
 		$dataset = parent::resultset();
 
@@ -68,6 +68,12 @@ class OrderModel extends Database{
 	public function UpdateStatusOrderProcess($param){
 		parent::query('UPDATE dd_order SET od_status = :status WHERE od_id = :order_id');
 		parent::bind(':status', $param['order_action']);
+		parent::bind(':order_id', $param['order_id']);
+		parent::execute();
+	}
+
+	public function AdminReadOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_admin_read = "close" WHERE od_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}

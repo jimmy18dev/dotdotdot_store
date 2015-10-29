@@ -147,6 +147,10 @@ class OrderController extends OrderModel{
         $this->m_photo = $transfer['im_filename'];
     }
 
+    public function AdminReadOrder($param){
+        parent::AdminReadOrderProcess($param);
+    }
+
     private function RenderOrder($mode,$data){
         foreach ($data as $var){
         	include'template/order/order.items.php';
