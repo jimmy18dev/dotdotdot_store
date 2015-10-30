@@ -81,7 +81,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 			<div class="icon"><i class="fa fa-check"></i></div>
 			<div class="box">
 				<p class="caption"><?php echo $order->complete_time_fb;?></p>
-				<p class="big">เรียบร้อย</p>
+				<p class="big"><span class="highlight">เรียบร้อย</span></p>
 				<p>ลูกค้าได้รับสินค้าแล้ว</p>
 			</div>
 		</div>
@@ -94,7 +94,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 			<div class="box">
 				<p class="caption">จัดส่งสินค้า · <?php echo $order->shipping_time_fb;?></p>
 				<p class="big"><?php echo $order->ems;?></p>
-				<p>จัดส่งสินค้า: <?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></p>
+				<p>จัดส่งสินค้า: <span class="highlight"><?php echo ($order->shipping_type=="ems"?"EMS":"ลงทะเบียน");?></span></p>
 			</div>
 		</div>
 		<?php }?>

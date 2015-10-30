@@ -52,14 +52,14 @@ class ProductModel extends Database{
 
 	// Get and List
 	public function GetProductProcess($param){
-		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_id,im_filename,im_format FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id WHERE pd_id = :product_id');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_view,pd_read,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_id,im_filename,im_format,(SELECT COUNT(odt_amount) FROM dd_order_detail LEFT JOIN dd_order ON od_id = odt_order_id WHERE odt_product_id = 2) total_in_order FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_id = :product_id');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		return parent::single();
 	}
 
 	public function ListPhotoProductProcess($param){
-		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id AND im_status = "active" ORDER BY im_type,im_create_time');
+		parent::query('SELECT * FROM dd_image WHERE im_product_id = :product_id AND im_status = "active" AND im_type = "normal" ORDER BY im_type,im_create_time');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();

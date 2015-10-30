@@ -43,6 +43,13 @@ $current_page = "order";
 <div class="container">
 	<div class="topic">
 		<div class="topic-caption">รายการสั่งซื้อ</div>
+
+		<div class="topic-filter">
+			<a href="#" class="paying"><i class="fa fa-circle"></i>ชำระเงิน</a>
+			<a href="#" class="transferrequest"><i class="fa fa-circle"></i>ส่งหลักฐาน</a>
+			<a href="#" class="shipping"><i class="fa fa-circle"></i>ส่งของ</a>
+			<a href="#" class="complete"><i class="fa fa-circle"></i>เรียบร้อย</a>
+		</div>
 	</div>
 
 	<div class="content">

@@ -7,11 +7,16 @@ class ProductController extends ProductModel{
 	public $description;
 	public $quantity;
 	public $price;
+    public $view;
+    public $read;
+    public $interest_ratio;
 	public $create_time;
 	public $update_time;
 	public $group;
 	public $type;
 	public $status;
+
+    public $total_in_order;
 
 	// Image of product
 	public $image_id;
@@ -28,6 +33,16 @@ class ProductController extends ProductModel{
         $this->description = $data['pd_description'];
         $this->quantity = $data['pd_quantity'];
         $this->price = $data['pd_price'];
+        $this->view = $data['pd_view'];
+        $this->read = $data['pd_read'];
+
+        if($this->view == 0){
+            $this->interest_ratio = 0;
+        }
+        else{
+            $this->interest_ratio = (($this->read*100)/$this->view);    
+        }
+        
         $this->create_time = $data['pd_create_time'];
         $this->update_time = $data['pd_update_time'];
         $this->group = $data['pd_group'];
@@ -37,6 +52,8 @@ class ProductController extends ProductModel{
         $this->image_id = $data['im_id'];
         $this->image_filename = $data['im_filename'];
         $this->image_format = $data['im_format'];
+
+        $this->total_in_order = $data['total_in_order'];
     }	
 
 	public function ListProduct($param){

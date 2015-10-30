@@ -101,5 +101,11 @@ class OrderModel extends Database{
 
 		return $dataset['COUNT(odt_id)'];
 	}
+
+	public function NotificationCheckingProcess(){
+		parent::query('SELECT COUNT(od_id) FROM dd_order WHERE od_admin_read = "open"');
+		parent::execute();
+		return $dataset = parent::single();
+	}
 }
 ?>

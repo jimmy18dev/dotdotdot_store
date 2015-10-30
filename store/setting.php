@@ -2,7 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
-$current_page = "product";
+$current_page = "setting";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $current_page = "product";
 //include'favicon.php';
 ?>
 
-<title>รายการสินค้า</title>
+<title>Setting</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -41,15 +41,13 @@ $current_page = "product";
 <?php include'header.php';?>
 <div class="container">
 	<div class="topic">
-		<div class="topic-caption">สินค้า</div>
-
-		<a href="product_editor.php">
-		<div class="button">เพิ่มสินค้าใหม่</div>
-		</a>
+		<div class="topic-caption">Setting</div>
 	</div>
 
-	<div class="content">
-		<?php $product->ListProduct(array('null' => 0));?>
+	<div class="content content-container">
+		<div class="alert">
+			ข้อมูลยังไม่เพียงพอสำหรับการวิเคราะห์ข้อมูล!
+		</div>
 	</div>
 </div>
 </body>

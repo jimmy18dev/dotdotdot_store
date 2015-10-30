@@ -7,6 +7,7 @@
         font-size: 1.1em;
         padding: 15px 3%;
         height: 20px;
+        color: rgba(0, 0, 0, 0.9);
     }
     .account{
         padding: 13px 3%;
@@ -27,15 +28,21 @@
     margin-top: 50px;
 
     ul{
+
         li{
-            padding: 3% 0%;
-            margin-right: 3%;
+            padding: 4% 0%;
+            margin-right: 5%;
             font-size: 0.8em;
 
             i{
                 margin-right: 10px;
                 font-size: 0.8em;
             }
+        }
+
+        li.right{
+            margin-left: 5%;
+            margin-right: 0%;
         }
     }
 }
@@ -45,22 +52,42 @@
     padding: 0% 0%;
 
     .topic{
-        width: 94%;
-        padding: 3% 3%;
-        font-size: 0.8em;
+        width: 100%;
+        padding: 3% 0%;
+        float: left;
+        display: inline-block;
+        color: #AAAAAA;
+        font-size: 0.9em;
 
         .topic-caption{
-            padding: 3% 0%;
+            padding: 3% 3%;
+        }
+
+        .topic-filter{
+            width: 94%;
+            padding: 3% 3%;
+            font-size: 0.8em;
+
+            a{
+                margin-left: 0px;
+                margin-right: 15px;
+                color: rgba(0, 0, 0, 0.44);
+
+                i{
+                    margin-right: 5px;
+                    font-size: 0.8em;
+                }
+            }
         }
 
         .button{
-            padding: 3%;
+            padding: 2%;
+            margin: 0.5% 3%;
         }
     }
+
     .content{
         width: 100%;
-        float: left;
-        display: inline-block;
         margin-bottom: 10%;
 
         .alert{
@@ -71,24 +98,25 @@
 
         // Order Detail page
         .order-state{
-            width: 100%;
-            float: left;
-            display: inline-block;
             margin-bottom: 3%;
 
             .state-items{
                 width: 20%;
                 padding: 3% 0%;
-                border-bottom: 2px solid #EEEEEE;
+                border-bottom: 1px solid #FAFAFA;
 
                 .icon{
-                    font-size: 1.5em;
-                    margin-bottom: 3%;
+                    font-size: 1.2em;
+                    margin-bottom: 5%;
                 }
                 .caption{
                     font-size: 0.7em;
                     line-height: 2em;
                 }
+            }
+
+            .state-active{
+                border-bottom: 1px solid rgba(0, 0, 0, 0.9);
             }
         }
 
@@ -96,26 +124,32 @@
             width: 94%;
             padding: 3%;
             line-height: 1.5em;
-            font-size: 0.8em;
 
             .icon{
-                width: 20%;
-                padding-top: 9%;
-                font-size: 1.5em;
+                width: 15%;
+                padding-top: 10%;
+                font-size: 1.2em;
             }
             .box{
-                width: 80%;
+                width: 85%;
 
                 p{
                     line-height: 1.5em;
+                    font-size: 0.9em;
                 }
 
                 p.caption{
                     margin-bottom: 1%;
+                    font-size: 0.8em;
                 }
 
                 p.big{
-                    font-size: 1.5em;
+                    font-size: 1.2em;
+                    margin-bottom: 1%;
+                }
+
+                p.message{
+                    margin-top: 1%;
                 }
 
                 .image{
@@ -123,147 +157,91 @@
                 }
 
                 .input-text{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 2em;
+                    font-size: 1.2em;
                     line-height: 1.5em;
-                    border: 0px;
-                    border-bottom: 1px solid #EEEEEE;
-                    outline: 0;
                 }
 
                 .control{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-
                     .button{
-                        width: 20%;
-                        padding: 2% 0%;
-                        margin: 2% 0%;
-                        text-align: center;
-                        float: right;
-                        display: inline-block;
-                        border: 0px;
-                        border-radius: 2px;
-                        font-size: 0.9em;
+                        width: 50%;
+                        padding: 3% 0%;
+                        margin: 3% 0%;
+                        font-size: 0.8em;
                         line-height: 1.5em;
-                        background: #FFFFFF;
-                        color: #AAAAAA;
 
                         i{
                             margin-right: 10px;
                         }
-
-                        &:hover{
-                            cursor: pointer;
-                            opacity: 0.6;
-                        }
-                    }
-
-                    .success{
-                        background: #000000;
-                        color: #FFFFFF;
                     }
                 }
 
                 .order-list{
                     .topic-caption{
-                        width: 100%;
                         padding: 1% 0%;
-                        float: left;
-                        display: inline-block;
-                        font-size: 0.8em;
-                        color: #CCCCCC;
+                        font-size: 0.7em;
 
                         .detail{
-                            width: 70%;
-                            float: left;
-                            display: inline-block;
-                            background: #CACACA;
+                            width: 60%;
                         }
                         .quantity{
                             width: 15%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
-                            background: #FAFAFA;
                         }
                         .total{
-                            width: 15%;
-                            float: left;
-                            display: inline-block;
-                            text-align: right;
-                            background: #ACACAC;
+                            width: 25%;
                         }
                     }
 
-                    .order-items{
+                    .items-in-order{
+                        width: 100%;
                         line-height: 1.5em;
-                        border-top: 1px solid #EEEEEE;
+                        font-size: 0.8em;
 
-                        .order-items-thumbnail{
-                            width: 10%;
-                            float: left;
-                            display: inline-block;
-
-                            img{
-                                width: 100%;
-                                float: left;
-                                display: inline-block;
-                            }
+                        .items-in-order-thumbnail{
+                            width: 15%;
                         }
-                        .order-items-detail{
-                            width: 53%;
+                        .items-in-order-detail{
+                            width: 41%;
                             padding: 2%;
-                            float: left;
-                            display: inline-block;
-
-                            p.detail-title{}
                             p.detail-description{
                                 font-size: 0.8em;
                             }
                         }
-                        .order-items-quantity{
-                            width: 20%;
+                        .items-in-order-quantity{
+                            width: 15%;
                             padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
                         }
-                        .order-items-total{
-                            width: 20%;
+                        .items-in-order-total{
+                            width: 25%;
                             padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: right;
+                        }
+
+                        .currency{
+                            font-size: 0.7em;
+                            color: rgba(0, 0, 0, 0.44);
                         }
                     }
 
                     .summary-items{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
+                        font-size: 0.9em;
 
                         .detail{
-                            width: 66%;
-                            margin-left: 13%;
-                            padding: 3%;
-                            float: left;
-                            display: inline-block;
+                            width: 60%;
+                            margin-left: 0%;
+                            padding: 2% 0%;
                         }
                         .total{
-                            width: 15%;
-                            padding: 3% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
-                            text-align: right;
+                            width: 40%;
+                            padding: 2% 0%;
+                        }
+
+                        .currency{
+                            font-size: 0.7em;
+                            color: rgba(0, 0, 0, 0.44);
                         }
                     }
                     .summary-total{
                         border-top: 1px dashed #FAFAFA;
+                        font-weight: bold;
                     }
                 }
             }
@@ -271,139 +249,96 @@
 
         // Product Detail
         .detail{
-            width: 100%;
-            float: left;
-            display: inline-block;
-
             header.info{
                 width: 94%;
                 padding: 3%;
-                float: left;
-                display: inline-block;
-                font-size: 1em;
                 line-height: 1.5em;
 
                 h1{
-                    font-size: 1.5em;
+                    font-size: 1.2em;
+                    margin-bottom: 1%;
                 }
-                p{}
+                p{
+                    font-size: 0.8em;
+                }
 
+            }
+
+            .imageset{
+                .image-items{
+                    width: 50%;
+
+                    .button-cover{
+                        top: 10px;
+                        right: 10px;
+                        padding: 1%;
+                        font-size: 1.5em;
+                    }
+
+                    .button-delete{
+                        bottom: 5px;
+                        right: 5px;
+                        padding: 3%;
+                        font-size: 0.7em;
+                    }
+                }
             }
 
             .description{
                 width: 94%;
                 padding: 3%;
-                float: left;
-                display: inline-block;
-                font-size: 1em;
+                font-size: 0.9em;
                 line-height: 1.5em;
             }
 
             .subproduct{
-                width: 100%;
-                float: left;
-                display: inline-block;
 
                 .sub-items{
                     width: 94%;
                     padding: 3%;
-                    float: left;
-                    display: inline-block;
-                    background: #FAFAFA;
+                    line-height: 1.5em;
+                    font-size: 0.8em;
 
-                    .detail{
+                    .sub-items-detail{
                         width: 80%;
-                        float: left;
-                        display: inline-block;
                     }
-                    .summary{
+                    .sub-items-summary{
                         width: 20%;
-                        float: right;
-                        display: inline-block;
-                        text-align: right;
                     }
                 }
             }
 
-            .image{
-                width: 100%;
-                float: left;
-                display: inline-block;
+            .stat{
+                line-height: 1.5em;
 
-                .image-items{
-                    width: 49.5%;
-                    float: left;
-                    display: inline-block;
-                    margin-bottom: 1%;
-                    margin-right: 0.5%;
-                    position: relative;
+                .stat-items{
+                    width: 39.5%;
+                    padding: 10% 5%;
+                    border-bottom: 1px solid #FAFAFA;
 
-                    &:nth-child(even){
-                        margin-right: 0%;
-                        margin-left: 0.5%;
-                    }
-                    
-                    img{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                    }
-
-                    .button-cover{
-                        position: absolute;
-                        top: 10px;
-                        right: 10px;
-                        padding: 1%;
-                        display: inline-block;
-                        float: left;
-                        font-size: 1.5em;
-                        color: #FFFFFF;
-                        opacity: 0.5;
-
-                        &:hover{
-                            opacity: 1;
-                            cursor: pointer;
+                    .value{
+                        font-size: 2em;
+                        .unit{
+                            font-size: 0.4em;
+                            margin-left: 5px;
                         }
                     }
-                    .cover-active{
-                        opacity: 1;
-                        color: #FFFFFF;
-                    }
-
-                    .button-delete{
-                        position: absolute;
-                        bottom: 10px;
-                        right: 10px;
-                        padding: 1%;
-                        display: inline-block;
-                        float: left;
-                        font-size: 0.75em;
-                        background: rgba(0, 0, 0, 0.5);
-                        border-radius: 2px;
-                        color: #FFFFFF;
-
-                        &:hover{
-                            cursor: pointer;
-                            text-decoration: underline;
-                        }
+                    .caption{
+                        font-size: 0.8em;
                     }
                 }
             }
 
             .control{
-                width: 94%;
-                float: left;
-                display: inline-block;
-                padding: 3%;
+                width: 100%;
+                margin: 3% 0%;
 
                 .control-items{
-                    float: left;
-                    display: inline-block;
-                    background: #EEEEEE;
-                    color: #555555;
-                    padding: 2% 3%;
-                    margin-right: 0.5%;
-                    font-size: 0.9em;
+                    width: 21%;
+                    padding: 3% 2%;
+                    font-size: 0.75em;
+                    border-left: 0px solid #FAFAFA;
+                    text-align: center;
                 }
 
                 .delete{
@@ -532,7 +467,6 @@
             line-height: 1.5em;
             margin-bottom: 0.5%;
 
-            // #00ab6b Color style.
             .product-thumbnail{
                 width: 25%;
                 min-height: 50px;
@@ -543,11 +477,11 @@
 
                 .detail{
                     width: 70%;
-                    padding: 5%;
+                    padding: 3% 5%;
                 }
                 .quantity{
-                    width: 10%;
-                    padding: 5%;
+                    width: 14%;
+                    padding: 3%;
                     line-height: 1.5em;
                 }
             }
@@ -558,19 +492,17 @@
                 .subproduct-title{
                     width: 90%;
                     padding: 0% 5%;
-                    padding-top: 5%;
+                    padding-top: 3%;
                 }
 
                 .subproduct-items{
-                    width: 100%;
-
                     .subproduct-detail{
                         width: 70%;
-                        padding: 5%;
+                        padding: 3% 5%;
                     }
                     .subproduct-quantity{
-                        width: 10%;
-                        padding: 5%;
+                        width: 14%;
+                        padding: 3%;
                     }
                 }
             }
@@ -582,34 +514,32 @@
             margin-bottom: 0.5%;
             line-height: 1.5em;
 
-            .notification{
-                font-size: 0.8em;
-                margin-right: 5px;
-            }
-
             p{
                 font-size: 0.9em;
+                color: rgba(0, 0, 0, 0.9);
             }
 
             p.mini{
                 font-size: 0.8em;
+                color: rgba(0, 0, 0, 0.44);
             }
 
+            .notification-icon{
+                width: 7%;
+                font-size: 0.8em;
+            }
 
             .detail{
-                width: 60%;
+                width: 68%;
             }
             .summary{
-                width: 20%;
+                width: 25%;
 
                 .total{
                     .currency{
                         font-size: 0.7em;
                     }
                 }
-            }
-            .status{
-                width: 20%;
             }
         }
     }

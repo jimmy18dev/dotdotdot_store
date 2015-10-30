@@ -177,5 +177,10 @@ class OrderController extends OrderModel{
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
     }
+
+    public function NotificationChecking(){
+        $data = parent::NotificationCheckingProcess();
+        return $data['COUNT(od_id)'];
+    }
 }
 ?>

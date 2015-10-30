@@ -54,6 +54,9 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				<p>ราคา <?php echo $product->price;?> บาท  · เริ่มขาย <?php echo $product->create_time;?></p>
 			</header>
 			<div class="image">
+				<img src="../image/upload/square/<?php echo $product->image_filename;?>" alt="">
+			</div>
+			<div class="imageset">
 				<?php $product->ListPhotoProduct(array('product_id' => $product->id));?>
 			</div>
 			<div class="description"><?php echo $product->description;?></div>
@@ -63,12 +66,31 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				<?php $product->ListSubProduct(array('product_id' => $product->id,'render' => 'subproduct-items'));?>
 			</div>
 
+			<div class="stat">
+				<div class="stat-items">
+					<div class="value"><?php echo number_format($product->view);?><span class="unit">ครั้ง</span></div>
+					<div class="caption">แสดงสินค้า</div>
+				</div>
+				<div class="stat-items">
+					<div class="value"><?php echo number_format($product->read);?><span class="unit">ครั้ง</span></div>
+					<div class="caption">สนใจสินค้า</div>
+				</div>
+				<div class="stat-items">
+					<div class="value <?php echo ($product->interest_ratio>80?'green':'');?>"><?php echo number_format($product->interest_ratio);?><span class="unit">%</span></div>
+					<div class="caption">ความน่าสนใจ</div>
+				</div>
+				<div class="stat-items">
+					<div class="value"><?php echo number_format($product->total_in_order);?><span class="unit">ชิ้น</span></div>
+					<div class="caption">สั่งซื้อสินค้า</div>
+				</div>
+			</div>
+
 			<!-- Product control -->
 			<div class="control">
-				<div class="control-items delete" onclick="javascript:DeleteProduct(<?php echo $product->id;?>);"><i class="fa fa-trash"></i></div>
+				<!-- <div class="control-items delete" onclick="javascript:DeleteProduct(<?php echo $product->id;?>);">ลบ</div> -->
 
-				<a href="product_add.php"><div class="control-items">เติมสินค้า</div></a>
-				<div class="control-items">โอนสินค้า</div>
+				<a href="product_add.php"><div class="control-items">เติม</div></a>
+				<div class="control-items">โอน</div>
 				<a href="product_editor.php?id=<?php echo $product->id;?>"><div class="control-items">แก้ไข</div></a>
 				<a href="product_editor.php?parent=<?php echo $product->id;?>"><div class="control-items">สินค้าย่อย</div></a>
 			</div>
