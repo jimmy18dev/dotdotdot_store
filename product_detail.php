@@ -57,7 +57,7 @@ $product->UpdateView(array('product_id' => $product->id));
 		<!-- Detail -->
 		<div class="product-details">
 			<h1><?php echo $product->title;?></h1>
-			<p class="code"><?php echo number_format($product->read);?> คนดูสินค้านี้ <span class="price"><?php echo number_format($product->price,2);?> ฿</span></p>
+			<p class="code"><?php echo number_format($product->read);?> Views</p>
 			<div class="description"><?php echo $product->description;?></div>
 
 			<div class="action">

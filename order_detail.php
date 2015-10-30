@@ -46,10 +46,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <body>
 <?php include'header.php';?>
 
-<div class="content">
-	<div class="container">
-		<div class="topic"><i class="fa fa-file-text-o"></i>ใบสั่งซื้อ <?php echo $order->id;?></div>
-
+<div class="container">
+	<div class="container-page">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
 			<div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
@@ -75,24 +73,31 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 		<?php }?>
 
-		<div class="list">
+		<div class="order-topic"><i class="fa fa-file-text-o"></i>ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
+
+		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-message">
-					<p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
-					<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-check"></i></div>
+					<div class="box">
+						<p class="caption">1 วันที่แล้ว</p>
+						<p class="big">เรียบร้อย</p>
+						<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
+					</div>
 				</div>
 				<?php }?>
 
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-message">
-					<p class="icon"><i class="fa fa-truck"></i></p>
-					<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
-					<p class="shipping-code"><?php echo $order->ems;?></p>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-truck"></i></div>
+					<div class="box">
+						<p class="caption">1 วันที่แล้ว</p>
+						<p class="big"><?php echo $order->ems;?></p>
+						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
+					</div>
 
 					<?php if($order->status == "Shipping"){?>
 					<div class="form-submit">
@@ -105,58 +110,55 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-message">
-					<p class="icon"><i class="fa fa-check"></i></p>
-					<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
-					<p title="<?php echo $order->confirm_time_thai_format;?>">เมื่อ <?php echo $order->confirm_time_facebook_format;?></p>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-check"></i></div>
+					<div class="box">
+						<p class="caption">1 วันที่แล้ว</p>
+						<p class="big">ชำระเงินแล้ว</p>
+						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+					</div>
 				</div>
 				<?php }?>
 
 				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
-				<!-- Money Transfer -->
-				<div class="order-box order-money-transfer">
-					<div class="topic">ยืนยันการโอนเงิน</div>
-					
-					<div class="message">
-						<p>ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> ฿</p>
-						<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
-					</div>
-
-					<div class="bank">
-						<?php $bank->ListBank(array('mode' => 'items'));?>
-					</div>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-barcode"></i></div>
 
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
-					<div class="form">
+					<div class="box">
+						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
+						<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
+						<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
+
+						<div class="bank">
+							<?php $bank->ListBank(array('mode' => 'items'));?>
+						</div>
+
 						<div class="form-items">
-							<div class="label">โอนเข้าธนาคาร</div>
+							<div class="label">โอนเข้าธนาคาร: </div>
 							<div class="input">
-								<select name="to_bank" class="input-select">
+								<select name="to_bank" class="input-text">
 									<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
 									<?php $bank->ListBank(array('mode' => 'select'));?>
 								</select>
 							</div>
 						</div>
-
 						<div class="form-items">
-							<div class="label">
-								ยอดเงินที่โอน
-							</div>
+							<div class="label">ยอดเงินที่โอน</div>
 							<div class="input">
 								<input type="text" class="input-text" name="total" placeholder="ยอดชำระ <?php echo number_format($order->summary_payments);?> บาท">
 							</div>
 						</div>
-
 						<div class="form-items">
-							<div class="label">
-								ภาพถ่ายสลิปใบโอนเงิน
-							</div>
+							<div class="label">ภาพถ่ายสลิปใบโอนเงิน</div>
 							<div class="input">
 								<div class="image-input">
 									<span id="photo_files_div"></span>
 									<span id="photo_thumbnail">
-										<div class="icon"><i class="fa fa-camera"></i> เลือกภาพ</div>
+										<div class="btn">
+											<p><i class="fa fa-camera"></i></p>
+											<p>เลือกภาพ</p>
+										</div>
 									</span>
 									<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
 								</div>
@@ -170,7 +172,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							</div>
 						</div>
 
-						<div class="form-items full-size">
+						<div class="form-items">
+							<div class="label">ที่อยู่</div>
 							<div class="input">
 								<textarea name="address" class="input-text input-textarea" placeholder="ที่อยู่สำหรับส่งสินค้า..."><?php echo $order->address;?></textarea>
 							</div>
@@ -189,10 +192,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							</div>
 						</div>
 
-						
-
-						<div class="form-submit">
-							<button class="submit-button" type="submit">ยืนยันการโอนเงิน</button>
+						<div class="form-control">
+							<button class="submit-btn" type="submit">ยืนยันการโอนเงิน</button>
 						</div>
 
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
@@ -202,112 +203,103 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 				<?php }?>
 
 				<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
+
+				<!-- Address -->
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-map-pin"></i></div>
+					<div class="box">
+						<p class="caption">ที่อยู่ลูกค้า</p>
+						<p class="big">คุณ <?php echo $order->customer_name;?></p>
+						<p><?php echo $order->customer_address;?></p>
+						<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
+					</div>
+				</div>
+
 				<!-- Money transfer info -->
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-money-transfer">
-					<div class="topic">หลักฐานการโอนเงิน รายการสั่งซื้อที่ <?php echo $order->id;?></div>
-					<div class="form">
-						<div class="form-items">
-							<div class="label">โอนเข้าธนาคาร</div>
-							<div class="input">ธนาคาร<?php echo $order->m_bank.' '.$order->m_bank_number;?></div>
-						</div>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-file-text"></i></div>
+					<div class="box">
+						<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
+						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
+						<p>โอนเงินเข้า: ธนาคาร<?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
 
-						<div class="form-items">
-							<div class="label">
-								ยอดเงินที่โอน
-							</div>
-							<div class="input"><?php echo number_format($order->m_total);?><span class="currency">฿</span></div>
-						</div>
+						<?php if(!empty($order->m_message)){?>
+						<p class="message">"<?php echo $order->m_message;?>"</p>
+						<?php }?>
 
-						<div class="form-items">
-							<div class="label">
-								ภาพถ่ายสลิปใบโอนเงิน
-							</div>
-							<div class="input">
-								<div class="image-input">
-									<img src="image/upload/normal/<?php echo $order->m_photo;?>" alt="">
-								</div>
-							</div>
+						<?php if(!empty($order->m_photo)){?>
+						<div class="image">
+							<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
 						</div>
-
-						<div class="form-items full-size">
-							<div class="input"><i class="fa fa-truck"></i><?php echo $user->name;?></div>
-						</div>
-
-						<div class="form-items full-size">
-							<div class="input"><i class="fa fa-truck"></i><?php echo $order->address;?></div>
-						</div>
-
-						<div class="form-items full-size">
-							<div class="input"><i class="fa fa-comments"></i><?php echo $order->m_description;?></div>
-						</div>
+						<?php }?>
 					</div>
 				</div>
 				<?php }?>
 
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
+					<div class="box">
+						<p class="caption">รายการสินค้า · <?php echo $order->paying_time_fb;?></p>
 
-				<div class="time"><i class="fa fa-clock-o"></i>23 ธันวาคม 2558 เวลา 15:20</div>
-				<div class="order-box order-list">
-					<div class="topic-caption">
-						<div class="title">รายการสินค้า</div>
-						<div class="pay">รวม</div>
-						<div class="quantity">จำนวน</div>
-					</div>
+						<!-- Order list -->
+						<div class="order-list">
+							<div class="topic-caption">
+								<div class="detail"><?php echo $order->total;?> รายการ</div>
+								<div class="quantity">จำนวน</div>
+								<div class="total">รวม</div>
+							</div>
 
-					<?php
-					$order->ListItemsInOrder(array(
-						'order_id' 		=> $order->id,
-						'order_status' 	=> $order->status,
-					));
-					?>
+							<?php
+							$order->ListItemsInOrder(array(
+								'order_id' 		=> $order->id,
+								'order_status' 	=> $order->status,
+							));
+							?>
 
-					<div class="items-payments subtotal">
-						<div class="detail"><i class="fa fa-clone"></i>ราคาสินค้ารวม : </div>
-						<div class="value">
-							<span id="subpayments-display"><?php echo number_format($order->payments,2);?></span>
-							<span class="currency">฿</span>
+							<div class="summary-items">
+								<div class="detail">รวมราคาสินค้า: </div>
+								<div class="total"><span class="currency">฿</span> <span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
+							</div>
+
+							<div class="summary-items">
+								<div class="detail">
+									ค่าบริการส่ง: 
+									<?php if($order->status == "Shopping"){?>
+									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
+										<option value="Ems">EMS</option>
+										<option value="Register">ลงทะเบียน</option>
+									</select>
+									<?php }else{
+										echo $order->shipping_type;
+									}?>
+								</div>
+								<div class="total"><span class="currency">฿</span> <span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
+							</div>
+
+							<div class="summary-items summary-total">
+								<div class="detail">ยอดเงินที่ต้องชำระ:</div>
+								<div class="total"><span class="currency">฿</span> <span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
+							</div>
 						</div>
-					</div>
 
-					<div class="items-payments">
-						<div class="detail">
-							<i class="fa fa-truck"></i>ค่าบริการส่ง : 
-							<?php if($order->status == "Shopping"){?>
-							<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
-								<option value="Ems">EMS</option>
-								<option value="Register">ลงทะเบียน</option>
-							</select>
-							<?php }else{
-								echo $order->shipping_type;
-							}?>
+						<?php if($order->status == "Shopping"){?>
+						<div class="form-control">
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-check"></i>ชำระเงิน</div>
 						</div>
-						<div class="value">
-							<span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span>
-							<span class="currency">฿</span>
-						</div>
-					</div>
+						<?php }?>
 
-					<div class="items-payments total-payments">
-						<div class="detail"><i class="fa fa-barcode"></i>ยอดเงินที่ต้องชำระ : </div>
-						<div class="value">
-							<span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span>
-							<span class="currency">฿</span>
-						</div>
+						<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
 					</div>
-
-					<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
-
-					<?php if($order->status == "Shopping"){?>
-					<div class="form-submit">
-						<div class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-check"></i>ชำระเงิน</div>
-					</div>
-					<?php }?>
 				</div>
 			<?php }else{?>
-			<div class="order-box order-message">
-				<p class="icon"><i class="fa fa-thumbs-o-up"></i></p>
-				<p>กรุณาเลือกสินค้าที่คุณต้องการค่ะ</p>
-			</div>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-map-pin"></i></div>
+					<div class="box">
+						<p class="caption">ตะกร้าสินค้า</p>
+						<p class="big">ไม่พบสินค้า!</p>
+						<p>เลือกสินค้าที่คุณต้องการค่ะ...</p>
+					</div>
+				</div>
 			<?php }?>
 		</div>
 	</div>
