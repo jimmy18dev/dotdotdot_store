@@ -1,1 +1,1 @@
-<img src="store/<?php echo $var['im_normal'];?>" alt="">
+<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">

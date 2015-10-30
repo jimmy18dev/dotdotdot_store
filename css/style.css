@@ -17,7 +17,7 @@ button {
 }
 body {
   font-family: sans-serif;
-  background: #fafafa;
+  background: #FFFFFF;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -81,9 +81,6 @@ Copyright (c) 2015 Daniel Eden
   -webkit-animation-name: pulse;
   animation-name: pulse;
 }
-.header-shadow {
-  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.1);
-}
 .header {
   position: fixed;
   top: 0%;
@@ -121,7 +118,7 @@ Copyright (c) 2015 Daniel Eden
   color: #000000;
 }
 .header .cart:hover {
-  background: #FAFAFA;
+  text-decoration: underline;
 }
 .header .cart i {
   margin-right: 10px;
@@ -259,25 +256,333 @@ Copyright (c) 2015 Daniel Eden
 .login-dialog .login-container .form .option a:hover {
   text-decoration: underline;
 }
+.container {
+  width: 66%;
+  padding: 0% 17%;
+  margin: 80px 0px;
+  float: left;
+  display: inline-block;
+}
+.container .container-page {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .product-photos {
+  width: 60%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .product-photos img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+}
+.container .container-page .product-details {
+  position: fixed;
+  top: 80px;
+  right: 15%;
+  width: 26%;
+  float: right;
+  display: inline-block;
+  line-height: 1.5em;
+}
+.container .container-page .product-details h1 {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 3%;
+  font-weight: bold;
+}
+.container .container-page .product-details p.code {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.container .container-page .product-details p.code .price {
+  float: right;
+}
+.container .container-page .product-details .description {
+  width: 100%;
+  padding: 5% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+}
+.container .container-page .product-details .action {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .product-details .action .topic {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 2em;
+  color: #CCCCCC;
+}
+.container .container-page .product-details .action .action-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px dotted #EEEEEE;
+  line-height: 1.5em;
+  margin-bottom: 1%;
+}
+.container .container-page .product-details .action .action-items .detail {
+  width: 70%;
+  float: left;
+  display: inline-block;
+  padding: 3% 5%;
+  background: #FAFAFA;
+}
+.container .container-page .product-details .action .action-items .detail .caption {
+  font-size: 1em;
+  font-weight: bold;
+}
+.container .container-page .product-details .action .action-items .detail .desc {
+  font-size: 0.8em;
+  color: #555555;
+}
+.container .container-page .product-details .action .action-items .detail-buy-btn {
+  width: 20%;
+  padding: 3% 0%;
+  float: right;
+  display: inline-block;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  text-align: center;
+  overflow: hidden;
+}
+.container .container-page .product-details .action .action-items .detail-buy-btn:hover {
+  cursor: pointer;
+  background: #222222;
+}
+.container .container-page .product-details .action .action-items .detail-buy-btn .msg {
+  font-size: 0.8em;
+}
+.container .container-page .list-content {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .list-content .list-content-topic {
+  width: 100%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .container-page .list-content .order-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 0.5%;
+  line-height: 1.5em;
+  background: #FAFAFA;
+}
+.container .container-page .list-content .order-items:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.container .container-page .list-content .order-items p {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .container-page .list-content .order-items p.mini {
+  font-size: 0.8em;
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .container-page .list-content .order-items .notification-icon {
+  width: 3%;
+  float: left;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.4);
+  font-size: 0.8em;
+}
+.container .container-page .list-content .order-items .paying {
+  color: #E91E63;
+}
+.container .container-page .list-content .order-items .transferrequest {
+  color: #3F51B5;
+}
+.container .container-page .list-content .order-items .transferagain {
+  color: #FFC107;
+}
+.container .container-page .list-content .order-items .transfersuccess {
+  color: #8BC34A;
+}
+.container .container-page .list-content .order-items .shipping {
+  color: #2196F3;
+}
+.container .container-page .list-content .order-items .complete {
+  color: #4CAF50;
+}
+.container .container-page .list-content .order-items .detail {
+  width: 77%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .list-content .order-items .summary {
+  width: 20%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.container .container-page .list-content .order-items .summary .total .currency {
+  font-size: 0.7em;
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .container-page .list-content .order-items-cencel {
+  opacity: 0.3;
+}
+.container .container-page .list-content .order-unread {
+  font-weight: bold;
+}
+.container .container-page .profile {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .profile .profile-avatar {
+  width: 15%;
+  padding-top: 1%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .profile .profile-avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .profile .profile-info {
+  width: 82%;
+  margin-left: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .profile .profile-info p {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .container-page .profile .profile-info p.big {
+  font-size: 2em;
+  margin-bottom: 1%;
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .container-page .profile .profile-info a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.44);
+}
+.container .container-page .profile .profile-info a i {
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+.container .container-page .profile .profile-info a:hover {
+  color: rgba(0, 0, 0, 0.9);
+}
+.container .container-page .product-items {
+  width: 49.5%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+  background: #FAFAFA;
+}
+.container .container-page .product-items:nth-child(even) {
+  margin-left: 0.5%;
+  float: right;
+}
+.container .container-page .product-items .product-items-thumbnail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+.container .container-page .product-items .product-items-thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  transition: all 0.5s ease-in-out;
+  -moz-transition: all 0.5s ease-in-out;
+  -webkit-transition: all 0.5s ease-in-out;
+  -o-transition: all 0.5s ease-in-out;
+}
+.container .container-page .product-items .product-items-thumbnail img:hover {
+  -ms-transform: scale(1.1);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+}
+.container .container-page .product-items .product-items-detail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  overflow: hidden;
+}
+.container .container-page .product-items .product-items-detail .detail-title {
+  width: 72%;
+  padding: 3% 4%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.7em;
+}
+.container .container-page .product-items .product-items-detail .detail-title a {
+  color: #000000;
+  text-decoration: none;
+}
+.container .container-page .product-items .product-items-detail .detail-title .msg {
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.container .container-page .product-items .product-items-detail .detail-buy-btn {
+  width: 20%;
+  padding: 3% 0%;
+  float: right;
+  display: inline-block;
+  background: #000000;
+  color: #FFFFFF;
+  font-size: 0.9em;
+  line-height: 1.7em;
+  text-align: center;
+  overflow: hidden;
+}
+.container .container-page .product-items .product-items-detail .detail-buy-btn:hover {
+  cursor: pointer;
+  background: #222222;
+}
+.container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
+  font-size: 0.8em;
+}
 .content {
   width: 100%;
   float: left;
   display: inline-block;
-  margin-top: 80px;
+  margin: 80px 0px;
 }
-.content .container {
+.content .containers {
   width: 66%;
   padding: 0% 17%;
   float: left;
   display: inline-block;
 }
-.content .container .order-state {
+.content .containers .order-state {
   width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 3%;
 }
-.content .container .order-state .state-items {
+.content .containers .order-state .state-items {
   width: 20%;
   padding: 3% 0%;
   float: left;
@@ -285,7 +590,7 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
   border-bottom: 2px solid #EEEEEE;
 }
-.content .container .order-state .state-items .icon {
+.content .containers .order-state .state-items .icon {
   width: 100%;
   float: left;
   display: inline-block;
@@ -293,7 +598,7 @@ Copyright (c) 2015 Daniel Eden
   margin-bottom: 3%;
   color: #EEEEEE;
 }
-.content .container .order-state .state-items .caption {
+.content .containers .order-state .state-items .caption {
   width: 100%;
   float: left;
   display: inline-block;
@@ -301,27 +606,27 @@ Copyright (c) 2015 Daniel Eden
   line-height: 2em;
   color: #EEEEEE;
 }
-.content .container .order-state .state-active {
+.content .containers .order-state .state-active {
   border-bottom: 2px solid #000000;
 }
-.content .container .order-state .state-active .icon {
+.content .containers .order-state .state-active .icon {
   color: #000000;
 }
-.content .container .order-state .state-active .caption {
+.content .containers .order-state .state-active .caption {
   color: #000000;
   font-weight: bold;
 }
-.content .container .order-state .state-items-fullsize {
+.content .containers .order-state .state-items-fullsize {
   width: 100%;
   padding: 3% 0%;
   float: left;
   display: inline-block;
   text-align: center;
 }
-.content .container .order-state .state-items-fullsize i {
+.content .containers .order-state .state-items-fullsize i {
   margin-right: 10px;
 }
-.content .container .topic {
+.content .containers .topic {
   width: 100%;
   padding: 3% 0%;
   float: left;
@@ -331,15 +636,15 @@ Copyright (c) 2015 Daniel Eden
   text-align: right;
   color: #555555;
 }
-.content .container .topic i {
+.content .containers .topic i {
   margin-right: 5px;
 }
-.content .container .list {
+.content .containers .list {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .time {
+.content .containers .list .time {
   width: 100%;
   float: left;
   display: inline-block;
@@ -348,23 +653,22 @@ Copyright (c) 2015 Daniel Eden
   color: #CCCCCC;
   text-align: right;
 }
-.content .container .list .order-box {
+.content .containers .list .order-box {
   width: 100%;
   padding: 0% 0%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 3%;
 }
-.content .container .list .order-box p.time {
+.content .containers .list .order-box p.time {
   font-size: 0.8em;
   color: #AAAAAA;
 }
-.content .container .list .order-box p.time i {
+.content .containers .list .order-box p.time i {
   margin-right: 5px;
 }
-.content .container .list .order-box .topic {
+.content .containers .list .order-box .topic {
   width: 94%;
   padding: 3%;
   float: left;
@@ -373,46 +677,46 @@ Copyright (c) 2015 Daniel Eden
   color: #AAAAAA;
   text-align: right;
 }
-.content .container .list .order-box .message {
+.content .containers .list .order-box .message {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
 }
-.content .container .list .order-box .bank {
+.content .containers .list .order-box .bank {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
   background: #FAFAFA;
 }
-.content .container .list .order-box .bank .bank-items {
+.content .containers .list .order-box .bank .bank-items {
   width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 3%;
   line-height: 1.5em;
 }
-.content .container .list .order-box .bank .bank-items img {
+.content .containers .list .order-box .bank .bank-items img {
   height: 12px;
   margin-right: 10px;
 }
-.content .container .list .order-box .bank .bank-items p.mini {
+.content .containers .list .order-box .bank .bank-items p.mini {
   font-size: 0.9em;
 }
-.content .container .list .order-box .form-submit {
+.content .containers .list .order-box .form-submit {
   width: 94%;
   margin: 3%;
   float: left;
   display: inline-block;
 }
-.content .container .list .order-box .form-submit .form-caption {
+.content .containers .list .order-box .form-submit .form-caption {
   float: right;
   display: inline-block;
   padding: 1%;
   line-height: 1.5em;
 }
-.content .container .list .order-box .form-submit .submit-button {
+.content .containers .list .order-box .form-submit .submit-button {
   float: right;
   display: inline-block;
   text-align: center;
@@ -423,70 +727,70 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
   border: 0px;
 }
-.content .container .list .order-box .form-submit .submit-button:hover {
+.content .containers .list .order-box .form-submit .submit-button:hover {
   background: #333333;
   cursor: pointer;
 }
-.content .container .list .order-box .form-submit .submit-button i {
+.content .containers .list .order-box .form-submit .submit-button i {
   margin-right: 10px;
 }
-.content .container .list .order-message {
+.content .containers .list .order-message {
   padding: 3% 0%;
   text-align: center;
 }
-.content .container .list .order-message p {
+.content .containers .list .order-message p {
   font-size: 1em;
   line-height: 2em;
 }
-.content .container .list .order-message p.icon {
+.content .containers .list .order-message p.icon {
   font-size: 2.5em;
 }
-.content .container .list .order-message p.shipping-code {
+.content .containers .list .order-message p.shipping-code {
   font-size: 3em;
 }
-.content .container .list .order-money-transfer .form {
+.content .containers .list .order-money-transfer .form {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .order-money-transfer .form .form-items {
+.content .containers .list .order-money-transfer .form .form-items {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
   border-top: 1px dashed #FAFAFA;
 }
-.content .container .list .order-money-transfer .form .form-items .label {
+.content .containers .list .order-money-transfer .form .form-items .label {
   width: 30%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
 }
-.content .container .list .order-money-transfer .form .form-items .input {
+.content .containers .list .order-money-transfer .form .form-items .input {
   width: 65%;
   margin-left: 5%;
   float: right;
   display: inline-block;
 }
-.content .container .list .order-money-transfer .form .form-items .input .image-input {
+.content .containers .list .order-money-transfer .form .form-items .input .image-input {
   width: 100%;
   float: left;
   display: inline-block;
   background: #EEEEEE;
   text-align: center;
 }
-.content .container .list .order-money-transfer .form .form-items .input .image-input img {
+.content .containers .list .order-money-transfer .form .form-items .input .image-input img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .order-money-transfer .form .form-items .input .image-input .icon {
+.content .containers .list .order-money-transfer .form .form-items .input .image-input .icon {
   width: 100%;
   float: left;
   display: inline-block;
   margin: 10% 0%;
 }
-.content .container .list .order-money-transfer .form .form-items .input .input-select {
+.content .containers .list .order-money-transfer .form .form-items .input .input-select {
   width: 100%;
   float: left;
   display: inline-block;
@@ -495,10 +799,10 @@ Copyright (c) 2015 Daniel Eden
   border: 0px;
   background: #FFFFFF;
 }
-.content .container .list .order-money-transfer .form .form-items .input .input-file {
+.content .containers .list .order-money-transfer .form .form-items .input .input-file {
   display: none;
 }
-.content .container .list .order-money-transfer .form .form-items .input .input-text {
+.content .containers .list .order-money-transfer .form .form-items .input .input-text {
   width: 100%;
   float: left;
   display: inline-block;
@@ -508,14 +812,14 @@ Copyright (c) 2015 Daniel Eden
   border: 0px;
   outline: 0;
 }
-.content .container .list .order-money-transfer .form .form-items .input .input-textarea {
+.content .containers .list .order-money-transfer .form .form-items .input .input-textarea {
   height: 50px;
 }
-.content .container .list .order-money-transfer .form .full-size .input {
+.content .containers .list .order-money-transfer .form .full-size .input {
   width: 100%;
   margin-left: 0%;
 }
-.content .container .list .topic-caption {
+.content .containers .list .topic-caption {
   width: 100%;
   float: left;
   display: inline-block;
@@ -524,44 +828,44 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   color: #AAAAAA;
 }
-.content .container .list .topic-caption .title {
+.content .containers .list .topic-caption .title {
   width: 69%;
   padding: 1% 3%;
   float: left;
   display: inline-block;
 }
-.content .container .list .topic-caption .quantity {
+.content .containers .list .topic-caption .quantity {
   width: 4%;
   padding: 1% 3%;
   float: right;
   display: inline-block;
   text-align: center;
 }
-.content .container .list .topic-caption .pay {
+.content .containers .list .topic-caption .pay {
   width: 9%;
   padding: 1% 3%;
   float: right;
   display: inline-block;
   text-align: right;
 }
-.content .container .list .items-in-order {
+.content .containers .list .items-in-order {
   width: 100%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
   border-bottom: 1px dashed #EEEEEE;
 }
-.content .container .list .items-in-order .thumbnail {
+.content .containers .list .items-in-order .thumbnail {
   width: 15%;
   float: left;
   display: inline-block;
 }
-.content .container .list .items-in-order .thumbnail img {
+.content .containers .list .items-in-order .thumbnail img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .items-in-order .detail {
+.content .containers .list .items-in-order .detail {
   width: 54%;
   padding: 3%;
   float: left;
@@ -570,28 +874,28 @@ Copyright (c) 2015 Daniel Eden
   white-space: nowrap;
   overflow: hidden;
 }
-.content .container .list .items-in-order .detail .title {
+.content .containers .list .items-in-order .detail .title {
   font-weight: bold;
 }
-.content .container .list .items-in-order .detail .description {
+.content .containers .list .items-in-order .detail .description {
   font-size: 0.8em;
   color: #AAAAAA;
 }
-.content .container .list .items-in-order .detail .description .remove-button {
+.content .containers .list .items-in-order .detail .description .remove-button {
   margin-left: 10px;
   text-decoration: underline;
 }
-.content .container .list .items-in-order .detail .description .remove-button:hover {
+.content .containers .list .items-in-order .detail .description .remove-button:hover {
   cursor: pointer;
   color: #000000;
 }
-.content .container .list .items-in-order .quantity {
+.content .containers .list .items-in-order .quantity {
   width: 4%;
   padding: 3%;
   float: left;
   display: inline-block;
 }
-.content .container .list .items-in-order .quantity input {
+.content .containers .list .items-in-order .quantity input {
   width: 100%;
   float: left;
   display: inline-block;
@@ -601,22 +905,22 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   border-bottom: 1px solid #CCCCCC;
 }
-.content .container .list .items-in-order .payments {
+.content .containers .list .items-in-order .payments {
   width: 9%;
   padding: 3%;
   float: left;
   display: inline-block;
   text-align: right;
 }
-.content .container .list .items-in-order .payments .currency {
+.content .containers .list .items-in-order .payments .currency {
   font-size: 0.8em;
 }
-.content .container .list .items-payments {
+.content .containers .list .items-payments {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .items-payments .detail {
+.content .containers .list .items-payments .detail {
   width: 64%;
   padding: 3%;
   margin-left: 15%;
@@ -624,17 +928,17 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 1em;
 }
-.content .container .list .items-payments .detail i {
+.content .containers .list .items-payments .detail i {
   margin-right: 20px;
 }
-.content .container .list .items-payments .detail .shipping-select {
+.content .containers .list .items-payments .detail .shipping-select {
   font-size: 1em;
   border: 0px;
   border-bottom: 1px solid #CCCCCC;
   margin-left: 10px;
   background: #FFFFFF;
 }
-.content .container .list .items-payments .value {
+.content .containers .list .items-payments .value {
   width: 9%;
   padding: 3%;
   float: right;
@@ -642,25 +946,25 @@ Copyright (c) 2015 Daniel Eden
   text-align: right;
   font-size: 1em;
 }
-.content .container .list .items-payments .value .currency {
+.content .containers .list .items-payments .value .currency {
   font-size: 0.8em;
 }
-.content .container .list .subtotal {
+.content .containers .list .subtotal {
   color: #CCCCCC;
 }
-.content .container .list .total-payments {
+.content .containers .list .total-payments {
   border-top: 1px solid #FAFAFA;
 }
-.content .container .list .total-payments .value {
+.content .containers .list .total-payments .value {
   font-size: 1.2em;
   font-weight: bold;
 }
-.content .container .list .payments-submit {
+.content .containers .list .payments-submit {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.content .container .list .payments-submit .button {
+.content .containers .list .payments-submit .button {
   float: right;
   display: inline-block;
   background: #000000;
@@ -668,40 +972,40 @@ Copyright (c) 2015 Daniel Eden
   padding: 2% 4%;
   margin-left: 5px;
 }
-.content .container .list .payments-submit .cancel {
+.content .containers .list .payments-submit .cancel {
   float: left;
   background: #FAFAFA;
   text-decoration: underline;
   color: #CCCCCC;
 }
-.content .container .list .order-items {
+.content .containers .list .order-items {
   width: 94%;
   padding: 3%;
   float: left;
   display: inline-block;
   border-top: 1px solid #EEEEEE;
 }
-.content .container .list .order-items:hover {
+.content .containers .list .order-items:hover {
   cursor: pointer;
 }
-.content .container .list .order-items:hover .order-detail .title {
+.content .containers .list .order-items:hover .order-detail .title {
   text-decoration: underline;
 }
-.content .container .list .order-items .order-icon {
+.content .containers .list .order-items .order-icon {
   width: 10%;
   float: left;
   display: inline-block;
   font-size: 3em;
   color: #000000;
 }
-.content .container .list .order-items .order-detail {
+.content .containers .list .order-items .order-detail {
   width: 65%;
   float: left;
   display: inline-block;
   color: #000000;
   line-height: 1.5em;
 }
-.content .container .list .order-items .order-detail .title {
+.content .containers .list .order-items .order-detail .title {
   width: 100%;
   float: left;
   display: inline-block;
@@ -709,18 +1013,18 @@ Copyright (c) 2015 Daniel Eden
   white-space: nowrap;
   overflow: hidden;
 }
-.content .container .list .order-items .order-detail .title .status {
+.content .containers .list .order-items .order-detail .title .status {
   color: #AAAAAA;
   font-weight: bold;
 }
-.content .container .list .order-items .order-detail .note {
+.content .containers .list .order-items .order-detail .note {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
   color: #AAAAAA;
 }
-.content .container .list .order-items .order-payments {
+.content .containers .list .order-items .order-payments {
   width: 20%;
   float: right;
   display: inline-block;
@@ -728,13 +1032,13 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   color: #000000;
 }
-.content .container .list .order-items .order-payments .quantity {
+.content .containers .list .order-items .order-payments .quantity {
   width: 50%;
   float: left;
   display: inline-block;
   text-align: center;
 }
-.content .container .list .order-items .order-payments .payments {
+.content .containers .list .order-items .order-payments .payments {
   width: 50%;
   float: left;
   display: inline-block;
@@ -792,231 +1096,6 @@ Copyright (c) 2015 Daniel Eden
 .content .product-detail .picture .picture-items:nth-child(even) {
   margin-left: 0%;
   float: right;
-}
-.content .product {
-  width: 66%;
-  padding: 0% 17%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-}
-.content .product .product-photos {
-  width: 60%;
-  float: left;
-  display: inline-block;
-}
-.content .product .product-photos img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 1%;
-}
-.content .product .product-details {
-  position: fixed;
-  top: 100px;
-  right: 15%;
-  width: 26%;
-  float: right;
-  display: inline-block;
-  line-height: 1.5em;
-}
-.content .product .product-details h1 {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.5em;
-  margin-bottom: 3%;
-  font-weight: bold;
-}
-.content .product .product-details p.code {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  font-weight: bold;
-}
-.content .product .product-details p.code .price {
-  float: right;
-}
-.content .product .product-details .description {
-  width: 100%;
-  padding: 5% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-}
-.content .product .product-details .action {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.content .product .product-details .action .topic {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 2em;
-  color: #CCCCCC;
-}
-.content .product .product-details .action .action-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px dotted #EEEEEE;
-  line-height: 1.5em;
-  margin-bottom: 1%;
-}
-.content .product .product-details .action .action-items .detail {
-  width: 70%;
-  float: left;
-  display: inline-block;
-  padding: 3% 5%;
-  background: #FAFAFA;
-}
-.content .product .product-details .action .action-items .detail .caption {
-  font-size: 1em;
-  font-weight: bold;
-}
-.content .product .product-details .action .action-items .detail .desc {
-  font-size: 0.8em;
-  color: #555555;
-}
-.content .product .product-details .action .action-items .buy-button {
-  width: 20%;
-  float: right;
-  display: inline-block;
-  text-align: center;
-  background: #111111;
-  padding: 3% 0%;
-  color: #FFFFFF;
-}
-.content .product .product-details .action .action-items .buy-button .price {
-  font-size: 0.7em;
-}
-.content .product .product-items {
-  width: 49%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 2%;
-  background: #F0F0F0;
-}
-.content .product .product-items:nth-child(even) {
-  margin-left: 1%;
-  float: right;
-}
-.content .product .product-items .thumbnail {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  overflow: hidden;
-}
-.content .product .product-items .thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -webkit-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-}
-.content .product .product-items .thumbnail img:hover {
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
-}
-.content .product .product-items .detail {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  overflow: hidden;
-}
-.content .product .product-items .detail .title {
-  width: 72%;
-  padding: 3% 4%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  line-height: 1.7em;
-}
-.content .product .product-items .detail .title a {
-  color: #000000;
-  text-decoration: none;
-}
-.content .product .product-items .detail .title .msg {
-  font-size: 0.8em;
-  color: #AAAAAA;
-}
-.content .product .product-items .detail .buy-button {
-  width: 20%;
-  padding: 3% 0%;
-  float: right;
-  display: inline-block;
-  background: #000000;
-  color: #FFFFFF;
-  font-size: 0.9em;
-  line-height: 1.7em;
-  text-align: center;
-  overflow: hidden;
-}
-.content .product .product-items .detail .buy-button:hover {
-  cursor: pointer;
-  background: #222222;
-}
-.content .product .product-items .detail .buy-button .msg {
-  font-size: 0.8em;
-}
-.content .product .product-higtlight {
-  width: 100%;
-}
-.content .product .product-higtlight .detail .title {
-  width: 80%;
-  padding: 2% 3%;
-  font-size: 1em;
-  line-height: 1.5em;
-}
-.content .product .product-higtlight .detail .title .msg {
-  font-size: 0.8em;
-  color: #AAAAAA;
-}
-.content .product .product-higtlight .detail .buy-button {
-  width: 14%;
-  padding: 2% 0%;
-  font-size: 1em;
-  line-height: 1.5em;
-}
-.content .profile {
-  width: 66%;
-  padding: 2% 17%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-}
-.content .profile .avatar {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.content .profile .avatar img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-.content .profile .name {
-  font-size: 1.5em;
-  line-height: 2em;
-}
-.content .profile .info {
-  font-size: 0.9em;
-  line-height: 2em;
-  color: #AAAAAA;
-}
-.content .profile .info .logout {
-  background: #000000;
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 0.7em;
-  padding: 0.4% 1.5%;
 }
 #filter {
   position: fixed;

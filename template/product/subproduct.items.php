@@ -21,7 +21,7 @@ else{
 		<div class="caption"><?php echo $var['pd_title'];?></div>
 		<div class="desc"><?php echo $var['pd_description'];?></div>
 	</div>
-	<div class="buy-button" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
+	<div class="detail-buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
 		<p id="buy-button-msg-<?php echo $var['pd_id'];?>" class="animated"><?php echo $button_msg;?></p>
 		<p id="buy-button-price-<?php echo $var['pd_id'];?>" class="msg"><?php echo $button_price;?></p>
 	</div>

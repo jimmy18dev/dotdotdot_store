@@ -43,32 +43,28 @@ if(!empty($user->current_order_id)){
 <body>
 <?php include'header.php';?>
 
-<div class="content">
-	<!-- Profile -->
-	<div class="profile">
-		<div class="avatar">
-			<?php if(empty($user->facebook_id)){?>
-			<img src="image/avatar.png" alt="">
-			<?php }else{?>
-			<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
-			<?php }?>
-		</div>
-		<div class="name"><?php echo $user->name;?></div>
-		<div class="info">เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></div>
-		<div class="info"><a href="logout.php" class="logout">ออกจากระบบ</a></div>
-	</div>
+<div class="container">
 
-	<div class="container">
-		<div class="list">
-			<div class="order-box order-list">
-				<div class="topic-caption">
-					<div class="title">รายการสั่งซื้อ</div>
-					<div class="pay">รวม</div>
-					<div class="quantity">จำนวน</div>
-				</div>
-
-				<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+	<div class="container-page">
+		<div class="profile">
+			<div class="profile-avatar">
+				<?php if(empty($user->facebook_id)){?>
+				<img src="image/avatar.png" alt="">
+				<?php }else{?>
+				<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
+				<?php }?>
 			</div>
+			<div class="profile-info">
+				<p class="big">คุณ <?php echo $user->name;?></p>
+				<p><?php echo $user->phone;?> · <?php echo $user->email;?></p>
+				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
+				<p><a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
+			</div>	
+		</div>
+
+		<div class="list-content">
+			<div class="list-content-topic">ใบสั่งซื้อ (23)</div>
+			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>
 </div>

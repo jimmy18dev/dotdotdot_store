@@ -52,14 +52,8 @@ $product->UpdateView(array('product_id' => $product->id));
 
 <?php include'header.php';?>
 
-<div class="content">
-	<div class="product">
-		<!-- Photo -->
-		<div class="product-photos">
-			<img src="store/image/upload/square/<?php echo $product->image_filename;?>" alt="">
-			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
-		</div>
-
+<div class="container">
+	<div class="container-page">
 		<!-- Detail -->
 		<div class="product-details">
 			<h1><?php echo $product->title;?></h1>
@@ -84,7 +78,7 @@ $product->UpdateView(array('product_id' => $product->id));
 						<div class="caption">รหัสสินค้า #<?php echo $product->id;?></div>
 						<div class="desc">หยิบสินค้าใส่ตระกร้า</div>
 					</div>
-					<div class="buy-button" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)">
+					<div class="detail-buy-btn" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)">
 						<p id="buy-button-msg-<?php echo $product->id;?>" class="animated"><?php echo $button_msg;?></p>
 						<p id="buy-button-price-<?php echo $product->id;?>" class="msg"><?php echo $button_price;?></p>
 					</div>
@@ -96,6 +90,12 @@ $product->UpdateView(array('product_id' => $product->id));
 					));
 				}?>
 			</div>
+		</div>
+
+		<!-- Photo -->
+		<div class="product-photos">
+			<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
+			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
 		</div>
 
 		<!-- Product ID -->

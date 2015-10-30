@@ -37,17 +37,17 @@ else{
 ?>
 
 <div class="product-items <?php echo ($var['pd_style'] == "highlight"?'product-higtlight':'');?>">
-	<div class="thumbnail">
+	<div class="product-items-thumbnail">
 		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
 			<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">
 		</a>
 	</div>
-	<div class="detail">
-		<div class="title">
+	<div class="product-items-detail">
+		<div class="detail-title">
 			<p><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></p>
 			<p class="msg"><?php echo $msg;?></p>
 		</div>
-		<div class="buy-button" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
+		<div class="detail-buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
 			<p id="buy-button-msg-<?php echo $var['pd_id'];?>" class="animated"><?php echo $button_msg;?></p>
 			<p id="buy-button-price-<?php echo $var['pd_id'];?>" class="msg"><?php echo $button_price;?></p>
 		</div>

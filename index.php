@@ -42,8 +42,8 @@ include'facebook.php';
 
 <body>
 <?php include'header.php';?>
-<div class="content">
-	<div class="product">
+<div class="container">
+	<div class="container-page">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>
