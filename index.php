@@ -3,7 +3,8 @@ require_once'config/autoload.php';
 include'sdk/facebook-sdk/autoload.php';
 include'facebook.php';
 
-// $order->CheckingOrder(array('id' => 0));
+// Order Expire Checking
+$order->CheckingOrder();
 ?>
 
 <!DOCTYPE html>
@@ -44,6 +45,9 @@ include'facebook.php';
 <?php include'header.php';?>
 <div class="container">
 	<div class="container-page">
+		<div><?php $order->Test();?></div>
+
+
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>

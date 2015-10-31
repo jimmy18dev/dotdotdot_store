@@ -240,7 +240,7 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 
-	public function CheckProductAmountProcess($param){
+	public function CheckProductQuantityProcess($param){
 		parent::query('SELECT pd_quantity FROM dd_product WHERE pd_id = :product_id');
 		parent::bind(':product_id', 		$param['product_id']);
 		parent::execute();
@@ -250,10 +250,27 @@ class OrderModel extends Database{
 
 
 	// Update product amount after Order paying
-	public function UpdateProductAmountProcess($param){
+	public function UpdateProductQuantityProcess($param){
 		parent::query('UPDATE dd_product SET pd_quantity = :quantity WHERE pd_id = :product_id');
-		parent::bind(':quantity', 			$param['quantity']);
+		parent::bind(':quantity', 		$param['quantity']);
 		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
+	// ORDER CHECKING /////////////////////////
+	// List all orders's status = "Paying" send to function expire time check.
+	public function ListOrderCheckingProcess(){
+		parent::query('SELECT od_id,od_expire_time FROM dd_order WHERE od_status = "Paying" ORDER BY od_create_time ASC');
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
+
+	// Update order status to "Expire"
+	public function OrderExpireProcess($param){
+		parent::query('UPDATE dd_order SET od_status = "Expire", od_update_time = :update_time WHERE od_id = :order_id');
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 	}
 }

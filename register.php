@@ -63,7 +63,7 @@ require_once'config/autoload.php';
 
 			<div class="option">
 				<a href="login.php">เข้าระบบ</a>
-				 · <a href="#">ลืมรหัสผ่าน</a>
+				 · <a href="forget.php">ลืมรหัสผ่าน</a>
 				 · <a href="index.php">หน้าหลัก</a>
 			</div>
 		</div>

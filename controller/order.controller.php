@@ -47,6 +47,49 @@ class OrderController extends OrderModel{
 	// - Shipping
 	// - Complete
 	// -----------------
+
+    // ORDER PROCESS /////////////////////
+    // Order Process main function
+    public function OrderProcess($param){
+        // Update Shipping Type (EMS,Register)
+        if($param['order_action'] == 'Paying'){
+            if($this->CheckingAllQuantityInOrder($param)){
+                
+                // Subtraction of Product
+                $param['action'] = 'subtraction';
+                $this->UpdateProductQuantity($param);
+
+                // Update Shipping in Order (EMS or Register)
+                parent::UpdateShippingTypeOrderProcess($param);
+
+                // Update time at paying action
+                parent::UpdatePayingTimeProcess($param);
+
+                // Update order status to "Paying"
+                parent::UpdateStatusOrderProcess($param);
+            }
+        }
+
+        // Update Address id to Order
+        else if($param['order_action'] == 'TransferRequest'){
+            parent::UpdateAddressOrderProcess($param);
+            parent::UpdateConfirmTimeProcess($param);
+        }
+        else if($param['order_action'] == 'Complete'){
+            parent::UpdateCompleteTimeProcess($param);
+        }
+        else if($param['order_action'] == 'Cancel'){
+            $param['action'] = 'restore';
+            $this->UpdateProductAmount($param);
+        }
+
+        // Save order activity log
+        if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
+            $param['member_id'] = 0; // 0 = System
+        }
+        parent::CreateOrderActivityProcess($param);
+    }
+    // END ORDER PROCESS /////////////////////
 	
 	public function AddtoOrder($param){
 		// Order checking
@@ -175,50 +218,6 @@ class OrderController extends OrderModel{
         unset($data);
     }
 
-    public function Test($param){
-    	parent::UpdatePayingTimeProcess($param);
-    }
-
-    public function OrderProcess($param){
-
-    	// Update order status
-    	parent::UpdateStatusOrderProcess($param);
-
-    	// Update Shipping Type (EMS,Register)
-    	if($param['order_action'] == 'Paying'){
-    		if($this->CheckingAllAmountInOrder($param)){
-
-    			// Subtraction of Product
-    			$param['action'] = 'subtraction';
-    			$this->UpdateProductAmount($param);
-
-    			// Update Shipping in Order
-    			parent::UpdateShippingTypeOrderProcess($param);
-
-    			// Update Paying and Expire time to Order
-    			parent::UpdatePayingTimeProcess($param);
-    		}
-    	}
-    	// Update Address id to Order
-    	else if($param['order_action'] == 'TransferRequest'){
-    		parent::UpdateAddressOrderProcess($param);
-    		parent::UpdateConfirmTimeProcess($param);
-    	}
-        else if($param['order_action'] == 'Complete'){
-            parent::UpdateCompleteTimeProcess($param);
-        }
-    	else if($param['order_action'] == 'Cancel'){
-    		$param['action'] = 'restore';
-    		$this->UpdateProductAmount($param);
-    	}
-
-    	// Save order activity log
-    	if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
-    		$param['member_id'] = 0; // 0 = System
-    	}
-    	parent::CreateOrderActivityProcess($param);
-    }
-
     // EMS Number update in Order
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
@@ -277,12 +276,13 @@ class OrderController extends OrderModel{
 	    echo json_encode($data);
 	}
 
-	public function CheckingAllAmountInOrder($param){
+    // Check Quantity items in all orders
+	public function CheckingAllQuantityInOrder($param){
 		$checking = false;
 		$dataset = parent::ListItemsInOrderProcess($param);
 
 		foreach ($dataset as $var){
-    		$unit = parent::CheckProductAmountProcess(array('product_id' => $var['odt_product_id']));
+    		$unit = parent::CheckProductQuantityProcess(array('product_id' => $var['odt_product_id']));
 
     		if($var['odt_amount'] <= $unit){
     			$checking = true;
@@ -296,66 +296,44 @@ class OrderController extends OrderModel{
     	return $checking;
 	}
 
-	public function UpdateProductAmount($param){
+    public function Test(){
+        $this->CheckingOrder();
+    }
+
+    // Update Product Quantity (Subtraction or Restore)
+	public function UpdateProductQuantity($param){
 		$action = $param['action'];
 		$dataset = parent::ListItemsInOrderProcess($param);
 
 		foreach ($dataset as $var){
-	    	$unit = parent::CheckProductAmountProcess(array('product_id' => $var['odt_product_id']));
+	    	$quantity_now = parent::CheckProductQuantityProcess(array('product_id' => $var['product_id']));
 
 	    	if($action == 'subtraction')
-	    		$param['unit'] = $unit - $var['odt_amount'];
+	    		$quantity = $quantity_now - $var['product_amount'];
 	    	else if($action == 'restore')
-	    		$param['unit'] = $unit + $var['odt_amount'];
+	    		$quantity = $quantity_now + $var['product_amount'];
 	    	else
 	    		return false;
 
-	    	$param['product_id'] = $var['odt_product_id'];
-	    	parent::UpdateProductAmountProcess($param);
+            // Update Product Quantity
+	    	parent::UpdateProductQuantityProcess(array('product_id' => $var['product_id'],'quantity' => $quantity));
 	    }
 	}
 
-
-    public function CheckingOrder($param){
-    	$dataset = parent::ListOrderProcess($param);
-
+    // All Orders's expire time check and update status to "Expire"
+    public function CheckingOrder(){
+    	$dataset = parent::ListOrderCheckingProcess();
     	foreach ($dataset as $var){
-    		$expire_time = strtotime($var['od_update_time']) + 60;
-    		$delete_time = $expire_time + 60;
+            $expire = strtotime($var['od_expire_time']);
 
-    		$time_to_expire = $expire_time-time();
-    		$time_to_delete = $delete_time-time();
+            if(time() > $expire){
+                // Order's Expire
+                // Restore all product items in order to Stock
+                $this->UpdateProductQuantity(array('order_id' => $var['od_id'],'action'=>'restore'));
 
-    		if($var['od_status'] == 'Paying'){
-    			if(time() > $expire_time){
-	    			echo'[Expire] ';
-	    			$this->OrderProcess(array(
-						'member_id' 	=> MEMBER_ID,
-						'order_id' 		=> $var['od_id'],
-						'order_action' 	=> 'Expire',
-					));
-	    		}
-    		}
-
-    		if($var['od_status'] == 'Expire'){
-	    		if(time() > $delete_time){
-
-	    			// Restore all product items in order to Stock
-    				$this->UpdateProductAmount(array(
-    					'order_id' 		=> $var['od_id'],
-    					'action' 		=> 'restore',
-    				));
-	    			
-	    			echo'[Delete] ';
-	    			$this->OrderProcess(array(
-						'member_id' 	=> MEMBER_ID,
-						'order_id' 		=> $var['od_id'],
-						'order_action' 	=> 'Delete',
-					));
-	    		}
-    		}
-
-    		echo time().' Expire ('.$time_to_expire.' วืนาที) / Delete ('.$time_to_delete.' วินาที)'.' / Status: '.$var['od_status'].'<br>';
+                // Set Order status to "Expire"
+                parent::OrderExpireProcess(array('order_id' => $var['od_id']));
+            }
     	}
     }
 }

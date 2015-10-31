@@ -1,11 +1,18 @@
 function RegisterUser(){
     var href = 'api.user.php';
 
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Register...');
+
     var email = $('#email').val();
     var phone = $('#phone').val();
     var name = $('#name').val();
     var fb_name = $('#fb_name').val();
     var password = $('#password').val();
+
+    if(email == "" || password == "" || name == ""){
+        $('#login-status').html('Try again!');
+        return false;
+    }
 
     $.ajax({
         url         :href,
@@ -26,15 +33,27 @@ function RegisterUser(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+
+        if(data.return){
+            setTimeout(function(){window.location = 'index.php';},3000);
+        }
+        else{
+            $('#login-status').html('Already Member!');
+        }
     }).error();
 }
 
 function LoginUser(){
     var href = 'api.user.php';
-    $('#login-status').html('sign in...');
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>sign in...');
 
     var username = $('#username').val();
     var password = $('#password').val();
+
+    if(username == "" || password == ""){
+        $('#login-status').html('Try again!');
+        return false;
+    }
 
     $.ajax({
         url         :href,
@@ -57,7 +76,7 @@ function LoginUser(){
             setTimeout(function(){window.location = 'index.php';},3000);
         }
         else{
-            $('#login-status').html('try again!');
+            $('#login-status').html('Try again!');
         }
     }).error();
 }

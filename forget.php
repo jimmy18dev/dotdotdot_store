@@ -1,7 +1,7 @@
 <?php
 require_once'config/autoload.php';
-include'sdk/facebook-sdk/autoload.php';
-include'facebook.php';
+//include'sdk/facebook-sdk/autoload.php';
+//include'facebook.php';
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ include'facebook.php';
 //include'favicon.php';
 ?>
 
-<title>Login</title>
+<title>Register</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -40,20 +40,16 @@ include'facebook.php';
 <body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">dotdotdot limited.</div>
+		<div class="logo">Forget password</div>
 		<div class="form">
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
-			<div class="mini-caption">หรือ</div>
-			<div class="caption">Email or Phone Number</div>
-			<input type="text" class="input-text" id="username">
-			<div class="caption">Password</div>
-			<input type="text" class="input-text" id="password">
+			<div class="caption">Email ที่คุณเคยสมัครสมาชิก</div>
+			<input type="text" class="input-text" id="email" placeholder="Email...">
 
-			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">Login</span></button>
+			<button class="button-submit" onclick="javascript:ForgetUser();"><span id="login-status">Send</span></button>
 
 			<div class="option">
-				<a href="register.php">สมัครสมาชิก</a>
-				 · <a href="forget.php">ลืมรหัสผ่าน</a>
+				<a href="login.php">เข้าระบบ</a>
+				 · <a href="register.php">สมัครสมาชิก</a>
 				 · <a href="index.php">หน้าหลัก</a>
 			</div>
 		</div>

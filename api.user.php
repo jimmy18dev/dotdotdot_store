@@ -9,7 +9,7 @@ if($_POST['calling'] != ''){
 			switch ($_POST['action']) {
 				case 'RegisterUser':
 					if(true){
-						$user->RegisterUser(array(
+						$register = $user->RegisterUser(array(
 							'email' 	=> $_POST['email'],
 							'phone' 	=> $_POST['phone'],
 							'name' 		=> $_POST['name'],
@@ -19,7 +19,18 @@ if($_POST['calling'] != ''){
 							'type' 		=> 'member',
 							'status' 	=> 'active',
 						));
-						$api->successMessage('New user Registered.','','');
+
+						if(!empty($register)){
+							$_SESSION['member_id'] = $register;
+            				setcookie('member_id', $register, COOKIE_TIME);
+            				
+							$registered = true;
+						}
+						else{
+							$registered = false;
+						}
+
+						$api->successMessage('New user Registered.',$registered,'');
 					}
 					else{
 						$api->errorMessage('Access Token Error!');
