@@ -73,7 +73,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 		</div>
 		<?php }?>
 
-		<div class="order-topic"><i class="fa fa-file-text-o"></i>ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
+		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
 
 		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
@@ -95,16 +95,25 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
 						<p class="caption">1 วันที่แล้ว</p>
+						<p class="big">ได้รับสินค้าแล้ว ใช่หรือไม่ ?</p>
+						<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+
+						<?php if($order->status == "Shipping"){?>
+						<div class="form-control">
+							<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
+						</div>
+						<?php }?>
+					</div>
+				</div>
+
+				<!-- Shipping -->
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-truck"></i></div>
+					<div class="box">
+						<p class="caption">1 วันที่แล้ว</p>
 						<p class="big"><?php echo $order->ems;?></p>
 						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 					</div>
-
-					<?php if($order->status == "Shipping"){?>
-					<div class="form-submit">
-						<button class="submit-button" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
-						<div class="form-caption">คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</div>
-					</div>
-					<?php }?>
 				</div>
 				<?php }?>
 

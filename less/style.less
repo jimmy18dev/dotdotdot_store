@@ -7,8 +7,6 @@ Copyright (c) 2015 Puwadon Sricharoen
 @import "default";
 @page_width: 66%;
 
-.header-shadow{
-}
 .header{
     position: fixed;
     top: 0%;
@@ -44,7 +42,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
     .cart{
         float: right;
-        padding: 30px 2%;
+        padding: 30px 0%;
         height: 20px;
         font-size: 0.9em;
         color: #000000;
@@ -66,7 +64,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     .avatar{
         float: right;
         padding: 23px 0%;
-        margin-left: 1%;
+        margin-left: 2%;
         height: 34px;
 
         img{
@@ -95,7 +93,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     height: 100%;
     float: left;
     display: inline-block;
-    background: rgba(255, 255, 255, 0.9);
+    background: rgba(255, 255, 255, 0.8);
 
     .login-container{
         width: 50%;
@@ -109,7 +107,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             text-align: center;
-            font-size: 2.3em;
+            font-size: 1.5em;
         }
 
         .form{
@@ -123,30 +121,24 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 line-height: 1.5em;
-                font-size: 0.9em;
-                color: #555555;
+                font-size: 0.8em;
+                color: rgba(0, 0, 0, 0.9);
             }
 
             .input-text{
-                width: 96%;
-                padding: 2%%;
+                width: 94%;
+                padding: 3%;
                 float: left;
                 display: inline-block;
-                font-size: 0.9em;
+                font-size: 1em;
                 font-family: @FontStylePrimary;
                 line-height: 1.5em;
-                margin-bottom: 5%;
-                border: 1px solid #EEEEEE;
-                border-radius: 2px;
                 border: 0px;
+                outline: 0;
+                margin-bottom: 7%;
+                color: rgba(0, 0, 0, 0.9);
             }
 
-            .status{
-                width: 50%;
-                padding-top: 3%;
-                float: left;
-                display: inline-block;
-            }
             .button-submit{
                 width: 100%;
                 padding: 5% 0%;
@@ -167,7 +159,8 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 text-align: center;
-                color: #AAAAAA;
+                color: rgba(0, 0, 0, 0.44);
+                font-size: 0.8em;
             }
 
             .facebook-button{
@@ -193,7 +186,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 text-align: center;
-                font-size: 0.9em;
+                font-size: 0.8em;
 
                 a{
                     color: #555555;
@@ -326,12 +319,32 @@ Copyright (c) 2015 Puwadon Sricharoen
                         color: rgba(0, 0, 0, 0.9);
                     }
                     p.caption{
-                        font-size: 0.9em;
+                        font-size: 0.8em;
                         margin-bottom: 1%;
                         color: rgba(0, 0, 0, 0.44);
                     }
                     p.big{
                         font-size: 2.5em;
+                    }
+
+                    p.message{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                        font-style: italic;
+                    }
+
+                    .image{
+                        width: 100%;
+                        margin: 3% 0%;
+                        float: left;
+                        display: inline-block;
+
+                        img{
+                            width: 50%;
+                            float: left;
+                            display: inline-block;
+                        }
                     }
 
                     .order-list{
@@ -391,10 +404,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                                 padding: 2%;
                                 float: left;
                                 display: inline-block;
-                                display: inline-block;
-                                text-overflow: ellipsis;
-                                white-space: nowrap;
-                                overflow: hidden;
 
                                 p.detail-title{
                                     color: rgba(0, 0, 0, 0.9);
@@ -570,7 +579,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                                 .btn{
                                     width: 100%;
-                                    padding: 10% 0%;
+                                    padding: 15% 0%;
                                     float: left;
                                     display: inline-block;
                                     text-align: center;
@@ -946,210 +955,6 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                     .msg{
                         font-size: 0.8em;
-                    }
-                }
-            }
-        }
-    }
-}
-
-.content{
-    width: 100%;
-    float: left;
-    display: inline-block;
-    margin: 80px 0px;
-
-    .containers{
-        width: @page_width;
-        padding: 0% ((100 - @page_width) / 2);
-        float: left;
-        display: inline-block;
-
-        .list{
-            width: 100%;
-            float: left;
-            display: inline-block;
-
-            .time{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                line-height: 2em;
-                font-size: 0.8em;
-                color: #CCCCCC;
-                text-align: right;
-            }
-            .order-box{
-                width: 100%;
-                padding: 0% 0%;
-                float: left;
-                display: inline-block;
-                background: #FFFFFF;
-                margin-bottom: 3%;
-
-                p.time{
-                    font-size: 0.8em;
-                    color: #AAAAAA;
-
-                    i{
-                        margin-right: 5px;
-                    }
-                }
-
-                .topic{
-                    width: 94%;
-                    padding: 3%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.9em;
-                    color: #AAAAAA;
-                    text-align: right;
-                }
-
-                .message{
-                    width: 94%;
-                    padding: 3%;
-                    float: left;
-                    display: inline-block;
-                }
-
-                .bank{
-                    width: 94%;
-                    padding: 3%;
-                    float: left;
-                    display: inline-block;
-                    background: #FAFAFA;
-
-                    .bank-items{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                        margin-bottom: 3%;
-                        line-height: 1.5em;
-
-                        img{
-                            height: 12px;
-                            margin-right: 10px;
-                        }
-
-                        p.mini{
-                            font-size: 0.9em;
-                        }
-                    }
-                }
-
-                .form-submit{
-                    width: 94%;
-                    margin: 3%;
-                    float: left;
-                    display: inline-block;
-
-                    .form-caption{
-                        float: right;
-                        display: inline-block;
-                        padding: 1%;
-                        line-height: 1.5em;
-                    }
-
-                    .submit-button{
-                        float: right;
-                        display: inline-block;
-                        text-align: center;
-                        padding: 1% 4%;
-                        font-size: 0.9em;
-                        line-height: 1.5em;
-                        background: #000000;
-                        color: #FFFFFF;
-                        border: 0px;
-
-                        &:hover{
-                            background: #333333;
-                            cursor: pointer;
-                        }
-
-                        i{
-                            margin-right: 10px;
-                        }
-                    }
-                }
-            }
-
-            .order-money-transfer{
-                .form{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-
-                    .form-items{
-                        width: 94%;
-                        padding: 3%;
-                        float: left;
-                        display: inline-block;
-                        border-top: 1px dashed #FAFAFA;
-
-                        .label{
-                            width: 30%;
-                            float: left;
-                            display: inline-block;
-                            line-height: 1.5em;
-                        }
-                        .input{
-                            width: 65%;
-                            margin-left: 5%;
-                            float: right;
-                            display: inline-block;
-
-                            .image-input{
-                                width: 100%;
-                                float: left;
-                                display: inline-block;
-                                background: #EEEEEE;
-                                text-align: center;
-
-                                img{
-                                    width: 100%;
-                                    float: left;
-                                    display: inline-block;
-                                }
-
-                                .icon{
-                                    width: 100%;
-                                    float: left;
-                                    display: inline-block;
-                                    margin: 10% 0%;
-                                }
-                            }
-
-                            .input-select{
-                                width: 100%;
-                                float: left;
-                                display: inline-block;
-                                font-size: 1em;
-                                line-height: 1.5em;
-                                border: 0px;
-                                background: #FFFFFF;
-                            }
-
-                            .input-file{
-                                display: none;
-                            }
-
-                            .input-text{
-                                width: 100%;
-                                float: left;
-                                display: inline-block;
-                                font-size: 1em;
-                                font-family: @FontStylePrimary;
-                                line-height: 1.5em;
-                                border: 0px;
-                                outline: 0;
-                            }
-
-                            .input-textarea{
-                                height: 50px;
-
-                            }
-                        }
                     }
                 }
             }

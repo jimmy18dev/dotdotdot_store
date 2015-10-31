@@ -42,19 +42,19 @@ include'facebook.php';
 	<div class="login-container">
 		<div class="logo">dotdotdot limited.</div>
 		<div class="form">
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
+			<div class="mini-caption">หรือ</div>
 			<div class="caption">Email or Phone Number</div>
 			<input type="text" class="input-text" id="username">
 			<div class="caption">Password</div>
 			<input type="text" class="input-text" id="password">
 
-			<div class="status" id="login-status"></div>
-			<button class="button-submit" onclick="javascript:LoginUser();">Login</button>
-			<div class="mini-caption">หรือ</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
+			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">Login</span></button>
 
 			<div class="option">
 				<a href="register.php">สมัครสมาชิก</a>
 				 · <a href="#">ลืมรหัสผ่าน</a>
+				 · <a href="index.php">หน้าหลัก</a>
 			</div>
 		</div>
 	</div>

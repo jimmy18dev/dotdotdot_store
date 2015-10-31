@@ -40,13 +40,15 @@ require_once'config/autoload.php';
 <body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">Register</div>
+		<div class="logo">สมัครสมาชิก / Register</div>
 		<div class="form">
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
+			<div class="mini-caption">หรือ</div>
 			<div class="caption">Email</div>
 			<input type="text" class="input-text" id="email" placeholder="Email">
 
-			<div class="caption">Phone Number</div>
-			<input type="text" class="input-text" id="phone" placeholder="Phone number">
+			<!-- <div class="caption">Phone Number</div>
+			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
 
 			<div class="caption">Full Name</div>
 			<input type="text" class="input-text" id="name" placeholder="Fullname">
@@ -57,14 +59,12 @@ require_once'config/autoload.php';
 			<div class="caption">Password</div>
 			<input type="text" class="input-text" id="password" placeholder="Password">
 
-			<div class="status" id="login-status"></div>
-			<button class="button-submit" onclick="javascript:RegisterUser();">Register</button>
-			<div class="mini-caption">หรือ</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">Register</span></button>
 
 			<div class="option">
 				<a href="login.php">เข้าระบบ</a>
 				 · <a href="#">ลืมรหัสผ่าน</a>
+				 · <a href="index.php">หน้าหลัก</a>
 			</div>
 		</div>
 	</div>
