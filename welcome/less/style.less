@@ -1,0 +1,47 @@
+/*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2015 Puwadon Sricharoen
+*/
+
+// IMPORT Other Lib
+@import "default";
+
+
+.filter{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0px;
+    top: 0px;
+    float: left;
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.9);
+    z-index: 99;
+
+    .welcome{
+        width: 100%;
+        padding-top: 20%;
+        float: left;
+        display: inline-block;
+        text-align: center;
+        font-family: @FontStylePrimary;
+        line-height: 1.5em;
+
+        h1{
+            font-size: 2em;
+            margin-bottom: 1%;
+            color: rgba(0, 0, 0, 0.9);
+        }
+
+        p{
+            font-size: 1em;
+            color: rgba(0, 0, 0, 0.44);
+        }
+    }
+}
+
+/**** OTHER DEVICE AND SCREEN ****/
+@media only screen and (min-width:1024px) and (max-width:1365px){@import "style-1024-1366";}
+@media only screen and (min-width:760px) and (max-width:1023px){@import "style-760-1023";}
+@media only screen and (min-width:520px) and (max-width:759px){@import "style-520-759";}
+@media only screen and (min-width:0px) and (max-width :519px){@import "style-0-519";}

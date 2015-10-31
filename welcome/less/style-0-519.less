@@ -1,0 +1,575 @@
+@page_width: 100%;
+
+.header{
+    width: @page_width;
+    padding: 0% ((100 - @page_width) / 2);
+    height: 50px;
+
+    .logo{
+        padding: 15px 3%;
+        height: 20px;
+        font-size: 1.1em;
+        letter-spacing: 0.05em;
+    }
+
+    .cart{
+        float: right;
+        padding: 15px 0%;
+        height: 20px;
+        font-size: 0.9em;
+
+        i{
+            margin-right: 10px;
+            font-size: 1.2em;
+        }
+    }
+
+    .avatar{
+        float: right;
+        padding: 15px 3%;
+        height: 20px;
+        margin-left: 2%;
+        height: 34px;
+
+        img{
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+    }
+
+    .login{
+        float: right;
+        margin: 12px 0px;
+        padding: 2% 6%;
+        font-size: 0.9em;
+        background: #000000;
+        color: #FFFFFF;
+    }
+}
+
+.login-dialog{
+
+    .login-container{
+        width: 100%;
+        margin: 0% 0%;
+
+        .logo{
+            margin: 10% 0%;
+            font-size: 1.2em;
+        }
+
+        .form{
+            width: 80%;
+            margin: 0% 10%;
+
+            .caption{
+                line-height: 1.5em;
+                font-size: 0.9em;
+            }
+
+            .input-text{
+                width: 94%;
+                padding: 3%;
+                font-size: 1em;
+                line-height: 1.5em;
+                margin-bottom: 5%;
+            }
+
+            .button-submit{
+                padding: 5% 0%;
+                font-size: 0.9em;
+            }
+
+            .mini-caption{
+                padding: 10% 0%;
+                font-size: 0.8em;
+            }
+
+            .facebook-button{
+                padding: 5% 0%;
+                font-size: 0.9em;
+
+                i{
+                    margin-right: 10px;
+                }
+            }
+
+            .option{
+                padding-top: 10%;
+                font-size: 0.9em;
+
+                a{
+                    padding: 0% 2%;
+                }
+            }
+        }
+    }
+}
+
+.container{
+    width: @page_width;
+    padding: 0% ((100 - @page_width) / 2);
+    margin: 50px 0px;
+    margin-bottom: 5%;
+
+    .container-page{
+        // Order State
+        .order-state{
+            margin-bottom: 3%;
+
+            .state-items{
+                width: 20%;
+                padding: 3% 0%;
+
+                .icon{
+                    font-size: 1.5em;
+                    margin-bottom: 3%;
+                }
+                .caption{
+                    font-size: 0.7em;
+                }
+            }
+
+            .state-items-fullsize{
+                padding: 3% 0%;
+
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
+
+        .order-topic{
+            width: 94%;
+            padding: 3%;
+            font-size: 0.8em;
+
+            i{
+                margin-right: 10px;
+                font-size: 0.8em;
+            }
+        }
+
+        // Order detail style
+        .order-detail{
+            .order-box{
+                width: 94%;
+                padding: 3%;
+                font-size: 1em;
+
+                .icon{
+                    width: 11%;
+                    padding-top: 9%;
+                    font-size: 1.3em;
+                    text-align: left;
+                }
+                .box{
+                    width: 89%;
+
+                    p{
+                        font-size: 0.9em;
+                        line-height: 1.5em;
+                    }
+                    p.caption{
+                        font-size: 0.8em;
+                        margin-bottom: 1%;
+                    }
+                    p.big{
+                        font-size: 1.3em;
+                    }
+
+                    .image{
+                        margin: 3% 0%;
+
+                        img{
+                            width: 100%;
+                        }
+                    }
+
+                    .order-list{
+                        .topic-caption{
+                            padding: 3% 0%;
+                            font-size: 0.8em;
+
+                            .detail{
+                                width: 55%;
+                            }
+                            .quantity{
+                                width: 15%;
+                            }
+                            .total{
+                                width: 30%;
+                            }
+                        }
+
+                        .items-in-order{
+                            line-height: 1.5em;
+                            font-size: 0.9em;
+
+                            .items-in-order-thumbnail{
+                                display: none;
+                            }
+                            .items-in-order-detail{
+                                width: 50%;
+                                padding: 2% 0%;
+                                margin-right: 5%;
+
+                                p.detail-description{
+                                    font-size: 0.8em;
+                                }
+                            }
+                            .items-in-order-quantity{
+                                width: 15%;
+                                padding: 2% 0%;
+                            }
+                            .items-in-order-total{
+                                width: 30%;
+                                padding: 2% 0%;
+                            }
+
+                            .currency{
+                                display: none;
+                            }
+                        }
+
+                        .summary-items{
+                            font-size: 0.9em;
+
+                            .detail{
+                                width: 65%;
+                                margin-left: 0%;
+                                padding: 3% 0%;
+
+                                .shipping-select{
+                                    font-size: 1em;
+                                    line-height: 1.5em;
+                                    border: 0px;
+                                    border-bottom: 1px solid #FAFAFA;
+                                }
+                            }
+                            .total{
+                                width: 35%;
+                                padding: 3% 0%;
+                            }
+
+                            .currency{
+                                display: none;
+                            }
+                        }
+                        .summary-total{
+                            font-size: 1em;
+                        }
+                    }
+
+                    .bank{
+                        margin: 3% 0%;
+
+                        .bank-items{
+                            padding: 2% 0%;
+
+                            .bank-items-icon{
+                                width: 10%;
+                                padding-top: 1%;
+                            }
+                            .bank-items-info{
+                                width: 85%;
+                                margin-left: 5%;
+
+                                p{
+                                    font-size: 0.9em;
+                                }
+                                p.zoom{
+                                    font-size: 1.3em;
+                                }
+                            }
+                        }
+                    }
+
+                    .form-items{
+                        padding: 3% 0%;
+
+                        .label{
+                            width: 100%;
+                            padding: 1% 0%;
+                            font-size: 0.9em;
+                            line-height: 1.5em;
+                        }
+                        .input{
+                            width: 100%;
+
+                            .input-text{
+                                padding: 1% 0%;
+                                font-size: 1em;
+                                line-height: 1.5em;
+                            }
+
+                            .image-input{
+                                .btn{
+                                    padding: 20% 0%;
+                                    font-size: 1em;
+                                    line-height: 1.5em;
+
+                                    i{
+                                        font-size: 1.5em;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    .form-control{
+                        margin: 5% 0%;
+
+                        .submit-btn{
+                            width: 100%;
+                            text-align: center;
+                            padding: 4% 0%;
+                            font-size: 0.9em;
+                            line-height: 1.5em;
+                            border: 0px;
+
+                            i{
+                                margin-right: 10px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Product page detail style
+        .product-photos{
+            width: 100%;
+
+            img{
+                margin-bottom: 1%;
+            }
+        }
+        .product-details{
+            position: initial;
+            top: 0px;
+            right: 0%;
+            width: 94%;
+            padding: 3%;
+            line-height: 1.5em;
+
+            h1{
+                font-size: 1.3em;
+                margin-bottom: 3%;
+            }
+            p.code{
+                font-size: 0.9em;
+            }
+
+            .description{
+                padding: 5% 0%;
+                font-size: 1em;
+                margin-bottom: 5%;
+            }
+
+            .action{
+
+                .topic{
+                    padding-bottom: 2%;
+                    font-size: 0.7em;
+                    line-height: 1.5em;
+                }
+
+                .action-items{
+                    line-height: 1.5em;
+                    margin-bottom: 1%;
+                    font-size: 0.9em;
+
+                    .detail{
+                        width: 65%;
+                        padding: 3% 5%;
+                    }
+                    .detail-buy-btn{
+                        width: 25%;
+                        padding: 3% 0%;
+
+                        .msg{
+                            font-size: 0.8em;
+                        }
+                    }
+                }
+            }
+        }
+        // END Product page detail style
+
+        .list-content{
+            .list-content-topic{
+                width: 94%;
+                padding: 3% 3%;
+                font-size: 0.9em;
+                line-height: 1.5em;
+            }
+
+            .order-items{
+                width: 94%;
+                padding: 3%;
+                margin-bottom: 0%;
+                line-height: 1.5em;
+
+                p{
+                    font-size: 0.9em;
+                }
+
+                p.mini{
+                    font-size: 0.8em;
+                }
+
+                .notification-icon{
+                    width: 7%;
+                    font-size: 0.8em;
+                }
+
+                .detail{
+                    width: 63%;
+                }
+                .summary{
+                    width: 30%;
+                    .total{
+                        .currency{
+                            font-size: 0.7em;
+                        }
+                    }
+                }
+            }
+        }
+
+        .profile{
+            width: 94%;
+            padding: 3%;
+
+            .profile-avatar{
+                width: 15%;
+                padding-top: 3%;
+            }
+            .profile-info{
+                width: 82%;
+                margin-left: 3%;
+
+                p{
+                    font-size: 0.9em;
+                    line-height: 1.5em;
+                }
+
+                p.big{
+                    font-size: 1.3em;
+                    margin-bottom: 1%;
+                }
+            }
+        }
+
+        // Product item style
+        .product-items{
+            width: 100%;
+            margin-bottom: 3%;
+
+            &:nth-child(even){
+                margin-left: 0%;
+            }
+
+            .product-items-detail{
+                .detail-title{
+                    width: 69%;
+                    padding: 3% 3%;
+                    font-size: 0.9em;
+                    line-height: 1.7em;
+
+                    .msg{
+                        font-size: 0.8em;
+                    }
+                }
+                .detail-buy-btn{
+                    width: 25%;
+                    padding: 3% 0%;
+                    font-size: 0.9em;
+                    line-height: 1.7em;
+
+                    .msg{
+                        font-size: 0.8em;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#filter{
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: inline-block;
+    background: #FFFFFF;
+    display: none;
+
+    .logo{
+        width: 100%;
+        padding: 2% 0%;
+        float: left;
+        display: inline-block;
+        text-align: center;
+        font-size: 1em;
+    }
+
+    #loading-bar{
+        width: 60%;
+        margin-top: 20%;
+        height: 2px;
+        float: left;
+        display: inline-block;
+        background: #000000;
+    }
+
+    #loading-message{
+        width: 100%;
+        padding: 2% 0%;
+        float: left;
+        display: inline-block;
+        text-align: center;
+        line-height: 1.5em;
+        font-size: 0.9em;
+        color: #555555;
+
+        i{
+            margin-right: 10px;
+        }
+    }
+
+    .cancel{
+        width: 100%;
+        margin-top: 20%;
+        float: left;
+        display: inline-block;
+        text-align: center;
+        line-height: 1.5em;
+        font-size: 0.8em;
+
+        a{
+            color: #CCCCCC;
+        }
+    }
+}
+
+.footer{
+    width: 94%;
+    padding: 10% 3%;
+
+    p{
+        font-size: 0.8em;
+        line-height: 1.5em;
+    }
+}
+
+#loading-status{
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.9em;
+}
