@@ -470,6 +470,10 @@ Copyright (c) 2015 Daniel Eden
   border-bottom: 1px solid #FAFAFA;
   line-height: 1.5em;
 }
+.container .container-page .order-detail .order-box .box .order-list .items-in-order input.fail {
+  color: #F44336;
+  border-bottom: 1px solid #F44336;
+}
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-quantity {
   width: 5%;
   padding: 2% 0%;
@@ -638,6 +642,10 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   line-height: 1.5em;
   border: 0px;
+}
+.container .container-page .order-detail .order-box .box .form-control .submit-btn:hover {
+  cursor: pointer;
+  opacity: 0.7;
 }
 .container .container-page .order-detail .order-box .box .form-control .submit-btn i {
   margin-right: 10px;

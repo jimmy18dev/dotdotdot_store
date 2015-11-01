@@ -322,7 +322,9 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 
+<?php if($order->status == "Paynig"){?>
 <script type="text/javascript" src="js/image.thumbnail.js"></script>
+<?php }?>
 
 </body>
 </html>

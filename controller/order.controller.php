@@ -90,20 +90,26 @@ class OrderController extends OrderModel{
         parent::CreateOrderActivityProcess($param);
     }
     // END ORDER PROCESS /////////////////////
-	
+
+
+    // ITEMS IN ORDER ///////////////////
 	public function AddtoOrder($param){
-		// Order checking
-		$order_checking = parent::CheckingAlreadyOrderProcess($param);
+
+        // Find current order of Customer
+		$current_order = parent::CheckingAlreadyOrderProcess(array('member_id' => $param['member_id']));
 		
-		if(empty($order_checking)){
+		if(empty($current_order)){
+
+            // Create empty order and set to current order 
 			$order_id = parent::CreateOrderProcess($param);
 			$param['order_id'] = $order_id;
 		}
 		else{
-			$param['order_id'] = $order_checking;
+			$param['order_id'] = $current_order;
 		}
 
 		if(parent::CheckingAlreadyItemInOrderProcess($param)){
+
 			// Add product items to Order
 			$items_id = parent::AddItemsInOrderProcess($param);
 
@@ -118,23 +124,34 @@ class OrderController extends OrderModel{
 		}
 	}
 
-	public function EditItemsInOrder($param){
-		if($this->CheckProductAmount($param)){
-			parent::EditItemsInOrderProcess($param);
-			// Update order summary
-			$this->UpdateOrderProcess($param);
-		}
-	}
+    // Change Quantity items in order
+    public function EditItemsInOrder($param){
+        if($this->CheckProductQuantity(array('product_id' => $param['product_id'],'amount' => $param['amount']))){
 
-	public function CheckProductAmount($param){
-		// Check amount of Product.
-		$unit = parent::CheckProductAmountProcess($param);
-		
-		if($param['amount'] <= $unit)
-			return true;
-		else
-			return false;
-	}
+            // Update items in order
+            parent::EditItemsInOrderProcess($param);
+            
+            // Update order summary
+            $this->UpdateOrderProcess($param);
+
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    public function CheckProductQuantity($param){
+        // Check amount of Product.
+        $quantity = parent::CheckProductQuantityProcess($param);
+        
+        if($param['amount'] <= $quantity)
+            return true;
+        else
+            return false;
+    }
+
+    // END ITEMS IN ORDER ////////////////////////
 
 	public function RemoveItemsInOrder($param){
 		parent::RemoveItemsInOrderProcess($param);

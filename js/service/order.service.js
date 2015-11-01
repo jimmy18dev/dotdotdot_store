@@ -59,7 +59,14 @@ function EditItemInOrder(order_id,product_id){
             console.log("Request Error");
         }
     }).done(function(data){
-        console.log('Return: '+data.message);
+        console.log('Message: '+data.message+' Return:'+data.return);
+
+        if(data.return){
+            $('#product-quantity-'+order_id+product_id).removeClass('fail');
+        }
+        else{
+            $('#product-quantity-'+order_id+product_id).addClass('fail');
+        }
     }).error();
 }
 

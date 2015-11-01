@@ -24,13 +24,13 @@ if($_POST['calling'] != ''){
 					break;
 				case 'EditInOrder':
 					if(true){
-						$order->EditItemsInOrder(array(
+						$order_return = $order->EditItemsInOrder(array(
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
 							'product_id' 	=> $_POST['product_id'],
 							'amount' 		=> $_POST['amount'],
 						));
-						$api->successMessage('Edit Product in Order Successed.','','');
+						$api->successMessage('Edit Product in Order Successed.',$order_return,'');
 					}
 					else{
 						$api->errorMessage('Access Token Error!');
