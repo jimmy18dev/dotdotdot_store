@@ -92,6 +92,8 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
+
+				<?php if($oder->status == "Shipping"){?>
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
@@ -106,6 +108,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 						<?php }?>
 					</div>
 				</div>
+				<?php }?>
 
 				<!-- Shipping -->
 				<div class="order-box">

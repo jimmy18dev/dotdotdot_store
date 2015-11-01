@@ -19,6 +19,9 @@ function OrderProcess(order_id,order_action){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        
+        $('#alert').fadeIn(500);
+        location.reload();
     }).error();
 }
 
@@ -43,5 +46,8 @@ function EmsUpdate(order_id){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        
+        $('#alert').fadeIn(500);
+        location.reload();
     }).error();
 }
