@@ -74,19 +74,26 @@ class OrderController extends OrderModel{
         else if($param['order_action'] == 'TransferRequest'){
             parent::UpdateAddressOrderProcess($param);
             parent::UpdateConfirmTimeProcess($param);
+            
+            // Update order status to "Paying"
+            parent::UpdateStatusOrderProcess($param);
         }
         else if($param['order_action'] == 'Complete'){
             parent::UpdateCompleteTimeProcess($param);
+            
+            // Update order status to "Paying"
+            parent::UpdateStatusOrderProcess($param);
         }
-        else if($param['order_action'] == 'Cancel'){
-            $param['action'] = 'restore';
-            $this->UpdateProductAmount($param);
-        }
+        // else if($param['order_action'] == 'Cancel'){
+        //     $param['action'] = 'restore';
+        //     $this->UpdateProductAmount($param);
+        // }
 
-        // Save order activity log
-        if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
-            $param['member_id'] = 0; // 0 = System
-        }
+        // // Save order activity log
+        // if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
+        //     $param['member_id'] = 0; // 0 = System
+        // }
+        
         parent::CreateOrderActivityProcess($param);
     }
     // END ORDER PROCESS /////////////////////

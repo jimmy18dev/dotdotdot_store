@@ -40,6 +40,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 <script type="text/javascript" src="js/service/user.service.js"></script>
 <script type="text/javascript" src="js/money.transfer.js"></script>
 <script type="text/javascript" src="js/order.app.js"></script>
+<script type="text/javascript" src="js/alert.app.js"></script>
 
 </head>
 
@@ -265,10 +266,12 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 							));
 							?>
 
-							<div class="summary-items">
+							<?php if($order->total > 1){?>
+							<div class="summary-items product-total">
 								<div class="detail">รวมราคาสินค้า: </div>
 								<div class="total"><span class="currency">฿</span> <span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
 							</div>
+							<?php }?>
 
 							<div class="summary-items">
 								<div class="detail">
@@ -292,7 +295,7 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 						</div>
 
 						<?php if($order->status == "Shopping"){?>
-						<div class="form-control">
+						<div class="form-control" id="paying-button">
 							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-check"></i>ชำระเงิน</div>
 						</div>
 						<?php }?>
@@ -314,6 +317,11 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	</div>
 </div>
 
+<div id="alert">
+	<div class="alert-message" id="alert-message"></div>
+</div>
+
+<?php if($order->status == "Paying"){?>
 <!-- Loading process submit photo to uploading. -->
 <div id="filter">
 	<div class="logo">dotdotdot</div>
@@ -322,7 +330,6 @@ $order->GetOrder(array('order_id' => $_GET['id']));
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 
-<?php if($order->status == "Paynig"){?>
 <script type="text/javascript" src="js/image.thumbnail.js"></script>
 <?php }?>
 

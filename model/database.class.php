@@ -180,8 +180,34 @@ class Database{
         return $text;
     }
 
+    public function BankNumberFormat($number){
+        $number = trim(preg_replace('#[^-ก-๙a-zA-Z0-9]#u','', $number));
+
+        if(strlen($number) == 10){
+            $number = substr_replace($number,'-',3,0);
+            $number = substr_replace($number,'-',5,0);
+            $number = substr_replace($number,'-',-1,0);
+        }
+
+        return $number;
+    }
+
+    public function PhoneFormat($number){
+        $number = trim(preg_replace('#[^-ก-๙a-zA-Z0-9]#u','', $number));
+
+        if(strlen($number) == 10){
+            $number = substr_replace($number,'-',3,0);
+            $number = substr_replace($number,'-',6,0);
+        }
+        else if(strlen($number) == 9){
+            $number = substr_replace($number,'-',3,0);
+        }
+        
+        return $number;
+    }
+
     // Get age by Datetime
-    function dateDifference($date){
+    public function dateDifference($date){
 
         $diff = strtotime($date) - time();
 

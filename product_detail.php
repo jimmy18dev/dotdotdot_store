@@ -61,7 +61,7 @@ $product->UpdateView(array('product_id' => $product->id));
 			<div class="description"><?php echo $product->description;?></div>
 
 			<div class="action">
-				<p class="topic">สั่งซื้อสินค้า <?php echo 'InOrder: '.$product->in_order;?></p>
+				<p class="topic">สั่งซื้อสินค้า</p>
 				<?php
 				if($product->type == "normal"){
 					if(empty($product->in_order)){
@@ -75,7 +75,7 @@ $product->UpdateView(array('product_id' => $product->id));
 				?>
 				<div class="action-items">
 					<div class="detail">
-						<div class="caption">รหัสสินค้า #<?php echo $product->id;?></div>
+						<div class="caption">รหัสสินค้า: <?php echo $product->id;?></div>
 						<div class="desc">หยิบสินค้าใส่ตระกร้า</div>
 					</div>
 					<div class="detail-buy-btn" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)">

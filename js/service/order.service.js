@@ -42,6 +42,7 @@ function AddItemToOrder(product_id){
 function EditItemInOrder(order_id,product_id){
     var href = 'api.order.php';
     var quantity = $('#product-quantity-'+order_id+product_id).val();
+    var $paying_btn = $('#paying-button');
 
     $.ajax({
         url         :href,
@@ -63,9 +64,14 @@ function EditItemInOrder(order_id,product_id){
 
         if(data.return){
             $('#product-quantity-'+order_id+product_id).removeClass('fail');
+            $paying_btn.show();
         }
         else{
             $('#product-quantity-'+order_id+product_id).addClass('fail');
+
+            // Include alert.app.js
+            $paying_btn.hide();
+            ToggleAlert('<i class="fa fa-quote-left"></i>สินค้าไม่พอ!<i class="fa fa-quote-right"></i>');
         }
     }).error();
 }
@@ -96,6 +102,10 @@ function RemoveItemInOrder(order_id,product_id){
 
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
+
+    //Include alert.app.js
+    ShowAlert('<i class="fa fa-circle-o-notch"></i> รอสักครู่...');
+
     var shipping_type = $('#shipping_type').val();
 
     $.ajax({

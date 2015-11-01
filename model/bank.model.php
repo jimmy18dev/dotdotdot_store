@@ -5,6 +5,11 @@ class BankModel extends Database{
 		parent::query('SELECT * FROM dd_bank');
 		parent::execute();
 		$dataset = parent::resultset();
+
+		foreach ($dataset as $k => $var) {
+			$dataset[$k]['bk_account_number'] 	= parent::BankNumberFormat($var['bk_account_number']);
+		}
+
 		return $dataset;
 	}
 
