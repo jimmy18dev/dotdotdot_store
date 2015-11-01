@@ -998,6 +998,58 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
   margin: 0% 1%;
 }
+#filter {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  display: none;
+}
+#filter .logo {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+}
+#filter #loading-bar {
+  width: 60%;
+  margin-top: 20%;
+  height: 2px;
+  float: left;
+  display: inline-block;
+  background: #000000;
+}
+#filter #loading-message {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 0.9em;
+  color: #555555;
+}
+#filter #loading-message i {
+  margin-right: 10px;
+}
+#filter .cancel {
+  width: 100%;
+  margin-top: 20%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5em;
+  font-size: 0.8em;
+}
+#filter .cancel a {
+  color: #CCCCCC;
+}
 /**** OTHER DEVICE AND SCREEN ****/
 @media only screen and (min-width: 0px) and (max-width: 519px) {
   .header {

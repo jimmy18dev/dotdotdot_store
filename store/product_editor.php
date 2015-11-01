@@ -9,6 +9,14 @@ if(isset($_GET['id'])){
 else if(isset($_GET['parent'])){
 	// $product->GetProduct(array('product_id' => $_GET['parent']));
 }
+
+// Product Parent ID
+if($product->parent > 0)
+	$parent = $product->parent;
+else if(isset($_GET['parent']))
+	$parent = $_GET['parent'];
+else
+	$parent = 0;
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +86,7 @@ else if(isset($_GET['parent'])){
 			<div class="form-items">
 				<div class="caption">รายละเอียดสินค้า</div>
 				<div class="input">
-					<input type="text" class="input-text input-textarea" name="description" placeholder="description" value="<?php echo $product->description;?>">
+					<textarea class="input-text input-textarea" name="description" placeholder="description"><?php echo $product->description;?></textarea>
 				</div>
 			</div>
 			<div class="form-items">
@@ -90,7 +98,7 @@ else if(isset($_GET['parent'])){
 			<div class="form-items">
 				<div class="caption">จำนวน</div>
 				<div class="input">
-					<input type="text" class="input-text" name="quantity" placeholder="quantity" value="1" value="<?php echo $product->quantity;?>">
+					<input type="text" class="input-text" name="quantity" placeholder="quantity" value="<?php echo (empty($product->quantity)?0:$product->quantity);?>">
 				</div>
 			</div>
 			<div class="form-items">
@@ -100,15 +108,23 @@ else if(isset($_GET['parent'])){
 				</div>
 			</div>
 			<div class="form-submit">
-				<button type="submit" class="submit-button"><?php echo (isset($product->id)?'Save':'Create')?></button>
+				<button type="submit" class="submit-button"><i class="fa fa-check"></i>SAVE</button>
 			</div>
 
-			<input type="hidden" name="parent" value="<?php echo (isset($_GET['parent'])?$_GET['parent']:'0');?>">
-			<input type="hidden" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
+			<input type="hidden" id="parent" name="parent" value="<?php echo $parent;?>">
+			<input type="hidden" id="product_id" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
 			<input type="hidden" name="group" value="null">
 		</div>
 		</form>
 	</div>
+</div>
+
+<!-- Loading process submit photo to uploading. -->
+<div id="filter">
+	<div class="logo">dotdotdot</div>
+	<div id="loading-bar"></div>
+	<div id="loading-message"></div>
+	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 </body>
 </html>

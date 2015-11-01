@@ -3,8 +3,8 @@ $(document).ready(function(){
     // $('.normal').autosize();
     //$('.animated').autosize({append: "\n"});
 
-    var $body = window.document.body;
-    var action = $('#action').val();
+    var product_id  = $('#product_id').val();
+    var parent      = $('#parent').val();
 
     var optionsActivity = {
         beforeSend: function() {
@@ -40,12 +40,23 @@ $(document).ready(function(){
 
             $('#loading-message').html('<i class="fa fa-check"></i> เผยแพร่เรียบร้อยแล้ว');
 
-            // Redirect page
-            console.log('action:'+action);
-
-            // setTimeout(function(){
-            //     window.location = 'product.php';
-            // },3000);
+            // Page Redirect
+            if(parent == 0 && product_id && product_id > 0){
+                // Product update (normal)
+                setTimeout(function(){window.location = 'product_detail.php?id='+product_id;},3000);
+            }
+            else if(parent > 0 && product_id == ''){
+                // New Subproduct
+                setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
+            }
+            else if(parent > 0 && product_id > 0){
+                // Subproduct Update
+                setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
+            }
+            else{
+                // New product
+                setTimeout(function(){window.location = 'product.php';},3000);
+            }
         },
         resetForm:true
     };
