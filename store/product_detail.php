@@ -89,8 +89,8 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			<div class="control">
 				<!-- <div class="control-items delete" onclick="javascript:DeleteProduct(<?php echo $product->id;?>);">ลบ</div> -->
 
-				<a href="product_add.php"><div class="control-items">เติม</div></a>
-				<div class="control-items">โอน</div>
+				<a href="quantity.php?id=<?php echo $product->id;?>&action=import"><div class="control-items">เติม</div></a>
+				<a href="quantity.php?id=<?php echo $product->id;?>&action=export"><div class="control-items">โอน</div></a>
 				<a href="product_editor.php?id=<?php echo $product->id;?>"><div class="control-items">แก้ไข</div></a>
 				<a href="product_editor.php?parent=<?php echo $product->id;?>"><div class="control-items">สินค้าย่อย</div></a>
 			</div>

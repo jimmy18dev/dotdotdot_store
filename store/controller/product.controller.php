@@ -122,5 +122,38 @@ class ProductController extends ProductModel{
     public function DeletePhoto($param){
         parent::DeletePhotoProcess($param);
     }
+
+
+    public function UpdateQuantity($param){
+
+        // Get Product ////////////////////
+        $this->GetProduct(array('product_id' => $param['product_id']));
+
+        if($param['action'] == "import"){
+            $quantity = $this->quantity + $param['quantity'];
+        }
+        else if($param['action'] == "export"){
+            $quantity = $this->quantity - $param['quantity'];
+        }
+        else{
+            return false;
+        }
+
+        // Update Quantity Process /////////
+        parent::UpdateQuantityProcess(array(
+            'product_id'    => $param['product_id'],
+            'quantity'      => $quantity,
+        ));
+
+        
+        // Tasks todo Create Product activity. ////
+        parent::CreateProductActivityProcess(array(
+            'admin_id'      => 0,
+            'product_id'    => $param['product_id'],
+            'action'        => $param['action'],
+            'value'         => $param['quantity'],
+            'message'       => $param['message'],
+        ));
+    }
 }
 ?>

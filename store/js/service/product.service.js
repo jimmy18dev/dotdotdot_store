@@ -21,6 +21,36 @@ function SetCover(product_id,image_id){
     }).error();
 }
 
+function UpdateQuantity(){
+    // URL API
+    var href = 'api.product.php';
+    var product_id = $('#product_id').val();
+    var quantity = $('#quantity').val();
+    var product_action = $('#action').val();
+
+    console.log(product_id+','+product_action+','+quantity);
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Product',
+            action              :'UpdateQuantity',
+            product_id          :product_id,
+            quantity            :quantity,
+            product_action      :product_action,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Message:'+data.message+' Execute:'+data.execute);
+        setTimeout(function(){window.location = 'product.php';},2000);
+    }).error();
+}
+
 function RemovePhoto(product_id,image_id){
     // URL API
     var href = 'api.product.php';

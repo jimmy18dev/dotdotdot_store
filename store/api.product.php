@@ -33,6 +33,20 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'UpdateQuantity':
+					if(true){
+						$product_id = $product->UpdateQuantity(array(
+							'product_id' 	=> $_POST['product_id'],
+							'action' 		=> $_POST['product_action'],
+							'quantity' 		=> $_POST['quantity'],
+						));
+
+						$api->successMessage('Quantity updated!','null',$dataset);
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

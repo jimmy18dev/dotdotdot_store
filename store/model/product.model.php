@@ -119,5 +119,32 @@ class ProductModel extends Database{
 		parent::bind(':image_id', $param['image_id']);
 		parent::execute();
 	}
+
+
+	// Product quantity
+	public function UpdateQuantityProcess($param){
+		// Clear all cover
+		parent::query('UPDATE dd_product SET pd_quantity = :quantity, pd_update_time = :update_time WHERE pd_id = :product_id');
+		parent::bind(':quantity', 		$param['quantity']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
+	// Product Activity
+	public function CreateProductActivityProcess($param){
+		parent::query('INSERT INTO dd_product_activity(pdac_admin_id,pdac_product_id,pdac_action,pdac_value,pdac_message,pdac_ip,pdac_create_time) VALUE(:admin_id,:product_id,:action,:value,:message,:ip,:create_time)');
+
+		parent::bind(':admin_id', 		$param['admin_id']);
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::bind(':action', 		$param['action']);
+		parent::bind(':value', 			$param['value']);
+		parent::bind(':message', 		$param['message']);
+		parent::bind(':ip',				parent::GetIpAddress());
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
 }
 ?>
