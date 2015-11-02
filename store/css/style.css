@@ -654,6 +654,51 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
 }
+.container .content .detail .history {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 5%;
+}
+.container .content .detail .history .history-topic {
+  width: 94%;
+  padding: 2% 3%;
+  float: left;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.44);
+  font-size: 0.8em;
+  background: #FAFAFA;
+}
+.container .content .detail .history .history-items {
+  width: 94%;
+  padding: 2% 3%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #FAFAFA;
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+.container .content .detail .history .history-items .import {
+  color: #4CAF50;
+}
+.container .content .detail .history .history-items .export {
+  color: #F44336;
+}
+.container .content .detail .history .history-items .history-items-action {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail .history .history-items .history-items-action i {
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+.container .content .detail .history .history-items .history-items-info {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.9);
+}
 .container .content .detail .stat {
   width: 100%;
   float: left;

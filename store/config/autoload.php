@@ -27,12 +27,14 @@
 	// Model ////////////////////////////
 	include_once'model/product.model.php';
 	include_once'model/image.model.php';
+	include_once'model/user.model.php';
 	include_once'model/order.model.php';
 	include_once'model/bank.model.php';
 
 	// Controller ///////////////////////
 	include_once'controller/product.controller.php';
 	include_once'controller/image.controller.php';
+	include_once'controller/user.controller.php';
 	include_once'controller/api.controller.php';
 	include_once'controller/order.controller.php';
 	include_once'controller/bank.controller.php';
@@ -43,6 +45,7 @@
 	$api = new APIController;
 	$order = new OrderController;
 	$bank = new BankController;
+	$user 			= new UserController;
 
 	// Mailer
 	$mail 			= new PHPMailer;
@@ -55,4 +58,27 @@
 	$mail->setFrom($email_settig['email_address'],$email_settig['name']);
 	$mail->isHTML(true);
 	$mail->CharSet 	= 'UTF-8';
+
+	// Cookie Checking
+	if($user->CookieChecking()){
+		$_SESSION['member_id'] = $_COOKIE['member_id'];
+	}	
+
+	// Member online checking
+	define('PRIVETE_KEY','dinsorsee');
+	define('MEMBER_ONLINE',$user->SessionMemberOnline());
+
+	// Get member info
+	if(MEMBER_ONLINE){
+		$user->GetUser(array('member_id' => $_SESSION['member_id']));
+
+		if(!empty($user->current_order_id)){
+			$order->GetOrder(array('order_id' => $user->current_order_id));
+		}
+	}
+
+	// Define member data
+	define('MEMBER_ID',			$user->id);
+	define('MEMBER_TOKEN',		$user->token);
+	define('MEMBER_TYPE',		$user->type);
 ?>

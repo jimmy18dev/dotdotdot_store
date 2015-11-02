@@ -85,6 +85,11 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				</div>
 			</div>
 
+			<div class="history">
+				<div class="history-topic">Import / Export</div>
+				<?php $product->HistoryProduct(array('product_id' => $product->id));?>
+			</div>
+
 			<!-- Product control -->
 			<div class="control">
 				<!-- <div class="control-items delete" onclick="javascript:DeleteProduct(<?php echo $product->id;?>);">ลบ</div> -->

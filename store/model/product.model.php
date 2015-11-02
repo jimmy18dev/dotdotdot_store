@@ -146,5 +146,19 @@ class ProductModel extends Database{
 		parent::execute();
 		return parent::lastInsertId();
 	}
+
+	// Product Import/Export History
+	public function HistoryProductProcess($param){
+		parent::query('SELECT pdac_id,pdac_action,pdac_value,pdac_message,pdac_create_time,me_id,me_name FROM dd_product_activity LEFT JOIN dd_member ON pdac_admin_id = me_id WHERE pdac_product_id = :product_id ORDER BY pdac_create_time DESC');
+		parent::bind(':product_id', $param['product_id']);
+		parent::execute();
+		$dataset = parent::resultset();
+
+		foreach ($dataset as $k => $var) {
+			$dataset[$k]['create_time_thai_format'] = parent::date_thaiformat($var['pdac_create_time']);
+		}
+
+		return $dataset;
+	}
 }
 ?>

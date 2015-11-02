@@ -72,6 +72,11 @@ class ProductController extends ProductModel{
 		$this->Render('photo-items',$dataset);
 	}
 
+    public function HistoryProduct($param){
+        $dataset = parent::HistoryProductProcess($param);
+        $this->Render('history-items',$dataset);
+    }
+
 	public function CreateProduct($param){
 		return parent::CreateProductProcess($param);
 	}
@@ -102,6 +107,9 @@ class ProductController extends ProductModel{
         	else if($mode == "subproduct-items"){
         		include'template/product/subproduct.items.php';
         	}
+            else if($mode == "history-items"){
+                include'template/product/history.items.php';
+            }
         }
         unset($data);
     }
@@ -122,7 +130,6 @@ class ProductController extends ProductModel{
     public function DeletePhoto($param){
         parent::DeletePhotoProcess($param);
     }
-
 
     public function UpdateQuantity($param){
 
@@ -148,7 +155,7 @@ class ProductController extends ProductModel{
         
         // Tasks todo Create Product activity. ////
         parent::CreateProductActivityProcess(array(
-            'admin_id'      => 0,
+            'admin_id'      => $param['admin_id'],
             'product_id'    => $param['product_id'],
             'action'        => $param['action'],
             'value'         => $param['quantity'],

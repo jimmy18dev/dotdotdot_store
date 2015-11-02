@@ -2,7 +2,11 @@
 	<div class="logo">Administrator.</div>
 	<div class="account">
 		<div class="avatar">
-			<img src="https://graph.facebook.com/1818320188/picture?type=square" alt="">
+			<?php if(empty($user->facebook_id)){?>
+			<img src="../image/avatar.png" alt="">
+			<?php }else{?>
+			<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
+			<?php }?>
 		</div>
 	</div>
 </header>

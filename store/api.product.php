@@ -36,6 +36,7 @@ if($_POST['calling'] != ''){
 				case 'UpdateQuantity':
 					if(true){
 						$product_id = $product->UpdateQuantity(array(
+							'admin_id'		=> MEMBER_ID,
 							'product_id' 	=> $_POST['product_id'],
 							'action' 		=> $_POST['product_action'],
 							'quantity' 		=> $_POST['quantity'],
