@@ -54,6 +54,7 @@ if(!MEMBER_ONLINE){
 			'password' 	=> '',
 			'type' 		=> 'member',
 			'status' 	=> 'active',
+			'refer' 	=> 'facebook',
 		));
 
 		// Set session

@@ -18,6 +18,7 @@ if($_POST['calling'] != ''){
 							'password' 	=> $_POST['password'],
 							'type' 		=> 'member',
 							'status' 	=> 'active',
+							'refer' 	=> 'form',
 						));
 
 						if(!empty($register)){

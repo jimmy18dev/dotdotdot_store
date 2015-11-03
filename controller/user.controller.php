@@ -39,14 +39,20 @@ class UserController extends UserModel{
     }
 
     public function RegisterUser($param){
-        if(parent::AlreadyUserProcess($param)){
+
+        // User already checking send (id,facebook_id,email,phone)
+        $member_id = parent::AlreadyUserProcess($param);
+        
+        if(empty($member_id)){
             // Register new user
             $member_id = parent::RegisterUserProcess($param);
         }
         else{
-            // Update user info
-            if(!empty($param['fb_id'])){
-                parent::UpdateUserProcess($param);
+            if($param['refer'] == "facebook"){
+                // Update userinfo by Login with Facebook button
+                if(!empty($param['fb_id'])){
+                    parent::UpdateInfoByFacebookProcess($param);
+                }
             }
         }
 

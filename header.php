@@ -1,5 +1,5 @@
 <header class="header header-shadow">
-	<div class="header-items logo"><a href="index.php">dotdotdot <span class="beta">beta</span></a></div>
+	<div class="header-items logo"><a href="index.php">dotdotdot limited<span class="beta"></span></a></div>
 
 	<?php if(MEMBER_ONLINE){?>
 	<a href="me.php">

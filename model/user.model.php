@@ -1,6 +1,18 @@
 <?php
 class UserModel extends Database{
 
+	// Check Member ID already
+	public function AlreadyUserProcess($param){
+		parent::query('SELECT me_id FROM dd_member WHERE me_id = :member_id OR me_fb_id = :facebook_id OR me_email = :email OR me_phone = :phone');
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':facebook_id',	$param['facebook_id']);
+		parent::bind(':email',			$param['email']);
+		parent::bind(':phone',			$param['phone']);
+		parent::execute();
+		$data = parent::single();
+		return $data['me_id'];
+	}
+
 	// Create New Post /////////////
 	public function RegisterUserProcess($param){
 		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:ip,:type,:status)');
@@ -8,7 +20,7 @@ class UserModel extends Database{
 		parent::bind(':email', 			$param['email']);
 		parent::bind(':phone', 			$param['phone']);
 		parent::bind(':name', 			$param['name']);
-		parent::bind(':fb_id', 		$param['fb_id']);
+		parent::bind(':fb_id', 			$param['fb_id']);
 		parent::bind(':fb_name', 		$param['fb_name']);
 		parent::bind(':password', 		$param['password']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
@@ -21,17 +33,18 @@ class UserModel extends Database{
 		return parent::lastInsertId();
 	}
 
-	public function UpdateUserProcess($param){
-		parent::query('UPDATE dd_member SET me_email = :email, me_fb_name = :fb_name, me_update_time = :update_time WHERE me_fb_id = :fb_id');
+	// Update by Facebook Login
+	public function UpdateInfoByFacebookProcess($param){
+		parent::query('UPDATE dd_member SET me_email = :email, me_fb_id = :fb_id, me_fb_name = :fb_name, me_update_time = :update_time WHERE me_email = :email');
 
-		parent::bind(':email', 			$param['email']);
+		parent::bind(':fb_id', 			$param['fb_id']);
 		parent::bind(':fb_name', 		$param['fb_name']);
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':fb_id', 			$param['fb_id']);
-
+		parent::bind(':email', 			$param['email']);
 		parent::execute();
 	}
 
+	// Update by User edit
 	public function UpdateUserInfoProcess($param){
 		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_update_time = :update_time WHERE me_id = :member_id');
 
@@ -41,22 +54,6 @@ class UserModel extends Database{
 		parent::bind(':member_id', 		$param['member_id']);
 
 		parent::execute();
-	}
-
-	// Check Member ID already
-	public function AlreadyUserProcess($param){
-		parent::query('SELECT me_id FROM dd_member WHERE me_id = :member_id OR me_fb_id = :facebook_id OR me_email = :email OR me_phone = :phone');
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':facebook_id',	$param['facebook_id']);
-		parent::bind(':email',			$param['email']);
-		parent::bind(':phone',			$param['phone']);
-		parent::execute();
-		$data = parent::single();
-
-		if(empty($data['me_id']))
-			return true;
-		else
-			return false;
 	}
 
 	// Get Member Data //////////////////////
