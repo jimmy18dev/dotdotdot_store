@@ -56,9 +56,10 @@ if(!empty($user->current_order_id)){
 			</div>
 			<div class="profile-info">
 				<p class="big">คุณ <?php echo $user->name;?></p>
-				<p><?php echo $user->phone;?> · <?php echo $user->email;?></p>
+				<p class="link"><a href="profile-edit.php"><i class="fa fa-sign-out"></i>แก้ไขข้อมูลส่วนตัว</a> | <a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
+				<p>เบอร์ติดต่อ: <?php echo $user->phone;?></p>
+				<p>Email: <?php echo $user->email;?></p>
 				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-				<p><a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
 			</div>	
 		</div>
 

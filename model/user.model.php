@@ -15,7 +15,7 @@ class UserModel extends Database{
 
 	// Create New Post /////////////
 	public function RegisterUserProcess($param){
-		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:ip,:type,:status)');
+		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_verify_code,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:verify_code,:ip,:type,:status)');
 
 		parent::bind(':email', 			$param['email']);
 		parent::bind(':phone', 			$param['phone']);
@@ -25,6 +25,7 @@ class UserModel extends Database{
 		parent::bind(':password', 		$param['password']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':verify_code', 	$param['verify_code']);
 		parent::bind(':ip',				parent::GetIpAddress());
 		parent::bind(':type', 			$param['type']);
 		parent::bind(':status', 		$param['status']);

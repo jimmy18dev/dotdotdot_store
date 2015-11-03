@@ -49,8 +49,10 @@ class UserController extends UserModel{
         if(empty($member_id)){
             // Register new user
             if($param['refer'] == "form"){
-                $param['password'] = $this->PasswordEncrypt($param['password']);
+                $param['password']      = $this->PasswordEncrypt($param['password']);
+                $param['verify_code']   = $this->EmailCodeGenerate($param['email']);
             }
+
             $member_id = parent::RegisterUserProcess($param);
         }
         else{
@@ -115,6 +117,13 @@ class UserController extends UserModel{
             $password = md5($password.PRIVETE_KEY);
         }
         return $password;
+    }
+
+    private function EmailCodeGenerate($email){
+        if(!empty($email)){
+            $email = md5(PRIVETE_KEY.$email.PRIVETE_KEY);
+        }
+        return $email;
     }
 
 

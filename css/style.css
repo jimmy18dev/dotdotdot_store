@@ -183,6 +183,26 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
   font-size: 1.5em;
 }
+.login-dialog .login-container .message-box {
+  width: 100%;
+  margin: 10% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  text-align: center;
+  line-height: 2em;
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-dialog .login-container .message-box i {
+  font-size: 2em;
+  margin-bottom: 5%;
+}
+.login-dialog .login-container .message-box p.success {
+  color: #4CAF50;
+}
+.login-dialog .login-container .message-box p.waiting {
+  color: rgba(0, 0, 0, 0.44);
+}
 .login-dialog .login-container .form {
   width: 40%;
   margin: 0% 30%;
@@ -841,7 +861,6 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .profile .profile-avatar {
   width: 15%;
-  padding-top: 1%;
   float: left;
   display: inline-block;
 }
@@ -857,12 +876,16 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .profile .profile-info p {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.5em;
   color: rgba(0, 0, 0, 0.44);
 }
+.container .container-page .profile .profile-info p.link {
+  font-size: 0.8em;
+  margin-bottom: 2%;
+}
 .container .container-page .profile .profile-info p.big {
-  font-size: 2em;
+  font-size: 1.5em;
   margin-bottom: 1%;
   color: rgba(0, 0, 0, 0.9);
 }

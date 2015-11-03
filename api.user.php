@@ -17,7 +17,7 @@ if($_POST['calling'] != ''){
 							'fb_name' 	=> $_POST['fb_name'],
 							'password' 	=> $_POST['password'],
 							'type' 		=> 'member',
-							'status' 	=> 'active',
+							'status' 	=> 'pending',
 							'refer' 	=> 'form',
 						));
 
