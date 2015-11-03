@@ -2,6 +2,8 @@
 require_once'config/autoload.php';
 include'sdk/facebook-sdk/autoload.php';
 include'facebook.php';
+
+$verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_GET['code']));
 ?>
 
 <!DOCTYPE html>
@@ -33,7 +35,6 @@ include'facebook.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -44,11 +45,21 @@ include'facebook.php';
 		
 		<div class="message-box">
 			<div class="icon"><i class="fa fa-check"></i></div>
-			<p>mrjimmy18@gmail.com</p>
+			<p><?php echo $_GET['email'];?></p>
+
+			<?php if($verified){?>
 			<p class="success">ยืนยันอีเมลเรียบร้อยแล้ว</p>
+			<?php }else{?>
+			<p class="fail">ยืนยันอีเมลไม่สำเร็จ กรุณาเลือกอีกครั้งค่ะ</p>
+			<?php }?>
 			<p class="waiting">กรุณารอสักครู่...</p>
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript">
+setTimeout(function(){window.location = 'login.php';},3000);
+</script>
+
 </body>
 </html>

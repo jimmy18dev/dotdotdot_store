@@ -200,6 +200,9 @@ Copyright (c) 2015 Daniel Eden
 .login-dialog .login-container .message-box p.success {
   color: #4CAF50;
 }
+.login-dialog .login-container .message-box p.fail {
+  color: #FF0000;
+}
 .login-dialog .login-container .message-box p.waiting {
   color: rgba(0, 0, 0, 0.44);
 }

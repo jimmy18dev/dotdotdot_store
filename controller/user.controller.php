@@ -126,6 +126,18 @@ class UserController extends UserModel{
         return $email;
     }
 
+    public function Verified($param){
+        $member_id = parent::VerifyChecking(array('email' => $param['email'],'verify_code'=> $param['verify_code']));
+
+        if(!empty($member_id)){
+            parent::VerifiedProcess(array('member_id' => $member_id));
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
 
 
 

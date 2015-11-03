@@ -213,5 +213,21 @@ class UserModel extends Database{
 
 		return $data['count_notification'];
 	}
+
+	// Account Verified
+	public function VerifyChecking($param){
+		parent::query('SELECT me_id FROM dd_member WHERE me_verify_code = :verify_code AND me_email = :email');
+		parent::bind(':email',			$param['email']);
+		parent::bind(':verify_code',	$param['verify_code']);
+		parent::execute();
+		$data = parent::single();
+		return $data['me_id'];
+	}
+
+	public function VerifiedProcess($param){
+		parent::query('UPDATE dd_member SET me_status = "verified" WHERE me_id = :member_id');
+		parent::bind(':member_id',			$param['member_id']);
+		parent::execute();
+	}
 }
 ?>
