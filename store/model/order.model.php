@@ -66,7 +66,7 @@ class OrderModel extends Database{
 	}
 
 	public function UpdateStatusOrderProcess($param){
-		parent::query('UPDATE dd_order SET od_status = :status WHERE od_id = :order_id');
+		parent::query('UPDATE dd_order SET od_status = :status, od_owner_read = "open" WHERE od_id = :order_id');
 		parent::bind(':status', $param['order_action']);
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();

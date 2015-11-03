@@ -115,7 +115,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .cart {
   float: right;
-  padding: 30px 0%;
+  padding: 30px 2%;
   height: 20px;
   font-size: 0.9em;
   color: #000000;
@@ -132,15 +132,24 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .avatar {
   float: right;
-  padding: 23px 0%;
-  margin-left: 2%;
+  margin: 23px 0%;
+  padding-left: 2%;
   height: 34px;
+  border-left: 1px solid #FAFAFA;
+  position: relative;
 }
 .header .avatar img {
   height: 34px;
   width: 34px;
   border-radius: 50%;
   overflow: hidden;
+}
+.header .avatar .notifications {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  font-size: 0.8em;
+  color: #FF0000;
 }
 .header .login {
   float: right;
@@ -762,42 +771,23 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .container-page .list-content .list-content-topic {
-  width: 100%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.5em;
-  color: rgba(0, 0, 0, 0.44);
-}
 .container .container-page .list-content .order-items {
   width: 100%;
   padding: 2% 0%;
   float: left;
   display: inline-block;
   margin-bottom: 0.5%;
-  line-height: 1.5em;
   border-bottom: 1px solid #FAFAFA;
-}
-.container .container-page .list-content .order-items:hover {
-  cursor: pointer;
-  opacity: 0.8;
-}
-.container .container-page .list-content .order-items p {
-  font-size: 1em;
   color: rgba(0, 0, 0, 0.9);
 }
-.container .container-page .list-content .order-items p.mini {
+.container .container-page .list-content .order-items .order-items-status {
   font-size: 0.9em;
+  line-height: 1.5em;
+  margin-bottom: 2%;
   color: rgba(0, 0, 0, 0.44);
 }
-.container .container-page .list-content .order-items .notification-icon {
-  width: 3%;
-  float: left;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.4);
-  font-size: 0.8em;
+.container .container-page .list-content .order-items .order-items-status i {
+  margin-right: 10px;
 }
 .container .container-page .list-content .order-items .paying {
   color: #E91E63;
@@ -817,31 +807,37 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .list-content .order-items .complete {
   color: #4CAF50;
 }
-.container .container-page .list-content .order-items .detail {
-  width: 77%;
-  float: left;
-  display: inline-block;
+.container .container-page .list-content .order-items .cancel {
+  color: #FF0000;
 }
-.container .container-page .list-content .order-items .summary {
-  width: 20%;
-  float: left;
-  display: inline-block;
-  text-align: right;
+.container .container-page .list-content .order-items .expire {
+  color: #CCCCCC;
 }
-.container .container-page .list-content .order-items .summary .total .currency {
-  font-size: 0.7em;
-  color: rgba(0, 0, 0, 0.44);
+.container .container-page .list-content .order-items .order-items-id {
+  font-size: 1.5em;
+  line-height: 1.5em;
 }
-.container .container-page .list-content .order-items-cencel {
-  opacity: 0.3;
+.container .container-page .list-content .order-items .order-items-info {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  color: rgba(0, 0, 0, 0.7);
 }
-.container .container-page .list-content .order-unread {
-  font-weight: bold;
+.container .container-page .list-content .order-items .order-items-info .time {
+  font-style: italic;
+}
+.container .container-page .list-content .order-items:hover {
+  cursor: pointer;
+}
+.container .container-page .list-content .order-items:hover .order-items-id {
+  text-decoration: underline;
 }
 .container .container-page .profile {
-  width: 100%;
+  width: 94%;
+  padding: 3%;
   float: left;
   display: inline-block;
+  background: #FAFAFA;
+  margin-bottom: 1%;
 }
 .container .container-page .profile .profile-avatar {
   width: 15%;
@@ -1037,10 +1033,25 @@ Copyright (c) 2015 Daniel Eden
 }
 .footer {
   width: 66%;
-  padding: 3% 17%;
+  padding: 4% 17%;
   float: left;
   display: inline-block;
   background: #000000;
+}
+.footer .footer-link {
+  width: 100%;
+  margin-bottom: 5%;
+  float: left;
+  display: inline-block;
+  color: #FFFFFF;
+  font-size: 0.8em;
+}
+.footer .footer-link a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.footer .footer-link a:hover {
+  text-decoration: underline;
 }
 .footer p {
   font-size: 0.8em;

@@ -13,6 +13,8 @@ class UserController extends UserModel{
     public $create_time_facebook_format;
     public $create_time_thai_format;
 
+    public $notification_count;
+
     public function GetUser($param){
         // Get MemberData
         $data = parent::GetUserProcess($param);
@@ -24,6 +26,7 @@ class UserController extends UserModel{
         $this->name =           $data['me_name'];
         $this->facebook_id =    $data['me_fb_id'];
         $this->facebook_name =  $data['me_fb_name'];
+        $this->notification_count = parent::CountNotificationProcess(array('member_id' => $this->id));
 
         $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
         $this->create_time_thai_format = $data['user_create_time_thai_format'];
@@ -42,9 +45,12 @@ class UserController extends UserModel{
 
         // User already checking send (id,facebook_id,email,phone)
         $member_id = parent::AlreadyUserProcess($param);
-        
+
         if(empty($member_id)){
             // Register new user
+            if($param['refer'] == "form"){
+                $param['password'] = $this->PasswordEncrypt($param['password']);
+            }
             $member_id = parent::RegisterUserProcess($param);
         }
         else{
@@ -64,8 +70,9 @@ class UserController extends UserModel{
     }
 
     public function LoginUserProcess($param){
-        $param['email'] = $param['username'];
-        $param['phone'] = $param['username'];
+        $param['email']     = $param['username'];
+        $param['phone']     = $param['username'];
+        $param['password']  = $this->PasswordEncrypt($param['password']);
         
         $user_id = parent::LoginUserProcess($param);
 
@@ -101,6 +108,13 @@ class UserController extends UserModel{
             // Member is Offline
             return false; 
         }
+    }
+
+    private function PasswordEncrypt($password){
+        if(!empty($password)){
+            $password = md5($password.PRIVETE_KEY);
+        }
+        return $password;
     }
 
 

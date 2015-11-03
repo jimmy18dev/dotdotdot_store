@@ -47,7 +47,7 @@ include'facebook.php';
 			<div class="caption">Email or Phone Number</div>
 			<input type="text" class="input-text" id="username">
 			<div class="caption">Password</div>
-			<input type="text" class="input-text" id="password">
+			<input type="password" class="input-text" id="password">
 
 			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">Login</span></button>
 

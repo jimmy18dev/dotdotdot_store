@@ -63,7 +63,6 @@ if(!empty($user->current_order_id)){
 		</div>
 
 		<div class="list-content">
-			<div class="list-content-topic">ใบสั่งซื้อ (23)</div>
 			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>

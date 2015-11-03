@@ -1,8 +1,10 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
+include'sdk/facebook-sdk/autoload.php';
+include'facebook.php';
 $order->GetOrder(array('order_id' => $_GET['id']));
+
+$order->ReadOrder(array('order_id' => $order->id));
 ?>
 
 <!DOCTYPE html>

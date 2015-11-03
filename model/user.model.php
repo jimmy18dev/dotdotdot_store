@@ -202,5 +202,15 @@ class UserModel extends Database{
 
 		parent::execute();
 	}
+
+	// Notification
+	public function CountNotificationProcess($param){
+		parent::query('SELECT COUNT(od_id) count_notification FROM dd_order WHERE od_member_id = :member_id AND od_owner_read = "open"');
+		parent::bind(':member_id',		$param['member_id']);
+		parent::execute();
+		$data = parent::single();
+
+		return $data['count_notification'];
+	}
 }
 ?>

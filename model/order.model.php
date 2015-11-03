@@ -77,7 +77,7 @@ class OrderModel extends Database{
 	}
 
 	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status FROM dd_order WHERE od_member_id = :member_id ORDER BY od_update_time DESC');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status FROM dd_order WHERE (od_member_id = :member_id AND od_status != "Expire" AND od_status != "Shopping") ORDER BY od_update_time DESC');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -271,6 +271,12 @@ class OrderModel extends Database{
 		parent::query('UPDATE dd_order SET od_status = "Expire", od_update_time = :update_time WHERE od_id = :order_id');
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+	}
+
+	public function ReadOrderProcess($param){
+		parent::query('UPDATE dd_order SET od_owner_read = "close" WHERE od_id = :order_id');
+		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}
 }

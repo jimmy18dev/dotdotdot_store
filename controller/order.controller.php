@@ -242,6 +242,10 @@ class OrderController extends OrderModel{
         unset($data);
     }
 
+    public function ReadOrder($param){
+        parent::ReadOrderProcess($param);
+    }
+
     // EMS Number update in Order
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
