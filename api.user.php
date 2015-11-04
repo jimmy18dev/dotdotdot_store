@@ -71,6 +71,54 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'EditInfo':
+					if(true){
+						$user->UpdateUserInfo(array(
+							'name' 	=> $_POST['name'],
+							'phone'	=> $_POST['phone'],
+							'email'	=> $_POST['email'],
+							'member_id' => MEMBER_ID,
+						));
+						$api->successMessage('Information updated!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'ChangePassword':
+					if(true){
+						$user->ChangePassword(array(
+							'password' 	=> $_POST['password'],
+							'member_id' => MEMBER_ID,
+						));
+						$api->successMessage('Password Changed!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'ForgetPassword':
+					if(true){
+						$user->ForgetPassword(array('email' => $_POST['email']));
+						$api->successMessage('Forget Code Sending to email!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'CreatePasswordForgetFunction':
+					if(true){
+						$user->ChangePasswordByForget(array(
+							'email' 		=> $_POST['email'],
+							'forget_code' 	=> $_POST['forget_code'],
+							'password' 		=> $_POST['password'],
+						));
+						$api->successMessage('New Password Created!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

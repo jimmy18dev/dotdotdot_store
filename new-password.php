@@ -24,7 +24,7 @@ require_once'config/autoload.php';
 //include'favicon.php';
 ?>
 
-<title>Register</title>
+<title>New Password</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -40,12 +40,14 @@ require_once'config/autoload.php';
 <body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">Forget password</div>
+		<div class="logo">New password</div>
 		<div class="form">
-			<div class="caption">Email ที่คุณเคยสมัครสมาชิก</div>
+			<div class="caption">กำหนดรหัสผ่านใหม่</div>
 			<input type="text" class="input-text" id="email" placeholder="Email...">
+			<input type="text" class="input-text" id="forget_code" placeholder="Forget code...">
+			<input type="text" class="input-text" id="password" placeholder="Password...">
 
-			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">Send</span></button>
+			<button class="button-submit" onclick="javascript:NewPassword();"><span id="login-status">Send</span></button>
 
 			<div class="option">
 				<a href="login.php">เข้าระบบ</a>

@@ -37,6 +37,7 @@ if(!empty($user->current_order_id)){
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -55,19 +56,21 @@ if(!empty($user->current_order_id)){
 				<?php }?>
 			</div>
 			<div class="profile-info">
-				<p class="big">คุณ <?php echo $user->name;?></p>
-				<p class="link">
-					<a href="me-edit.php"><i class="fa fa-sign-out"></i>แก้ไขข้อมูลส่วนตัว</a> | 
-					<a href="change-password.php"><i class="fa fa-sign-out"></i>เปลี่ยนรหัสผ่านใหม่</a> | 
-					<a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
-				<p>เบอร์ติดต่อ: <?php echo $user->phone;?></p>
-				<p>Email: <?php echo $user->email;?></p>
-				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-			</div>	
-		</div>
+				<p class="big">เปลี่ยนรหัสผ่านใหม่</p>
 
-		<div class="list-content">
-			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+				<div class="form">
+					<div class="form-item">
+						<div class="caption">รหัสผ่านใหม่</div>
+						<div class="input">
+							<input type="text" id="password">
+						</div>
+					</div>
+
+					<div class="form-submit">
+						<button onclick="javascript:ChangePassword();">บันทึก</button>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 </div>

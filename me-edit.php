@@ -37,6 +37,7 @@ if(!empty($user->current_order_id)){
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -55,19 +56,33 @@ if(!empty($user->current_order_id)){
 				<?php }?>
 			</div>
 			<div class="profile-info">
-				<p class="big">คุณ <?php echo $user->name;?></p>
-				<p class="link">
-					<a href="me-edit.php"><i class="fa fa-sign-out"></i>แก้ไขข้อมูลส่วนตัว</a> | 
-					<a href="change-password.php"><i class="fa fa-sign-out"></i>เปลี่ยนรหัสผ่านใหม่</a> | 
-					<a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
-				<p>เบอร์ติดต่อ: <?php echo $user->phone;?></p>
-				<p>Email: <?php echo $user->email;?></p>
-				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-			</div>	
-		</div>
+				<p class="big">แก้ไขข้อมูลส่วนตัว</p>
 
-		<div class="list-content">
-			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+				<div class="form">
+					<div class="form-item">
+						<div class="caption">ชื่อ-นามสกุล</div>
+						<div class="input">
+							<input type="text" id="name" value="<?php echo $user->name;?>">
+						</div>
+					</div>
+					<div class="form-item">
+						<div class="caption">เบอร์ติดต่อ</div>
+						<div class="input">
+							<input type="text" id="phone" value="<?php echo $user->phone;?>">
+						</div>
+					</div>
+					<div class="form-item">
+						<div class="caption">อีเมล</div>
+						<div class="input">
+							<input type="text" id="email" value="<?php echo $user->email;?>">
+						</div>
+					</div>
+
+					<div class="form-submit">
+						<button onclick="javascript:EditInfo();">บันทึก</button>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 </div>

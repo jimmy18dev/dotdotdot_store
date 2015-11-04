@@ -47,12 +47,46 @@ class UserModel extends Database{
 
 	// Update by User edit
 	public function UpdateUserInfoProcess($param){
-		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_update_time = :update_time WHERE me_id = :member_id');
+		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_email = :email, me_update_time = :update_time WHERE me_id = :member_id');
 
 		parent::bind(':name', 			$param['name']);
 		parent::bind(':phone', 			$param['phone']);
+		parent::bind(':email', 			$param['email']);
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':member_id', 		$param['member_id']);
+
+		parent::execute();
+	}
+
+	public function UpdateForgetCodeProcess($param){
+		parent::query('UPDATE dd_member SET me_forget_code = :forget_code, me_update_time = :update_time WHERE me_email = :email');
+
+		parent::bind(':forget_code', 	$param['forget_code']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':email', 			$param['email']);
+
+		parent::execute();
+	}
+
+	// Update by User edit
+	public function ChangePasswordProcess($param){
+		parent::query('UPDATE dd_member SET me_password = :password, me_update_time = :update_time WHERE me_id = :member_id');
+
+		parent::bind(':password', 		$param['password']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$param['member_id']);
+
+		parent::execute();
+	}
+
+	// Change Password by Forget Code (ForgetPassword function)
+	public function ChangePasswordByForgetProcess($param){
+		parent::query('UPDATE dd_member SET me_password = :password, me_update_time = :update_time, me_forget_code = "" WHERE me_email = :email AND me_forget_code = :forget_code');
+
+		parent::bind(':password', 		$param['password']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':email', 			$param['email']);
+		parent::bind(':forget_code', 	$param['forget_code']);
 
 		parent::execute();
 	}

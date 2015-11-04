@@ -1,11 +1,11 @@
 <footer class="footer">
-	<div class="footer-link">
+	<!-- <div class="footer-link">
 		<a href="#">หน้าแรก</a> · 
 		<a href="#">สินค้าใหม่</a> · 
 		<a href="#">วิธีการสั่งซื้อ</a> · 
 		<a href="#">สั่งจำนวนมาก</a> · 
 		<a href="#">Facebook</a>
-	</div>
+	</div> -->
 
 	<p>dotdotdot company limited, founded in 2004</p>
 	<p>m.l. apichit vudhijaya [art], is a 'creative marketing</p>

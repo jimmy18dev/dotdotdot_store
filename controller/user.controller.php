@@ -67,6 +67,36 @@ class UserController extends UserModel{
         return $member_id;
     }
 
+    public function ForgetPassword($param){
+        $email = $param['email'];
+
+        if(!empty($email))
+            $forget_code = md5($email.PRIVETE_KEY.time());
+        else
+            return false;
+
+        parent::UpdateForgetCodeProcess(array('email' => $email, 'forget_code' => $forget_code));
+
+        // Send forget code to Email
+    }
+
+    public function ChangePasswordByForget($param){
+        $new_password = $this->PasswordEncrypt($param['password']);
+        parent::ChangePasswordByForgetProcess(array(
+            'email'         => $param['email'],
+            'forget_code'   => $param['forget_code'],
+            'password'      => $new_password,
+        ));
+    }
+
+    public function ChangePassword($param){
+        $param['password'] = $this->PasswordEncrypt($param['password']);
+        parent::ChangePasswordProcess($param);
+    }
+
+
+
+    // Update user info by Customer edit on website
     public function UpdateUserInfo($param){
         parent::UpdateUserInfoProcess($param);
     }

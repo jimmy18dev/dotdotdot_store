@@ -118,3 +118,133 @@ function SubmitAddress(){
 
     }).error();
 }
+
+function EditInfo(){
+    var href = 'api.user.php';
+
+    var name = $('#name').val();
+    var email = $('#email').val();
+    var phone = $('#phone').val();
+
+    if(!email || !name || !phone){
+        return false;
+    }
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'EditInfo',
+            name                :name,
+            email               :email,
+            phone               :phone,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.message);
+
+        // Redirect page after submit address.
+        setTimeout(function(){window.location = 'me.php'},1000);
+
+    }).error();
+}
+
+function ChangePassword(){
+    var href = 'api.user.php';
+    var password = $('#password').val();
+
+    if(!password){
+        return false;
+    }
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'ChangePassword',
+            password            :password,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.message);
+
+        // Redirect page after submit address.
+        setTimeout(function(){window.location = 'me.php'},1000);
+
+    }).error();
+}
+
+function ForgetPassword(){
+    var href = 'api.user.php';
+    var email = $('#email').val();
+
+    if(!email){
+        return false;
+    }
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'ForgetPassword',
+            email            :email,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.message);
+
+        // Redirect page after submit address.
+        // setTimeout(function(){window.location = 'me.php'},1000);
+
+    }).error();
+}
+
+// New Password by Forget Password
+function NewPassword(){
+    var href = 'api.user.php';
+    var email = $('#email').val();
+    var forget_code = $('#forget_code').val();
+    var password = $('#password').val();
+
+    if(!email){
+        return false;
+    }
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'CreatePasswordForgetFunction',
+            email            :email,
+            forget_code            :forget_code,
+            password            :password,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Return: '+data.message);
+
+        // Redirect page after submit address.
+        setTimeout(function(){window.location = 'login.php'},1000);
+
+    }).error();
+}
