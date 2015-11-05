@@ -97,36 +97,19 @@ class UserController extends UserModel{
         }
     }
 
-
-
-
-
-
-
-
-
-
-
-
-    public function Authentication_token($param){
-        $param['device']        = DEVICE_TYPE;
-        $param['model']         = DEVICE_MODEL;
-        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
-
-        $user_id                = $param['member_id'];
-        $user_token             = $param['token'];
-
-        $tokenData              = parent::GetTokenProcess($param);
-
-        if($user_id == $tokenData['member_id'] && $user_token == $tokenData['token'])
-            return true;
-        else
-            return false;
+    // List all Member
+    public function ListAllMember($param){
+        $data = parent::ListAllMemberProcess($param);
+        $this->Render('customer-items',$data);
     }
 
-    // Saved Visit time for member visit to this site
-    public function MemberVisit($param){
-        parent::MemberVisitProcess($param);
+    private function Render($mode,$data){
+        foreach ($data as $var){
+            if($mode == "customer-items"){
+                include'template/user/user.items.php';
+            }
+        }
+        unset($data);
     }
 }
 ?>

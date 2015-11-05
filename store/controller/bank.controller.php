@@ -1,6 +1,9 @@
 <?php
 class BankController extends BankModel{
-	public $status = 'Call ProductController success.';
+
+    public function CreateBank($param){
+        parent::CreateBankProcess($param);
+    }
 
 	public function KillTransferMoney($param){
         parent::KillTransferMoneyProcess($param);

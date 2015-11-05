@@ -2,7 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
-$current_page = "setting";
+$current_page = "customer";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $current_page = "setting";
 //include'favicon.php';
 ?>
 
-<title>Setting</title>
+<title>Bank</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -41,29 +41,11 @@ $current_page = "setting";
 <?php include'header.php';?>
 <div class="container">
 	<div class="topic">
-		<div class="topic-caption">Setting</div>
+		<div class="topic-caption">Bank</div>
 	</div>
 
 	<div class="content">
-
-		<a href="customer.php">
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-users"></i></div>
-			<div class="setting-items-caption">ลูกค้า</div>
-		</div>
-		</a>
-
-		<a href="bank.php">
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-university"></i></div>
-			<div class="setting-items-caption">บัญชีธนาคาร</div>
-		</div>
-		</a>
-
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-cog"></i></div>
-			<div class="setting-items-caption">ตั้งค่า</div>
-		</div>
+		<?php echo $bank->ListBank(array('id' => 0));?>
 	</div>
 </div>
 </body>

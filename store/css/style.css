@@ -293,6 +293,28 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   color: rgba(0, 0, 0, 0.44);
 }
+.container .content .setting-items {
+  width: 25%;
+  padding: 4% 0%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  text-align: center;
+}
+.container .content .setting-items .setting-items-icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  margin-bottom: 2%;
+}
+.container .content .setting-items .setting-items-caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  font-size: 0.8em;
+}
 .container .content .order-state {
   width: 100%;
   float: left;
@@ -879,6 +901,38 @@ Copyright (c) 2015 Daniel Eden
   padding: 3%;
   float: left;
   display: inline-block;
+}
+.container .content .user-items {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-bottom: 0.5%;
+}
+.container .content .user-items .user-items-avatar {
+  width: 8%;
+  float: left;
+  display: inline-block;
+}
+.container .content .user-items .user-items-avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
+.container .content .user-items .user-items-info {
+  width: 88%;
+  padding: 0% 2%;
+  float: left;
+  display: inline-block;
+}
+.container .content .user-items .user-items-info p {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+.container .content .user-items .user-items-info p.big {
+  font-size: 1.5em;
 }
 .container .content .product-items {
   width: 100%;
