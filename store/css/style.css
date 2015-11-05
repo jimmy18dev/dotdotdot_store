@@ -934,6 +934,27 @@ Copyright (c) 2015 Daniel Eden
 .container .content .user-items .user-items-info p.big {
   font-size: 1.5em;
 }
+.container .content .bank-items {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 0.5%;
+  background: #FFFFFF;
+}
+.container .content .bank-items img {
+  height: 20px;
+  float: left;
+  display: inline-block;
+  margin-right: 10px;
+}
+.container .content .bank-items p {
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.container .content .bank-items p.big {
+  font-size: 1.5em;
+}
 .container .content .product-items {
   width: 100%;
   float: left;

@@ -28,10 +28,33 @@ $product->UpdateView(array('product_id' => $product->id));
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">	
 
 <?php
-//include'favicon.php';
+// include'favicon.php';
+$page_title = $product->title;
+$page_description = $product->description;
+$page_url = $metadata['domain'].'/product.php?id='.$product->id;
+$page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filename;;
 ?>
 
-<title>Product Detail</title>
+<title><?php echo $page_title;?></title>
+
+<!-- Meta Tag Main -->
+<meta name="description" content="<?php echo $page_description;?>"/>
+<meta property="og:title" content="<?php echo $page_title;?>"/>
+<meta property="og:description" content="<?php echo $page_description;?>"/>
+<meta property="og:url" content="<?php echo $page_url;?>"/>
+<meta property="og:image" content="<?php echo $page_image;?>"/>
+<meta property="og:type" content="website"/>
+
+<meta property="og:site_name" content="<?php echo $metadata['site_name'];?>"/>
+<meta property="fb:app_id" content="<?php echo $metadata['fb_app_id'];?>"/>
+<meta property="fb:admins" content="<?php echo $metadata['fb_admins'];?>"/>
+
+<meta name="author" content="<?php echo $metadata['author'];?>">
+<meta name="generator" content="<?php echo $metadata['generator'];?>"/>
+
+<meta itemprop="name" content="<?php echo $page_title;?>">
+<meta itemprop="description" content="<?php echo $page_description;?>">
+<meta itemprop="image" content="<?php echo $page_image;?>">
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -45,6 +68,7 @@ $product->UpdateView(array('product_id' => $product->id));
 <script type="text/javascript" src="js/service/product.service.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
 <script type="text/javascript" src="js/product.app.js"></script>
+<script type="text/javascript" src="js/sharing.app.js"></script>
 
 </head>
 
@@ -57,7 +81,14 @@ $product->UpdateView(array('product_id' => $product->id));
 		<!-- Detail -->
 		<div class="product-details">
 			<h1><?php echo $product->title;?></h1>
-			<p class="code"><?php echo number_format($product->read);?> Views</p>
+			<p class="info">
+				<span class="view"><?php echo number_format($product->read);?> Views</span>
+
+				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
+				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
+				<span class="sharing" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
+			</p>
+
 			<div class="description"><?php echo $product->description;?></div>
 
 			<div class="action">
@@ -100,6 +131,11 @@ $product->UpdateView(array('product_id' => $product->id));
 
 		<!-- Product ID -->
 		<input type="hidden" id="product_id" value="<?php echo $product->id;?>">
+
+		<!-- Microdata -->
+		<input type="hidden" id="microdata-link" value="<?php echo $page_url;?>">
+		<input type="hidden" id="microdata-title" value="<?php echo $page_title;?>">
+		<input type="hidden" id="microdata-image" value="<?php echo $page_image;?>">
 	</div>
 </div>
 <?php

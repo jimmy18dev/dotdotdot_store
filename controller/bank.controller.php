@@ -33,5 +33,28 @@ class BankController extends BankModel{
         }
         unset($data);
     }
+
+    // Convert Bank Code to Bank Name
+    private function BankName($code){
+        if($code == "BBL")
+            $name = "ธนาคารกรุงเทพ";
+        else if($code == "BAY")
+            $name = "ธนาคารกรุงศรีอยุธยา";
+        else if($code == "KBANK")
+            $name = "ธนาคารกสิกรไทย";
+        else if($code == "KTB")
+            $name = "ธนาคารกรุงไทย";
+        else if($code == "SCB")
+            $name = "ธนาคารไทยพาณิชย์";
+        else if($code == "TMB")
+            $name = "ธนาคารทหารไทย";
+        else if($code == "GSB")
+            $name = "ธนาคารออมสิน";
+        else{
+            $name = "n/a";
+        }
+
+        return $name;
+    }
 }
 ?>

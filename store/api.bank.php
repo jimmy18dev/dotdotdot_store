@@ -10,12 +10,22 @@ if($_POST['calling'] != ''){
 				case 'CreateBank':
 					if(true){
 						$bank->CreateBank(array(
+							'bank_id'=>$_POST['bank_id'],
 							'code' => $_POST['code'],
 							'branch' => $_POST['branch'],
 							'name' => $_POST['name'],
 							'number' => $_POST['number'],
 						));
 						$api->successMessage('Bank Created!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'DeleteBank':
+					if(true){
+						$bank->DeleteBank(array('bank_id'=>$_POST['bank_id'],));
+						$api->successMessage('Bank Deleted!','','');
 					}
 					else{
 						$api->errorMessage('Access Token Error!');

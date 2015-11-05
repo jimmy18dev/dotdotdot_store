@@ -715,19 +715,32 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   font-size: 1.5em;
+  padding-bottom: 5%;
   margin-bottom: 3%;
   font-weight: bold;
   color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid #FAFAFA;
 }
-.container .container-page .product-details p.code {
+.container .container-page .product-details p.info {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
   color: rgba(0, 0, 0, 0.44);
 }
-.container .container-page .product-details p.code .price {
+.container .container-page .product-details p.info .view {
+  float: left;
+  padding: 1% 0%;
+}
+.container .container-page .product-details p.info .sharing {
   float: right;
+  padding: 1% 3%;
+  color: #000000;
+}
+.container .container-page .product-details p.info .sharing:hover {
+  cursor: pointer;
+  background: #000000;
+  color: #FFFFFF;
 }
 .container .container-page .product-details .description {
   width: 100%;

@@ -3,6 +3,10 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 $current_page = "customer";
+
+if(isset($_GET['id'])){
+	$bank->GetBank(array('bank_id' => $_GET['id']));
+}
 ?>
 
 <!DOCTYPE html>
@@ -51,34 +55,36 @@ $current_page = "customer";
 				<div class="caption">ธนาคาร</div>
 				<div class="input">
 					<select id="code">
-						<option value="BBL">ธนาคารกรุงเทพ</option>
-						<option value="BAY">ธนาคารกรุงศรีอยุธยา</option>
-						<option value="KBANK">ธนาคารกสิกรไทย</option>
-						<option value="KTB">ธนาคารกรุงไทย</option>
-						<option value="SCB">ธนาคารไทยพาณิชย์</option>
-						<option value="TMB">ธนาคารทหารไทย</option>
-						<option value="GSB">ธนาคารออมสิน</option>
+						<option value="BBL" <?php echo ($bank->code=="BBL"?'selected':'');?>>ธนาคารกรุงเทพ</option>
+						<option value="BAY" <?php echo ($bank->code=="BAY"?'selected':'');?>>ธนาคารกรุงศรีอยุธยา</option>
+						<option value="KBANK" <?php echo ($bank->code=="KBANK"?'selected':'');?>>ธนาคารกสิกรไทย</option>
+						<option value="KTB" <?php echo ($bank->code=="KTB"?'selected':'');?>>ธนาคารกรุงไทย</option>
+						<option value="SCB" <?php echo ($bank->code=="SCB"?'selected':'');?>>ธนาคารไทยพาณิชย์</option>
+						<option value="TMB" <?php echo ($bank->code=="TMB"?'selected':'');?>>ธนาคารทหารไทย</option>
+						<option value="GSB" <?php echo ($bank->code=="GSB"?'selected':'');?>>ธนาคารออมสิน</option>
 					</select>
 				</div>
 			</div>
 			<div class="form-items">
 				<div class="caption">สาขา</div>
 				<div class="input">
-					<input type="text" id="branch">
+					<input type="text" id="branch" value="<?php echo $bank->account_branch;?>">
 				</div>
 			</div>
 			<div class="form-items">
 				<div class="caption">ชื่อบัญชี</div>
 				<div class="input">
-					<input type="text" id="name">
+					<input type="text" id="name" value="<?php echo $bank->account_name;?>">
 				</div>
 			</div>
 			<div class="form-items">
 				<div class="caption">เลขบัญชี</div>
 				<div class="input">
-					<input type="text" id="number">
+					<input type="text" id="number" value="<?php echo $bank->account_number;?>">
 				</div>
 			</div>
+
+			<input type="text" id="bank_id" value="<?php echo $bank->id;?>">
 			<div class="form-submit">
 				<button onclick="javascript:CreateBank();">SAVE</button>
 			</div>
