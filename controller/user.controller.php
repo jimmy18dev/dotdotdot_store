@@ -10,6 +10,7 @@ class UserController extends UserModel{
     public $current_order_id;
 
     public $verify_code;
+    public $forget_code;
     public $status;
 
 
@@ -19,27 +20,52 @@ class UserController extends UserModel{
 
     public $notification_count;
 
+    // Token
+    public $token;
+
     public function GetUser($param){
+        // Setup
+        $param['device']        = DEVICE_TYPE;
+        $param['model']         = DEVICE_MODEL;
+        $param['os']            = DEVICE_OS;
+        $param['browser']       = DEVICE_BROWSER;
+        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
+        $param['expired']       = time() + (60*60*24*7);  // 1 Week.
+
         // Get MemberData
         $data = parent::GetUserProcess($param);
+        $dataset_token = parent::GetTokenProcess($param);
+
+        if(empty($dataset_token['tk_token'])){
+            $param['new_token'] = $this->GenerateMemberKey($param);
+            parent::CreateTokenProcess($param);
+            $dataset_token = parent::GetTokenProcess($param);
+        }
 
         // Setdata
-        $this->id =             $data['me_id'];
-        $this->email =          $data['me_email'];
-        $this->phone =          $data['me_phone'];
-        $this->name =           $data['me_name'];
-        $this->facebook_id =    $data['me_fb_id'];
-        $this->facebook_name =  $data['me_fb_name'];
-        $this->notification_count = parent::CountNotificationProcess(array('member_id' => $this->id));
+        $this->id                   = $data['me_id'];
+        $this->email                = $data['me_email'];
+        $this->phone                = $data['me_phone'];
+        $this->name                 = $data['me_name'];
+        $this->facebook_id          = $data['me_fb_id'];
+        $this->facebook_name        = $data['me_fb_name'];
+        $this->notification_count   = parent::CountNotificationProcess(array('member_id' => $this->id));
 
-        $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
-        $this->create_time_thai_format = $data['user_create_time_thai_format'];
+        $this->create_time_facebook_format  = $data['user_create_time_facebook_format'];
+        $this->create_time_thai_format      = $data['user_create_time_thai_format'];
 
-        $this->verify_code =           $data['me_verify_code'];
-        $this->status =           $data['me_status'];
+        $this->verify_code          = $data['me_verify_code'];
+        $this->fotget_code          = $data['me_fotget_code'];
+        $this->status               = $data['me_status'];
 
         // Current Order
-        $this->current_order_id = parent::GetCurrentOrderProcess($param);
+        $this->current_order_id     = parent::GetCurrentOrderProcess($param);
+
+        // Token key
+        $this->token                = $dataset_token['tk_token'];
+
+        setcookie('token_key',$this->token, COOKIE_TIME);
+        setcookie('member_id',$this->id, COOKIE_TIME);
 
         if(empty($this->current_order_id)){
             $order_checking = parent::CheckingAlreadyOrderProcess($param); // return order_id
@@ -47,6 +73,30 @@ class UserController extends UserModel{
                 $this->current_order_id = parent::CreateOrderProcess($param);
         }
     }
+
+    public function Authentication(){
+        $param['member_id']     = MEMBER_ID;
+        $param['device']        = DEVICE_TYPE;
+        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
+
+        // Parameter: member_id, device, user_agent
+        $dataset = parent::GetTokenProcess($param);
+        
+        $token_key_cookie       = $_COOKIE['token_key'];
+
+        if($token_key_cookie == $dataset['tk_token'] && !empty(MEMBER_ID)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private function GenerateMemberKey($param){
+        return md5(time().$_SERVER['HTTP_USER_AGENT']);
+    }
+
+
 
     public function RegisterUser($param){
 
@@ -84,7 +134,10 @@ class UserController extends UserModel{
 
         parent::UpdateForgetCodeProcess(array('email' => $email, 'forget_code' => $forget_code));
 
-        // Send forget code to Email
+        $dataset['email']       = $email;
+        $dataset['forget_code'] = $forget_code;
+
+        return $dataset;
     }
 
     public function ChangePasswordByForget($param){
@@ -173,38 +226,6 @@ class UserController extends UserModel{
         else{
             return false;
         }
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-    public function Authentication_token($param){
-        $param['device']        = DEVICE_TYPE;
-        $param['model']         = DEVICE_MODEL;
-        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
-
-        $user_id                = $param['member_id'];
-        $user_token             = $param['token'];
-
-        $tokenData              = parent::GetTokenProcess($param);
-
-        if($user_id == $tokenData['member_id'] && $user_token == $tokenData['token'])
-            return true;
-        else
-            return false;
-    }
-
-    // Saved Visit time for member visit to this site
-    public function MemberVisit($param){
-        parent::MemberVisitProcess($param);
     }
 }
 ?>

@@ -45,7 +45,7 @@ class OrderModel extends Database{
 	}
 
 	public function GetOrderProcess($param){
-		parent::query('SELECT od_id,od_member_id,me_name,me_phone,me_email,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_confirm_time,od_expire_time,od_shipping_time,od_complete_time,od_shipping_type,od_ems,od_address,od_type,od_status 
+		parent::query('SELECT od_id,od_member_id,me_name,me_phone,me_email,me_status,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_confirm_time,od_expire_time,od_shipping_time,od_complete_time,od_shipping_type,od_ems,od_address,od_type,od_status 
 			FROM dd_order 
 			LEFT JOIN dd_member ON od_member_id = me_id 
 			WHERE od_id = :order_id');

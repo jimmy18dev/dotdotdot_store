@@ -45,7 +45,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "TransferAgain"){
 							
 							// Sending to Customer
-							if(!empty($order->customer_email)){
+							if(!empty($order->customer_email) && $order->customer_status == "verified"){
 								$mail->addAddress($order->customer_email);
 								$mail->Subject 	= 'หลักฐานการโอนเงินไม่ถูกต้อง!';
 								$message 		= file_get_contents('template/email/again.html');
@@ -63,7 +63,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "TransferSuccess"){
 							
 							// Sending to Customer
-							if(!empty($order->customer_email)){
+							if(!empty($order->customer_email) && $order->customer_status == "verified"){
 								$mail->addAddress($order->customer_email);
 								$mail->Subject 	= 'ชำระเงินค่าสินค้าแล้ว!';
 								$message 		= file_get_contents('template/email/success.html');
@@ -109,7 +109,7 @@ if($_POST['calling'] != ''){
 						$order->GetOrder(array('order_id' => $_POST['order_id']));
 
 						// Sending to Customer
-						if(!empty($order->customer_email)){
+						if(!empty($order->customer_email) && $order->customer_status == "verified"){
 							$mail->addAddress($order->customer_email);
 							$mail->Subject 	= 'จัดส่งสินค้าแล้ว!';
 							$message 		= file_get_contents('template/email/shipping.html');

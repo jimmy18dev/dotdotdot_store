@@ -118,8 +118,24 @@ if($_POST['calling'] != ''){
 					break;
 				case 'ForgetPassword':
 					if(true){
-						$user->ForgetPassword(array('email' => $_POST['email']));
+						$dataset = $user->ForgetPassword(array('email' => $_POST['email']));
 						$api->successMessage('Forget Code Sending to email!','','');
+
+						// Sending to Customer
+						if(!empty($dataset['email']) && !empty($dataset['forget_code'])){
+							$mail->addAddress($dataset['email']);
+							$mail->Subject 	= 'กู้คืนและตั้งรหัสผ่านใหม่';
+							$message 		= file_get_contents('template/email/forget_password.html');
+							$message 		= str_replace('%email%' ,$dataset['email'], $message);
+							$message 		= str_replace('%code%' ,$dataset['forget_code'], $message);
+							$mail->Body    	= $message;
+							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+							if(!$mail->send())
+								$email_send = $mail->ErrorInfo;
+							else
+								$email_send = "Message has been sent";
+						}
 					}
 					else{
 						$api->errorMessage('Access Token Error!');

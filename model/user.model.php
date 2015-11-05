@@ -143,101 +143,6 @@ class UserModel extends Database{
 		return $data['od_id'];
 	}
 
-
-
-
-
-
-
-
-
-	// Saved Visit time for member visit to this site
-	public function MemberVisitProcess($param){
-		parent::query('UPDATE dy_member SET me_visit_time = :visit_time WHERE me_id = :member_id');
-		parent::bind(':member_id', 		$param['member_id']);
-		parent::bind(':visit_time',		date('Y-m-d H:i:s'));
-		parent::execute();
-	}
-
-	public function UpdateMemberProcess($param){
-		parent::query('UPDATE dy_member SET me_email = :email, me_name = :name, me_fname = :fname, me_lname = :lname, me_link = :link, me_gender = :gender,me_update_time = :update_time WHERE me_id = :id');
-
-		parent::bind(':id', 			$param['member_id']);
-		parent::bind(':email', 			$param['email']);
-		parent::bind(':name', 			$param['name']);
-		parent::bind(':fname', 			$param['fname']);
-		parent::bind(':lname', 			$param['lname']);
-		parent::bind(':link', 			$param['link']);
-		parent::bind(':gender', 		$param['gender']);
-		
-		// Timer
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-
-		parent::execute();
-	}
-
-	
-
-	// TOKEN CONTROL
-	// Create token
-	public function CreateTokenProcess($param){
-		parent::query('INSERT INTO dy_token(tk_member_id,tk_token,tk_device,tk_model,tk_os,tk_browser,tk_user_agent,tk_ip,tk_register_time,tk_update_time,tk_expired) VALUE(:member_id,:token,:device,:model,:os,:browser,:user_agent,:ip,:register_time,:update_time,:expired)');
-
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':token',			$param['token']);
-		parent::bind(':device',			$param['device']);
-		parent::bind(':model',			$param['model']);
-		parent::bind(':os',				$param['os']);
-		parent::bind(':browser',		$param['browser']);
-		parent::bind(':user_agent',		$param['user_agent']);
-		parent::bind(':ip',				parent::GetIpAddress());
-		parent::bind(':register_time',	date('Y-m-d H:i:s'));
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':expired',		$param['expired']);
-
-		parent::execute();
-		return parent::lastInsertId();
-	}
-
-	// Update token
-	public function UpdateTokenProcess($param){
-		parent::query('UPDATE dy_token SET tk_token = :new_token WHERE (tk_id = :member_id AND tk_token = :old_token AND tk_device = :device AND tk_model = :model AND tk_os  = :os)');
-
-		parent::bind(':new_token',		$param['new_token']);
-		parent::bind(':old_token',		$param['old_token']);
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':device',			$param['device']);
-		parent::bind(':model',			$param['model']);
-		parent::bind(':os',				$param['os']);
-
-		parent::execute();
-	}
-
-	// Get token
-	public function GetTokenProcess($param){
-		parent::query('SELECT tk_id token_id,tk_member_id member_id,tk_token token,tk_device device,tk_model model,tk_os os,tk_user_agent user_agent,tk_ip ip,tk_register_time register_time,tk_update_time update_time,tk_expired expired,tk_type type,tk_status status FROM dy_token WHERE (tk_member_id = :member_id AND tk_device = :device AND tk_user_agent = :user_agent)');
-
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':device',			$param['device']);
-		parent::bind(':user_agent',		$param['user_agent']);
-
-		parent::execute();
-		return parent::single();
-	}
-
-	// Delete token
-	public function DeleteTokenKeyProcess($param){
-		parent::query('DELETE FROM dy_token WHERE (tk_id = :member_id AND tk_token = :old_token AND tk_device = :device AND tk_model = :model AND tk_os  = :os)');
-
-		parent::bind(':old_token',		$param['old_token']);
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':device',			$param['device']);
-		parent::bind(':model',			$param['model']);
-		parent::bind(':os',				$param['os']);
-
-		parent::execute();
-	}
-
 	// Notification
 	public function CountNotificationProcess($param){
 		parent::query('SELECT COUNT(od_id) count_notification FROM dd_order WHERE od_member_id = :member_id AND od_owner_read = "open"');
@@ -261,6 +166,77 @@ class UserModel extends Database{
 	public function VerifiedProcess($param){
 		parent::query('UPDATE dd_member SET me_status = "verified", me_verify_code = "" WHERE me_id = :member_id');
 		parent::bind(':member_id',			$param['member_id']);
+		parent::execute();
+	}
+
+
+	// TOKEN CONTROL
+	// Create token
+	public function CreateTokenProcess($param){
+		parent::query('INSERT INTO dd_token(tk_member_id,tk_token,tk_device,tk_model,tk_os,tk_browser,tk_user_agent,tk_ip,tk_create_time,tk_update_time,tk_expired) VALUE(:member_id,:token,:device,:model,:os,:browser,:user_agent,:ip,:create_time,:update_time,:expired)');
+
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':token',			$param['new_token']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':model',			$param['model']);
+		parent::bind(':os',				$param['os']);
+		parent::bind(':browser',		$param['browser']);
+		parent::bind(':user_agent',		$param['user_agent']);
+		parent::bind(':ip',				parent::GetIpAddress());
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':expired',		$param['expired']);
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+
+	// Update token
+	// public function UpdateTokenProcess($param){
+	// 	parent::query('UPDATE dd_token SET tk_token = :new_token WHERE (tk_member_id = :member_id AND tk_token = :old_token AND tk_device = :device AND tk_model = :model AND tk_os  = :os)');
+
+	// 	parent::bind(':new_token',		$param['new_token']);
+	// 	parent::bind(':old_token',		$param['old_token']);
+	// 	parent::bind(':member_id',		$param['member_id']);
+	// 	parent::bind(':device',			$param['device']);
+	// 	parent::bind(':model',			$param['model']);
+	// 	parent::bind(':os',				$param['os']);
+
+	// 	parent::execute();
+	// }
+
+	// Get token
+	public function GetTokenProcess($param){
+		// Update token time
+		parent::query('UPDATE dd_token SET tk_update_time = :update_time WHERE (tk_member_id = :member_id AND tk_device = :device AND tk_user_agent = :user_agent)');
+
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':user_agent',		$param['user_agent']);
+		parent::execute();
+
+		// Get
+		parent::query('SELECT tk_member_id,tk_token,tk_device,tk_model,tk_os,tk_browser,tk_user_agent,tk_ip,tk_create_time,tk_update_time,tk_expired FROM dd_token WHERE (tk_member_id = :member_id AND tk_device = :device AND tk_user_agent = :user_agent)');
+
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':user_agent',		$param['user_agent']);
+
+		parent::execute();
+		return parent::single();
+	}
+
+	// Delete token
+	public function DeleteTokenKeyProcess($param){
+		parent::query('DELETE FROM dy_token WHERE (tk_id = :member_id AND tk_token = :old_token AND tk_device = :device AND tk_model = :model AND tk_os  = :os)');
+
+		parent::bind(':old_token',		$param['old_token']);
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':model',			$param['model']);
+		parent::bind(':os',				$param['os']);
+
 		parent::execute();
 	}
 }

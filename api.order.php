@@ -68,23 +68,23 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Paying"){
 							
 							// Sending to Customer
-							// if(!empty($user->email)){
-							// 	$mail->addAddress($user->email);
-							// 	$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
-							// 	$message 		= file_get_contents('template/email/paying.html');
-							// 	$message 		= str_replace('%order_id%' 			,$order->id, $message);
-							// 	$message 		= str_replace('%summary_payment%' 	,number_format($order->summary_payments,2), $message);
-							// 	$message 		= str_replace('%expire_date%' 		,$order->expire_time_thai_format, $message);
-							// 	$message 		= str_replace('%expire_count%' 		,$order->expire_time_datediff, $message);
-							// 	$message 		= str_replace('%bank_list%' 		,$bank->ListBankToEmail(array('id' => 0)), $message);
-							// 	$mail->Body    	= $message;
-							// 	$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+							if(!empty($user->email) && $user->status == "verified"){
+								$mail->addAddress($user->email);
+								$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
+								$message 		= file_get_contents('template/email/paying.html');
+								$message 		= str_replace('%order_id%' 			,$order->id, $message);
+								$message 		= str_replace('%summary_payment%' 	,number_format($order->summary_payments,2), $message);
+								$message 		= str_replace('%expire_date%' 		,$order->expire_time_thai_format, $message);
+								$message 		= str_replace('%expire_count%' 		,$order->expire_time_datediff, $message);
+								$message 		= str_replace('%bank_list%' 		,$bank->ListBankToEmail(array('id' => 0)), $message);
+								$mail->Body    	= $message;
+								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
-							// 	if(!$mail->send())
-							// 		$email_send = $mail->ErrorInfo;
-							// 	else
-							// 		$email_send = "Message has been sent";
-							// }
+								if(!$mail->send())
+									$email_send = $mail->ErrorInfo;
+								else
+									$email_send = "Message has been sent";
+							}
 						}
 						else if($_POST['order_action'] == "TransferRequest"){
 							// Call Money Transfer file.
@@ -95,7 +95,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Complete"){
 
 							// Sending to Customer
-							if(!empty($user->email)){
+							if(!empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'รับสินค้าเรียบร้อย';
 								$message 		= file_get_contents('template/email/complete.html');

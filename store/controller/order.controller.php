@@ -12,6 +12,7 @@ class OrderController extends OrderModel{
     public $customer_address;
     public $customer_phone;
     public $customer_email;
+    public $customer_status;
 
     // Time Update
     public $create_time;
@@ -96,6 +97,7 @@ class OrderController extends OrderModel{
         $this->customer_address = $data['od_address'];
         $this->customer_phone = $data['me_phone'];
         $this->customer_email = $data['me_email'];
+        $this->customer_status = $data['me_status'];
 
         // time update
         $this->create_time = $data['od_create_time'];

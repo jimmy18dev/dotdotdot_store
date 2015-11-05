@@ -24,6 +24,7 @@ class BankController extends BankModel{
 
 	private function Render($mode,$data){
         foreach ($data as $var){
+            $var['bk_name'] = $this->BankName($var['bk_code']);
             if($mode == "select"){
                 include'template/bank/bank.select.items.php';
             }

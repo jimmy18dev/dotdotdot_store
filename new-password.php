@@ -43,8 +43,8 @@ require_once'config/autoload.php';
 		<div class="logo">New password</div>
 		<div class="form">
 			<div class="caption">กำหนดรหัสผ่านใหม่</div>
-			<input type="text" class="input-text" id="email" placeholder="Email...">
-			<input type="text" class="input-text" id="forget_code" placeholder="Forget code...">
+			<input type="hidden" id="email" value="<?php echo $_GET['email'];?>">
+			<input type="hidden" id="forget_code" value="<?php echo $_GET['code'];?>">
 			<input type="text" class="input-text" id="password" placeholder="Password...">
 
 			<button class="button-submit" onclick="javascript:NewPassword();"><span id="login-status">Send</span></button>
