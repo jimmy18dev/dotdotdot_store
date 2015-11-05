@@ -31,16 +31,13 @@ else{
 ?>
 
 <a href="order_detail.php?id=<?php echo $var['od_id'];?>">
-<div class="order-items <?php echo ($var['od_status'] == "Cancel"||$var['od_status'] == "Expire"?'order-items-cancel':'');?> <?php echo ($var['od_admin_read'] == "open"?'order-unread':'');?>">
-	<div class="notification-icon <?php echo strtolower($var['od_status']);?>">
-		<?php echo ($var['od_admin_read']=='open'?'<i class="fa fa-circle"></i>':'<i class="fa fa-circle-o"></i>');?>
-	</div>
+<div class="order-items <?php echo ($var['od_admin_read'] == "open"?'order-unread':'');?>">
 	<div class="detail">
-		<p>ใบสั่งซื่อที่ <?php echo $var['od_id'];?> : <?php echo $var['me_name'];?></p>
-		<p class="mini"><?php echo $status;?> · <?php echo $var['order_update_time_facebook_format'];?></p>
+		<p><span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span> ใบสั่งซื้อ: <?php echo $var['od_id'];?> <i class="fa fa-user"></i> <?php echo $var['me_name'];?></p>
+		<p class="mini">ยอดชำระ <?php echo number_format($var['od_payments']+50,2);?> บาท · สินค้า <?php echo $var['od_amount'];?> ชิ้น · <?php echo $var['od_total'];?> รายการ</p>
 	</div>
 	<div class="summary">
-		<p class="total"><span class="currency">฿</span> <?php echo number_format($var['od_payments']+50,2);?></p>
+		<p class="total"><?php echo $var['order_update_time_facebook_format'];?></p>
 	</div>
 </div>
 </a>

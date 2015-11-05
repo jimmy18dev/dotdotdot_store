@@ -25,7 +25,7 @@ $current_page = "order";
 //include'favicon.php';
 ?>
 
-<title>Homepage</title>
+<title>Order</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -41,19 +41,50 @@ $current_page = "order";
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">รายการสั่งซื้อ</div>
-		
-		<div class="topic-filter">
-			<a href="#" class="paying"><i class="fa fa-circle"></i>ชำระเงิน</a>
-			<a href="#" class="transferrequest"><i class="fa fa-circle"></i>ส่งหลักฐาน</a>
-			<a href="#" class="shipping"><i class="fa fa-circle"></i>ส่งของ</a>
-			<a href="#" class="complete"><i class="fa fa-circle"></i>เรียบร้อย</a>
+
+	<!-- Order filter -->
+	<div class="filter">
+		<a href="index.php?filter=paying">
+		<div class="filter-items <?php echo ($_GET['filter'] == "paying"?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-barcode"></i></div>
+			<div class="filter-items-caption">ชำระเงิน</div>
 		</div>
+		</a>
+		<a href="index.php?filter=transferrequest">
+		<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-money"></i></div>
+			<div class="filter-items-caption">โอนเงิน</div>
+		</div>
+		</a>
+
+		<a href="index.php?filter=transfersuccess">
+		<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-check"></i></div>
+			<div class="filter-items-caption">ชำระแล้ว</div>
+		</div>
+		</a>
+
+		<a href="index.php?filter=shipping">
+		<div class="filter-items <?php echo ($_GET['filter'] == "shipping"?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-truck"></i></div>
+			<div class="filter-items-caption">รอรับของ</div>
+		</div>
+		</a>
+
+		<a href="index.php?filter=complete">
+		<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-check-circle"></i></div>
+			<div class="filter-items-caption">เรียบร้อย</div>
+		</div>
+		</a>
 	</div>
 
 	<div class="content">
-		<?php $order->ListOrder(array('id' => 0));?>
+		<?php
+		$order->ListOrder(array(
+			'filter' => $_GET['filter'],
+		));
+		?>
 	</div>
 </div>
 </body>

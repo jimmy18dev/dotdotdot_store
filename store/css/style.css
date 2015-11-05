@@ -246,6 +246,38 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
   border-radius: 2px;
 }
+.container .filter {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .filter .filter-items {
+  width: 20%;
+  padding: 4% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  color: rgba(0, 0, 0, 0.1);
+}
+.container .filter .filter-items .filter-items-icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  margin-bottom: 1%;
+}
+.container .filter .filter-items .filter-items-caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1.5em;
+}
+.container .filter .filter-items-active {
+  color: rgba(0, 0, 0, 0.9);
+  font-weight: bold;
+}
 .container .content {
   width: 100%;
   float: left;
@@ -968,33 +1000,35 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.44);
 }
-.container .content .order-items .notification-icon {
-  width: 3%;
-  float: left;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.4);
+.container .content .order-items .status {
+  color: #FFFFFF;
+  padding: 2px 5px;
+  border-radius: 2px;
   font-size: 0.8em;
 }
 .container .content .order-items .paying {
-  color: #E91E63;
+  background: #E91E63;
 }
 .container .content .order-items .transferrequest {
-  color: #3F51B5;
+  background: #3F51B5;
 }
 .container .content .order-items .transferagain {
-  color: #FFC107;
+  background: #FFC107;
 }
 .container .content .order-items .transfersuccess {
-  color: #8BC34A;
+  background: #8BC34A;
 }
 .container .content .order-items .shipping {
-  color: #2196F3;
+  background: #2196F3;
 }
 .container .content .order-items .complete {
-  color: #4CAF50;
+  background: #4CAF50;
+}
+.container .content .order-items .expire {
+  background: #EEEEEE;
 }
 .container .content .order-items .detail {
-  width: 77%;
+  width: 80%;
   float: left;
   display: inline-block;
 }

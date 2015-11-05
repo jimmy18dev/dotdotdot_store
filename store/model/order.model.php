@@ -2,8 +2,23 @@
 class OrderModel extends Database{
 	
 	public function ListOrderProcess($param){
-		
-		parent::query('SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id WHERE od_status != "Shopping" ORDER BY od_update_time DESC');
+
+		$SELECT = 'SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read ';
+		$FROM = 'FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id ';
+		$WHERE = 'WHERE od_status != "Shopping" ';
+		$ORDER = 'ORDER BY od_update_time DESC ';
+
+		if(!empty($param['filter'])){
+			$WHERE .= 'AND od_status = :filter ';
+		}
+
+		$Query = $SELECT.$FROM.$WHERE.$ORDER;
+
+		parent::query($Query);
+
+		if(!empty($param['filter']))
+			parent::bind(':filter', ucfirst(strtolower($param['filter'])));
+
 		parent::execute();
 		$dataset = parent::resultset();
 
