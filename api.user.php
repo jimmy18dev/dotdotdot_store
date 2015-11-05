@@ -24,8 +24,27 @@ if($_POST['calling'] != ''){
 						if(!empty($register)){
 							$_SESSION['member_id'] = $register;
             				setcookie('member_id', $register, COOKIE_TIME);
-            				
 							$registered = true;
+
+							// Update member info
+							$user->GetUser(array('member_id' => $register));
+
+							// Sending to Customer
+							if(!empty($user->email) && !empty($user->verify_code) && $user->status == "pending"){
+								$mail->addAddress($user->email);
+								$mail->Subject 	= 'ยืนยันอีเมลของคุณ';
+								$message 		= file_get_contents('template/email/email_verify.html');
+								$message 		= str_replace('%name%' ,$user->name, $message);
+								$message 		= str_replace('%email%' ,$user->email, $message);
+								$message 		= str_replace('%code%' ,$user->verify_code, $message);
+								$mail->Body    	= $message;
+								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
+
+								if(!$mail->send())
+									$email_send = $mail->ErrorInfo;
+								else
+									$email_send = "Message has been sent";
+							}
 						}
 						else{
 							$registered = false;

@@ -9,6 +9,10 @@ class UserController extends UserModel{
     public $facebook_name;
     public $current_order_id;
 
+    public $verify_code;
+    public $status;
+
+
     // time
     public $create_time_facebook_format;
     public $create_time_thai_format;
@@ -30,6 +34,9 @@ class UserController extends UserModel{
 
         $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
         $this->create_time_thai_format = $data['user_create_time_thai_format'];
+
+        $this->verify_code =           $data['me_verify_code'];
+        $this->status =           $data['me_status'];
 
         // Current Order
         $this->current_order_id = parent::GetCurrentOrderProcess($param);

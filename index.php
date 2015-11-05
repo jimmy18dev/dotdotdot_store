@@ -45,23 +45,6 @@ $order->CheckingOrder();
 <?php include'header.php';?>
 <div class="container">
 	<div class="container-page">
-		<div>
-		<?php
-		// $user->RegisterUser(array(
-		// 	'email' => 'mrjimmy18@gmail.com',
-		// 	'phone' => '',
-		// 	'name' => '',
-		// 	'fb_id' => '1818320188',
-		// 	'fb_name' => 'Puwadon Sricharoen',
-		// 	'password' => '',
-		// 	'type' => 'member',
-		// 	'status' => 'active',
-		// 	'refer' => 'facebook',
-		// ));
-		?>
-		</div>
-
-
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>

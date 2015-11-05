@@ -259,7 +259,7 @@ class UserModel extends Database{
 	}
 
 	public function VerifiedProcess($param){
-		parent::query('UPDATE dd_member SET me_status = "verified" WHERE me_id = :member_id');
+		parent::query('UPDATE dd_member SET me_status = "verified", me_verify_code = "" WHERE me_id = :member_id');
 		parent::bind(':member_id',			$param['member_id']);
 		parent::execute();
 	}
