@@ -49,6 +49,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($order->customer_email);
 								$mail->Subject 	= 'หลักฐานการโอนเงินไม่ถูกต้อง!';
 								$message 		= file_get_contents('template/email/again.html');
+								$message 		= str_replace('%name%', $order->customer_name, $message);
 								$message 		= str_replace('%order_id%', $order->id, $message);
 								$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
 								$mail->Body    	= $message;
@@ -61,7 +62,6 @@ if($_POST['calling'] != ''){
 							}
 						}
 						else if($_POST['order_action'] == "TransferSuccess"){
-							
 							// Sending to Customer
 							if(!empty($order->customer_email) && $order->customer_status == "verified"){
 								$mail->addAddress($order->customer_email);
@@ -69,6 +69,7 @@ if($_POST['calling'] != ''){
 								$message 		= file_get_contents('template/email/success.html');
 
 								$message 		= str_replace('%order_id%', $order->id, $message);
+								$message 		= str_replace('%name%', $order->customer_name, $message);
 								$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
 								$message        = str_replace('%customer_name%',$order->customer_name, $message);
 								$message        = str_replace('%customer_address%',$order->customer_address, $message);
@@ -111,8 +112,9 @@ if($_POST['calling'] != ''){
 						// Sending to Customer
 						if(!empty($order->customer_email) && $order->customer_status == "verified"){
 							$mail->addAddress($order->customer_email);
-							$mail->Subject 	= 'จัดส่งสินค้าแล้ว!';
+							$mail->Subject 	= 'แจ้งหมายเลขพัสดุสินค้า!';
 							$message 		= file_get_contents('template/email/shipping.html');
+							$message 		= str_replace('%name%', $order->customer_name, $message);
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%ems%', $order->ems, $message);
 							$mail->Body    	= $message;

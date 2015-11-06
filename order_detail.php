@@ -95,7 +95,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
 
-				<?php if($oder->status == "Shipping"){?>
+				<?php if($order->status == "Shipping"){?>
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
@@ -326,7 +326,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 	<div class="alert-message" id="alert-message"></div>
 </div>
 
-<?php if($order->status == "Paying"){?>
+<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 <!-- Loading process submit photo to uploading. -->
 <div id="filter">
 	<div class="logo">dotdotdot</div>

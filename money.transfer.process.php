@@ -19,7 +19,7 @@ if(!empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_
     ));
 
     // Update Realname and Phone
-    $user->UpdateUserInfo(array(
+    $user->UpdateNamePhone(array(
         'member_id'     => MEMBER_ID,
         'name'          => $_POST['realname'],
         'phone'         => $_POST['phone'],
@@ -33,6 +33,7 @@ if(!empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_
         $mail->addAddress($user->email);
         $mail->Subject  = 'กำลังตรวจสอบหลักฐานการโอนเงิน...';
         $message        = file_get_contents('template/email/confirm.html');
+        $message        = str_replace('%name%', $user->name, $message);
         $message        = str_replace('%order_id%', $_POST['order_id'], $message);
         $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
         $message        = str_replace('%customer_name%',$order->customer_name, $message);

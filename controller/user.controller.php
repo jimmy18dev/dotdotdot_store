@@ -161,6 +161,11 @@ class UserController extends UserModel{
         parent::UpdateUserInfoProcess($param);
     }
 
+    // Update name and phone by money confirm form
+    public function UpdateNamePhone($param){
+        parent::UpdateNamePhoneProcess($param);
+    }
+
     public function LoginUserProcess($param){
         $param['email']     = $param['username'];
         $param['phone']     = $param['username'];

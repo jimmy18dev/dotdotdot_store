@@ -58,6 +58,17 @@ class UserModel extends Database{
 		parent::execute();
 	}
 
+	public function UpdateNamePhoneProcess($param){
+		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_update_time = :update_time WHERE me_id = :member_id');
+
+		parent::bind(':name', 			$param['name']);
+		parent::bind(':phone', 			$param['phone']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$param['member_id']);
+
+		parent::execute();
+	}
+
 	public function UpdateForgetCodeProcess($param){
 		parent::query('UPDATE dd_member SET me_forget_code = :forget_code, me_update_time = :update_time WHERE me_email = :email');
 

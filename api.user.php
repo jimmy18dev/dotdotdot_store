@@ -124,7 +124,7 @@ if($_POST['calling'] != ''){
 						// Sending to Customer
 						if(!empty($dataset['email']) && !empty($dataset['forget_code'])){
 							$mail->addAddress($dataset['email']);
-							$mail->Subject 	= 'กู้คืนและตั้งรหัสผ่านใหม่';
+							$mail->Subject 	= 'กู้คืนรหัสผ่านในบัญชีของคุณ';
 							$message 		= file_get_contents('template/email/forget_password.html');
 							$message 		= str_replace('%email%' ,$dataset['email'], $message);
 							$message 		= str_replace('%code%' ,$dataset['forget_code'], $message);
