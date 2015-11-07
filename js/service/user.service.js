@@ -1,18 +1,71 @@
+function LoginUser(){
+    var href = 'api.user.php';
+    var username = $('#username').val();
+    var password = $('#password').val();
+
+    if(username == ""){
+        $('#status-message').html('คุณยังไม่ได้กรอก่อีเมล!').slideDown(500).delay(1000).slideUp(300);
+        return false;
+    }
+    else if(password == ""){
+        $('#status-message').html('คุณยังไม่ได้กรอกรหัสผ่าน!').slideDown(500).delay(2000).slideUp(300);
+        return false;
+    }
+
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังลงชื่อเข้าใช้...');
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'User',
+            action              :'LoginUser',
+            username:username,
+            password:password,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Callback: '+data.return+' , '+data.message);
+
+        if(data.return){
+            $('#dialog-box').fadeIn(300);
+            setTimeout(function(){window.location = 'index.php';},3000);
+        }
+        else{
+            $('#status-message').html('ลงชื่อเข้าใช้ ไม่สำเร็จ!').slideDown(500).delay(3000).slideUp(300);
+            $('#login-status').html('ลงชื่อเข้าใช้');
+            return false;
+        }
+    }).error();
+}
+
 function RegisterUser(){
     var href = 'api.user.php';
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Register...');
+    var email       = $('#email').val();
+    var phone       = $('#phone').val();
+    var name        = $('#name').val();
+    var fb_name     = $('#fb_name').val();
+    var password    = $('#password').val();
 
-    var email = $('#email').val();
-    var phone = $('#phone').val();
-    var name = $('#name').val();
-    var fb_name = $('#fb_name').val();
-    var password = $('#password').val();
-
-    if(email == "" || password == "" || name == ""){
-        $('#login-status').html('Try again!');
+    if(email == ""){
+        $('#status-message').html('คุณยังไม่ได้กรอก่อีเมล!').slideDown(500).delay(1000).slideUp(300);
         return false;
     }
+    else if(name == ""){
+        $('#status-message').html('คุณยังไม่ได้กรอกชื่อและนามสกุล!').slideDown(500).delay(2000).slideUp(300);
+        return false;
+    }
+    else if(password == ""){
+        $('#status-message').html('คุณยังไม่ได้กรอกรหัสผ่าน!').slideDown(500).delay(2000).slideUp(300);
+        return false;
+    }
+
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังสมัครสมาชิก...');
 
     $.ajax({
         url         :href,
@@ -35,25 +88,25 @@ function RegisterUser(){
         console.log('Return: '+data.message);
 
         if(data.return){
+            $('#dialog-box').fadeIn(300);
             setTimeout(function(){window.location = 'index.php';},3000);
         }
         else{
-            $('#login-status').html('Already Member!');
+            $('#status-message').html('สมัครสมาชิก ไม่สำเร็จ!').slideDown(500).delay(3000).slideUp(300);
+            $('#login-status').html('สมัครสมาชิก');
         }
     }).error();
 }
 
-function LoginUser(){
+function ForgetPassword(){
     var href = 'api.user.php';
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>sign in...');
+    var email = $('#email').val();
 
-    var username = $('#username').val();
-    var password = $('#password').val();
-
-    if(username == "" || password == ""){
-        $('#login-status').html('Try again!');
+    if(!email){
         return false;
     }
+
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่งอีเมล...');
 
     $.ajax({
         url         :href,
@@ -62,22 +115,17 @@ function LoginUser(){
         type        :"POST",
         data:{
             calling             :'User',
-            action              :'LoginUser',
-            username:username,
-            password:password,
+            action              :'ForgetPassword',
+            email            :email,
         },
         error: function (request, status, error) {
             console.log("Request Error");
         }
     }).done(function(data){
-        console.log('Callback: '+data.return+' , '+data.message);
+        console.log('Return: '+data.message);
 
-        if(data.return){
-            setTimeout(function(){window.location = 'index.php';},3000);
-        }
-        else{
-            $('#login-status').html('Try again!');
-        }
+        $('#dialog-box').fadeIn(300);
+        setTimeout(function(){window.location = 'forget_success.php';},3000);
     }).error();
 }
 
@@ -154,6 +202,7 @@ function EditInfo(){
     }).error();
 }
 
+// Change Password from User edit on profile
 function ChangePassword(){
     var href = 'api.user.php';
     var password = $('#password').val();
@@ -161,6 +210,8 @@ function ChangePassword(){
     if(!password){
         return false;
     }
+
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังตั้งรหัสผ่านใหม่...');
 
     $.ajax({
         url         :href,
@@ -178,45 +229,15 @@ function ChangePassword(){
     }).done(function(data){
         console.log('Return: '+data.message);
 
-        // Redirect page after submit address.
-        setTimeout(function(){window.location = 'me.php'},1000);
-
-    }).error();
-}
-
-function ForgetPassword(){
-    var href = 'api.user.php';
-    var email = $('#email').val();
-
-    if(!email){
-        return false;
-    }
-
-    $.ajax({
-        url         :href,
-        cache       :false,
-        dataType    :"json",
-        type        :"POST",
-        data:{
-            calling             :'User',
-            action              :'ForgetPassword',
-            email            :email,
-        },
-        error: function (request, status, error) {
-            console.log("Request Error");
-        }
-    }).done(function(data){
-        console.log('Return: '+data.message);
-
-        // Redirect page after submit address.
-        // setTimeout(function(){window.location = 'me.php'},1000);
-
+        $('#dialog-box').fadeIn(300);
+        setTimeout(function(){window.location = 'change_password_success.php';},3000);
     }).error();
 }
 
 // New Password by Forget Password
 function NewPassword(){
     var href = 'api.user.php';
+
     var email = $('#email').val();
     var forget_code = $('#forget_code').val();
     var password = $('#password').val();
@@ -244,7 +265,8 @@ function NewPassword(){
         console.log('Return: '+data.message);
 
         // Redirect page after submit address.
-        setTimeout(function(){window.location = 'login.php'},1000);
+        $('#dialog-box').fadeIn(300);
+        setTimeout(function(){window.location = 'change_password_success.php';},3000);
 
     }).error();
 }

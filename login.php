@@ -24,7 +24,7 @@ include'facebook.php';
 //include'favicon.php';
 ?>
 
-<title>Login</title>
+<title>ลงชื่อเข้าใช้</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -37,7 +37,7 @@ include'facebook.php';
 
 </head>
 
-<body class="bg-full-screen">
+<body>
 <div class="login-dialog">
 	<div class="login-container">
 		<div class="logo">dotdotdot limited.</div>
@@ -45,11 +45,13 @@ include'facebook.php';
 			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 			<div class="mini-caption">หรือ</div>
 			<div class="caption">Email or Phone Number</div>
-			<input type="text" class="input-text" id="username">
+			<input type="email" class="input-text" id="username" placeholder="example@gmail.com...">
 			<div class="caption">Password</div>
-			<input type="password" class="input-text" id="password">
+			<input type="password" class="input-text" id="password" placeholder="รหัสผ่าน...">
 
-			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">Login</span></button>
+			<div class="status" id="status-message"></div>
+
+			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">ลงชื่อเข้าใช้</span></button>
 
 			<div class="option">
 				<a href="register.php">สมัครสมาชิก</a>
@@ -59,5 +61,11 @@ include'facebook.php';
 		</div>
 	</div>
 </div>
+
+
+<div class="dialog-box" id="dialog-box">
+	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+</div>
+
 </body>
 </html>

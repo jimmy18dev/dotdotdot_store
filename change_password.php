@@ -37,17 +37,17 @@ require_once'config/autoload.php';
 
 </head>
 
-<body class="bg-full-screen">
+<body>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">New password</div>
+		<div class="logo">Change Password</div>
 		<div class="form">
 			<div class="caption">กำหนดรหัสผ่านใหม่</div>
 			<input type="hidden" id="email" value="<?php echo $_GET['email'];?>">
 			<input type="hidden" id="forget_code" value="<?php echo $_GET['code'];?>">
 			<input type="text" class="input-text" id="password" placeholder="Password...">
 
-			<button class="button-submit" onclick="javascript:NewPassword();"><span id="login-status">Send</span></button>
+			<button class="button-submit" onclick="javascript:NewPassword();"><span id="login-status">ตั้งรหัสผ่านใหม่</span></button>
 
 			<div class="option">
 				<a href="login.php">เข้าระบบ</a>
@@ -56,6 +56,10 @@ require_once'config/autoload.php';
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="dialog-box" id="dialog-box">
+	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
 </div>
 </body>
 </html>

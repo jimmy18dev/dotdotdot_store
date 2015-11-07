@@ -217,12 +217,12 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   line-height: 1.5em;
-  font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.44);
 }
 .login-dialog .login-container .form .input-text {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
   font-size: 1em;
@@ -232,6 +232,33 @@ Copyright (c) 2015 Daniel Eden
   outline: 0;
   margin-bottom: 7%;
   color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px solid #EEEEEE;
+}
+.login-dialog .login-container .form .input-text:focus {
+  border-bottom: 1px solid #AAAAAA;
+}
+.login-dialog .login-container .form .input-text::-webkit-input-placeholder {
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-dialog .login-container .form .input-text:-moz-placeholder {
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-dialog .login-container .form .input-text::-moz-placeholder {
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-dialog .login-container .form .input-text:-ms-input-placeholder {
+  color: rgba(0, 0, 0, 0.9);
+}
+.login-dialog .login-container .form .status {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin-bottom: 5%;
+  color: #F44336;
+  display: none;
 }
 .login-dialog .login-container .form .button-submit {
   width: 100%;
@@ -268,7 +295,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 5% 0%;
   float: left;
   display: inline-block;
-  background: #000000;
+  background: #3b5998;
   font-family: sans-serif, 'Open Sans';
   color: #FFFFFF;
   text-align: center;
@@ -868,12 +895,11 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .container-page .profile {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
   float: left;
   display: inline-block;
-  background: #FAFAFA;
-  margin-bottom: 1%;
+  padding-bottom: 1%;
+  border-bottom: 1px solid #FAFAFA;
 }
 .container .container-page .profile .profile-avatar {
   width: 15%;
@@ -1096,6 +1122,36 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
   color: #FFFFFF;
   line-height: 1.5em;
+}
+.dialog-box {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  display: none;
+}
+.dialog-box .icon {
+  width: 100%;
+  padding-top: 23%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.dialog-box .icon i {
+  font-size: 4em;
+  margin-bottom: 2%;
+}
+.dialog-box .icon p {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.44);
+}
+.dialog-box .icon a {
+  color: rgba(0, 0, 0, 0.9);
+}
+.dialog-box-show {
+  display: inline-block;
 }
 #loading-status {
   position: fixed;

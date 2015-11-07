@@ -24,7 +24,7 @@ include'facebook.php';
 //include'favicon.php';
 ?>
 
-<title>Register</title>
+<title>สมัครสมาชิก</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -37,29 +37,31 @@ include'facebook.php';
 
 </head>
 
-<body class="bg-full-screen">
+<body>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">สมัครสมาชิก / Register</div>
+		<div class="logo">สมัครสมาชิก</div>
 		<div class="form">
 			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 			<div class="mini-caption">หรือ</div>
 			<div class="caption">Email</div>
-			<input type="text" class="input-text" id="email" placeholder="Email">
+			<input type="text" class="input-text" id="email" placeholder="example@gmail.com...">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
 
-			<div class="caption">Full Name</div>
-			<input type="text" class="input-text" id="name" placeholder="Fullname">
+			<div class="caption">Name</div>
+			<input type="text" class="input-text" id="name" placeholder="ชื่อ และ นามสกุล...">
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
 
 			<div class="caption">Password</div>
-			<input type="text" class="input-text" id="password" placeholder="Password">
+			<input type="text" class="input-text" id="password" placeholder="อย่างน้อย 6 ตัวอักษร...">
 
-			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">Register</span></button>
+			<div class="status" id="status-message"></div>
+
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">สมัครสมาชิก</span></button>
 
 			<div class="option">
 				<a href="login.php">เข้าระบบ</a>
@@ -68,6 +70,10 @@ include'facebook.php';
 			</div>
 		</div>
 	</div>
+</div>
+
+<div class="dialog-box" id="dialog-box">
+	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
 </div>
 </body>
 </html>

@@ -1,9 +1,5 @@
 <?php
 require_once'config/autoload.php';
-include'sdk/facebook-sdk/autoload.php';
-include'facebook.php';
-
-$verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_GET['code']));
 ?>
 
 <!DOCTYPE html>
@@ -26,33 +22,25 @@ $verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_G
 //include'favicon.php';
 ?>
 
-<title>Email Verify!</title>
+<title>กรุณารอสักครู่...</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
-<!-- JS Lib -->
-<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-
 </head>
 
 <body>
 <div class="dialog-box dialog-box-show">
 	<div class="icon" id="dialog-box-icon">
-		<?php if($verified){?>
-		<i class="fa fa-check-circle-o"></i>
-		<p>ยืนยันอีเมล <?php echo $_GET['email'];?> เรียบร้อยแล้ว</p>
-		<?php }else{?>
-		<i class="fa fa-exclamation-circle"></i>
-		<p>ยืนยันอีเมลไม่สำเร็จ กรุณาเลือกอีกครั้งค่ะ</p>
-		<?php }?>
+		<i class="fa fa-key"></i>
+		<p>ตั้งรหัสผ่านใหม่แล้ว...</p>
 	</div>
 </div>
 
 <script type="text/javascript">
-setTimeout(function(){window.location = 'login.php';},3000);
+	setTimeout(function(){window.location = 'login.php';},3000);
 </script>
 
 </body>
