@@ -1,7 +1,7 @@
 $(document).ready(function(){
     // Textarea Autosize
     // $('.normal').autosize();
-    //$('.animated').autosize({append: "\n"});
+    $('.animated').autosize({append: "\n"});
 
     var $body = window.document.body;
     var order_id = $('#order_id').val();
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
             if(percent == 100){
                 // $('#loading-bar').fadeOut();
-                $('#loading-message').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่งภาพสลิปโอนเงิน...');
+                $('#loading-message').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่ง...');
             }
 
             console.clear();
@@ -38,11 +38,9 @@ $(document).ready(function(){
             console.log(xhr.responseText);
             console.log('complete => Success');
 
-            $('#loading-message').html('<i class="fa fa-check"></i> ส่งภาพสำเร็จ');
+            $('#loading-message').html('<i class="fa fa-check"></i>สำเร็จ');
 
-            setTimeout(function(){
-                window.location = 'order_detail.php?id='+order_id;
-            },1000);
+            setTimeout(function(){window.location = 'order_detail.php?id='+order_id;},1000);
         },
         resetForm:true
     };

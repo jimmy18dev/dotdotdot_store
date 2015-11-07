@@ -36,6 +36,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script type="text/javascript" src="js/service/order.service.js"></script>
@@ -190,7 +191,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<div class="form-items">
 							<div class="label">ที่อยู่</div>
 							<div class="input">
-								<textarea name="address" class="input-text input-textarea" placeholder="ที่อยู่สำหรับส่งสินค้า..."><?php echo $order->address;?></textarea>
+								<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..."><?php echo $order->address;?></textarea>
 							</div>
 						</div>
 
@@ -203,7 +204,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 
 						<div class="form-items full-size">
 							<div class="input">
-								<textarea name="description" class="input-text input-textarea" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
+								<textarea name="description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
 							</div>
 						</div>
 
@@ -322,16 +323,15 @@ $order->ReadOrder(array('order_id' => $order->id));
 	</div>
 </div>
 
-<div id="alert">
-	<div class="alert-message" id="alert-message"></div>
+<div class="dialog-box" id="dialog-box">
+	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
 </div>
 
 <?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 <!-- Loading process submit photo to uploading. -->
 <div id="filter">
-	<div class="logo">dotdotdot</div>
-	<div id="loading-bar"></div>
 	<div id="loading-message"></div>
+	<div id="loading-bar"></div>
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 

@@ -1053,36 +1053,30 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
+  z-index: 999;
   display: none;
-}
-#filter .logo {
-  width: 100%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 1em;
-}
-#filter #loading-bar {
-  width: 60%;
-  margin-top: 20%;
-  height: 2px;
-  float: left;
-  display: inline-block;
-  background: #000000;
 }
 #filter #loading-message {
   width: 100%;
-  padding: 2% 0%;
+  margin-top: 20%;
+  padding: 1% 0%;
   float: left;
   display: inline-block;
   text-align: center;
-  line-height: 1.5em;
+  line-height: 2em;
   font-size: 0.9em;
-  color: #555555;
+  color: rgba(0, 0, 0, 0.44);
 }
 #filter #loading-message i {
   margin-right: 10px;
+  font-size: 0.8em;
+}
+#filter #loading-bar {
+  width: 60%;
+  height: 1px;
+  float: left;
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.9);
 }
 #filter .cancel {
   width: 100%;

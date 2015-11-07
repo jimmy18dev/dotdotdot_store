@@ -102,11 +102,9 @@ function RemoveItemInOrder(order_id,product_id){
 
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
-
-    //Include alert.app.js
-    ShowAlert('<i class="fa fa-circle-o-notch"></i> รอสักครู่...');
-
     var shipping_type = $('#shipping_type').val();
+    
+    $('#dialog-box').fadeIn(300);
 
     $.ajax({
         url         :href,

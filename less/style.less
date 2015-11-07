@@ -1093,39 +1093,32 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     background: #FFFFFF;
+    z-index: 999;
     display: none;
 
-    .logo{
+    #loading-message{
         width: 100%;
-        padding: 2% 0%;
+        margin-top: 20%;
+        padding: 1% 0%;
         float: left;
         display: inline-block;
         text-align: center;
-        font-size: 1em;
+        line-height: 2em;
+        font-size: 0.9em;
+        color: rgba(0, 0, 0, 0.44);
+
+        i{
+            margin-right: 10px;
+            font-size: 0.8em;
+        }
     }
 
     #loading-bar{
         width: 60%;
-        margin-top: 20%;
-        height: 2px;
+        height: 1px;
         float: left;
         display: inline-block;
-        background: #000000;
-    }
-
-    #loading-message{
-        width: 100%;
-        padding: 2% 0%;
-        float: left;
-        display: inline-block;
-        text-align: center;
-        line-height: 1.5em;
-        font-size: 0.9em;
-        color: #555555;
-
-        i{
-            margin-right: 10px;
-        }
+        background: rgba(0, 0, 0, 0.9);
     }
 
     .cancel{
