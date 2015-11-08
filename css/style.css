@@ -720,6 +720,22 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .order-detail .order-box .box .form-control .submit-btn i {
   margin-right: 10px;
 }
+.container .container-page .order-detail .cancel-btn {
+  float: right;
+  display: inline-block;
+  margin: 2% 0%;
+  color: #F44336;
+  font-size: 0.8em;
+  opacity: 0.6;
+}
+.container .container-page .order-detail .cancel-btn:hover {
+  opacity: 1;
+  cursor: pointer;
+  text-decoration: underline;
+}
+.container .container-page .order-detail .cancel-btn i {
+  margin-right: 5px;
+}
 .container .container-page .product-photos {
   width: 60%;
   float: left;

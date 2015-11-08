@@ -6,7 +6,7 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^product-([^_]*)\.html$ /product.php?id=$1 [L]
 RewriteRule ^page-([^_]*)-([^_]*)\.html$ /page.php?id=$1&name=$2 [L]
 
-RewriteRule ^order-([^_]*)\.html$ /order.php?id=$1 [L]
+RewriteRule ^order-([^_]*)\.html$ /order.php?id=$1 [QSA,L]
 
 ErrorDocument 400     /404.php
 ErrorDocument 401     /404.php

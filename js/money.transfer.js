@@ -39,13 +39,34 @@ $(document).ready(function(){
             console.log('complete => Success');
 
             $('#loading-message').html('<i class="fa fa-check"></i>สำเร็จ');
-
             setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
         },
         resetForm:true
     };
 
-    $('#MoneyTransfer').submit(function() {
+    $('#MoneyTransfer').submit(function(){
+        var bank            = $('#transfer_bank').val();
+        var value           = $('#transfer_total').val();
+        var realname        = $('#transfer_realname').val();
+        var address         = $('#transfer_address').val();
+        var phone           = $('#transfer_phone').val();
+
+        if(bank == 0){
+            return false;
+        }
+        if(value == ""){
+            return false;
+        }
+        if(realname == ""){
+            return false;
+        }
+        if(address == ""){
+            return false;
+        }
+        if(phone == ""){
+            return false;
+        }
+
         if(!BeforePostSubmit()){
             return false;
             console.log('return false');

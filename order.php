@@ -76,7 +76,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 		</div>
 		<?php }?>
 
-		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?> : <span onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิกการสั่งซื้อ</span></div>
+		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
 
 		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
@@ -138,7 +138,6 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-barcode"></i></div>
-
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 					<div class="box">
 						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
@@ -152,7 +151,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<div class="form-items">
 							<div class="label">โอนเข้าธนาคาร: </div>
 							<div class="input">
-								<select name="to_bank" class="input-text">
+								<select name="to_bank" id="transfer_bank" class="input-text">
 									<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
 									<?php $bank->ListBank(array('mode' => 'select'));?>
 								</select>
@@ -161,7 +160,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<div class="form-items">
 							<div class="label">ยอดเงินที่โอน</div>
 							<div class="input">
-								<input type="text" class="input-text" name="total" placeholder="ยอดชำระ <?php echo number_format($order->summary_payments);?> บาท">
+								<input type="text" class="input-text" name="total" id="transfer_total" placeholder="ยอดที่ต้องชำระ <?php echo number_format($order->summary_payments);?> บาท">
 							</div>
 						</div>
 						<div class="form-items">
@@ -183,32 +182,32 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<div class="form-items">
 							<div class="label">ชื่อผุ้รับสินค้า</div>
 							<div class="input">
-								<input type="text" class="input-text" name="realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
+								<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
 							</div>
 						</div>
 
 						<div class="form-items">
 							<div class="label">ที่อยู่</div>
 							<div class="input">
-								<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..."><?php echo $order->address;?></textarea>
+								<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo $order->address;?></textarea>
 							</div>
 						</div>
 
 						<div class="form-items">
 							<div class="label">เบอร์โทรศัพท์</div>
 							<div class="input">
-								<input type="text" class="input-text" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
+								<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
 							</div>
 						</div>
 
 						<div class="form-items full-size">
 							<div class="input">
-								<textarea name="description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
+								<textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
 							</div>
 						</div>
 
 						<div class="form-control">
-							<button class="submit-btn" type="submit">ยืนยันการโอนเงิน</button>
+							<button class="submit-btn" type="submit"><i class="fa fa-cloud-upload"></i>ส่งหลักฐาน</button>
 						</div>
 
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
@@ -246,7 +245,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
 						<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
-						<p><a href="order_detail.php?id=<?php echo $order->id;?>&edit=address">แก้ไขที่อยู่</a></p>
+						<p><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
 					</div>
 				</div>
 				<?php }?>
@@ -331,7 +330,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<input type="hidden" id="all-payments" value="<?php echo $order->summary_payments;?>">
 					</div>
 				</div>
-			<?php }else{?>
+				<?php }else{?>
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
@@ -340,7 +339,11 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<p>กรุณาเลือกสินค้าที่คุณต้องการก่อนนะค่ะ...</p>
 					</div>
 				</div>
-			<?php }?>
+				<?php }?>
+
+				<? if($order->status == "Paying"){?>
+				<div class="cancel-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');"><i class="fa fa-times"></i>ยกเลิกการสั่งซื้อ</div>
+				<?php }?>
 		</div>
 	</div>
 </div>
