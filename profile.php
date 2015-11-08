@@ -3,6 +3,11 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 
+if(!MEMBER_ONLINE || MEMBER_ID != $user->id){
+	header("Location: login.php");
+	die();
+}
+
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
@@ -37,7 +42,6 @@ if(!empty($user->current_order_id)){
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -56,33 +60,21 @@ if(!empty($user->current_order_id)){
 				<?php }?>
 			</div>
 			<div class="profile-info">
-				<p class="big">แก้ไขข้อมูลส่วนตัว</p>
+				<p class="big">คุณ <?php echo $user->name;?></p>
+				<p><?php echo $user->email;?> · <?php echo $user->phone;?></p>
+				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
+				<p>ยอดสั่งซื้อรวม <strong>364.00</strong> บาท</p>
 
-				<div class="form">
-					<div class="form-item">
-						<div class="caption">ชื่อ-นามสกุล</div>
-						<div class="input">
-							<input type="text" id="name" value="<?php echo $user->name;?>">
-						</div>
-					</div>
-					<div class="form-item">
-						<div class="caption">เบอร์ติดต่อ</div>
-						<div class="input">
-							<input type="text" id="phone" value="<?php echo $user->phone;?>">
-						</div>
-					</div>
-					<div class="form-item">
-						<div class="caption">อีเมล</div>
-						<div class="input">
-							<input type="text" id="email" value="<?php echo $user->email;?>">
-						</div>
-					</div>
-
-					<div class="form-submit">
-						<button onclick="javascript:EditInfo();">บันทึก</button>
-					</div>
-				</div>
+				<p class="link">
+					<a href="profile_edit.php">แก้ไขข้อมูล</a>
+					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
+					<a href="logout.php" class="logout">ออกจากระบบ</a>
+				</p>
 			</div>	
+		</div>
+
+		<div class="list-content">
+			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>
 </div>

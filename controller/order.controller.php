@@ -8,6 +8,7 @@ class OrderController extends OrderModel{
     public $summary_payments;
 
     // Customer
+    public $customer_id;
     public $customer_name;
     public $customer_address;
     public $customer_phone;
@@ -204,6 +205,7 @@ class OrderController extends OrderModel{
         $this->description = $data['od_description'];
 
         // Customer data
+        $this->customer_id = $data['me_id'];
         $this->customer_name = $data['me_name'];
         $this->customer_address = $data['od_address'];
         $this->customer_phone = $data['me_phone'];

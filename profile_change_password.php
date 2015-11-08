@@ -3,6 +3,11 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 
+if(!MEMBER_ONLINE || MEMBER_ID != $user->id){
+	header("Location: login.php");
+	die();
+}
+
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
@@ -37,6 +42,7 @@ if(!empty($user->current_order_id)){
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -55,19 +61,18 @@ if(!empty($user->current_order_id)){
 				<?php }?>
 			</div>
 			<div class="profile-info">
-				<p class="big">คุณ <?php echo $user->name;?></p>
-				<p class="link">
-					<a href="me-edit.php"><i class="fa fa-sign-out"></i>แก้ไขข้อมูลส่วนตัว</a> | 
-					<a href="change-password.php"><i class="fa fa-sign-out"></i>เปลี่ยนรหัสผ่านใหม่</a> | 
-					<a href="logout.php" class="logout"><i class="fa fa-sign-out"></i>ออกจากระบบ</a></p>
-				<p>เบอร์ติดต่อ: <?php echo $user->phone;?></p>
-				<p>Email: <?php echo $user->email;?></p>
-				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-			</div>	
-		</div>
+				<p class="big">เปลี่ยนรหัสผ่านใหม่</p>
 
-		<div class="list-content">
-			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
+				<div class="form">
+					<div class="form-items">
+						<input type="text" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร...">
+					</div>
+
+					<div class="form-submit">
+						<div class="submit-btn" onclick="javascript:ChangePassword();">บันทึก</div>
+					</div>
+				</div>
+			</div>	
 		</div>
 	</div>
 </div>

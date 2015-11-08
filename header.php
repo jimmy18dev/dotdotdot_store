@@ -2,7 +2,7 @@
 	<div class="header-items logo"><a href="index.php">dotdotdot limited<span class="beta"></span></a></div>
 
 	<?php if(MEMBER_ONLINE){?>
-	<a href="me.php">
+	<a href="profile.php">
 	<div class="header-items avatar">
 		<?php if(empty($user->facebook_id)){?>
 		<img src="image/avatar.png" alt="">

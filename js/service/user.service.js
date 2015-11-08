@@ -160,7 +160,7 @@ function SubmitAddress(){
 
         // Redirect page after submit address.
         if(order_id)
-            setTimeout(function(){window.location = 'order_detail.php?id='+order_id;},1000);
+            setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
         else
             setTimeout(function(){window.location = 'me.php'},1000);
 
@@ -197,7 +197,7 @@ function EditInfo(){
         console.log('Return: '+data.message);
 
         // Redirect page after submit address.
-        setTimeout(function(){window.location = 'me.php'},1000);
+        setTimeout(function(){window.location = 'profile.php'},1000);
 
     }).error();
 }

@@ -2,7 +2,20 @@
 require_once'config/autoload.php';
 include'sdk/facebook-sdk/autoload.php';
 include'facebook.php';
+
+// Get Order information.
 $order->GetOrder(array('order_id' => $_GET['id']));
+
+if(!MEMBER_ONLINE){
+	header("Location: login.php");
+	die();
+}
+if(MEMBER_ID != $order->customer_id){
+	header("Location: 404.php");
+	die();
+}
+
+// Order owner readed this order.
 $order->ReadOrder(array('order_id' => $order->id));
 ?>
 

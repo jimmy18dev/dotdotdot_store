@@ -3,6 +3,11 @@ require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
 
+if(!MEMBER_ONLINE || MEMBER_ID != $user->id){
+	header("Location: login.php");
+	die();
+}
+
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
@@ -45,7 +50,6 @@ if(!empty($user->current_order_id)){
 <?php include'header.php';?>
 
 <div class="container">
-
 	<div class="container-page">
 		<div class="profile">
 			<div class="profile-avatar">
@@ -56,18 +60,21 @@ if(!empty($user->current_order_id)){
 				<?php }?>
 			</div>
 			<div class="profile-info">
-				<p class="big">เปลี่ยนรหัสผ่านใหม่</p>
+				<p class="big">แก้ไขข้อมูลส่วนตัว</p>
 
 				<div class="form">
-					<div class="form-item">
-						<div class="caption">รหัสผ่านใหม่</div>
-						<div class="input">
-							<input type="text" id="password">
-						</div>
+					<div class="form-items">
+						<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>">
+					</div>
+					<div class="form-items">
+						<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
+					</div>
+					<div class="form-items">
+						<input type="text" class="input-text" id="email" value="<?php echo $user->email;?>">
 					</div>
 
 					<div class="form-submit">
-						<button onclick="javascript:ChangePassword();">บันทึก</button>
+						<div class="submit-btn" onclick="javascript:EditInfo();">บันทึก</div>
 					</div>
 				</div>
 			</div>	
