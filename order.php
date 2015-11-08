@@ -3,7 +3,6 @@ require_once'config/autoload.php';
 include'sdk/facebook-sdk/autoload.php';
 include'facebook.php';
 $order->GetOrder(array('order_id' => $_GET['id']));
-
 $order->ReadOrder(array('order_id' => $order->id));
 ?>
 
@@ -77,7 +76,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 		</div>
 		<?php }?>
 
-		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
+		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?> : <span onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิกการสั่งซื้อ</span></div>
 
 		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
@@ -218,8 +217,27 @@ $order->ReadOrder(array('order_id' => $order->id));
 				</div>
 				<?php }?>
 
+				<!-- Edit Name Address and Phone number of Customer -->
+				<?php if($order->status == "TransferRequest" && $_GET['edit'] == "address"){?>
+				<div class="order-box">
+					<div class="icon"><i class="fa fa-map-pin"></i></div>
+					<div class="box">
+						<p class="caption">แก้ไขที่อยู่</p>
+						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
+						<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>
+						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
+
+						<div class="form-control">
+							<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
+						</div>
+					</div>
+				</div>
+				<?php }?>
+
 				<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 
+
+				<?php if($_GET['edit'] != "address"){?>
 				<!-- Address -->
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
@@ -228,8 +246,10 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
 						<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
+						<p><a href="order_detail.php?id=<?php echo $order->id;?>&edit=address">แก้ไขที่อยู่</a></p>
 					</div>
 				</div>
+				<?php }?>
 
 				<!-- Money transfer info -->
 				<div class="order-box">
@@ -237,7 +257,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 					<div class="box">
 						<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
 						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
-						<p>โอนเงินเข้า: ธนาคาร<?php echo $order->m_bank_name;?> <?php echo $order->m_bank_number;?></p>
+						<p>โอนเงินเข้า: <?php echo $bank->BankName($order->m_bank_code);?> <?php echo $order->m_bank_number;?></p>
 
 						<?php if(!empty($order->m_message)){?>
 						<p class="message">"<?php echo $order->m_message;?>"</p>
@@ -248,6 +268,8 @@ $order->ReadOrder(array('order_id' => $order->id));
 							<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
 						</div>
 						<?php }?>
+
+						<p><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>
 					</div>
 				</div>
 				<?php }?>
@@ -313,9 +335,9 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
-						<p class="caption">ตะกร้าสินค้า</p>
+						<p class="caption">ตะกร้าสินค้าของคุณ</p>
 						<p class="big">ไม่พบสินค้า!</p>
-						<p>เลือกสินค้าที่คุณต้องการค่ะ...</p>
+						<p>กรุณาเลือกสินค้าที่คุณต้องการก่อนนะค่ะ...</p>
 					</div>
 				</div>
 			<?php }?>

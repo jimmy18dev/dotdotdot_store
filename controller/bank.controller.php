@@ -6,6 +6,10 @@ class BankController extends BankModel{
         return parent::CreateMoneyTransferProcess($param);
     }
 
+    public function KillTransferMoney($param){
+        parent::KillTransferMoneyProcess($param);
+    }
+
     public function ListBank($param){
 		$dataset = parent::ListBankProcess($param);
 		$this->Render($param['mode'],$dataset);
@@ -37,7 +41,7 @@ class BankController extends BankModel{
     }
 
     // Convert Bank Code to Bank Name
-    private function BankName($code){
+    public function BankName($code){
         if($code == "BBL")
             $name = "ธนาคารกรุงเทพ";
         else if($code == "BAY")

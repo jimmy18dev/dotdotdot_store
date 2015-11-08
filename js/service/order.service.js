@@ -33,7 +33,7 @@ function AddItemToOrder(product_id){
             MyCurrentOrder();
         }
         else{
-            window.location='order_detail.php?id='+data.return;
+            window.location='order-'+data.return+'.html';
         }
 
     }).error();
@@ -155,5 +155,62 @@ function MyCurrentOrder(){
         else{
             $('#my-cart i').removeClass('animated infinite pulse');   
         }
+    }).error();
+}
+
+
+// Edit Name, Address, Phone number in Order
+function EditAddress(order_id){
+    var href = 'api.order.php';
+
+    var realname        = $('#customer_name').val();
+    var address     = $('#customer_address').val();
+    var phone       = $('#customer_phone').val();
+
+    $('#dialog-box').fadeIn(300);
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Order',
+            action              :'EditAddress',
+            order_id            :order_id,
+            realname            :realname,
+            address             :address,
+            phone               :phone,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Message: '+data.message+' Return:'+data.return);
+        setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
+    }).error();
+}
+
+function CencelTransfer(order_id){
+    var href = 'api.order.php';
+
+    $('#dialog-box').fadeIn(300);
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Order',
+            action              :'CancelTransfer',
+            order_id            :order_id,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Message: '+data.message+' Return:'+data.return);
+        setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
     }).error();
 }

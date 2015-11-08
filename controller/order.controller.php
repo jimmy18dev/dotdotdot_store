@@ -27,6 +27,7 @@ class OrderController extends OrderModel{
     // Money Transfer
     public $m_total;
     public $m_message;
+    public $m_bank_code;
     public $m_bank_name;
     public $m_bank_number;
     public $m_photo;
@@ -75,26 +76,38 @@ class OrderController extends OrderModel{
             parent::UpdateAddressOrderProcess($param);
             parent::UpdateConfirmTimeProcess($param);
             
-            // Update order status to "Paying"
+            // Update order status to "Transfer Request"
+            parent::UpdateStatusOrderProcess($param);
+        }
+        else if($param['order_action'] == 'TransferAgain'){
+            // Update order status to "Transfer Again"
             parent::UpdateStatusOrderProcess($param);
         }
         else if($param['order_action'] == 'Complete'){
             parent::UpdateCompleteTimeProcess($param);
             
-            // Update order status to "Paying"
+            // Update order status to "Complete"
             parent::UpdateStatusOrderProcess($param);
         }
-        // else if($param['order_action'] == 'Cancel'){
-        //     $param['action'] = 'restore';
-        //     $this->UpdateProductAmount($param);
-        // }
+        else if($param['order_action'] == 'Cancel'){
+            // Update order status to "Cancel"
+            parent::UpdateStatusOrderProcess($param);
+            // Restore all product items in order to Stock
+            $this->UpdateProductQuantity(array('order_id' => $param['order_id'],'action'=>'restore'));
+        }
 
         // // Save order activity log
         // if($param['order_action'] == "Delete" || $param['order_action'] == "Expire"){
         //     $param['member_id'] = 0; // 0 = System
         // }
         
+        // Save order activity log
         parent::CreateOrderActivityProcess($param);
+    }
+
+    // Edit address in order
+    public function EditAddress($param){
+        parent::UpdateAddressOrderProcess($param);
     }
     // END ORDER PROCESS /////////////////////
 
@@ -223,6 +236,7 @@ class OrderController extends OrderModel{
         $transfer = parent::GetMoneyTransferProcess(array('order_id' => $this->id));
         $this->m_total = $transfer['mf_total'];
         $this->m_description = $transfer['mf_description'];
+        $this->m_bank_code = $transfer['bk_code'];
         $this->m_bank = $transfer['bk_name'];
         $this->m_bank_number = $transfer['bk_account_number'];
         $this->m_photo = $transfer['im_filename'];

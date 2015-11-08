@@ -2,7 +2,7 @@
 
 if(MEMBER_ONLINE){
 	if($var['pd_type'] == "root"){
-		$js_function = "window.location='product_detail.php?id=".$var['pd_id']."';";
+		$js_function = "window.location='product-".$var['pd_id'].".html';";
 	}
 	else{
 		$js_function = "AddItemToOrder(".$var['pd_id'].");";
@@ -38,13 +38,13 @@ else{
 
 <div class="product-items <?php echo ($var['pd_style'] == "highlight"?'product-higtlight':'');?>">
 	<div class="product-items-thumbnail">
-		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
+		<a href="product-<?php echo $var['pd_id'];?>.html" target="_parent">
 			<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">
 		</a>
 	</div>
 	<div class="product-items-detail">
 		<div class="detail-title">
-			<p><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></p>
+			<p><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></p>
 			<p class="msg"><?php echo $msg;?></p>
 		</div>
 		<div class="detail-buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">

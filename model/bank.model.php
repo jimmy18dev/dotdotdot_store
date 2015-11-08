@@ -28,5 +28,12 @@ class BankModel extends Database{
 		parent::execute();
 		return parent::lastInsertId();
 	}
+
+	// Cancel
+	public function KillTransferMoneyProcess($param){
+		parent::query('UPDATE dd_money_transfer SET mf_status = "cancel" WHERE mf_order_id = :order_id');
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+	}
 }
 ?>

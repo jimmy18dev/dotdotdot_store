@@ -30,7 +30,7 @@ else{
 }
 ?>
 
-<a href="order_detail.php?id=<?php echo $var['od_id'];?>">
+<a href="order-<?php echo $var['od_id'];?>.html">
 <div class="order-items">
 	<div class="order-items-status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></div>
 	<div class="order-items-id">ใบสั่งซื้อหมายเลข <?php echo $var['od_id'];?></div>

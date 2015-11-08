@@ -118,6 +118,43 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'EditAddress':
+					if(true){
+						// Edit name and phone
+						$user->UpdateNamePhone(array(
+					        'member_id'     => MEMBER_ID,
+					        'name'          => $_POST['realname'],
+					        'phone'         => $_POST['phone'],
+					    ));
+
+					    // Edit address in order
+					    $order->EditAddress(array(
+					    	'order_id' 		=> $_POST['order_id'],
+					    	'address' 		=> $_POST['address'],
+					    ));
+
+						$api->successMessage('Name,Address,Phone updated!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
+				case 'CancelTransfer':
+					if(true){
+						$order->OrderProcess(array(
+							'member_id' 	=> MEMBER_ID,
+							'order_id' 		=> $_POST['order_id'],
+							'order_action' 	=> 'TransferAgain',
+						));
+						
+						$bank->KillTransferMoney(array('order_id' => $_POST['order_id']));
+
+						$api->successMessage('Money Transfer\'s Cancel!','','');
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

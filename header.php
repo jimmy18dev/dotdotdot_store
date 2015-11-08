@@ -18,7 +18,7 @@
 	</div>
 	</a>
 
-	<a href="order_detail.php?id=<?php echo $user->current_order_id;?>">
+	<a href="order-<?php echo $user->current_order_id;?>.html">
 	<div class="header-items cart animated" id="my-cart">
 		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i><span class="payments"><span id="payments"><?php echo number_format($order->payments,2);?> ฿</span></span>
 	</div>

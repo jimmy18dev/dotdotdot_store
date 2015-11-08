@@ -1,6 +1,6 @@
 <?php
 if($var['pd_type'] == "root"){
-	$js_function = "window.location='product_detail.php?id=".$var['pd_id']."';";
+	$js_function = "window.location='product-".$var['pd_id'].".html';";
 }
 else{
 	$js_function = "AddItemToOrder(".$var['pd_id'].");";

@@ -17,13 +17,13 @@ $product_quantity = $var['product_amount'];
 
 <div class="items-in-order" id="items-in-order-<?php echo $var['product_id'];?>">
 	<div class="items-in-order-thumbnail">
-		<a href="product_detail.php?id=<?php echo $link;?>">
+		<a href="product-<?php echo $link;?>.html">
 		<img src="image/upload/thumbnail/<?php echo $image;?>" alt="">
 		</a>
 	</div>
 
 	<div class="items-in-order-detail">
-		<p class="detail-title"><?php echo $title;?></p>
+		<p class="detail-title"><a href="product-<?php echo $link;?>.html"><?php echo $title;?></a></p>
 		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> ฿  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">Remove items</span><?php }?></p>
 	</div>
 	<div class="items-in-order-quantity">

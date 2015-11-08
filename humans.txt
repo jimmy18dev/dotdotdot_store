@@ -1,0 +1,25 @@
+﻿IGENSITEIGENSITEIGENSITEIGENSITEIGENSITEIGENSITEIGENSITEIGENSITE
+IGENSITEIGENSIIGENSITEIGENSITEIGENSGENSITEIGENTEIGENSITEIGENSITE
+IGENSITEIGENSITEIGENSITEIGENSITEIGENIGENSITEIGENSITEIGENSITEIGEN
+IGENSITEIGENSITEIIGENSITEIGENSITEIGENSITIGENSITEIGENSITEIGENSITE
+
+/* MAIN */
+  Develop & Main Design: Puwadon Sricharoen
+  Twitter: @PuwadonSricha
+  Site: http://igensite.com
+
+/* SITE */
+  Last update: 23/06/2014
+  Doctype: HTML5
+  IDE: Sublime Text2, Sublime Text3, prepros, Photoshop
+
+/* SPECIAL THANKS */
+  Designer: Puwadon Sricharoen
+  Twitter: @PuwadonSricha
+  Facebook: https://www.facebook.com/puwadonsricharoen
+  Google+: https://plus.google.com/+PuwadonSricharoen
+  Email: mrjimmy18@gmail.com, jimmy18dev@gmail.com
+  Location: Prachinburi, Thailand
+/* -------------- */
+
+  And, of course, all igensite.com team!
