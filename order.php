@@ -381,7 +381,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 <?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 <!-- Loading process submit photo to uploading. -->
 <div id="filter">
-	<div id="loading-message"></div>
+	<div id="loading-message">กำลังส่งภาพ</div>
 	<div id="loading-bar"></div>
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>

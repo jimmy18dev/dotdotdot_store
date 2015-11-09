@@ -173,6 +173,10 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
   font-size: 1.5em;
 }
+.login-dialog .login-container .logo i {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
 .login-dialog .login-container .message-box {
   width: 100%;
   margin: 10% 0%;
@@ -208,11 +212,11 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   line-height: 1.5em;
   font-size: 0.9em;
-  color: #777777;
+  color: #cccccc;
 }
 .login-dialog .login-container .form .input-text {
-  width: 100%;
-  padding: 3% 0%;
+  width: 96%;
+  padding: 3% 2%;
   float: left;
   display: inline-block;
   font-size: 1em;
@@ -222,22 +226,10 @@ Copyright (c) 2015 Daniel Eden
   outline: 0;
   margin-bottom: 7%;
   color: #000000;
-  border-bottom: 1px solid #EEEEEE;
+  border: 1px solid #FAFAFA;
 }
 .login-dialog .login-container .form .input-text:focus {
-  border-bottom: 1px solid #AAAAAA;
-}
-.login-dialog .login-container .form .input-text::-webkit-input-placeholder {
-  color: #000000;
-}
-.login-dialog .login-container .form .input-text:-moz-placeholder {
-  color: #000000;
-}
-.login-dialog .login-container .form .input-text::-moz-placeholder {
-  color: #000000;
-}
-.login-dialog .login-container .form .input-text:-ms-input-placeholder {
-  color: #000000;
+  border: 1px solid #000000;
 }
 .login-dialog .login-container .form .status {
   width: 100%;
@@ -885,7 +877,6 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   color: #FFFFFF;
-  border-radius: 2px;
 }
 .container .container-page .list-content .order-items .order-items-status .time {
   padding: 1px 0px;
@@ -1260,6 +1251,10 @@ Copyright (c) 2015 Daniel Eden
 }
 /**** OTHER DEVICE AND SCREEN ****/
 @media only screen and (min-width: 0px) and (max-width: 519px) {
+  /*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2015 Puwadon Sricharoen
+*/
   .header {
     width: 100%;
     padding: 0% 0%;
@@ -1269,11 +1264,9 @@ Copyright (c) 2015 Daniel Eden
     padding: 15px 3%;
     height: 20px;
     font-size: 1.1em;
-    letter-spacing: 0.05em;
   }
   .header .cart {
-    float: right;
-    padding: 15px 0%;
+    padding: 15px 2%;
     height: 20px;
     font-size: 0.9em;
   }
@@ -1282,52 +1275,74 @@ Copyright (c) 2015 Daniel Eden
     font-size: 1.2em;
   }
   .header .avatar {
-    float: right;
-    padding: 15px 3%;
+    margin: 15px 0%;
+    padding-left: 3%;
+    padding-right: 3%;
     height: 20px;
-    margin-left: 2%;
-    height: 34px;
   }
   .header .avatar img {
     height: 20px;
     width: 20px;
-    border-radius: 50%;
-    overflow: hidden;
+  }
+  .header .avatar .notifications {
+    top: -4px;
+    right: 4px;
+    font-size: 0.8em;
   }
   .header .login {
-    float: right;
     margin: 12px 0px;
-    padding: 2% 6%;
-    font-size: 0.9em;
-    background: #000000;
-    color: #FFFFFF;
+    padding: 2% 5%;
+    font-size: 0.75em;
+    margin-right: 3%;
   }
   .login-dialog .login-container {
     width: 100%;
     margin: 0% 0%;
   }
   .login-dialog .login-container .logo {
+    width: 100%;
     margin: 10% 0%;
-    font-size: 1.2em;
+    font-size: 1em;
+  }
+  .login-dialog .login-container .message-box {
+    width: 100%;
+    margin: 10% 0%;
+    float: left;
+    display: inline-block;
+    font-size: 1em;
+    text-align: center;
+    line-height: 2em;
+    color: #000000;
+  }
+  .login-dialog .login-container .message-box i {
+    font-size: 2em;
+    margin-bottom: 5%;
   }
   .login-dialog .login-container .form {
-    width: 80%;
-    margin: 0% 10%;
+    width: 90%;
+    margin: 0% 5%;
   }
   .login-dialog .login-container .form .caption {
     line-height: 1.5em;
-    font-size: 0.9em;
+    font-size: 0.7em;
   }
   .login-dialog .login-container .form .input-text {
-    width: 94%;
-    padding: 3%;
     font-size: 1em;
+    line-height: 1.5em;
+    margin-bottom: 7%;
+  }
+  .login-dialog .login-container .form .status {
+    font-size: 0.9em;
     line-height: 1.5em;
     margin-bottom: 5%;
   }
   .login-dialog .login-container .form .button-submit {
     padding: 5% 0%;
     font-size: 0.9em;
+  }
+  .login-dialog .login-container .form .button-submit i {
+    font-size: 0.8em;
+    margin-right: 10px;
   }
   .login-dialog .login-container .form .mini-caption {
     padding: 10% 0%;
@@ -1341,8 +1356,9 @@ Copyright (c) 2015 Daniel Eden
     margin-right: 10px;
   }
   .login-dialog .login-container .form .option {
+    width: 100%;
     padding-top: 10%;
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   .login-dialog .login-container .form .option a {
     padding: 0% 2%;
@@ -1351,13 +1367,12 @@ Copyright (c) 2015 Daniel Eden
     width: 100%;
     padding: 0% 0%;
     margin: 50px 0px;
-    margin-bottom: 5%;
   }
   .container .container-page .order-state {
     margin-bottom: 3%;
   }
   .container .container-page .order-state .state-items {
-    width: 20%;
+    width: 25%;
     padding: 3% 0%;
   }
   .container .container-page .order-state .state-items .icon {
@@ -1365,7 +1380,8 @@ Copyright (c) 2015 Daniel Eden
     margin-bottom: 3%;
   }
   .container .container-page .order-state .state-items .caption {
-    font-size: 0.7em;
+    font-size: 0.75em;
+    line-height: 2em;
   }
   .container .container-page .order-state .state-items-fullsize {
     padding: 3% 0%;
@@ -1374,38 +1390,36 @@ Copyright (c) 2015 Daniel Eden
     margin-right: 10px;
   }
   .container .container-page .order-topic {
-    width: 94%;
-    padding: 3%;
-    font-size: 0.8em;
-  }
-  .container .container-page .order-topic i {
-    margin-right: 10px;
+    padding: 3% 0%;
     font-size: 0.8em;
   }
   .container .container-page .order-detail .order-box {
-    width: 94%;
-    padding: 3%;
-    font-size: 1em;
+    width: 100%;
+    padding: 2% 0%;
   }
   .container .container-page .order-detail .order-box .icon {
-    width: 11%;
-    padding-top: 9%;
+    width: 100%;
+    padding-top: 3%;
     font-size: 1.3em;
-    text-align: left;
+    text-align: center;
   }
   .container .container-page .order-detail .order-box .box {
-    width: 89%;
+    width: 94%;
+    padding: 3%;
   }
   .container .container-page .order-detail .order-box .box p {
     font-size: 0.9em;
     line-height: 1.5em;
   }
   .container .container-page .order-detail .order-box .box p.caption {
-    font-size: 0.8em;
+    font-size: 0.6em;
     margin-bottom: 1%;
   }
   .container .container-page .order-detail .order-box .box p.big {
     font-size: 1.3em;
+  }
+  .container .container-page .order-detail .order-box .box p.edit {
+    font-size: 0.8em;
   }
   .container .container-page .order-detail .order-box .box .image {
     margin: 3% 0%;
@@ -1414,43 +1428,44 @@ Copyright (c) 2015 Daniel Eden
     width: 100%;
   }
   .container .container-page .order-detail .order-box .box .order-list .topic-caption {
-    padding: 3% 0%;
-    font-size: 0.8em;
+    width: 100%;
+    padding: 4% 0%;
+    font-size: 0.75em;
   }
   .container .container-page .order-detail .order-box .box .order-list .topic-caption .detail {
-    width: 55%;
+    width: 65%;
   }
   .container .container-page .order-detail .order-box .box .order-list .topic-caption .quantity {
-    width: 15%;
+    width: 13%;
   }
   .container .container-page .order-detail .order-box .box .order-list .topic-caption .total {
-    width: 30%;
+    width: 22%;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order {
     line-height: 1.5em;
     font-size: 0.9em;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
-    display: none;
+    width: 15%;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail {
-    width: 50%;
-    padding: 2% 0%;
-    margin-right: 5%;
+    width: 46%;
+    padding: 1% 2%;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
     font-size: 0.8em;
   }
+  .container .container-page .order-detail .order-box .box .order-list .items-in-order input {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-quantity {
-    width: 15%;
-    padding: 2% 0%;
+    width: 13%;
+    padding: 1% 0%;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-total {
-    width: 30%;
-    padding: 2% 0%;
-  }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .currency {
-    display: none;
+    width: 22%;
+    padding: 1% 0%;
   }
   .container .container-page .order-detail .order-box .box .order-list .summary-items {
     font-size: 0.9em;
@@ -1463,15 +1478,10 @@ Copyright (c) 2015 Daniel Eden
   .container .container-page .order-detail .order-box .box .order-list .summary-items .detail .shipping-select {
     font-size: 1em;
     line-height: 1.5em;
-    border: 0px;
-    border-bottom: 1px solid #FAFAFA;
   }
   .container .container-page .order-detail .order-box .box .order-list .summary-items .total {
     width: 35%;
     padding: 3% 0%;
-  }
-  .container .container-page .order-detail .order-box .box .order-list .summary-items .currency {
-    display: none;
   }
   .container .container-page .order-detail .order-box .box .order-list .summary-total {
     font-size: 1em;
@@ -1480,60 +1490,75 @@ Copyright (c) 2015 Daniel Eden
     margin: 3% 0%;
   }
   .container .container-page .order-detail .order-box .box .bank .bank-items {
-    padding: 2% 0%;
+    padding: 3% 0%;
   }
   .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-icon {
-    width: 10%;
+    width: 5%;
     padding-top: 1%;
   }
   .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info {
-    width: 85%;
-    margin-left: 5%;
+    width: 92%;
+    margin-left: 3%;
   }
   .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info p {
     font-size: 0.9em;
   }
   .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info p.zoom {
-    font-size: 1.3em;
+    font-size: 1.2em;
+  }
+  .container .container-page .order-detail .order-box .box .input-text {
+    width: 96%;
+    padding: 3% 2%;
+    font-size: 0.95em;
+    line-height: 1.5em;
+    border: 1px solid #FAFAFA;
+  }
+  .container .container-page .order-detail .order-box .box .input-textarea {
+    height: 50px;
   }
   .container .container-page .order-detail .order-box .box .form-items {
-    padding: 3% 0%;
+    padding: 2% 0%;
   }
   .container .container-page .order-detail .order-box .box .form-items .label {
     width: 100%;
     padding: 1% 0%;
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.5em;
   }
   .container .container-page .order-detail .order-box .box .form-items .input {
     width: 100%;
   }
-  .container .container-page .order-detail .order-box .box .form-items .input .input-text {
-    padding: 1% 0%;
-    font-size: 1em;
-    line-height: 1.5em;
+  .container .container-page .order-detail .order-box .box .form-items .input .image-input img {
+    width: 100%;
   }
   .container .container-page .order-detail .order-box .box .form-items .input .image-input .btn {
     padding: 20% 0%;
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1.5em;
   }
   .container .container-page .order-detail .order-box .box .form-items .input .image-input .btn i {
     font-size: 1.5em;
   }
   .container .container-page .order-detail .order-box .box .form-control {
+    width: 100%;
     margin: 5% 0%;
   }
   .container .container-page .order-detail .order-box .box .form-control .submit-btn {
     width: 100%;
-    text-align: center;
     padding: 4% 0%;
-    font-size: 0.9em;
+    font-size: 0.8em;
     line-height: 1.5em;
-    border: 0px;
+    text-align: center;
   }
   .container .container-page .order-detail .order-box .box .form-control .submit-btn i {
     margin-right: 10px;
+  }
+  .container .container-page .order-detail .cancel-btn {
+    margin: 5% 3%;
+    font-size: 0.7em;
+  }
+  .container .container-page .order-detail .cancel-btn i {
+    margin-right: 5px;
   }
   .container .container-page .product-photos {
     width: 100%;
@@ -1551,19 +1576,20 @@ Copyright (c) 2015 Daniel Eden
   }
   .container .container-page .product-details h1 {
     font-size: 1.3em;
+    padding-bottom: 5%;
     margin-bottom: 3%;
   }
-  .container .container-page .product-details p.code {
+  .container .container-page .product-details p.info {
     font-size: 0.9em;
   }
   .container .container-page .product-details .description {
     padding: 5% 0%;
-    font-size: 1em;
+    font-size: 0.95em;
     margin-bottom: 5%;
   }
   .container .container-page .product-details .action .topic {
     padding-bottom: 2%;
-    font-size: 0.7em;
+    font-size: 0.8em;
     line-height: 1.5em;
   }
   .container .container-page .product-details .action .action-items {
@@ -1572,8 +1598,11 @@ Copyright (c) 2015 Daniel Eden
     font-size: 0.9em;
   }
   .container .container-page .product-details .action .action-items .detail {
-    width: 65%;
-    padding: 3% 5%;
+    width: 69%;
+    padding: 3% 3%;
+  }
+  .container .container-page .product-details .action .action-items .detail .desc {
+    font-size: 0.8em;
   }
   .container .container-page .product-details .action .action-items .detail-buy-btn {
     width: 25%;
@@ -1582,68 +1611,97 @@ Copyright (c) 2015 Daniel Eden
   .container .container-page .product-details .action .action-items .detail-buy-btn .msg {
     font-size: 0.8em;
   }
-  .container .container-page .list-content .list-content-topic {
-    width: 94%;
-    padding: 3% 3%;
-    font-size: 0.9em;
-    line-height: 1.5em;
-  }
   .container .container-page .list-content .order-items {
     width: 94%;
     padding: 3%;
-    margin-bottom: 0%;
+    margin-left: 0%;
+    margin-bottom: 1%;
+  }
+  .container .container-page .list-content .order-items .order-items-status {
+    line-height: 1.5em;
+    margin-bottom: 3%;
+    font-size: 0.7em;
+  }
+  .container .container-page .list-content .order-items .order-items-status .status {
+    padding: 1px 5px;
+  }
+  .container .container-page .list-content .order-items .order-items-status .time {
+    padding: 1px 0px;
+  }
+  .container .container-page .list-content .order-items .order-items-id {
+    font-size: 1.1em;
     line-height: 1.5em;
   }
-  .container .container-page .list-content .order-items p {
-    font-size: 0.9em;
-  }
-  .container .container-page .list-content .order-items p.mini {
-    font-size: 0.8em;
-  }
-  .container .container-page .list-content .order-items .notification-icon {
-    width: 7%;
-    font-size: 0.8em;
-  }
-  .container .container-page .list-content .order-items .detail {
-    width: 63%;
-  }
-  .container .container-page .list-content .order-items .summary {
-    width: 30%;
-  }
-  .container .container-page .list-content .order-items .summary .total .currency {
-    font-size: 0.7em;
+  .container .container-page .list-content .order-items .order-items-info {
+    font-size: 0.85em;
+    line-height: 1.5em;
   }
   .container .container-page .profile {
     width: 94%;
     padding: 3%;
+    padding-bottom: 1%;
   }
   .container .container-page .profile .profile-avatar {
     width: 15%;
-    padding-top: 3%;
+    margin-top: 2%;
   }
   .container .container-page .profile .profile-info {
-    width: 82%;
-    margin-left: 3%;
+    width: 80%;
+    margin-left: 5%;
   }
   .container .container-page .profile .profile-info p {
     font-size: 0.9em;
     line-height: 1.5em;
   }
+  .container .container-page .profile .profile-info p.link {
+    font-size: 0.8em;
+    margin-bottom: 0%;
+    margin: 2% 0%;
+  }
+  .container .container-page .profile .profile-info p.link a {
+    margin-left: 1%;
+    padding-left: 1%;
+  }
   .container .container-page .profile .profile-info p.big {
-    font-size: 1.3em;
-    margin-bottom: 1%;
+    font-size: 1.2em;
+    margin-bottom: 0%;
+  }
+  .container .container-page .profile .profile-info a i {
+    font-size: 0.8em;
+    margin-right: 5px;
+  }
+  .container .container-page .profile .profile-info .form .form-items {
+    padding: 2% 0%;
+  }
+  .container .container-page .profile .profile-info .form .form-items .input-text {
+    width: 94%;
+    padding: 3%;
+    font-size: 0.9em;
+    line-height: 1.5em;
+    border: 1px solid #FAFAFA;
+  }
+  .container .container-page .profile .profile-info .form .form-submit {
+    width: 100%;
+    margin-top: 1%;
+    margin-bottom: 2%;
+  }
+  .container .container-page .profile .profile-info .form .form-submit .submit-btn {
+    width: 90%;
+    padding: 5%;
+    font-size: 0.9em;
+    text-align: center;
   }
   .container .container-page .product-items {
     width: 100%;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
   }
   .container .container-page .product-items:nth-child(even) {
     margin-left: 0%;
   }
   .container .container-page .product-items .product-items-detail .detail-title {
-    width: 69%;
-    padding: 3% 3%;
-    font-size: 0.9em;
+    width: 67%;
+    padding: 3% 4%;
+    font-size: 0.95em;
     line-height: 1.7em;
   }
   .container .container-page .product-items .product-items-detail .detail-title .msg {
@@ -1652,13 +1710,13 @@ Copyright (c) 2015 Daniel Eden
   .container .container-page .product-items .product-items-detail .detail-buy-btn {
     width: 25%;
     padding: 3% 0%;
-    font-size: 0.9em;
+    font-size: 0.95em;
     line-height: 1.7em;
   }
   .container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
     font-size: 0.8em;
   }
-  #filter {
+  #alert {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -1668,59 +1726,67 @@ Copyright (c) 2015 Daniel Eden
     display: inline-block;
     background: #FFFFFF;
     display: none;
+    z-index: 999;
   }
-  #filter .logo {
+  #alert .alert-message {
     width: 100%;
-    padding: 2% 0%;
+    padding-top: 20%;
     float: left;
     display: inline-block;
     text-align: center;
-    font-size: 1em;
+    color: #000000;
+    line-height: 1.5em;
+    font-size: 1.5em;
   }
-  #filter #loading-bar {
-    width: 60%;
-    margin-top: 20%;
-    height: 2px;
-    float: left;
-    display: inline-block;
-    background: #000000;
+  #alert .alert-message i {
+    font-size: 0.8em;
+    margin: 0% 2%;
+    color: rgba(0, 0, 0, 0.1);
   }
   #filter #loading-message {
-    width: 100%;
-    padding: 2% 0%;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    line-height: 1.5em;
-    font-size: 0.9em;
-    color: #555555;
+    margin-top: 70%;
+    padding: 1% 0%;
+    line-height: 2em;
+    font-size: 0.8em;
   }
   #filter #loading-message i {
     margin-right: 10px;
-  }
-  #filter .cancel {
-    width: 100%;
-    margin-top: 20%;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    line-height: 1.5em;
     font-size: 0.8em;
   }
-  #filter .cancel a {
-    color: #CCCCCC;
+  #filter #loading-bar {
+    width: 60%;
+    height: 1px;
+  }
+  #filter .cancel {
+    margin-top: 30%;
+    line-height: 1.5em;
+    font-size: 0.7em;
   }
   .footer {
     width: 94%;
-    padding: 10% 3%;
+    padding: 4% 3%;
+  }
+  .footer .footer-link {
+    margin-bottom: 5%;
+    font-size: 0.8em;
   }
   .footer p {
     font-size: 0.8em;
     line-height: 1.5em;
   }
+  .dialog-box .icon {
+    padding-top: 60%;
+  }
+  .dialog-box .icon i {
+    font-size: 2em;
+    margin-bottom: 5%;
+  }
+  .dialog-box .icon p {
+    font-size: 0.8em;
+  }
   #loading-status {
-    bottom: 10px;
-    right: 10px;
+    bottom: 5px;
+    right: 5px;
     font-size: 0.9em;
   }
 }

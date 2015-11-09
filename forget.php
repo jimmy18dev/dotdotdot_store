@@ -43,7 +43,7 @@ require_once'config/autoload.php';
 		<div class="logo">Forget password</div>
 		<div class="form">
 			<div class="caption">Email ที่คุณเคยใช้สมัครสมาชิก</div>
-			<input type="text" class="input-text" id="email" placeholder="example@gmail.com...">
+			<input type="text" class="input-text" id="email" placeholder="Email address">
 
 			<div class="status" id="status-message"></div>
 

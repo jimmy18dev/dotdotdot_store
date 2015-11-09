@@ -40,14 +40,14 @@ include'facebook.php';
 <body>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">dotdotdot limited.</div>
+		<div class="logo"><i class="fa fa-sign-in"></i>เข้าระบบ</div>
 		<div class="form">
 			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
 			<div class="mini-caption">หรือ</div>
 			<div class="caption">Email or Phone Number</div>
-			<input type="email" class="input-text" id="username" placeholder="example@gmail.com...">
+			<input type="email" class="input-text" id="username" placeholder="Email address">
 			<div class="caption">Password</div>
-			<input type="password" class="input-text" id="password" placeholder="รหัสผ่าน...">
+			<input type="password" class="input-text" id="password" placeholder="">
 
 			<div class="status" id="status-message"></div>
 

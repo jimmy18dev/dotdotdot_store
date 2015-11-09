@@ -40,24 +40,25 @@ include'facebook.php';
 <body>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">สมัครสมาชิก</div>
+		<div class="logo"><i class="fa fa-user-plus"></i>สมัครสมาชิก</div>
 		<div class="form">
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าระบบด้วย Facebook</div></a>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
 			<div class="mini-caption">หรือ</div>
+
 			<div class="caption">Email</div>
-			<input type="text" class="input-text" id="email" placeholder="example@gmail.com...">
+			<input type="text" class="input-text" id="email" placeholder="Email address">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
 
 			<div class="caption">Name</div>
-			<input type="text" class="input-text" id="name" placeholder="ชื่อ และ นามสกุล...">
+			<input type="text" class="input-text" id="name" placeholder="ชื่อและนามสกุล">
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
 
 			<div class="caption">Password</div>
-			<input type="text" class="input-text" id="password" placeholder="อย่างน้อย 6 ตัวอักษร...">
+			<input type="text" class="input-text" id="password" placeholder="อย่างน้อย 6 ตัวอักษร">
 
 			<div class="status" id="status-message"></div>
 

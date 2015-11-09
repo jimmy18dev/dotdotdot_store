@@ -118,6 +118,11 @@ Copyright (c) 2015 Puwadon Sricharoen
             display: inline-block;
             text-align: center;
             font-size: 1.5em;
+
+            i{
+                margin-right: 10px;
+                font-size: 0.8em;
+            }
         }
 
         .message-box{
@@ -160,12 +165,12 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
                 line-height: 1.5em;
                 font-size: 0.9em;
-                color: @SecondaryTextColor;
+                color: @ThirdTextColor;
             }
 
             .input-text{
-                width: 100%;
-                padding: 3% 0%;
+                width: 96%;
+                padding: 3% 2%;
                 float: left;
                 display: inline-block;
                 font-size: 1em;
@@ -175,17 +180,17 @@ Copyright (c) 2015 Puwadon Sricharoen
                 outline: 0;
                 margin-bottom: 7%;
                 color: @PrimaryTextColor;
-                border-bottom: 1px solid #EEEEEE;
+                border: 1px solid #FAFAFA;
 
                 &:focus{
-                    border-bottom: 1px solid #AAAAAA;
+                    border: 1px solid #000000;
                 }
             }
 
-            .input-text::-webkit-input-placeholder {color: @PrimaryTextColor;}
-            .input-text:-moz-placeholder{color: @PrimaryTextColor;}
-            .input-text::-moz-placeholder{color: @PrimaryTextColor;}
-            .input-text:-ms-input-placeholder{color: @PrimaryTextColor;}
+            // .input-text::-webkit-input-placeholder {color: @PrimaryTextColor;}
+            // .input-text:-moz-placeholder{color: @PrimaryTextColor;}
+            // .input-text::-moz-placeholder{color: @PrimaryTextColor;}
+            // .input-text:-ms-input-placeholder{color: @PrimaryTextColor;}
 
             .status{
                 width: 100%;
@@ -925,7 +930,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                         float: left;
                         display: inline-block;
                         color: #FFFFFF;
-                        border-radius: 2px;
                     }
                     .time{
                         padding: 1px 0px;
