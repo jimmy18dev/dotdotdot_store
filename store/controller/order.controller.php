@@ -172,7 +172,7 @@ class OrderController extends OrderModel{
 
     	// Update Confirm time in Order
     	if($param['order_action'] == 'TransferSuccess'){
-    		parent::UpdateConfirmTimeProcess($param);
+    		parent::UpdateSuccessTimeProcess($param);
     	}
     }
 

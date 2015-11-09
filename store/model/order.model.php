@@ -94,10 +94,10 @@ class OrderModel extends Database{
 		parent::execute();
 	}
 
-	public function UpdateConfirmTimeProcess($param){
-		parent::query('UPDATE dd_order SET od_confirm_time = :confirm_time WHERE od_id = :order_id');
-		parent::bind(':confirm_time',	date('Y-m-d H:i:s'));
-		parent::bind(':order_id', $param['order_id']);
+	public function UpdateSuccessTimeProcess($param){
+		parent::query('UPDATE dd_order SET od_success_time = :success_time WHERE od_id = :order_id');
+		parent::bind(':success_time', 	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 	}
 

@@ -98,7 +98,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
-						<p class="caption">1 วันที่แล้ว</p>
+						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
 						<p class="big">เรียบร้อย</p>
 						<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
 					</div>
@@ -112,15 +112,13 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
-						<p class="caption">1 วันที่แล้ว</p>
+						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
 						<p class="big">ได้รับสินค้าแล้ว ใช่หรือไม่ ?</p>
 						<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
 
-						<?php if($order->status == "Shipping"){?>
 						<div class="form-control">
 							<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
 						</div>
-						<?php }?>
 					</div>
 				</div>
 				<?php }?>
@@ -129,7 +127,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
-						<p class="caption">1 วันที่แล้ว</p>
+						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
 						<p class="big"><?php echo $order->ems;?></p>
 						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 					</div>
@@ -141,7 +139,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
-						<p class="caption">1 วันที่แล้ว</p>
+						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
 						<p class="big">ชำระเงินแล้ว</p>
 						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
 					</div>
@@ -202,7 +200,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<div class="form-items">
 							<div class="label">ที่อยู่</div>
 							<div class="input">
-								<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo $order->address;?></textarea>
+								<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
 							</div>
 						</div>
 
@@ -254,11 +252,11 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
-						<p class="caption">ที่อยู่ลูกค้า</p>
+						<p class="caption">ที่อยู่ลูกค้า · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
 						<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
-						<p><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
+						<p class="edit"><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
 					</div>
 				</div>
 				<?php }?>
@@ -267,7 +265,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
-						<p class="caption">หลักฐานการโอนเงิน · <?php echo $order->confirm_time_fb;?></p>
+						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
 						<p>โอนเงินเข้า: <?php echo $bank->BankName($order->m_bank_code);?> <?php echo $order->m_bank_number;?></p>
 
@@ -281,7 +279,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						</div>
 						<?php }?>
 
-						<p><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>
+						<p class="edit"><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>
 					</div>
 				</div>
 				<?php }?>
@@ -289,7 +287,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="order-box">
 					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 					<div class="box">
-						<p class="caption">รายการสินค้า · <?php echo $order->paying_time_fb;?></p>
+						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 
 						<!-- Order list -->
 						<div class="order-list">
