@@ -13,6 +13,8 @@ class UserController extends UserModel{
     public $forget_code;
     public $status;
 
+    public $total_payment;
+
 
     // time
     public $create_time_facebook_format;
@@ -57,6 +59,8 @@ class UserController extends UserModel{
         $this->verify_code          = $data['me_verify_code'];
         $this->fotget_code          = $data['me_fotget_code'];
         $this->status               = $data['me_status'];
+
+        $this->total_payment        = parent::GetTotalPaymentProcess(array('member_id' => $this->id));
 
         // Current Order
         $this->current_order_id     = parent::GetCurrentOrderProcess($param);

@@ -21,13 +21,6 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
-.bg-full-screen {
-  background: url('../image/bg.jpg') no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
 .animated {
   -webkit-transition: height 0.2s;
   -moz-transition: height 0.2s;
@@ -522,6 +515,13 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-title {
   color: rgba(0, 0, 0, 0.9);
 }
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-title a {
+  color: rgba(0, 0, 0, 0.9);
+  text-decoration: none;
+}
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-title a:hover {
+  text-decoration: underline;
+}
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
   font-size: 0.8em;
   color: rgba(0, 0, 0, 0.44);
@@ -872,8 +872,8 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   margin-bottom: 0.5%;
-  border-bottom: 1px solid #FAFAFA;
-  color: rgba(0, 0, 0, 0.9);
+  border-bottom: 1px dashed #FAFAFA;
+  color: #777777;
 }
 .container .container-page .list-content .order-items .order-items-status {
   width: 100%;
@@ -881,7 +881,6 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   line-height: 1.5em;
   margin-bottom: 2%;
-  color: rgba(0, 0, 0, 0.8);
   font-size: 0.75em;
 }
 .container .container-page .list-content .order-items .order-items-status .status {
@@ -894,7 +893,6 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .list-content .order-items .order-items-status .time {
   padding: 1px 0px;
   float: right;
-  color: rgba(0, 0, 0, 0.44);
   font-style: italic;
 }
 .container .container-page .list-content .order-items .order-items-status .paying {
@@ -934,7 +932,6 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 0.9em;
   line-height: 1.5em;
-  color: rgba(0, 0, 0, 0.7);
 }
 .container .container-page .list-content .order-items .order-items-info strong {
   font-weight: bold;
@@ -944,6 +941,11 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .list-content .order-items:hover .order-items-id {
   text-decoration: underline;
+}
+.container .container-page .list-content .order-items-unread {
+  color: #000000;
+  font-weight: bold;
+  border-bottom: 1px solid #555555;
 }
 .container .container-page .profile {
   width: 100%;
@@ -1072,9 +1074,9 @@ Copyright (c) 2015 Daniel Eden
   -o-transition: all 0.5s ease-in-out;
 }
 .container .container-page .product-items .product-items-thumbnail img:hover {
-  -ms-transform: scale(1.1);
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  -ms-transform: scale(1.05);
+  -webkit-transform: scale(1.05);
+  transform: scale(1.05);
 }
 .container .container-page .product-items .product-items-detail {
   width: 100%;
@@ -1087,7 +1089,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 3% 4%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.95em;
   line-height: 1.7em;
 }
 .container .container-page .product-items .product-items-detail .detail-title a {
@@ -1098,8 +1100,8 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .container-page .product-items .product-items-detail .detail-title .msg {
-  font-size: 0.8em;
-  color: #AAAAAA;
+  font-size: 0.85em;
+  color: #777777;
 }
 .container .container-page .product-items .product-items-detail .detail-buy-btn {
   width: 20%;
@@ -1108,7 +1110,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #000000;
   color: #FFFFFF;
-  font-size: 0.9em;
+  font-size: 0.95em;
   line-height: 1.7em;
   text-align: center;
   overflow: hidden;
@@ -1118,7 +1120,7 @@ Copyright (c) 2015 Daniel Eden
   background: #222222;
 }
 .container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
-  font-size: 0.8em;
+  font-size: 0.85em;
 }
 #alert {
   position: fixed;

@@ -63,7 +63,7 @@ if(!empty($user->current_order_id)){
 				<p class="big">คุณ <?php echo $user->name;?></p>
 				<p><?php echo $user->email;?> · <?php echo $user->phone;?></p>
 				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-				<p>ยอดสั่งซื้อรวม <strong>364.00</strong> บาท</p>
+				<p title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
 
 				<p class="link">
 					<a href="profile_edit.php">แก้ไขข้อมูล</a>

@@ -123,6 +123,15 @@ class UserModel extends Database{
 		return $data['od_id'];
 	}
 
+	// Get total payment
+	public function GetTotalPaymentProcess($param){
+		parent::query('SELECT SUM(od_payments) total_payments FROM dd_order WHERE od_member_id = :member_id AND od_status = "Complete"');
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+		$data = parent::single();
+		return $data['total_payments'];
+	}
+
 	// Get Member Data //////////////////////
 	public function LoginUserProcess($param){
 		parent::query('SELECT me_id FROM dd_member WHERE (me_email = :email OR me_phone = :phone) AND me_password = :password');

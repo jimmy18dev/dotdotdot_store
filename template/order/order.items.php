@@ -31,7 +31,7 @@ else{
 ?>
 
 <a href="order-<?php echo $var['od_id'];?>.html">
-<div class="order-items">
+<div class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">
 	<div class="order-items-status">
 		<span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
 		<span class="time"><?php echo $var['order_update_time_facebook_format'];?></span>
