@@ -116,11 +116,10 @@ class UserModel extends Database{
 	}
 
 	public function GetCurrentOrderProcess($param){
-		parent::query('SELECT od_id FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_shipping_type FROM dd_order WHERE od_member_id = :member_id AND od_status = "Shopping"');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
-		$data = parent::single();
-		return $data['od_id'];
+		return $data = parent::single();
 	}
 
 	// Get total payment

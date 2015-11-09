@@ -24,13 +24,12 @@ $product_quantity = $var['product_amount'];
 
 	<div class="items-in-order-detail">
 		<p class="detail-title"><a href="product-<?php echo $link;?>.html"><?php echo $title;?></a></p>
-		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> ฿  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">Remove items</span><?php }?></p>
+		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
 	</div>
 	<div class="items-in-order-quantity">
 		<input type="text" id="product-quantity-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);" <?php echo ($order_status != "Shopping"?'disabled':'');?>>
 	</div>
 	<div class="items-in-order-total">
-		<span class="currency">฿</span>
 		<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
 	</div>
 

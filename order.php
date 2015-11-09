@@ -70,22 +70,33 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 				<div class="caption">ช็อป</div>
 			</div> -->
+
+			<a href="#product">
 			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-barcode"></i></div>
-				<div class="caption">ชำระเงิน</div>
+				<div class="caption">1. สั่งสินค้า</div>
 			</div>
+			</a>
+			<a href="#transfer">
 			<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-money"></i></div>
-				<div class="caption">โอนเงิน</div>
+				<div class="caption">2. โอนเงิน</div>
 			</div>
+			</a>
+
+			<a href="#success">
 			<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="caption">กำลังจัดส่ง</div>
+				<div class="caption">3. ชำระเงินแล้ว</div>
 			</div>
+			</a>
+
+			<a href="#shipping">
 			<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-truck"></i></div>
-				<div class="caption">รอรับของ</div>
+				<div class="caption">4. รอรับของ</div>
 			</div>
+			</a>
 		</div>
 		<?php }?>
 
@@ -95,7 +106,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="order-box">
+				<div class="order-box" id="complete">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
 						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
@@ -124,7 +135,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<?php }?>
 
 				<!-- Shipping -->
-				<div class="order-box">
+				<div class="order-box" id="shipping">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
 						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
@@ -136,7 +147,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 
 				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="order-box">
+				<div class="order-box" id="success">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
 						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
@@ -249,7 +260,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 
 				<?php if($_GET['edit'] != "address"){?>
 				<!-- Address -->
-				<div class="order-box">
+				<div class="order-box" id="address">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
 						<p class="caption">ที่อยู่ลูกค้า · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
@@ -262,7 +273,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 				<?php }?>
 
 				<!-- Money transfer info -->
-				<div class="order-box">
+				<div class="order-box" id="transfer">
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
 						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
@@ -284,17 +295,21 @@ $order->ReadOrder(array('order_id' => $order->id));
 				</div>
 				<?php }?>
 
-				<div class="order-box">
+				<div class="order-box" id="product">
 					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 					<div class="box">
 						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 
+						<?php if($order->status != "Shopping"){?>
+						<p class="big">ยอดเงินที่ต้องชำระ <span class="highlight"><?php echo number_format($order->summary_payments,2);?></span> บาท</p>
+						<?php }?>
+
 						<!-- Order list -->
 						<div class="order-list">
 							<div class="topic-caption">
-								<div class="detail"><?php echo $order->total;?> รายการ</div>
-								<div class="quantity">จำนวน</div>
-								<div class="total">รวม</div>
+								<div class="detail">สินค้า <?php echo $order->total;?> รายการ</div>
+								<div class="quantity">จำนวน(ชิ้น)</div>
+								<div class="total">รวม(บาท)</div>
 							</div>
 
 							<?php
@@ -307,7 +322,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 							<?php if($order->total > 1){?>
 							<div class="summary-items product-total">
 								<div class="detail">รวมราคาสินค้า: </div>
-								<div class="total"><span class="currency">฿</span> <span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
+								<div class="total"><span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
 							</div>
 							<?php }?>
 
@@ -323,12 +338,12 @@ $order->ReadOrder(array('order_id' => $order->id));
 										echo $order->shipping_type;
 									}?>
 								</div>
-								<div class="total"><span class="currency">฿</span> <span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
+								<div class="total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
 							</div>
 
 							<div class="summary-items summary-total">
 								<div class="detail">ยอดเงินที่ต้องชำระ:</div>
-								<div class="total"><span class="currency">฿</span> <span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
+								<div class="total"><span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
 							</div>
 						</div>
 

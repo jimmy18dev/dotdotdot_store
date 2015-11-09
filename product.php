@@ -82,7 +82,11 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<div class="product-details">
 			<h1><?php echo $product->title;?></h1>
 			<p class="info">
+				<?php if($product->quantity > 5){?>
 				<span class="view"><?php echo number_format($product->read);?> Views</span>
+				<?php }else{?>
+				<span class="view"> มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
+				<?php }?>
 
 				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
 				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>

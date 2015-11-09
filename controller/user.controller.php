@@ -7,7 +7,6 @@ class UserController extends UserModel{
     public $name;
     public $facebook_id;
     public $facebook_name;
-    public $current_order_id;
 
     public $verify_code;
     public $forget_code;
@@ -24,6 +23,12 @@ class UserController extends UserModel{
 
     // Token
     public $token;
+
+    // Current order
+    public $current_order_id;
+    public $current_order_total;
+    public $current_order_amount;
+    public $current_order_payment;
 
     public function GetUser($param){
         // Setup
@@ -63,7 +68,11 @@ class UserController extends UserModel{
         $this->total_payment        = parent::GetTotalPaymentProcess(array('member_id' => $this->id));
 
         // Current Order
-        $this->current_order_id     = parent::GetCurrentOrderProcess($param);
+        $current_order = parent::GetCurrentOrderProcess(array('member_id' => $this->id));
+        $this->current_order_id     = $current_order['od_id'];
+        $this->current_order_total  = $current_order['od_total'];
+        $this->current_order_amount = $current_order['od_amount'];
+        $this->current_order_payments = $current_order['od_payments'];
 
         // Token key
         $this->token                = $dataset_token['tk_token'];

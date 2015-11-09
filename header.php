@@ -19,8 +19,8 @@
 	</a>
 
 	<a href="order-<?php echo $user->current_order_id;?>.html">
-	<div class="header-items cart animated" id="my-cart">
-		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i><span class="payments"><span id="payments"><?php echo number_format($order->payments,2);?> ฿</span></span>
+	<div class="header-items cart animated" id="my-cart" title="สินค้า <?php echo $user->current_order_amount;?> ชิ้น <?php echo $user->current_order_total;?> รายการ">
+		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i><span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments,2);?> ฿</span></span>
 	</div>
 	</a>
 	<?php }else{?>

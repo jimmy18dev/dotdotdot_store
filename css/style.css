@@ -103,9 +103,6 @@ Copyright (c) 2015 Daniel Eden
 .header .logo a {
   color: #000000;
 }
-.header .logo .beta {
-  color: #F44336;
-}
 .header .cart {
   float: right;
   padding: 30px 2%;
@@ -529,7 +526,7 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
-  font-size: 0.95em;
+  font-size: 0.85em;
   color: #777777;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn:hover {
@@ -565,10 +562,6 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
 }
-.container .container-page .order-detail .order-box .box .order-list .items-in-order .currency {
-  font-size: 0.7em;
-  color: #777777;
-}
 .container .container-page .order-detail .order-box .box .order-list .summary-items {
   width: 100%;
   float: left;
@@ -596,10 +589,6 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: center;
   text-align: right;
-}
-.container .container-page .order-detail .order-box .box .order-list .summary-items .currency {
-  font-size: 0.7em;
-  color: #777777;
 }
 .container .container-page .order-detail .order-box .box .order-list .product-total {
   color: #777777;

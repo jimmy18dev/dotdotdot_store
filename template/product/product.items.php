@@ -25,6 +25,9 @@ else{
 if($var['odt_id'] > 5){
 	$msg = $var['odt_id']." ท่าน สั่งซื้อสินค้าชิ้นนี้แล้ว";
 }
+else if($var['pd_quantity'] < 5){
+	$msg = 'เหลือเพียง '.$var['pd_quantity'].' เท่านั้น!';
+}
 else if($var['pd_read'] > 100){
 	$msg = $var['pd_read'].'ท่าน กำลังสนใจสินค้านี้';
 }
@@ -32,7 +35,7 @@ else if($var['pd_view'] > 100){
 	$msg = 'แสดงสินค้า '.$var['pd_read'].' ครั้งแล้ว';
 }
 else{
-	$msg = 'NEW Product Available Now!';
+	$msg = 'คุณอาจจะชอบสินค้าชิ้นนี้!';
 }
 ?>
 
