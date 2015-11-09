@@ -66,10 +66,10 @@ $order->ReadOrder(array('order_id' => $order->id));
 	<div class="container-page">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
-			<div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
+			<!-- <div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 				<div class="caption">ช็อป</div>
-			</div>
+			</div> -->
 			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
 				<div class="icon"><i class="fa fa-barcode"></i></div>
 				<div class="caption">ชำระเงิน</div>
@@ -89,7 +89,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 		</div>
 		<?php }?>
 
-		<div class="order-topic">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
+		<div class="order-topic">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></div>
 
 		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
@@ -255,7 +255,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 						<p class="caption">ที่อยู่ลูกค้า · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
-						<p>โทรศัพท์: <?php echo $order->customer_phone?></p>
+						<p><?php echo $order->customer_phone?></p>
 						<p class="edit"><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
 					</div>
 				</div>
@@ -267,7 +267,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 					<div class="box">
 						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
-						<p>โอนเงินเข้า: <?php echo $bank->BankName($order->m_bank_code);?> <?php echo $order->m_bank_number;?></p>
+						<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
 
 						<?php if(!empty($order->m_message)){?>
 						<p class="message">"<?php echo $order->m_message;?>"</p>
