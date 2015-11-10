@@ -1,12 +1,12 @@
 <?php
 	define("DB_HOST", "localhost");
-	// define("DB_USER", "igensit2_demo");
-	// define("DB_PASS", "dinsorsee");
-	// define("DB_NAME", "igensit2_demo");
+	define("DB_USER", "igensit2_demo");
+	define("DB_PASS", "dinsorsee");
+	define("DB_NAME", "igensit2_demo");
 
-	define("DB_USER", "admin");
-	define("DB_PASS", "1234");
-	define("DB_NAME", "dotdotdot_store");
+	// define("DB_USER", "admin");
+	// define("DB_PASS", "1234");
+	// define("DB_NAME", "dotdotdot_store");
 
 	// Email Config
 	$email_settig = array(
@@ -16,6 +16,21 @@
 		'port' 			=> 25,
 		'email_address' => 'igensit2@igensite.com',
 		'email_name' 	=> 'IGensite Email',
+	);
+
+	// Metatag setup
+	$metadata = array(
+		'title' 		=> 'dotdotdot limited',
+		'description' 	=> 'จำหน่ายสินค้าจาก Designer ของ dotdotdot limited',
+		'image' 		=> '/image/logo.png',
+		'type' 			=> 'website',
+		'site_name' 	=> 'dotdotdot limited',
+		'fb_app_id' 	=> '218590748331719',
+		'fb_admins' 	=> '1818320188',
+		'author' 		=> 'DotDotDot่',
+		'generator' 	=> 'IGengoods 1.0',
+		'keywords' 		=> '่',
+		'domain' 		=> 'http://'.$_SERVER['SERVER_NAME'],
 	);
 
 	// Photo Upload config ///////////////////////

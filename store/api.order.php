@@ -49,6 +49,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($order->customer_email);
 								$mail->Subject 	= 'หลักฐานการโอนเงินไม่ถูกต้อง!';
 								$message 		= file_get_contents('template/email/again.html');
+								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%', $order->customer_name, $message);
 								$message 		= str_replace('%order_id%', $order->id, $message);
 								$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
@@ -67,7 +68,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($order->customer_email);
 								$mail->Subject 	= 'ชำระเงินค่าสินค้าแล้ว!';
 								$message 		= file_get_contents('template/email/success.html');
-
+								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%order_id%', $order->id, $message);
 								$message 		= str_replace('%name%', $order->customer_name, $message);
 								$message 		= str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
@@ -114,6 +115,7 @@ if($_POST['calling'] != ''){
 							$mail->addAddress($order->customer_email);
 							$mail->Subject 	= 'แจ้งหมายเลขพัสดุสินค้า!';
 							$message 		= file_get_contents('template/email/shipping.html');
+							$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 							$message 		= str_replace('%name%', $order->customer_name, $message);
 							$message 		= str_replace('%order_id%', $order->id, $message);
 							$message 		= str_replace('%ems%', $order->ems, $message);

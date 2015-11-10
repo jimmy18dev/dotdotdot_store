@@ -71,6 +71,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
 								$message 		= file_get_contents('template/email/paying.html');
+								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%order_id%' ,$order->id, $message);
 								$message 		= str_replace('%summary_payment%' ,number_format($order->summary_payments,2), $message);
@@ -99,6 +100,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ขอบคุณที่ใช่อุดหนุนสินค้าของเรา';
 								$message 		= file_get_contents('template/email/complete.html');
+								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%order_id%', $order->id, $message);
 								$mail->Body    	= $message;

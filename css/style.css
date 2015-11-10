@@ -116,8 +116,10 @@ Copyright (c) 2015 Daniel Eden
 .header .cart i {
   margin-right: 10px;
   font-size: 1.2em;
+  float: left;
 }
 .header .cart .payments {
+  float: right;
   font-weight: bold;
 }
 .header .avatar {
@@ -1250,15 +1252,16 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
     padding: 0% 0%;
     height: 50px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   }
   .header .logo {
-    padding: 15px 3%;
-    height: 20px;
+    padding: 17px 3%;
+    height: 16px;
     font-size: 1.1em;
   }
   .header .cart {
-    padding: 15px 2%;
-    height: 20px;
+    padding: 20px 2%;
+    height: 10px;
     font-size: 0.9em;
   }
   .header .cart i {
@@ -1266,14 +1269,14 @@ Copyright (c) 2015 Puwadon Sricharoen
     font-size: 1.2em;
   }
   .header .avatar {
-    margin: 15px 0%;
+    margin: 10px 0%;
     padding-left: 3%;
     padding-right: 3%;
-    height: 20px;
+    height: 30px;
   }
   .header .avatar img {
-    height: 20px;
-    width: 20px;
+    height: 30px;
+    width: 30px;
   }
   .header .avatar .notifications {
     top: -4px;

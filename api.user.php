@@ -34,6 +34,7 @@ if($_POST['calling'] != ''){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ยืนยันอีเมลของคุณ';
 								$message 		= file_get_contents('template/email/email_verify.html');
+								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%email%' ,$user->email, $message);
 								$message 		= str_replace('%code%' ,$user->verify_code, $message);
@@ -126,6 +127,7 @@ if($_POST['calling'] != ''){
 							$mail->addAddress($dataset['email']);
 							$mail->Subject 	= 'กู้คืนรหัสผ่านในบัญชีของคุณ';
 							$message 		= file_get_contents('template/email/forget_password.html');
+							$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 							$message 		= str_replace('%email%' ,$dataset['email'], $message);
 							$message 		= str_replace('%code%' ,$dataset['forget_code'], $message);
 							$mail->Body    	= $message;
