@@ -12,7 +12,8 @@ else{
 
 $reference_id = $var['order_id'].$var['product_id'];
 $product_payments = $var['product_amount'] * $var['product_price'];
-$product_quantity = $var['product_amount'];
+$order_amount = $var['product_amount'];
+$product_quantity = $var['product_quantity'];
 ?>
 
 <div class="items-in-order" id="items-in-order-<?php echo $var['product_id'];?>">
@@ -24,10 +25,28 @@ $product_quantity = $var['product_amount'];
 
 	<div class="items-in-order-detail">
 		<p class="detail-title"><a href="product-<?php echo $link;?>.html"><?php echo $title;?></a></p>
-		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
+		<p class="detail-description">(<?php echo $var['product_quantity'];?>) รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
 	</div>
 	<div class="items-in-order-quantity">
-		<input type="text" id="product-quantity-<?php echo $reference_id;?>" type="number" value="<?php echo $product_quantity;?>" onblur="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);" <?php echo ($order_status != "Shopping"?'disabled':'');?>>
+
+		<?php if($order_status != "Shopping"){?>
+		<div class="value"><?php echo $order_amount;?></div>
+		<?php }else{?>
+		<select name="" id="product-quantity-<?php echo $reference_id;?>" onchange="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">
+			<?php
+			if($product_quantity < 10){
+				for($i=1;$i<=$product_quantity;$i++){
+					?><option value="<?php echo $i;?>" <?php echo ($order_amount == $i?'selected':'');?>><?php echo $i;?></option><?php
+				}
+			}
+			else{
+				for($i=1;$i<=10;$i++){
+					?><option value="<?php echo $i;?>" <?php echo ($order_amount == $i?'selected':'');?>><?php echo $i;?></option><?php
+				}
+			}
+			?>
+		</select>
+		<?php }?>
 	</div>
 	<div class="items-in-order-total">
 		<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
