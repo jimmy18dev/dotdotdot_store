@@ -17,6 +17,9 @@ if(MEMBER_ID != $order->customer_id){
 
 // Order owner readed this order.
 $order->ReadOrder(array('order_id' => $order->id));
+
+// Current page
+$current_page = "order";
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +65,7 @@ $order->ReadOrder(array('order_id' => $order->id));
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
 	<div class="container-page">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">

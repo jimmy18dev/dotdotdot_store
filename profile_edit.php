@@ -52,30 +52,15 @@ if(!empty($user->current_order_id)){
 <div class="container">
 	<div class="container-page">
 		<div class="profile">
-			<div class="profile-avatar">
-				<?php if(empty($user->facebook_id)){?>
-				<img src="image/avatar.png" alt="">
-				<?php }else{?>
-				<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
-				<?php }?>
-			</div>
 			<div class="profile-info">
-				<p class="big">แก้ไขข้อมูลส่วนตัว</p>
+				<p>แก้ไขข้อมูลส่วนตัว</p>
 
 				<div class="form">
-					<div class="form-items">
-						<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>">
-					</div>
-					<div class="form-items">
-						<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
-					</div>
-					<div class="form-items">
-						<input type="text" class="input-text" id="email" value="<?php echo $user->email;?>">
-					</div>
+					<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>">
+					<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
+					<input type="text" class="input-text" id="email" value="<?php echo $user->email;?>">
 
-					<div class="form-submit">
-						<div class="submit-btn" onclick="javascript:EditInfo();">บันทึก</div>
-					</div>
+					<button class="submit-btn" onclick="javascript:EditInfo();">บันทึก</button>
 				</div>
 			</div>	
 		</div>

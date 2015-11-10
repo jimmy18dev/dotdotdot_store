@@ -151,6 +151,9 @@ Copyright (c) 2015 Daniel Eden
   background: #000000;
   color: #FFFFFF;
 }
+.header-fix {
+  position: inherit;
+}
 .login-dialog {
   position: fixed;
   top: 0px;
@@ -484,7 +487,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
-  width: 13%;
+  width: 8%;
   float: left;
   display: inline-block;
 }
@@ -494,7 +497,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail {
-  width: 63%;
+  width: 68%;
   padding: 2%;
   float: left;
   display: inline-block;
@@ -510,7 +513,7 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
-  font-size: 0.85em;
+  font-size: 0.8em;
   color: #777777;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn:hover {
@@ -546,6 +549,24 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
 }
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  color: #cccccc;
+}
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control .remove-btn {
+  float: right;
+  font-size: 0.9em;
+}
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control .remove-btn i {
+  margin-right: 5px;
+}
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control .remove-btn:hover {
+  cursor: pointer;
+  color: #000000;
+  text-decoration: underline;
+}
 .container .container-page .order-detail .order-box .box .order-list .summary-items {
   width: 100%;
   float: left;
@@ -554,8 +575,8 @@ Copyright (c) 2015 Daniel Eden
   color: #000000;
 }
 .container .container-page .order-detail .order-box .box .order-list .summary-items .detail {
-  width: 66%;
-  margin-left: 13%;
+  width: 71%;
+  margin-left: 8%;
   padding: 3% 2%;
   float: left;
   display: inline-block;
@@ -847,22 +868,24 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .list-content .order-items {
-  width: 82%;
-  padding: 2% 0%;
-  margin-left: 18%;
+  width: 21%;
+  padding: 2%;
   float: left;
   display: inline-block;
-  margin-bottom: 0.5%;
-  border-bottom: 1px dashed #FAFAFA;
-  color: #777777;
+  color: #000000;
+  border-bottom: 1px solid #FAFAFA;
+}
+.container .container-page .list-content .order-items:hover {
+  cursor: pointer;
+  background: #FAFAFA;
 }
 .container .container-page .list-content .order-items .order-items-status {
   width: 100%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
-  margin-bottom: 2%;
-  font-size: 0.75em;
+  margin-bottom: 3%;
+  font-size: 0.7em;
 }
 .container .container-page .list-content .order-items .order-items-status .status {
   padding: 1px 5px;
@@ -874,6 +897,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 1px 0px;
   float: right;
   font-style: italic;
+  color: #cccccc;
 }
 .container .container-page .list-content .order-items .order-items-status .paying {
   background: #E91E63;
@@ -903,7 +927,7 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.5em;
+  font-size: 1.2em;
   line-height: 1.5em;
 }
 .container .container-page .list-content .order-items .order-items-info {
@@ -912,120 +936,80 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 0.9em;
   line-height: 1.5em;
+  color: #777777;
 }
 .container .container-page .list-content .order-items .order-items-info strong {
   font-weight: bold;
 }
-.container .container-page .list-content .order-items:hover {
-  cursor: pointer;
-}
-.container .container-page .list-content .order-items:hover .order-items-id {
-  text-decoration: underline;
-}
 .container .container-page .list-content .order-items-unread {
-  color: #000000;
+  background: #FAFAFA;
   font-weight: bold;
-  border-bottom: 1px solid #555555;
 }
 .container .container-page .profile {
   width: 100%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
-  padding-bottom: 1%;
   border-bottom: 1px solid #FAFAFA;
+  text-align: center;
 }
-.container .container-page .profile .profile-avatar {
-  width: 15%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .profile .profile-avatar img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
-}
-.container .container-page .profile .profile-info {
-  width: 82%;
-  margin-left: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .profile .profile-info p {
-  font-size: 0.95em;
-  line-height: 2em;
-  color: #000000;
-}
-.container .container-page .profile .profile-info p.link {
-  font-size: 0.8em;
-  margin-bottom: 1%;
-  text-align: right;
-}
-.container .container-page .profile .profile-info p.link a {
-  margin-left: 1%;
-  padding-left: 1%;
-  border-left: 1px solid #FAFAFA;
-}
-.container .container-page .profile .profile-info strong {
-  font-weight: bold;
-}
-.container .container-page .profile .profile-info p.big {
-  font-size: 1.5em;
-  margin-bottom: 1%;
-  color: #000000;
-}
-.container .container-page .profile .profile-info a {
-  text-decoration: none;
-  color: #777777;
-}
-.container .container-page .profile .profile-info a i {
-  font-size: 0.8em;
-  margin-right: 5px;
-}
-.container .container-page .profile .profile-info a:hover {
-  color: #000000;
-}
-.container .container-page .profile .profile-info .form {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .profile .profile-info .form .form-items {
-  width: 100%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .profile .profile-info .form .form-items .input-text {
-  width: 50%;
-  padding: 1% 0%;
-  float: left;
-  display: inline-block;
-  border: 0px;
-  border-bottom: 1px solid #FAFAFA;
+.container .container-page .profile p {
   font-size: 1em;
   line-height: 1.5em;
-  outline: 0;
+  color: #777777;
 }
-.container .container-page .profile .profile-info .form .form-items .input-text:focus {
-  border-bottom: 1px solid #000000;
+.container .container-page .profile p.big {
+  font-size: 3em;
+  color: #000000;
 }
-.container .container-page .profile .profile-info .form .form-submit {
-  width: 100%;
+.container .container-page .profile strong {
+  font-weight: bold;
+}
+.container .container-page .profile p.link {
   margin-top: 1%;
-  float: left;
-  display: inline-block;
+  font-size: 0.75em;
 }
-.container .container-page .profile .profile-info .form .form-submit .submit-btn {
-  float: left;
-  display: inline-block;
-  padding: 1% 4%;
-  font-size: 0.8em;
+.container .container-page .profile p.link a {
+  text-decoration: none;
+  background: #FAFAFA;
+  padding: 2px 5px;
+  color: #cccccc;
+}
+.container .container-page .profile p.link a:hover {
   background: #000000;
   color: #FFFFFF;
-}
-.container .container-page .profile .profile-info .form .form-submit .submit-btn:hover {
   cursor: pointer;
+}
+.container .container-page .profile .form {
+  width: 40%;
+  margin: 2% 30%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .profile .form .input-text {
+  width: 76%;
+  padding: 1%;
+  float: left;
+  display: inline-block;
+  font-family: sans-serif, 'Open Sans';
+  line-height: 1.5em;
+  font-size: 0.9em;
+  border: 1px solid #FAFAFA;
+  outline: 0;
+}
+.container .container-page .profile .form .input-text:focus {
+  border: 1px solid #000000;
+}
+.container .container-page .profile .form .submit-btn {
+  width: 20%;
+  padding: 1% 0%;
+  float: right;
+  display: inline-block;
+  font-family: sans-serif, 'Open Sans';
+  line-height: 1.5em;
+  font-size: 0.9em;
+  background: #FAFAFA;
+  border: 1px solid #FAFAFA;
 }
 .container .container-page .product-items {
   width: 32.66%;
@@ -1102,6 +1086,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
   font-size: 0.85em;
+}
+.container-fix {
+  margin: 0px 0px;
 }
 #alert {
   position: fixed;

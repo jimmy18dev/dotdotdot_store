@@ -50,28 +50,13 @@ if(!empty($user->current_order_id)){
 <?php include'header.php';?>
 
 <div class="container">
-
 	<div class="container-page">
 		<div class="profile">
-			<div class="profile-avatar">
-				<?php if(empty($user->facebook_id)){?>
-				<img src="image/avatar.png" alt="">
-				<?php }else{?>
-				<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
-				<?php }?>
-			</div>
-			<div class="profile-info">
-				<p class="big">เปลี่ยนรหัสผ่านใหม่</p>
+			<p>เปลี่ยนรหัสผ่านใหม่</p>
 
-				<div class="form">
-					<div class="form-items">
-						<input type="text" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร...">
-					</div>
-
-					<div class="form-submit">
-						<div class="submit-btn" onclick="javascript:ChangePassword();">บันทึก</div>
-					</div>
-				</div>
+			<div class="form">
+				<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร...">
+				<button class="submit-btn" onclick="javascript:ChangePassword();">บันทึก</button>
 			</div>	
 		</div>
 	</div>

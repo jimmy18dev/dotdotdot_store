@@ -37,6 +37,9 @@ else{
 		<span class="time"><?php echo $var['order_update_time_facebook_format'];?></span>
 	</div>
 	<div class="order-items-id">ใบสั่งซื้อหมายเลข <?php echo $var['od_id'];?></div>
-	<div class="order-items-info">ชำระเงิน <strong><?php echo number_format($var['od_payments']+50,2);?></strong> บาท · สินค้า <?php echo $var['od_amount'];?> ชิ้น · <?php echo $var['od_amount'];?> รายการ</div>
+	<div class="order-items-info">
+		<p>สินค้า <?php echo $var['od_amount'];?> ชิ้น <?php echo $var['od_amount'];?> รายการ</p>
+		<p>ชำระเงิน <strong><?php echo number_format($var['od_payments']+50,2);?></strong> บาท</p>
+	</div>
 </div>
 </a>

@@ -25,7 +25,7 @@ $product_quantity = $var['product_quantity'];
 
 	<div class="items-in-order-detail">
 		<p class="detail-title"><a href="product-<?php echo $link;?>.html"><?php echo $title;?></a></p>
-		<p class="detail-description">(<?php echo $var['product_quantity'];?>) รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท  · <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
+		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท</p>
 	</div>
 	<div class="items-in-order-quantity">
 
@@ -50,6 +50,10 @@ $product_quantity = $var['product_quantity'];
 	</div>
 	<div class="items-in-order-total">
 		<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
+	</div>
+
+	<div class="items-in-order-control">
+		<?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?>
 	</div>
 
 	<input type="hidden" id="product-payments-<?php echo $reference_id;?>" class="items-payments" value="<?php echo $product_payments;?>">

@@ -11,6 +11,9 @@ if(!MEMBER_ONLINE || MEMBER_ID != $user->id){
 if(!empty($user->current_order_id)){
 	$order->GetOrder(array('order_id' => $user->current_order_id));
 }
+
+// Current page
+$current_page = "profile";
 ?>
 
 <!DOCTYPE html>
@@ -48,29 +51,18 @@ if(!empty($user->current_order_id)){
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
 
 	<div class="container-page">
 		<div class="profile">
-			<div class="profile-avatar">
-				<?php if(empty($user->facebook_id)){?>
-				<img src="image/avatar.png" alt="">
-				<?php }else{?>
-				<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
-				<?php }?>
-			</div>
-			<div class="profile-info">
-				<p class="big">คุณ <?php echo $user->name;?></p>
-				<p><?php echo $user->email;?> · <?php echo $user->phone;?></p>
-				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
-				<p title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
+			<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อ <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
+			<p>คุณ <?php echo $user->name;?> เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
 
-				<p class="link">
-					<a href="profile_edit.php">แก้ไขข้อมูล</a>
-					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
-					<a href="logout.php" class="logout">ออกจากระบบ</a>
-				</p>
-			</div>	
+			<p class="link">
+				<a href="profile_edit.php">แก้ไขข้อมูล</a>
+				<a href="profile_change_password.php">เปลี่ยนรหัส</a>
+				<a href="logout.php" class="logout">ออกจากระบบ</a>
+			</p>
 		</div>
 
 		<div class="list-content">
