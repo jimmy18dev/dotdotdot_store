@@ -7,11 +7,9 @@ class UserController extends UserModel{
     public $name;
     public $facebook_id;
     public $facebook_name;
-
     public $verify_code;
     public $forget_code;
     public $status;
-
     public $total_payment;
 
 
@@ -97,7 +95,7 @@ class UserController extends UserModel{
         
         $token_key_cookie       = $_COOKIE['token_key'];
 
-        if($token_key_cookie == $dataset['tk_token'] && !empty(MEMBER_ID)){
+        if($token_key_cookie == $dataset['tk_token'] && !empty($param['member_id'])){
             return true;
         }
         else{
