@@ -33,42 +33,38 @@ include'facebook.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 
 </head>
 
 <body>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo"><i class="fa fa-user-plus"></i>สมัครสมาชิก</div>
+		<div class="logo"><i class="fa fa-user-plus"></i>Register</div>
 		<div class="form">
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
-			<div class="mini-caption">หรือ</div>
 
 			<div class="caption">Email</div>
-			<input type="text" class="input-text" id="email" placeholder="Email address">
+			<input type="text" class="input-text" id="email" placeholder="Enter your email">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
 
 			<div class="caption">Name</div>
-			<input type="text" class="input-text" id="name" placeholder="ชื่อและนามสกุล">
+			<input type="text" class="input-text" id="name" placeholder="Enter your name">
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
 
 			<div class="caption">Password</div>
-			<input type="text" class="input-text" id="password" placeholder="อย่างน้อย 6 ตัวอักษร">
+			<input type="password" class="input-text" id="password" placeholder="Minimum 6 characters">
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">สมัครสมาชิก</span></button>
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">Sign Up</span></button>
+			<div class="mini-caption">or</div>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> Sign Up with Facebook</div></a>
 
-			<div class="option">
-				<a href="login.php">เข้าระบบ</a>
-				 · <a href="forget.php">ลืมรหัสผ่าน</a>
-				 · <a href="index.php">หน้าหลัก</a>
-			</div>
+			<p class="signup">I have account? <a href="login.php">Sign In</a></p>
 		</div>
 	</div>
 </div>

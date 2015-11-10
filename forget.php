@@ -29,11 +29,10 @@ require_once'config/autoload.php';
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 
 </head>
 
@@ -42,18 +41,14 @@ require_once'config/autoload.php';
 	<div class="login-container">
 		<div class="logo">Forget password</div>
 		<div class="form">
-			<div class="caption">Email ที่คุณเคยใช้สมัครสมาชิก</div>
-			<input type="text" class="input-text" id="email" placeholder="Email address">
+			<div class="caption">Email address</div>
+			<input type="text" class="input-text" id="email" placeholder="Enter yout email">
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">ตกลง</span></button>
+			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">OK</span></button>
 
-			<div class="option">
-				<a href="login.php">เข้าระบบ</a>
-				 · <a href="register.php">สมัครสมาชิก</a>
-				 · <a href="index.php">หน้าหลัก</a>
-			</div>
+			<p class="signup">I have account? <a href="login.php">Sign In</a></p>
 		</div>
 	</div>
 </div>

@@ -4,15 +4,15 @@ function LoginUser(){
     var password = $('#password').val();
 
     if(username == ""){
-        $('#status-message').html('คุณยังไม่ได้กรอก่อีเมล!').slideDown(500).delay(1000).slideUp(300);
+        $('#status-message').html('Enter your email!').slideDown(500).delay(1000).slideUp(300);
         return false;
     }
     else if(password == ""){
-        $('#status-message').html('คุณยังไม่ได้กรอกรหัสผ่าน!').slideDown(500).delay(2000).slideUp(300);
+        $('#status-message').html('Enter your password!').slideDown(500).delay(2000).slideUp(300);
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังลงชื่อเข้าใช้...');
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Signing In...');
 
     $.ajax({
         url         :href,
@@ -36,8 +36,8 @@ function LoginUser(){
             setTimeout(function(){window.location = 'index.php';},3000);
         }
         else{
-            $('#status-message').html('ลงชื่อเข้าใช้ ไม่สำเร็จ!').slideDown(500).delay(3000).slideUp(300);
-            $('#login-status').html('ลงชื่อเข้าใช้');
+            $('#status-message').html('Check your email and Password!').slideDown(500).delay(3000).slideUp(300);
+            $('#login-status').html('Sign In');
             return false;
         }
     }).error();
@@ -53,19 +53,19 @@ function RegisterUser(){
     var password    = $('#password').val();
 
     if(email == ""){
-        $('#status-message').html('คุณยังไม่ได้กรอก่อีเมล!').slideDown(500).delay(1000).slideUp(300);
+        $('#status-message').html('Enter your email!').slideDown(500).delay(1000).slideUp(300);
         return false;
     }
     else if(name == ""){
-        $('#status-message').html('คุณยังไม่ได้กรอกชื่อและนามสกุล!').slideDown(500).delay(2000).slideUp(300);
+        $('#status-message').html('Enter your name!').slideDown(500).delay(2000).slideUp(300);
         return false;
     }
     else if(password == ""){
-        $('#status-message').html('คุณยังไม่ได้กรอกรหัสผ่าน!').slideDown(500).delay(2000).slideUp(300);
+        $('#status-message').html('Enter your password!').slideDown(500).delay(2000).slideUp(300);
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังสมัครสมาชิก...');
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Signing Up...');
 
     $.ajax({
         url         :href,
@@ -92,8 +92,8 @@ function RegisterUser(){
             setTimeout(function(){window.location = 'index.php';},3000);
         }
         else{
-            $('#status-message').html('สมัครสมาชิก ไม่สำเร็จ!').slideDown(500).delay(3000).slideUp(300);
-            $('#login-status').html('สมัครสมาชิก');
+            $('#status-message').html('Already account!').slideDown(500).delay(3000).slideUp(300);
+            $('#login-status').html('Sign Up');
         }
     }).error();
 }
@@ -106,7 +106,7 @@ function ForgetPassword(){
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่งอีเมล...');
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Sending...');
 
     $.ajax({
         url         :href,
@@ -211,7 +211,7 @@ function ChangePassword(){
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังตั้งรหัสผ่านใหม่...');
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>Processing...');
 
     $.ajax({
         url         :href,
