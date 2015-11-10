@@ -559,9 +559,6 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   font-size: 0.9em;
 }
-.container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control .remove-btn i {
-  margin-right: 5px;
-}
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-control .remove-btn:hover {
   cursor: pointer;
   color: #000000;
@@ -1012,12 +1009,11 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #FAFAFA;
 }
 .container .container-page .product-items {
-  width: 32.66%;
+  width: 31.66%;
   float: left;
   display: inline-block;
   margin-bottom: 1%;
-  margin-right: 1%;
-  background: #FAFAFA;
+  margin-right: 2%;
 }
 .container .container-page .product-items:nth-child(3n) {
   margin-right: 0%;
@@ -1050,12 +1046,10 @@ Copyright (c) 2015 Daniel Eden
   overflow: hidden;
 }
 .container .container-page .product-items .product-items-detail .detail-title {
-  width: 72%;
-  padding: 3% 4%;
+  width: 100%;
+  padding: 3% 0%;
   float: left;
   display: inline-block;
-  font-size: 0.95em;
-  line-height: 1.7em;
 }
 .container .container-page .product-items .product-items-detail .detail-title a {
   color: #000000;
@@ -1064,28 +1058,24 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .product-items .product-items-detail .detail-title a:hover {
   text-decoration: underline;
 }
-.container .container-page .product-items .product-items-detail .detail-title .msg {
-  font-size: 0.85em;
+.container .container-page .product-items .product-items-detail .detail-title h2 {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  margin-bottom: 3%;
+}
+.container .container-page .product-items .product-items-detail .detail-title p {
+  font-size: 0.8em;
+  color: #000000;
+}
+.container .container-page .product-items .product-items-detail .detail-title .buy-btn {
+  padding: 3px 5px;
+  margin-right: 5px;
+  background: #FAFAFA;
   color: #777777;
 }
-.container .container-page .product-items .product-items-detail .detail-buy-btn {
-  width: 20%;
-  padding: 3% 0%;
-  float: right;
-  display: inline-block;
-  background: #000000;
-  color: #FFFFFF;
-  font-size: 0.95em;
-  line-height: 1.7em;
-  text-align: center;
-  overflow: hidden;
-}
-.container .container-page .product-items .product-items-detail .detail-buy-btn:hover {
+.container .container-page .product-items .product-items-detail .detail-title .buy-btn:hover {
+  color: #000000;
   cursor: pointer;
-  background: #222222;
-}
-.container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
-  font-size: 0.85em;
 }
 .container-fix {
   margin: 0px 0px;
@@ -1239,7 +1229,6 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
     padding: 0% 0%;
     height: 50px;
-    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.2);
   }
   .header .logo {
     padding: 17px 3%;
@@ -1256,14 +1245,14 @@ Copyright (c) 2015 Puwadon Sricharoen
     font-size: 1.2em;
   }
   .header .avatar {
-    margin: 10px 0%;
+    margin: 13px 0%;
     padding-left: 3%;
     padding-right: 3%;
-    height: 30px;
+    height: 24px;
   }
   .header .avatar img {
-    height: 30px;
-    width: 30px;
+    height: 24px;
+    width: 24px;
   }
   .header .avatar .notifications {
     top: -4px;
@@ -1654,11 +1643,12 @@ Copyright (c) 2015 Puwadon Sricharoen
     text-align: center;
   }
   .container .container-page .product-items {
-    width: 100%;
-    margin-bottom: 5%;
+    width: 94%;
+    margin: 0% 3%;
+    margin-top: 3%;
   }
   .container .container-page .product-items:nth-child(3n) {
-    margin-right: 0%;
+    margin-right: 3%;
   }
   .container .container-page .product-items .product-items-detail .detail-title {
     width: 67%;

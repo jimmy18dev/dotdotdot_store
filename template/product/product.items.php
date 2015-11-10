@@ -47,12 +47,12 @@ else{
 	</div>
 	<div class="product-items-detail">
 		<div class="detail-title">
-			<p><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></p>
-			<p class="msg"><?php echo $msg;?></p>
-		</div>
-		<div class="detail-buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
-			<p id="buy-button-msg-<?php echo $var['pd_id'];?>" class="animated"><?php echo $button_msg;?></p>
-			<p id="buy-button-price-<?php echo $var['pd_id'];?>" class="msg"><?php echo $button_price;?></p>
+			<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></h2>
+			<p>
+				<span class="buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><span id="buy-button-msg-<?php echo $var['pd_id'];?>" class="animated"><?php echo $button_msg;?></span>
+			<span id="buy-button-price-<?php echo $var['pd_id'];?>" class="msg"><?php echo $button_price;?></span>
+			</span><span><?php echo $msg;?></span>
+			</p>
 		</div>
 	</div>
 </div>
