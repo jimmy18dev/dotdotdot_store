@@ -1060,7 +1060,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         // Product item style
         .product-items{
-            width: 31.66%;
+            width: 32%;
             float: left;
             display: inline-block;
             margin-bottom: 1%;
@@ -1094,6 +1094,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 overflow: hidden;
+                text-align: center;
 
                 .detail-title{
                     width: 100%;
@@ -1111,25 +1112,55 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
 
                     h2{
-                        font-size: 1.2em;
-                        line-height: 1.5em;
-                        margin-bottom: 3%;
+                        font-size: 1.1em;
+                        color: @PrimaryTextColor;
+                        line-height: 1.7em;
                     }
 
                     p{
+                        font-size: 0.95em;
+                        color: @SecondaryTextColor;
+                        line-height: 1.7em;
+                    }
+
+                    p.description{
+                        font-style: italic;
                         font-size: 0.8em;
-                        color: #000000;
+                    }
+
+                    p.price{
+                        font-weight: bold;
+                        color: @PrimaryTextColor;
                     }
 
                     .buy-btn{
-                        padding: 3px 5px;
-                        margin-right: 5px;
-                        background: #FAFAFA;
-                        color: #777777;
+                        margin: auto;
+                        margin-top: 1%;
+                        padding: 0.5% 5%;
+                        display: inline-block;
+                        color: @SecondaryTextColor;
+                        font-size: 0.7em;
+                        border-radius: 20px;
+                        border: 1px solid @SecondaryTextColor;
+
+                        i{
+                            margin-right: 5px;
+                            font-size: 0.8em;
+                        }
 
                         &:hover{
-                            color: #000000;
+                            color: @PrimaryTextColor;
+                            border: 1px solid @PrimaryTextColor;
                             cursor: pointer;
+                        }
+                    }
+                    .buy-btn-active{
+                        background: @PrimaryTextColor;
+                        color: #FFFFFF;
+                        border: 1px solid @PrimaryTextColor;
+
+                        &:hover{
+                            color: #FFFFFF;
                         }
                     }
                 }

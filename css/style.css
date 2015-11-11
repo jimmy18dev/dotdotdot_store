@@ -48,8 +48,8 @@ Copyright (c) 2015 Daniel Eden
     transform: scale3d(1, 1, 1);
   }
   50% {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-    transform: scale3d(1.3, 1.3, 1.3);
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4);
   }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -62,8 +62,8 @@ Copyright (c) 2015 Daniel Eden
     transform: scale3d(1, 1, 1);
   }
   50% {
-    -webkit-transform: scale3d(1.3, 1.3, 1.3);
-    transform: scale3d(1.3, 1.3, 1.3);
+    -webkit-transform: scale3d(1.4, 1.4, 1.4);
+    transform: scale3d(1.4, 1.4, 1.4);
   }
   100% {
     -webkit-transform: scale3d(1, 1, 1);
@@ -1009,7 +1009,7 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #FAFAFA;
 }
 .container .container-page .product-items {
-  width: 31.66%;
+  width: 32%;
   float: left;
   display: inline-block;
   margin-bottom: 1%;
@@ -1044,6 +1044,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   overflow: hidden;
+  text-align: center;
 }
 .container .container-page .product-items .product-items-detail .detail-title {
   width: 100%;
@@ -1059,23 +1060,49 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .container-page .product-items .product-items-detail .detail-title h2 {
-  font-size: 1.2em;
-  line-height: 1.5em;
-  margin-bottom: 3%;
+  font-size: 1.1em;
+  color: #000000;
+  line-height: 1.7em;
 }
 .container .container-page .product-items .product-items-detail .detail-title p {
+  font-size: 0.95em;
+  color: #777777;
+  line-height: 1.7em;
+}
+.container .container-page .product-items .product-items-detail .detail-title p.description {
+  font-style: italic;
   font-size: 0.8em;
+}
+.container .container-page .product-items .product-items-detail .detail-title p.price {
+  font-weight: bold;
   color: #000000;
 }
 .container .container-page .product-items .product-items-detail .detail-title .buy-btn {
-  padding: 3px 5px;
-  margin-right: 5px;
-  background: #FAFAFA;
+  margin: auto;
+  margin-top: 1%;
+  padding: 0.5% 5%;
+  display: inline-block;
   color: #777777;
+  font-size: 0.7em;
+  border-radius: 20px;
+  border: 1px solid #777777;
+}
+.container .container-page .product-items .product-items-detail .detail-title .buy-btn i {
+  margin-right: 5px;
+  font-size: 0.8em;
 }
 .container .container-page .product-items .product-items-detail .detail-title .buy-btn:hover {
   color: #000000;
+  border: 1px solid #000000;
   cursor: pointer;
+}
+.container .container-page .product-items .product-items-detail .detail-title .buy-btn-active {
+  background: #000000;
+  color: #FFFFFF;
+  border: 1px solid #000000;
+}
+.container .container-page .product-items .product-items-detail .detail-title .buy-btn-active:hover {
+  color: #FFFFFF;
 }
 .container-fix {
   margin: 0px 0px;
@@ -1645,27 +1672,41 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .container-page .product-items {
     width: 94%;
     margin: 0% 3%;
-    margin-top: 3%;
+    margin-bottom: 3%;
+    margin-right: 0%;
+    background: #FAFAFA;
   }
   .container .container-page .product-items:nth-child(3n) {
     margin-right: 3%;
   }
+  .container .container-page .product-items .product-items-detail {
+    width: 94%;
+    padding: 3%;
+  }
   .container .container-page .product-items .product-items-detail .detail-title {
-    width: 67%;
-    padding: 3% 4%;
-    font-size: 0.95em;
-    line-height: 1.7em;
+    width: 100%;
+    padding: 0% 0%;
   }
-  .container .container-page .product-items .product-items-detail .detail-title .msg {
-    font-size: 0.8em;
+  .container .container-page .product-items .product-items-detail .detail-title h2 {
+    font-size: 1em;
+    line-height: 1.5em;
   }
-  .container .container-page .product-items .product-items-detail .detail-buy-btn {
-    width: 25%;
-    padding: 3% 0%;
-    font-size: 0.95em;
-    line-height: 1.7em;
+  .container .container-page .product-items .product-items-detail .detail-title p {
+    font-size: 0.85em;
+    line-height: 1.5em;
   }
-  .container .container-page .product-items .product-items-detail .detail-buy-btn .msg {
+  .container .container-page .product-items .product-items-detail .detail-title p.description {
+    font-size: 0.75em;
+  }
+  .container .container-page .product-items .product-items-detail .detail-title .buy-btn {
+    margin: auto;
+    margin-top: 3%;
+    padding: 1% 5%;
+    font-size: 0.7em;
+    border-radius: 20px;
+  }
+  .container .container-page .product-items .product-items-detail .detail-title .buy-btn i {
+    margin-right: 5px;
     font-size: 0.8em;
   }
   #alert {

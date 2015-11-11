@@ -23,11 +23,10 @@ function AddItemToOrder(product_id){
     }).done(function(data){
         console.log('Return: '+data.message+','+data.return);
 
-        $('#buy-button-msg-'+product_id).html('<i class="fa fa-check"></i>');
-        $('#buy-button-price-'+product_id).html('Checkout');
+        $('#buy-button-'+product_id).html('<i class="fa fa-check"></i>ชำระเงิน');
 
         // Add animation
-        $('#buy-button-msg-'+product_id).addClass('pulse');
+        $('#buy-button-'+product_id).addClass('pulse buy-btn-active');
 
         if(data.message){
             MyCurrentOrder();
