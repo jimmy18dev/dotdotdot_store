@@ -60,14 +60,9 @@ Copyright (c) 2015 Puwadon Sricharoen
         width: 100%;
         margin: 0% 0%;
 
-        .logo{
-            margin: 8% 0%;
-            font-size: 1.2em;
-
-            i{
-                margin-right: 10px;
-                font-size: 0.8em;
-            }
+        .navi{
+            margin: 7% 0%;
+            font-size: 1em;
         }
 
         .form{
@@ -75,44 +70,61 @@ Copyright (c) 2015 Puwadon Sricharoen
             margin: 0% 5%;
 
             .caption{
-                font-size: 0.7em;
+                font-size: 0.9em;
             }
 
             .input-text{
-                width: 96%;
-                padding: 3% 2%;
-                font-size: 0.95em;
-                margin-bottom: 7%;
+                width: 94%;
+                padding: 3.5% 3%;
+                font-size: 1em;
+                line-height: 1.5em;
+                margin-bottom: 5%;
             }
 
             p.forget{
                 margin-bottom: 7%;
                 font-size: 0.8em;
+
+                a{
+                    background: #EEEEEE;
+                    padding: 4px 6px;
+                    margin-left: 5px;
+                }
             }
 
             .status{
-                font-size: 0.8em;
+                width: 100%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+                font-size: 0.9em;
+                line-height: 1.5em;
                 margin-bottom: 5%;
+                color: #F44336;
+                display: none;
             }
 
             .button-submit{
                 padding: 5% 0%;
-                font-size: 0.9em;
             }
 
             .mini-caption{
-                padding: 10% 0%;
-                font-size: 0.8em;
+                padding: 5% 0%;
             }
 
             .facebook-button{
                 padding: 5% 0%;
-                font-size: 0.9em;
             }
 
             p.signup{
                 padding-top: 10%;
                 font-size: 0.9em;
+
+                a{
+                    background: #EEEEEE;
+                    padding: 4px 6px;
+                    margin-left: 5px;
+                }
             }
         }
     }
@@ -230,9 +242,9 @@ Copyright (c) 2015 Puwadon Sricharoen
                                 }
                             }
 
-                            input{
+                            .input-select{
+                                width: 100%;
                                 font-size: 1em;
-                                line-height: 1.5em;
                             }
 
                             .items-in-order-quantity{
@@ -428,13 +440,12 @@ Copyright (c) 2015 Puwadon Sricharoen
             .order-items{
                 width: 94%;
                 padding: 3%;
-                margin-left: 0%;
-                margin-bottom: 1%;
+                border-bottom: 1px solid #EEEEEE;
 
                 .order-items-status{
                     line-height: 1.5em;
                     margin-bottom: 3%;
-                    font-size: 0.7em;
+                    font-size: 0.6em;
 
                     .status{
                         padding: 1px 5px;
@@ -449,79 +460,48 @@ Copyright (c) 2015 Puwadon Sricharoen
                     line-height: 1.5em;
                 }
                 .order-items-info{
-                    font-size: 0.85em;
+                    font-size: 0.9em;
                     line-height: 1.5em;
                 }
             }
         }
 
         .profile{
-            width: 94%;
-            padding: 3%;
-            padding-bottom: 1%;
+            width: 100%;
+            padding: 3% 0%;
 
-            .profile-avatar{
-                width: 15%;
-                margin-top: 2%;
+            p{
+                font-size: 1em;
+                line-height: 1.5em;
             }
-            .profile-info{
-                width: 80%;
-                margin-left: 5%;
-
-                p{
-                    font-size: 0.9em;
-                    line-height: 1.5em;
-                }
-
-                p.link{
-                    font-size: 0.8em;
-                    margin-bottom: 0%;
-                    margin: 2% 0%;
-
-                    a{
-                        margin-left: 1%;
-                        padding-left: 1%;
-                    }
-                }
-
-                p.big{
-                    font-size: 1.2em;
-                    margin-bottom: 0%;
-                }
+            p.big{
+                font-size: 1.5em;
+            }
+            p.link{
+                margin-top: 5%;
+                font-size: 0.7em;
 
                 a{
-                    i{
-                        font-size: 0.8em;
-                        margin-right: 5px;
-                    }
+                    padding: 4px 7px;
+                }
+            }
+
+            .form{
+                width: 94%;
+                margin: 3% 3%;
+
+                .input-text{
+                    width: 73%;
+                    padding: 3%;
+                    line-height: 1.5em;
+                    font-size: 0.9em;
                 }
 
-                .form{
-
-                    .form-items{
-                        padding: 2% 0%;
-
-                        .input-text{
-                            width: 94%;
-                            padding: 3%;
-                            font-size: 0.9em;
-                            line-height: 1.5em;
-                            border: 1px solid #FAFAFA;
-                        }
-                    }
-
-                    .form-submit{
-                        width: 100%;
-                        margin-top: 1%;
-                        margin-bottom: 2%;
-
-                        .submit-btn{
-                            width: 90%;
-                            padding: 5%;
-                            font-size: 0.9em;
-                            text-align: center;
-                        }
-                    }
+                .submit-btn{
+                    width: 20%;
+                    padding: 3% 0%;
+                    line-height: 1.5em;
+                    font-size: 0.9em;
                 }
             }
         }

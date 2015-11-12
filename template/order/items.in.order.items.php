@@ -32,7 +32,7 @@ $product_quantity = $var['product_quantity'];
 		<?php if($order_status != "Shopping"){?>
 		<div class="value"><?php echo $order_amount;?></div>
 		<?php }else{?>
-		<select name="" id="product-quantity-<?php echo $reference_id;?>" onchange="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">
+		<select class="input-select" id="product-quantity-<?php echo $reference_id;?>" onchange="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">
 			<?php
 			if($product_quantity < 10){
 				for($i=1;$i<=$product_quantity;$i++){

@@ -538,19 +538,15 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
   color: #000000;
 }
-.container .container-page .order-detail .order-box .box .order-list .items-in-order input {
+.container .container-page .order-detail .order-box .box .order-list .items-in-order .input-select {
   width: 100%;
   float: left;
   display: inline-block;
-  text-align: center;
+  font-family: sans-serif, 'Open Sans';
   font-size: 1em;
-  border: 0px;
-  border-bottom: 1px solid #FAFAFA;
   line-height: 1.5em;
-}
-.container .container-page .order-detail .order-box .box .order-list .items-in-order input.fail {
-  color: #F44336;
-  border-bottom: 1px solid #F44336;
+  background: #FFFFFF;
+  border: 1px solid #FAFAFA;
 }
 .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-quantity {
   width: 5%;
@@ -1313,50 +1309,61 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
     margin: 0% 0%;
   }
-  .login-dialog .login-container .logo {
-    margin: 8% 0%;
-    font-size: 1.2em;
-  }
-  .login-dialog .login-container .logo i {
-    margin-right: 10px;
-    font-size: 0.8em;
+  .login-dialog .login-container .navi {
+    margin: 7% 0%;
+    font-size: 1em;
   }
   .login-dialog .login-container .form {
     width: 90%;
     margin: 0% 5%;
   }
   .login-dialog .login-container .form .caption {
-    font-size: 0.7em;
+    font-size: 0.9em;
   }
   .login-dialog .login-container .form .input-text {
-    width: 96%;
-    padding: 3% 2%;
-    font-size: 0.95em;
-    margin-bottom: 7%;
+    width: 94%;
+    padding: 3.5% 3%;
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-bottom: 5%;
   }
   .login-dialog .login-container .form p.forget {
     margin-bottom: 7%;
     font-size: 0.8em;
   }
+  .login-dialog .login-container .form p.forget a {
+    background: #EEEEEE;
+    padding: 4px 6px;
+    margin-left: 5px;
+  }
   .login-dialog .login-container .form .status {
-    font-size: 0.8em;
+    width: 100%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+    font-size: 0.9em;
+    line-height: 1.5em;
     margin-bottom: 5%;
+    color: #F44336;
+    display: none;
   }
   .login-dialog .login-container .form .button-submit {
     padding: 5% 0%;
-    font-size: 0.9em;
   }
   .login-dialog .login-container .form .mini-caption {
-    padding: 10% 0%;
-    font-size: 0.8em;
+    padding: 5% 0%;
   }
   .login-dialog .login-container .form .facebook-button {
     padding: 5% 0%;
-    font-size: 0.9em;
   }
   .login-dialog .login-container .form p.signup {
     padding-top: 10%;
     font-size: 0.9em;
+  }
+  .login-dialog .login-container .form p.signup a {
+    background: #EEEEEE;
+    padding: 4px 6px;
+    margin-left: 5px;
   }
   .container {
     width: 100%;
@@ -1450,9 +1457,9 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
     font-size: 0.8em;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order input {
+  .container .container-page .order-detail .order-box .box .order-list .items-in-order .input-select {
+    width: 100%;
     font-size: 1em;
-    line-height: 1.5em;
   }
   .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-quantity {
     width: 13%;
@@ -1609,13 +1616,12 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .container-page .list-content .order-items {
     width: 94%;
     padding: 3%;
-    margin-left: 0%;
-    margin-bottom: 1%;
+    border-bottom: 1px solid #EEEEEE;
   }
   .container .container-page .list-content .order-items .order-items-status {
     line-height: 1.5em;
     margin-bottom: 3%;
-    font-size: 0.7em;
+    font-size: 0.6em;
   }
   .container .container-page .list-content .order-items .order-items-status .status {
     padding: 1px 5px;
@@ -1628,63 +1634,42 @@ Copyright (c) 2015 Puwadon Sricharoen
     line-height: 1.5em;
   }
   .container .container-page .list-content .order-items .order-items-info {
-    font-size: 0.85em;
+    font-size: 0.9em;
     line-height: 1.5em;
   }
   .container .container-page .profile {
-    width: 94%;
-    padding: 3%;
-    padding-bottom: 1%;
-  }
-  .container .container-page .profile .profile-avatar {
-    width: 15%;
-    margin-top: 2%;
-  }
-  .container .container-page .profile .profile-info {
-    width: 80%;
-    margin-left: 5%;
-  }
-  .container .container-page .profile .profile-info p {
-    font-size: 0.9em;
-    line-height: 1.5em;
-  }
-  .container .container-page .profile .profile-info p.link {
-    font-size: 0.8em;
-    margin-bottom: 0%;
-    margin: 2% 0%;
-  }
-  .container .container-page .profile .profile-info p.link a {
-    margin-left: 1%;
-    padding-left: 1%;
-  }
-  .container .container-page .profile .profile-info p.big {
-    font-size: 1.2em;
-    margin-bottom: 0%;
-  }
-  .container .container-page .profile .profile-info a i {
-    font-size: 0.8em;
-    margin-right: 5px;
-  }
-  .container .container-page .profile .profile-info .form .form-items {
-    padding: 2% 0%;
-  }
-  .container .container-page .profile .profile-info .form .form-items .input-text {
-    width: 94%;
-    padding: 3%;
-    font-size: 0.9em;
-    line-height: 1.5em;
-    border: 1px solid #FAFAFA;
-  }
-  .container .container-page .profile .profile-info .form .form-submit {
     width: 100%;
-    margin-top: 1%;
-    margin-bottom: 2%;
+    padding: 3% 0%;
   }
-  .container .container-page .profile .profile-info .form .form-submit .submit-btn {
-    width: 90%;
-    padding: 5%;
+  .container .container-page .profile p {
+    font-size: 1em;
+    line-height: 1.5em;
+  }
+  .container .container-page .profile p.big {
+    font-size: 1.5em;
+  }
+  .container .container-page .profile p.link {
+    margin-top: 5%;
+    font-size: 0.7em;
+  }
+  .container .container-page .profile p.link a {
+    padding: 4px 7px;
+  }
+  .container .container-page .profile .form {
+    width: 94%;
+    margin: 3% 3%;
+  }
+  .container .container-page .profile .form .input-text {
+    width: 73%;
+    padding: 3%;
+    line-height: 1.5em;
     font-size: 0.9em;
-    text-align: center;
+  }
+  .container .container-page .profile .form .submit-btn {
+    width: 20%;
+    padding: 3% 0%;
+    line-height: 1.5em;
+    font-size: 0.9em;
   }
   .container .container-page .product-items {
     width: 94%;
