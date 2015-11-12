@@ -7,12 +7,12 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = 'Buy';
+	$button_msg = 'สั่งซื้อ';
 	$button_price = number_format($var['pd_price'],2).' ฿';
 }
 else{
-	$button_msg = '<i class="fa fa-check"></i>';
-	$button_price = 'Checkout';
+	$button_msg = '<i class="fa fa-arrow-right"></i>';
+	$button_price = 'ชำระเงิน';
 }
 ?>
 

@@ -45,11 +45,11 @@
 
 	// Photo upload resize ///////////////////////
 	$size = array(
-		'thumbnail' => 400,
+		'thumbnail' => 150,
 		'mini' 		=> 400,
-		'square' 	=> 800,
-		'normal' 	=> 800,
-		'large' 	=> 1600,
+		'square' 	=> 500,
+		'normal' 	=> 700,
+		'large' 	=> 1200,
 	);
 
 	// Photo Quality

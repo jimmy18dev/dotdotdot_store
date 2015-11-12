@@ -102,16 +102,11 @@ if(!empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_
             $save_folder['large']       = $destination_folder['large'].$new_file_name;
                 
             // Image resize process and saved.
-            // Mini size
-            $image->normal_resize_image($image_res,$save_folder['mini'],$image_type,$photo_size['mini'],$image_width,$image_height,$jpeg_quality);
-            // Normal size
-            $image->normal_resize_image($image_res,$save_folder['normal'],$image_type,$photo_size['normal'],$image_width,$image_height,$jpeg_quality);
-            // Large size
-            $image->normal_resize_image($image_res,$save_folder['large'],$image_type,$photo_size['large'],$image_width,$image_height,$jpeg_quality);
-            // Square size
-            $image->crop_image_square($image_res,$save_folder['square'],$image_type,$photo_size['square'],$image_width,$image_height,$jpeg_quality);
-            // Thumbnail size
-            $image->crop_image_square($image_res,$save_folder['thumbnail'],$image_type,$photo_size['thumbnail'],$image_width,$image_height,$jpeg_quality);
+            //$image->normal_resize_image($image_res,$save_folder['mini'],$image_type,$size['mini'],$image_width,$image_height,$quality['mini']);
+            $image->normal_resize_image($image_res,$save_folder['normal'],$image_type,$size['normal'],$image_width,$image_height,$quality['normal']);
+            // $image->normal_resize_image($image_res,$save_folder['large'],$image_type,$size['large'],$image_width,$image_height,$quality['large']);
+            // $image->crop_image_square($image_res,$save_folder['square'],$image_type,$size['square'],$image_width,$image_height,$quality['square']);
+            $image->crop_image_square($image_res,$save_folder['thumbnail'],$image_type,$size['thumbnail'],$image_width,$image_height,$quality['thumbnail']);
 
             $image->CreateImage(array(
                 'product_id'    => '',

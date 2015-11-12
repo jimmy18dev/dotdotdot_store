@@ -16,7 +16,7 @@ if(empty($var['odt_id'])){
 	$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
 }
 else{
-	$button_msg = '<i class="fa fa-check"></i>ชำระเงิน';
+	$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
 }
 
 // Message setup

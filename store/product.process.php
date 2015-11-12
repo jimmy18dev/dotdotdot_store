@@ -94,11 +94,11 @@ if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SER
             $folder['large']       = $destination_folder['large'].$new_filename;
                 
             // Image resize process and saved.
-            $image->resize_image($img_res,$folder['mini'],$img_type,$size['mini'],$img_width,$img_height,$quality['mini']);
-            $image->resize_image($img_res,$folder['normal'],$img_type,$size['normal'],$img_width,$img_height,$quality['normal']);
-            $image->resize_image($img_res,$folder['large'],$img_type,$size['large'],$img_width,$img_height,$quality['large']);
             $image->crop_image($img_res,$folder['square'],$img_type,$size['square'],$img_width,$img_height,$quality['square']);
             $image->crop_image($img_res,$folder['thumbnail'],$img_type,$size['thumbnail'],$img_width,$img_height,$quality['thumbnail']);
+            $image->resize_image($img_res,$folder['mini'],$img_type,$size['mini'],$img_width,$img_height,$quality['mini']);
+            $image->resize_image($img_res,$folder['normal'],$img_type,$size['normal'],$img_width,$img_height,$quality['normal']);
+            // $image->resize_image($img_res,$folder['large'],$img_type,$size['large'],$img_width,$img_height,$quality['large']);
 
             $image->CreateImage(array(
                 'product_id'    => $product_id,
