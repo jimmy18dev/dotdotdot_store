@@ -42,6 +42,10 @@ include'facebook.php';
 	<div class="login-container">
 		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> เข้าสู่ระบบ</div>
 		<div class="form">
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
+
+			<div class="mini-caption">หรือ</div>
+			
 			<div class="caption">อีเมล:</div>
 			<input type="email" class="input-text" id="username" placeholder="กรอกเมลของคุณ">
 			<div class="caption">รหัสผ่าน:</div>
@@ -52,8 +56,6 @@ include'facebook.php';
 			<div class="status" id="status-message"></div>
 
 			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">เข้าสู่ระบบ</span></button>
-			<div class="mini-caption">หรือ</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
 
 			<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php">สมัครสมาชิก</a></p>
 		</div>
