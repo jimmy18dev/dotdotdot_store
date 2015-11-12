@@ -37,25 +37,25 @@ include'facebook.php';
 
 </head>
 
-<body>
+<body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo"><i class="fa fa-sign-in"></i>User Login</div>
+		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> เข้าสู่ระบบ</div>
 		<div class="form">
-			<div class="caption">Email or Phone Number</div>
-			<input type="email" class="input-text" id="username" placeholder="Email address">
-			<div class="caption">Password</div>
-			<input type="password" class="input-text" id="password" placeholder="">
+			<div class="caption">อีเมล:</div>
+			<input type="email" class="input-text" id="username" placeholder="กรอกเมลของคุณ">
+			<div class="caption">รหัสผ่าน:</div>
+			<input type="password" class="input-text" id="password" placeholder="กรอกรหัสผ่านของคุณ">
 
-			<p class="forget"><a href="forget.php">Forget Password!</a></p>
+			<p class="forget"><a href="forget.php">ฉันลืมรหัสผ่าน!</a></p>
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">Sign In</span></button>
-			<div class="mini-caption">or</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> Sign In with Facebook</div></a>
+			<button class="button-submit" onclick="javascript:LoginUser();"><span id="login-status">เข้าสู่ระบบ</span></button>
+			<div class="mini-caption">หรือ</div>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
 
-			<p class="signup">Need an account? <a href="register.php">Sign Up</a></p>
+			<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php">สมัครสมาชิก</a></p>
 		</div>
 	</div>
 </div>

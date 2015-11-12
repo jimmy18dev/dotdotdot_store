@@ -36,19 +36,19 @@ require_once'config/autoload.php';
 
 </head>
 
-<body>
+<body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo">Forget password</div>
+		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> ลืมรหัสผ่าน</div>
 		<div class="form">
-			<div class="caption">Email address</div>
-			<input type="text" class="input-text" id="email" placeholder="Enter yout email">
+			<div class="caption">อีเมล:</div>
+			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">OK</span></button>
+			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">ตกลง</span></button>
 
-			<p class="signup">I have account? <a href="login.php">Sign In</a></p>
+			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
 		</div>
 	</div>
 </div>

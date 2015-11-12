@@ -37,34 +37,34 @@ include'facebook.php';
 
 </head>
 
-<body>
+<body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="logo"><i class="fa fa-user-plus"></i>Register</div>
+		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> สมัครสมาชิก</div>
 		<div class="form">
 
-			<div class="caption">Email</div>
-			<input type="text" class="input-text" id="email" placeholder="Enter your email">
+			<div class="caption">อีเมล:</div>
+			<input type="text" class="input-text" id="email" placeholder="กรอกเมลของคุณ">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
 
-			<div class="caption">Name</div>
-			<input type="text" class="input-text" id="name" placeholder="Enter your name">
+			<div class="caption">ชื่อและนามสกุล:</div>
+			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ">
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
 
-			<div class="caption">Password</div>
-			<input type="password" class="input-text" id="password" placeholder="Minimum 6 characters">
+			<div class="caption">ตั้งรหัสผ่าน:</div>
+			<input type="password" class="input-text" id="password" placeholder="อย่างน้อย 6 ตัวอักษร...">
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">Sign Up</span></button>
-			<div class="mini-caption">or</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> Sign Up with Facebook</div></a>
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">สมัครสมาชิก</span></button>
+			<div class="mini-caption">หรือ</div>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
 
-			<p class="signup">I have account? <a href="login.php">Sign In</a></p>
+			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
 		</div>
 	</div>
 </div>

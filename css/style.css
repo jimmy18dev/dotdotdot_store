@@ -21,6 +21,13 @@ body {
   overflow-y: scroll;
   overflow-x: hidden;
 }
+.bg-full-screen {
+  background: url('../image/bg.jpg') no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
 .animated {
   -webkit-transition: height 0.2s;
   -moz-transition: height 0.2s;
@@ -147,7 +154,7 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   margin: 30px 0px;
   padding: 0.5% 3%;
-  font-size: 0.85em;
+  font-size: 0.8em;
   background: #000000;
   color: #FFFFFF;
   border-radius: 20px;
@@ -171,17 +178,26 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.login-dialog .login-container .logo {
+.login-dialog .login-container .navi {
   width: 100%;
   margin: 10% 0%;
   float: left;
   display: inline-block;
   text-align: center;
-  font-size: 1.5em;
+  font-size: 0.9em;
+  color: #777777;
 }
-.login-dialog .login-container .logo i {
-  margin-right: 10px;
+.login-dialog .login-container .navi i {
+  margin: 0px 10px;
   font-size: 0.8em;
+}
+.login-dialog .login-container .navi a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #000000;
+}
+.login-dialog .login-container .navi a:hover {
+  text-decoration: underline;
 }
 .login-dialog .login-container .form {
   width: 40%;
@@ -195,11 +211,11 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   line-height: 1.5em;
   font-size: 0.9em;
-  color: #cccccc;
+  color: #000000;
 }
 .login-dialog .login-container .form .input-text {
-  width: 96%;
-  padding: 3% 2%;
+  width: 94%;
+  padding: 3%;
   float: left;
   display: inline-block;
   font-size: 1em;
@@ -209,7 +225,7 @@ Copyright (c) 2015 Daniel Eden
   outline: 0;
   margin-bottom: 7%;
   color: #000000;
-  border: 1px solid #FAFAFA;
+  border: 1px solid #CCCCCC;
 }
 .login-dialog .login-container .form .input-text:focus {
   border: 1px solid #000000;

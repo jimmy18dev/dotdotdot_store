@@ -25,7 +25,7 @@
 	</a>
 	<?php }else{?>
 	<a href="login.php">
-	<div class="header-items login">เข้าระบบ</div>
+	<div class="header-items login">เข้าสู่ระบบ</div>
 	</a>
 	<?php }?>
 </header>
