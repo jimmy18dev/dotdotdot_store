@@ -33,7 +33,7 @@ else if($var['pd_view'] > 100){
 	$msg = 'แสดงสินค้า '.$var['pd_read'].' ครั้งแล้ว';
 }
 else{
-	$msg = 'คุณอาจจะชอบสินค้าชิ้นนี้!';
+	$msg = '"คุณอาจจะชอบสินค้าชิ้นนี้"';
 }
 ?>
 
@@ -45,9 +45,8 @@ else{
 	</div>
 	<div class="product-items-detail">
 		<div class="detail-title">
-			<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></h2>
+			<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?> · ฿<?php echo number_format($var['pd_price'],2);?></a></h2>
 			<p class="description"><?php echo $msg;?></p>
-			<p class="price"><?php echo number_format($var['pd_price'],2);?> บาท</p>
 
 			<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></div>
 		</div>

@@ -783,7 +783,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
 
         // Product page detail style
-        .product-photos{
+        .panel-fix{
             width: 55%;
             float: left;
             display: inline-block;
@@ -795,7 +795,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 margin-bottom: 1%;
             }
         }
-        .product-details{
+        .panel{
             position: fixed;
             top: 90px;
             right: 5%;
@@ -1067,16 +1067,17 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         // Product item style
         .product-items{
-            width: 32%;
+            width: 31%;
             float: left;
             display: inline-block;
-            margin-bottom: 1%;
-            margin-right: 2%;
+            margin-bottom: 5%;
+            margin-right: 3.5%;
 
             &:nth-child(3n){
                 margin-right: 0%;
                 float: right;
             }
+
 
             .product-items-thumbnail{
                 width: 100%;
@@ -1119,9 +1120,15 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
 
                     h2{
-                        font-size: 1.1em;
+                        font-size: 1em;
                         color: @PrimaryTextColor;
                         line-height: 1.7em;
+                        font-weight: bold;
+
+
+                        strong{
+                            font-weight: bold;
+                        }
                     }
 
                     p{
@@ -1135,14 +1142,9 @@ Copyright (c) 2015 Puwadon Sricharoen
                         font-size: 0.8em;
                     }
 
-                    p.price{
-                        font-weight: bold;
-                        color: @PrimaryTextColor;
-                    }
-
                     .buy-btn{
                         margin: auto;
-                        margin-top: 1%;
+                        margin-top: 5%;
                         padding: 1% 2%;
                         display: inline-block;
                         color: @SecondaryTextColor;

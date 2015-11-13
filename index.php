@@ -64,6 +64,10 @@ $order->CheckingOrder();
 <div class="container">
 	<div class="container-page">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>
 <?php include'footer.php';?>
