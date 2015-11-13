@@ -100,22 +100,19 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<?php
 				if($product->type == "normal"){
 					if(empty($product->in_order)){
-						$button_msg = 'Buy';
-						$button_price = number_format($product->price,2).' ฿';
+						$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
 					}
 					else{
-						$button_msg = '<i class="fa fa-check"></i>';
-						$button_price = 'Checkout';
+						$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
 					}
 				?>
 				<div class="action-items">
 					<div class="detail">
-						<div class="caption">รหัสสินค้า: <?php echo $product->id;?></div>
-						<div class="desc">หยิบสินค้าใส่ตระกร้า</div>
+						<h3><strong><?php echo number_format($product->price,2);?> บาท</strong></h3>
+						<p>รหัสสินค้า: <?php echo $product->id;?></p>
 					</div>
-					<div class="detail-buy-btn" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)">
-						<p id="buy-button-msg-<?php echo $product->id;?>" class="animated"><?php echo $button_msg;?></p>
-						<p id="buy-button-price-<?php echo $product->id;?>" class="msg"><?php echo $button_price;?></p>
+					<div class="buy">
+						<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
 					</div>
 				</div>
 				<?php }else{

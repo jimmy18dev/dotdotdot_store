@@ -66,7 +66,7 @@ $current_page = "order";
 <?php include'header.php';?>
 
 <div class="container container-fix">
-	<div class="container-page">
+	<div class="container-page container-page-mini">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
 			<!-- <div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
@@ -174,21 +174,6 @@ $current_page = "order";
 						</div>
 
 						<div class="form-items">
-							<div class="label">โอนเข้าธนาคาร: </div>
-							<div class="input">
-								<select name="to_bank" id="transfer_bank" class="input-text">
-									<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
-									<?php $bank->ListBank(array('mode' => 'select'));?>
-								</select>
-							</div>
-						</div>
-						<div class="form-items">
-							<div class="label">ยอดเงินที่โอน</div>
-							<div class="input">
-								<input type="text" class="input-text" name="total" id="transfer_total" placeholder="ยอดที่ต้องชำระ <?php echo number_format($order->summary_payments);?> บาท">
-							</div>
-						</div>
-						<div class="form-items">
 							<div class="label">ภาพถ่ายสลิปใบโอนเงิน</div>
 							<div class="input">
 								<div class="image-input">
@@ -201,6 +186,22 @@ $current_page = "order";
 									</span>
 									<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
 								</div>
+							</div>
+						</div>
+
+						<div class="form-items">
+							<div class="label">โอนเข้าธนาคาร: </div>
+							<div class="input">
+								<select name="to_bank" id="transfer_bank" class="input-text">
+									<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
+									<?php $bank->ListBank(array('mode' => 'select'));?>
+								</select>
+							</div>
+						</div>
+						<div class="form-items">
+							<div class="label">ยอดเงินที่โอน</div>
+							<div class="input">
+								<input type="text" class="input-text" name="total" id="transfer_total" placeholder="ยอดที่ต้องชำระ <?php echo number_format($order->summary_payments);?> บาท">
 							</div>
 						</div>
 
