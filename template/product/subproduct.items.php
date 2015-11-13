@@ -7,22 +7,21 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = 'สั่งซื้อ';
+	$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
 	$button_price = number_format($var['pd_price'],2).' ฿';
 }
 else{
-	$button_msg = '<i class="fa fa-arrow-right"></i>';
+	$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
 	$button_price = 'ชำระเงิน';
 }
 ?>
 
 <div class="action-items">
 	<div class="detail">
-		<div class="caption"><?php echo $var['pd_title'];?></div>
-		<div class="desc"><?php echo $var['pd_description'];?></div>
+		<h3><strong><?php echo number_format($var['pd_price'],2);?> บาท</strong> <?php echo $var['pd_title'];?></h3>
+		<p><?php echo $var['pd_description'];?></p>
 	</div>
-	<div class="detail-buy-btn" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>">
-		<p id="buy-button-msg-<?php echo $var['pd_id'];?>" class="animated"><?php echo $button_msg;?></p>
-		<p id="buy-button-price-<?php echo $var['pd_id'];?>" class="msg"><?php echo $button_price;?></p>
+	<div class="buy">
+		<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></div>
 	</div>
 </div>

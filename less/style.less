@@ -860,53 +860,54 @@ Copyright (c) 2015 Puwadon Sricharoen
                     padding-bottom: 2%;
                     float: left;
                     display: inline-block;
-                    font-size: 0.85em;
+                    font-size: 0.8em;
                     line-height: 1.5em;
                     color: @SecondaryTextColor;
                     font-style: italic;
+                    border-bottom: 1px solid #FAFAFA;
                 }
 
                 .action-items{
                     width: 100%;
+                    padding: 3% 0%;
                     float: left;
                     display: inline-block;
-                    border-bottom: 1px dotted #EEEEEE;
                     line-height: 1.5em;
                     margin-bottom: 1%;
-                    font-size: 0.95em;
 
                     .detail{
-                        width: 74%;
+                        width: 75%;
                         float: left;
                         display: inline-block;
-                        padding: 3% 3%;
-                        background: #FAFAFA;
                         color: @PrimaryTextColor;
 
-                        .caption{
-                        }
-                        .desc{
-                            font-size: 0.85em;
+                        h3{}
+                        p{
                             color: @SecondaryTextColor;
                         }
+                        strong{
+                            font-weight: bold;
+                        }
                     }
-                    .detail-buy-btn{
-                        width: 20%;
-                        padding: 3% 0%;
+                    .buy{
+                        width: 24%;
                         float: right;
                         display: inline-block;
-                        background: #000000;
-                        color: #FFFFFF;
-                        text-align: center;
-                        overflow: hidden;
 
-                        &:hover{
-                            cursor: pointer;
-                            background: #222222;
-                        }
+                        .buy-btn{
+                            border: 1px solid @SecondaryTextColor;
+                            text-align: center;
+                            font-size: 0.9em;
+                            color: @SecondaryTextColor;
 
-                        .msg{
-                            font-size: 0.85em;
+                            i{
+                                font-size: 0.8em;
+                                margin-right: 5px;
+                            }
+
+                            &:hover{
+                                cursor: pointer;
+                            }
                         }
                     }
                 }
