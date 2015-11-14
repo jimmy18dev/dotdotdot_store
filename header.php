@@ -1,4 +1,4 @@
-<header class="header <?php echo ($current_page == "order" || $current_page == "profile"?"header-fix":"");?>">
+<header class="header">
 	<div class="header-items logo"><a href="index.php">dotdotdot limited<span class="beta"></span></a></div>
 
 	<?php if(MEMBER_ONLINE){?>

@@ -757,18 +757,96 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .order-detail .cancel-btn i {
   margin-right: 5px;
 }
-.container .container-page .panel-fix {
+.container .container-page .panel {
   width: 55%;
   float: left;
   display: inline-block;
 }
-.container .container-page .panel-fix img {
+.container .container-page .panel img {
   width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 1%;
 }
-.container .container-page .panel {
+.container .container-page .panel .order-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  color: #000000;
+  border-bottom: 1px solid #FAFAFA;
+}
+.container .container-page .panel .order-items:hover {
+  cursor: pointer;
+  background: #FAFAFA;
+}
+.container .container-page .panel .order-items .order-items-status {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  margin-bottom: 3%;
+  font-size: 0.7em;
+}
+.container .container-page .panel .order-items .order-items-status .status {
+  padding: 1px 5px;
+  float: left;
+  display: inline-block;
+  color: #FFFFFF;
+}
+.container .container-page .panel .order-items .order-items-status .time {
+  padding: 1px 0px;
+  float: right;
+  font-style: italic;
+  color: #cccccc;
+}
+.container .container-page .panel .order-items .order-items-status .paying {
+  background: #E91E63;
+}
+.container .container-page .panel .order-items .order-items-status .transferrequest {
+  background: #3F51B5;
+}
+.container .container-page .panel .order-items .order-items-status .transferagain {
+  background: #FFC107;
+}
+.container .container-page .panel .order-items .order-items-status .transfersuccess {
+  background: #8BC34A;
+}
+.container .container-page .panel .order-items .order-items-status .shipping {
+  background: #2196F3;
+}
+.container .container-page .panel .order-items .order-items-status .complete {
+  background: #4CAF50;
+}
+.container .container-page .panel .order-items .order-items-status .cancel {
+  background: #FF0000;
+}
+.container .container-page .panel .order-items .order-items-status .expire {
+  background: #CCCCCC;
+}
+.container .container-page .panel .order-items .order-items-id {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.container .container-page .panel .order-items .order-items-info {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  color: #777777;
+}
+.container .container-page .panel .order-items .order-items-info strong {
+  font-weight: bold;
+}
+.container .container-page .panel .order-items-unread {
+  background: #FAFAFA;
+  font-weight: bold;
+}
+.container .container-page .panel-fix {
   position: fixed;
   top: 90px;
   right: 5%;
@@ -777,7 +855,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   line-height: 1.5em;
 }
-.container .container-page .panel h1 {
+.container .container-page .panel-fix h1 {
   width: 100%;
   float: left;
   display: inline-block;
@@ -788,28 +866,28 @@ Copyright (c) 2015 Daniel Eden
   color: #000000;
   border-bottom: 1px solid #FAFAFA;
 }
-.container .container-page .panel p.info {
+.container .container-page .panel-fix p.info {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.95em;
   color: #777777;
 }
-.container .container-page .panel p.info .view {
+.container .container-page .panel-fix p.info .view {
   float: left;
   padding: 1% 0%;
 }
-.container .container-page .panel p.info .sharing {
+.container .container-page .panel-fix p.info .sharing {
   float: right;
   padding: 1% 3%;
   color: #000000;
 }
-.container .container-page .panel p.info .sharing:hover {
+.container .container-page .panel-fix p.info .sharing:hover {
   cursor: pointer;
   background: #000000;
   color: #FFFFFF;
 }
-.container .container-page .panel .description {
+.container .container-page .panel-fix .description {
   width: 100%;
   padding: 5% 0%;
   float: left;
@@ -818,12 +896,12 @@ Copyright (c) 2015 Daniel Eden
   color: #000000;
   margin-bottom: 5%;
 }
-.container .container-page .panel .action {
+.container .container-page .panel-fix .action {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.container .container-page .panel .action .topic {
+.container .container-page .panel-fix .action .topic {
   width: 100%;
   padding-bottom: 2%;
   float: left;
@@ -834,7 +912,7 @@ Copyright (c) 2015 Daniel Eden
   font-style: italic;
   border-bottom: 1px solid #FAFAFA;
 }
-.container .container-page .panel .action .action-items {
+.container .container-page .panel-fix .action .action-items {
   width: 100%;
   padding: 3% 0%;
   float: left;
@@ -842,161 +920,80 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   margin-bottom: 1%;
 }
-.container .container-page .panel .action .action-items .detail {
+.container .container-page .panel-fix .action .action-items .detail {
   width: 75%;
   float: left;
   display: inline-block;
   color: #000000;
 }
-.container .container-page .panel .action .action-items .detail p {
+.container .container-page .panel-fix .action .action-items .detail p {
   color: #777777;
 }
-.container .container-page .panel .action .action-items .detail strong {
+.container .container-page .panel-fix .action .action-items .detail strong {
   font-weight: bold;
 }
-.container .container-page .panel .action .action-items .buy {
+.container .container-page .panel-fix .action .action-items .buy {
   width: 24%;
   float: right;
   display: inline-block;
 }
-.container .container-page .panel .action .action-items .buy .buy-btn {
+.container .container-page .panel-fix .action .action-items .buy .buy-btn {
   border: 1px solid #777777;
   text-align: center;
   font-size: 0.9em;
   color: #777777;
 }
-.container .container-page .panel .action .action-items .buy .buy-btn i {
+.container .container-page .panel-fix .action .action-items .buy .buy-btn i {
   font-size: 0.8em;
   margin-right: 5px;
 }
-.container .container-page .panel .action .action-items .buy .buy-btn:hover {
+.container .container-page .panel-fix .action .action-items .buy .buy-btn:hover {
   cursor: pointer;
 }
-.container .container-page .list-content {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .list-content .order-items {
-  width: 21%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
-  color: #000000;
-  border-bottom: 1px solid #FAFAFA;
-}
-.container .container-page .list-content .order-items:hover {
-  cursor: pointer;
-  background: #FAFAFA;
-}
-.container .container-page .list-content .order-items .order-items-status {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  margin-bottom: 3%;
-  font-size: 0.7em;
-}
-.container .container-page .list-content .order-items .order-items-status .status {
-  padding: 1px 5px;
-  float: left;
-  display: inline-block;
-  color: #FFFFFF;
-}
-.container .container-page .list-content .order-items .order-items-status .time {
-  padding: 1px 0px;
-  float: right;
-  font-style: italic;
-  color: #cccccc;
-}
-.container .container-page .list-content .order-items .order-items-status .paying {
-  background: #E91E63;
-}
-.container .container-page .list-content .order-items .order-items-status .transferrequest {
-  background: #3F51B5;
-}
-.container .container-page .list-content .order-items .order-items-status .transferagain {
-  background: #FFC107;
-}
-.container .container-page .list-content .order-items .order-items-status .transfersuccess {
-  background: #8BC34A;
-}
-.container .container-page .list-content .order-items .order-items-status .shipping {
-  background: #2196F3;
-}
-.container .container-page .list-content .order-items .order-items-status .complete {
-  background: #4CAF50;
-}
-.container .container-page .list-content .order-items .order-items-status .cancel {
-  background: #FF0000;
-}
-.container .container-page .list-content .order-items .order-items-status .expire {
-  background: #CCCCCC;
-}
-.container .container-page .list-content .order-items .order-items-id {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.5em;
-}
-.container .container-page .list-content .order-items .order-items-info {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  line-height: 1.5em;
-  color: #777777;
-}
-.container .container-page .list-content .order-items .order-items-info strong {
-  font-weight: bold;
-}
-.container .container-page .list-content .order-items-unread {
-  background: #FAFAFA;
-  font-weight: bold;
-}
-.container .container-page .profile {
+.container .container-page .panel-fix .profile {
   width: 100%;
   padding: 3% 0%;
   float: left;
   display: inline-block;
   border-bottom: 1px solid #FAFAFA;
-  text-align: center;
 }
-.container .container-page .profile p {
+.container .container-page .panel-fix .profile p {
   font-size: 1em;
   line-height: 1.5em;
   color: #777777;
 }
-.container .container-page .profile p.big {
-  font-size: 3em;
+.container .container-page .panel-fix .profile p.big {
+  font-size: 2em;
   color: #000000;
 }
-.container .container-page .profile strong {
+.container .container-page .panel-fix .profile strong {
   font-weight: bold;
 }
-.container .container-page .profile p.link {
+.container .container-page .panel-fix .profile p.link {
   margin-top: 1%;
   font-size: 0.75em;
 }
-.container .container-page .profile p.link a {
+.container .container-page .panel-fix .profile p.link a {
   text-decoration: none;
   background: #FAFAFA;
   padding: 2px 5px;
   color: #cccccc;
 }
-.container .container-page .profile p.link a:hover {
+.container .container-page .panel-fix .profile p.link a:hover {
   background: #000000;
   color: #FFFFFF;
   cursor: pointer;
 }
-.container .container-page .profile .form {
+.container .container-page .panel-fix .profile p.link a.logout {
+  float: right;
+}
+.container .container-page .panel-fix .profile .form {
   width: 40%;
   margin: 2% 30%;
   float: left;
   display: inline-block;
 }
-.container .container-page .profile .form .input-text {
+.container .container-page .panel-fix .profile .form .input-text {
   width: 76%;
   padding: 1%;
   float: left;
@@ -1007,10 +1004,10 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #FAFAFA;
   outline: 0;
 }
-.container .container-page .profile .form .input-text:focus {
+.container .container-page .panel-fix .profile .form .input-text:focus {
   border: 1px solid #000000;
 }
-.container .container-page .profile .form .submit-btn {
+.container .container-page .panel-fix .profile .form .submit-btn {
   width: 20%;
   padding: 1% 0%;
   float: right;
@@ -1020,6 +1017,11 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   background: #FAFAFA;
   border: 1px solid #FAFAFA;
+}
+.container .container-page .list-content {
+  width: 100%;
+  float: left;
+  display: inline-block;
 }
 .container .container-page .product-items {
   width: 31%;

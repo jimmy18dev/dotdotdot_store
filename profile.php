@@ -51,21 +51,23 @@ $current_page = "profile";
 <body>
 <?php include'header.php';?>
 
-<div class="container container-fix">
-
+<div class="container">
 	<div class="container-page">
-		<div class="profile">
-			<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อ <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
-			<p>คุณ <?php echo $user->name;?> เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
+		<div class="panel-fix">
+			<div class="profile">
+				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อ <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
+				<p>คุณ <?php echo $user->name;?> เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
 
-			<p class="link">
-				<a href="profile_edit.php">แก้ไขข้อมูล</a>
-				<a href="profile_change_password.php">เปลี่ยนรหัส</a>
-				<a href="logout.php" class="logout">ออกจากระบบ</a>
-			</p>
+				<p class="link">
+					<a href="profile_edit.php">แก้ไขข้อมูล</a>
+					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
+					<a href="logout.php" class="logout">ออกจากระบบ</a>
+				</p>
+			</div>
 		</div>
 
-		<div class="list-content">
+		<!-- Photo -->
+		<div class="panel">
 			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>

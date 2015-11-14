@@ -65,47 +65,51 @@ $current_page = "order";
 <body>
 <?php include'header.php';?>
 
-<div class="container container-fix">
-	<div class="container-page container-page-mini">
-		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
-		<div class="order-state">
-			<!-- <div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
-				<div class="caption">ช็อป</div>
-			</div> -->
+<div class="container">
+	<div class="container-page">
+		<div class="panel-fix">
+			<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+			<div class="order-state">
+				<!-- <div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
+					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
+					<div class="caption">ช็อป</div>
+				</div> -->
 
-			<a href="#product">
-			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-barcode"></i></div>
-				<div class="caption">1. สั่งสินค้า</div>
-			</div>
-			</a>
-			<a href="#transfer">
-			<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-money"></i></div>
-				<div class="caption">2. โอนเงิน</div>
-			</div>
-			</a>
+				<a href="#product">
+				<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
+					<div class="icon"><i class="fa fa-barcode"></i></div>
+					<div class="caption">1. สั่งสินค้า</div>
+				</div>
+				</a>
+				<a href="#transfer">
+				<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
+					<div class="icon"><i class="fa fa-money"></i></div>
+					<div class="caption">2. โอนเงิน</div>
+				</div>
+				</a>
 
-			<a href="#success">
-			<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="caption">3. ชำระเงินแล้ว</div>
-			</div>
-			</a>
+				<a href="#success">
+				<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
+					<div class="icon"><i class="fa fa-check"></i></div>
+					<div class="caption">3. ชำระเงินแล้ว</div>
+				</div>
+				</a>
 
-			<a href="#shipping">
-			<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-truck"></i></div>
-				<div class="caption">4. รอรับของ</div>
+				<a href="#shipping">
+				<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
+					<div class="icon"><i class="fa fa-truck"></i></div>
+					<div class="caption">4. รอรับของ</div>
+				</div>
+				</a>
 			</div>
-			</a>
+			<?php }?>
 		</div>
-		<?php }?>
 
-		<div class="order-topic">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></div>
+		<!-- Photo -->
+		<div class="panel">
+			<div class="order-topic">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></div>
 
-		<div class="order-detail">
+			<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
@@ -374,6 +378,7 @@ $current_page = "order";
 				<? if($order->status == "Paying"){?>
 				<div class="cancel-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');"><i class="fa fa-times"></i>ยกเลิกการสั่งซื้อ</div>
 				<?php }?>
+			</div>
 		</div>
 	</div>
 </div>

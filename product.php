@@ -79,7 +79,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 <div class="container">
 	<div class="container-page">
 		<!-- Detail -->
-		<div class="panel">
+		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>
 			<p class="info">
 				<?php if($product->quantity > 5){?>
@@ -125,7 +125,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		</div>
 
 		<!-- Photo -->
-		<div class="panel-fix">
+		<div class="panel">
 			<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
 			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
 		</div>
