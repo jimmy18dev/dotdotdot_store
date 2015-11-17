@@ -795,74 +795,67 @@ Copyright (c) 2015 Puwadon Sricharoen
                 margin-bottom: 1%;
             }
 
+            .panel-topic{
+                margin-bottom: 2%;
+                font-size: 1em;
+                text-align: center;
+                color: #CCCCCC;
+            }
+
             .order-items{
-                width: 96%;
-                padding: 2%;
+                width: 100%;
+                padding: 6% 0%;
                 float: left;
                 display: inline-block;
-                color: @PrimaryTextColor;
-                border-bottom: 1px solid #FAFAFA;
+                border-bottom: 3px solid #FAFAFA;
+                font-size: 0.95em;
+                line-height: 1.5em;
+                color: #555555;
 
                 &:hover{
                     cursor: pointer;
-                    background: #FAFAFA;
-                }
-
-                .order-items-status{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    line-height: 1.5em;
-                    margin-bottom: 3%;
-                    font-size: 0.7em;
-
-                    .status{
-                        padding: 1px 5px;
-                        float: left;
-                        display: inline-block;
-                        color: #FFFFFF;
-                    }
-                    .time{
-                        padding: 1px 0px;
-                        float: right;
-                        font-style: italic;
-                        color: @ThirdTextColor;
-                    }
-
-                    .paying{background: #E91E63;}
-                    .transferrequest{background: #3F51B5;}
-                    .transferagain{background: #FFC107;}
-                    .transfersuccess{background: #8BC34A;}
-                    .shipping{background: #2196F3;}
-                    .complete{background: #4CAF50;}
-                    .cancel{background: #FF0000;}
-                    .expire{background: #CCCCCC;}
+                    border-bottom: 3px solid #EEEEEE;
+                    color: #000000;
                 }
 
                 .order-items-id{
                     width: 100%;
                     float: left;
                     display: inline-block;
-                    font-size: 1.2em;
-                    line-height: 1.5em;
+                    margin-bottom: 2%;
+
+                    .id{
+                        float: left;
+                        display: inline-block;
+
+                        i{
+                            font-size: 1em;
+                            margin: 0px 5px;
+                        }
+
+                        .read-icon{
+                            color: #F44336;
+                        }
+
+                        .status{
+                            font-weight: normal;
+                            text-decoration: underline;
+                        }
+                    }
+                    .time{
+                        float: right;
+                    }
                 }
                 .order-items-info{
                     width: 100%;
                     float: left;
                     display: inline-block;
                     font-size: 0.9em;
-                    line-height: 1.5em;
-                    color: @SecondaryTextColor;
-
-                    strong{
-                        font-weight: bold;
-                    }
                 }
             }
 
             .order-items-unread{
-                background: #FAFAFA;
-                font-weight: bold;
+                color: #000000;
             }
         }
         .panel-fix{
@@ -984,27 +977,40 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
 
             .profile{
-                width: 100%;
-                padding: 3% 0%;
+                width: 90%;
+                padding: 5%;
                 float: left;
                 display: inline-block;
-                border-bottom: 1px solid #FAFAFA;
+                background: #FAFAFA;
 
                 p{
                     font-size: 1em;
-                    line-height: 1.5em;
+                    line-height: 1.7em;
                     color: @SecondaryTextColor;
                 }
+
+                p.icon{
+                    color: #DDDDDD;
+                    font-size: 0.8em;
+                    margin-bottom: 5%;
+
+                    i{
+                        margin-right: 5px;
+                    }
+                }
                 p.big{
-                    font-size: 2em;
+                    font-size: 1.5em;
                     color: @PrimaryTextColor;
                 }
                 strong{
                     font-weight: bold;
                 }
+
                 p.link{
-                    margin-top: 1%;
+                    margin-top: 2%;
+                    padding-top: 2%;
                     font-size: 0.75em;
+                    border-top: 1px solid #EEEEEE;
 
                     a{
                         text-decoration: none;

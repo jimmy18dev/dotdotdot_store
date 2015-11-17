@@ -55,8 +55,10 @@ $current_page = "profile";
 	<div class="container-page">
 		<div class="panel-fix">
 			<div class="profile">
-				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อ <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
-				<p>คุณ <?php echo $user->name;?> เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
+				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
+				<p>คุณ <?php echo $user->name;?></p>
+				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
+				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
 
 				<p class="link">
 					<a href="profile_edit.php">แก้ไขข้อมูล</a>
@@ -68,6 +70,7 @@ $current_page = "profile";
 
 		<!-- Photo -->
 		<div class="panel">
+			<div class="panel-topic">รายการสั่งซื้อสินค้า</div>
 			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>

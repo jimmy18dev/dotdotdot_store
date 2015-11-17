@@ -103,28 +103,8 @@ $current_page = "order";
 				</a>
 			</div>
 			<?php }?>
-		</div>
 
-		<!-- Photo -->
-		<div class="panel">
-			<div class="order-topic">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></div>
-
-			<div class="order-detail">
-			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
-				<?php if($order->status == "Complete"){?>
-				<!-- Shipping -->
-				<div class="order-box" id="complete">
-					<div class="icon"><i class="fa fa-check"></i></div>
-					<div class="box">
-						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
-						<p class="big">เรียบร้อย</p>
-						<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
-					</div>
-				</div>
-				<?php }?>
-
-				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
-				<!-- Shipping -->
+			<!-- Shipping -->
 
 				<?php if($order->status == "Shipping"){?>
 				<div class="order-box">
@@ -137,29 +117,6 @@ $current_page = "order";
 						<div class="form-control">
 							<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
 						</div>
-					</div>
-				</div>
-				<?php }?>
-
-				<!-- Shipping -->
-				<div class="order-box" id="shipping">
-					<div class="icon"><i class="fa fa-truck"></i></div>
-					<div class="box">
-						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
-						<p class="big"><?php echo $order->ems;?></p>
-						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
-					</div>
-				</div>
-				<?php }?>
-
-				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
-				<!-- Shipping -->
-				<div class="order-box" id="success">
-					<div class="icon"><i class="fa fa-check"></i></div>
-					<div class="box">
-						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
-						<p class="big">ชำระเงินแล้ว</p>
-						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
 					</div>
 				</div>
 				<?php }?>
@@ -243,6 +200,50 @@ $current_page = "order";
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
 					</div>
 					</form>
+				</div>
+				<?php }?>
+		</div>
+
+		<!-- Photo -->
+		<div class="panel">
+			<div class="order-topic">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></div>
+
+			<div class="order-detail">
+			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+				<?php if($order->status == "Complete"){?>
+				<!-- Shipping -->
+				<div class="order-box" id="complete">
+					<div class="icon"><i class="fa fa-check"></i></div>
+					<div class="box">
+						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
+						<p class="big">เรียบร้อย</p>
+						<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
+					</div>
+				</div>
+				<?php }?>
+
+				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
+
+				<!-- Shipping -->
+				<div class="order-box" id="shipping">
+					<div class="icon"><i class="fa fa-truck"></i></div>
+					<div class="box">
+						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
+						<p class="big"><?php echo $order->ems;?></p>
+						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
+					</div>
+				</div>
+				<?php }?>
+
+				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
+				<!-- Shipping -->
+				<div class="order-box" id="success">
+					<div class="icon"><i class="fa fa-check"></i></div>
+					<div class="box">
+						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
+						<p class="big">ชำระเงินแล้ว</p>
+						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+					</div>
 				</div>
 				<?php }?>
 

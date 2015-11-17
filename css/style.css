@@ -768,83 +768,59 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   margin-bottom: 1%;
 }
+.container .container-page .panel .panel-topic {
+  margin-bottom: 2%;
+  font-size: 1em;
+  text-align: center;
+  color: #CCCCCC;
+}
 .container .container-page .panel .order-items {
-  width: 96%;
-  padding: 2%;
+  width: 100%;
+  padding: 6% 0%;
   float: left;
   display: inline-block;
-  color: #000000;
-  border-bottom: 1px solid #FAFAFA;
+  border-bottom: 3px solid #FAFAFA;
+  font-size: 0.95em;
+  line-height: 1.5em;
+  color: #555555;
 }
 .container .container-page .panel .order-items:hover {
   cursor: pointer;
-  background: #FAFAFA;
-}
-.container .container-page .panel .order-items .order-items-status {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  margin-bottom: 3%;
-  font-size: 0.7em;
-}
-.container .container-page .panel .order-items .order-items-status .status {
-  padding: 1px 5px;
-  float: left;
-  display: inline-block;
-  color: #FFFFFF;
-}
-.container .container-page .panel .order-items .order-items-status .time {
-  padding: 1px 0px;
-  float: right;
-  font-style: italic;
-  color: #cccccc;
-}
-.container .container-page .panel .order-items .order-items-status .paying {
-  background: #E91E63;
-}
-.container .container-page .panel .order-items .order-items-status .transferrequest {
-  background: #3F51B5;
-}
-.container .container-page .panel .order-items .order-items-status .transferagain {
-  background: #FFC107;
-}
-.container .container-page .panel .order-items .order-items-status .transfersuccess {
-  background: #8BC34A;
-}
-.container .container-page .panel .order-items .order-items-status .shipping {
-  background: #2196F3;
-}
-.container .container-page .panel .order-items .order-items-status .complete {
-  background: #4CAF50;
-}
-.container .container-page .panel .order-items .order-items-status .cancel {
-  background: #FF0000;
-}
-.container .container-page .panel .order-items .order-items-status .expire {
-  background: #CCCCCC;
+  border-bottom: 3px solid #EEEEEE;
+  color: #000000;
 }
 .container .container-page .panel .order-items .order-items-id {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.2em;
-  line-height: 1.5em;
+  margin-bottom: 2%;
+}
+.container .container-page .panel .order-items .order-items-id .id {
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .order-items .order-items-id .id i {
+  font-size: 1em;
+  margin: 0px 5px;
+}
+.container .container-page .panel .order-items .order-items-id .id .read-icon {
+  color: #F44336;
+}
+.container .container-page .panel .order-items .order-items-id .id .status {
+  font-weight: normal;
+  text-decoration: underline;
+}
+.container .container-page .panel .order-items .order-items-id .time {
+  float: right;
 }
 .container .container-page .panel .order-items .order-items-info {
   width: 100%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
-  line-height: 1.5em;
-  color: #777777;
-}
-.container .container-page .panel .order-items .order-items-info strong {
-  font-weight: bold;
 }
 .container .container-page .panel .order-items-unread {
-  background: #FAFAFA;
-  font-weight: bold;
+  color: #000000;
 }
 .container .container-page .panel-fix {
   position: fixed;
@@ -951,27 +927,37 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 .container .container-page .panel-fix .profile {
-  width: 100%;
-  padding: 3% 0%;
+  width: 90%;
+  padding: 5%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #FAFAFA;
+  background: #FAFAFA;
 }
 .container .container-page .panel-fix .profile p {
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.7em;
   color: #777777;
 }
+.container .container-page .panel-fix .profile p.icon {
+  color: #DDDDDD;
+  font-size: 0.8em;
+  margin-bottom: 5%;
+}
+.container .container-page .panel-fix .profile p.icon i {
+  margin-right: 5px;
+}
 .container .container-page .panel-fix .profile p.big {
-  font-size: 2em;
+  font-size: 1.5em;
   color: #000000;
 }
 .container .container-page .panel-fix .profile strong {
   font-weight: bold;
 }
 .container .container-page .panel-fix .profile p.link {
-  margin-top: 1%;
+  margin-top: 2%;
+  padding-top: 2%;
   font-size: 0.75em;
+  border-top: 1px solid #EEEEEE;
 }
 .container .container-page .panel-fix .profile p.link a {
   text-decoration: none;
