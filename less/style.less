@@ -17,6 +17,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     float: left;
     display: inline-block;
     background: rgba(255, 255, 255, 0.95);
+    border-bottom: 1px solid #FAFAFA;
     z-index: 99;
 
     a{
@@ -279,7 +280,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 .container{
     width: @page_width;
     padding: 0% ((100 - @page_width) / 2);
-    margin: 90px 0px;
+    margin: 110px 0px;
     float: left;
     display: inline-block;
 
@@ -860,7 +861,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
         .panel-fix{
             position: fixed;
-            top: 90px;
+            top: 110px;
             right: 5%;
             width: 35%;
             float: right;
@@ -981,7 +982,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 padding: 5%;
                 float: left;
                 display: inline-block;
-                background: #FAFAFA;
+                box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 
                 p{
                     font-size: 1em;
@@ -1007,15 +1008,15 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
 
                 p.link{
-                    margin-top: 2%;
-                    padding-top: 2%;
+                    margin-top: 5%;
+                    padding-top: 5%;
                     font-size: 0.75em;
                     border-top: 1px solid #EEEEEE;
 
                     a{
                         text-decoration: none;
                         background: #FAFAFA;
-                        padding: 2px 5px;
+                        padding: 3px 5px;
                         color: @ThirdTextColor;
 
                         &:hover{
@@ -1029,39 +1030,43 @@ Copyright (c) 2015 Puwadon Sricharoen
                         float: right;
                     }
                 }
+            }
 
-                .form{
-                    width: 40%;
-                    margin: 2% 30%;
+            .profile-form{
+                width: 100%;
+                float: left;
+                display: inline-block;
+
+                p.caption{
+                    font-size: 0.8em;
+                    line-height: 2em;
+                    color: #555555;
+                }
+
+                .input-text{
+                    width: 97%;
+                    padding: 2% 1%;
                     float: left;
                     display: inline-block;
+                    font-family: @FontStylePrimary;
+                    font-size: 0.9em;
+                    line-height: 1.5em;
+                    margin-bottom: 5%;
+                    border: 1px solid #CCCCCC;
+                }
 
-                    .input-text{
-                        width: 76%;
-                        padding: 1%;
-                        float: left;
-                        display: inline-block;
-                        font-family: @FontStylePrimary;
-                        line-height: 1.5em;
-                        font-size: 0.9em;
-                        border: 1px solid #FAFAFA;
-                        outline: 0;
+                .submit-btn{
+                    float: right;
+                    font-family: @FontStylePrimary;
+                    font-size: 0.9em;
+                    border: 0px;
+                    padding: 2% 5%;
+                    background: #000000;
+                    color: #FFFFFF;
 
-                        &:focus{
-                            border: 1px solid #000000;
-                        }
-                    }
-
-                    .submit-btn{
-                        width: 20%;
-                        padding: 1% 0%;
-                        float: right;
-                        display: inline-block;
-                        font-family: @FontStylePrimary;
-                        line-height: 1.5em;
-                        font-size: 0.9em;
-                        background: #FAFAFA;
-                        border: 1px solid #FAFAFA;
+                    i{
+                        font-size: 1em;
+                        margin-left: 10px;
                     }
                 }
             }

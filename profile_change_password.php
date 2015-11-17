@@ -51,13 +51,18 @@ if(!empty($user->current_order_id)){
 
 <div class="container">
 	<div class="container-page">
-		<div class="profile">
-			<p>เปลี่ยนรหัสผ่านใหม่</p>
+		<div class="panel-fix">
+			<div class="profile">
+				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
+				<div class="profile-form">
+					<p class="caption">ตั้งหรัสผ่านใหม่</p>
+					<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร...">
+					<button class="submit-btn" onclick="javascript:ChangePassword();">บันทึก</button>
+				</div>
+			</div>
+		</div>
 
-			<div class="form">
-				<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร...">
-				<button class="submit-btn" onclick="javascript:ChangePassword();">บันทึก</button>
-			</div>	
+		<div class="panel">
 		</div>
 	</div>
 </div>
