@@ -386,6 +386,12 @@ Copyright (c) 2015 Daniel Eden
   color: #CCCCCC;
   text-align: center;
 }
+.container .container-page .order-topic a {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #CCCCCC;
+  color: #555555;
+}
 .container .container-page .order-detail {
   width: 100%;
   float: left;
@@ -786,6 +792,17 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 0.9em;
 }
+.container .container-page .panel .order-items .order-items-info .id {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .order-items .order-items-info .time {
+  width: 30%;
+  float: right;
+  display: inline-block;
+  text-align: right;
+}
 .container .container-page .panel .order-items-unread {
   color: #000000;
 }
@@ -801,6 +818,12 @@ Copyright (c) 2015 Daniel Eden
   border-bottom: 1px solid #FAFAFA;
   padding-bottom: 2%;
   margin-bottom: 2%;
+}
+.container .container-page .panel .note h2 a {
+  margin-right: 10px;
+  padding-right: 10px;
+  border-right: 1px solid #CCCCCC;
+  color: #555555;
 }
 .container .container-page .panel .note p {
   font-size: 0.95em;
@@ -931,6 +954,10 @@ Copyright (c) 2015 Daniel Eden
   float: right;
 }
 .container .container-page .panel-fix .order p.icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  padding: 2% 0%;
   font-size: 2em;
   text-align: center;
 }

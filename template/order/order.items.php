@@ -34,14 +34,14 @@ else{
 <div class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">
 	<div class="order-items-icon"><i class="fa fa-file-text-o"></i></div>
 	<div class="order-items-info">
-		<div class="order-items-id">
+		<p>
 			<span class="id">ใบสั่งซื้อ <?php echo $var['od_id'];?> <i class="fa fa-long-arrow-right"></i> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
 				<?php if($var['od_owner_read']=="open"){?>
 				<span class="read-icon"> <i class="fa fa-circle"></i></span>
 				<?php }?>
 			</span>
 			<span class="time"><?php echo $var['order_update_time_facebook_format'];?></span>
-		</div>
+		</p>
 		<p>ยอดชำระ <strong><?php echo number_format($var['od_payments']+50,2);?></strong> บาท · รวมสินค้า <?php echo $var['od_amount'];?> ชิ้น · <?php echo $var['od_amount'];?> รายการ</p>
 	</div>
 </div>
