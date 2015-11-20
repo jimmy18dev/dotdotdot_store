@@ -23,7 +23,7 @@ function AddItemToOrder(product_id){
     }).done(function(data){
         console.log('Return: '+data.message+','+data.return);
 
-        $('#buy-button-'+product_id).html('<i class="fa fa-check"></i>ชำระเงิน');
+        $('#buy-button-'+product_id).html('<i class="fa fa-arrow-right"></i>ชำระเงิน');
 
         // Add animation
         $('#buy-button-'+product_id).addClass('pulse buy-btn-active');

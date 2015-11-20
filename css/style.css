@@ -155,10 +155,9 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   margin: 28px 0px;
   padding: 0.5% 1%;
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: #AAAAAA;
-  border: 1px solid #AAAAAA;
-  background: #FAFAFA;
+  border: 1px solid #DDDDDD;
 }
 .header .login:hover {
   cursor: pointer;
@@ -380,7 +379,7 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 1%;
+  margin-bottom: 2%;
 }
 .container .container-page .panel .panel-topic {
   margin-bottom: 2%;
@@ -814,7 +813,11 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   color: #000000;
 }
+.container .container-page .panel-fix .action .action-items .detail h3 {
+  font-size: 1em;
+}
 .container .container-page .panel-fix .action .action-items .detail p {
+  font-size: 0.9em;
   color: #777777;
 }
 .container .container-page .panel-fix .action .action-items .detail strong {
@@ -1110,13 +1113,13 @@ Copyright (c) 2015 Daniel Eden
   font-weight: normal;
 }
 .container .container-page .product-items .product-items-detail .description .buy-btn {
-  width: 25%;
+  width: 24%;
   float: right;
   display: inline-block;
-  color: #777777;
   padding: 2% 0%;
   font-size: 0.8em;
-  background: #EEEEEE;
+  color: #AAAAAA;
+  border: 1px solid #DDDDDD;
   text-align: center;
 }
 .container .container-page .product-items .product-items-detail .description .buy-btn i {
@@ -1124,7 +1127,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
 }
 .container .container-page .product-items .product-items-detail .description .buy-btn:hover {
-  background: #EEEEEE;
+  border: 1px solid #000000;
   color: #000000;
   cursor: pointer;
 }

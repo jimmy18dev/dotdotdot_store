@@ -108,8 +108,8 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				?>
 				<div class="action-items">
 					<div class="detail">
-						<h3><strong><?php echo number_format($product->price,2);?> บาท</strong></h3>
-						<p>รหัสสินค้า: <?php echo $product->id;?></p>
+						<h3><strong>฿<?php echo number_format($product->price);?></strong> · รหัสสินค้า: <?php echo $product->id;?></h3>
+						<p>อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</p>
 					</div>
 					<div class="buy">
 						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>

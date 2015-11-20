@@ -18,7 +18,7 @@ else{
 
 <div class="action-items">
 	<div class="detail">
-		<h3><strong><?php echo number_format($var['pd_price'],2);?> บาท</strong> <?php echo $var['pd_title'];?></h3>
+		<h3><strong>฿<?php echo number_format($var['pd_price']);?></strong> · <?php echo $var['pd_title'];?></h3>
 		<p><?php echo $var['pd_description'];?></p>
 	</div>
 	<div class="buy">
