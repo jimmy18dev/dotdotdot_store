@@ -52,9 +52,9 @@ if(!empty($user->current_order_id)){
 <div class="container">
 	<div class="container-page">
 		<div class="panel-fix">
-			<div class="profile">
+			<div class="box">
 				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
-				<div class="profile-form">
+				<div class="form">
 					<p class="caption">ชื่อ - นามกลุล</p>
 					<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>">
 					<p class="caption">เบอร์โทรศัพท์</p>
@@ -62,7 +62,7 @@ if(!empty($user->current_order_id)){
 					<p class="caption">อีเมล</p>
 					<input type="text" class="input-text" disabled id="email" value="<?php echo $user->email;?>">
 
-					<button class="submit-btn" onclick="javascript:EditInfo();">บันทึก</button>
+					<button class="submit-btn" onclick="javascript:EditInfo();"><i class="fa fa-floppy-o"></i>บันทึก</button>
 				</div>
 			</div>
 		</div>

@@ -29,6 +29,7 @@ require_once'config/autoload.php';
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
+<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -39,14 +40,14 @@ require_once'config/autoload.php';
 <body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> ลืมรหัสผ่าน</div>
+		<div class="navi"><a href="index.php">dotdotdot limited </a> <i class="fa fa-angle-right"></i> ลืมรหัสผ่าน</div>
 		<div class="form">
 			<div class="caption">อีเมล:</div>
 			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">ตกลง</span></button>
+			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status"><i class="fa fa-arrow-right"></i>ตกลง</span></button>
 
 			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
 		</div>

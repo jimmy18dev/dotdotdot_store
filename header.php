@@ -1,4 +1,4 @@
-<header class="header">
+<header class="header <?php echo ($current_page == "order" || $current_page == "profile"?"header-fix":"");?>">
 	<div class="header-items logo"><a href="index.php">dotdotdot limited<span class="beta"></span></a></div>
 
 	<?php if(MEMBER_ONLINE){?>
@@ -25,7 +25,7 @@
 	</a>
 	<?php }else{?>
 	<a href="login.php">
-	<div class="header-items login">เข้าสู่ระบบ</div>
+	<div class="header-items login"><i class="fa fa-user"></i>เข้าสู่ระบบ</div>
 	</a>
 	<?php }?>
 </header>

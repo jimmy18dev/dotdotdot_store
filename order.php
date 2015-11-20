@@ -65,23 +65,13 @@ $current_page = "order";
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
 	<div class="container-page">
 		<div class="panel-fix">
-
-			<div class="order">
-				<div class="detail-topic">
-					<span class="id">ใบสั่งซื้อหมายเลข <?php echo $order->id;?></span>
-					<span class="time">1 ม.ค. 2513</span>
-				</div>
-
+			<div class="box">
+				<p class="icon"><i class="fa fa-file-o"></i>ใบสั่งซื้อหมายเลข <?php echo $order->id;?></p>
 				<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
-					<!-- <div class="state-items <?php echo ($order->status == 'Shopping'?'state-active':'');?>">
-						<div class="icon"><i class="fa fa-shopping-cart"></i></div>
-						<div class="caption">ช็อป</div>
-					</div> -->
-
 					<a href="#product">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
 						<div class="icon"><i class="fa fa-barcode"></i></div>
@@ -112,25 +102,41 @@ $current_page = "order";
 				<?php }?>
 
 				<?php if($order->status == "Shopping"){?>
-				<p class="icon"><i class="fa fa-file-o"></i></p>
-				<p class="message">ไม่มีสินค้าในตะกร้า!</p>
-				<?php }?>
-
-				<?php if($order->status == "TransferRequest"){?>
-				<p class="message">กำลังตรวจสอบหลักฐานการโอนเงิน...</p>
-				<?php }?>
-
-				<?php if($order->status == "TransferSuccess"){?>
-				<p class="message">กำลังจัดส่งสินค้า...</p>
-				<?php }?>
-
-				<?php if($order->status == "Complete"){?>
-				<p class="icon"><i class="fa fa-check"></i></p>
-				<p class="message">การสั่งซื้อเสร็จสมบูรณ์</p>
-				<?php }?>
-
-				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
-				<div class="transfer-form">
+				<div class="message">
+					<p><i class="fa fa-file-o"></i></p>
+					<p class="msg">ไม่มีสินค้าในตะกร้า!</p>
+				</div>
+				<?php }else if($order->status == "TransferRequest"){?>
+					<?php if($_GET['edit'] == "address"){?>
+					<!-- Edit Name Address and Phone number of Customer -->
+					<div class="form">
+						<p class="topic">แก้ไขที่อยู่</p>
+						<p class="caption">ชื่อ-นามสกุล</p>
+						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
+						
+						<p class="caption">ที่อยู่ปัจจุบัน</p>
+						<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>
+						
+						<p class="caption">เบอร์โทรศัพท์</p>
+						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
+						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
+					</div>
+					<?php }else{?>
+					<div class="message">
+						<p class="msg">กำลังตรวจสอบหลักฐานการโอนเงิน...</p>
+					</div>
+					<?php }?>
+				<?php }else if($order->status == "TransferSuccess"){?>
+				<div class="message">
+					<p class="msg">กำลังจัดส่งสินค้า...</p>
+				</div>
+				<?php }else if($order->status == "Complete"){?>
+				<div class="message">
+					<p><i class="fa fa-check"></i></p>
+					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
+				</div>
+				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain"){?>
+				<div class="form">
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 					<p class="topic">ส่งหลักฐานการโอนเงิน</p>
 
@@ -151,7 +157,7 @@ $current_page = "order";
 						<?php $bank->ListBank(array('mode' => 'select'));?>
 					</select>
 					<p class="caption">ยอดเงินที่โอน:</p>
-					<input type="text" class="input-text" name="total" id="transfer_total" placeholder="ยอดที่ต้องชำระ <?php echo number_format($order->summary_payments);?> บาท">
+					<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00">
 					<p class="caption">ชื่อผู้รับสินค้า</p>
 					<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
 					<p class="caption">ที่อยู่</p>
@@ -165,28 +171,11 @@ $current_page = "order";
 					<button class="submit-btn" type="submit"><i class="fa fa-cloud-upload"></i>ส่งหลักฐาน</button>
 					</form>
 				</div>
-				<?php }?>
-				<?php if($order->status == "Shipping"){?>
-				<div class="transfer-form">
+				<?php }else if($order->status == "Shipping"){?>
+				<div class="form">
 					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้วค่ะ</p>
 					<p>ขออนุญาติสอบถาม ตอนนี้ได้รับสินค้ารึยังคะ?</p>
-					<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">รับสินค้าแล้ว</button>
-				</div>
-				<?php }?>
-
-				<!-- Edit Name Address and Phone number of Customer -->
-				<?php if($order->status == "TransferRequest" && $_GET['edit'] == "address"){?>
-				<div class="transfer-form">
-					<p class="topic">แก้ไขที่อยู่</p>
-					<p class="caption">ชื่อ-นามสกุล</p>
-					<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
-					
-					<p class="caption">ที่อยู่ปัจจุบัน</p>
-					<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>
-					
-					<p class="caption">เบอร์โทรศัพท์</p>
-					<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
-					<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
+					<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
 				</div>
 				<?php }?>
 			</div>
@@ -194,10 +183,8 @@ $current_page = "order";
 
 		<!-- Photo -->
 		<div class="panel">
-			<div class="order-topic"><a href="profile.php"><i class="fa fa-arrow-left"></i></a>ประวัติการสั่งซื้อ</div>
-
+			<div class="order-topic"><a href="profile.php"><i class="fa fa-arrow-left"></i></a>ใบสั่งซื้อ: <?php echo $order->id;?></div>
 			<div class="order-detail">
-
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
@@ -345,7 +332,7 @@ $current_page = "order";
 
 						<?php if($order->status == "Shopping"){?>
 						<div class="form-control" id="paying-button">
-							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-check"></i>ชำระเงิน</div>
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-arrow-right"></i>ชำระเงิน</div>
 						</div>
 						<?php }?>
 

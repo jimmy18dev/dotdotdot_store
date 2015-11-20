@@ -54,7 +54,7 @@ $current_page = "profile";
 <div class="container">
 	<div class="container-page">
 		<div class="panel-fix">
-			<div class="profile">
+			<div class="box">
 				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
 				<p>คุณ <?php echo $user->name;?></p>
 				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
@@ -63,7 +63,7 @@ $current_page = "profile";
 				<p class="link">
 					<a href="profile_edit.php">แก้ไขข้อมูล</a>
 					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
-					<a href="logout.php" class="logout">ออกจากระบบ</a>
+					<a href="logout.php" class="signout">ออกจากระบบ</a>
 				</p>
 			</div>
 		</div>

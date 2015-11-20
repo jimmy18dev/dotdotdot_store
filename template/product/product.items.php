@@ -44,11 +44,10 @@ else{
 		</a>
 	</div>
 	<div class="product-items-detail">
-		<div class="detail-title">
-			<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?> · ฿<?php echo number_format($var['pd_price'],2);?></a></h2>
-			<p class="description"><?php echo $msg;?></p>
-
-			<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></div>
+		<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></h2>
+		<div class="description">
+			<span class="price">฿<?php echo number_format($var['pd_price']);?><span class="msg"> · <?php echo $msg;?></span></span>
+			<span class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></span>
 		</div>
 	</div>
 </div>

@@ -112,7 +112,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 						<p>รหัสสินค้า: <?php echo $product->id;?></p>
 					</div>
 					<div class="buy">
-						<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
+						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
 					</div>
 				</div>
 				<?php }else{

@@ -40,11 +40,10 @@ include'facebook.php';
 <body class="bg-full-screen">
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="navi"><a href="index.php">หน้าแรก</a> <i class="fa fa-angle-right"></i> สมัครสมาชิก</div>
+		<div class="navi"><a href="index.php">dotdotdot limited </a> <i class="fa fa-angle-right"></i> สมัครสมาชิก</div>
 		<div class="form">
-
 			<div class="caption">อีเมล:</div>
-			<input type="text" class="input-text" id="email" placeholder="กรอกเมลของคุณ">
+			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
@@ -60,7 +59,7 @@ include'facebook.php';
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">สมัครสมาชิก</span></button>
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status"><i class="fa fa-arrow-up"></i>สมัครสมาชิก</span></button>
 			<div class="mini-caption">หรือ</div>
 			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
 
