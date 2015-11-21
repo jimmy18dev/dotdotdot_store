@@ -38,18 +38,26 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         a{
             color: #000000;
+
+            &:active{
+                color: #555555;
+            }
         }
     }
 
     .cart{
         float: right;
-        padding: 30px 2%;
-        height: 20px;
-        font-size: 0.95em;
+        padding: 34px 1%;
+        height: 12px !important;
+        font-size: 1em;
         color: #000000;
 
         &:hover{
             text-decoration: underline;
+        }
+
+        &:active{
+            background: #FAFAFA;
         }
 
         i{
@@ -66,17 +74,23 @@ Copyright (c) 2015 Puwadon Sricharoen
 
     .avatar{
         float: right;
-        margin: 23px 0%;
-        padding-left: 2%;
+        padding: 23px 0%;
+        padding-left: 1%;
         height: 34px;
-        border-left: 1px solid #FAFAFA;
         position: relative;
+
+        &:active{
+            img{
+                border: 1px solid #000000;
+            }
+        }
 
         img{
             height: 34px;
             width: 34px;
             border-radius: 50%;
             overflow: hidden;
+            border: 1px solid transparent;
         }
 
         .notifications{
@@ -321,33 +335,6 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
 
-        .order-topic{
-            width: 100%;
-            padding: 3% 0%;
-            float: left;
-            display: inline-block;
-            text-align: right;
-            font-size: 1em;
-            color: #CCCCCC;
-            text-align: center;
-
-            a{
-                margin-right: 20px;
-                padding-right: 20px;
-                border-right: 1px solid #CCCCCC;
-                color: #555555;
-            }
-        }
-
-        // Order detail style
-        .order-detail{
-            width: 100%;
-            float: left;
-            display: inline-block;
-        }
-
-
-
         // Product page detail style
         .panel{
             width: 55%;
@@ -362,18 +349,34 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
 
             .panel-topic{
-                margin-bottom: 2%;
-                font-size: 1em;
-                text-align: center;
+                width: 100%;
+                margin-bottom: 3%;
+                float: left;
+                display: inline-block;
+                font-size: 0.8em;
                 color: #CCCCCC;
+                border: 1px solid transparent;
+                margin-top: 30px;
+
+                a{
+                    margin-right: 20px;
+                    padding-right: 20px;
+                    border-right: 1px solid #CCCCCC;
+                    color: #555555;
+                }
             }
 
             .order-box{
-                width: 100%;
-                padding: 5% 0%;
+                width: 90%;
+                padding: 5%;
                 float: left;
                 display: inline-block;
-                border-bottom: 3px solid #FAFAFA;
+                border: 1px solid #FAFAFA;
+                margin-bottom: 1%;
+
+                &:hover{
+                    border: 1px solid #EEEEEE;
+                }
 
                 .icon{
                     width: 10%;
@@ -411,23 +414,21 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
 
                     p.edit{
-                        text-align: right;
-                        font-size: 0.8em;
+                        float: right;
+                        display: inline-block;
+                        padding: 0.5% 2%;
+                        font-size: 0.65em;
+                        background: #F0F0F0;
                         color: #AAAAAA;
+
+                        &:hover{
+                            cursor: pointer;
+                            background: #DDDDDD;
+                        }
 
                         a{
                             color: #AAAAAA;
                             text-decoration: none;
-
-                            &:hover{
-                                color: @PrimaryTextColor;
-                            }
-                        }
-
-                        &:hover{
-                            cursor: pointer;
-                            text-decoration: underline;
-                            color: @PrimaryTextColor;
                         }
                     }
 

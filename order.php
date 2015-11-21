@@ -104,7 +104,7 @@ $current_page = "order";
 				<?php if($order->status == "Shopping"){?>
 				<div class="message">
 					<p><i class="fa fa-file-o"></i></p>
-					<p class="msg">ไม่มีสินค้าในตะกร้า!</p>
+					<p class="msg">กรุณาเลือกสินค้าและชำระเงินค่ะ</p>
 				</div>
 				<?php }else if($order->status == "TransferRequest"){?>
 					<?php if($_GET['edit'] == "address"){?>
@@ -181,9 +181,10 @@ $current_page = "order";
 			</div>
 		</div>
 
-		<!-- Photo -->
+
 		<div class="panel">
-			<div class="order-topic"><a href="profile.php"><i class="fa fa-arrow-left"></i></a>ใบสั่งซื้อ: <?php echo $order->id;?></div>
+			<div class="panel-topic"><a href="profile.php"><i class="fa fa-arrow-left"></i></a>ใบสั่งซื้อ: <?php echo $order->id;?></div>
+
 			<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
@@ -235,7 +236,10 @@ $current_page = "order";
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
 						<p><?php echo $order->customer_phone?></p>
+
+						<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
 						<p class="edit"><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
+						<?php }?>
 					</div>
 				</div>
 				<?php }?>
@@ -258,7 +262,9 @@ $current_page = "order";
 						</div>
 						<?php }?>
 
+						<?php if($order->status == "TransferRequest"){?>
 						<p class="edit"><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>
+						<?php }?>
 					</div>
 				</div>
 				<?php }?>
@@ -291,8 +297,8 @@ $current_page = "order";
 						<div class="order-list">
 							<div class="topic-caption">
 								<div class="detail">สินค้า <?php echo $order->total;?> รายการ</div>
-								<div class="quantity">จำนวน(ชิ้น)</div>
-								<div class="total">รวม(บาท)</div>
+								<div class="quantity">จำนวน</div>
+								<div class="total">รวม</div>
 							</div>
 
 							<?php

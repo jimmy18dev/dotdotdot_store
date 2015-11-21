@@ -51,7 +51,7 @@ $current_page = "profile";
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
 	<div class="container-page">
 		<div class="panel-fix">
 			<div class="box">

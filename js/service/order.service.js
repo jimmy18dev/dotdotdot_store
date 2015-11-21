@@ -78,6 +78,9 @@ function EditItemInOrder(order_id,product_id){
 function RemoveItemInOrder(order_id,product_id){
     var href = 'api.order.php';
 
+    var del = confirm('Not audited ?');
+    if(!del){return false;}
+
     $.ajax({
         url         :href,
         cache       :false,

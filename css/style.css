@@ -111,15 +111,21 @@ Copyright (c) 2015 Daniel Eden
 .header .logo a {
   color: #000000;
 }
+.header .logo a:active {
+  color: #555555;
+}
 .header .cart {
   float: right;
-  padding: 30px 2%;
-  height: 20px;
-  font-size: 0.95em;
+  padding: 34px 1%;
+  height: 12px !important;
+  font-size: 1em;
   color: #000000;
 }
 .header .cart:hover {
   text-decoration: underline;
+}
+.header .cart:active {
+  background: #FAFAFA;
 }
 .header .cart i {
   margin-right: 10px;
@@ -132,17 +138,20 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .avatar {
   float: right;
-  margin: 23px 0%;
-  padding-left: 2%;
+  padding: 23px 0%;
+  padding-left: 1%;
   height: 34px;
-  border-left: 1px solid #FAFAFA;
   position: relative;
+}
+.header .avatar:active img {
+  border: 1px solid #000000;
 }
 .header .avatar img {
   height: 34px;
   width: 34px;
   border-radius: 50%;
   overflow: hidden;
+  border: 1px solid transparent;
 }
 .header .avatar .notifications {
   position: absolute;
@@ -349,27 +358,6 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .container-page .order-topic {
-  width: 100%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-  font-size: 1em;
-  color: #CCCCCC;
-  text-align: center;
-}
-.container .container-page .order-topic a {
-  margin-right: 20px;
-  padding-right: 20px;
-  border-right: 1px solid #CCCCCC;
-  color: #555555;
-}
-.container .container-page .order-detail {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
 .container .container-page .panel {
   width: 55%;
   float: left;
@@ -382,17 +370,31 @@ Copyright (c) 2015 Daniel Eden
   margin-bottom: 2%;
 }
 .container .container-page .panel .panel-topic {
-  margin-bottom: 2%;
-  font-size: 1em;
-  text-align: center;
-  color: #CCCCCC;
-}
-.container .container-page .panel .order-box {
   width: 100%;
-  padding: 5% 0%;
+  margin-bottom: 3%;
   float: left;
   display: inline-block;
-  border-bottom: 3px solid #FAFAFA;
+  font-size: 0.8em;
+  color: #CCCCCC;
+  border: 1px solid transparent;
+  margin-top: 30px;
+}
+.container .container-page .panel .panel-topic a {
+  margin-right: 20px;
+  padding-right: 20px;
+  border-right: 1px solid #CCCCCC;
+  color: #555555;
+}
+.container .container-page .panel .order-box {
+  width: 90%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
+  border: 1px solid #FAFAFA;
+  margin-bottom: 1%;
+}
+.container .container-page .panel .order-box:hover {
+  border: 1px solid #EEEEEE;
 }
 .container .container-page .panel .order-box .icon {
   width: 10%;
@@ -428,21 +430,20 @@ Copyright (c) 2015 Daniel Eden
   font-style: italic;
 }
 .container .container-page .panel .order-box .box p.edit {
-  text-align: right;
-  font-size: 0.8em;
+  float: right;
+  display: inline-block;
+  padding: 0.5% 2%;
+  font-size: 0.65em;
+  background: #F0F0F0;
   color: #AAAAAA;
+}
+.container .container-page .panel .order-box .box p.edit:hover {
+  cursor: pointer;
+  background: #DDDDDD;
 }
 .container .container-page .panel .order-box .box p.edit a {
   color: #AAAAAA;
   text-decoration: none;
-}
-.container .container-page .panel .order-box .box p.edit a:hover {
-  color: #000000;
-}
-.container .container-page .panel .order-box .box p.edit:hover {
-  cursor: pointer;
-  text-decoration: underline;
-  color: #000000;
 }
 .container .container-page .panel .order-box .box strong {
   font-weight: bold;
@@ -1283,455 +1284,545 @@ Copyright (c) 2015 Daniel Eden
 }
 /**** OTHER DEVICE AND SCREEN ****/
 @media only screen and (min-width: 0px) and (max-width: 519px) {
-  /*!
-Licensed under the MIT license - http://opensource.org/licenses/MIT
-Copyright (c) 2015 Puwadon Sricharoen
-*/
   .header {
     width: 100%;
     padding: 0% 0%;
     height: 50px;
   }
   .header .logo {
-    padding: 17px 3%;
-    height: 16px;
-    font-size: 1.1em;
+    padding: 18px 5%;
+    height: 14px;
+    font-size: 1.2em;
   }
   .header .cart {
-    padding: 20px 2%;
-    height: 10px;
-    font-size: 0.9em;
+    float: right;
+    padding: 19px 1%;
+    height: 12px !important;
+    font-size: 1em;
   }
   .header .cart i {
     margin-right: 10px;
-    font-size: 1.2em;
+    font-size: 0.8em;
+    float: left;
   }
   .header .avatar {
-    margin: 13px 0%;
-    padding-left: 3%;
-    padding-right: 3%;
+    float: right;
+    padding: 13px 5%;
+    padding-left: 2%;
     height: 24px;
   }
   .header .avatar img {
     height: 24px;
     width: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 1px solid transparent;
   }
   .header .avatar .notifications {
-    top: -4px;
-    right: 4px;
+    position: absolute;
+    top: -2px;
+    right: -2px;
     font-size: 0.8em;
+    color: #FF0000;
   }
   .header .login {
-    margin: 14px 0px;
-    padding: 1.5% 5%;
-    font-size: 0.75em;
-    margin-right: 3%;
+    float: right;
+    margin: 28px 0px;
+    padding: 0.5% 1%;
+    font-size: 0.8em;
+    color: #AAAAAA;
+    border: 1px solid #DDDDDD;
   }
-  .login-dialog .login-container {
-    width: 100%;
-    margin: 0% 0%;
+  .header .login:hover {
+    cursor: pointer;
+    border: 1px solid #000000;
+    color: #000000;
   }
-  .login-dialog .login-container .navi {
-    margin: 7% 0%;
-    font-size: 1em;
+  .header .login:active {
+    background: #000000;
+    color: #FFFFFF;
   }
-  .login-dialog .login-container .form {
+  .header .login i {
+    margin-right: 10px;
+  }
+  .header-fix {
+    position: inherit;
+  }
+  .login-container {
     width: 90%;
-    margin: 0% 5%;
+    margin: 0% 0%;
+    padding: 5%;
+    border: 0px;
   }
-  .login-dialog .login-container .form .caption {
-    font-size: 0.9em;
+  .login-container .navi {
+    margin-bottom: 0%;
+    margin: 10% 0%;
+    font-size: 1.2em;
   }
-  .login-dialog .login-container .form .input-text {
-    width: 94%;
-    padding: 3.5% 3%;
-    font-size: 1em;
-    line-height: 1.5em;
-    margin-bottom: 5%;
-  }
-  .login-dialog .login-container .form p.forget {
-    margin-bottom: 7%;
+  .login-container .navi i {
+    margin: 0px 10px;
     font-size: 0.8em;
   }
-  .login-dialog .login-container .form p.forget a {
-    background: #EEEEEE;
-    padding: 4px 6px;
-    margin-left: 5px;
+  .login-container .form .caption {
+    line-height: 2em;
+    font-size: 1em;
   }
-  .login-dialog .login-container .form .status {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    text-align: center;
+  .login-container .form .input-text {
+    width: 96%;
+    padding: 4% 2%;
+    font-size: 1em;
+    margin-bottom: 10%;
+  }
+  .login-container .form .status {
+    padding: 10% 0%;
     font-size: 0.9em;
-    line-height: 1.5em;
     margin-bottom: 5%;
-    color: #F44336;
-    display: none;
   }
-  .login-dialog .login-container .form .button-submit {
+  .login-container .form .button-submit {
+    padding: 5.5% 0%;
+    font-size: 1em;
+  }
+  .login-container .form .mini-caption {
     padding: 5% 0%;
   }
-  .login-dialog .login-container .form .mini-caption {
-    padding: 5% 0%;
+  .login-container .form .facebook-button {
+    padding: 5.5% 0%;
+    font-size: 1em;
   }
-  .login-dialog .login-container .form .facebook-button {
-    padding: 5% 0%;
-  }
-  .login-dialog .login-container .form p.signup {
+  .login-container .form p.signup {
     padding-top: 10%;
-    font-size: 0.9em;
-  }
-  .login-dialog .login-container .form p.signup a {
-    background: #EEEEEE;
-    padding: 4px 6px;
-    margin-left: 5px;
+    font-size: 1em;
   }
   .container {
     width: 100%;
     padding: 0% 0%;
     margin: 50px 0px;
   }
-  .container .container-page .order-state {
-    margin-bottom: 3%;
-  }
-  .container .container-page .order-state .state-items {
-    width: 25%;
-    padding: 3% 0%;
-  }
-  .container .container-page .order-state .state-items .icon {
-    font-size: 1.5em;
-    margin-bottom: 3%;
-  }
-  .container .container-page .order-state .state-items .caption {
-    font-size: 0.75em;
-    line-height: 2em;
-  }
-  .container .container-page .order-state .state-items-fullsize {
-    padding: 3% 0%;
-  }
-  .container .container-page .order-state .state-items-fullsize i {
-    margin-right: 10px;
-  }
-  .container .container-page .order-topic {
-    padding: 3% 0%;
-    font-size: 0.8em;
-  }
-  .container .container-page .order-detail .order-box {
+  .container .container-page .panel {
     width: 100%;
-    padding: 2% 0%;
   }
-  .container .container-page .order-detail .order-box .icon {
-    width: 100%;
-    padding-top: 3%;
-    font-size: 1.3em;
-    text-align: center;
+  .container .container-page .panel img {
+    margin-bottom: 2%;
   }
-  .container .container-page .order-detail .order-box .box {
-    width: 94%;
-    padding: 3%;
-  }
-  .container .container-page .order-detail .order-box .box p {
+  .container .container-page .panel .panel-topic {
+    width: 90%;
+    margin: 5%;
     font-size: 0.9em;
-    line-height: 1.5em;
+    margin-top: 5%;
   }
-  .container .container-page .order-detail .order-box .box p.caption {
-    font-size: 0.6em;
+  .container .container-page .panel .panel-topic a {
+    margin-right: 10px;
+    padding-right: 10px;
+  }
+  .container .container-page .panel .order-box {
+    width: 90%;
+    padding: 5%;
+    border: 0px;
+    border-top: 1px solid #EEEEEE;
     margin-bottom: 1%;
   }
-  .container .container-page .order-detail .order-box .box p.big {
-    font-size: 1.3em;
+  .container .container-page .panel .order-box:hover {
+    border: 0px;
+    border-top: 1px solid #EEEEEE;
   }
-  .container .container-page .order-detail .order-box .box p.edit {
-    font-size: 0.8em;
+  .container .container-page .panel .order-box .icon {
+    width: 13%;
+    margin-top: 9%;
+    font-size: 1.5em;
   }
-  .container .container-page .order-detail .order-box .box .image {
+  .container .container-page .panel .order-box .box {
+    width: 87%;
+  }
+  .container .container-page .panel .order-box .box p {
+    font-size: 0.9em;
+    line-height: 1.5em;
+    color: #000000;
+  }
+  .container .container-page .panel .order-box .box p.caption {
+    font-size: 0.75em;
+    margin-bottom: 1%;
+    color: #777777;
+    font-style: italic;
+  }
+  .container .container-page .panel .order-box .box p.caption i {
+    margin: 0% 3%;
+  }
+  .container .container-page .panel .order-box .box p.big {
+    font-size: 1.1em;
+  }
+  .container .container-page .panel .order-box .box p.message {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    font-style: italic;
+  }
+  .container .container-page .panel .order-box .box p.edit {
+    float: right;
+    display: inline-block;
+    padding: 0.5% 2%;
+    font-size: 0.65em;
+    background: #F0F0F0;
+    color: #AAAAAA;
+  }
+  .container .container-page .panel .order-box .box .image {
+    width: 100%;
     margin: 3% 0%;
+    float: left;
+    display: inline-block;
   }
-  .container .container-page .order-detail .order-box .box .image img {
+  .container .container-page .panel .order-box .box .image img {
     width: 100%;
+    float: left;
+    display: inline-block;
   }
-  .container .container-page .order-detail .order-box .box .order-list .topic-caption {
+  .container .container-page .panel .order-box .box .bank {
     width: 100%;
-    padding: 4% 0%;
+    margin: 2% 0%;
+    float: left;
+    display: inline-block;
+    border-top: 1px solid #FAFAFA;
+    border-bottom: 1px solid #FAFAFA;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items {
+    width: 100%;
+    padding: 2% 0%;
+    float: left;
+    display: inline-block;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items .bank-items-icon {
+    width: 5%;
+    padding-top: 1%;
+    float: left;
+    display: inline-block;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items .bank-items-icon img {
+    width: 100%;
+    float: left;
+    display: inline-block;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items .bank-items-info {
+    width: 90%;
+    margin-left: 5%;
+    float: left;
+    display: inline-block;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items .bank-items-info p {
+    font-size: 1em;
+    color: #777777;
+  }
+  .container .container-page .panel .order-box .box .bank .bank-items .bank-items-info p.zoom {
+    font-size: 1.5em;
+    color: #000000;
+  }
+  .container .container-page .panel .order-box .box .order-list .topic-caption {
+    padding: 3% 0%;
     font-size: 0.75em;
   }
-  .container .container-page .order-detail .order-box .box .order-list .topic-caption .detail {
+  .container .container-page .panel .order-box .box .order-list .topic-caption .detail {
     width: 65%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .topic-caption .quantity {
+  .container .container-page .panel .order-box .box .order-list .topic-caption .quantity {
     width: 13%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .topic-caption .total {
+  .container .container-page .panel .order-box .box .order-list .topic-caption .total {
     width: 22%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order {
-    line-height: 1.5em;
-    font-size: 0.9em;
+  .container .container-page .panel .order-box .box .order-list .items-in-order {
+    border-top: 1px solid #FAFAFA;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
-    width: 15%;
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
+    width: 14%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail {
-    width: 46%;
-    padding: 1% 2%;
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail {
+    width: 47%;
+    padding: 1.3% 2%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
+    font-size: 0.6em;
+  }
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn {
+    border: 1px solid #CCCCCC;
     font-size: 0.8em;
+    padding: 0.5% 2%;
+    padding-bottom: 0.5%;
+    margin-left: 5px;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .input-select {
-    width: 100%;
+  .container .container-page .panel .order-box .box .order-list .items-in-order .input-select {
     font-size: 1em;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-quantity {
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-quantity {
     width: 13%;
-    padding: 1% 0%;
+    padding: 3% 0%;
+    float: left;
+    display: inline-block;
+    text-align: center;
   }
-  .container .container-page .order-detail .order-box .box .order-list .items-in-order .items-in-order-total {
+  .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-total {
     width: 22%;
-    padding: 1% 0%;
+    padding: 3% 0%;
+    float: left;
+    display: inline-block;
+    text-align: right;
   }
-  .container .container-page .order-detail .order-box .box .order-list .summary-items {
-    font-size: 0.9em;
+  .container .container-page .panel .order-box .box .order-list .summary-items {
+    font-size: 1em;
   }
-  .container .container-page .order-detail .order-box .box .order-list .summary-items .detail {
-    width: 65%;
+  .container .container-page .panel .order-box .box .order-list .summary-items .detail {
+    width: 70%;
     margin-left: 0%;
     padding: 3% 0%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .summary-items .detail .shipping-select {
+  .container .container-page .panel .order-box .box .order-list .summary-items .detail .shipping-select {
+    padding: 1% 1%;
+    margin-left: 5px;
     font-size: 1em;
     line-height: 1.5em;
   }
-  .container .container-page .order-detail .order-box .box .order-list .summary-items .total {
-    width: 35%;
+  .container .container-page .panel .order-box .box .order-list .summary-items .total {
+    width: 30%;
     padding: 3% 0%;
   }
-  .container .container-page .order-detail .order-box .box .order-list .summary-total {
+  .container .container-page .panel .order-box .box .order-list .summary-total {
+    border-top: 1px dashed #FAFAFA;
     font-size: 1em;
   }
-  .container .container-page .order-detail .order-box .box .bank {
-    margin: 3% 0%;
-  }
-  .container .container-page .order-detail .order-box .box .bank .bank-items {
-    padding: 3% 0%;
-  }
-  .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-icon {
-    width: 5%;
-    padding-top: 1%;
-  }
-  .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info {
-    width: 92%;
-    margin-left: 3%;
-  }
-  .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info p {
-    font-size: 0.9em;
-  }
-  .container .container-page .order-detail .order-box .box .bank .bank-items .bank-items-info p.zoom {
-    font-size: 1.2em;
-  }
-  .container .container-page .order-detail .order-box .box .input-text {
-    width: 96%;
-    padding: 3% 2%;
-    font-size: 0.95em;
-    line-height: 1.5em;
-    border: 1px solid #FAFAFA;
-  }
-  .container .container-page .order-detail .order-box .box .input-textarea {
-    height: 50px;
-  }
-  .container .container-page .order-detail .order-box .box .form-items {
-    padding: 2% 0%;
-  }
-  .container .container-page .order-detail .order-box .box .form-items .label {
-    width: 100%;
-    padding: 1% 0%;
-    font-size: 0.8em;
-    line-height: 1.5em;
-  }
-  .container .container-page .order-detail .order-box .box .form-items .input {
-    width: 100%;
-  }
-  .container .container-page .order-detail .order-box .box .form-items .input .image-input img {
-    width: 100%;
-  }
-  .container .container-page .order-detail .order-box .box .form-items .input .image-input .btn {
-    padding: 20% 0%;
-    font-size: 0.9em;
-    line-height: 1.5em;
-  }
-  .container .container-page .order-detail .order-box .box .form-items .input .image-input .btn i {
-    font-size: 1.5em;
-  }
-  .container .container-page .order-detail .order-box .box .form-control {
+  .container .container-page .panel .order-box .box .form-control {
     width: 100%;
     margin: 5% 0%;
+    float: left;
+    display: inline-block;
   }
-  .container .container-page .order-detail .order-box .box .form-control .submit-btn {
-    width: 100%;
-    padding: 4% 0%;
-    font-size: 0.8em;
-    line-height: 1.5em;
-    text-align: center;
+  .container .container-page .panel .order-box .box .form-control .submit-btn {
+    width: 90%;
+    font-size: 1em;
+    padding: 5%;
+    font-weight: bold;
   }
-  .container .container-page .order-detail .order-box .box .form-control .submit-btn i {
+  .container .container-page .panel .order-box .box .form-control .submit-btn i {
     margin-right: 10px;
   }
-  .container .container-page .order-detail .cancel-btn {
-    margin: 5% 3%;
-    font-size: 0.7em;
+  .container .container-page .panel #product .icon {
+    display: none;
   }
-  .container .container-page .order-detail .cancel-btn i {
-    margin-right: 5px;
-  }
-  .container .container-page .product-photos {
+  .container .container-page .panel #product .box {
     width: 100%;
   }
-  .container .container-page .product-photos img {
-    margin-bottom: 1%;
+  .container .container-page .panel .cancel-btn {
+    margin: 5%;
+    padding: 1% 1%;
+    font-size: 0.7em;
   }
-  .container .container-page .product-details {
-    position: initial;
-    top: 0px;
-    right: 0%;
-    width: 94%;
-    padding: 3%;
+  .container .container-page .panel .cancel-btn i {
+    margin-right: 5px;
+  }
+  .container .container-page .panel .note {
+    width: 90%;
+    padding: 5%;
     line-height: 1.5em;
   }
-  .container .container-page .product-details h1 {
-    font-size: 1.3em;
+  .container .container-page .panel .note h2 {
+    font-size: 1em;
+    border-bottom: 1px solid #FAFAFA;
     padding-bottom: 5%;
-    margin-bottom: 3%;
-  }
-  .container .container-page .product-details p.info {
-    font-size: 0.9em;
-  }
-  .container .container-page .product-details .description {
-    padding: 5% 0%;
-    font-size: 0.95em;
     margin-bottom: 5%;
   }
-  .container .container-page .product-details .action .topic {
-    padding-bottom: 2%;
-    font-size: 0.8em;
-    line-height: 1.5em;
-  }
-  .container .container-page .product-details .action .action-items {
-    line-height: 1.5em;
-    margin-bottom: 1%;
+  .container .container-page .panel .note p {
     font-size: 0.9em;
   }
-  .container .container-page .product-details .action .action-items .detail {
-    width: 69%;
-    padding: 3% 3%;
+  .container .container-page .panel-fix {
+    position: inherit;
+    top: 0%;
+    right: 0%;
+    width: 90%;
+    padding: 5%;
+    float: left;
+    display: inline-block;
+    line-height: 1.5em;
   }
-  .container .container-page .product-details .action .action-items .detail .desc {
-    font-size: 0.8em;
-  }
-  .container .container-page .product-details .action .action-items .detail-buy-btn {
-    width: 25%;
-    padding: 3% 0%;
-  }
-  .container .container-page .product-details .action .action-items .detail-buy-btn .msg {
-    font-size: 0.8em;
-  }
-  .container .container-page .list-content .order-items {
-    width: 94%;
-    padding: 3%;
+  .container .container-page .panel-fix h1 {
+    font-size: 1.5em;
+    padding-bottom: 5%;
+    margin-bottom: 3%;
     border-bottom: 1px solid #EEEEEE;
   }
-  .container .container-page .list-content .order-items .order-items-status {
-    line-height: 1.5em;
-    margin-bottom: 3%;
-    font-size: 0.6em;
-  }
-  .container .container-page .list-content .order-items .order-items-status .status {
-    padding: 1px 5px;
-  }
-  .container .container-page .list-content .order-items .order-items-status .time {
-    padding: 1px 0px;
-  }
-  .container .container-page .list-content .order-items .order-items-id {
-    font-size: 1.1em;
-    line-height: 1.5em;
-  }
-  .container .container-page .list-content .order-items .order-items-info {
+  .container .container-page .panel-fix p.info {
     font-size: 0.9em;
-    line-height: 1.5em;
   }
-  .container .container-page .profile {
+  .container .container-page .panel-fix p.info .view {
+    padding: 1% 0%;
+  }
+  .container .container-page .panel-fix p.info .sharing {
+    float: right;
+    padding: 1% 3%;
+  }
+  .container .container-page .panel-fix .description {
+    padding: 3% 0%;
+    font-size: 1em;
+    margin-bottom: 5%;
+  }
+  .container .container-page .panel-fix .action .topic {
+    width: 100%;
+    padding-bottom: 2%;
+    float: left;
+    display: inline-block;
+    font-size: 0.8em;
+    line-height: 1.5em;
+    color: #777777;
+    font-style: italic;
+    border-bottom: 1px solid #FAFAFA;
+  }
+  .container .container-page .panel-fix .action .action-items {
     width: 100%;
     padding: 3% 0%;
+    line-height: 1.5em;
+    margin-bottom: 1%;
   }
-  .container .container-page .profile p {
+  .container .container-page .panel-fix .action .action-items .detail {
+    width: 70%;
+  }
+  .container .container-page .panel-fix .action .action-items .detail h3 {
+    font-size: 1em;
+  }
+  .container .container-page .panel-fix .action .action-items .detail p {
+    font-size: 0.9em;
+  }
+  .container .container-page .panel-fix .action .action-items .buy {
+    width: 29%;
+  }
+  .container .container-page .panel-fix .action .action-items .buy .buy-btn {
+    padding: 3% 0%;
+    font-size: 0.9em;
+  }
+  .container .container-page .panel-fix .action .action-items .buy .buy-btn i {
+    margin-right: 10px;
+    font-size: 0.8em;
+  }
+  .container .container-page .panel-fix .order-state {
+    margin-bottom: 3%;
+  }
+  .container .container-page .panel-fix .order-state .state-items {
+    width: 25%;
+    padding: 3% 0%;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .container .container-page .panel-fix .order-state .state-items .icon {
+    font-size: 1.3em;
+    margin-bottom: 3%;
+  }
+  .container .container-page .panel-fix .order-state .state-items .caption {
+    font-size: 0.7em;
+    line-height: 2em;
+  }
+  .container .container-page .panel-fix .box {
+    width: 90%;
+    padding: 5%;
+    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+  }
+  .container .container-page .panel-fix p {
     font-size: 1em;
     line-height: 1.5em;
   }
-  .container .container-page .profile p.big {
-    font-size: 1.5em;
+  .container .container-page .panel-fix p.icon {
+    color: #DDDDDD;
+    font-size: 0.8em;
+    margin-bottom: 5%;
   }
-  .container .container-page .profile p.link {
-    margin-top: 5%;
-    font-size: 0.7em;
+  .container .container-page .panel-fix p.icon i {
+    margin-right: 5px;
   }
-  .container .container-page .profile p.link a {
-    padding: 4px 7px;
+  .container .container-page .panel-fix p.big {
+    font-size: 1.2em;
   }
-  .container .container-page .profile .form {
-    width: 94%;
-    margin: 3% 3%;
-  }
-  .container .container-page .profile .form .input-text {
-    width: 73%;
-    padding: 3%;
-    line-height: 1.5em;
-    font-size: 0.9em;
-  }
-  .container .container-page .profile .form .submit-btn {
-    width: 20%;
-    padding: 3% 0%;
-    line-height: 1.5em;
-    font-size: 0.9em;
-  }
-  .container .container-page .product-items {
-    width: 94%;
-    margin: 0% 3%;
-    margin-bottom: 3%;
-    margin-right: 0%;
+  .container .container-page .panel-fix .message {
+    width: 90%;
+    padding: 10% 5%;
+    float: left;
+    display: inline-block;
+    text-align: center;
     background: #FAFAFA;
   }
-  .container .container-page .product-items:nth-child(3n) {
-    margin-right: 3%;
+  .container .container-page .panel-fix .message i {
+    font-size: 2em;
+    line-height: 1.5em;
   }
-  .container .container-page .product-items .product-items-detail {
+  .container .container-page .panel-fix .message p.msg {
+    font-size: 0.8em;
+    font-style: italic;
+  }
+  .container .container-page .panel-fix .form p.topic {
+    font-size: 0.9em;
+  }
+  .container .container-page .panel-fix .form p.caption {
+    font-size: 0.9em;
+    line-height: 2em;
+  }
+  .container .container-page .panel-fix .form .input-text {
     width: 94%;
     padding: 3%;
-  }
-  .container .container-page .product-items .product-items-detail .detail-title {
-    width: 100%;
-    padding: 0% 0%;
-  }
-  .container .container-page .product-items .product-items-detail .detail-title h2 {
     font-size: 1em;
     line-height: 1.5em;
+    margin-bottom: 7%;
   }
-  .container .container-page .product-items .product-items-detail .detail-title p {
-    font-size: 0.85em;
+  .container .container-page .panel-fix .form .input-select {
+    width: 100%;
+  }
+  .container .container-page .panel-fix .form .input-file {
+    margin-bottom: 5%;
+  }
+  .container .container-page .panel-fix .form .submit-btn {
+    width: 100%;
+    font-size: 0.9em;
+    padding: 5%;
+    font-weight: bold;
+  }
+  .container .container-page .panel-fix p.link {
+    margin-top: 5%;
+    padding-top: 5%;
+    font-size: 0.75em;
+    border-top: 1px solid #EEEEEE;
+  }
+  .container .container-page .panel-fix p.link a {
+    padding: 1% 1%;
+    margin-right: 5px;
+  }
+  .container .container-page .product-items {
+    width: 100%;
+    margin-bottom: 5%;
+    margin-right: 0%;
+    border-bottom: 1px dotted #EEEEEE;
+  }
+  .container .container-page .product-items:nth-child(3n) {
+    margin-right: 0%;
+    float: right;
+  }
+  .container .container-page .product-items .product-items-detail {
+    width: 90%;
+    padding: 5%;
+  }
+  .container .container-page .product-items .product-items-detail h2 {
+    padding: 0% 0%;
+    font-size: 1.2em;
     line-height: 1.5em;
   }
-  .container .container-page .product-items .product-items-detail .detail-title p.description {
-    font-size: 0.75em;
+  .container .container-page .product-items .product-items-detail .description {
+    font-size: 0.9em;
   }
-  .container .container-page .product-items .product-items-detail .detail-title .buy-btn {
-    margin: auto;
-    margin-top: 3%;
-    padding: 1% 5%;
-    font-size: 0.7em;
-    border-radius: 20px;
+  .container .container-page .product-items .product-items-detail .description .price {
+    width: 75%;
+    padding: 2.5% 0%;
   }
-  .container .container-page .product-items .product-items-detail .detail-title .buy-btn i {
-    margin-right: 5px;
+  .container .container-page .product-items .product-items-detail .description .buy-btn {
+    width: 24%;
+    padding: 2.5% 0%;
     font-size: 0.8em;
+    border: 1px solid #DDDDDD;
+  }
+  .container .container-page .product-items .product-items-detail .description .buy-btn i {
+    margin-right: 10px;
+    font-size: 0.8em;
+  }
+  .container-fix {
+    margin: 0px 0px;
   }
   #alert {
     position: fixed;
@@ -1760,11 +1851,28 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin: 0% 2%;
     color: rgba(0, 0, 0, 0.1);
   }
+  #filter {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    float: left;
+    display: inline-block;
+    background: #FFFFFF;
+    z-index: 999;
+    display: none;
+  }
   #filter #loading-message {
-    margin-top: 70%;
+    width: 100%;
+    margin-top: 20%;
     padding: 1% 0%;
+    float: left;
+    display: inline-block;
+    text-align: center;
     line-height: 2em;
-    font-size: 0.8em;
+    font-size: 0.9em;
+    color: #777777;
   }
   #filter #loading-message i {
     margin-right: 10px;
@@ -1773,22 +1881,44 @@ Copyright (c) 2015 Puwadon Sricharoen
   #filter #loading-bar {
     width: 60%;
     height: 1px;
+    float: left;
+    display: inline-block;
+    background: #000000;
   }
   #filter .cancel {
-    margin-top: 30%;
+    width: 100%;
+    margin-top: 20%;
+    float: left;
+    display: inline-block;
+    text-align: center;
     line-height: 1.5em;
-    font-size: 0.7em;
+    font-size: 0.8em;
+  }
+  #filter .cancel a {
+    color: #CCCCCC;
   }
   .footer {
-    width: 94%;
-    padding: 4% 3%;
+    width: 90%;
+    padding: 10% 5%;
   }
   .footer .footer-link {
+    width: 100%;
     margin-bottom: 5%;
+    float: left;
+    display: inline-block;
+    color: #FFFFFF;
     font-size: 0.8em;
+  }
+  .footer .footer-link a {
+    color: #FFFFFF;
+    text-decoration: none;
+  }
+  .footer .footer-link a:hover {
+    text-decoration: underline;
   }
   .footer p {
     font-size: 0.8em;
+    color: #FFFFFF;
     line-height: 1.5em;
   }
   .dialog-box .icon {
@@ -1796,14 +1926,14 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .dialog-box .icon i {
     font-size: 2em;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
   }
   .dialog-box .icon p {
-    font-size: 0.8em;
+    font-size: 0.9em;
   }
   #loading-status {
-    bottom: 5px;
-    right: 5px;
-    font-size: 0.9em;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1em;
   }
 }
