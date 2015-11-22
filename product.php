@@ -81,26 +81,11 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<!-- Detail -->
 		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>
-			<p class="info">
-				<?php if($product->quantity > 5){?>
-				<span class="view">แสดงสินค้า <?php echo number_format($product->read);?> ครั้ง</span>
-				<?php }else{?>
-				<span class="view"> มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
-				<?php }?>
-
-				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
-				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
-				<span class="sharing" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
-			</p>
-
-			<div class="description"><?php echo $product->description;?></div>
-
 			<div class="action">
-				<p class="topic">สั่งซื้อสินค้า</p>
 				<?php
 				if($product->type == "normal"){
 					if(empty($product->in_order)){
-						$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
+						$button_msg = '<i class="fa fa-shopping-cart"></i>สั่งซื้อ';
 					}
 					else{
 						$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
@@ -122,6 +107,20 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 					));
 				}?>
 			</div>
+
+			<div class="description"><?php echo $product->description;?></div>
+
+			<p class="info">
+				<?php if($product->quantity > 5){?>
+				<span class="view">แสดงสินค้า <?php echo number_format($product->read);?> ครั้ง</span>
+				<?php }else{?>
+				<span class="view"> มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
+				<?php }?>
+
+				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
+				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
+				<span class="sharing" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
+			</p>
 		</div>
 
 		<!-- Photo -->

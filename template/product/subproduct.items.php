@@ -7,10 +7,10 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = 'ตะกร้า<i class="fa fa-plus"></i>';
+	$button_msg = '<i class="fa fa-plus"></i>สั่งซื้อ';
 }
 else{
-	$button_msg = 'ชำระเงิน<i class="fa fa-arrow-right"></i>';
+	$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
 }
 ?>
 

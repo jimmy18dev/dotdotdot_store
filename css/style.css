@@ -431,10 +431,10 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .order-box {
   width: 92%;
-  padding: 4% 4%;
+  padding: 0% 4%;
   float: left;
   display: inline-block;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
 }
 .container .container-page .panel .order-box .icon {
   width: 7%;
@@ -457,7 +457,7 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel .order-box .box p.caption {
   font-size: 0.8em;
   margin-bottom: 1%;
-  color: #777777;
+  color: #CCCCCC;
   font-style: italic;
 }
 .container .container-page .panel .order-box .box p.caption i {
@@ -509,7 +509,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .order-box .box .order-list .topic-caption {
   width: 100%;
-  padding: 2% 0%;
+  padding-bottom: 2%;
   float: left;
   display: inline-block;
   font-size: 0.85em;
@@ -551,6 +551,9 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
+.container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-thumbnail img:hover {
+  opacity: 0.8;
+}
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail {
   width: 59%;
   padding: 2%;
@@ -569,19 +572,19 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
   font-size: 0.8em;
-  color: #777777;
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn {
-  border: 1px solid #CCCCCC;
+  border: 1px solid #F44336;
+  color: #F44336;
   font-size: 0.85em;
   padding: 0.1% 1%;
   padding-bottom: 0.2%;
-  margin-left: 10px;
+  margin-left: 5px;
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn:hover {
   cursor: pointer;
-  border: 1px solid #F44336;
-  color: #F44336;
+  background: #F44336;
+  color: #FFFFFF;
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn:active {
   background: #F44336;
@@ -658,7 +661,6 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .order-box .box .order-list .summary-total {
   font-size: 1.2em;
-  font-weight: bold;
 }
 .container .container-page .panel .order-box .box .form-control {
   width: 100%;
@@ -671,16 +673,15 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
-  font-size: 0.85em;
+  font-size: 0.8em;
   padding: 3%;
   outline: 0;
   text-align: center;
-  font-weight: bold;
   background: #000000;
   color: #FFFFFF;
 }
 .container .container-page .panel .order-box .box .form-control .submit-btn:hover {
-  background: #555555;
+  background: #333333;
   cursor: pointer;
 }
 .container .container-page .panel .order-box .box .form-control .submit-btn:active {
@@ -777,17 +778,6 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .container-page .panel-fix .action .topic {
-  width: 100%;
-  padding-bottom: 2%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 1.5em;
-  color: #777777;
-  font-style: italic;
-  border-bottom: 1px solid #FAFAFA;
-}
 .container .container-page .panel-fix .action .action-items {
   width: 100%;
   padding: 3% 0%;
@@ -821,27 +811,34 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: right;
   display: inline-block;
-  color: #777777;
-  padding: 2% 0%;
+  border: 1px solid #EEEEEE;
+  color: #555555;
+  padding: 3% 0%;
   font-size: 0.8em;
-  background: #EEEEEE;
   text-align: center;
 }
 .container .container-page .panel-fix .action .action-items .buy .buy-btn i {
   margin-right: 10px;
-  font-size: 0.8em;
 }
 .container .container-page .panel-fix .action .action-items .buy .buy-btn:hover {
-  background: #EEEEEE;
+  border: 1px solid #000000;
+  color: #555555;
   color: #000000;
   cursor: pointer;
 }
+.container .container-page .panel-fix .action .action-items .buy .buy-btn:active {
+  background: #000000;
+  border: 1px solid #000000;
+  color: #FFFFFF;
+}
 .container .container-page .panel-fix .action .action-items .buy .buy-btn-active {
-  background: #333333;
+  background: #000000;
+  border: 1px solid #000000;
   color: #FFFFFF;
 }
 .container .container-page .panel-fix .action .action-items .buy .buy-btn-active:hover {
-  background: #000000;
+  background: #555555;
+  border: 1px solid #555555;
   color: #FFFFFF;
 }
 .container .container-page .panel-fix .order-state {
@@ -920,7 +917,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel-fix .message {
   width: 90%;
-  padding: 10% 5%;
+  padding: 20% 5%;
   float: left;
   display: inline-block;
   text-align: center;
@@ -979,22 +976,25 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel-fix .form .submit-btn {
-  width: 50%;
+  width: 30%;
   float: right;
-  background: #333333;
-  color: #FFFFFF;
+  color: #333333;
+  background: #FFFFFF;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
-  font-size: 0.8em;
+  font-size: 0.9em;
   font-weight: bold;
-  padding: 3% 4%;
+  padding: 2% 4%;
   outline: 0;
+  border: 2px solid #333333;
 }
 .container .container-page .panel-fix .form .submit-btn:hover {
-  background: #555555;
+  border: 2px solid #000000;
+  color: #000000;
   cursor: pointer;
 }
 .container .container-page .panel-fix .form .submit-btn:active {
+  color: #FFFFFF;
   background: #000000;
 }
 .container .container-page .panel-fix .form .submit-btn i {
@@ -1082,21 +1082,21 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .product-items .product-items-detail .buy-btn {
   margin: auto;
-  margin: 1% 0%;
-  padding: 2%;
+  margin: 3% 0%;
   display: inline-block;
-  color: #000000;
+  color: #555555;
   text-align: right;
-  font-weight: bold;
   font-size: 0.9em;
 }
 .container .container-page .product-items .product-items-detail .buy-btn:hover {
   color: #000000;
-  background: #FCFCFC;
   cursor: pointer;
 }
 .container .container-page .product-items .product-items-detail .buy-btn-active {
   font-style: italic;
+  color: #000000;
+}
+.container .container-page .product-items .product-items-detail .buy-btn-active:hover {
   color: #000000;
 }
 .container-fix {

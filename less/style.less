@@ -417,10 +417,10 @@ Copyright (c) 2015 Puwadon Sricharoen
 
             .order-box{
                 width: 92%;
-                padding: 4% 4%;
+                padding: 0% 4%;
                 float: left;
                 display: inline-block;
-                margin-bottom: 1%;
+                margin-bottom: 5%;
 
                 .icon{
                     width: 7%;
@@ -443,7 +443,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                     p.caption{
                         font-size: 0.8em;
                         margin-bottom: 1%;
-                        color: @SecondaryTextColor;
+                        color: #CCCCCC;
                         font-style: italic;
 
                         i{
@@ -504,7 +504,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                         .topic-caption{
                             width: 100%;
-                            padding: 2% 0%;
+                            padding-bottom: 2%;
                             float: left;
                             display: inline-block;
                             font-size: 0.85em;
@@ -547,6 +547,10 @@ Copyright (c) 2015 Puwadon Sricharoen
                                     width: 100%;
                                     float: left;
                                     display: inline-block;
+
+                                    &:hover{
+                                        opacity: 0.8;
+                                    }
                                 }
                             }
                             .items-in-order-detail{
@@ -568,19 +572,19 @@ Copyright (c) 2015 Puwadon Sricharoen
                                 }
                                 p.detail-description{
                                     font-size: 0.8em;
-                                    color: @SecondaryTextColor;
 
                                     .remove-btn{
-                                        border: 1px solid #CCCCCC;
+                                        border: 1px solid #F44336;
+                                        color: #F44336;
                                         font-size: 0.85em;
                                         padding: 0.1% 1%;
                                         padding-bottom: 0.2%;
-                                        margin-left: 10px;
+                                        margin-left: 5px;
 
                                         &:hover{
                                             cursor: pointer;
-                                            border: 1px solid #F44336;
-                                            color: #F44336;
+                                            background: #F44336;
+                                            color: #FFFFFF;
                                         }
 
                                         &:active{
@@ -671,7 +675,6 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                         .summary-total{
                             font-size: 1.2em;
-                            font-weight: bold;
                         }
                     }
 
@@ -687,16 +690,15 @@ Copyright (c) 2015 Puwadon Sricharoen
                             border: 0px;
                             border: 0px;
                             font-family: @FontStylePrimary;
-                            font-size: 0.85em;
+                            font-size: 0.8em;
                             padding: 3%;
                             outline: 0;
                             text-align: center;
-                            font-weight: bold;
                             background: #000000;
                             color: #FFFFFF;
 
                             &:hover{
-                                background: #555555;
+                                background: #333333;
                                 cursor: pointer;
                             }
 
@@ -817,18 +819,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
 
-                .topic{
-                    width: 100%;
-                    padding-bottom: 2%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    line-height: 1.5em;
-                    color: @SecondaryTextColor;
-                    font-style: italic;
-                    border-bottom: 1px solid #FAFAFA;
-                }
-
                 .action-items{
                     width: 100%;
                     padding: 3% 0%;
@@ -863,29 +853,37 @@ Copyright (c) 2015 Puwadon Sricharoen
                             width: 100%;
                             float: right;
                             display: inline-block;
-                            color: @SecondaryTextColor;
-                            padding: 2% 0%;
+                            border: 1px solid #EEEEEE;
+                            color: #555555;
+                            padding: 3% 0%;
                             font-size: 0.8em;
-                            background: #EEEEEE;
                             text-align: center;
 
                             i{
                                 margin-right: 10px;
-                                font-size: 0.8em;
                             }
 
                             &:hover{
-                                background: #EEEEEE;
+                                border: 1px solid #000000;
+                                color: #555555;
                                 color: @PrimaryTextColor;
                                 cursor: pointer;
                             }
+
+                            &:active{
+                                background: #000000;
+                                border: 1px solid #000000;
+                                color: #FFFFFF;
+                            }
                         }
                         .buy-btn-active{
-                            background: #333333;
+                            background: #000000;
+                            border: 1px solid #000000;
                             color: #FFFFFF;
 
                             &:hover{
-                                background: #000000;
+                                background: #555555;
+                                border: 1px solid #555555;
                                 color: #FFFFFF;
                             }
                         }
@@ -983,7 +981,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
             .message{
                 width: 90%;
-                padding: 10% 5%;
+                padding: 20% 5%;
                 float: left;
                 display: inline-block;
                 text-align: center;
@@ -1052,24 +1050,27 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
 
                 .submit-btn{
-                    width: 50%;
+                    width: 30%;
                     float: right;
-                    background: #333333;
                     border: 0px;
-                    color: #FFFFFF;
+                    color: #333333;
+                    background: #FFFFFF;
                     border: 0px;
                     font-family: @FontStylePrimary;
-                    font-size: 0.8em;
+                    font-size: 0.9em;
                     font-weight: bold;
-                    padding: 3% 4%;
+                    padding: 2% 4%;
                     outline: 0;
+                    border: 2px solid #333333;
 
                     &:hover{
-                        background: #555555;
+                        border: 2px solid #000000;
+                        color: #000000;
                         cursor: pointer;
                     }
 
                     &:active{
+                        color: #FFFFFF;
                         background: #000000;
                     }
 
@@ -1175,25 +1176,28 @@ Copyright (c) 2015 Puwadon Sricharoen
                     font-style: italic;
                 }
 
+                // Buy button in product item style
                 .buy-btn{
                     margin: auto;
-                    margin: 1% 0%;
-                    padding: 2%;
+                    margin: 3% 0%;
                     display: inline-block;
-                    color: #000000;
+                    color: #555555;
                     text-align: right;
-                    font-weight: bold;
                     font-size: 0.9em;
 
                     &:hover{
                         color: #000000;
-                        background: #FCFCFC;
                         cursor: pointer;
                     }
                 }
+                // Button actived
                 .buy-btn-active{
                     font-style: italic;
                     color: #000000;
+
+                    &:hover{
+                        color: #000000;
+                    }
                 }
             }
         }

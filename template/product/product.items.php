@@ -13,7 +13,7 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = '฿'.number_format($var['pd_price'],2).' <i class="fa fa-shopping-cart"></i>';
+	$button_msg = '฿'.number_format($var['pd_price']);
 }
 else{
 	$button_msg = '<i class="fa fa-arrow-right"></i> ชำระเงิน';

@@ -166,7 +166,7 @@ $current_page = "order";
 					<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->
 
 					<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
-					<button class="submit-btn" type="submit"><i class="fa fa-cloud-upload"></i>ส่งหลักฐาน</button>
+					<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
 					</form>
 				</div>
 				<?php }else if($order->status == "Shipping"){?>
@@ -293,13 +293,13 @@ $current_page = "order";
 
 						<?php if($order->status != "Shopping"){?>
 						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
-						<p class="big">ยอดเงินที่ต้องชำระ <span class="highlight"><?php echo number_format($order->summary_payments,2);?></span> บาท</p>
+						<p class="big">รายการสินค้า</p>
 						<?php }?>
 
 						<!-- Order list -->
 						<div class="order-list">
 							<div class="topic-caption">
-								<div class="detail">สินค้า <?php echo $order->total;?> รายการ</div>
+								<div class="detail"><?php echo $order->total;?> รายการ</div>
 								<div class="quantity">จำนวน</div>
 								<div class="total">รวม</div>
 							</div>
