@@ -548,7 +548,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
-  width: 11%;
+  width: 12%;
   float: left;
   display: inline-block;
 }
@@ -558,7 +558,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail {
-  width: 60%;
+  width: 59%;
   padding: 2%;
   float: left;
   display: inline-block;
@@ -633,8 +633,8 @@ Copyright (c) 2015 Daniel Eden
   color: #000000;
 }
 .container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail {
-  width: 67%;
-  margin-left: 13%;
+  width: 66%;
+  margin-left: 14%;
   padding: 4% 0%;
   float: left;
   display: inline-block;
@@ -673,7 +673,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel .order-box .box .form-control .submit-btn {
-  width: 27%;
+  width: 30%;
   float: right;
   background: #333333;
   color: #FFFFFF;
