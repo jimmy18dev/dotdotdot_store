@@ -64,7 +64,7 @@ if(!empty($user->current_order_id)){
 
 		<div class="panel">
 			<div class="note">
-				<h2><a href="profile.php"><i class="fa fa-arrow-left"></i></a>คำแนะนำ</h2>
+				<h2>คำแนะนำ</h2>
 				<p>1. รหัสผ่านควรมีความมากกว่า 6 ตัวอักษรขึ้น</p>
 				<p>2. ไม่ควรใช้คำที่เดาง่ายเช่น 123456 password 000000</p>
 				<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>

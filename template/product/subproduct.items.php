@@ -7,18 +7,16 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
-	$button_price = number_format($var['pd_price'],2).' ฿';
+	$button_msg = 'ตะกร้า<i class="fa fa-plus"></i>';
 }
 else{
-	$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
-	$button_price = 'ชำระเงิน';
+	$button_msg = 'ชำระเงิน<i class="fa fa-arrow-right"></i>';
 }
 ?>
 
 <div class="action-items">
 	<div class="detail">
-		<h3><strong>฿<?php echo number_format($var['pd_price']);?></strong> · <?php echo $var['pd_title'];?></h3>
+		<h3>ราคา <strong><?php echo number_format($var['pd_price']);?></strong> บาท · <?php echo $var['pd_title'];?></h3>
 		<p><?php echo $var['pd_description'];?></p>
 	</div>
 	<div class="buy">

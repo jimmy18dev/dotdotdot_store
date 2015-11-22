@@ -83,7 +83,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 			<h1><?php echo $product->title;?></h1>
 			<p class="info">
 				<?php if($product->quantity > 5){?>
-				<span class="view"><?php echo number_format($product->read);?> Views</span>
+				<span class="view">แสดงสินค้า <?php echo number_format($product->read);?> ครั้ง</span>
 				<?php }else{?>
 				<span class="view"> มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
 				<?php }?>
@@ -108,7 +108,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				?>
 				<div class="action-items">
 					<div class="detail">
-						<h3><strong>฿<?php echo number_format($product->price);?></strong> · รหัสสินค้า: <?php echo $product->id;?></h3>
+						<h3>ราคา <strong><?php echo number_format($product->price);?></strong> บาท</h3>
 						<p>อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</p>
 					</div>
 					<div class="buy">

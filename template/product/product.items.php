@@ -13,10 +13,10 @@ else{
 }
 
 if(empty($var['odt_id'])){
-	$button_msg = '<i class="fa fa-plus"></i>ตะกร้า';
+	$button_msg = '฿'.number_format($var['pd_price'],2).' <i class="fa fa-shopping-cart"></i>';
 }
 else{
-	$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
+	$button_msg = '<i class="fa fa-arrow-right"></i> ชำระเงิน';
 }
 
 // Message setup
@@ -45,9 +45,6 @@ else{
 	</div>
 	<div class="product-items-detail">
 		<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></h2>
-		<div class="description">
-			<span class="price">฿<?php echo number_format($var['pd_price']);?><span class="msg"> · <?php echo $msg;?></span></span>
-			<span class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></span>
-		</div>
+		<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></div>
 	</div>
 </div>

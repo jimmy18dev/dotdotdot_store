@@ -23,7 +23,7 @@ function AddItemToOrder(product_id){
     }).done(function(data){
         console.log('Return: '+data.message+','+data.return);
 
-        $('#buy-button-'+product_id).html('<i class="fa fa-arrow-right"></i>ชำระเงิน');
+        $('#buy-button-'+product_id).html('<i class="fa fa-arrow-right"></i> ชำระเงิน');
 
         // Add animation
         $('#buy-button-'+product_id).addClass('pulse buy-btn-active');
@@ -78,7 +78,7 @@ function EditItemInOrder(order_id,product_id){
 function RemoveItemInOrder(order_id,product_id){
     var href = 'api.order.php';
 
-    var del = confirm('Not audited ?');
+    var del = confirm('คุณต้องการลบสินค้าออกจากตะกร้าใช่หรือไม่?');
     if(!del){return false;}
 
     $.ajax({
@@ -146,7 +146,7 @@ function MyCurrentOrder(){
             console.log("Request Error");
         }
     }).done(function(data){
-        var payments = numeral(data.data.payments).format('0,0.00');
+        var payments = numeral(data.data.payments).format('0,0');
         $('#my-cart').addClass('pulse');
         $('#amount').html(data.data.amount);
         $('#payments').html(payments+' ฿');

@@ -70,7 +70,7 @@ $current_page = "order";
 		<div class="panel-fix">
 			<div class="box">
 				<p class="icon"><i class="fa fa-file-o"></i>ใบสั่งซื้อหมายเลข <?php echo $order->id;?></p>
-				<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+				<?php if($order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
 					<a href="#product">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
@@ -138,8 +138,6 @@ $current_page = "order";
 				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 				<div class="form">
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
-					<p class="topic">ส่งหลักฐานการโอนเงิน</p>
-
 					<p class="caption">ภาพถ่ายสลิปใบโอนเงิน</p>
 					<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
 					<div class="input-image">
