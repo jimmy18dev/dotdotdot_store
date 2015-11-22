@@ -375,19 +375,64 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .panel-topic {
   width: 100%;
-  margin-bottom: 3%;
+  margin-bottom: 5%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.9em;
   color: #CCCCCC;
-  border: 1px solid transparent;
   margin-top: 30px;
 }
-.container .container-page .panel .panel-topic a {
-  margin-right: 20px;
-  padding-right: 20px;
-  border-right: 1px solid #CCCCCC;
+.container .container-page .panel .panel-topic .icon {
+  float: left;
+  display: inline-block;
+  color: #CCCCCC;
+  margin-right: 5%;
+}
+.container .container-page .panel .panel-topic .icon:hover {
   color: #555555;
+}
+.container .container-page .panel .panel-topic .caption {
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .bank {
+  width: 100%;
+  margin: 2% 0%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #FAFAFA;
+  border-bottom: 1px solid #FAFAFA;
+}
+.container .container-page .panel .bank .bank-items {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .bank .bank-items .bank-items-icon {
+  width: 5%;
+  padding-top: 1%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .bank .bank-items .bank-items-icon img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .bank .bank-items .bank-items-info {
+  width: 90%;
+  margin-left: 5%;
+  float: left;
+  display: inline-block;
+}
+.container .container-page .panel .bank .bank-items .bank-items-info p {
+  font-size: 1em;
+  color: #777777;
+}
+.container .container-page .panel .bank .bank-items .bank-items-info p.zoom {
+  font-size: 1.5em;
+  color: #000000;
 }
 .container .container-page .panel .order-box {
   width: 90%;
@@ -587,15 +632,14 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   color: #000000;
 }
-.container .container-page .panel .order-box .box .order-list .summary-items .detail {
-  width: 68%;
-  margin-left: 11%;
-  padding: 3% 2%;
+.container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail {
+  width: 67%;
+  margin-left: 13%;
+  padding: 4% 0%;
   float: left;
   display: inline-block;
 }
-.container .container-page .panel .order-box .box .order-list .summary-items .detail .shipping-select {
-  padding: 0.5% 1%;
+.container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail .shipping-select {
   margin-left: 10px;
   display: inline-block;
   font-family: sans-serif, 'Open Sans';
@@ -607,64 +651,20 @@ Copyright (c) 2015 Daniel Eden
   outline: 0;
   font-weight: bold;
 }
-.container .container-page .panel .order-box .box .order-list .summary-items .detail .shipping-select:hover {
+.container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail .shipping-select:hover {
   cursor: pointer;
   border: 1px solid #000000;
 }
-.container .container-page .panel .order-box .box .order-list .summary-items .total {
-  width: 17%;
-  padding: 3% 0%;
+.container .container-page .panel .order-box .box .order-list .summary-items .summary-items-total {
+  width: 20%;
+  padding: 4% 0%;
   float: left;
   display: inline-block;
-  text-align: center;
   text-align: right;
 }
-.container .container-page .panel .order-box .box .order-list .product-total {
-  color: #777777;
-}
 .container .container-page .panel .order-box .box .order-list .summary-total {
-  border-top: 1px dashed #FAFAFA;
-  font-weight: bold;
   font-size: 1.2em;
-}
-.container .container-page .panel .order-box .box .bank {
-  width: 100%;
-  margin: 2% 0%;
-  float: left;
-  display: inline-block;
-  border-top: 1px solid #FAFAFA;
-  border-bottom: 1px solid #FAFAFA;
-}
-.container .container-page .panel .order-box .box .bank .bank-items {
-  width: 100%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .panel .order-box .box .bank .bank-items .bank-items-icon {
-  width: 5%;
-  padding-top: 1%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .panel .order-box .box .bank .bank-items .bank-items-icon img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .panel .order-box .box .bank .bank-items .bank-items-info {
-  width: 90%;
-  margin-left: 5%;
-  float: left;
-  display: inline-block;
-}
-.container .container-page .panel .order-box .box .bank .bank-items .bank-items-info p {
-  font-size: 1em;
-  color: #777777;
-}
-.container .container-page .panel .order-box .box .bank .bank-items .bank-items-info p.zoom {
-  font-size: 1.5em;
-  color: #000000;
+  font-weight: bold;
 }
 .container .container-page .panel .order-box .box .form-control {
   width: 100%;
@@ -1411,14 +1411,17 @@ Copyright (c) 2015 Daniel Eden
     margin-bottom: 2%;
   }
   .container .container-page .panel .panel-topic {
-    width: 90%;
-    margin: 5%;
+    width: 100%;
+    margin-bottom: 0%;
     font-size: 0.9em;
-    margin-top: 5%;
+    margin-top: 0px;
   }
-  .container .container-page .panel .panel-topic a {
-    margin-right: 10px;
-    padding-right: 10px;
+  .container .container-page .panel .panel-topic .icon {
+    padding: 5%;
+    margin-right: 0%;
+  }
+  .container .container-page .panel .panel-topic .caption {
+    padding: 5% 0%;
   }
   .container .container-page .panel .order-box {
     width: 90%;
@@ -1525,23 +1528,23 @@ Copyright (c) 2015 Daniel Eden
     font-size: 0.75em;
   }
   .container .container-page .panel .order-box .box .order-list .topic-caption .detail {
-    width: 65%;
+    width: 85%;
   }
   .container .container-page .panel .order-box .box .order-list .topic-caption .quantity {
-    width: 13%;
+    width: 15%;
   }
   .container .container-page .panel .order-box .box .order-list .topic-caption .total {
-    width: 22%;
+    display: none;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order {
     border-top: 1px solid #FAFAFA;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-thumbnail {
-    width: 14%;
+    width: 15%;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail {
-    width: 47%;
-    padding: 1.3% 2%;
+    width: 66%;
+    padding: 2% 2%;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-detail p.detail-description {
     font-size: 0.6em;
@@ -1557,40 +1560,54 @@ Copyright (c) 2015 Daniel Eden
     font-size: 1em;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-quantity {
-    width: 13%;
+    width: 15%;
     padding: 3% 0%;
     float: left;
     display: inline-block;
     text-align: center;
   }
   .container .container-page .panel .order-box .box .order-list .items-in-order .items-in-order-total {
-    width: 22%;
+    display: none;
+  }
+  .container .container-page .panel .order-box .box .order-list .summary-items {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    font-size: 1em;
+    color: #000000;
+    margin-bottom: 1%;
+  }
+  .container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail {
+    width: 80%;
+    padding: 3% 0%;
+    float: left;
+    display: inline-block;
+    background: #DADADA;
+  }
+  .container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail .shipping-select {
+    margin-left: 10px;
+    display: inline-block;
+    font-family: sans-serif, 'Open Sans';
+    font-size: 0.9em;
+    line-height: 1.5em;
+    background: #FFFFFF;
+    border: 1px solid #DDDDDD;
+    text-align: center;
+    outline: 0;
+    font-weight: bold;
+  }
+  .container .container-page .panel .order-box .box .order-list .summary-items .summary-items-detail .shipping-select:hover {
+    cursor: pointer;
+    border: 1px solid #000000;
+  }
+  .container .container-page .panel .order-box .box .order-list .summary-items .summary-items-total {
+    width: 20%;
     padding: 3% 0%;
     float: left;
     display: inline-block;
     text-align: right;
-  }
-  .container .container-page .panel .order-box .box .order-list .summary-items {
     font-size: 1em;
-  }
-  .container .container-page .panel .order-box .box .order-list .summary-items .detail {
-    width: 70%;
-    margin-left: 0%;
-    padding: 3% 0%;
-  }
-  .container .container-page .panel .order-box .box .order-list .summary-items .detail .shipping-select {
-    padding: 1% 1%;
-    margin-left: 5px;
-    font-size: 1em;
-    line-height: 1.5em;
-  }
-  .container .container-page .panel .order-box .box .order-list .summary-items .total {
-    width: 30%;
-    padding: 3% 0%;
-  }
-  .container .container-page .panel .order-box .box .order-list .summary-total {
-    border-top: 1px dashed #FAFAFA;
-    font-size: 1em;
+    background: #EAEAEA;
   }
   .container .container-page .panel .order-box .box .form-control {
     width: 100%;

@@ -355,21 +355,72 @@ Copyright (c) 2015 Puwadon Sricharoen
 
             .panel-topic{
                 width: 100%;
-                margin-bottom: 3%;
+                margin-bottom: 5%;
                 float: left;
                 display: inline-block;
-                font-size: 0.8em;
+                font-size: 0.9em;
                 color: #CCCCCC;
-                border: 1px solid transparent;
                 margin-top: 30px;
 
-                a{
-                    margin-right: 20px;
-                    padding-right: 20px;
-                    border-right: 1px solid #CCCCCC;
-                    color: #555555;
+                .icon{
+                    float: left;
+                    display: inline-block;
+                    color: #CCCCCC;
+                    margin-right: 5%;
+
+                    &:hover{
+                        color: #555555;
+                    }
+                }
+                .caption{
+                    float: left;
+                    display: inline-block;
                 }
             }
+
+            .bank{
+                        width: 100%;
+                        margin: 2% 0%;
+                        float: left;
+                        display: inline-block;
+                        border-top: 1px solid #FAFAFA;
+                        border-bottom: 1px solid #FAFAFA;
+
+                        .bank-items{
+                            width: 100%;
+                            padding: 2% 0%;
+                            float: left;
+                            display: inline-block;
+
+                            .bank-items-icon{
+                                width: 5%;
+                                padding-top: 1%;
+                                float: left;
+                                display: inline-block;
+
+                                img{
+                                    width: 100%;
+                                    float: left;
+                                    display: inline-block;
+                                }
+                            }
+                            .bank-items-info{
+                                width: 90%;
+                                margin-left: 5%;
+                                float: left;
+                                display: inline-block;
+
+                                p{
+                                    font-size: 1em;
+                                    color: @SecondaryTextColor;
+                                }
+                                p.zoom{
+                                    font-size: 1.5em;
+                                    color: @PrimaryTextColor;
+                                }
+                            }
+                        }
+                    }
 
             .order-box{
                 width: 90%;
@@ -584,6 +635,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                             }
                         }
 
+                        // Summary items style
                         .summary-items{
                             width: 100%;
                             float: left;
@@ -591,15 +643,14 @@ Copyright (c) 2015 Puwadon Sricharoen
                             font-size: 1em;
                             color: @PrimaryTextColor;
 
-                            .detail{
-                                width: 68%;
-                                margin-left: 11%;
-                                padding: 3% 2%;
+                            .summary-items-detail{
+                                width: 67%;
+                                margin-left: 13%;
+                                padding: 4% 0%;
                                 float: left;
                                 display: inline-block;
 
                                 .shipping-select{
-                                    padding: 0.5% 1%;
                                     margin-left: 10px;
                                     display: inline-block;
                                     font-family: @FontStylePrimary;
@@ -617,66 +668,18 @@ Copyright (c) 2015 Puwadon Sricharoen
                                     }
                                 }
                             }
-                            .total{
-                                width: 17%;
-                                padding: 3% 0%;
+                            .summary-items-total{
+                                width: 20%;
+                                padding: 4% 0%;
                                 float: left;
                                 display: inline-block;
-                                text-align: center;
                                 text-align: right;
                             }
                         }
-                        .product-total{
-                            color: @SecondaryTextColor;
-                        }
+
                         .summary-total{
-                            border-top: 1px dashed #FAFAFA;
-                            font-weight: bold;
                             font-size: 1.2em;
-                        }
-                    }
-
-                    .bank{
-                        width: 100%;
-                        margin: 2% 0%;
-                        float: left;
-                        display: inline-block;
-                        border-top: 1px solid #FAFAFA;
-                        border-bottom: 1px solid #FAFAFA;
-
-                        .bank-items{
-                            width: 100%;
-                            padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-
-                            .bank-items-icon{
-                                width: 5%;
-                                padding-top: 1%;
-                                float: left;
-                                display: inline-block;
-
-                                img{
-                                    width: 100%;
-                                    float: left;
-                                    display: inline-block;
-                                }
-                            }
-                            .bank-items-info{
-                                width: 90%;
-                                margin-left: 5%;
-                                float: left;
-                                display: inline-block;
-
-                                p{
-                                    font-size: 1em;
-                                    color: @SecondaryTextColor;
-                                }
-                                p.zoom{
-                                    font-size: 1.5em;
-                                    color: @PrimaryTextColor;
-                                }
-                            }
+                            font-weight: bold;
                         }
                     }
 
