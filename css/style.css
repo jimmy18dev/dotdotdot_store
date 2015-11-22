@@ -358,6 +358,10 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
+.container .container-page .currency {
+  font-size: 0.5em;
+  margin-left: 3px;
+}
 .container .container-page .panel {
   width: 55%;
   float: left;
@@ -669,14 +673,14 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel .order-box .box .form-control .submit-btn {
-  width: 17%;
+  width: 27%;
   float: right;
   background: #333333;
   color: #FFFFFF;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
   font-size: 0.85em;
-  padding: 2% 4%;
+  padding: 3% 4%;
   outline: 0;
   text-align: center;
   box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -690,7 +694,7 @@ Copyright (c) 2015 Daniel Eden
   box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 .container .container-page .panel .order-box .box .form-control .submit-btn i {
-  margin-right: 10px;
+  margin: 0px 10px;
 }
 .container .container-page .panel .cancel-btn {
   float: right;
@@ -1133,10 +1137,12 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 .container .container-page .product-items .product-items-detail .description .buy-btn-active {
+  border: 1px solid #333333;
   background: #333333;
   color: #FFFFFF;
 }
 .container .container-page .product-items .product-items-detail .description .buy-btn-active:hover {
+  border: 1px solid #000000;
   background: #000000;
   color: #FFFFFF;
 }

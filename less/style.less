@@ -335,6 +335,11 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
 
+        .currency{
+            font-size: 0.5em;
+            margin-left: 3px;
+        }
+
         // Product page detail style
         .panel{
             width: 55%;
@@ -682,7 +687,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                         display: inline-block;
 
                         .submit-btn{
-                            width: 17%;
+                            width: 27%;
                             float: right;
                             background: #333333;
                             border: 0px;
@@ -690,7 +695,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                             border: 0px;
                             font-family: @FontStylePrimary;
                             font-size: 0.85em;
-                            padding: 2% 4%;
+                            padding: 3% 4%;
                             outline: 0;
                             text-align: center;
                             box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
@@ -706,7 +711,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                             }
 
                             i{
-                                margin-right: 10px;
+                                margin: 0px 10px;
                             }
                         }
                     }
@@ -1227,10 +1232,12 @@ Copyright (c) 2015 Puwadon Sricharoen
                         }
                     }
                     .buy-btn-active{
+                        border: 1px solid #333333;
                         background: #333333;
                         color: #FFFFFF;
 
                         &:hover{
+                            border: 1px solid #000000;
                             background: #000000;
                             color: #FFFFFF;
                         }

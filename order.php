@@ -287,9 +287,9 @@ $current_page = "order";
 				<div class="order-box" id="product">
 					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 					<div class="box">
-						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 
 						<?php if($order->status != "Shopping"){?>
+						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 						<p class="big">ยอดเงินที่ต้องชำระ <span class="highlight"><?php echo number_format($order->summary_payments,2);?></span> บาท</p>
 						<?php }?>
 
@@ -311,7 +311,7 @@ $current_page = "order";
 							<?php if($order->total > 1){?>
 							<div class="summary-items product-total">
 								<div class="detail">รวมราคาสินค้า: </div>
-								<div class="total"><span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
+								<div class="total"><span id="subpayments-display"><?php echo number_format($order->payments);?></span><span class="currency">บาท</span></div>
 							</div>
 							<?php }?>
 
@@ -320,25 +320,25 @@ $current_page = "order";
 									ค่าบริการส่ง: 
 									<?php if($order->status == "Shopping"){?>
 									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
-										<option value="Ems">EMS</option>
+										<option value="Ems">ด่วนพิเศษ (EMS)</option>
 										<option value="Register">ลงทะเบียน</option>
 									</select>
 									<?php }else{
 										echo $order->shipping_type;
 									}?>
 								</div>
-								<div class="total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
+								<div class="total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments);?></span><span class="currency">บาท</span></div>
 							</div>
 
 							<div class="summary-items summary-total">
 								<div class="detail">ยอดเงินที่ต้องชำระ:</div>
-								<div class="total"><span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
+								<div class="total"><span id="payments-display"><?php echo number_format($order->summary_payments);?></span><span class="currency">บาท</span></div>
 							</div>
 						</div>
 
 						<?php if($order->status == "Shopping"){?>
 						<div class="form-control" id="paying-button">
-							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-arrow-right"></i>ชำระเงิน</div>
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน: <span id="payments-btn-display"><?php echo number_format($order->summary_payments);?></span> บาท<i class="fa fa-arrow-right"></i></div>
 						</div>
 						<?php }?>
 

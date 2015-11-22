@@ -24,8 +24,8 @@ $product_quantity = $var['product_quantity'];
 	</div>
 
 	<div class="items-in-order-detail">
-		<p class="detail-title"><a href="product-<?php echo $link;?>.html"><?php echo $title;?></a></p>
-		<p class="detail-description"><?php echo number_format($var['product_price'],2);?> บาท <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
+		<p class="detail-title"><?php echo $title;?></p>
+		<p class="detail-description"><?php echo number_format($var['product_price']);?> บาท <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบออก</span><?php }?></p>
 	</div>
 	<div class="items-in-order-quantity">
 
@@ -48,9 +48,7 @@ $product_quantity = $var['product_quantity'];
 		</select>
 		<?php }?>
 	</div>
-	<div class="items-in-order-total">
-		<span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments,2);?></span>
-	</div>
+	<div class="items-in-order-total"><span id="payments-display-<?php echo $reference_id;?>"><?php echo number_format($product_payments);?></span><span class="currency">บาท</span></div>
 
 	<input type="hidden" id="product-payments-<?php echo $reference_id;?>" class="items-payments" value="<?php echo $product_payments;?>">
 	<input type="hidden" id="product-price-<?php echo $reference_id;?>" value="<?php echo $var['product_price'];?>">
