@@ -131,7 +131,7 @@ $current_page = "order";
 					<p class="msg">กำลังจัดส่งสินค้า...</p>
 				</div>
 				<?php }else if($order->status == "Complete"){?>
-				<div class="message">
+				<div class="message message-success">
 					<p><i class="fa fa-check"></i></p>
 					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
 				</div>
@@ -192,7 +192,7 @@ $current_page = "order";
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="order-box" id="complete">
+				<div class="box-items" id="complete">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
 						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
@@ -205,7 +205,7 @@ $current_page = "order";
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 
 				<!-- Shipping -->
-				<div class="order-box" id="shipping">
+				<div class="box-items" id="shipping">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
 						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
@@ -217,7 +217,7 @@ $current_page = "order";
 
 				<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 				<!-- Shipping -->
-				<div class="order-box" id="success">
+				<div class="box-items" id="success">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
 						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
@@ -232,7 +232,7 @@ $current_page = "order";
 
 				<?php if($_GET['edit'] != "address"){?>
 				<!-- Address -->
-				<div class="order-box" id="address">
+				<div class="box-items" id="address">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
 						<p class="caption">ที่อยู่ลูกค้า · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
@@ -248,11 +248,11 @@ $current_page = "order";
 				<?php }?>
 
 				<!-- Money transfer info -->
-				<div class="order-box" id="transfer">
+				<div class="box-items" id="transfer">
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
 						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
-						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
+						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total);?></span> บาท</p>
 						<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
 
 						<?php if(!empty($order->m_message)){?>
@@ -273,12 +273,12 @@ $current_page = "order";
 				<?php }?>
 
 				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
-				<div class="order-box">
+				<div class="box-items">
 					<div class="icon"><i class="fa fa-barcode"></i></div>
 					<div class="box">
 						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
 						<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
-						<p>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
+						<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
 
 						<div class="bank">
 							<?php $bank->ListBank(array('mode' => 'items'));?>
@@ -287,7 +287,7 @@ $current_page = "order";
 				</div>
 				<?php }?>
 
-				<div class="order-box" id="product">
+				<div class="box-items" id="product">
 					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 					<div class="box">
 
@@ -349,7 +349,7 @@ $current_page = "order";
 					</div>
 				</div>
 				<?php }else{?>
-				<div class="order-box">
+				<div class="box-items">
 					<div class="icon"><i class="fa fa-file-o"></i></div>
 					<div class="box">
 						<p class="caption">ตะกร้าสินค้าของคุณ</p>

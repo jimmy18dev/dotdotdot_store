@@ -21,7 +21,12 @@
 	<a href="order-<?php echo $user->current_order_id;?>.html#product">
 	<div class="header-items cart animated" id="my-cart" title="สินค้า <?php echo $user->current_order_amount;?> ชิ้น <?php echo $user->current_order_total;?> รายการ">
 		<?php if($current_page != "order"){?>
-		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i><span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments);?> ฿</span></span>
+		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i>
+		<?php if($user->current_order_payments > 0){?>
+		<span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments);?> ฿</span></span>
+		<?php }else{?>
+		<span class="payments"><span id="payments">ตะกร้า</span></span>
+		<?php }?>
 		<?php }?>
 	</div>
 	</a>

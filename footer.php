@@ -13,4 +13,4 @@
 	<p class="device"><?php echo DEVICE_TYPE.', Model:'.DEVICE_MODEL.', OS:'.DEVICE_OS.', Browser:'.DEVICE_BROWSER;?></p>
 </footer>
 
-<div id="loading-status"><i class="fa fa-spinner fa-spin"></i></div>
+<div id="loading-status"><i class="fa fa-circle"></i></div>
