@@ -97,8 +97,10 @@ function RemoveItemInOrder(order_id,product_id){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
-        $('#items-in-order-'+product_id).slideUp();
+        $('#items-in-order-'+product_id).remove();
+
         MyCurrentOrder();
+        SummaryPayments();
     }).error();
 }
 

@@ -63,12 +63,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/init.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
-<script type="text/javascript" src="js/service/product.service.js"></script>
-<script type="text/javascript" src="js/service/order.service.js"></script>
-<script type="text/javascript" src="js/product.app.js"></script>
-<script type="text/javascript" src="js/sharing.app.js"></script>
 
 </head>
 
@@ -141,6 +136,11 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 <?php
 include'footer.php';
 ?>
+
+<script type="text/javascript" src="js/service/min/product.service.min.js"></script>
+<script type="text/javascript" src="js/service/min/order.service.min.js"></script>
+<script type="text/javascript" src="js/min/product.app.min.js"></script>
+<script type="text/javascript" src="js/min/sharing.app.min.js"></script>
 
 </body>
 </html>

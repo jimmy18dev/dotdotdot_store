@@ -43,9 +43,6 @@ $current_page = "profile";
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
-<!-- JS Lib -->
-<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-
 </head>
 
 <body>
@@ -57,7 +54,7 @@ $current_page = "profile";
 			<div class="box">
 				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
 				<p>คุณ <?php echo $user->name;?></p>
-				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment,2);?></strong> บาท</p>
+				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment);?></strong> บาท</p>
 				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
 
 				<p class="link">

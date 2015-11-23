@@ -102,7 +102,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
     .login{
         float: right;
-        margin: 28px 0px;
+        margin: 15px 2%;
         padding: 0.5% 1%;
         font-size: 0.8em;
         color: #AAAAAA;
@@ -146,7 +146,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
         text-align: center;
-        font-size: 0.9em;
+        font-size: 1em;
         color: @SecondaryTextColor;
 
         i{
@@ -181,7 +181,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             a{
                 float: right;
                 text-decoration: none;
-                color: @SecondaryTextColor;
+                color: #CCCCCC;
 
                 &:hover{
                     color: @PrimaryTextColor;
@@ -302,7 +302,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             text-align: center;
-            font-size: 0.9em;
+            font-size: 1em;
             color: @SecondaryTextColor;
 
             a{
@@ -423,6 +423,14 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 margin-bottom: 5%;
+
+                &:hover{
+                    .box{
+                        p.big{
+                            text-decoration: underline;
+                        }
+                    }
+                }
 
                 .icon{
                     width: 7%;
@@ -571,6 +579,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                                 display: inline-block;
 
                                 p.detail-title{
+                                    margin-bottom: 1%;
                                     a{
                                         color: @PrimaryTextColor;
                                         text-decoration: none;
@@ -582,12 +591,11 @@ Copyright (c) 2015 Puwadon Sricharoen
                                     color: @PrimaryTextColor;
                                 }
                                 p.detail-description{
-                                    font-size: 0.8em;
+                                    font-size: 0.7em;
 
                                     .remove-btn{
                                         border: 1px solid #F44336;
                                         color: #F44336;
-                                        font-size: 0.85em;
                                         padding: 0.1% 1%;
                                         padding-bottom: 0.2%;
                                         margin-left: 5px;

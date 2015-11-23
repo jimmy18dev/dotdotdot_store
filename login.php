@@ -33,7 +33,6 @@ include'facebook.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 
 </head>
 
@@ -45,9 +44,9 @@ include'facebook.php';
 		<div class="mini-caption">หรือ</div>
 		<form action="javascript:LoginUser();">
 			<div class="caption">อีเมล:</div>
-			<input type="email" class="input-text" id="username" placeholder="กรอกอีเมลของคุณ">
+			<input type="email" class="input-text" id="username" placeholder="">
 			<div class="caption">รหัสผ่าน: <a href="forget.php">ฉันลืมรหัสผ่าน!</a></div>
-			<input type="password" class="input-text" id="password" placeholder="กรอกรหัสผ่านของคุณ">
+			<input type="password" class="input-text" id="password" placeholder="">
 			<div class="status" id="status-message"></div>
 			<button type="submit" class="button-submit"><span id="login-status"><i class="fa fa-arrow-right"></i>เข้าสู่ระบบ</span></button>
 		</form>
@@ -59,5 +58,6 @@ include'facebook.php';
 	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
 </div>
 
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>
 </html>

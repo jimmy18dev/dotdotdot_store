@@ -42,7 +42,6 @@ if(!empty($user->current_order_id)){
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -79,5 +78,7 @@ if(!empty($user->current_order_id)){
 		</div>
 	</div>
 </div>
+
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>
 </html>

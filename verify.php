@@ -33,9 +33,6 @@ $verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_G
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
-<!-- JS Lib -->
-<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-
 </head>
 
 <body>

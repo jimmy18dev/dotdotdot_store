@@ -32,7 +32,7 @@ else{
 
 <a href="order-<?php echo $var['od_id'];?>.html">
 <div class="box-items <?php echo ($var['od_owner_read']=="open"?"box-items-unread":"");?>">
-	<div class="icon"><i class="fa fa-file-text-o"></i></div>
+	<div class="icon"><?php echo ($var['od_status'] == "Complete"?'<i class="fa fa-check"></i>':'<i class="fa fa-file-text-o"></i>');?></div>
 	<div class="box">
 		<p class="caption"><?php echo $var['order_update_time_facebook_format'];?> <i class="fa fa-long-arrow-right"></i> <span class="status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
 		<p class="big">รายการสั่งซื้อ : <?php echo $var['od_id'];?></p>

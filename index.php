@@ -55,7 +55,6 @@ $order->CheckingOrder();
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
-<script type="text/javascript" src="js/service/order.service.js"></script>
 
 </head>
 
@@ -64,11 +63,10 @@ $order->CheckingOrder();
 <div class="container">
 	<div class="container-page">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>
 <?php include'footer.php';?>
+
+<script type="text/javascript" src="js/service/order.service.js"></script>
 </body>
 </html>

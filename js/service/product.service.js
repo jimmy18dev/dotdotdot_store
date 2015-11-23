@@ -1,5 +1,6 @@
 function ReadUpdate(){
-    LoadingStart();
+
+    $('#loading-status').fadeIn(500);
     var href = 'api.product.php';
     var product_id = $('#product_id').val();
 
@@ -20,6 +21,6 @@ function ReadUpdate(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
-        LoadingEnd();
+        $('#loading-status').delay(2000).fadeOut(500);
     }).error();
 }

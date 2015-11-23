@@ -50,4 +50,10 @@ function SummaryPayments(){
     $('#all-payments').val(all_payments);
     $('#payments-display').html(numeral(all_payments).format('0,0'));
     $('#payments-btn-display').html(numeral(all_payments).format('0,0'));
+
+    console.log('Summary Payments Success!');
+
+    if(all_payments == 50){
+    	location.reload();
+    }
 }

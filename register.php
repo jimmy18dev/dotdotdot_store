@@ -33,7 +33,6 @@ include'facebook.php';
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 
 </head>
 
@@ -71,5 +70,7 @@ include'facebook.php';
 <div class="dialog-box" id="dialog-box">
 	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
 </div>
+
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>
 </html>

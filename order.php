@@ -54,11 +54,6 @@ $current_page = "order";
 <script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
-<script type="text/javascript" src="js/service/order.service.js"></script>
-<script type="text/javascript" src="js/service/user.service.js"></script>
-<script type="text/javascript" src="js/money.transfer.js"></script>
-<script type="text/javascript" src="js/order.app.js"></script>
-<script type="text/javascript" src="js/alert.app.js"></script>
 
 </head>
 
@@ -379,8 +374,13 @@ $current_page = "order";
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 
-<script type="text/javascript" src="js/image.thumbnail.js"></script>
+<script type="text/javascript" src="js/min/image.thumbnail.min.js"></script>
 <?php }?>
+
+<script type="text/javascript" src="js/service/min/order.service.min.js"></script>
+<script type="text/javascript" src="js/service/min/user.service.min.js"></script>
+<script type="text/javascript" src="js/min/money.transfer.min.js"></script>
+<script type="text/javascript" src="js/min/order.app.min.js"></script>
 
 </body>
 </html>
