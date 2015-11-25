@@ -67,7 +67,7 @@ $current_page = "order";
 				<p class="icon"><i class="fa fa-file-o"></i>ใบสั่งซื้อหมายเลข <?php echo $order->id;?></p>
 				<?php if($order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
-					<a href="#product">
+					<a href="#product-list">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
 						<div class="icon"><i class="fa fa-barcode"></i></div>
 						<div class="caption">1. สั่งสินค้า</div>
@@ -190,9 +190,9 @@ $current_page = "order";
 				<div class="box-items" id="complete">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
-						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
 						<p class="big">เรียบร้อย</p>
 						<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
+						<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
 					</div>
 				</div>
 				<?php }?>
@@ -203,9 +203,9 @@ $current_page = "order";
 				<div class="box-items" id="shipping">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
-						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
 						<p class="big"><?php echo $order->ems;?></p>
 						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
+						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
 					</div>
 				</div>
 				<?php }?>
@@ -215,9 +215,9 @@ $current_page = "order";
 				<div class="box-items" id="success">
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
-						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
 						<p class="big">ชำระเงินแล้ว</p>
 						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
 					</div>
 				</div>
 				<?php }?>
@@ -230,10 +230,10 @@ $current_page = "order";
 				<div class="box-items" id="address">
 					<div class="icon"><i class="fa fa-map-pin"></i></div>
 					<div class="box">
-						<p class="caption">ที่อยู่ลูกค้า · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">คุณ <?php echo $order->customer_name;?></p>
 						<p><?php echo $order->customer_address;?></p>
 						<p><?php echo $order->customer_phone?></p>
+						<p class="caption">อัพเดทล่าสุด <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 
 						<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
 						<p class="edit"><a href="order-<?php echo $order->id;?>.html?edit=address">แก้ไขที่อยู่</a></p>
@@ -246,8 +246,8 @@ $current_page = "order";
 				<div class="box-items" id="transfer">
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
-						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total);?></span> บาท</p>
+						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
 
 						<?php if(!empty($order->m_message)){?>
@@ -271,8 +271,8 @@ $current_page = "order";
 				<div class="box-items">
 					<div class="icon"><i class="fa fa-barcode"></i></div>
 					<div class="box">
-						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
 						<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
+						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
 						<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
 
 						<div class="bank">
@@ -282,13 +282,13 @@ $current_page = "order";
 				</div>
 				<?php }?>
 
-				<div class="box-items" id="product">
+				<div class="box-items" id="product-list">
 					<div class="icon"><i class="fa fa-shopping-cart"></i></div>
 					<div class="box">
 
 						<?php if($order->status != "Shopping"){?>
-						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 						<p class="big">รายการสินค้า</p>
+						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 						<?php }?>
 
 						<!-- Order list -->

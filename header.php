@@ -18,7 +18,7 @@
 	</div>
 	</a>
 
-	<a href="order-<?php echo $user->current_order_id;?>.html#product">
+	<a href="order-<?php echo $user->current_order_id;?>.html#product-list">
 	<div class="header-items cart animated" id="my-cart" title="สินค้า <?php echo $user->current_order_amount;?> ชิ้น <?php echo $user->current_order_total;?> รายการ">
 		<?php if($current_page != "order"){?>
 		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i>

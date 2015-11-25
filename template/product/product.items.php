@@ -2,7 +2,7 @@
 
 if(MEMBER_ONLINE){
 	if($var['pd_type'] == "root"){
-		$js_function = "window.location='product-".$var['pd_id'].".html';";
+		$js_function = "window.location='product-".$var['pd_id'].".html#product-list';";
 	}
 	else{
 		$js_function = "AddItemToOrder(".$var['pd_id'].");";
