@@ -133,9 +133,8 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<input type="hidden" id="microdata-image" value="<?php echo $page_image;?>">
 	</div>
 </div>
-<?php
-include'footer.php';
-?>
+
+<div id="loading-status"><i class="fa fa-circle"></i></div>
 
 <script type="text/javascript" src="js/service/min/product.service.min.js"></script>
 <script type="text/javascript" src="js/service/min/order.service.min.js"></script>

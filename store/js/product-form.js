@@ -41,22 +41,22 @@ $(document).ready(function(){
             $('#loading-message').html('<i class="fa fa-check"></i> เผยแพร่เรียบร้อยแล้ว');
 
             // Page Redirect
-            if(parent == 0 && product_id && product_id > 0){
-                // Product update (normal)
-                setTimeout(function(){window.location = 'product_detail.php?id='+product_id;},3000);
-            }
-            else if(parent > 0 && product_id == ''){
-                // New Subproduct
-                setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
-            }
-            else if(parent > 0 && product_id > 0){
-                // Subproduct Update
-                setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
-            }
-            else{
-                // New product
-                setTimeout(function(){window.location = 'product.php';},3000);
-            }
+            // if(parent == 0 && product_id && product_id > 0){
+            //     // Product update (normal)
+            //     setTimeout(function(){window.location = 'product_detail.php?id='+product_id;},3000);
+            // }
+            // else if(parent > 0 && product_id == ''){
+            //     // New Subproduct
+            //     setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
+            // }
+            // else if(parent > 0 && product_id > 0){
+            //     // Subproduct Update
+            //     setTimeout(function(){window.location = 'product_detail.php?id='+parent;},3000);
+            // }
+            // else{
+            //     // New product
+            //     setTimeout(function(){window.location = 'product.php';},3000);
+            // }
         },
         resetForm:true
     };

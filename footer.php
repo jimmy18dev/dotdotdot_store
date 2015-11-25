@@ -12,5 +12,3 @@
 	<p>dotdotdotlimited.com 2015 Develop and Design Puwadon Sricharoen</p>
 	<p class="device"><?php echo DEVICE_TYPE.', Model:'.DEVICE_MODEL.', OS:'.DEVICE_OS.', Browser:'.DEVICE_BROWSER;?></p>
 </footer>
-
-<div id="loading-status"><i class="fa fa-circle"></i></div>
