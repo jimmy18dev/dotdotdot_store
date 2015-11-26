@@ -49,6 +49,11 @@ $current_page = "product";
 	</div>
 
 	<div class="content">
+		<div class="product-topic-caption">
+			<div class="product-topic-caption-img">รูปภาพ</div>
+			<div class="product-topic-caption-title">รายการ</div>
+			<div class="product-topic-caption-quantity">จำนวน</div>
+		</div>
 		<?php $product->ListProduct(array('null' => 0));?>
 	</div>
 </div>

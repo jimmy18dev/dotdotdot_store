@@ -955,20 +955,45 @@ Copyright (c) 2015 Daniel Eden
 .container .content .bank-items p.big {
   font-size: 1.5em;
 }
+.container .content .product-topic-caption {
+  width: 100%;
+  padding: 1% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  line-height: 2em;
+  color: #AAAAAA;
+}
+.container .content .product-topic-caption .product-topic-caption-img {
+  width: 9%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .content .product-topic-caption .product-topic-caption-title {
+  width: 75%;
+  padding: 0% 2%;
+  float: left;
+  display: inline-block;
+}
+.container .content .product-topic-caption .product-topic-caption-quantity {
+  width: 12%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
 .container .content .product-items {
   width: 100%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  font-size: 0.9em;
-  line-height: 1.5em;
-  margin-bottom: 0.5%;
+  margin-bottom: 1%;
 }
 .container .content .product-items a {
   text-decoration: none;
 }
 .container .content .product-items .product-thumbnail {
-  width: 15%;
+  width: 9%;
   min-height: 50px;
   float: left;
   display: inline-block;
@@ -979,80 +1004,138 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .content .product-items .product-content {
-  width: 85%;
+  width: 91%;
   float: right;
   display: inline-block;
+  line-height: 1.2em;
 }
 .container .content .product-items .product-content .detail {
-  width: 79%;
-  padding: 3%;
+  width: 83.5%;
+  padding: 1.4% 2%;
   float: left;
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  border-right: 1px solid #FAFAFA;
 }
-.container .content .product-items .product-content .detail .id {
-  color: rgba(0, 0, 0, 0.44);
-}
-.container .content .product-items .product-content .detail .title {
-  color: rgba(0, 0, 0, 0.9);
+.container .content .product-items .product-content .detail h2 {
+  font-size: 0.9em;
+  color: #000000;
   font-weight: bold;
 }
-.container .content .product-items .product-content .detail .price {
+.container .content .product-items .product-content .detail p {
+  font-size: 0.75em;
+  color: #777777;
+}
+.container .content .product-items .product-content .detail p a {
+  color: #DDDDDD;
+  margin-left: 10px;
+  float: right;
+}
+.container .content .product-items .product-content .detail p a:hover {
+  color: #777777;
+}
+.container .content .product-items .product-content .detail p a:active {
+  color: #000000;
+  text-decoration: underline;
+}
+.container .content .product-items .product-content .detail p .price {
+  font-weight: bold;
+}
+.container .content .product-items .product-content .detail p .status {
+  color: #AAAAAA;
+}
+.container .content .product-items .product-content .detail p .status i {
+  margin-right: 3px;
   color: #4CAF50;
+  font-size: 0.7em;
 }
 .container .content .product-items .product-content .quantity {
-  width: 9%;
-  padding: 3%;
+  width: 12%;
+  padding: 3% 0%;
   float: right;
   display: inline-block;
   text-align: center;
   line-height: 1.5em;
+  font-size: 1em;
 }
 .container .content .product-items .product-subproduct {
-  width: 85%;
+  width: 91%;
   float: right;
   display: inline-block;
 }
 .container .content .product-items .product-subproduct .subproduct-title {
-  width: 94%;
-  padding: 0% 3%;
-  padding-top: 3%;
+  width: 96%;
+  margin: 2%;
   float: left;
   display: inline-block;
-  color: rgba(0, 0, 0, 0.9);
+  font-size: 0.9em;
   font-weight: bold;
 }
+.container .content .product-items .product-subproduct .subproduct-title .status {
+  margin-left: 5px;
+  font-size: 0.8em;
+  color: #4CAF50;
+}
 .container .content .product-items .product-subproduct .subproduct-items {
-  width: 100%;
+  width: 96%;
+  padding: 1% 0%;
+  margin: 0% 2%;
   float: left;
   display: inline-block;
+  line-height: 1.2em;
+  border-top: 1px dotted #EEEEEE;
 }
 .container .content .product-items .product-subproduct .subproduct-items .subproduct-detail {
-  width: 79%;
-  padding: 3%;
+  width: 87%;
+  padding-right: 2%;
   float: left;
   display: inline-block;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
+  border-right: 1px solid #FAFAFA;
 }
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail .id {
-  color: rgba(0, 0, 0, 0.44);
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail h3 {
+  font-size: 0.9em;
+  color: #000000;
 }
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail .title {
-  color: rgba(0, 0, 0, 0.9);
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p {
+  font-size: 0.75em;
+  color: #333333;
 }
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail .price {
-  color: #00ab6b;
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a {
+  float: right;
+  color: #DDDDDD;
+  margin-left: 10px;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a:hover {
+  color: #777777;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a:active {
+  color: #000000;
+  text-decoration: underline;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .price {
+  font-weight: bold;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status {
+  color: #AAAAAA;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status i {
+  margin-right: 3px;
+  color: #4CAF50;
+  font-size: 0.7em;
 }
 .container .content .product-items .product-subproduct .subproduct-items .subproduct-quantity {
-  width: 9%;
-  padding: 3%;
+  width: 10%;
+  padding: 1% 0%;
   float: right;
   display: inline-block;
   text-align: center;
+  line-height: 1.5em;
+  font-size: 1em;
 }
 .container .content .order-items {
   width: 96%;

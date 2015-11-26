@@ -954,15 +954,42 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
         }
 
+        .product-topic-caption{
+            width: 100%;
+            padding: 1% 0%;
+            float: left;
+            display: inline-block;
+            font-size: 0.75em;
+            line-height: 2em;
+            color: #AAAAAA;
+
+            .product-topic-caption-img{
+                width: 9%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+            }
+            .product-topic-caption-title{
+                width: 75%;
+                padding: 0% 2%;
+                float: left;
+                display: inline-block;
+            }
+            .product-topic-caption-quantity{
+                width: 12%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+            }
+        }
+
         // Product items style
         .product-items{
             width: 100%;
             float: left;
             display: inline-block;
             background: #FFFFFF;
-            font-size: 0.9em;
-            line-height: 1.5em;
-            margin-bottom: 0.5%;
+            margin-bottom: 1%;
 
             a{
                 text-decoration: none;
@@ -970,7 +997,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
             // #00ab6b Color style.
             .product-thumbnail{
-                width: 15%;
+                width: 9%;
                 min-height: 50px;
                 float: left;
                 display: inline-block;
@@ -983,85 +1010,156 @@ Copyright (c) 2015 Puwadon Sricharoen
             }
 
             .product-content{
-                width: 85%;
+                width: 91%;
                 float: right;
                 display: inline-block;
+                line-height: 1.2em;
 
                 .detail{
-                    width: 79%;
-                    padding: 3%;
+                    width: 83.5%;
+                    padding: 1.4% 2%;
                     float: left;
                     display: inline-block;
                     text-overflow: ellipsis;
                     white-space: nowrap;
                     overflow: hidden;
+                    border-right: 1px solid #FAFAFA;
 
-                    .id{
-                        color: rgba(0, 0, 0, 0.44);
-                    }
-                    .title{
-                        color: rgba(0, 0, 0, 0.9);
+                    h2{
+                        font-size: 0.9em;
+                        color: #000000;
                         font-weight: bold;
                     }
-                    .price{
-                        color: #4CAF50;
+                    p{
+                        font-size: 0.75em;
+                        color: #777777;
+
+                        a{
+                            color: #DDDDDD;
+                            margin-left: 10px;
+                            float: right;
+
+                            &:hover{
+                                color: #777777;
+                            }
+
+                            &:active{
+                                color: #000000;
+                                text-decoration: underline;
+                            }
+                        }
+
+                        .price{
+                            font-weight: bold;
+                        }
+
+                        .status{
+                            color: #AAAAAA;
+
+                            i{
+                                margin-right: 3px;
+                                color: #4CAF50;
+                                font-size: 0.7em;
+                            }
+                        }
                     }
                 }
                 .quantity{
-                    width: 9%;
-                    padding: 3%;
+                    width: 12%;
+                    padding: 3% 0%;
                     float: right;
                     display: inline-block;
                     text-align: center;
                     line-height: 1.5em;
+                    font-size: 1em;
                 }
             }
 
             .product-subproduct{
-                width: 85%;
+                width: 91%;
                 float: right;
                 display: inline-block;
 
                 .subproduct-title{
-                    width: 94%;
-                    padding: 0% 3%;
-                    padding-top: 3%;
+                    width: 96%;
+                    margin: 2%;
                     float: left;
                     display: inline-block;
-                    color: rgba(0, 0, 0, 0.9);
+                    font-size: 0.9em;
                     font-weight: bold;
+
+                    .status{
+                        margin-left: 5px;
+                        font-size: 0.8em;
+                        color: #4CAF50;
+                    }
                 }
 
                 .subproduct-items{
-                    width: 100%;
+                    width: 96%;
+                    padding: 1% 0%;
+                    margin: 0% 2%;
                     float: left;
                     display: inline-block;
+                    line-height: 1.2em;
+                    border-top: 1px dotted #EEEEEE;
 
                     .subproduct-detail{
-                        width: 79%;
-                        padding: 3%;
+                        width: 87%;
+                        padding-right: 2%;
                         float: left;
                         display: inline-block;
                         text-overflow: ellipsis;
                         white-space: nowrap;
                         overflow: hidden;
+                        border-right: 1px solid #FAFAFA;
 
-                        .id{
-                            color: rgba(0, 0, 0, 0.44);
+                        h3{
+                            font-size: 0.9em;
+                            color: #000000;
                         }
-                        .title{
-                            color: rgba(0, 0, 0, 0.9);
-                        }
-                        .price{
-                            color: #00ab6b;
+                        p{
+                            font-size: 0.75em;
+                            color: #333333;
+
+                            a{
+                                float: right;
+                                color: #DDDDDD;
+                                margin-left: 10px;
+
+                                &:hover{
+                                    color: #777777;
+                                }
+
+                                &:active{
+                                    color: #000000;
+                                    text-decoration: underline;
+                                }
+                            }
+
+                            .price{
+                                font-weight: bold;
+                            }
+
+                            .status{
+                                color: #AAAAAA;
+
+                                i{
+                                    margin-right: 3px;
+                                    color: #4CAF50;
+                                    font-size: 0.7em;
+                                }
+                            }
                         }
                     }
                     .subproduct-quantity{
-                        width: 9%;
-                        padding: 3%;
+                        width: 10%;
+                        padding: 1% 0%;
                         float: right;
                         display: inline-block;
                         text-align: center;
+                        line-height: 1.5em;
+                        font-size: 1em;
                     }
                 }
             }
