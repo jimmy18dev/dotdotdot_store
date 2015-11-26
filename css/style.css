@@ -1045,12 +1045,7 @@ Copyright (c) 2015 Daniel Eden
   float: right;
 }
 .container .container-page .panel-fix p.link .signout:hover {
-  border: 1px solid #F44336;
   color: #F44336;
-}
-.container .container-page .panel-fix p.link .signout:active {
-  background: #F44336;
-  color: #FFFFFF;
 }
 .container .container-page .product-items {
   width: 30.66%;
