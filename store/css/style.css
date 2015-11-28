@@ -1212,6 +1212,9 @@ Copyright (c) 2015 Daniel Eden
 .container .content .order-items .complete {
   background: #4CAF50;
 }
+.container .content .order-items .cancel {
+  background: #CCCCCC;
+}
 .container .content .order-items .expire {
   background: #EEEEEE;
 }

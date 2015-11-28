@@ -75,7 +75,7 @@ class OrderModel extends Database{
 	}
 
 	public function GetMoneyTransferProcess($param){
-		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_code,bk_account_name,bk_account_number,im_id,im_filename FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id');
+		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_code,bk_account_name,bk_account_number,im_id,im_filename FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id AND mf_status = "active"');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		return parent::single();

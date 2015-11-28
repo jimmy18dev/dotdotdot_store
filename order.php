@@ -198,7 +198,6 @@ $current_page = "order";
 				<?php }?>
 
 				<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
-
 				<!-- Shipping -->
 				<div class="box-items" id="shipping">
 					<div class="icon"><i class="fa fa-truck"></i></div>
@@ -206,6 +205,17 @@ $current_page = "order";
 						<p class="big"><?php echo $order->ems;?></p>
 						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
 						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
+					</div>
+				</div>
+				<?php }?>
+
+				<?php if($order->status == "TransferAgain"){?>
+				<div class="box-items" id="complete">
+					<div class="icon"><i class="fa fa-info-circle"></i></div>
+					<div class="box">
+						<p class="big">ส่งหลักฐานโอนเงินอีกครั้ง!</p>
+						<p>เราไม่พบยอดโอนเงินที่คุณส่งหลักฐาน กรุณาตรวจสอบอีกครั้งค่ะ</p>
+						<p class="caption">หากพบปัญหาในการส่งหลักฐาน กรุณาติดต่อทีมงานค่ะ</p>
 					</div>
 				</div>
 				<?php }?>
