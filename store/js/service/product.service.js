@@ -74,6 +74,40 @@ function RemovePhoto(product_id,image_id){
     }).error();
 }
 
+function ChangeStatus(product_id,status){
+    // URL API
+    var href = 'api.product.php';
+
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Product',
+            action              :'ChangeStatus',
+            product_id          :product_id,
+            status              :status,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Message:'+data.message+' Execute:'+data.execute+' Return:'+data.return);
+
+        // value return
+        if(data.return == "active"){
+            $('#status-'+product_id).addClass('status-active').html('<i class="fa fa-circle"></i> แสดง');
+            $('#product-'+product_id).removeClass('product-items-disable');
+        }
+        else if(data.return == "disable"){
+            $('#status-'+product_id).removeClass('status-active').html('<i class="fa fa-circle"></i> ไม่แสดง');
+            $('#product-'+product_id).addClass('product-items-disable');
+        }
+
+    }).error();
+}
+
 
 // function DeleteProduct(product_id){
 

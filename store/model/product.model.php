@@ -120,6 +120,15 @@ class ProductModel extends Database{
 		parent::execute();
 	}
 
+	// Change product status (active, disable)
+	public function ChangeStatusProcess($param){
+		parent::query('UPDATE dd_product SET pd_status = :status, pd_update_time = :update_time WHERE (pd_id = :product_id)');
+		parent::bind(':status', 		$param['status']);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
 
 	// Product quantity
 	public function UpdateQuantityProcess($param){

@@ -155,7 +155,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 
 				<?php if(!empty($order->m_photo)){?>
 				<div class="image">
-					<img src="../image/upload/thumbnail/<?php echo $order->m_photo;?>" alt="">
+					<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
 				</div>
 				<?php }?>
 			</div>

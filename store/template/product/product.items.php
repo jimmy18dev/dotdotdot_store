@@ -1,11 +1,20 @@
-<div class="product-items">
+<?php
+// Product status
+$status = '<i class="fa fa-circle"></i> แสดง';
+if($var['pd_status'] != "active"){
+	$status = '<i class="fa fa-circle"></i> ไม่แสดง';
+}
+?>
+
+<div class="product-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
 	<div class="product-thumbnail">
 		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><img src="../image/upload/thumbnail/<?php echo $var['im_filename'];?>"></a>
 	</div>
 
 	<?php if($var['pd_type'] == "root"){{?>
 	<div class="product-subproduct">
-		<div class="subproduct-title"><?php echo $var['pd_title'];?><span class="status"><i class="fa fa-circle"></i></span></div>
+		<div class="subproduct-title"><?php echo $var['pd_title'];?></div>
+		<div id="status-<?php echo $var['pd_id'];?>" class="subproduct-status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></div>
 		<?php $this->ListSubProduct(array('product_id' => $var['pd_id'],'render' => 'list-subproduct-items'));}?>
 	</div>
 	<?php }else{?>
@@ -20,7 +29,7 @@
 				<?php }?>
 			</p>
 			<p>
-				<span class="status"><i class="fa fa-circle"></i> แสดง</span>
+				<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
 
 				<a href="product_editor.php?id=<?php echo $product->id;?>"><i class="fa fa-cog"></i> <span class="link-caption">แก้ไข</span></a>
 				<a href="quantity.php?id=<?php echo $product->id;?>&action=export"><i class="fa fa-arrow-left"></i> <span class="link-caption">โอนออก</span></a>

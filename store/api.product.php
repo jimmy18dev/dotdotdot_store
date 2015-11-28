@@ -48,6 +48,27 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'ChangeStatus':
+					if(true){
+						$product->GetProduct(array('product_id' => $_POST['product_id']));
+						$product->ChangeStatus(array(
+							'product_id' 	=> $product->id,
+							'status' 		=> $product->status,
+						));
+
+						if($product->status == "active"){
+							$status = "disable";
+						}
+						else if($product->status == "disable"){
+							$status = "active";
+						}
+
+						$api->successMessage('Status changed!',$status,$dataset);
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

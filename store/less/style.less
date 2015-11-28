@@ -1053,13 +1053,23 @@ Copyright (c) 2015 Puwadon Sricharoen
                             font-weight: bold;
                         }
 
+                        // Status icon
                         .status{
                             color: #AAAAAA;
 
                             i{
                                 margin-right: 3px;
-                                color: #4CAF50;
                                 font-size: 0.7em;
+                            }
+
+                            &:hover{
+                                color: #000000;
+                                cursor: pointer;
+                            }
+                        }
+                        .status-active{
+                            i{
+                                color: #4CAF50;
                             }
                         }
                     }
@@ -1083,14 +1093,34 @@ Copyright (c) 2015 Puwadon Sricharoen
                 .subproduct-title{
                     width: 96%;
                     margin: 2%;
+                    margin-bottom: 1%;
                     float: left;
                     display: inline-block;
                     font-size: 0.9em;
                     font-weight: bold;
+                }
 
-                    .status{
-                        margin-left: 5px;
+                .subproduct-status{
+                    width: 96%;
+                    margin: 0% 2%;
+                    margin-bottom: 1%;
+                    float: left;
+                    display: inline-block;
+                    font-size: 0.75em;
+                    color: #AAAAAA;
+
+                    &:hover{
+                        cursor: pointer;
+                        color: #000000;
+                    }
+
+                    i{
                         font-size: 0.8em;
+                    }
+                }
+
+                .status-active{
+                    i{
                         color: #4CAF50;
                     }
                 }
@@ -1141,13 +1171,23 @@ Copyright (c) 2015 Puwadon Sricharoen
                                 font-weight: bold;
                             }
 
+                            // Status icon
                             .status{
                                 color: #AAAAAA;
 
                                 i{
                                     margin-right: 3px;
-                                    color: #4CAF50;
                                     font-size: 0.7em;
+                                }
+
+                                &:hover{
+                                    cursor: pointer;
+                                    color: #000000;
+                                }
+                            }
+                            .status-active{
+                                i{
+                                    color: #4CAF50;
                                 }
                             }
                         }
@@ -1163,6 +1203,10 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
                 }
             }
+        }
+
+        .product-items-disable{
+            opacity: 0.6;
         }
 
         .order-items{

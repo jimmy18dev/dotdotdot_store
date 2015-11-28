@@ -34,6 +34,7 @@ $current_page = "product";
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/product.service.js"></script>
 
 </head>
 

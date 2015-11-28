@@ -93,6 +93,18 @@ class ProductController extends ProductModel{
 		parent::DeleteProductProcess($param);
 	}
 
+    public function ChangeStatus($param){
+        // Status setup
+        if($param['status'] == "disable")
+            $status = "active";
+        else if($param['status'] == "active")
+            $status = "disable";
+        else
+            return false;
+
+        parent::ChangeStatusProcess(array('product_id' => $param['product_id'],'status' => $status));
+    }
+
 	private function Render($mode,$data){
         foreach ($data as $var){
         	if($mode == "product-items"){

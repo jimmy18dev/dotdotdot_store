@@ -1,4 +1,12 @@
-<div class="subproduct-items">
+<?php
+// Product status
+$status = '<i class="fa fa-circle"></i> แสดง';
+if($var['pd_status'] != "active"){
+	$status = '<i class="fa fa-circle"></i> ไม่แสดง';
+}
+?>
+
+<div class="subproduct-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
 	<div class="subproduct-detail">
 		<h3><?php echo $var['pd_title'];?> · <span class="description"><?php echo $var['pd_description'];?></span></h3>
 
@@ -7,7 +15,7 @@
 			<span class="id"> · รหัสสินค้า: <?php echo $var['pd_id'];?></span>
 		</p>
 		<p>
-			<span class="status"><i class="fa fa-circle"></i> แสดง</span>
+			<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
 			<a href="product_editor.php?id=<?php echo $var['pd_id'];?>"><i class="fa fa-cog"></i> <span class="link-caption">แก้ไข</span></a>
 			<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=export"><i class="fa fa-arrow-left"></i> <span class="link-caption">โอนออก</span></a>
 			<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=import"><i class="fa fa-plus"></i> <span class="link-caption">นำเข้า</span></a>

@@ -1048,8 +1048,14 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .product-items .product-content .detail p .status i {
   margin-right: 3px;
-  color: #4CAF50;
   font-size: 0.7em;
+}
+.container .content .product-items .product-content .detail p .status:hover {
+  color: #000000;
+  cursor: pointer;
+}
+.container .content .product-items .product-content .detail p .status-active i {
+  color: #4CAF50;
 }
 .container .content .product-items .product-content .quantity {
   width: 12%;
@@ -1068,14 +1074,29 @@ Copyright (c) 2015 Daniel Eden
 .container .content .product-items .product-subproduct .subproduct-title {
   width: 96%;
   margin: 2%;
+  margin-bottom: 1%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
   font-weight: bold;
 }
-.container .content .product-items .product-subproduct .subproduct-title .status {
-  margin-left: 5px;
+.container .content .product-items .product-subproduct .subproduct-status {
+  width: 96%;
+  margin: 0% 2%;
+  margin-bottom: 1%;
+  float: left;
+  display: inline-block;
+  font-size: 0.75em;
+  color: #AAAAAA;
+}
+.container .content .product-items .product-subproduct .subproduct-status:hover {
+  cursor: pointer;
+  color: #000000;
+}
+.container .content .product-items .product-subproduct .subproduct-status i {
   font-size: 0.8em;
+}
+.container .content .product-items .product-subproduct .status-active i {
   color: #4CAF50;
 }
 .container .content .product-items .product-subproduct .subproduct-items {
@@ -1125,8 +1146,14 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status i {
   margin-right: 3px;
-  color: #4CAF50;
   font-size: 0.7em;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status:hover {
+  cursor: pointer;
+  color: #000000;
+}
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status-active i {
+  color: #4CAF50;
 }
 .container .content .product-items .product-subproduct .subproduct-items .subproduct-quantity {
   width: 10%;
@@ -1136,6 +1163,9 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
   line-height: 1.5em;
   font-size: 1em;
+}
+.container .content .product-items-disable {
+  opacity: 0.6;
 }
 .container .content .order-items {
   width: 96%;
