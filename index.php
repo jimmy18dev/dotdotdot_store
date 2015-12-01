@@ -62,6 +62,7 @@ $order->CheckingOrder();
 <?php include'header.php';?>
 <div class="container">
 	<div class="container-page">
+		<?php echo "Authentication: ".($user->Authentication()?"success":"fail").'<br>';?>
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
 </div>

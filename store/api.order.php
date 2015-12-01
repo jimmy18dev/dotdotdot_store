@@ -7,23 +7,8 @@ if($_POST['calling'] != ''){
 	switch ($_POST['calling']) {
 		case 'Order':
 			switch ($_POST['action']) {
-				case 'AddToOrder':
-					if(true){
-						$order->AddtoOrder(array(
-							'member_id' 	=> MEMBER_ID,
-							'type' 			=> 'normal',
-							'status' 		=> 'shopping',
-							'product_id' 	=> $_POST['product_id'],
-							'total' 		=> $_POST['amount'],
-						));
-						$api->successMessage('Add Product to Order Successed.','','');
-					}
-					else{
-						$api->errorMessage('Access Token Error!');
-					}
-					break;
 				case 'OrderProcess':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
 						$order->OrderProcess(array(
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
@@ -88,6 +73,15 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Shipping"){}
 						else if($_POST['order_action'] == "Complete"){}
 
+						// Save order activity log
+						$order->CreateOrderActivity(array(
+							'token' 		=> $user->token,
+							'member_id' 	=> $user->id,
+							'order_id' 		=> $order->id,
+							'order_action' 	=> $_POST['order_action'],
+							'description' 	=> '',
+						));
+
 						$api->successMessage('#'.$_POST['order_id'].' - '.$_POST['order_action'].' Successed! ('.$email_send.')','','');
 					}
 					else{
@@ -95,7 +89,7 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'EmsUpdate':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
 						$order->UpdateEmsOrder(array(
 							'order_id' 		=> $_POST['order_id'],
 							'ems' 			=> $_POST['ems'],
@@ -127,6 +121,15 @@ if($_POST['calling'] != ''){
 							else
 								$email_send = "Message has been sent";
 						}
+
+						// Save order activity log
+						$order->CreateOrderActivity(array(
+							'token' 		=> $user->token,
+							'member_id' 	=> $user->id,
+							'order_id' 		=> $order->id,
+							'order_action' 	=> $_POST['order_action'],
+							'description' 	=> '',
+						));
 
 						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
 					}

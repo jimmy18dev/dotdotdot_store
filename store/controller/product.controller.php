@@ -143,6 +143,12 @@ class ProductController extends ProductModel{
         parent::DeletePhotoProcess($param);
     }
 
+    // Save all activity of product action by administrator.
+    public function CreateProductActivity($param){
+        // Parameter: token, admin_id, product_id, action, value, description, ref_id
+        parent::CreateProductActivityProcess($param);
+    }
+
     public function UpdateQuantity($param){
 
         // Get Product ////////////////////
@@ -162,16 +168,6 @@ class ProductController extends ProductModel{
         parent::UpdateQuantityProcess(array(
             'product_id'    => $param['product_id'],
             'quantity'      => $quantity,
-        ));
-
-        
-        // Tasks todo Create Product activity. ////
-        parent::CreateProductActivityProcess(array(
-            'admin_id'      => $param['admin_id'],
-            'product_id'    => $param['product_id'],
-            'action'        => $param['action'],
-            'value'         => $param['quantity'],
-            'message'       => $param['message'],
         ));
     }
 }

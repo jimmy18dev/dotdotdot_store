@@ -8,14 +8,25 @@ class UserController extends UserModel{
     public $facebook_id;
     public $facebook_name;
     public $current_order_id;
+    public $type;
+    public $token;
 
     // time
     public $create_time_facebook_format;
     public $create_time_thai_format;
 
     public function GetUser($param){
+        
+        $param['device']        = DEVICE_TYPE;
+        $param['model']         = DEVICE_MODEL;
+        $param['os']            = DEVICE_OS;
+        $param['browser']       = DEVICE_BROWSER;
+        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
+        $param['expired']       = time() + (60*60*24*7);  // 1 Week.
+
         // Get MemberData
         $data = parent::GetUserProcess($param);
+        $dataset_token = parent::GetTokenProcess($param);
 
         // Setdata
         $this->id =             $data['me_id'];
@@ -24,6 +35,11 @@ class UserController extends UserModel{
         $this->name =           $data['me_name'];
         $this->facebook_id =    $data['me_fb_id'];
         $this->facebook_name =  $data['me_fb_name'];
+        $this->type                 = $data['me_type'];
+        $this->token                = $dataset_token['tk_token'];
+
+        setcookie('token_key',$this->token, COOKIE_TIME);
+        setcookie('member_id',$this->id, COOKIE_TIME);
 
         $this->create_time_facebook_format = $data['user_create_time_facebook_format'];
         $this->create_time_thai_format = $data['user_create_time_thai_format'];
@@ -35,6 +51,24 @@ class UserController extends UserModel{
             $order_checking = parent::CheckingAlreadyOrderProcess($param); // return order_id
             if(empty($order_checking))
                 $this->current_order_id = parent::CreateOrderProcess($param);
+        }
+    }
+
+    public function Authentication(){
+        $param['member_id']     = MEMBER_ID;
+        $param['device']        = DEVICE_TYPE;
+        $param['user_agent']    = htmlentities($_SERVER['HTTP_USER_AGENT']);
+
+        // Parameter: member_id, device, user_agent
+        $dataset = parent::GetTokenProcess($param);
+        
+        $token_key_cookie       = $_COOKIE['token_key'];
+
+        if($token_key_cookie == $dataset['tk_token'] && !empty($param['member_id'])){
+            return true;
+        }
+        else{
+            return false;
         }
     }
 

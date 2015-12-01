@@ -174,10 +174,19 @@ class OrderController extends OrderModel{
     	if($param['order_action'] == 'TransferSuccess'){
     		parent::UpdateSuccessTimeProcess($param);
     	}
+
+        // Save order activity log
+        // parent::CreateOrderActivityProcess($param);
     }
 
     public function UpdateEmsOrder($param){
     	parent::UpdateEmsOrderProcess($param);
+    }
+
+    // Save all activity in order action.
+    public function CreateOrderActivity($param){
+        // Parameter: token, member_id, order_id, order_action, description
+        parent::CreateOrderActivityProcess($param);
     }
 
     public function NotificationChecking(){

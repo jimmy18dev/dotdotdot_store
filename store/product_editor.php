@@ -95,12 +95,12 @@ else
 					<input type="text" class="input-text" name="code" value="<?php echo $product->code;?>">
 				</div>
 			</div>
-			<div class="form-items">
+			<!-- <div class="form-items">
 				<div class="caption">จำนวน</div>
 				<div class="input">
 					<input type="text" class="input-text" name="quantity" placeholder="quantity" value="<?php echo (empty($product->quantity)?0:$product->quantity);?>">
 				</div>
-			</div>
+			</div> -->
 			<div class="form-items">
 				<div class="caption">ราคาต่อชิ้น</div>
 				<div class="input">

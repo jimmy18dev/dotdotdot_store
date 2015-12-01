@@ -2,13 +2,12 @@
 class ProductModel extends Database{
 
 	public function CreateProductProcess($param){
-		parent::query('INSERT INTO dd_product(pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_visit_time,pd_order_time,pd_group,pd_type,pd_status) VALUE(:parent,:code,:title,:description,:quantity,:price,:create_time,:update_time,:visit_time,:order_time,:group,:type,:status)');
+		parent::query('INSERT INTO dd_product(pd_parent,pd_code,pd_title,pd_description,pd_price,pd_create_time,pd_update_time,pd_visit_time,pd_order_time,pd_group,pd_type,pd_status) VALUE(:parent,:code,:title,:description,:price,:create_time,:update_time,:visit_time,:order_time,:group,:type,:status)');
 
 		parent::bind(':parent', 		$param['parent']);
 		parent::bind(':code', 			$param['code']);
 		parent::bind(':title', 			$param['title']);
 		parent::bind(':description', 	$param['description']);
-		parent::bind(':quantity', 		$param['quantity']);
 		parent::bind(':price', 			$param['price']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
@@ -23,13 +22,12 @@ class ProductModel extends Database{
 	}
 
 	public function EditProductProcess($param){
-		parent::query('UPDATE dd_product SET pd_code = :code, pd_title = :title, pd_description = :description, pd_quantity = :quantity, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_status = :status WHERE pd_id = :product_id');
+		parent::query('UPDATE dd_product SET pd_code = :code, pd_title = :title, pd_description = :description, pd_price = :price, pd_update_time = :update_time, pd_group = :group, pd_status = :status WHERE pd_id = :product_id');
 
 		parent::bind(':product_id', 	$param['product_id']);
 		parent::bind(':code', 			$param['code']);
 		parent::bind(':title', 			$param['title']);
 		parent::bind(':description', 	$param['description']);
-		parent::bind(':quantity', 		$param['quantity']);
 		parent::bind(':price', 			$param['price']);
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':group', 			$param['group']);
@@ -142,15 +140,17 @@ class ProductModel extends Database{
 
 	// Product Activity
 	public function CreateProductActivityProcess($param){
-		parent::query('INSERT INTO dd_product_activity(pdac_admin_id,pdac_product_id,pdac_action,pdac_value,pdac_message,pdac_ip,pdac_create_time) VALUE(:admin_id,:product_id,:action,:value,:message,:ip,:create_time)');
+		parent::query('INSERT INTO dd_product_activity(pdac_token,pdac_admin_id,pdac_product_id,pdac_action,pdac_value,pdac_description,pdac_ref_id,pdac_ip,pdac_time) VALUE(:token,:admin_id,:product_id,:action,:value,:description,:ref_id,:ip,:time)');
 
+		parent::bind(':token', 			$param['token']);
 		parent::bind(':admin_id', 		$param['admin_id']);
 		parent::bind(':product_id', 	$param['product_id']);
 		parent::bind(':action', 		$param['action']);
 		parent::bind(':value', 			$param['value']);
-		parent::bind(':message', 		$param['message']);
+		parent::bind(':description', 	$param['description']);
+		parent::bind(':ref_id', 		$param['ref_id']);
 		parent::bind(':ip',				parent::GetIpAddress());
-		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':time',			date('Y-m-d H:i:s'));
 
 		parent::execute();
 		return parent::lastInsertId();
@@ -158,13 +158,13 @@ class ProductModel extends Database{
 
 	// Product Import/Export History
 	public function HistoryProductProcess($param){
-		parent::query('SELECT pdac_id,pdac_action,pdac_value,pdac_message,pdac_create_time,me_id,me_name FROM dd_product_activity LEFT JOIN dd_member ON pdac_admin_id = me_id WHERE pdac_product_id = :product_id ORDER BY pdac_create_time DESC');
+		parent::query('SELECT pdac_id,pdac_action,pdac_value,pdac_description,pdac_time,me_id,me_name FROM dd_product_activity LEFT JOIN dd_member ON pdac_admin_id = me_id WHERE pdac_product_id = :product_id ORDER BY pdac_time DESC');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();
 
 		foreach ($dataset as $k => $var) {
-			$dataset[$k]['create_time_thai_format'] = parent::date_thaiformat($var['pdac_create_time']);
+			$dataset[$k]['create_time_thai_format'] = parent::date_thaiformat($var['pdac_time']);
 		}
 
 		return $dataset;

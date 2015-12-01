@@ -8,10 +8,21 @@ if($_POST['calling'] != ''){
 		case 'Product':
 			switch ($_POST['action']) {
 				case 'SetCover':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
 						$product->SetCover(array(
 							'product_id' 	=> $_POST['product_id'],
 							'image_id' 		=> $_POST['image_id'],
+						));
+
+						// Save activity log
+						$product->CreateProductActivity(array(
+							'token' 		=> $user->token,
+							'admin_id'      => $user->id,
+            				'product_id'    => $_POST['product_id'],
+            				'action'        => 'SetCover',
+            				'value'         => '',
+            				'deescription'  => '',
+            				'ref_id' 		=> $_POST['image_id'],
 						));
 
 						$api->successMessage('SetCover success!','null',$dataset);
@@ -21,10 +32,21 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'DeletePhoto':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
 						$product->DeletePhoto(array(
 							'product_id' 	=> $_POST['product_id'],
 							'image_id' 		=> $_POST['image_id'],
+						));
+
+						// Save activity log
+						$product->CreateProductActivity(array(
+							'token' 		=> $user->token,
+							'admin_id'      => $user->id,
+            				'product_id'    => $_POST['product_id'],
+            				'action'        => 'DeletePhoto.',
+            				'value'         => '',
+            				'deescription'  => '',
+            				'ref_id' 		=> $_POST['image_id'],
 						));
 
 						$api->successMessage('Photo\'s Deleted!','null',$dataset);
@@ -34,12 +56,23 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'UpdateQuantity':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
 						$product_id = $product->UpdateQuantity(array(
 							'admin_id'		=> MEMBER_ID,
 							'product_id' 	=> $_POST['product_id'],
 							'action' 		=> $_POST['product_action'],
 							'quantity' 		=> $_POST['quantity'],
+						));
+
+						// Save activity log
+						$product->CreateProductActivity(array(
+							'token' 		=> $user->token,
+							'admin_id'      => $user->id,
+            				'product_id'    => $_POST['product_id'],
+            				'action'        => $_POST['product_action'],
+            				'value'         => $_POST['quantity'],
+            				'deescription'  => '',
+            				'ref_id' 		=> '',
 						));
 
 						$api->successMessage('Quantity updated!','null',$dataset);
@@ -49,8 +82,10 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'ChangeStatus':
-					if(true){
+					if($user->Authentication() && $user->type == "administrator"){
+
 						$product->GetProduct(array('product_id' => $_POST['product_id']));
+
 						$product->ChangeStatus(array(
 							'product_id' 	=> $product->id,
 							'status' 		=> $product->status,
@@ -62,6 +97,17 @@ if($_POST['calling'] != ''){
 						else if($product->status == "disable"){
 							$status = "active";
 						}
+
+						// Save activity log
+						$product->CreateProductActivity(array(
+							'token' 		=> $user->token,
+							'admin_id'      => $user->id,
+            				'product_id'    => $_POST['product_id'],
+            				'action'        => $status,
+            				'value'         => '',
+            				'deescription'  => '',
+            				'ref_id' 		=> '',
+						));
 
 						$api->successMessage('Status changed!',$status,$dataset);
 					}

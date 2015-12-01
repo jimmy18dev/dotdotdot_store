@@ -50,10 +50,11 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'OrderProcess':
-					if(true){
+					if($user->Authentication()){ // Member Authentication before order process.
 						// Order Process
 						$order->OrderProcess(array(
 							'member_id' 	=> MEMBER_ID,
+							'token' 		=> $user->token,
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> $_POST['order_action'],
 							'order_shipping_type' => $_POST['order_shipping_type'],

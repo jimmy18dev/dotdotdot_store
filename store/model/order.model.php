@@ -118,6 +118,22 @@ class OrderModel extends Database{
 		return $dataset['COUNT(odt_id)'];
 	}
 
+	// Order activity log
+	public function CreateOrderActivityProcess($param){
+		parent::query('INSERT INTO dd_order_activity(odac_token,odac_member_id,odac_order_id,odac_action,odac_description,odac_create_time,odac_update_time) VALUE(:token,:member_id,:order_id,:order_action,:description,:create_time,:update_time)');
+
+		parent::bind(':token', 			$param['token']);
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::bind(':order_action', 	$param['order_action']);
+		parent::bind(':description', 	$param['description']);
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+
 	public function NotificationCheckingProcess(){
 		parent::query('SELECT COUNT(od_id) FROM dd_order WHERE od_admin_read = "open"');
 		parent::execute();

@@ -91,6 +91,28 @@ class UserModel extends Database{
 		return $data['me_id'];
 	}
 
+	// Get token
+	public function GetTokenProcess($param){
+		// Update token time
+		parent::query('UPDATE dd_token SET tk_update_time = :update_time WHERE (tk_member_id = :member_id AND tk_device = :device AND tk_user_agent = :user_agent)');
+
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':user_agent',		$param['user_agent']);
+		parent::execute();
+
+		// Get
+		parent::query('SELECT tk_member_id,tk_token,tk_device,tk_model,tk_os,tk_browser,tk_user_agent,tk_ip,tk_create_time,tk_update_time,tk_expired FROM dd_token WHERE (tk_member_id = :member_id AND tk_device = :device AND tk_user_agent = :user_agent)');
+
+		parent::bind(':member_id',		$param['member_id']);
+		parent::bind(':device',			$param['device']);
+		parent::bind(':user_agent',		$param['user_agent']);
+
+		parent::execute();
+		return parent::single();
+	}
+
 	// Order Management
 	// Automation Create Order.
 	public function CreateOrderProcess($param){
