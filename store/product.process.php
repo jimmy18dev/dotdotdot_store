@@ -26,6 +26,15 @@ if($user->Authentication() && $user->type == "administrator"){
             'status'        => 'active',
         ));
 
+        // Position Setup
+        $product->PositionSetupProcess(array(
+            'product_id'    => $product_id,
+            'position'      => $product->CountProcess(array(
+                'type'          => $type,
+                'parent_id'     => $_POST['parent'],
+            )),
+        ));
+
         // Save activity log
         $product->CreateProductActivity(array(
             'token'         => $user->token,

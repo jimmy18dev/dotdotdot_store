@@ -41,6 +41,94 @@ class ProductModel extends Database{
 		parent::execute();
 	}
 
+	// Product Position Sorting
+	// Set Product sort position
+	public function PositionSetupProcess($param){
+		parent::query('UPDATE dd_product SET pd_sort = :position WHERE pd_id = :product_id');
+		parent::bind(':position', 		$param['position']);
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+	}
+
+	public function PositionChangeProcess($param){
+		// Get current position and type
+		parent::query('SELECT pd_parent,pd_sort,pd_type FROM dd_product WHERE pd_id = :product_id');
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::execute();
+		$data = parent::single();
+
+		$current_position 	= $data['pd_sort'];
+		$parent 			= $data['pd_parent'];
+		$type 				= $data['pd_type'];
+
+		if($current_position > 1){
+			if($type == "root" || $type == "normal"){
+				// Prev product
+				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE pd_sort < :current_position ORDER BY pd_sort DESC LIMIT 1');
+				parent::bind(':current_position', $current_position);
+				parent::execute();
+				$data = parent::single();
+
+				$prev_id 		= $data['pd_id'];
+				$prev_position 	= $data['pd_sort'];
+			}
+			else if($type == "sub"){
+				// Prev product
+				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE (pd_sort < :current_position AND pd_parent = :parent) ORDER BY pd_sort DESC LIMIT 1');
+				parent::bind(':parent', $parent);
+				parent::bind(':current_position', $current_position);
+				parent::execute();
+				$data = parent::single();
+
+				$prev_id		= $data['pd_id'];
+				$prev_position 	= $data['pd_sort'];
+			}
+			else{
+				return false;
+			}
+
+
+			// Update Current position to Prev product.
+			parent::query('UPDATE dd_product SET pd_sort = :position WHERE pd_id = :product_id');
+			parent::bind(':position', 		$current_position);
+			parent::bind(':product_id', 	$prev_id);
+			parent::execute();
+
+			// Update Prev position to Current position (New Position)
+			parent::query('UPDATE dd_product SET pd_sort = :position WHERE pd_id = :product_id');
+			parent::bind(':position', 		$prev_position);
+			parent::bind(':product_id', 	$param['product_id']);
+			parent::execute();
+		}
+		else{
+			return false;
+		}
+	}	
+
+	public function CountProcess($param){
+		if($param['type'] == "sub"){
+			parent::query('SELECT COUNT(pd_id) FROM dd_product WHERE (pd_type = "sub" AND pd_parent = :parent_id)');
+			parent::bind(':parent_id', 	$param['parent_id']);
+			parent::execute();
+			$data = parent::single();
+		}
+		else if($param['type'] == "normal"){
+			parent::query('SELECT COUNT(pd_id) FROM dd_product WHERE pd_type = "normal" OR pd_type = "root"');
+			parent::execute();
+			$data = parent::single();
+		}
+		else{
+
+			// Count all product
+			parent::query('SELECT COUNT(pd_id) FROM dd_product');
+			parent::execute();
+			$data = parent::single();
+		}
+
+		return $data['COUNT(pd_id)'];
+	}
+
+
 	// public function DeleteProductProcess($param){
 	// 	parent::query('DELETE FROM dd_product WHERE pd_id = :product_id');
 	// 	parent::bind(':product_id', 	$param['product_id']);
@@ -65,14 +153,14 @@ class ProductModel extends Database{
 	}
 
 	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_type != "sub"');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_type != "sub" ORDER BY pd_sort ASC');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
 	}
 
 	public function ListSubProductProcess($param){
-		parent::query('SELECT * FROM dd_product WHERE pd_parent = :product_id AND pd_type = "sub"');
+		parent::query('SELECT * FROM dd_product WHERE pd_parent = :product_id AND pd_type = "sub" ORDER BY pd_sort ASC');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();

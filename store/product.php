@@ -55,6 +55,7 @@ $current_page = "product";
 			<div class="product-topic-caption-title">รายการ</div>
 			<div class="product-topic-caption-quantity">จำนวน</div>
 		</div>
+		<?php $product->PositionChangeProcess(array('product_id' => 17));?>
 		<?php $product->ListProduct(array('null' => 0));?>
 	</div>
 </div>
