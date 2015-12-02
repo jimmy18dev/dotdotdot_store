@@ -77,7 +77,7 @@ class OrderModel extends Database{
 	}
 
 	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE (od_member_id = :member_id AND od_status != "Expire" AND od_status != "Shopping" AND od_status != "Cancel") ORDER BY od_update_time DESC');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE (od_member_id = :member_id AND od_status != "Shopping" AND od_status != "Cancel") ORDER BY od_update_time DESC');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -133,7 +133,6 @@ class OrderModel extends Database{
 		$dataset = parent::single();
 
 		$dataset['order_expire_time_datediff'] 			= parent::dateDifference($dataset['od_expire_time']);
-
 		$dataset['order_create_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_create_time']);
 		$dataset['order_update_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_update_time']);
 		$dataset['order_paying_time_facebook_format'] 	= parent::date_facebookformat($dataset['od_paying_time']);
@@ -192,7 +191,7 @@ class OrderModel extends Database{
 		parent::query('UPDATE dd_order SET od_paying_time = :paying_time, od_expire_time = :expire_time WHERE od_id = :order_id');
 
 		parent::bind(':paying_time',	date('Y-m-d H:i:s'));
-		parent::bind(':expire_time',	date('Y-m-d H:i:s',time()+86400)); // Order's Expire within 1 day.
+		parent::bind(':expire_time',	date('Y-m-d H:i:s',time() + 86400)); // Order's Expire within 1 day.
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 	}
@@ -269,7 +268,7 @@ class OrderModel extends Database{
 	// ORDER CHECKING /////////////////////////
 	// List all orders's status = "Paying" send to function expire time check.
 	public function ListOrderCheckingProcess(){
-		parent::query('SELECT od_id,od_expire_time FROM dd_order WHERE od_status = "Paying" ORDER BY od_create_time ASC');
+		parent::query('SELECT od_id,od_expire_time FROM dd_order WHERE od_status = "Paying" OR od_status = "Expire" ORDER BY od_create_time ASC');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;
@@ -278,6 +277,14 @@ class OrderModel extends Database{
 	// Update order status to "Expire"
 	public function OrderExpireProcess($param){
 		parent::query('UPDATE dd_order SET od_status = "Expire", od_update_time = :update_time WHERE od_id = :order_id');
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':order_id', 		$param['order_id']);
+		parent::execute();
+	}
+
+	// Update order status to "Cancel"
+	public function OrderCancelProcess($param){
+		parent::query('UPDATE dd_order SET od_status = "Cancel", od_update_time = :update_time WHERE od_id = :order_id');
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();

@@ -130,7 +130,13 @@ $current_page = "order";
 					<p><i class="fa fa-check"></i></p>
 					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
 				</div>
-				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain"){?>
+				<?php }else if($order->status == "Cencel"){?>
+				<div class="message">
+					<p><i class="fa fa-check"></i></p>
+					<p class="msg">เกินกำหนดการชำระเงิน</p>
+					<p class="msg">กรุณาเลือกสินค้าแล้วชำระเงินอีกครั้งค่ะ</p>
+				</div>
+				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 				<div class="form">
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 					<p class="caption">ภาพถ่ายสลิปใบโอนเงิน</p>
@@ -277,7 +283,7 @@ $current_page = "order";
 				</div>
 				<?php }?>
 
-				<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
+				<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 				<div class="box-items">
 					<div class="icon"><i class="fa fa-barcode"></i></div>
 					<div class="box">

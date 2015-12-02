@@ -2,9 +2,6 @@
 require_once'config/autoload.php';
 include'sdk/facebook-sdk/autoload.php';
 include'facebook.php';
-
-// Order Expire Checking
-$order->CheckingOrder();
 ?>
 
 <!DOCTYPE html>

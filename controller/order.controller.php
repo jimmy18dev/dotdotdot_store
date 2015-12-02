@@ -92,7 +92,6 @@ class OrderController extends OrderModel{
                 parent::UpdateStatusOrderProcess($param);
             }
         }
-
         // Update Address id to Order
         else if($param['order_action'] == 'TransferRequest'){
             parent::UpdateAddressOrderProcess($param);
@@ -389,10 +388,6 @@ class OrderController extends OrderModel{
     	return $checking;
 	}
 
-    public function Test(){
-        $this->CheckingOrder();
-    }
-
     // Update Product Quantity (Subtraction or Restore)
 	public function UpdateProductQuantity($param){
 		$action = $param['action'];
@@ -418,12 +413,16 @@ class OrderController extends OrderModel{
     	$dataset = parent::ListOrderCheckingProcess();
     	foreach ($dataset as $var){
             $expire = strtotime($var['od_expire_time']);
+            $cancel = strtotime($var['od_expire_time']) + 43200; // 12 Hrs
 
-            if(time() > $expire){
-                // Order's Expire
+            if(time() > $cancel){
                 // Restore all product items in order to Stock
                 $this->UpdateProductQuantity(array('order_id' => $var['od_id'],'action'=>'restore'));
 
+                // Set Order status to "Cancel"
+                parent::OrderCancelProcess(array('order_id' => $var['od_id']));
+            }
+            else if(time() > $expire){
                 // Set Order status to "Expire"
                 parent::OrderExpireProcess(array('order_id' => $var['od_id']));
             }

@@ -91,4 +91,7 @@
 	define('MEMBER_ID',			$user->id);
 	define('MEMBER_TOKEN',		$user->token);
 	define('MEMBER_TYPE',		$user->type);
+
+// Order Expire Checking
+$order->CheckingOrder();
 ?>
