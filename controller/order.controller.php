@@ -124,7 +124,7 @@ class OrderController extends OrderModel{
         // }
         
         // Save order activity log
-        parent::CreateOrderActivityProcess($param);
+        // parent::CreateOrderActivityProcess($param);
     }
 
     // Edit address in order
@@ -320,6 +320,12 @@ class OrderController extends OrderModel{
     	$param['total'] 	= $order_summary_data['total'];
     	// Update Order Summary.
     	parent::UpdateSummaryOrderProcess($param);
+    }
+
+    // Save all activity in order action.
+    public function CreateOrderActivity($param){
+        // Parameter: token, member_id, order_id, order_action, description
+        parent::CreateOrderActivityProcess($param);
     }
 
     public function MyCurrentOrder($param){

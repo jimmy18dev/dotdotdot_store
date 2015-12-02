@@ -7,7 +7,7 @@ if($_POST['calling'] != ''){
 		case 'Order':
 			switch ($_POST['action']) {
 				case 'AddToOrder':
-					if(true){
+					if($user->Authentication()){
 						$msg_return = $order->AddtoOrder(array(
 							'member_id' 	=> MEMBER_ID,
 							'product_id' 	=> $_POST['product_id'],
@@ -23,7 +23,7 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'EditInOrder':
-					if(true){
+					if($user->Authentication()){
 						$order_return = $order->EditItemsInOrder(array(
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
@@ -37,7 +37,7 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'RemoveInOrder':
-					if(true){
+					if($user->Authentication()){
 						$order->RemoveItemsInOrder(array(
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
@@ -114,6 +114,15 @@ if($_POST['calling'] != ''){
 							}
 						}
 
+						// Save activity log
+						$order->CreateOrderActivity(array(
+							'token' 		=> $user->token,
+							'member_id' 	=> $user->id,
+							'order_id' 		=> $order->id,
+							'order_action' 	=> $_POST['order_action'],
+							'description' 	=> '',
+						));
+
 						// Return Message all Process in JSON format.
 						$api->successMessage('#'.$_POST['order_id'].' - '.$_POST['order_action'].' Successed! ('.$email_send.')','','');
 					}
@@ -122,7 +131,7 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'EditAddress':
-					if(true){
+					if($user->Authentication()){
 						// Edit name and phone
 						$user->UpdateNamePhone(array(
 					        'member_id'     => MEMBER_ID,
@@ -143,7 +152,7 @@ if($_POST['calling'] != ''){
 					}
 					break;
 				case 'CancelTransfer':
-					if(true){
+					if($user->Authentication()){
 						$order->OrderProcess(array(
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
@@ -151,6 +160,15 @@ if($_POST['calling'] != ''){
 						));
 						
 						$bank->KillTransferMoney(array('order_id' => $_POST['order_id']));
+
+						// Save activity log
+						$order->CreateOrderActivity(array(
+							'token' 		=> $user->token,
+							'member_id' 	=> $user->id,
+							'order_id' 		=> $_POST['order_id'],
+							'order_action' 	=> 'TransferCancel',
+							'description' 	=> '',
+						));
 
 						$api->successMessage('Money Transfer\'s Cancel!','','');
 					}

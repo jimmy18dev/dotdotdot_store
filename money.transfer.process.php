@@ -1,7 +1,7 @@
 <?php
 require_once'config/autoload.php';
 
-if(!empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_bank'])){
+if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_bank'])){
     $transfer_id = $bank->CreateMoneyTransfer(array(
         'order_id'      => $_POST['order_id'],
         'to_bank'       => $_POST['to_bank'],
@@ -27,8 +27,16 @@ if(!empty($_POST['order_id']) && !empty($_POST['address']) && !empty($_POST['to_
 
     $order->GetOrder(array('order_id' => $_POST['order_id']));
 
-    // Sending to Customer
+    // Save activity log
+    $order->CreateOrderActivity(array(
+        'token'         => $user->token,
+        'member_id'     => $user->id,
+        'order_id'      => $order->id,
+        'order_action'  => 'TransferRequest',
+        'description'   => '',
+    ));
 
+    // Email Sending to Customer
     if(!empty($user->email) && $user->status == "verified"){
         $mail->addAddress($user->email);
         $mail->Subject  = 'กำลังตรวจสอบหลักฐานการโอนเงิน...';

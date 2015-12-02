@@ -99,6 +99,7 @@ if($_POST['calling'] != ''){
 							'member_id' 	=> MEMBER_ID,
 							'order_id' 		=> $_POST['order_id'],
 							'order_action' 	=> "Shipping",
+							'description' 	=> '',
 						));
 
 						// Get Order data
