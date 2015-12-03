@@ -48,6 +48,13 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 		<div class="topic-caption">รหัสสินค้า <?php echo $product->id;?></div>
 	</div>
 	<div class="content content-container">
+		<div class="navi">
+			<a href="">ข้อมูลสินค้า</a>
+			<a href="">ประวัติการขาย</a>
+			<a href="">ประวัตการนำเข้าส่งออก</a>
+			<a href="">แกไข</a>
+		</div>
+
 		<div class="detail">
 			<header class="info">
 				<h1><?php echo $product->title;?></h1>
@@ -86,6 +93,10 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			</div>
 
 			<div class="history">
+				<div class="history-topic">Seller</div>
+			</div>
+
+			<div class="history">
 				<div class="history-topic">Import / Export</div>
 				<?php $product->HistoryProduct(array('product_id' => $product->id));?>
 			</div>
@@ -100,6 +111,8 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				<a href="product_editor.php?parent=<?php echo $product->id;?>"><div class="control-items">สินค้าย่อย</div></a>
 			</div>
 		</div>
+
+		<a href="">ลบสินค้า</a>
 	</div>
 </div>
 

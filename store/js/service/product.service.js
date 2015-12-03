@@ -108,6 +108,29 @@ function ChangeStatus(product_id,status){
     }).error();
 }
 
+function ChangePosition(product_id){
+    // URL API
+    var href = 'api.product.php';
+    
+    $.ajax({
+        url         :href,
+        cache       :false,
+        dataType    :"json",
+        type        :"POST",
+        data:{
+            calling             :'Product',
+            action              :'ChangePosition',
+            product_id          :product_id,
+        },
+        error: function (request, status, error) {
+            console.log("Request Error");
+        }
+    }).done(function(data){
+        console.log('Message:'+data.message+' Execute:'+data.execute+' Return:'+data.return);
+        location.reload();
+    }).error();
+}
+
 
 // function DeleteProduct(product_id){
 

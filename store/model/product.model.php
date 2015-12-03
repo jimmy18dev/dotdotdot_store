@@ -61,10 +61,10 @@ class ProductModel extends Database{
 		$parent 			= $data['pd_parent'];
 		$type 				= $data['pd_type'];
 
-		if($current_position > 1){
+		if($current_position != 1){
 			if($type == "root" || $type == "normal"){
 				// Prev product
-				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE pd_sort < :current_position ORDER BY pd_sort DESC LIMIT 1');
+				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE (pd_sort < :current_position) AND (pd_type = "normal" OR pd_type = "root") ORDER BY pd_sort DESC LIMIT 1');
 				parent::bind(':current_position', $current_position);
 				parent::execute();
 				$data = parent::single();
@@ -72,9 +72,10 @@ class ProductModel extends Database{
 				$prev_id 		= $data['pd_id'];
 				$prev_position 	= $data['pd_sort'];
 			}
+
 			else if($type == "sub"){
 				// Prev product
-				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE (pd_sort < :current_position AND pd_parent = :parent) ORDER BY pd_sort DESC LIMIT 1');
+				parent::query('SELECT pd_id,pd_sort FROM dd_product WHERE (pd_sort < :current_position AND pd_parent = :parent) AND (pd_type = "sub") ORDER BY pd_sort DESC LIMIT 1');
 				parent::bind(':parent', $parent);
 				parent::bind(':current_position', $current_position);
 				parent::execute();
@@ -153,7 +154,7 @@ class ProductModel extends Database{
 	}
 
 	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_type != "sub" ORDER BY pd_sort ASC');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_sort,pd_status,im_id,im_filename FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_type != "sub" ORDER BY pd_sort ASC');
 		parent::execute();
 		$dataset = parent::resultset();
 		return $dataset;

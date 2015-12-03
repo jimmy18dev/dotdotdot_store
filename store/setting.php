@@ -64,6 +64,13 @@ $current_page = "setting";
 			<div class="setting-items-icon"><i class="fa fa-cog"></i></div>
 			<div class="setting-items-caption">ตั้งค่า</div>
 		</div>
+
+		<a href="version-log.php">
+		<div class="setting-items">
+			<div class="setting-items-icon"><i class="fa fa-flag"></i></div>
+			<div class="setting-items-caption">อัพเดท</div>
+		</div>
+		</a>
 	</div>
 </div>
 </body>

@@ -43,6 +43,7 @@ $current_page = "customer";
 <div class="container">
 	<div class="topic">
 		<div class="topic-caption">Bank</div>
+		<a href="bank-editor.php">New Bank Account</a>
 	</div>
 
 	<div class="content">

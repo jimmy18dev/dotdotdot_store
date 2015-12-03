@@ -15,6 +15,8 @@ if($var['pd_status'] != "active"){
 	<div class="product-subproduct">
 		<div class="subproduct-title"><?php echo $var['pd_title'];?></div>
 		<div id="status-<?php echo $var['pd_id'];?>" class="subproduct-status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></div>
+		<div class="subproduct-status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i> ย้ายขึ้น</div>
+
 		<?php $this->ListSubProduct(array('product_id' => $var['pd_id'],'render' => 'list-subproduct-items'));}?>
 	</div>
 	<?php }else{?>
@@ -30,6 +32,7 @@ if($var['pd_status'] != "active"){
 			</p>
 			<p>
 				<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
+				<span class="status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i> ย้ายขึ้น</span>
 
 				<a href="product_editor.php?id=<?php echo $product->id;?>"><i class="fa fa-cog"></i> <span class="link-caption">แก้ไข</span></a>
 				<a href="quantity.php?id=<?php echo $product->id;?>&action=export"><i class="fa fa-arrow-left"></i> <span class="link-caption">โอนออก</span></a>

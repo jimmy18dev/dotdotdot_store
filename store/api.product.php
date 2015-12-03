@@ -115,6 +115,16 @@ if($_POST['calling'] != ''){
 						$api->errorMessage('Access Token Error!');
 					}
 					break;
+				case 'ChangePosition':
+					if($user->Authentication() && $user->type == "administrator"){
+						$product->GetProduct(array('product_id' => $_POST['product_id']));
+						$product->PositionChangeProcess(array('product_id' => $product->id));
+						$api->successMessage('Position\'s changed!','',$dataset);
+					}
+					else{
+						$api->errorMessage('Access Token Error!');
+					}
+					break;
 				default:
 					break;
 			}

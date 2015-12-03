@@ -1,5 +1,11 @@
 <header class="header">
-	<div class="logo">Administrator.</div>
+	<div class="logo"><a href="index.php">Admin</a></div>
+
+	<a href="../">
+	<div class="btn">View Site</div>
+	</a>
+
+
 	<div class="account">
 		<div class="avatar">
 			<?php if(empty($user->facebook_id)){?>
@@ -15,6 +21,6 @@
 		<a href="index.php"><li class="<?php echo ($current_page == "order"?'active':'');?>">Orders<?php echo ($order->NotificationChecking()>0?' ('.$order->NotificationChecking().')':'');?></li></a>
 		<a href="product.php"><li class="<?php echo ($current_page == "product"?'active':'');?>">Products</li></a>
 		<a href="analytics.php"><li class="<?php echo ($current_page == "analytics"?'active':'');?>">Analytics</li></a>
-		<a href="setting.php"><li class="right <?php echo ($current_page == "setting"?'active':'');?>">Setting</li></a>
+		<a href="setting.php"><li class="right <?php echo ($current_page == "setting"?'active':'');?>">More</li></a>
 	</ul>
 </nav>

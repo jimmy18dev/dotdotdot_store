@@ -42,10 +42,10 @@ $current_page = "order";
 
 	<!-- Order filter -->
 	<div class="filter">
-		<a href="index.php?filter=paying">
-		<div class="filter-items <?php echo ($_GET['filter'] == "paying"?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-barcode"></i></div>
-			<div class="filter-items-caption">ชำระเงิน</div>
+		<a href="index.php?">
+		<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
+			<div class="filter-items-icon"><i class="fa fa-list"></i></div>
+			<div class="filter-items-caption">ทั้งหมด</div>
 		</div>
 		</a>
 		<a href="index.php?filter=transferrequest">
@@ -59,13 +59,6 @@ $current_page = "order";
 		<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
 			<div class="filter-items-icon"><i class="fa fa-check"></i></div>
 			<div class="filter-items-caption">ชำระแล้ว</div>
-		</div>
-		</a>
-
-		<a href="index.php?filter=shipping">
-		<div class="filter-items <?php echo ($_GET['filter'] == "shipping"?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-truck"></i></div>
-			<div class="filter-items-caption">รอรับของ</div>
 		</div>
 		</a>
 
