@@ -157,7 +157,7 @@ class OrderController extends OrderModel{
 			// Update order summary
 			$this->UpdateOrderProcess($param);
 
-			// add product to order success.
+			// Return True for add product to order Success.
 			return true;
 		}
 		else{
@@ -396,12 +396,27 @@ class OrderController extends OrderModel{
 		foreach ($dataset as $var){
 	    	$quantity_now = parent::CheckProductQuantityProcess(array('product_id' => $var['product_id']));
 
-	    	if($action == 'subtraction')
+	    	if($action == 'subtraction'){
 	    		$quantity = $quantity_now - $var['product_amount'];
-	    	else if($action == 'restore')
+                // Save activity log
+                parent::CreateProductActivityProcess(array(
+                    'product_id'    => $var['product_id'],
+                    'action'        => 'SoldOut',
+                    'value'         => $var['product_amount'],
+                    'ref_id'        => $var['odt_id'],
+                ));
+            }
+	    	else if($action == 'restore'){
 	    		$quantity = $quantity_now + $var['product_amount'];
-	    	else
+                // Delete Activity Log
+                parent::DeleteProductActivityProcess(array(
+                    'product_id'    => $var['product_id'],
+                    'ref_id'        => $var['odt_id'],
+                ));
+            }
+	    	else{
 	    		return false;
+            }
 
             // Update Product Quantity
 	    	parent::UpdateProductQuantityProcess(array('product_id' => $var['product_id'],'quantity' => $quantity));
@@ -427,6 +442,10 @@ class OrderController extends OrderModel{
                 parent::OrderExpireProcess(array('order_id' => $var['od_id']));
             }
     	}
+    }
+
+    public function CreateProductActivity($param){
+        parent::CreateProductActivityProcess($param);
     }
 }
 ?>

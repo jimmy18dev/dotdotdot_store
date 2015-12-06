@@ -33,11 +33,18 @@ else{
 <a href="order_detail.php?id=<?php echo $var['od_id'];?>">
 <div class="order-items <?php echo ($var['od_admin_read'] == "open"?'order-unread':'');?>">
 	<div class="detail">
-		<p><span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span> ใบสั่งซื้อ: <?php echo $var['od_id'];?> <i class="fa fa-user"></i> <?php echo $var['me_name'];?></p>
-		<p class="mini">ยอดชำระ <?php echo number_format($var['od_payments']+50,2);?> บาท · สินค้า <?php echo $var['od_amount'];?> ชิ้น · <?php echo $var['od_total'];?> รายการ</p>
+		<p>
+			<?php if($var['od_admin_read'] == "open"){?><span class="unread"><i class="fa fa-circle"></i></span><?php }?>
+			รายการสั่งซื้อที่ <?php echo $var['od_id'];?> โดย คุณ <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
+		<p class="mini">
+			<span class="time"><i class="fa fa-clock-o"></i><?php echo $var['order_update_time_facebook_format'];?></span>
+			<span class="admin"><i class="fa fa-user"></i>Puwadon Sricharoen</span>
+		</p>
 	</div>
 	<div class="summary">
-		<p class="total"><?php echo $var['order_update_time_facebook_format'];?></p>
+		<p><span class="paid"><i class="fa fa-check"></i>จ่ายแล้ว</span></p>
+		<!-- <p><span class="pay">ยังไม่จ่าย</span></p> -->
+		<p class="mini"><?php echo number_format($var['od_payments']+50);?> <span class="currency">บาท</span></p>
 	</div>
 </div>
 </a>

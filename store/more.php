@@ -2,7 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
-$current_page = "product";
+$current_page = "more";
 ?>
 
 <!DOCTYPE html>
@@ -25,7 +25,7 @@ $current_page = "product";
 //include'favicon.php';
 ?>
 
-<title>รายการสินค้า</title>
+<title>Setting</title>
 
 <!-- CSS -->
 <link rel="stylesheet" type="text/css" href="css/reset.css"/>
@@ -34,30 +34,43 @@ $current_page = "product";
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="js/service/product.service.js"></script>
 
 </head>
 
 <body>
 <?php include'header.php';?>
 <div class="container">
+	<div class="topic">
+		<div class="topic-caption">Setting</div>
+	</div>
+
 	<div class="content">
-		<a href="product_editor.php">
-		<div class="create-product-btn">
-			<div class="icon"><i class="fa fa-th"></i></div>
-			<div class="caption">
-				<p>เพิ่มสินค้าใหม่</p>
-				<p class="tip">กดปุ่มนี้ เพื่อเพิ่มสินค้าชิ้นใหม่ในร้านของคุณ</p>
-			</div>
+
+		<a href="customer.php">
+		<div class="setting-items">
+			<div class="setting-items-icon"><i class="fa fa-users"></i></div>
+			<div class="setting-items-caption">ลูกค้า</div>
 		</div>
 		</a>
 
-		<div class="product-topic-caption">
-			<div class="product-topic-caption-img">รูปภาพ</div>
-			<div class="product-topic-caption-title">รายการ</div>
-			<div class="product-topic-caption-quantity">จำนวน</div>
+		<a href="bank.php">
+		<div class="setting-items">
+			<div class="setting-items-icon"><i class="fa fa-university"></i></div>
+			<div class="setting-items-caption">บัญชีธนาคาร</div>
 		</div>
-		<?php $product->ListProduct(array('null' => 0));?>
+		</a>
+
+		<div class="setting-items">
+			<div class="setting-items-icon"><i class="fa fa-cog"></i></div>
+			<div class="setting-items-caption">ตั้งค่า</div>
+		</div>
+
+		<a href="version-log.php">
+		<div class="setting-items">
+			<div class="setting-items-icon"><i class="fa fa-flag"></i></div>
+			<div class="setting-items-caption">อัพเดท</div>
+		</div>
+		</a>
 	</div>
 </div>
 </body>

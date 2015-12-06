@@ -16,6 +16,22 @@ if($_POST['calling'] != ''){
 						// return value
 						// - message for action status.
 						// - return for current order id.
+
+						/*
+						if($msg_return){
+							// Save activity log
+							$product->CreateActivity(array(
+								'token' 		=> $user->token,
+								'admin_id'      => $user->id,
+	            				'product_id'    => $_POST['product_id'],
+	            				'action'        => 'SoldOut',
+	            				'value'         => $_POST['amount'],
+	            				'deescription'  => '',
+	            				'ref_id' 		=> $_POST['product_id'],
+							));
+						}
+						*/
+
 						$api->successMessage($msg_return,$user->current_order_id,'');
 					}
 					else{

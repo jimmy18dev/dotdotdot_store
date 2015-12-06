@@ -39,43 +39,41 @@ $current_page = "order";
 <?php include'header.php';?>
 
 <div class="container">
-
-	<!-- Order filter -->
-	<div class="filter">
-		<a href="index.php?">
-		<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-list"></i></div>
-			<div class="filter-items-caption">ทั้งหมด</div>
-		</div>
-		</a>
-		<a href="index.php?filter=transferrequest">
-		<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-money"></i></div>
-			<div class="filter-items-caption">โอนเงิน</div>
-		</div>
-		</a>
-
-		<a href="index.php?filter=transfersuccess">
-		<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-check"></i></div>
-			<div class="filter-items-caption">ชำระแล้ว</div>
-		</div>
-		</a>
-
-		<a href="index.php?filter=complete">
-		<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
-			<div class="filter-items-icon"><i class="fa fa-check-circle"></i></div>
-			<div class="filter-items-caption">เรียบร้อย</div>
-		</div>
-		</a>
-	</div>
-
 	<div class="content">
-		<?php
-		$order->ListOrder(array(
-			'filter' => $_GET['filter'],
-		));
-		?>
+
+		<!-- Order filter -->
+		<div class="filter">
+
+			<a href="index.php?filter=complete">
+			<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
+				<span class="filter-items-icon"><i class="fa fa-check-circle"></i></span>
+				<span class="filter-items-caption">เรียบร้อย</span>
+			</div>
+			</a>
+
+			<a href="index.php?filter=transfersuccess">
+			<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
+				<span class="filter-items-icon"><i class="fa fa-check"></i></span>
+				<span class="filter-items-caption">ชำระแล้ว</span>
+			</div>
+			</a>
+
+			<a href="index.php?filter=transferrequest">
+			<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
+				<span class="filter-items-icon"><i class="fa fa-money"></i></span>
+				<span class="filter-items-caption">โอนเงิน</span>
+			</div>
+			</a>
+
+			<a href="index.php?">
+			<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
+				<span class="filter-items-icon"><i class="fa fa-list"></i></span>
+				<span class="filter-items-caption">ทั้งหมด</span>
+			</div>
+			</a>
+		</div>
+
+		<?php $order->ListOrder(array('filter' => $_GET['filter'],));?>
 	</div>
 </div>
 </body>

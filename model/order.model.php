@@ -303,5 +303,33 @@ class OrderModel extends Database{
 		$data = parent::single();
 		return $data['od_address'];
 	}
+
+	// Product Activity /////////////////////////////////
+	public function CreateProductActivityProcess($param){
+		parent::query('INSERT INTO dd_product_activity(pdac_token,pdac_admin_id,pdac_product_id,pdac_action,pdac_value,pdac_description,pdac_ref_id,pdac_ip,pdac_time) VALUE(:token,:admin_id,:product_id,:action,:value,:description,:ref_id,:ip,:time)');
+
+		parent::bind(':token', 			$param['token']);
+		parent::bind(':admin_id', 		$param['admin_id']);
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::bind(':action', 		$param['action']);
+		parent::bind(':value', 			$param['value']);
+		parent::bind(':description', 	$param['description']);
+		parent::bind(':ref_id', 		$param['ref_id']);
+		parent::bind(':ip',				parent::GetIpAddress());
+		parent::bind(':time',			date('Y-m-d H:i:s'));
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+
+	public function DeleteProductActivityProcess($param){
+		parent::query('DELETE FROM dd_product_activity WHERE pdac_action = "SoldOut" AND pdac_product_id = :product_id AND pdac_ref_id = :ref_id');
+
+		parent::bind(':product_id', 	$param['product_id']);
+		parent::bind(':ref_id', 		$param['ref_id']);
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
 }
 ?>

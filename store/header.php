@@ -1,10 +1,9 @@
 <header class="header">
-	<div class="logo"><a href="index.php">Admin</a></div>
+	<div class="menu">
+		<a href="index.php"><div class="btn">รายการสั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
+	</div>
 
-	<a href="../">
-	<div class="btn">View Site</div>
-	</a>
-
+	<div class="logo"><a href="index.php">Administrator</a></div>
 
 	<div class="account">
 		<div class="avatar">
@@ -18,9 +17,18 @@
 </header>
 <nav class="navigator">
 	<ul>
-		<a href="index.php"><li class="<?php echo ($current_page == "order"?'active':'');?>">Orders<?php echo ($order->NotificationChecking()>0?' ('.$order->NotificationChecking().')':'');?></li></a>
-		<a href="product.php"><li class="<?php echo ($current_page == "product"?'active':'');?>">Products</li></a>
-		<a href="analytics.php"><li class="<?php echo ($current_page == "analytics"?'active':'');?>">Analytics</li></a>
-		<a href="setting.php"><li class="right <?php echo ($current_page == "setting"?'active':'');?>">More</li></a>
+		<a href="product.php"><li class="<?php echo ($current_page == "product"?'active':'');?>">
+			<span class="icon"><i class="fa fa-th"></i></span><span class="caption">สินค้า</span></li>
+		</a>
+		<a href="analytics.php"><li class="<?php echo ($current_page == "analytics"?'active':'');?>">
+			<span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">วิเคราะห์</span></li>
+		</a>
+		<a href="setting.php"><li class="<?php echo ($current_page == "setting"?'active':'');?>">
+			<span class="icon"><i class="fa fa-cog"></i></span><span class="caption">ตั้งค่า</span></li>
+		</a>
+		<a href="more.php"><li class="<?php echo ($current_page == "more"?'active':'');?>">
+			<span class="icon"><i class="fa fa-ellipsis-h"></i></span><span class="caption">เพิ่มเติม</span></li>
+		</a>
+		<a href="../"><li class="right"><span class="icon"><i class="fa fa-television"></i></span><span class="caption">หน้าร้าน</span></li></a>
 	</ul>
 </nav>

@@ -246,8 +246,21 @@ class ProductModel extends Database{
 	}
 
 	// Product Import/Export History
+	// public function HistoryProductProcess($param){
+	// 	parent::query('SELECT pdac_id,pdac_action,pdac_value,pdac_description,pdac_time,me_id,me_name FROM dd_product_activity LEFT JOIN dd_member ON pdac_admin_id = me_id WHERE pdac_product_id = :product_id ORDER BY pdac_time DESC');
+	// 	parent::bind(':product_id', $param['product_id']);
+	// 	parent::execute();
+	// 	$dataset = parent::resultset();
+
+	// 	foreach ($dataset as $k => $var) {
+	// 		$dataset[$k]['create_time_thai_format'] = parent::date_thaiformat($var['pdac_time']);
+	// 	}
+
+	// 	return $dataset;
+	// }
+
 	public function HistoryProductProcess($param){
-		parent::query('SELECT pdac_id,pdac_action,pdac_value,pdac_description,pdac_time,me_id,me_name FROM dd_product_activity LEFT JOIN dd_member ON pdac_admin_id = me_id WHERE pdac_product_id = :product_id ORDER BY pdac_time DESC');
+		parent::query('SELECT pdac_id,admin.me_id admin_id,admin.me_name admin_name,pdac_action,pdac_value,od_id,customer.me_id  customer_id,customer.me_name customer_name,od_status FROM dd_product_activity LEFT JOIN dd_order_detail ON pdac_ref_id = odt_id LEFT JOIN dd_order ON odt_order_id = od_id LEFT JOIN dd_member AS customer ON od_member_id = customer.me_id LEFT JOIN dd_member AS admin ON pdac_admin_id = admin.me_id WHERE pdac_product_id = :product_id AND (pdac_action = "import" OR pdac_action = "export" OR pdac_action = "SoldOut") ORDER BY pdac_time ASC');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		$dataset = parent::resultset();
