@@ -2,6 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+$current_page = "product_editor";
 
 if(isset($_GET['id'])){
 	$product->GetProduct(array('product_id' => $_GET['id']));
@@ -56,20 +57,14 @@ else
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="topic">
-		<?php if(isset($_GET['parent'])||$product->type=="sub"){?>
-		<div class="topic-caption">เพิ่มสินค้าย่อย</div>
-		<?php }else{?>
-		<div class="topic-caption">เพิ่มสินค้าใหม่</div>
-		<?php }?>
-	</div>
-
 	<div class="content content-container">
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
 			<div class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
-				<div class="image-input-button"><i class="fa fa-camera"></i>เลือกภาพสินค้า</div>
-				<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
+				<div class="image-input-button">
+					<!-- <i class="fa fa-camera"></i>เลือกภาพสินค้า -->
+					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
+				</div>
 
 				<div class="image-container">
 					<!-- <div class="image-items">
@@ -89,24 +84,19 @@ else
 					<textarea class="input-text input-textarea" name="description" placeholder="description"><?php echo $product->description;?></textarea>
 				</div>
 			</div>
-			<div class="form-items">
+			<div class="form-items form-items-half">
+				<div class="caption">ราคาต่อชิ้น (บาท)</div>
+				<div class="input">
+					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
+				</div>
+			</div>
+			<div class="form-items form-items-half">
 				<div class="caption">Code</div>
 				<div class="input">
 					<input type="text" class="input-text" name="code" value="<?php echo $product->code;?>">
 				</div>
 			</div>
-			<!-- <div class="form-items">
-				<div class="caption">จำนวน</div>
-				<div class="input">
-					<input type="text" class="input-text" name="quantity" placeholder="quantity" value="<?php echo (empty($product->quantity)?0:$product->quantity);?>">
-				</div>
-			</div> -->
-			<div class="form-items">
-				<div class="caption">ราคาต่อชิ้น</div>
-				<div class="input">
-					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
-				</div>
-			</div>
+			
 			<div class="form-submit">
 				<button type="submit" class="submit-button"><i class="fa fa-check"></i>SAVE</button>
 			</div>

@@ -18,9 +18,7 @@ require_once'config/autoload.php';
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">	
 
-<?php
-//include'favicon.php';
-?>
+<?php include'favicon.php';?>
 
 <title>500 Internal Server Error</title>
 

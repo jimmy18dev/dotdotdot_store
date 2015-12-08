@@ -45,30 +45,29 @@ $current_page = "setting";
 	</div>
 
 	<div class="content">
-
 		<a href="customer.php">
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-users"></i></div>
-			<div class="setting-items-caption">ลูกค้า</div>
+		<div class="setting-btn">
+			<div class="setting-btn-icon"><i class="fa fa-users"></i></div>
+			<div class="setting-btn-caption">ลูกค้า</div>
 		</div>
 		</a>
 
 		<a href="bank.php">
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-university"></i></div>
-			<div class="setting-items-caption">บัญชีธนาคาร</div>
+		<div class="setting-btn">
+			<div class="setting-btn-icon"><i class="fa fa-university"></i></div>
+			<div class="setting-btn-caption">บัญชีธนาคาร</div>
 		</div>
 		</a>
 
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-cog"></i></div>
-			<div class="setting-items-caption">ตั้งค่า</div>
+		<div class="setting-btn">
+			<div class="setting-btn-icon"><i class="fa fa-cog"></i></div>
+			<div class="setting-btn-caption">ตั้งค่า</div>
 		</div>
 
 		<a href="version-log.php">
-		<div class="setting-items">
-			<div class="setting-items-icon"><i class="fa fa-flag"></i></div>
-			<div class="setting-items-caption">อัพเดท</div>
+		<div class="setting-btn">
+			<div class="setting-btn-icon"><i class="fa fa-flag"></i></div>
+			<div class="setting-btn-caption">อัพเดท</div>
 		</div>
 		</a>
 	</div>

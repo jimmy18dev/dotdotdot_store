@@ -35,16 +35,21 @@ else{
 	<div class="detail">
 		<p>
 			<?php if($var['od_admin_read'] == "open"){?><span class="unread"><i class="fa fa-circle"></i></span><?php }?>
-			รายการสั่งซื้อที่ <?php echo $var['od_id'];?> โดย คุณ <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
+			รายการที่ <?php echo $var['od_id'];?> คุณ <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
 		<p class="mini">
+			<span class="payment"><?php echo number_format($var['od_payments']+50);?> บาท</span>
 			<span class="time"><i class="fa fa-clock-o"></i><?php echo $var['order_update_time_facebook_format'];?></span>
 			<span class="admin"><i class="fa fa-user"></i>Puwadon Sricharoen</span>
 		</p>
 	</div>
 	<div class="summary">
-		<p><span class="paid"><i class="fa fa-check"></i>จ่ายแล้ว</span></p>
-		<!-- <p><span class="pay">ยังไม่จ่าย</span></p> -->
-		<p class="mini"><?php echo number_format($var['od_payments']+50);?> <span class="currency">บาท</span></p>
+		<p>
+			<?php if($var['od_status'] == "TransferSuccess" || $var['od_status'] == "Shipping" || $var['od_status'] == "Complete"){?>
+			<span class="paid"><i class="fa fa-check"></i>จ่ายแล้ว</span>
+			<?php }else{?>
+			<span class="pay">ยังไม่จ่าย</span>
+			<?php }?>
+		</p>
 	</div>
 </div>
 </a>

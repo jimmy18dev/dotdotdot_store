@@ -40,10 +40,8 @@ $current_page = "order";
 
 <div class="container">
 	<div class="content">
-
 		<!-- Order filter -->
-		<div class="filter">
-
+		<div class="tab-filter">
 			<a href="index.php?filter=complete">
 			<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
 				<span class="filter-items-icon"><i class="fa fa-check-circle"></i></span>

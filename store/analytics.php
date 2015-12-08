@@ -40,11 +40,7 @@ $current_page = "analytics";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">Analytics</div>
-	</div>
-
-	<div class="content content-container">
+	<div class="content">
 		<div class="alert">
 			ข้อมูลยังไม่เพียงพอสำหรับการวิเคราะห์ข้อมูล!
 		</div>

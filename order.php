@@ -38,9 +38,7 @@ $current_page = "order";
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">	
 
-<?php
-//include'favicon.php';
-?>
+<?php include'favicon.php';?>
 
 <title>ใบสั่งซื้อ <?php echo $order->id;?></title>
 

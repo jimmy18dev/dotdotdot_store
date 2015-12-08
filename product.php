@@ -25,10 +25,11 @@ $product->UpdateView(array('product_id' => $product->id));
 <!-- Viewport (Responsive) -->
 <meta name="viewport" content="width=device-width">
 <meta name="viewport" content="user-scalable=no">
-<meta name="viewport" content="initial-scale=1,maximum-scale=1">	
+<meta name="viewport" content="initial-scale=1,maximum-scale=1">
+
+<?php include'favicon.php';?>
 
 <?php
-// include'favicon.php';
 $page_title = $product->title.' - '.$metadata['title'];
 $page_description = $product->description;
 $page_url = $metadata['domain'].'/product-'.$product->id.'.html';
@@ -106,10 +107,10 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 			<div class="description"><?php echo $product->description;?></div>
 
 			<p class="info">
-				<?php if($product->quantity > 5){?>
-				<span class="view">แสดงสินค้า <?php echo number_format($product->read);?> ครั้ง</span>
+				<?php if($product->quantity > 5 || $product->type == "root"){?>
+				<span class="view">แสดงสินค้าแล้ว <?php echo number_format($product->read);?> ครั้ง</span>
 				<?php }else{?>
-				<span class="view"> มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
+				<span class="view">มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
 				<?php }?>
 
 				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>

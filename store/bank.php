@@ -2,7 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
-$current_page = "customer";
+$current_page = "bank";
 ?>
 
 <!DOCTYPE html>
@@ -41,12 +41,17 @@ $current_page = "customer";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">Bank</div>
-		<a href="bank-editor.php">New Bank Account</a>
-	</div>
-
 	<div class="content">
+		<a href="bank-editor.php">
+		<div class="create-btn">
+			<div class="icon"><i class="fa fa-th"></i></div>
+			<div class="caption">
+				<p>เพิ่มบัญชีธนาคาร</p>
+				<p class="tip">กดปุ่มนี้ เพื่อเพิ่มบัญชีธนาคารใหม่ในร้านของคุณ</p>
+			</div>
+		</div>
+		</a>
+
 		<?php echo $bank->ListBank(array('id' => 0));?>
 	</div>
 </div>

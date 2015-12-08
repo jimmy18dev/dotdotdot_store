@@ -40,12 +40,8 @@ $current_page = "customer";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">Customer</div>
-	</div>
-
 	<div class="content">
-		<?php for($i=0;$i<10;$i++){$user->ListAllMember(array('id' => 0));}?>
+		<?php $user->ListAllMember(array('id' => 0));?>
 	</div>
 </div>
 </body>

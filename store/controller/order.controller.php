@@ -154,8 +154,14 @@ class OrderController extends OrderModel{
     }
 
     private function RenderOrder($mode,$data){
+        $loop = 0;
         foreach ($data as $var){
         	include'template/order/order.items.php';
+            $loop++;
+        }
+
+        if($loop == 0){
+            include'template/order/order.empty.items.php';
         }
         unset($data);
     }

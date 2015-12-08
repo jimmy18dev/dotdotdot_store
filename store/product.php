@@ -43,7 +43,7 @@ $current_page = "product";
 <div class="container">
 	<div class="content">
 		<a href="product_editor.php">
-		<div class="create-product-btn">
+		<div class="create-btn">
 			<div class="icon"><i class="fa fa-th"></i></div>
 			<div class="caption">
 				<p>เพิ่มสินค้าใหม่</p>

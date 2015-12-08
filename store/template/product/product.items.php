@@ -8,7 +8,13 @@ if($var['pd_status'] != "active"){
 
 <div class="product-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
 	<div class="product-thumbnail">
-		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><img src="../image/upload/thumbnail/<?php echo $var['im_filename'];?>"></a>
+		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
+		<?php if(empty($var['im_filename'])){?>
+		<img src="image/no-image.jpg" alt="">
+		<?php }else{?>
+		<img src="../image/upload/thumbnail/<?php echo $var['im_filename'];?>">
+		<?php }?>
+		</a>
 	</div>
 
 	<?php if($var['pd_type'] == "root"){{?>
@@ -34,11 +40,11 @@ if($var['pd_status'] != "active"){
 				<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
 				<span class="status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i> ย้ายขึ้น</span>
 
-				<a href="product_editor.php?id=<?php echo $product->id;?>"><i class="fa fa-cog"></i> <span class="link-caption">แก้ไข</span></a>
-				<a href="quantity.php?id=<?php echo $product->id;?>&action=export"><i class="fa fa-arrow-left"></i> <span class="link-caption">โอนออก</span></a>
-				<a href="quantity.php?id=<?php echo $product->id;?>&action=import"><i class="fa fa-plus"></i> <span class="link-caption">นำเข้า</span></a>
+				<a href="product_editor.php?id=<?php echo $var['pd_id'];?>"><i class="fa fa-cog"></i> <span class="link-caption">แก้ไข</span></a>
+				<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=export"><i class="fa fa-arrow-left"></i> <span class="link-caption">โอนออก</span></a>
+				<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=import"><i class="fa fa-plus"></i> <span class="link-caption">นำเข้า</span></a>
 				
-				<a href="product_editor.php?parent=<?php echo $product->id;?>"><i class="fa fa-list"></i> เพิ่มสินค้าย่อย</a>
+				<a href="product_editor.php?parent=<?php echo $var['pd_id'];?>"><i class="fa fa-files-o"></i> เพิ่มสินค้าย่อย</a>
 			</p>
 		</div>
 		<div class="quantity"><?php echo $var['pd_quantity'];?></div>

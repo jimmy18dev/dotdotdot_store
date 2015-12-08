@@ -2,6 +2,7 @@
 class ProductController extends ProductModel{
 	public $id;
 	public $parent;
+    public $parent_title;
 	public $code;
 	public $title;
 	public $description;
@@ -26,15 +27,16 @@ class ProductController extends ProductModel{
 	public function GetProduct($param){
         $data = parent::GetProductProcess($param);
 
-        $this->id = $data['pd_id'];
-        $this->parent = $data['pd_parent'];
-        $this->code = $data['pd_code'];
-        $this->title = $data['pd_title'];
-        $this->description = $data['pd_description'];
-        $this->quantity = $data['pd_quantity'];
-        $this->price = $data['pd_price'];
-        $this->view = $data['pd_view'];
-        $this->read = $data['pd_read'];
+        $this->id           = $data['pd_id'];
+        $this->parent       = $data['pd_parent'];
+        $this->parent_title = $data['parent_title'];
+        $this->code         = $data['pd_code'];
+        $this->title        = $data['pd_title'];
+        $this->description  = $data['pd_description'];
+        $this->quantity     = $data['pd_quantity'];
+        $this->price        = $data['pd_price'];
+        $this->view         = $data['pd_view'];
+        $this->read         = $data['pd_read'];
 
         if($this->view == 0){
             $this->interest_ratio = 0;
@@ -43,13 +45,13 @@ class ProductController extends ProductModel{
             $this->interest_ratio = (($this->read*100)/$this->view);    
         }
         
-        $this->create_time = $data['pd_create_time'];
-        $this->update_time = $data['pd_update_time'];
-        $this->group = $data['pd_group'];
-        $this->type = $data['pd_type'];
-        $this->status = $data['pd_status'];
+        $this->create_time  = $data['pd_create_time'];
+        $this->update_time  = $data['pd_update_time'];
+        $this->group        = $data['pd_group'];
+        $this->type         = $data['pd_type'];
+        $this->status       = $data['pd_status'];
 
-        $this->image_id = $data['im_id'];
+        $this->image_id     = $data['im_id'];
         $this->image_filename = $data['im_filename'];
         $this->image_format = $data['im_format'];
 

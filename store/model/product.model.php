@@ -139,7 +139,7 @@ class ProductModel extends Database{
 
 	// Get and List
 	public function GetProductProcess($param){
-		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_view,pd_read,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_id,im_filename,im_format,(SELECT COUNT(odt_amount) FROM dd_order_detail LEFT JOIN dd_order ON od_id = odt_order_id WHERE odt_product_id = 2) total_in_order FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND im_type = "cover" WHERE pd_id = :product_id');
+		parent::query('SELECT product.pd_id,product.pd_parent,product.pd_code,product.pd_title,product.pd_description,product.pd_quantity,product.pd_price,product.pd_view,product.pd_read,product.pd_create_time,product.pd_update_time,product.pd_group,product.pd_type,product.pd_status,(SELECT COUNT(odt_amount) FROM dd_order_detail LEFT JOIN dd_order ON od_id = odt_order_id WHERE odt_product_id = :product_id) total_in_order,im_id,im_id,im_filename,im_format,parent.pd_title parent_title FROM dd_product AS product LEFT JOIN dd_image ON product.pd_id = im_product_id AND im_type = "cover" LEFT JOIN dd_product AS parent ON product.pd_parent =parent.pd_id WHERE product.pd_id = :product_id');
 		parent::bind(':product_id', $param['product_id']);
 		parent::execute();
 		return parent::single();

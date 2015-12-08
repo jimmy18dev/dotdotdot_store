@@ -53,7 +53,7 @@ button {
 }
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #fafafa;
+  background: #f7f7f7;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -122,7 +122,7 @@ Copyright (c) 2015 Daniel Eden
   height: 50px;
   float: left;
   display: inline-block;
-  background: #000000;
+  background: #333333;
   z-index: 99;
 }
 .header .menu {
@@ -155,9 +155,9 @@ Copyright (c) 2015 Daniel Eden
   width: 40%;
   float: left;
   display: inline-block;
-  font-size: 1.3em;
-  padding: 13px 0px;
-  height: 24px;
+  font-size: 1em;
+  padding: 16px 0px;
+  height: 18px;
   color: rgba(0, 0, 0, 0.9);
   text-align: center;
 }
@@ -194,13 +194,13 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .navigator ul li {
-  padding: 2% 0%;
-  margin-right: 4%;
+  padding: 2%;
+  margin-right: 0%;
   float: left;
   display: inline-block;
   border-bottom: 1px solid transparent;
   font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.44);
+  color: #777777;
   text-align: center;
 }
 .navigator ul li i {
@@ -208,33 +208,38 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
 }
 .navigator ul li:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: #333333;
+}
+.navigator ul li:active {
+  background: #F8F8F8;
 }
 .navigator ul li.active {
-  color: rgba(0, 0, 0, 0.9);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.9);
+  color: #333333;
+  border-bottom: 1px solid #333333;
 }
 .navigator ul li.right {
   float: right;
   margin-right: 0%;
+  padding: 2% 0%;
 }
 .versionlog {
   line-height: 1.6em;
+  margin: 3% 0%;
 }
 .versionlog h1 {
   font-size: 1.5em;
   line-height: 2em;
-  color: #000000;
+  color: #333333;
 }
 .versionlog h2 {
   font-size: 1em;
   line-height: 2em;
-  color: #000000;
+  color: #333333;
 }
 .versionlog h3 {
   font-size: 0.9em;
   font-weight: bold;
-  color: #000000;
+  color: #333333;
 }
 .versionlog h3 .date {
   font-weight: normal;
@@ -242,7 +247,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .versionlog p {
   font-size: 0.9em;
-  color: #555555;
+  color: #333333;
 }
 .versionlog p.warning {
   padding: 1% 0%;
@@ -267,93 +272,38 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .topic {
-  width: 100%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-  color: #AAAAAA;
-  font-size: 0.9em;
-}
-.container .topic .topic-caption {
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-}
-.container .topic .topic-filter {
-  padding: 3% 0%;
-  float: right;
-  display: inline-block;
-}
-.container .topic .topic-filter a {
-  text-decoration: none;
-  margin-left: 10px;
-  color: rgba(0, 0, 0, 0.44);
-}
-.container .topic .topic-filter a i {
-  margin-right: 5px;
-  font-size: 0.8em;
-}
-.container .topic .topic-filter a.paying {
-  color: #E91E63;
-}
-.container .topic .topic-filter a.transferrequest {
-  color: #3F51B5;
-}
-.container .topic .topic-filter a.transferagain {
-  color: #FFC107;
-}
-.container .topic .topic-filter a.transfersuccess {
-  color: #8BC34A;
-}
-.container .topic .topic-filter a.shipping {
-  color: #2196F3;
-}
-.container .topic .topic-filter a.complete {
-  color: #4CAF50;
-}
-.container .topic .button {
-  float: right;
-  padding: 2%;
-  margin: 0.5% 0%;
-  display: inline-block;
-  background: #555555;
-  color: #FFFFFF;
-  border-radius: 2px;
-}
-.container .filter {
+.container .tab-filter {
   width: 100%;
   float: left;
   display: inline-block;
   margin-bottom: 2%;
 }
-.container .filter .filter-items {
+.container .tab-filter .filter-items {
   float: right;
   display: inline-block;
   text-align: center;
-  color: rgba(0, 0, 0, 0.1);
   margin-left: 2%;
+  color: #AAAAAA;
 }
-.container .filter .filter-items .filter-items-icon {
+.container .tab-filter .filter-items .filter-items-icon {
   font-size: 0.7em;
   line-height: 1.5em;
   margin-bottom: 1%;
-  display: none;
+  margin-right: 3px;
+  color: #F7F7F7;
 }
-.container .filter .filter-items .filter-items-caption {
+.container .tab-filter .filter-items .filter-items-caption {
   font-size: 0.9em;
   line-height: 1.5em;
 }
-.container .filter .filter-items:hover {
+.container .tab-filter .filter-items:hover {
   cursor: pointer;
-  text-decoration: underline;
 }
-.container .filter .filter-items-active {
-  color: rgba(0, 0, 0, 0.9);
-  font-weight: bold;
+.container .tab-filter .filter-items-active {
+  color: #000000;
 }
-.container .filter .filter-items-active .filter-items-icon {
-  display: inline-block;
+.container .tab-filter .filter-items-active .filter-items-icon {
+  color: #000000;
 }
 .container .content {
   width: 100%;
@@ -361,36 +311,76 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   margin: 5% 0%;
 }
+.container .content .tab {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #F7F7F7;
+}
+.container .content .tab a {
+  padding: 2% 3%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #AAAAAA;
+}
+.container .content .tab a:hover {
+  color: #000000;
+}
+.container .content .tab a.right {
+  float: right;
+}
+.container .content .tab a.active {
+  color: #000000;
+  background: #FFFFFF;
+}
+.container .content .tab i {
+  margin-right: 10px;
+}
 .container .content .alert {
   width: 94%;
-  padding: 3%;
+  padding: 10% 3%;
   float: left;
   display: inline-block;
   text-align: center;
   font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.44);
+  color: #555555;
 }
-.container .content .setting-items {
-  width: 25%;
-  padding: 4% 0%;
+.container .content .setting-btn {
+  width: 19.9%;
+  padding: 5% 0%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
+  border-bottom: 1px solid #EEEEEE;
+  border-right: 1px solid #EEEEEE;
   text-align: center;
+  color: #333333;
 }
-.container .content .setting-items .setting-items-icon {
+.container .content .setting-btn:nth-child(5n+0) {
+  border-right: 0px;
+}
+.container .content .setting-btn:hover {
+  background: #EEEEEE;
+}
+.container .content .setting-btn:active {
+  background: #000000;
+  color: #FFFFFF;
+}
+.container .content .setting-btn .setting-btn-icon {
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1.5em;
-  margin-bottom: 2%;
+  font-size: 2em;
+  margin-bottom: 5%;
 }
-.container .content .setting-items .setting-items-caption {
+.container .content .setting-btn .setting-btn-caption {
   width: 100%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
-  font-size: 0.8em;
+  font-size: 0.9em;
 }
 .container .content .order-state {
   width: 100%;
@@ -662,90 +652,135 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .detail header.info h1 {
   font-size: 1.5em;
+  color: #000000;
+  font-weight: bold;
+}
+.container .content .detail header.info h2 {
+  font-size: 1em;
+  color: #555555;
+  font-weight: bold;
   margin-bottom: 1%;
-  color: rgba(0, 0, 0, 0.9);
 }
 .container .content .detail header.info p {
-  font-size: 0.9em;
+  font-size: 0.8em;
   color: rgba(0, 0, 0, 0.44);
 }
-.container .content .detail .image {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .image img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .imageset {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .imageset .cover {
-  width: 100%;
-}
-.container .content .detail .imageset .image-items {
-  width: 33.33%;
-  float: left;
-  display: inline-block;
-  position: relative;
-}
-.container .content .detail .imageset .image-items img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .imageset .image-items .button-cover {
-  position: absolute;
-  top: 10px;
-  right: 10px;
-  padding: 1%;
-  display: inline-block;
-  float: left;
-  font-size: 1.5em;
-  color: #FFFFFF;
-  opacity: 0.5;
-}
-.container .content .detail .imageset .image-items .button-cover:hover {
-  opacity: 1;
-  cursor: pointer;
-}
-.container .content .detail .imageset .image-items .cover-active {
-  opacity: 1;
-  color: #FFFFFF;
-}
-.container .content .detail .imageset .image-items .button-delete {
-  position: absolute;
-  bottom: 5px;
-  right: 5px;
-  padding: 2%;
-  display: inline-block;
-  float: left;
-  font-size: 0.75em;
-  background: rgba(0, 0, 0, 0.5);
-  border-radius: 2px;
-  color: #FFFFFF;
-}
-.container .content .detail .imageset .image-items .button-delete:hover {
-  cursor: pointer;
-  text-decoration: underline;
-}
-.container .content .detail .description {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
+.container .content .detail h4 {
+  font-size: 0.8em;
+  font-weight: bold;
+  color: #AAAAAA;
   line-height: 1.5em;
+  padding: 1% 0%;
+}
+.container .content .detail section.photo {
+  width: 94%;
+  padding: 0% 3%;
+  padding-bottom: 3%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail section.photo .photo-container {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail section.photo .photo-container .photo-items {
+  width: 24%;
+  float: left;
+  display: inline-block;
+  margin-right: 1%;
+}
+.container .content .detail section.photo .photo-container .photo-items img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .detail section.photo .photo-container .photo-items .setcover-btn {
+  width: 90%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  color: #AAAAAA;
+}
+.container .content .detail section.photo .photo-container .photo-items .setcover-btn:hover {
+  cursor: pointer;
+  color: #555555;
+}
+.container .content .detail section.photo .photo-container .photo-items .active {
+  font-style: italic;
+  color: #4CAF50;
+}
+.container .content .detail section.photo .photo-container .photo-items .photodelete-btn {
+  width: 10%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  color: #AAAAAA;
+}
+.container .content .detail section.photo .photo-container .photo-items .photodelete-btn:hover {
+  cursor: pointer;
+  color: #F44336;
+}
+.container .content .detail section.description {
+  width: 94%;
+  padding: 0% 3%;
+  padding-bottom: 3%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+}
+.container .content .detail section.description .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.container .content .detail section.description .control .control-items {
+  float: left;
+  display: inline-block;
+  margin-right: 1%;
+  font-size: 0.8em;
+  background: #EEEEEE;
+  padding: 0.5% 1%;
+  border-left: 1px solid #FAFAFA;
+  color: #555555;
+}
+.container .content .detail section.description .control .control-items i {
+  margin-right: 10px;
 }
 .container .content .detail .subproduct {
   width: 100%;
   float: left;
   display: inline-block;
   border-top: 1px solid #FAFAFA;
+}
+.container .content .detail .subproduct .subproduct-topic {
+  width: 94%;
+  padding: 1% 3%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  font-weight: bold;
+}
+.container .content .detail .subproduct .subproduct-btn {
+  width: 20%;
+  margin: 3% 40%;
+  padding: 1.5% 0%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+  color: #555555;
+  text-align: center;
+  font-size: 0.9em;
+}
+.container .content .detail .subproduct .subproduct-btn i {
+  margin-right: 10px;
+  font-size: 0.8em;
 }
 .container .content .detail .subproduct .sub-items {
   width: 94%;
@@ -756,8 +791,13 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   font-size: 0.9em;
 }
+.container .content .detail .subproduct .sub-items .sub-items-icon {
+  width: 5%;
+  float: left;
+  display: inline-block;
+}
 .container .content .detail .subproduct .sub-items .sub-items-detail {
-  width: 80%;
+  width: 75%;
   float: left;
   display: inline-block;
   color: rgba(0, 0, 0, 0.9);
@@ -765,11 +805,11 @@ Copyright (c) 2015 Daniel Eden
 .container .content .detail .subproduct .sub-items .sub-items-detail strong {
   font-weight: bold;
 }
-.container .content .detail .subproduct .sub-items .sub-items-detail p.id {
-  color: rgba(0, 0, 0, 0.44);
+.container .content .detail .subproduct .sub-items .sub-items-detail p {
+  font-size: 1em;
 }
-.container .content .detail .subproduct .sub-items .sub-items-detail p.info {
-  color: rgba(0, 0, 0, 0.44);
+.container .content .detail .subproduct .sub-items .sub-items-detail p.mini {
+  font-size: 0.8em;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail a {
   text-decoration: none;
@@ -789,16 +829,6 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  margin-top: 5%;
-}
-.container .content .detail .history .history-topic {
-  width: 94%;
-  padding: 2% 3%;
-  float: left;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.44);
-  font-size: 0.8em;
-  background: #FAFAFA;
 }
 .container .content .detail .history .history-items {
   width: 94%;
@@ -810,15 +840,25 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
 }
 .container .content .detail .history .history-items .history-items-icon {
-  width: 10%;
+  width: 5%;
+  margin-top: 1%;
   float: left;
   display: inline-block;
-  font-size: 1.2em;
+  font-size: 1.5em;
 }
 .container .content .detail .history .history-items .history-items-info {
-  width: 80%;
+  width: 85%;
   float: left;
   display: inline-block;
+}
+.container .content .detail .history .history-items .history-items-info p {
+  font-size: 1em;
+}
+.container .content .detail .history .history-items .history-items-info p.time {
+  font-size: 0.8em;
+}
+.container .content .detail .history .history-items .history-items-info p.time i {
+  margin-left: 5px;
 }
 .container .content .detail .history .history-items .history-items-info strong {
   font-weight: bold;
@@ -862,25 +902,6 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   color: rgba(0, 0, 0, 0.44);
 }
-.container .content .detail .control {
-  width: 94%;
-  margin: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .control .control-items {
-  float: right;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.44);
-  padding: 0% 3%;
-  font-size: 0.9em;
-  border-left: 1px solid #FAFAFA;
-}
-.container .content .detail .control .delete {
-  float: right;
-  background: #FFFFFF;
-  margin-right: 0%;
-}
 .container .content .form {
   width: 100%;
   float: left;
@@ -890,20 +911,24 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 2em;
   color: #CCCCCC;
+  font-weight: bold;
 }
 .container .content .form .input-text {
-  width: 100%;
+  width: 98%;
+  padding: 1%;
   float: left;
   display: inline-block;
   font-family: 'Open Sans', sans-serif;
   font-size: 1em;
-  border: 0px;
-  border-bottom: 1px solid #EEEEEE;
+  border: 1px solid #EEEEEE;
   line-height: 1.5em;
   outline: 0;
+}
+.container .content .form .input-select {
+  width: 100%;
 }
 .container .content .form .submit-button {
   float: right;
@@ -920,7 +945,8 @@ Copyright (c) 2015 Daniel Eden
   display: none !important;
 }
 .container .content .form .form-image {
-  width: 100%;
+  width: 94%;
+  margin: 2% 3%;
   float: left;
   display: inline-block;
 }
@@ -968,26 +994,32 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .form .form-items {
   width: 94%;
-  padding: 3%;
+  padding: 2% 3%;
   float: left;
   display: inline-block;
+}
+.container .content .form .form-items-half {
+  width: 44%;
 }
 .container .content .form .form-submit {
   width: 94%;
-  padding: 3%;
+  padding: 2% 3%;
   float: left;
   display: inline-block;
 }
+.container .content .form .form-submit i {
+  margin-right: 10px;
+}
 .container .content .user-items {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  margin-bottom: 0.5%;
+  border-bottom: 1px solid #EEEEEE;
+  margin-bottom: 1%;
 }
 .container .content .user-items .user-items-avatar {
-  width: 8%;
+  width: 9%;
   float: left;
   display: inline-block;
 }
@@ -995,41 +1027,61 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  border-radius: 50%;
 }
 .container .content .user-items .user-items-info {
-  width: 88%;
-  padding: 0% 2%;
+  width: 87%;
+  padding: 2% 2%;
   float: left;
   display: inline-block;
 }
 .container .content .user-items .user-items-info p {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #000000;
+}
+.container .content .user-items .user-items-info p.mini {
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.container .content .bank-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+  background: #FFFFFF;
+}
+.container .content .bank-items .bank-items-icon {
+  width: 9%;
+  float: left;
+  display: inline-block;
+}
+.container .content .bank-items .bank-items-icon img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .content .bank-items .bank-items-detail {
+  width: 87%;
+  padding: 1% 2%;
+  float: left;
+  display: inline-block;
+}
+.container .content .bank-items .bank-items-detail p {
   font-size: 0.9em;
   line-height: 1.5em;
 }
-.container .content .user-items .user-items-info p.big {
-  font-size: 1.5em;
+.container .content .bank-items .bank-items-detail a {
+  float: right;
+  color: #555555;
+  text-decoration: none;
 }
-.container .content .bank-items {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 0.5%;
-  background: #FFFFFF;
+.container .content .bank-items .bank-items-detail a i {
+  margin-right: 5px;
+  font-size: 0.8em;
 }
-.container .content .bank-items img {
-  height: 20px;
-  float: left;
-  display: inline-block;
-  margin-right: 10px;
-}
-.container .content .bank-items p {
-  font-size: 1em;
-  line-height: 1.5em;
-}
-.container .content .bank-items p.big {
-  font-size: 1.5em;
+.container .content .bank-items .bank-items-detail strong {
+  font-weight: bold;
+  font-size: 1.2em;
 }
 .container .content .product-topic-caption {
   width: 100%;
@@ -1057,7 +1109,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: center;
 }
-.container .content .create-product-btn {
+.container .content .create-btn {
   width: 100%;
   padding: 2% 0%;
   float: left;
@@ -1065,39 +1117,37 @@ Copyright (c) 2015 Daniel Eden
   background: #FFFFFF;
   margin-bottom: 2%;
   border: 1px dashed #CCCCCC;
+  color: #333333;
 }
-.container .content .create-product-btn:hover {
-  border: 1px dashed #555555;
-  cursor: pointer;
-}
-.container .content .create-product-btn:hover .icon {
-  color: #000000;
-}
-.container .content .create-product-btn:hover .caption p.tip {
-  color: #000000;
-}
-.container .content .create-product-btn .icon {
+.container .content .create-btn .icon {
   width: 9%;
   float: left;
   display: inline-block;
   text-align: center;
   font-size: 2.5em;
-  color: #555555;
 }
-.container .content .create-product-btn .caption {
+.container .content .create-btn .caption {
   width: 87%;
   padding: 0% 2%;
   float: left;
   display: inline-block;
 }
-.container .content .create-product-btn .caption p {
-  color: #000000;
+.container .content .create-btn .caption p {
   font-size: 1em;
   line-height: 1.5em;
 }
-.container .content .create-product-btn .caption p.tip {
+.container .content .create-btn .caption p.tip {
   font-size: 0.75em;
-  color: #AAAAAA;
+}
+.container .content .create-btn:hover {
+  border: 1px dashed #555555;
+  cursor: pointer;
+  color: #555555;
+}
+.container .content .create-btn:active {
+  background: #333333;
+  border: 1px solid #333333;
+  color: #FFFFFF;
 }
 .container .content .product-items {
   width: 100%;
@@ -1238,6 +1288,9 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   color: #000000;
 }
+.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail h3 a {
+  color: #000000;
+}
 .container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p {
   font-size: 0.75em;
   color: #333333;
@@ -1290,7 +1343,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   line-height: 1.5em;
-  margin-bottom: 0.5%;
+  margin-bottom: 1%;
 }
 .container .content .order-items:hover {
   cursor: pointer;
@@ -1304,30 +1357,16 @@ Copyright (c) 2015 Daniel Eden
   color: #777777;
   font-size: 0.75em;
 }
+.container .content .order-items p.mini span {
+  margin-right: 5px;
+}
+.container .content .order-items p.mini span.payment {
+  font-weight: bold;
+}
 .container .content .order-items p.mini i {
-  margin-right: 5px;
-}
-.container .content .order-items .unread {
-  font-size: 0.7em;
-  color: #FF0000;
   margin-right: 3px;
-}
-.container .content .order-items .paid {
-  color: #4CAF50;
-}
-.container .content .order-items .paid i {
-  font-size: 0.8em;
-  margin-right: 5px;
-}
-.container .content .order-items .pay {
-  color: #AAAAAA;
-}
-.container .content .order-items .status {
-  color: #FFFFFF;
-  padding: 1px 5px;
-  border-radius: 2px;
-  font-size: 0.65em;
-  line-height: 1em;
+  color: #CCCCCC;
+  font-size: 0.7em;
 }
 .container .content .order-items .paying {
   background: #E91E63;
@@ -1358,7 +1397,17 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .content .order-items .detail .admin {
+.container .content .order-items .detail .unread {
+  font-size: 0.7em;
+  color: #F44336;
+  margin-right: 3px;
+}
+.container .content .order-items .detail .status {
+  color: #FFFFFF;
+  padding: 1px 5px;
+  border-radius: 2px;
+  font-size: 0.65em;
+  line-height: 1em;
   margin-left: 5px;
 }
 .container .content .order-items .summary {
@@ -1367,8 +1416,31 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   text-align: right;
 }
+.container .content .order-items .summary .paid {
+  color: #4CAF50;
+  font-weight: bold;
+}
+.container .content .order-items .summary .paid i {
+  font-size: 0.8em;
+  margin-right: 5px;
+}
+.container .content .order-items .summary .pay {
+  color: #AAAAAA;
+}
 .container .content .order-items-cencel {
   opacity: 0.3;
+}
+.container .content .empty-items {
+  width: 100%;
+  padding: 5% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.9em;
+  color: #AAAAAA;
+}
+.container .content .empty-items i {
+  margin-left: 5px;
 }
 .container .content-container {
   background: #FFFFFF;

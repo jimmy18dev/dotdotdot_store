@@ -2,6 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+$current_page = "product_quantity";
 
 $product->GetProduct(array('product_id' => $_GET['id']));
 ?>
@@ -42,18 +43,31 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <body>
 
 <?php include'header.php';?>
-
+<?php
+if($_GET['action'] == "import"){
+	$caption = "นำเข้าสินค้า";
+}
+if($_GET['action'] == "export"){
+	$caption = "โอนสินค้าออก";
+}
+?>
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">รหัสสินค้า <?php echo $product->id;?></div>
-	</div>
 	<div class="content content-container">
-		<div class="quantity-form">
-			<input type="text" id="quantity" placeholder="quantity...">
-			<input type="text" id="product_id" value="<?php echo $_GET['id'];?>">
-			<input type="text" id="action" value="<?php echo $_GET['action'];?>">
+		<div class="form">
+			<div class="form-items">
+				<div class="caption"><?php echo $caption;?></div>
+				<div class="caption"><?php echo $product->title;?> <?php echo ($product->type == "sub"?'('.$product->parent_title.') เหลือสินค้า '.$product->quantity.' ชิ้น':'');?></div>
+				<div class="input">
+					<input type="text" class="input-text" id="quantity" name="quantity">
+				</div>
+			</div>
 
-			<button onclick="javascript:UpdateQuantity();">SAVE</button>
+			<input type="hidden" id="product_id" value="<?php echo $_GET['id'];?>">
+			<input type="hidden" id="action" value="<?php echo $_GET['action'];?>">
+			
+			<div class="form-submit">
+				<button type="submit" class="submit-button" onclick="javascript:UpdateQuantity();"><i class="fa fa-check"></i>SAVE</button>
+			</div>
 		</div>
 	</div>
 </div>
