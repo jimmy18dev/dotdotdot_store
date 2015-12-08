@@ -63,7 +63,7 @@ $current_page = "order";
 		<div class="panel-fix">
 			<div class="box">
 				<p class="icon"><i class="fa fa-file-o"></i>ใบสั่งซื้อหมายเลข <?php echo $order->id;?></p>
-				<?php if($order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+				<?php if($order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
 					<a href="#product-list">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">

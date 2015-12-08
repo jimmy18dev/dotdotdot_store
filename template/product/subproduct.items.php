@@ -16,7 +16,7 @@ else{
 
 <div class="action-items">
 	<div class="detail">
-		<h3>ราคา <strong><?php echo number_format($var['pd_price']);?></strong> บาท · <?php echo $var['pd_title'];?></h3>
+		<h3>ราคา <strong><?php echo number_format($var['pd_price']);?></strong> บาท – <?php echo $var['pd_title'];?></h3>
 		<p><?php echo $var['pd_description'];?></p>
 	</div>
 	<div class="buy">

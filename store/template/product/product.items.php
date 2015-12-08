@@ -33,7 +33,7 @@ if($var['pd_status'] != "active"){
 			<p>
 				<span class="price"><?php echo ($var['pd_type']=="root"?'สินค้าย่อย 4 รายการ':''.number_format($var['pd_price'],2).' บาท');?></span>
 				<?php if($var['pd_type'] != "root"){?>
-				<span class="id"> · รหัสสินค้า: <?php echo $var['pd_id'];?></span>
+				<span class="id"> | รหัสสินค้า: <?php echo $var['pd_id'];?></span>
 				<?php }?>
 			</p>
 			<p>
