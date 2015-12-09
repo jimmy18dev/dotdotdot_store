@@ -8,6 +8,6 @@
 	</div>
 	<div class="user-items-info">
 		<p><?php echo $var['me_name'];?></p>
-		<p class="mini"><?php echo $var['me_phone'];?> <?php echo $var['me_email'];?> Verified</p>
+		<p class="mini"><?php echo $var['me_phone'];?> – <?php echo $var['me_email'];?></p>
 	</div>
 </div>

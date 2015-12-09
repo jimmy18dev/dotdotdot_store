@@ -95,12 +95,12 @@ Copyright (c) 2015 Puwadon Sricharoen
         float: left;
         display: inline-block;
 
-        li{
+        li.navi-items,li.navi-bar{
             padding: 2%;
             margin-right: 0%;
             float: left;
             display: inline-block;
-            border-bottom: 1px solid transparent;
+            border-bottom: 2px solid transparent;
             font-size: 0.9em;
             color: #777777;
             text-align: center;
@@ -121,7 +121,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         li.active{
             color: #333333;
-            border-bottom: 1px solid #333333;
+            border-bottom: 2px solid #333333;
         }
 
         li.right{
@@ -191,22 +191,14 @@ Copyright (c) 2015 Puwadon Sricharoen
         width: 100%;
         float: left;
         display: inline-block;
-        margin-bottom: 2%;
 
         .filter-items{
             float: right;
+            padding: 2%;
             display: inline-block;
             text-align: center;
-            margin-left: 2%;
             color: #AAAAAA;
 
-            .filter-items-icon{
-                font-size: 0.7em;
-                line-height: 1.5em;
-                margin-bottom: 1%;
-                margin-right: 3px;
-                color: #F7F7F7;
-            }
             .filter-items-caption{
                 font-size: 0.9em;
                 line-height: 1.5em;
@@ -218,11 +210,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
 
         .filter-items-active{
-            color: #000000;
-
-            .filter-items-icon{
-                color: #000000;
-            }
+            color: #333333;
         }
     }
     .content{
@@ -274,19 +262,13 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
 
         .setting-btn{
-            width: 19.9%;
+            width: 20%;
             padding: 5% 0%;
             float: left;
             display: inline-block;
             background: #FFFFFF;
-            border-bottom: 1px solid #EEEEEE;
-            border-right: 1px solid #EEEEEE;
             text-align: center;
             color: #333333;
-
-            &:nth-child(5n+0){
-                border-right: 0px;
-            }
 
             &:hover{
                 background: #EEEEEE;
@@ -727,7 +709,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                         font-size: 0.8em;
                         background: #EEEEEE;
                         padding: 0.5% 1%;
-                        border-left: 1px solid #FAFAFA;
                         color: #555555;
 
                         i{
@@ -741,21 +722,11 @@ Copyright (c) 2015 Puwadon Sricharoen
                 width: 100%;
                 float: left;
                 display: inline-block;
-                border-top: 1px solid #FAFAFA;
-
-                .subproduct-topic{
-                    width: 94%;
-                    padding: 1% 3%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    font-weight: bold;
-                }
 
                 .subproduct-btn{
                     width: 20%;
                     margin: 3% 40%;
-                    padding: 1.5% 0%;
+                    padding: 2% 0%;
                     float: left;
                     display: inline-block;
                     background: #EEEEEE;
@@ -770,25 +741,19 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
 
                 .sub-items{
-                    width: 94%;
-                    padding: 3%;
+                    width: 100%;
                     float: left;
                     display: inline-block;
-                    border-bottom: 1px solid #FAFAFA;
+                    border-top: 1px solid #EEEEEE;
                     line-height: 1.5em;
-                    font-size: 0.9em;
-
-                    .sub-items-icon{
-                        width: 5%;
-                        float: left;
-                        display: inline-block;
-                    }
 
                     .sub-items-detail{
-                        width: 75%;
+                        width: 83.5%;
+                        padding: 1.5% 3%;
                         float: left;
                         display: inline-block;
                         color: rgba(0, 0, 0, 0.9);
+                        border-right: 1px solid #EEEEEE;
 
                         strong{
                             font-weight: bold;
@@ -796,10 +761,12 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                         p{
                             font-size: 1em;
+                            color: #333333;
                         }
 
                         p.mini{
                             font-size: 0.8em;
+                            color: #777777;
                         }
 
                         a{
@@ -813,10 +780,13 @@ Copyright (c) 2015 Puwadon Sricharoen
                         }
                     }
                     .sub-items-summary{
-                        width: 20%;
+                        width: 10%;
+                        padding-top: 3%;
                         float: right;
                         display: inline-block;
-                        text-align: right;
+                        font-size: 1.2em;
+                        text-align: center;
+                        color: #777777;
                     }
                 }
             }
@@ -830,34 +800,28 @@ Copyright (c) 2015 Puwadon Sricharoen
                     width: 100%;
                     float: left;
                     display: inline-block;
-                    border-top: 1px solid #FAFAFA;
-                    font-size: 0.9em;
+                    border-top: 1px solid #EEEEEE;
                     line-height: 1.3em;
 
-                    .history-items-icon{
-                        width: 10%;
-                        margin-top: 2%;
-                        float: left;
-                        display: inline-block;
-                        font-size: 1.5em;
-                        text-align: center;
-                        color: #777777;
-                    }
                     .history-items-info{
-                        width: 75.5%;
-                        padding: 1.5% 2%;
+                        width: 83.5%;
+                        padding: 1.5% 3%;
                         float: left;
                         display: inline-block;
                         border-right: 1px solid #EEEEEE;
+                        color: #333333;
 
                         p{
                             font-size: 1em;
                         }
 
-                        p.time{
+                        p.mini{
                             font-size: 0.8em;
+                            color: #777777;
                             i{
                                 margin-left: 5px;
+                                color: #CCCCCC;
+                                font-size: 0.8em;
                             }
                         }
                         strong{
@@ -866,12 +830,12 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
                     .history-items-amount{
                         width: 10%;
-                        padding-top: 2.5%;
+                        padding-top: 3%;
                         float: left;
                         display: inline-block;
-                        text-align: right;
-                        font-size: 1.5em;
+                        font-size: 1.2em;
                         text-align: center;
+                        color: #777777;
                     }
                 }
             }
@@ -881,19 +845,14 @@ Copyright (c) 2015 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 line-height: 1.5em;
-                border-bottom: 1px solid #FAFAFA;
+                border-top: 1px solid #EEEEEE;
 
                 .stat-items{
-                    width: 14.5%;
+                    width: 15%;
                     padding: 5%;
                     float: left;
                     display: inline-block;
                     color: rgba(0, 0, 0, 0.9);
-                    border-right: 1px solid #FAFAFA;
-
-                    &:last-child{
-                        border-right: 0px solid #FAFAFA;
-                    }
 
                     .value{
                         font-size: 2em;
@@ -923,7 +882,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
                 font-size: 0.8em;
                 line-height: 2em;
-                color: #CCCCCC;
+                color: #333333;
                 font-weight: bold;
             }
             .input-text{
@@ -936,26 +895,40 @@ Copyright (c) 2015 Puwadon Sricharoen
                 border: 1px solid #EEEEEE;
                 line-height: 1.5em;
                 outline: 0;
+                font-weight: bold;
+                color: #333333;
+
+                &:hover{
+                    border: 1px solid #CCCCCC;
+                }
+
+                &:focus{
+                    border: 1px solid #333333;
+                    font-weight: normal;
+                }
+
             }
 
             .input-select{
                 width: 100%;
             }
+
             .submit-button{
                 float: right;
                 display: inline-block;
                 border: 0px;
-                background: #EEEEEE;
-                color: #555555;
+                background: #000000;
+                color: #FFFFFF;
                 font-family: @fontStyle3;
                 font-size: 0.9em;
                 line-height: 1.5em;
-                padding: 1% 4%;
+                padding: 2% 5%;
             }
 
             .form-hidden{
                 display: none !important;
             }
+
             .form-image{
                 width: 94%;
                 margin: 2% 3%;
@@ -967,50 +940,11 @@ Copyright (c) 2015 Puwadon Sricharoen
                     padding: 3%;
                     float: left;
                     display: inline-block;
-                    text-align: center;
                     background: #FAFAFA;
                     color: #555555;
                     font-size: 1em;
                     line-height: 1.5em;
-                    border-top: 1px dashed #EEEEEE;
-                    border-bottom: 1px dashed #EEEEEE;
                     margin-bottom: 1%;
-
-                    &:hover{
-                        text-decoration: underline;
-                        cursor: pointer;
-                        border-top: 1px dashed #CCCCCC;
-                        border-bottom: 1px dashed #CCCCCC;
-                    }
-
-                    i{
-                        margin-right: 10px;
-                    }
-                }
-                .input-file{
-                }
-
-                .image-items{
-                    width: 49.5%;
-                    float: left;
-                    display: inline-block;
-                    margin-bottom: 1%;
-                    margin-right: 0.5%;
-
-                    &:nth-child(even){
-                        margin-right: 0%;
-                        margin-left: 0.5%;
-                    }
-                    
-                    img{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-
-                        &:hover{
-                            opacity: 0.6;
-                        }
-                    }
                 }
             }
 
@@ -1042,7 +976,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             background: #FFFFFF;
-            border-bottom: 1px solid #EEEEEE;
             margin-bottom: 1%;
 
             .user-items-avatar{
@@ -1338,7 +1271,7 @@ Copyright (c) 2015 Puwadon Sricharoen
             display: inline-block;
             background: #FFFFFF;
             line-height: 1.5em;
-            margin-bottom: 1%;
+            border-bottom: 2px solid #EEEEEE;
 
             &:hover{
                 cursor: pointer;
@@ -1348,10 +1281,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             p{
                 font-size: 0.9em;
                 color: #000000;
-            }
-
-            strong{
-                font-weight: bold;
             }
 
             p.mini{

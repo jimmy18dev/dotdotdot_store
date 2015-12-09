@@ -193,29 +193,33 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.navigator ul li {
+.navigator ul li.navi-items,
+.navigator ul li.navi-bar {
   padding: 2%;
   margin-right: 0%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
   font-size: 0.9em;
   color: #777777;
   text-align: center;
 }
-.navigator ul li i {
+.navigator ul li.navi-items i,
+.navigator ul li.navi-bar i {
   margin-right: 10px;
   font-size: 0.8em;
 }
-.navigator ul li:hover {
+.navigator ul li.navi-items:hover,
+.navigator ul li.navi-bar:hover {
   color: #333333;
 }
-.navigator ul li:active {
+.navigator ul li.navi-items:active,
+.navigator ul li.navi-bar:active {
   background: #F8F8F8;
 }
 .navigator ul li.active {
   color: #333333;
-  border-bottom: 1px solid #333333;
+  border-bottom: 2px solid #333333;
 }
 .navigator ul li.right {
   float: right;
@@ -276,21 +280,13 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 2%;
 }
 .container .tab-filter .filter-items {
   float: right;
+  padding: 2%;
   display: inline-block;
   text-align: center;
-  margin-left: 2%;
   color: #AAAAAA;
-}
-.container .tab-filter .filter-items .filter-items-icon {
-  font-size: 0.7em;
-  line-height: 1.5em;
-  margin-bottom: 1%;
-  margin-right: 3px;
-  color: #F7F7F7;
 }
 .container .tab-filter .filter-items .filter-items-caption {
   font-size: 0.9em;
@@ -300,10 +296,7 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 .container .tab-filter .filter-items-active {
-  color: #000000;
-}
-.container .tab-filter .filter-items-active .filter-items-icon {
-  color: #000000;
+  color: #333333;
 }
 .container .content {
   width: 100%;
@@ -348,18 +341,13 @@ Copyright (c) 2015 Daniel Eden
   color: #555555;
 }
 .container .content .setting-btn {
-  width: 19.9%;
+  width: 20%;
   padding: 5% 0%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-bottom: 1px solid #EEEEEE;
-  border-right: 1px solid #EEEEEE;
   text-align: center;
   color: #333333;
-}
-.container .content .setting-btn:nth-child(5n+0) {
-  border-right: 0px;
 }
 .container .content .setting-btn:hover {
   background: #EEEEEE;
@@ -747,7 +735,6 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
   background: #EEEEEE;
   padding: 0.5% 1%;
-  border-left: 1px solid #FAFAFA;
   color: #555555;
 }
 .container .content .detail section.description .control .control-items i {
@@ -757,20 +744,11 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  border-top: 1px solid #FAFAFA;
-}
-.container .content .detail .subproduct .subproduct-topic {
-  width: 94%;
-  padding: 1% 3%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  font-weight: bold;
 }
 .container .content .detail .subproduct .subproduct-btn {
   width: 20%;
   margin: 3% 40%;
-  padding: 1.5% 0%;
+  padding: 2% 0%;
   float: left;
   display: inline-block;
   background: #EEEEEE;
@@ -783,33 +761,30 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
 }
 .container .content .detail .subproduct .sub-items {
-  width: 94%;
-  padding: 3%;
+  width: 100%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #FAFAFA;
+  border-top: 1px solid #EEEEEE;
   line-height: 1.5em;
-  font-size: 0.9em;
-}
-.container .content .detail .subproduct .sub-items .sub-items-icon {
-  width: 5%;
-  float: left;
-  display: inline-block;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail {
-  width: 75%;
+  width: 83.5%;
+  padding: 1.5% 3%;
   float: left;
   display: inline-block;
   color: rgba(0, 0, 0, 0.9);
+  border-right: 1px solid #EEEEEE;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail strong {
   font-weight: bold;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail p {
   font-size: 1em;
+  color: #333333;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail p.mini {
   font-size: 0.8em;
+  color: #777777;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail a {
   text-decoration: none;
@@ -820,10 +795,13 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .container .content .detail .subproduct .sub-items .sub-items-summary {
-  width: 20%;
+  width: 10%;
+  padding-top: 3%;
   float: right;
   display: inline-block;
-  text-align: right;
+  font-size: 1.2em;
+  text-align: center;
+  color: #777777;
 }
 .container .content .detail .history {
   width: 100%;
@@ -834,64 +812,54 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  border-top: 1px solid #FAFAFA;
-  font-size: 0.9em;
+  border-top: 1px solid #EEEEEE;
   line-height: 1.3em;
 }
-.container .content .detail .history .history-items .history-items-icon {
-  width: 10%;
-  margin-top: 2%;
-  float: left;
-  display: inline-block;
-  font-size: 1.5em;
-  text-align: center;
-  color: #777777;
-}
 .container .content .detail .history .history-items .history-items-info {
-  width: 75.5%;
-  padding: 1.5% 2%;
+  width: 83.5%;
+  padding: 1.5% 3%;
   float: left;
   display: inline-block;
   border-right: 1px solid #EEEEEE;
+  color: #333333;
 }
 .container .content .detail .history .history-items .history-items-info p {
   font-size: 1em;
 }
-.container .content .detail .history .history-items .history-items-info p.time {
+.container .content .detail .history .history-items .history-items-info p.mini {
   font-size: 0.8em;
+  color: #777777;
 }
-.container .content .detail .history .history-items .history-items-info p.time i {
+.container .content .detail .history .history-items .history-items-info p.mini i {
   margin-left: 5px;
+  color: #CCCCCC;
+  font-size: 0.8em;
 }
 .container .content .detail .history .history-items .history-items-info strong {
   font-weight: bold;
 }
 .container .content .detail .history .history-items .history-items-amount {
   width: 10%;
-  padding-top: 2.5%;
+  padding-top: 3%;
   float: left;
   display: inline-block;
-  text-align: right;
-  font-size: 1.5em;
+  font-size: 1.2em;
   text-align: center;
+  color: #777777;
 }
 .container .content .detail .stat {
   width: 100%;
   float: left;
   display: inline-block;
   line-height: 1.5em;
-  border-bottom: 1px solid #FAFAFA;
+  border-top: 1px solid #EEEEEE;
 }
 .container .content .detail .stat .stat-items {
-  width: 14.5%;
+  width: 15%;
   padding: 5%;
   float: left;
   display: inline-block;
   color: rgba(0, 0, 0, 0.9);
-  border-right: 1px solid #FAFAFA;
-}
-.container .content .detail .stat .stat-items:last-child {
-  border-right: 0px solid #FAFAFA;
 }
 .container .content .detail .stat .stat-items .value {
   font-size: 2em;
@@ -919,7 +887,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 0.8em;
   line-height: 2em;
-  color: #CCCCCC;
+  color: #333333;
   font-weight: bold;
 }
 .container .content .form .input-text {
@@ -932,6 +900,15 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #EEEEEE;
   line-height: 1.5em;
   outline: 0;
+  font-weight: bold;
+  color: #333333;
+}
+.container .content .form .input-text:hover {
+  border: 1px solid #CCCCCC;
+}
+.container .content .form .input-text:focus {
+  border: 1px solid #333333;
+  font-weight: normal;
 }
 .container .content .form .input-select {
   width: 100%;
@@ -940,12 +917,12 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   display: inline-block;
   border: 0px;
-  background: #EEEEEE;
-  color: #555555;
+  background: #000000;
+  color: #FFFFFF;
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9em;
   line-height: 1.5em;
-  padding: 1% 4%;
+  padding: 2% 5%;
 }
 .container .content .form .form-hidden {
   display: none !important;
@@ -961,42 +938,11 @@ Copyright (c) 2015 Daniel Eden
   padding: 3%;
   float: left;
   display: inline-block;
-  text-align: center;
   background: #FAFAFA;
   color: #555555;
   font-size: 1em;
   line-height: 1.5em;
-  border-top: 1px dashed #EEEEEE;
-  border-bottom: 1px dashed #EEEEEE;
   margin-bottom: 1%;
-}
-.container .content .form .form-image .image-input-button:hover {
-  text-decoration: underline;
-  cursor: pointer;
-  border-top: 1px dashed #CCCCCC;
-  border-bottom: 1px dashed #CCCCCC;
-}
-.container .content .form .form-image .image-input-button i {
-  margin-right: 10px;
-}
-.container .content .form .form-image .image-items {
-  width: 49.5%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 1%;
-  margin-right: 0.5%;
-}
-.container .content .form .form-image .image-items:nth-child(even) {
-  margin-right: 0%;
-  margin-left: 0.5%;
-}
-.container .content .form .form-image .image-items img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .form .form-image .image-items img:hover {
-  opacity: 0.6;
 }
 .container .content .form .form-items {
   width: 94%;
@@ -1021,7 +967,6 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  border-bottom: 1px solid #EEEEEE;
   margin-bottom: 1%;
 }
 .container .content .user-items .user-items-avatar {
@@ -1279,7 +1224,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   line-height: 1.5em;
-  margin-bottom: 1%;
+  border-bottom: 2px solid #EEEEEE;
 }
 .container .content .order-items:hover {
   cursor: pointer;
@@ -1288,9 +1233,6 @@ Copyright (c) 2015 Daniel Eden
 .container .content .order-items p {
   font-size: 0.9em;
   color: #000000;
-}
-.container .content .order-items strong {
-  font-weight: bold;
 }
 .container .content .order-items p.mini {
   color: #777777;
@@ -1480,8 +1422,6 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .header .menu .btn .notif {
     padding: 0% 3px;
-    background: #F44336;
-    color: #FFFFFF;
     font-size: 0.8em;
     border-radius: 2px;
     margin-left: 5px;
@@ -1506,127 +1446,97 @@ Copyright (c) 2015 Puwadon Sricharoen
     padding: 0% 0%;
     margin-top: 50px;
   }
-  .navigator ul li {
+  .navigator ul li.navi-items {
     width: 20%;
     float: left;
     display: inline-block;
-    padding: 4% 0%;
+    padding: 5% 0%;
     margin-right: 0%;
     font-size: 0.9em;
+    border-bottom: 2px solid transparent;
   }
-  .navigator ul li .caption {
+  .navigator ul li.navi-items .caption {
     display: none;
   }
-  .navigator ul li i {
+  .navigator ul li.navi-items i {
     margin-right: 0px;
     font-size: 1.2em;
+  }
+  .navigator ul li.navi-bar {
+    width: 94%;
+    float: left;
+    display: inline-block;
+    padding: 4% 3%;
+    margin-right: 0%;
+    font-size: 0.9em;
+    border-bottom: 2px solid transparent;
+    text-align: left;
+  }
+  .navigator ul li.active {
+    border-bottom: 2px solid #333333;
   }
   .navigator ul li.right {
     padding: 4% 0%;
   }
   .versionlog {
-    line-height: 1.6em;
-    margin: 3% 0%;
+    width: 94%;
+    line-height: 1.5em;
+    margin: 3%;
   }
   .versionlog h1 {
-    font-size: 1.5em;
-    line-height: 2em;
-    color: #333333;
+    font-size: 1.2em;
+    line-height: 1.5em;
   }
   .versionlog h2 {
-    font-size: 1em;
-    line-height: 2em;
-    color: #333333;
+    font-size: 0.9em;
+    line-height: 1.5em;
   }
   .versionlog h3 {
-    font-size: 0.9em;
-    font-weight: bold;
-    color: #333333;
-  }
-  .versionlog h3 .date {
-    font-weight: normal;
-    color: #777777;
+    font-size: 0.8em;
   }
   .versionlog p {
     font-size: 0.9em;
-    color: #333333;
   }
   .versionlog p.warning {
     padding: 1% 0%;
-    color: #F44336;
-  }
-  .versionlog .fix {
-    font-weight: bold;
-  }
-  .versionlog .new {
-    font-weight: bold;
-    color: #4CAF50;
   }
   .versionlog section {
-    width: 100%;
-    float: left;
-    display: inline-block;
     margin-top: 3%;
   }
   .container {
     width: 100%;
     padding: 0% 0%;
   }
-  .container .tab-filter {
-    margin-bottom: 2%;
-  }
   .container .tab-filter .filter-items {
     width: 25%;
-    padding: 2% 0%;
+    padding: 3% 0%;
     margin-left: 0%;
-  }
-  .container .tab-filter .filter-items .filter-items-icon {
-    font-size: 0.7em;
-    line-height: 1.5em;
-    margin-bottom: 1%;
-    margin-right: 3px;
-    color: #F7F7F7;
+    border-top: 2px solid transparent;
   }
   .container .tab-filter .filter-items .filter-items-caption {
     font-size: 0.75em;
     line-height: 1.5em;
   }
   .container .tab-filter .filter-items-active {
-    color: #000000;
-  }
-  .container .tab-filter .filter-items-active .filter-items-icon {
-    color: #000000;
+    color: #333333;
+    background: #FFFFFF;
+    border-top: 2px solid #333333;
   }
   .container .content {
     width: 100%;
     margin: 5% 0%;
   }
-  .container .content .tab {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    background: #F7F7F7;
-  }
   .container .content .tab a {
-    padding: 2% 3%;
-    float: left;
-    display: inline-block;
+    width: 16%;
+    padding: 4% 2%;
     font-size: 0.9em;
-    text-decoration: none;
-    color: #AAAAAA;
+    text-align: center;
   }
-  .container .content .tab a:hover {
-    color: #000000;
-  }
-  .container .content .tab a.right {
-    float: right;
-  }
-  .container .content .tab a.active {
-    color: #000000;
-    background: #FFFFFF;
+  .container .content .tab .caption {
+    display: none;
   }
   .container .content .tab i {
-    margin-right: 10px;
+    margin-right: 0px;
   }
   .container .content .alert {
     width: 94%;
@@ -1634,39 +1544,16 @@ Copyright (c) 2015 Puwadon Sricharoen
     font-size: 0.9em;
   }
   .container .content .setting-btn {
-    width: 19.9%;
-    padding: 5% 0%;
-    float: left;
-    display: inline-block;
-    background: #FFFFFF;
-    border-bottom: 1px solid #EEEEEE;
-    border-right: 1px solid #EEEEEE;
-    text-align: center;
-    color: #333333;
-  }
-  .container .content .setting-btn:nth-child(5n+0) {
-    border-right: 0px;
-  }
-  .container .content .setting-btn:hover {
-    background: #EEEEEE;
-  }
-  .container .content .setting-btn:active {
-    background: #000000;
-    color: #FFFFFF;
+    width: 40%;
+    padding: 10% 5%;
   }
   .container .content .setting-btn .setting-btn-icon {
-    width: 100%;
-    float: left;
-    display: inline-block;
     font-size: 2em;
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
   .container .content .setting-btn .setting-btn-caption {
-    width: 100%;
-    float: left;
-    display: inline-block;
     line-height: 1.5em;
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   .container .content .order-state {
     width: 100%;
@@ -1932,29 +1819,20 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .content .detail header.info {
     width: 94%;
     padding: 3%;
-    float: left;
-    display: inline-block;
     line-height: 1.5em;
   }
   .container .content .detail header.info h1 {
-    font-size: 1.5em;
-    color: #000000;
-    font-weight: bold;
+    font-size: 1.1em;
   }
   .container .content .detail header.info h2 {
     font-size: 1em;
-    color: #555555;
-    font-weight: bold;
     margin-bottom: 1%;
   }
   .container .content .detail header.info p {
-    font-size: 0.8em;
-    color: rgba(0, 0, 0, 0.44);
+    font-size: 0.75em;
   }
   .container .content .detail h4 {
-    font-size: 0.8em;
-    font-weight: bold;
-    color: #AAAAAA;
+    font-size: 0.75em;
     line-height: 1.5em;
     padding: 1% 0%;
   }
@@ -1962,106 +1840,46 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 94%;
     padding: 0% 3%;
     padding-bottom: 3%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .detail section.photo .photo-container {
-    width: 100%;
-    float: left;
-    display: inline-block;
   }
   .container .content .detail section.photo .photo-container .photo-items {
-    width: 24%;
-    float: left;
-    display: inline-block;
+    width: 49%;
     margin-right: 1%;
-  }
-  .container .content .detail section.photo .photo-container .photo-items img {
-    width: 100%;
-    float: left;
-    display: inline-block;
+    margin-bottom: 5%;
   }
   .container .content .detail section.photo .photo-container .photo-items .setcover-btn {
-    width: 90%;
-    padding: 3% 0%;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-size: 0.7em;
-    color: #AAAAAA;
-  }
-  .container .content .detail section.photo .photo-container .photo-items .setcover-btn:hover {
-    cursor: pointer;
-    color: #555555;
-  }
-  .container .content .detail section.photo .photo-container .photo-items .active {
-    font-style: italic;
-    color: #4CAF50;
+    width: 85%;
+    padding: 5% 0%;
+    font-size: 0.8em;
   }
   .container .content .detail section.photo .photo-container .photo-items .photodelete-btn {
-    width: 10%;
-    padding: 3% 0%;
-    float: left;
-    display: inline-block;
-    text-align: center;
-    font-size: 0.7em;
-    color: #AAAAAA;
-  }
-  .container .content .detail section.photo .photo-container .photo-items .photodelete-btn:hover {
-    cursor: pointer;
-    color: #F44336;
+    width: 15%;
+    padding: 5% 0%;
+    font-size: 0.8em;
   }
   .container .content .detail section.description {
     width: 94%;
     padding: 0% 3%;
     padding-bottom: 3%;
-    float: left;
-    display: inline-block;
     font-size: 1em;
     line-height: 1.5em;
   }
   .container .content .detail section.description .control {
-    width: 100%;
-    float: left;
-    display: inline-block;
     margin-top: 2%;
   }
   .container .content .detail section.description .control .control-items {
-    float: left;
-    display: inline-block;
+    width: 47%;
     margin-right: 1%;
     font-size: 0.8em;
-    background: #EEEEEE;
-    padding: 0.5% 1%;
-    border-left: 1px solid #FAFAFA;
-    color: #555555;
+    padding: 4% 1%;
+    text-align: center;
   }
   .container .content .detail section.description .control .control-items i {
     margin-right: 10px;
   }
-  .container .content .detail .subproduct {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-top: 1px solid #FAFAFA;
-  }
-  .container .content .detail .subproduct .subproduct-topic {
-    width: 94%;
-    padding: 1% 3%;
-    float: left;
-    display: inline-block;
-    font-size: 0.8em;
-    font-weight: bold;
-  }
   .container .content .detail .subproduct .subproduct-btn {
-    width: 20%;
-    margin: 3% 40%;
-    padding: 1.5% 0%;
-    float: left;
-    display: inline-block;
-    background: #EEEEEE;
-    color: #555555;
-    text-align: center;
+    width: 94%;
+    margin: 3%;
+    padding: 4% 0%;
     font-size: 0.9em;
   }
   .container .content .detail .subproduct .subproduct-btn i {
@@ -2069,172 +1887,80 @@ Copyright (c) 2015 Puwadon Sricharoen
     font-size: 0.8em;
   }
   .container .content .detail .subproduct .sub-items {
-    width: 94%;
-    padding: 3%;
-    float: left;
-    display: inline-block;
-    border-bottom: 1px solid #FAFAFA;
-    line-height: 1.5em;
-    font-size: 0.9em;
-  }
-  .container .content .detail .subproduct .sub-items .sub-items-icon {
-    width: 5%;
-    float: left;
-    display: inline-block;
+    line-height: 1.2em;
   }
   .container .content .detail .subproduct .sub-items .sub-items-detail {
-    width: 75%;
-    float: left;
-    display: inline-block;
-    color: rgba(0, 0, 0, 0.9);
-  }
-  .container .content .detail .subproduct .sub-items .sub-items-detail strong {
-    font-weight: bold;
+    width: 78.5%;
+    padding: 1.5% 3%;
   }
   .container .content .detail .subproduct .sub-items .sub-items-detail p {
-    font-size: 1em;
+    font-size: 0.9em;
   }
   .container .content .detail .subproduct .sub-items .sub-items-detail p.mini {
-    font-size: 0.8em;
-  }
-  .container .content .detail .subproduct .sub-items .sub-items-detail a {
-    text-decoration: none;
-    color: rgba(0, 0, 0, 0.44);
-  }
-  .container .content .detail .subproduct .sub-items .sub-items-detail a:hover {
-    color: rgba(0, 0, 0, 0.9);
-    text-decoration: underline;
+    font-size: 0.75em;
   }
   .container .content .detail .subproduct .sub-items .sub-items-summary {
-    width: 20%;
-    float: right;
-    display: inline-block;
-    text-align: right;
-  }
-  .container .content .detail .history {
-    width: 100%;
-    float: left;
-    display: inline-block;
+    width: 15%;
+    padding-top: 7%;
+    font-size: 1em;
   }
   .container .content .detail .history .history-items {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    border-top: 1px solid #FAFAFA;
-    font-size: 0.9em;
     line-height: 1.3em;
   }
-  .container .content .detail .history .history-items .history-items-icon {
-    width: 10%;
-    margin-top: 2%;
-    float: left;
-    display: inline-block;
-    font-size: 1.5em;
-    text-align: center;
-    color: #777777;
-  }
   .container .content .detail .history .history-items .history-items-info {
-    width: 75.5%;
-    padding: 1.5% 2%;
-    float: left;
-    display: inline-block;
-    border-right: 1px solid #EEEEEE;
+    width: 78.5%;
+    padding: 2% 3%;
   }
   .container .content .detail .history .history-items .history-items-info p {
-    font-size: 1em;
+    font-size: 0.9em;
   }
-  .container .content .detail .history .history-items .history-items-info p.time {
-    font-size: 0.8em;
+  .container .content .detail .history .history-items .history-items-info p.mini {
+    font-size: 0.75em;
   }
-  .container .content .detail .history .history-items .history-items-info p.time i {
+  .container .content .detail .history .history-items .history-items-info p.mini i {
     margin-left: 5px;
-  }
-  .container .content .detail .history .history-items .history-items-info strong {
-    font-weight: bold;
   }
   .container .content .detail .history .history-items .history-items-amount {
-    width: 10%;
-    padding-top: 2.5%;
-    float: left;
-    display: inline-block;
-    text-align: right;
-    font-size: 1.5em;
-    text-align: center;
+    width: 15%;
+    padding-top: 5%;
+    font-size: 1em;
   }
   .container .content .detail .stat {
-    width: 100%;
-    float: left;
-    display: inline-block;
     line-height: 1.5em;
-    border-bottom: 1px solid #FAFAFA;
   }
   .container .content .detail .stat .stat-items {
-    width: 14.5%;
-    padding: 5%;
-    float: left;
-    display: inline-block;
-    color: rgba(0, 0, 0, 0.9);
-    border-right: 1px solid #FAFAFA;
-  }
-  .container .content .detail .stat .stat-items:last-child {
-    border-right: 0px solid #FAFAFA;
+    width: 40%;
+    padding: 5% 5%;
+    padding-top: 10%;
   }
   .container .content .detail .stat .stat-items .value {
-    font-size: 2em;
+    font-size: 3em;
   }
   .container .content .detail .stat .stat-items .value .unit {
-    font-size: 0.4em;
+    font-size: 0.3em;
     margin-left: 5px;
-    color: rgba(0, 0, 0, 0.44);
-  }
-  .container .content .detail .stat .stat-items .green {
-    color: #4CAF50;
   }
   .container .content .detail .stat .stat-items .caption {
-    font-size: 0.9em;
-    color: rgba(0, 0, 0, 0.44);
-  }
-  .container .content .form {
-    width: 100%;
-    float: left;
-    display: inline-block;
+    font-size: 0.8em;
   }
   .container .content .form .caption {
-    width: 100%;
-    float: left;
-    display: inline-block;
     font-size: 0.8em;
     line-height: 2em;
-    color: #CCCCCC;
-    font-weight: bold;
   }
   .container .content .form .input-text {
-    width: 98%;
-    padding: 1%;
-    float: left;
-    display: inline-block;
-    font-family: 'Open Sans', sans-serif;
+    width: 96%;
+    padding: 2%;
     font-size: 1em;
-    border: 1px solid #EEEEEE;
     line-height: 1.5em;
-    outline: 0;
   }
   .container .content .form .input-select {
     width: 100%;
   }
   .container .content .form .submit-button {
-    float: right;
-    display: inline-block;
-    border: 0px;
-    background: #EEEEEE;
-    color: #555555;
-    font-family: 'Open Sans', sans-serif;
+    width: 100%;
     font-size: 0.9em;
     line-height: 1.5em;
-    padding: 1% 4%;
-  }
-  .container .content .form .form-hidden {
-    display: none !important;
+    padding: 4% 5%;
   }
   .container .content .form .form-image {
     width: 94%;
@@ -2247,42 +1973,11 @@ Copyright (c) 2015 Puwadon Sricharoen
     padding: 3%;
     float: left;
     display: inline-block;
-    text-align: center;
     background: #FAFAFA;
     color: #555555;
     font-size: 1em;
     line-height: 1.5em;
-    border-top: 1px dashed #EEEEEE;
-    border-bottom: 1px dashed #EEEEEE;
     margin-bottom: 1%;
-  }
-  .container .content .form .form-image .image-input-button:hover {
-    text-decoration: underline;
-    cursor: pointer;
-    border-top: 1px dashed #CCCCCC;
-    border-bottom: 1px dashed #CCCCCC;
-  }
-  .container .content .form .form-image .image-input-button i {
-    margin-right: 10px;
-  }
-  .container .content .form .form-image .image-items {
-    width: 49.5%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 1%;
-    margin-right: 0.5%;
-  }
-  .container .content .form .form-image .image-items:nth-child(even) {
-    margin-right: 0%;
-    margin-left: 0.5%;
-  }
-  .container .content .form .form-image .image-items img {
-    width: 100%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .form .form-image .image-items img:hover {
-    opacity: 0.6;
   }
   .container .content .form .form-items {
     width: 94%;
@@ -2303,103 +1998,72 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-right: 10px;
   }
   .container .content .user-items {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    background: #FFFFFF;
-    border-bottom: 1px solid #EEEEEE;
-    margin-bottom: 1%;
+    margin-bottom: 0%;
+    border-top: 1px solid #EEEEEE;
   }
   .container .content .user-items .user-items-avatar {
-    width: 9%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .user-items .user-items-avatar img {
-    width: 100%;
+    width: 15%;
     float: left;
     display: inline-block;
   }
   .container .content .user-items .user-items-info {
-    width: 87%;
-    padding: 2% 2%;
+    width: 79%;
+    padding: 1.5% 3%;
     float: left;
     display: inline-block;
   }
   .container .content .user-items .user-items-info p {
-    font-size: 1em;
+    font-size: 0.9em;
     line-height: 1.5em;
-    color: #000000;
   }
   .container .content .user-items .user-items-info p.mini {
-    font-size: 0.8em;
-    color: #AAAAAA;
+    font-size: 0.75em;
   }
   .container .content .bank-items {
     width: 100%;
-    float: left;
-    display: inline-block;
-    margin-bottom: 1%;
-    background: #FFFFFF;
+    margin-bottom: 0%;
+    border-bottom: 1px solid #EEEEEE;
   }
   .container .content .bank-items .bank-items-icon {
-    width: 9%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .bank-items .bank-items-icon img {
-    width: 100%;
-    float: left;
-    display: inline-block;
+    width: 15%;
+    padding: 3% 0%;
   }
   .container .content .bank-items .bank-items-detail {
-    width: 87%;
-    padding: 1% 2%;
+    width: 79%;
+    padding: 1% 3%;
     float: left;
     display: inline-block;
   }
   .container .content .bank-items .bank-items-detail p {
     font-size: 0.9em;
-    line-height: 1.5em;
-  }
-  .container .content .bank-items .bank-items-detail a {
-    float: right;
-    color: #555555;
-    text-decoration: none;
+    line-height: 1.4em;
   }
   .container .content .bank-items .bank-items-detail a i {
     margin-right: 5px;
     font-size: 0.8em;
   }
   .container .content .bank-items .bank-items-detail strong {
-    font-weight: bold;
-    font-size: 1.2em;
+    font-size: 1em;
   }
   .container .content .product-topic-caption {
-    padding: 2% 0%;
+    padding: 1% 0%;
     font-size: 0.7em;
     line-height: 2em;
   }
   .container .content .product-topic-caption .product-topic-caption-img {
-    width: 10%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .product-topic-caption .product-topic-caption-title {
-    width: 76%;
-    padding: 0% 2%;
-    float: left;
-    display: inline-block;
-  }
-  .container .content .product-topic-caption .product-topic-caption-quantity {
-    width: 10%;
-    float: left;
-    display: inline-block;
+    width: 17%;
     text-align: center;
   }
+  .container .content .product-topic-caption .product-topic-caption-title {
+    width: 64%;
+    padding: 0% 3%;
+  }
+  .container .content .product-topic-caption .product-topic-caption-quantity {
+    width: 13%;
+  }
   .container .content .create-btn {
-    width: 96%;
-    padding: 3%;
+    width: 94%;
+    padding: 4% 3%;
     margin-bottom: 2%;
     border: 0px;
   }
@@ -2484,10 +2148,8 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .container .content .order-items {
     width: 94%;
-    padding: 3%;
+    padding: 4% 3%;
     line-height: 1.2em;
-    margin-bottom: 0%;
-    border-bottom: 1px solid #EEEEEE;
   }
   .container .content .order-items p {
     font-size: 0.9em;
@@ -2500,7 +2162,7 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .container .content .order-items p.mini i {
     margin-right: 2px;
-    font-size: 0.5em;
+    font-size: 0.8em;
   }
   .container .content .order-items .detail {
     width: 75%;
@@ -2529,6 +2191,7 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .content .empty-items {
     padding: 30% 0%;
     font-size: 0.9em;
+    background: #FFFFFF;
   }
   .container .content .empty-items i {
     margin-left: 10px;

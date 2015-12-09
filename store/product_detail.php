@@ -47,14 +47,14 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 <div class="container">
 	<div class="content content-container">
 		<div class="tab">
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>" class="<?php echo (empty($_GET['tab'])?'active':'');?>"><i class="fa fa-file-o"></i>ข้อมูลสินค้า</a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>" class="<?php echo (empty($_GET['tab'])?'active':'');?>"><i class="fa fa-file-o"></i><span class="caption">ข้อมูลสินค้า</span></a>
 			<?php if($product->type != "sub"){?>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=subproduct" class="<?php echo ($_GET['tab']=='subproduct'?'active':'');?>"><i class="fa fa-files-o"></i>สินค้าย่อย</a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=subproduct" class="<?php echo ($_GET['tab']=='subproduct'?'active':'');?>"><i class="fa fa-files-o"></i><span class="caption">สินค้าย่อย</span></a>
 			<?php }?>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=history" class="<?php echo ($_GET['tab']=='history'?'active':'');?>"><i class="fa fa-list"></i>ประวัติการขาย</a>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=stat" class="<?php echo ($_GET['tab']=='stat'?'active':'');?>"><i class="fa fa-pie-chart"></i>สถิติ</a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=history" class="<?php echo ($_GET['tab']=='history'?'active':'');?>"><i class="fa fa-list"></i><span class="caption">ประวัติสินค้า</span></a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=stat" class="<?php echo ($_GET['tab']=='stat'?'active':'');?>"><i class="fa fa-pie-chart"></i><span class="caption">สถิติ</span></a>
 
-			<a href="product_editor.php?id=<?php echo $product->id;?>" class="right"><i class="fa fa-cog"></i>แก้ไข</a>
+			<a href="product_editor.php?id=<?php echo $product->id;?>" class="right"><i class="fa fa-cog"></i><span class="caption">แก้ไข</span></a>
 		</div>
 		<div class="detail">
 			<header class="info">

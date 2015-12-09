@@ -61,15 +61,9 @@ else
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
 			<div class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
+				<div class="caption">ภาพสินค้า</div>
 				<div class="image-input-button">
-					<!-- <i class="fa fa-camera"></i>เลือกภาพสินค้า -->
 					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
-				</div>
-
-				<div class="image-container">
-					<!-- <div class="image-items">
-						<img src="https://scontent-sin1-1.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/11892137_10203607885677223_1364990806829068049_n.jpg?oh=5643180349bc992073a72a2ac7fba06f&oe=56D15E02" alt="">
-					</div> -->
 				</div>
 			</div>
 			<div class="form-items">

@@ -44,28 +44,24 @@ $current_page = "order";
 		<div class="tab-filter">
 			<a href="index.php?filter=complete">
 			<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
-				<span class="filter-items-icon"><i class="fa fa-check-circle"></i></span>
 				<span class="filter-items-caption">เรียบร้อย</span>
 			</div>
 			</a>
 
 			<a href="index.php?filter=transfersuccess">
 			<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
-				<span class="filter-items-icon"><i class="fa fa-check"></i></span>
 				<span class="filter-items-caption">ชำระแล้ว</span>
 			</div>
 			</a>
 
 			<a href="index.php?filter=transferrequest">
 			<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
-				<span class="filter-items-icon"><i class="fa fa-money"></i></span>
 				<span class="filter-items-caption">โอนเงิน</span>
 			</div>
 			</a>
 
 			<a href="index.php?">
 			<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
-				<span class="filter-items-icon"><i class="fa fa-list"></i></span>
 				<span class="filter-items-caption">ทั้งหมด</span>
 			</div>
 			</a>

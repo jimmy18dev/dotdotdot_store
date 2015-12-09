@@ -28,10 +28,9 @@ else{
 ?>
 
 <div class="history-items">
-	<div class="history-items-icon"><?php echo $icon;?></div>
 	<div class="history-items-info">
 		<p><strong><?php echo $action?></strong> – <?php echo $detail;?></p>
-		<p class="time"><?php echo $var['create_time_thai_format'];?><i class="fa fa-clock-o"></i></p>
+		<p class="mini"><?php echo $var['create_time_thai_format'];?><i class="fa fa-clock-o"></i></p>
 	</div>
 	<div class="history-items-amount"><?php echo $amount;?></div>
 </div>

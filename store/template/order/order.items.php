@@ -35,7 +35,7 @@ else{
 	<div class="detail">
 		<p>
 			<?php if($var['od_admin_read'] == "open"){?><span class="unread"><i class="fa fa-circle"></i></span><?php }?>
-			<strong>#<?php echo $var['od_id'];?></strong> – <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
+			<?php echo $var['od_id'];?> – <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></p>
 		<p class="mini">
 			<span class="payment"><?php echo number_format($var['od_payments']+50);?> บาท</span>
 			<span class="time"><i class="fa fa-clock-o"></i><?php echo $var['order_update_time_facebook_format'];?></span>
