@@ -67,15 +67,15 @@ else
 				</div>
 			</div>
 			<div class="form-items">
-				<div class="caption">ชื่อสินค้า</div>
+				<div class="caption">ชื่อสินค้า <span class="required">*</span></div>
 				<div class="input">
-					<input type="text" class="input-text" name="title" placeholder="title" value="<?php echo $product->title;?>">
+					<input type="text" class="input-text" name="title" placeholder="" value="<?php echo $product->title;?>">
 				</div>
 			</div>
 			<div class="form-items">
 				<div class="caption">รายละเอียดสินค้า</div>
 				<div class="input">
-					<textarea class="input-text input-textarea" name="description" placeholder="description"><?php echo $product->description;?></textarea>
+					<textarea class="input-text input-textarea" name="description" placeholder=""><?php echo $product->description;?></textarea>
 				</div>
 			</div>
 			<div class="form-items form-items-half">
@@ -87,12 +87,12 @@ else
 			<div class="form-items form-items-half">
 				<div class="caption">Code</div>
 				<div class="input">
-					<input type="text" class="input-text" name="code" value="<?php echo $product->code;?>">
+					<input type="text" class="input-text" name="code" placeholder="อักษรพิมพ์ใหญ่" value="<?php echo $product->code;?>">
 				</div>
 			</div>
 			
 			<div class="form-submit">
-				<button type="submit" class="submit-button"><i class="fa fa-check"></i>SAVE</button>
+				<button type="submit" class="submit-button"><i class="fa fa-check"></i>บันทึก</button>
 			</div>
 
 			<input type="hidden" id="parent" name="parent" value="<?php echo $parent;?>">

@@ -55,10 +55,10 @@ $current_page = "more";
 		</div>
 		</a>
 
-		<div class="setting-btn">
+		<!-- <div class="setting-btn">
 			<div class="setting-btn-icon"><i class="fa fa-cog"></i></div>
 			<div class="setting-btn-caption">ตั้งค่า</div>
-		</div>
+		</div> -->
 
 		<a href="version-log.php">
 		<div class="setting-btn">

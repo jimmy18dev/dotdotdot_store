@@ -144,7 +144,7 @@ class OrderController extends OrderModel{
         $transfer = parent::GetMoneyTransferProcess(array('order_id' => $this->id));
         $this->m_total = $transfer['mf_total'];
         $this->m_message = $transfer['mf_description'];
-        $this->m_bank_name = $transfer['bk_name'];
+        $this->m_bank_name = $this->BankName($transfer['bk_code']);
         $this->m_bank_number = $transfer['bk_account_number'];
         $this->m_photo = $transfer['im_filename'];
     }
@@ -198,6 +198,29 @@ class OrderController extends OrderModel{
     public function NotificationChecking(){
         $data = parent::NotificationCheckingProcess();
         return $data['COUNT(od_id)'];
+    }
+
+    // Convert Bank Code to Bank Name
+    private function BankName($code){
+        if($code == "BBL")
+            $name = "ธนาคารกรุงเทพ";
+        else if($code == "BAY")
+            $name = "ธนาคารกรุงศรีอยุธยา";
+        else if($code == "KBANK")
+            $name = "ธนาคารกสิกรไทย";
+        else if($code == "KTB")
+            $name = "ธนาคารกรุงไทย";
+        else if($code == "SCB")
+            $name = "ธนาคารไทยพาณิชย์";
+        else if($code == "TMB")
+            $name = "ธนาคารทหารไทย";
+        else if($code == "GSB")
+            $name = "ธนาคารออมสิน";
+        else{
+            $name = "n/a";
+        }
+
+        return $name;
     }
 }
 ?>

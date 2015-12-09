@@ -70,6 +70,7 @@ class OrderModel extends Database{
 		$dataset['order_complete_time_thai_format'] 	= parent::date_thaiformat($dataset['od_complete_time']);
 
 		$dataset['order_expire_time_datediff'] 			= parent::dateDifference($dataset['od_expire_time']);
+		$dataset['me_phone'] 							= parent::PhoneFormat($dataset['me_phone']);
 
 		return $dataset;
 	}
@@ -78,7 +79,9 @@ class OrderModel extends Database{
 		parent::query('SELECT mf_id,mf_total,mf_description,mf_create_time,mf_update_time,mf_type,mf_status,bk_id,bk_code,bk_account_name,bk_account_number,im_id,im_filename FROM dd_money_transfer LEFT JOIN dd_bank ON mf_to_bank = bk_id LEFT JOIN dd_image ON im_transfer_id = mf_id WHERE mf_order_id = :order_id AND mf_status = "active"');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
-		return parent::single();
+		$data = parent::single();
+		$data['bk_account_number'] = parent::BankNumberFormat($data['bk_account_number']);
+		return $data;
 	}
 
 	public function UpdateStatusOrderProcess($param){

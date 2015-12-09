@@ -48,7 +48,7 @@ if(isset($_GET['id'])){
 	<div class="content content-container">
 		<div class="form">
 			<div class="form-items">
-				<div class="caption">ธนาคาร</div>
+				<div class="caption">ธนาคาร <span class="required">*</span></div>
 				<div class="input">
 					<select id="code" class="input-text input-select">
 						<option value="BBL" <?php echo ($bank->code=="BBL"?'selected':'');?>>ธนาคารกรุงเทพ</option>
@@ -62,19 +62,19 @@ if(isset($_GET['id'])){
 				</div>
 			</div>
 			<div class="form-items">
-				<div class="caption">สาขา</div>
+				<div class="caption">สาขา <span class="required">*</span></div>
 				<div class="input">
 					<input type="text" class="input-text" id="branch" value="<?php echo $bank->account_branch;?>">
 				</div>
 			</div>
 			<div class="form-items">
-				<div class="caption">ชื่อบัญชี</div>
+				<div class="caption">ชื่อบัญชี <span class="required">*</span></div>
 				<div class="input">
 					<input type="text" class="input-text" id="name" value="<?php echo $bank->account_name;?>">
 				</div>
 			</div>
 			<div class="form-items">
-				<div class="caption">เลขบัญชี</div>
+				<div class="caption">เลขบัญชี <span class="required">*</span></div>
 				<div class="input">
 					<input type="text" class="input-text" id="number" value="<?php echo $bank->account_number;?>">
 				</div>
@@ -83,7 +83,7 @@ if(isset($_GET['id'])){
 			<input type="hidden" id="bank_id" value="<?php echo $bank->id;?>">
 
 			<div class="form-submit">
-				<button class="submit-button" onclick="javascript:CreateBank();">SAVE</button>
+				<button class="submit-button" onclick="javascript:CreateBank();">บันทึก</button>
 			</div>
 		</div>
 	</div>

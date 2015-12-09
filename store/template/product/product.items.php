@@ -21,8 +21,11 @@ if($var['pd_status'] != "active"){
 		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
 		<p class="description"><?php echo (empty($var['pd_description'])?'...':$var['pd_description']);?></p>
 		<p class="control">
-			<span id="status-<?php echo $var['pd_id'];?>" class="subproduct-status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
-			<span class="subproduct-status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i></span>
+			<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
+
+			<?php if($var['pd_sort'] > 1){?>
+			<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
+			<?php }?>
 		</p>
 	</div>
 
@@ -44,14 +47,16 @@ if($var['pd_status'] != "active"){
 	<div class="product-content">
 		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
 		<p>
-				<span class="price"><?php echo ($var['pd_type']=="root"?'สินค้าย่อย 4 รายการ':''.number_format($var['pd_price'],2).' บาท');?></span>
+				<span class="price"><?php echo ($var['pd_type']=="root"?'':''.number_format($var['pd_price'],2).' บาท');?></span>
 				<?php if($var['pd_type'] != "root"){?>
 				<span class="id"> | รหัสสินค้า: <?php echo $var['pd_id'];?></span>
 				<?php }?>
 		</p>
 		<p class="control">
 				<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
-				<span class="status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i></span>
+				<?php if($var['pd_sort'] > 1){?>
+				<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
+				<?php }?>
 
 				<span class="option-control">
 					<a href="product_editor.php?id=<?php echo $var['pd_id'];?>" title="แก้ไขข้อมูล"><i class="fa fa-cog"></i> <span class="link-caption"></span></a>

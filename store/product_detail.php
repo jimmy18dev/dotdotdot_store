@@ -69,7 +69,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 			<?php if($product->type != "sub" && !empty($product->image_filename)){?>
 			<section class="photo">
-				<h4>ภาพสินค้า</h4>
+				<h4>ภาพสินค้า <a href="product_editor.php?id=<?php echo $product->id;?>#photo">[เพิ่มรูปภาพ]</a></h4>
 				<div class="photo-container">
 					<div class="photo-items" id="image-<?php echo $var['im_id'];?>">
 						<img src="../image/upload/square/<?php echo $product->image_filename;?>" alt="">
@@ -82,13 +82,13 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			<?php }?>
 
 			<section class="description">
-				<h4>คำอธิบาย</h4>
+				<h4>คำอธิบาย <a href="product_editor.php?id=<?php echo $product->id;?>#description">[แก้ไข]</a></h4>
 				<div class="description-text"><?php echo $product->description;?></div>
 			</section>
 
 			<?php if($product->type != "root"){?>
 			<section class="description">
-				<h4>ราคาขาย</h4>
+				<h4>ราคาขาย <a href="product_editor.php?id=<?php echo $product->id;?>#price">[แก้ไข]</a></h4>
 				<div class="description-text"><?php echo number_format($product->price,2);?> บาท</div>
 			</section>
 
@@ -98,8 +98,8 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 				<!-- Product control -->
 				<div class="control">
-					<a href="quantity.php?id=<?php echo $product->id;?>&action=import"><div class="control-items"><i class="fa fa-plus"></i>นำเข้าสินค้า</div></a>
-					<a href="quantity.php?id=<?php echo $product->id;?>&action=export"><div class="control-items"><i class="fa fa-arrow-left"></i>โอนสินค้าออก</div></a>
+					<a href="quantity.php?id=<?php echo $product->id;?>&action=import" class="control-btn"><i class="fa fa-plus"></i>นำเข้าสินค้า</a>
+					<a href="quantity.php?id=<?php echo $product->id;?>&action=export" class="control-btn"><i class="fa fa-arrow-left"></i>โอนสินค้าออก</a>
 				</div>
 			</section>
 			<?php }?>

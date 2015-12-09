@@ -1,9 +1,9 @@
 <header class="header">
 	<div class="menu">
-		<a href="index.php"><div class="btn">สั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
+		<a href="index.php"><div class="btn <?php echo ($current_page == "order"?'btn-active':'');?>">สั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
 	</div>
 
-	<div class="logo"><a href="index.php">Administrator</a></div>
+	<div class="logo"><a href="index.php">Store</a></div>
 
 	<div class="account">
 		<div class="avatar">

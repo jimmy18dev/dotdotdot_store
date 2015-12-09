@@ -1,7 +1,7 @@
 <?php
 if($var['product_type'] == "sub"){
 	$link 	= $var['parent_id'];
-	$title 	= $var['parent_title'].' ('.$var['product_title'].')';
+	$title 	= $var['parent_title'].' – <strong>'.$var['product_title'].'</strong>';
 	$image 	= $var['parent_image_filename'];
 }
 else{
@@ -23,12 +23,10 @@ $product_quantity = $var['product_amount'];
 	</div>
 	<div class="items-in-order-detail">
 		<p class="detail-title"><?php echo $title;?></p>
-		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price'],2);?> บาท</p>
+		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price']);?> บาท</p>
 	</div>
 	<div class="items-in-order-quantity">
 		<?php echo $product_quantity;?>
 	</div>
-	<div class="items-in-order-total">
-		<span class="currency">฿</span> <?php echo number_format($product_payments,2);?>
-	</div>
+	<div class="items-in-order-total"><?php echo number_format($product_payments);?> <span class="currency">บาท</span></div>
 </div>

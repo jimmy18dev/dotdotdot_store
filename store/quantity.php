@@ -55,10 +55,9 @@ if($_GET['action'] == "export"){
 	<div class="content content-container">
 		<div class="form">
 			<div class="form-items">
-				<div class="caption"><?php echo $caption;?></div>
 				<div class="caption"><?php echo $product->title;?> <?php echo ($product->type == "sub"?'('.$product->parent_title.') เหลือสินค้า '.$product->quantity.' ชิ้น':'');?></div>
 				<div class="input">
-					<input type="text" class="input-text" id="quantity" name="quantity">
+					<input type="text" class="input-text" id="quantity" name="quantity" placeholder="0">
 				</div>
 			</div>
 
@@ -66,7 +65,7 @@ if($_GET['action'] == "export"){
 			<input type="hidden" id="action" value="<?php echo $_GET['action'];?>">
 			
 			<div class="form-submit">
-				<button type="submit" class="submit-button" onclick="javascript:UpdateQuantity();"><i class="fa fa-check"></i>SAVE</button>
+				<button type="submit" class="submit-button" onclick="javascript:UpdateQuantity();"><i class="fa fa-check"></i>ตกลง</button>
 			</div>
 		</div>
 	</div>

@@ -205,5 +205,30 @@ class Database{
         $date_string = $year.' '.$month.' '.$day;
         return $date_string;
     }
+
+    public function BankNumberFormat($number){
+        $number = trim(preg_replace('#[^-ก-๙a-zA-Z0-9]#u','', $number));
+        if(strlen($number) == 10){
+            $number = substr_replace($number,'-',3,0);
+            $number = substr_replace($number,'-',5,0);
+            $number = substr_replace($number,'-',-1,0);
+        }
+
+        return $number;
+    }
+
+    public function PhoneFormat($number){
+        $number = trim(preg_replace('#[^-ก-๙a-zA-Z0-9]#u','', $number));
+
+        if(strlen($number) == 10){
+            $number = substr_replace($number,'-',3,0);
+            $number = substr_replace($number,'-',-3,0);
+        }
+        else if(strlen($number) == 9){
+            $number = substr_replace($number,'-',3,0);
+        }
+        
+        return $number;
+    }
 }
 ?>

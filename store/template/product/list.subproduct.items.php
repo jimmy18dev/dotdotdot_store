@@ -17,7 +17,9 @@ if($var['pd_status'] != "active"){
 		<p class="control">
 			<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
 
-			<span class="status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i></span>
+			<?php if($var['pd_sort'] > 1){?>
+			<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
+			<?php }?>
 
 			<span class="option-control">
 				<a href="product_editor.php?id=<?php echo $var['pd_id'];?>" title="แก้ไขข้อมูล"><i class="fa fa-cog"></i><span class="link-caption"></span></a>
