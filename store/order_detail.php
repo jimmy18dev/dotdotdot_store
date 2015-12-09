@@ -2,6 +2,7 @@
 require_once'config/autoload.php';
 //include'sdk/facebook-sdk/autoload.php';
 //include'facebook.php';
+$current_page = "order_detail";
 
 $order->GetOrder(array('order_id' => $_GET['id']));
 // Update admin read
@@ -45,10 +46,6 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">ใบสั่งซื้อที่ <?php echo $order->id;?></div>
-	</div>
-
 	<div class="content content-container">
 		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">

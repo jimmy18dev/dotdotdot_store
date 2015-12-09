@@ -831,25 +831,28 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .content .detail .history .history-items {
-  width: 94%;
-  padding: 2% 3%;
+  width: 100%;
   float: left;
   display: inline-block;
-  border-bottom: 1px solid #FAFAFA;
+  border-top: 1px solid #FAFAFA;
   font-size: 0.9em;
-  line-height: 1.5em;
+  line-height: 1.3em;
 }
 .container .content .detail .history .history-items .history-items-icon {
-  width: 5%;
-  margin-top: 1%;
+  width: 10%;
+  margin-top: 2%;
   float: left;
   display: inline-block;
   font-size: 1.5em;
+  text-align: center;
+  color: #777777;
 }
 .container .content .detail .history .history-items .history-items-info {
-  width: 85%;
+  width: 75.5%;
+  padding: 1.5% 2%;
   float: left;
   display: inline-block;
+  border-right: 1px solid #EEEEEE;
 }
 .container .content .detail .history .history-items .history-items-info p {
   font-size: 1em;
@@ -865,9 +868,12 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .detail .history .history-items .history-items-amount {
   width: 10%;
+  padding-top: 2.5%;
   float: left;
   display: inline-block;
   text-align: right;
+  font-size: 1.5em;
+  text-align: center;
 }
 .container .content .detail .stat {
   width: 100%;
@@ -1093,18 +1099,18 @@ Copyright (c) 2015 Daniel Eden
   color: #AAAAAA;
 }
 .container .content .product-topic-caption .product-topic-caption-img {
-  width: 9%;
+  width: 10%;
   float: left;
   display: inline-block;
 }
 .container .content .product-topic-caption .product-topic-caption-title {
-  width: 75%;
+  width: 76%;
   padding: 0% 2%;
   float: left;
   display: inline-block;
 }
 .container .content .product-topic-caption .product-topic-caption-quantity {
-  width: 12%;
+  width: 10%;
   float: left;
   display: inline-block;
   text-align: center;
@@ -1120,14 +1126,14 @@ Copyright (c) 2015 Daniel Eden
   color: #333333;
 }
 .container .content .create-btn .icon {
-  width: 9%;
+  width: 10%;
   float: left;
   display: inline-block;
   text-align: center;
   font-size: 2.5em;
 }
 .container .content .create-btn .caption {
-  width: 87%;
+  width: 86%;
   padding: 0% 2%;
   float: left;
   display: inline-block;
@@ -1154,13 +1160,16 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  margin-bottom: 1%;
+  margin-top: 1%;
 }
 .container .content .product-items a {
   text-decoration: none;
 }
+.container .content .product-items a:hover {
+  text-decoration: underline;
+}
 .container .content .product-items .product-thumbnail {
-  width: 9%;
+  width: 10%;
   min-height: 50px;
   float: left;
   display: inline-block;
@@ -1170,171 +1179,98 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .content .product-items .product-content {
-  width: 91%;
-  float: right;
-  display: inline-block;
-  line-height: 1.2em;
-}
-.container .content .product-items .product-content .detail {
-  width: 83.5%;
-  padding: 1.4% 2%;
-  float: left;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1px solid #FAFAFA;
-}
-.container .content .product-items .product-content .detail h2 {
-  font-size: 0.9em;
-  color: #000000;
-  font-weight: bold;
-}
-.container .content .product-items .product-content .detail p {
-  font-size: 0.75em;
-  color: #777777;
-}
-.container .content .product-items .product-content .detail p a {
-  color: #DDDDDD;
-  margin-left: 10px;
-  float: right;
-}
-.container .content .product-items .product-content .detail p a:hover {
-  color: #777777;
-}
-.container .content .product-items .product-content .detail p a:active {
-  color: #000000;
-  text-decoration: underline;
-}
-.container .content .product-items .product-content .detail p .price {
-  font-weight: bold;
-}
-.container .content .product-items .product-content .detail p .status {
-  color: #AAAAAA;
-}
-.container .content .product-items .product-content .detail p .status i {
-  margin-right: 3px;
-  font-size: 0.7em;
-}
-.container .content .product-items .product-content .detail p .status:hover {
-  color: #000000;
-  cursor: pointer;
-}
-.container .content .product-items .product-content .detail p .status-active i {
-  color: #4CAF50;
-}
-.container .content .product-items .product-content .quantity {
-  width: 12%;
-  padding: 3% 0%;
-  float: right;
-  display: inline-block;
-  text-align: center;
-  line-height: 1.5em;
-  font-size: 1em;
-}
-.container .content .product-items .product-subproduct {
-  width: 91%;
-  float: right;
-  display: inline-block;
-}
-.container .content .product-items .product-subproduct .subproduct-title {
-  width: 96%;
-  margin: 2%;
-  margin-bottom: 1%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  font-weight: bold;
-}
-.container .content .product-items .product-subproduct .subproduct-status {
-  margin-left: 2%;
-  margin-bottom: 1%;
-  float: left;
-  display: inline-block;
-  font-size: 0.75em;
-  color: #AAAAAA;
-}
-.container .content .product-items .product-subproduct .subproduct-status:hover {
-  cursor: pointer;
-  color: #000000;
-}
-.container .content .product-items .product-subproduct .subproduct-status i {
-  font-size: 0.8em;
-}
-.container .content .product-items .product-subproduct .status-active i {
-  color: #4CAF50;
-}
-.container .content .product-items .product-subproduct .subproduct-items {
-  width: 96%;
-  padding: 1% 0%;
-  margin: 0% 2%;
-  float: left;
-  display: inline-block;
-  line-height: 1.2em;
-  border-top: 1px dotted #EEEEEE;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail {
-  width: 87%;
-  padding-right: 2%;
-  float: left;
-  display: inline-block;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 1px solid #FAFAFA;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail h3 {
-  font-size: 0.9em;
-  color: #000000;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail h3 a {
-  color: #000000;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p {
-  font-size: 0.75em;
-  color: #333333;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a {
-  float: right;
-  color: #DDDDDD;
-  margin-left: 10px;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a:hover {
-  color: #777777;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p a:active {
-  color: #000000;
-  text-decoration: underline;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .price {
-  font-weight: bold;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status {
-  color: #AAAAAA;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status i {
-  margin-right: 3px;
-  font-size: 0.7em;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status:hover {
-  cursor: pointer;
-  color: #000000;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-detail p .status-active i {
-  color: #4CAF50;
-}
-.container .content .product-items .product-subproduct .subproduct-items .subproduct-quantity {
+.container .content .product-items .product-icon {
   width: 10%;
-  padding: 1% 0%;
+  padding-top: 4%;
+  text-align: center;
+  float: left;
+  display: inline-block;
+  font-size: 1.5em;
+  color: #EEEEEE;
+}
+.container .content .product-items .product-content {
+  width: 75.5%;
+  padding: 1.1% 2%;
+  float: left;
+  display: inline-block;
+  line-height: 1.3em;
+  border-right: 1px solid #EEEEEE;
+}
+.container .content .product-items .product-content h2 {
+  font-size: 0.9em;
+  color: #000000;
+  font-weight: bold;
+}
+.container .content .product-items .product-content h2 a {
+  color: #000000;
+}
+.container .content .product-items .product-content p {
+  font-size: 0.75em;
+  color: #777777;
+}
+.container .content .product-items .product-content p a {
+  color: #DDDDDD;
+  margin-left: 10px;
+  float: right;
+}
+.container .content .product-items .product-content p a:hover {
+  color: #777777;
+}
+.container .content .product-items .product-content p a:active {
+  color: #000000;
+  text-decoration: underline;
+}
+.container .content .product-items .product-content p .price {
+  font-weight: bold;
+}
+.container .content .product-items .product-content p .status {
+  color: #AAAAAA;
+  margin-right: 10px;
+}
+.container .content .product-items .product-content p .status i {
+  margin-right: 2px;
+  font-size: 0.7em;
+}
+.container .content .product-items .product-content p .status:hover {
+  color: #000000;
+  cursor: pointer;
+}
+.container .content .product-items .product-content p .status-active i {
+  color: #4CAF50;
+}
+.container .content .product-items .product-content p.control {
+  margin-top: 1%;
+}
+.container .content .product-items .product-content p.description {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.container .content .product-items .product-quantity {
+  width: 10%;
+  padding-top: 3%;
   float: right;
   display: inline-block;
   text-align: center;
   line-height: 1.5em;
-  font-size: 1em;
+  font-size: 1.5em;
+  color: #777777;
+}
+.container .content .product-items .product-quantity i {
+  color: #EEEEEE;
+}
+.container .content .product-items .quantity-empty {
+  color: #FF0000;
+}
+.container .content .product-root-items {
+  margin-top: 1%;
+}
+.container .content .subproduct-items {
+  border-top: 1px solid #EEEEEE;
+  margin-top: 0%;
 }
 .container .content .product-items-disable {
-  opacity: 0.6;
+  opacity: 0.4;
 }
 .container .content .order-items {
   width: 96%;

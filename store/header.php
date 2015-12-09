@@ -43,6 +43,8 @@
 			<?php }else if($_GET['action'] == "export"){?>
 			<a href="product.php"><li><span class="icon"><i class="fa fa-arrow-left"></i></span><span class="caption">โอนสินค้าออก</span></li></a>
 			<?php }?>
+		<?php }else if($current_page == "order_detail"){?>
+			<a href="index.php"><li><span class="icon"><i class="fa fa-arrow-left"></i></span><span class="caption">รายการสั่งซื้อที่ <?php echo $order->id;?></span></li></a>
 		<?php }else{?>
 		<a href="product.php"><li class="<?php echo ($current_page == "product"?'active':'');?>">
 			<span class="icon"><i class="fa fa-th"></i></span><span class="caption">สินค้า</span></li>
@@ -50,10 +52,14 @@
 		<a href="analytics.php"><li class="<?php echo ($current_page == "analytics"?'active':'');?>">
 			<span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">วิเคราะห์</span></li>
 		</a>
-		<a href="more.php"><li class="<?php echo ($current_page == "more"?'active':'');?>">
+		<a href="customer.php"><li class="<?php echo ($current_page == "customer"?'active':'');?>">
+			<span class="icon"><i class="fa fa-user"></i></span><span class="caption">ลูกค้า</span></li>
+		</a>
+		<a href="../"><li><span class="icon"><i class="fa fa-television"></i></span><span class="caption">หน้าร้าน</span></li></a>
+
+		<a href="more.php"><li class="right <?php echo ($current_page == "more"?'active':'');?>">
 			<span class="icon"><i class="fa fa-ellipsis-h"></i></span><span class="caption">เพิ่มเติม</span></li>
 		</a>
-		<a href="../"><li class="right"><span class="icon"><i class="fa fa-television"></i></span><span class="caption">หน้าร้าน</span></li></a>
 		<?php }?>
 	</ul>
 </nav>

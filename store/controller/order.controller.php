@@ -161,7 +161,7 @@ class OrderController extends OrderModel{
         }
 
         if($loop == 0){
-            include'template/order/order.empty.items.php';
+            include'template/empty.items.php';
         }
         unset($data);
     }

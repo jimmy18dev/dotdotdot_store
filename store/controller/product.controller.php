@@ -108,6 +108,7 @@ class ProductController extends ProductModel{
     }
 
 	private function Render($mode,$data){
+        $loop = 0;
         foreach ($data as $var){
         	if($mode == "product-items"){
         		include'template/product/product.items.php';
@@ -124,7 +125,14 @@ class ProductController extends ProductModel{
             else if($mode == "history-items"){
                 include'template/product/history.items.php';
             }
+
+            $loop++;
         }
+
+        if($loop== 0){
+            include'template/empty.items.php';
+        }
+
         unset($data);
     }
 
