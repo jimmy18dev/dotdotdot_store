@@ -19,10 +19,11 @@ if($var['pd_status'] != "active"){
 
 			<span class="status" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);"><i class="fa fa-arrow-up"></i></span>
 
-
-			<a href="product_editor.php?id=<?php echo $var['pd_id'];?>" title="แก้ไขข้อมูล"><i class="fa fa-cog"></i><span class="link-caption"></span></a>
-			<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=export" title="โอนสินค้าออก"><i class="fa fa-arrow-left"></i> <span class="link-caption"></span></a>
-			<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=import" title="นำเข้าสินค้า"><i class="fa fa-plus"></i> <span class="link-caption"></span></a>
+			<span class="option-control">
+				<a href="product_editor.php?id=<?php echo $var['pd_id'];?>" title="แก้ไขข้อมูล"><i class="fa fa-cog"></i><span class="link-caption"></span></a>
+				<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=export" title="โอนสินค้าออก"><i class="fa fa-arrow-left"></i> <span class="link-caption"></span></a>
+				<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=import" title="นำเข้าสินค้า"><i class="fa fa-plus"></i> <span class="link-caption"></span></a>
+			</span>
 		</p>
 	</div>
 

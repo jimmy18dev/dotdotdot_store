@@ -1,6 +1,6 @@
 <header class="header">
 	<div class="menu">
-		<a href="index.php"><div class="btn">รายการสั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
+		<a href="index.php"><div class="btn">สั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
 	</div>
 
 	<div class="logo"><a href="index.php">Administrator</a></div>
