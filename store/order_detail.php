@@ -47,7 +47,19 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 
 <div class="container">
 	<div class="content content-container">
-		<?php if($order->status != "Complete" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+		<?php if($order->status == "Cancel" || $order->status == "Expire" || $order->status == "Complete"){?>
+		<div class="order-status-bar <?php echo strtolower($order->status);?>">
+			<?php if($order->status == "Cancel"){?>
+			<i class="fa fa-exclamation-triangle"></i>ยกเลิกการสั่งซื้อ
+			<?php }else if($order->status == "Expire" || true){?>
+			<i class="fa fa-clock-o"></i>เกินเวลาชำระเงิน
+			<?php }else if($order->status == "Complete"){?>
+			<i class="fa fa-check-circle"></i>เสร็จสมบูรณ์
+			<?php }?>
+		</div>
+		<?php }?>
+
+		<?php if($order->status != "Complete" && $order->status != "Cancel" && $order->status != "Expire" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
 			<a href="#product-list">
 			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
@@ -187,7 +199,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 </div>
 
 <div id="alert">
-	<div class="alert-message" id="alert-message"><i class="fa fa-circle-o-notch fa-spin"></i>รอสักครู่...</div>
+	<div class="alert-message" id="alert-message"><i class="fa fa-circle-o-notch fa-spin"></i>รอสักครู่ ...</div>
 </div>
 </body>
 </html>

@@ -105,9 +105,8 @@ else
 
 <!-- Loading process submit photo to uploading. -->
 <div id="filter">
-	<div class="logo">dotdotdot</div>
 	<div id="loading-bar"></div>
-	<div id="loading-message"></div>
+	<div id="loading-message">กรุณารอสักครู่ ...</div>
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
 </body>

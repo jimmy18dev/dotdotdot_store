@@ -22,8 +22,8 @@ $product_quantity = $var['product_amount'];
 		</a>
 	</div>
 	<div class="items-in-order-detail">
-		<p class="detail-title"><?php echo $title;?></p>
-		<p class="detail-description">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price']);?> บาท</p>
+		<p><?php echo $title;?></p>
+		<p class="mini">รหัสสินค้า: <?php echo $var['product_id'];?> · ราคา <?php echo number_format($var['product_price']);?> บาท</p>
 	</div>
 	<div class="items-in-order-quantity">
 		<?php echo $product_quantity;?>

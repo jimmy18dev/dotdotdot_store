@@ -54,12 +54,9 @@ Copyright (c) 2016 Puwadon Sricharoen
     ul{
         li.navi-items{
             width: 20%;
-            float: left;
-            display: inline-block;
             padding: 5% 0%;
             margin-right: 0%;
             font-size: 0.9em;
-            border-bottom: 2px solid transparent;
 
             .caption{
                 display: none;
@@ -72,18 +69,9 @@ Copyright (c) 2016 Puwadon Sricharoen
         }
 
         li.navi-bar{
-            width: 94%;
-            float: left;
-            display: inline-block;
             padding: 5% 3%;
             margin-right: 0%;
             font-size: 0.9em;
-            border-bottom: 2px solid transparent;
-            text-align: left;
-        }
-
-        li.active{
-            border-bottom: 2px solid #333333;
         }
 
         li.right{
@@ -179,292 +167,153 @@ Copyright (c) 2016 Puwadon Sricharoen
             }
         }
 
+        .order-status-bar{
+            width: 94%;
+            padding: 2% 3%;
+            font-size: 0.8em;
+            line-height: 1.5em;
+        }
+
         // Order Detail page
         .order-state{
-            width: 100%;
-            float: left;
-            display: inline-block;
             margin-bottom: 3%;
 
             .state-items{
-                width: 20%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-                text-align: center;
-                border-bottom: 2px solid #FAFAFA;
+                width: 25%;
+                padding: 5% 0%;
 
                 .icon{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 2em;
+                    font-size: 1.2em;
                     margin-bottom: 3%;
-                    color: #EEEEEE;
                 }
                 .caption{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
+                    font-size: 0.6em;
                     line-height: 2em;
-                    color: #EEEEEE;
-                }
-            }
-
-            .state-active{
-                border-bottom: 2px solid rgba(0, 0, 0, 0.9);
-                .icon{
-                    color: rgba(0, 0, 0, 0.9);
-                }
-                .caption{
-                    color: rgba(0, 0, 0, 0.9);
-                    font-weight: bold;
-                }
-            }
-
-            .state-items-fullsize{
-                width: 100%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-                text-align: center;
-
-                i{
-                    margin-right: 10px;
                 }
             }
         }
 
         .order-dialog{
             width: 94%;
-            padding: 3%;
-            float: left;
-            display: inline-block;
-            border-bottom: 1px solid #FAFAFA;
-            line-height: 1.5em;
+            padding: 4% 3%;
+            border-bottom: 2px solid #EEEEEE;
 
-            .icon{
-                width: 20%;
-                padding-top: 5%;
-                float: left;
-                display: inline-block;
-                text-align: center;
-                font-size: 2em;
-                color: rgba(0, 0, 0, 0.44);
+            h2{
+                font-size: 0.9em;
+                margin-bottom: 3%;
             }
-            .box{
-                width: 80%;
+
+            p{
+                font-size: 0.9em;
+                line-height: 1.5em;
+            }
+            p.big{
+                font-size: 1.2em;
+            }
+
+            .image{
+                margin: 3% 0%;
+
+                img{
+                    width: 100%;
+                }
+            }
+
+            .control{
+                width: 100%;
                 float: left;
                 display: inline-block;
+                margin-top: 1%;
 
-                .highlight{
-                    font-weight: bold;
-                    color: #00ab6b;
-                }
-
-                p{
-                    line-height: 1.5em;
+                button.button{
+                    float: right;
+                    padding: 2% 5%;
                     font-size: 0.9em;
-                    color: rgba(0, 0, 0, 0.9);
-                }
-
-                p.caption{
-                    color: rgba(0, 0, 0, 0.44);
-                    margin-bottom: 1%;
-                }
-
-                p.big{
-                    font-size: 1.5em;
-                    margin-bottom: 1%;
-                }
-
-                p.message{
-                    margin-top: 1%;
-                    font-style: italic;
-                }
-
-                .image{
-                    width: 100%;
-                    padding: 5% 0%;
-                    float: left;
-                    display: inline-block;
-
-                    img{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                    }
-                }
-
-                .input-text{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 2em;
                     line-height: 1.5em;
-                    border: 0px;
-                    border-bottom: 1px solid #EEEEEE;
-                    outline: 0;
-                }
+                    margin-right: 0px;
+                    margin-left: 3%;
 
-                .control{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-
-                    .button{
-                        width: 20%;
-                        padding: 2% 0%;
-                        margin: 2% 0%;
-                        text-align: center;
-                        float: right;
-                        display: inline-block;
-                        border: 0px;
-                        font-size: 0.9em;
-                        line-height: 1.5em;
-                        background: #FFFFFF;
-                        color: #AAAAAA;
-
-                        i{
-                            margin-right: 10px;
-                        }
-
-                        &:hover{
-                            cursor: pointer;
-                            opacity: 0.6;
-                        }
-                    }
-
-                    .success{
-                        background: #555555;
-                        color: #FFFFFF;
-                    }
-                }
-
-                .order-list{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-
-                    .topic-caption{
-                        width: 100%;
-                        padding: 1% 0%;
-                        float: left;
-                        display: inline-block;
+                    i{
+                        margin-right: 10px;
                         font-size: 0.8em;
-                        color: rgba(0, 0, 0, 0.44);
-                        font-style: italic;
-
-                        .detail{
-                            width: 70%;
-                            float: left;
-                            display: inline-block;
-                        }
-                        .quantity{
-                            width: 15%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
-                        }
-                        .total{
-                            width: 15%;
-                            float: left;
-                            display: inline-block;
-                            text-align: right;
-                        }
                     }
+                }
+            }
 
-                    .items-in-order{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                        line-height: 1.5em;
-                        border-top: 1px solid #EEEEEE;
-                        font-size: 0.9em;
+            .input-text{
+                width: 96%;
+                padding: 3% 2%;
+                font-size: 1em;
+                line-height: 1.5em;
+            }
 
-                        .items-in-order-thumbnail{
-                            width: 13%;
-                            float: left;
-                            display: inline-block;
+            .order-list{
 
-                            img{
-                                width: 100%;
-                                float: left;
-                                display: inline-block;
-                            }
+                .currency{
+                    font-size: 0.7em;
+                }
+
+                .topic-caption{
+                    padding: 3% 0%;
+                    font-size: 0.7em;
+
+                    .detail{
+                        width: 85%;
+                    }
+                    .quantity{
+                        width: 15%;
+                    }
+                    .total{
+                        display: none;
+                    }
+                }
+
+                .items-in-order{
+                    line-height: 1em;
+
+                    .items-in-order-thumbnail{
+                        width: 15%;
+                    }
+                    .items-in-order-detail{
+                        width: 64%;
+                        padding: 2% 3%;
+
+                        p{
+                            font-size: 0.9em;
+                            color: #333333;
+                            line-height: 1.3em;
                         }
-                        .items-in-order-detail{
-                            width: 53%;
-                            padding: 2%;
-                            float: left;
-                            display: inline-block;
-                            display: inline-block;
-                            text-overflow: ellipsis;
-                            white-space: nowrap;
-                            overflow: hidden;
-
-                            p.detail-title{
-                                color: rgba(0, 0, 0, 0.9);
-                            }
-                            p.detail-description{
-                                font-size: 0.8em;
-                                color: rgba(0, 0, 0, 0.44);
-                            }
-                        }
-                        .items-in-order-quantity{
-                            width: 15%;
-                            padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
-                        }
-                        .items-in-order-total{
-                            width: 15%;
-                            padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: right;
-                        }
-
-                        .currency{
+                        p.mini{
                             font-size: 0.7em;
-                            color: rgba(0, 0, 0, 0.44);
+                            color: #777777;
+                            margin-top: 1%;
                         }
                     }
-
-                    .summary-items{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                        font-size: 0.9em;
-                        color: rgba(0, 0, 0, 0.9);
-
-                        .detail{
-                            width: 66%;
-                            margin-left: 13%;
-                            padding: 2%;
-                            float: left;
-                            display: inline-block;
-                        }
-                        .total{
-                            width: 17%;
-                            padding: 2% 0%;
-                            float: left;
-                            display: inline-block;
-                            text-align: center;
-                            text-align: right;
-                        }
-
-                        .currency{
-                            font-size: 0.7em;
-                            color: rgba(0, 0, 0, 0.44);
-                        }
+                    .items-in-order-quantity{
+                        width: 15%;
+                        padding: 4% 0%;
                     }
-                    .summary-total{
-                        border-top: 1px dashed #FAFAFA;
-                        font-weight: bold;
+                    .items-in-order-total{
+                        display: none;
                     }
+                }
+
+                .summary-items{
+                    width: 100%;
+                    margin-left: 0%;
+                    padding: 6% 0%;
+                    font-size: 0.9em;
+
+                    .detail{
+                        width: 70%;
+                    }
+                    .total{
+                        width: 30%;
+                    }
+                }
+                .summary-total{
+                    border-top: 2px solid #EEEEEE;
+                    font-weight: bold;
                 }
             }
         }
@@ -818,8 +667,6 @@ Copyright (c) 2016 Puwadon Sricharoen
             .product-content{
                 width: 63.5%;
                 padding: 1.1% 3%;
-                float: left;
-                display: inline-block;
                 line-height: 1em;
                 border-right: 1px solid #EEEEEE;
 
@@ -934,89 +781,29 @@ Copyright (c) 2016 Puwadon Sricharoen
 }
 
 #alert{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    float: left;
-    display: inline-block;
-    background: #FFFFFF;
-    z-index: 999;
-    display: none;
-
     .alert-message{
         width: 100%;
-        padding-top: 20%;
-        float: left;
-        display: inline-block;
-        text-align: center;
-        color: rgba(0, 0, 0, 0.44);
+        padding-top: 50%;
         line-height: 1.5em;
-        font-size: 1.2em;
-
-        i{
-            font-size: 0.8em;
-            margin: 0% 1%;
-        }
+        font-size: 0.9em;
     }
 }
 
 #filter{
-    position: fixed;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    float: left;
-    display: inline-block;
-    background: #FFFFFF;
-    display: none;
-
-    .logo{
-        width: 100%;
-        padding: 2% 0%;
-        float: left;
-        display: inline-block;
-        text-align: center;
-        font-size: 1em;
-    }
-
     #loading-bar{
         width: 60%;
-        margin-top: 20%;
-        height: 2px;
-        float: left;
-        display: inline-block;
-        background: #000000;
+        margin-top: 60%;
+        height: 1px;
     }
-
     #loading-message{
-        width: 100%;
-        padding: 2% 0%;
-        float: left;
-        display: inline-block;
-        text-align: center;
+        padding: 5% 0%;
         line-height: 1.5em;
         font-size: 0.9em;
-        color: #555555;
-
-        i{
-            margin-right: 10px;
-        }
     }
 
     .cancel{
-        width: 100%;
-        margin-top: 20%;
-        float: left;
-        display: inline-block;
-        text-align: center;
+        margin-top: 30%;
         line-height: 1.5em;
         font-size: 0.8em;
-
-        a{
-            color: #CCCCCC;
-        }
     }
 }
