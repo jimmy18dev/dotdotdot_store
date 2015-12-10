@@ -10,6 +10,7 @@ class UserController extends UserModel{
     public $verify_code;
     public $forget_code;
     public $status;
+    public $type;
     public $total_payment;
 
 
@@ -62,6 +63,7 @@ class UserController extends UserModel{
         $this->verify_code          = $data['me_verify_code'];
         $this->fotget_code          = $data['me_fotget_code'];
         $this->status               = $data['me_status'];
+        $this->type                 = $data['me_type'];
 
         $this->total_payment        = parent::GetTotalPaymentProcess(array('member_id' => $this->id));
 

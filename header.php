@@ -35,4 +35,10 @@
 	<div class="header-items login"><i class="fa fa-user"></i>เข้าสู่ระบบ</div>
 	</a>
 	<?php }?>
+
+	<?php if($user->type == "administrator"){?>
+	<a href="/store">
+	<div class="btn-admin"><i class="fa fa-mouse-pointer"></i>Click to Store panel(Admin only)</div>
+	</a>
+	<?php }?>
 </header>

@@ -1,14 +1,17 @@
 <footer class="footer">
-	<!-- <div class="footer-link">
-		<a href="#">หน้าแรก</a> · 
-		<a href="#">สินค้าใหม่</a> · 
-		<a href="#">วิธีการสั่งซื้อ</a> · 
-		<a href="#">สั่งจำนวนมาก</a> · 
-		<a href="#">Facebook</a>
-	</div> -->
 
-	<p>dotdotdot company limited, founded in 2004</p>
-	<p>m.l. apichit vudhijaya [art], is a 'creative marketing</p>
-	<p>dotdotdotlimited.com 2015 Develop and Design Puwadon Sricharoen</p>
-	<p class="device"><?php echo DEVICE_TYPE.', Model:'.DEVICE_MODEL.', OS:'.DEVICE_OS.', Browser:'.DEVICE_BROWSER.', Token:'.$user->token;?></p>
+	<div class="about">
+		<h2><i class="fa fa-star"></i>dotdotdot company limited, founded in 2004</h2>
+		<h3><i class="fa fa-user"></i>m.l. apichit vudhijaya [art], is a 'creative marketing</h3>
+		<p><strong>Our companies:</strong><br>
+			<a href="">ARTHIT TARA</a> , 
+			<a href="">VIMALA SUITES</a> , 
+			<a href="">DOTDOTDOT LIMITED</a> , 
+			<a href="">DOTDOTDOT BANGKOK</a>
+		</p>
+	</div>
+
+	<div class="developer">
+		<p class="dev"><i class="fa fa-server"></i><?php echo DEVICE_TYPE.', Model: '.DEVICE_MODEL.', OS: '.DEVICE_OS.', Browser: '.DEVICE_BROWSER;?>, Develop and Design Puwadon Sricharoen</p>
+	</div>
 </footer>

@@ -181,6 +181,28 @@ Copyright (c) 2015 Daniel Eden
 .header .login i {
   margin-right: 10px;
 }
+.header .btn-admin {
+  width: 96%;
+  padding: 0.5% 2%;
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  background: rgba(255, 255, 255, 0.5);
+  color: #AAAAAA;
+  text-align: right;
+}
+.header .btn-admin i {
+  margin-right: 5px;
+}
+.header .btn-admin:hover {
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.7);
+  color: #777777;
+}
+.header .btn-admin:active {
+  background: #FFFFFF;
+  color: #333333;
+}
 .header-fix {
   position: inherit;
 }
@@ -1163,32 +1185,55 @@ Copyright (c) 2015 Daniel Eden
   color: #CCCCCC;
 }
 .footer {
-  width: 96%;
-  padding: 4% 2%;
+  width: 100%;
   float: left;
   display: inline-block;
   background: #000000;
-  text-align: center;
+  color: #FFFFFF;
 }
-.footer .footer-link {
-  width: 100%;
-  margin-bottom: 5%;
+.footer .about {
+  width: 96%;
+  padding: 3% 2%;
   float: left;
   display: inline-block;
-  color: #FFFFFF;
-  font-size: 0.8em;
 }
-.footer .footer-link a {
-  color: #FFFFFF;
-  text-decoration: none;
+.footer .developer {
+  width: 96%;
+  padding: 0.5% 2%;
+  float: left;
+  display: inline-block;
+  background: #111111;
+  text-align: right;
 }
-.footer .footer-link a:hover {
-  text-decoration: underline;
+.footer h2 {
+  font-size: 1.1em;
+  line-height: 1.5em;
+}
+.footer h3 {
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin-bottom: 1%;
 }
 .footer p {
   font-size: 0.8em;
   color: #FFFFFF;
-  line-height: 1.7em;
+  line-height: 1.5em;
+}
+.footer strong {
+  font-weight: bold;
+}
+.footer a {
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.footer a:hover {
+  text-decoration: underline;
+}
+.footer p.dev {
+  font-size: 0.6em;
+}
+.footer i {
+  margin-right: 5px;
 }
 .dialog-box {
   position: fixed;
@@ -1269,6 +1314,14 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin: 15px 3%;
     padding: 1% 2%;
     font-size: 0.8em;
+  }
+  .header .btn-admin {
+    width: 96%;
+    padding: 2%;
+    font-size: 0.7em;
+  }
+  .header .btn-admin i {
+    margin-right: 5px;
   }
   .login-container {
     width: 90%;
@@ -1685,17 +1738,33 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-top: 40%;
     font-size: 0.7em;
   }
-  .footer {
+  .footer .about {
     width: 94%;
-    padding: 6% 3%;
+    padding: 5% 3%;
   }
-  .footer .footer-link {
-    margin-bottom: 5%;
-    font-size: 0.8em;
+  .footer .developer {
+    width: 94%;
+    padding: 2% 3%;
+    text-align: left;
+  }
+  .footer h2 {
+    font-size: 0.9em;
+    line-height: 1.5em;
+  }
+  .footer h3 {
+    font-size: 0.75em;
+    line-height: 1.5em;
+    margin-bottom: 3%;
   }
   .footer p {
-    font-size: 0.8em;
+    font-size: 0.7em;
     line-height: 1.5em;
+  }
+  .footer p.dev {
+    font-size: 0.6em;
+  }
+  .footer i {
+    margin-right: 5px;
   }
   .dialog-box .icon {
     width: 100%;
@@ -1711,6 +1780,6 @@ Copyright (c) 2015 Puwadon Sricharoen
   #loading-status {
     bottom: 5px;
     right: 5px;
-    font-size: 1em;
+    font-size: 0.5em;
   }
 }

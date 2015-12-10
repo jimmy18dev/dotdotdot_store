@@ -51,7 +51,7 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 		<div class="order-status-bar <?php echo strtolower($order->status);?>">
 			<?php if($order->status == "Cancel"){?>
 			<i class="fa fa-exclamation-triangle"></i>ยกเลิกการสั่งซื้อ
-			<?php }else if($order->status == "Expire" || true){?>
+			<?php }else if($order->status == "Expire"){?>
 			<i class="fa fa-clock-o"></i>เกินเวลาชำระเงิน
 			<?php }else if($order->status == "Complete"){?>
 			<i class="fa fa-check-circle"></i>เสร็จสมบูรณ์
