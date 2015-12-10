@@ -50,6 +50,7 @@ else
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/lib/jquery.form.min.js"></script>
+<script type="text/javascript" src="js/lib/jquery.autosize.min.js"></script>
 <script type="text/javascript" src="js/product-form.js"></script>
 
 </head>
@@ -75,7 +76,7 @@ else
 			<div class="form-items">
 				<div class="caption">รายละเอียดสินค้า</div>
 				<div class="input">
-					<textarea class="input-text input-textarea" name="description" placeholder=""><?php echo $product->description;?></textarea>
+					<textarea class="input-text input-textarea animated" name="description" placeholder=""><?php echo $product->description;?></textarea>
 				</div>
 			</div>
 			<div class="form-items form-items-half">

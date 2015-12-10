@@ -833,10 +833,10 @@ Copyright (c) 2015 Daniel Eden
 .container .content .detail .subproduct .sub-items .sub-items-detail a.edit-btn {
   float: right;
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.44);
+  color: #AAAAAA;
 }
 .container .content .detail .subproduct .sub-items .sub-items-detail a.edit-btn:hover {
-  color: rgba(0, 0, 0, 0.9);
+  color: #333333;
   text-decoration: underline;
 }
 .container .content .detail .subproduct .sub-items .sub-items-summary {
@@ -950,6 +950,7 @@ Copyright (c) 2015 Daniel Eden
   outline: 0;
   font-weight: bold;
   color: #333333;
+  resize: none;
 }
 .container .content .form .input-text:hover {
   border: 1px solid #CCCCCC;

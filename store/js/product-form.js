@@ -1,7 +1,6 @@
 $(document).ready(function(){
     // Textarea Autosize
-    // $('.normal').autosize();
-    //$('.animated').autosize({append: "\n"});
+    $('.animated').autosize({append: "\n"});
 
     var product_id  = $('#product_id').val();
     var parent      = $('#parent').val();
