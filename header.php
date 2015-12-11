@@ -36,7 +36,7 @@
 	</a>
 	<?php }?>
 
-	<?php if($user->type == "administrator"){?>
+	<?php if($user->type == "administrator" && ($current_page == "index" || $current_page == "product")){?>
 	<a href="/store">
 	<div class="btn-admin"><i class="fa fa-mouse-pointer"></i>Click to Store panel(Admin only)</div>
 	</a>

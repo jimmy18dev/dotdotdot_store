@@ -21,9 +21,7 @@ $current_page = "customer";
 <meta name="viewport" content="user-scalable=no">
 <meta name="viewport" content="initial-scale=1,maximum-scale=1">	
 
-<?php
-//include'favicon.php';
-?>
+<?php include'favicon.php';?>
 
 <title>Customer</title>
 

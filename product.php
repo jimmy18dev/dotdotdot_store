@@ -9,6 +9,7 @@ $product->GetProduct(array(
 ));
 
 $product->UpdateView(array('product_id' => $product->id));
+$current_page = "product";
 ?>
 
 <!DOCTYPE html>

@@ -1,7 +1,7 @@
 <?php
 if($var['product_type'] == "sub"){
 	$link 	= $var['parent_id'];
-	$title 	= $var['parent_title'].' – '.$var['product_title'];
+	$title 	= '<strong>'.$var['product_title'].'</strong> – '.$var['parent_title'];
 	$image 	= $var['parent_image_filename'];
 }
 else{

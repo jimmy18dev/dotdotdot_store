@@ -106,7 +106,7 @@ class OrderModel extends Database{
 			LEFT JOIN dd_product AS product ON odt_product_id = pd_id 
 			LEFT JOIN dd_product AS parent ON product.pd_parent = parent.pd_id 
 			LEFT JOIN dd_image AS p_image ON product.pd_id = p_image.im_product_id AND im_type = "cover" 
-			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id 
+			LEFT JOIN dd_image AS parent_image ON parent.pd_id = parent_image.im_product_id AND parent_image.im_type = "cover" 
 			WHERE odt_order_id = :order_id');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();

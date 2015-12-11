@@ -190,6 +190,7 @@ Copyright (c) 2015 Daniel Eden
   background: rgba(255, 255, 255, 0.5);
   color: #AAAAAA;
   text-align: right;
+  z-index: 99;
 }
 .header .btn-admin i {
   margin-right: 5px;
@@ -391,6 +392,7 @@ Copyright (c) 2015 Daniel Eden
   width: 50%;
   float: left;
   display: inline-block;
+  margin-bottom: 5%;
 }
 .container .container-page .panel img {
   width: 100%;
@@ -450,7 +452,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel .bank .bank-items .bank-items-info p {
-  font-size: 0.9em;
+  font-size: 1em;
 }
 .container .container-page .panel .bank .bank-items .bank-items-info p.zoom {
   font-size: 1.2em;
@@ -679,6 +681,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .box-items .box .order-list .summary-items .summary-items-detail .shipping-select {
   margin-left: 10px;
+  padding: 1%;
   display: inline-block;
   font-family: sans-serif, 'Open Sans';
   font-size: 0.9em;
@@ -741,7 +744,7 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel .cancel-btn {
   float: right;
   display: inline-block;
-  margin: 2% 0%;
+  margin: 0% 4%;
   padding: 1% 1%;
   font-size: 0.7em;
   border: 1px solid #F44336;
@@ -982,8 +985,10 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel-fix .form p.caption {
+  line-height: 2em;
   font-size: 0.8em;
-  color: #555555;
+  color: #333333;
+  font-weight: bold;
 }
 .container .container-page .panel-fix .form .input-text {
   width: 96%;
@@ -1021,12 +1026,12 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel-fix .form .submit-btn {
-  width: 30%;
+  width: 35%;
   float: right;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
-  font-size: 0.8em;
-  padding: 2% 4%;
+  font-size: 0.9em;
+  padding: 2.5% 5%;
   outline: 0;
   background: #000000;
   color: #FFFFFF;
