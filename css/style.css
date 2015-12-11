@@ -808,6 +808,10 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   padding: 1% 0%;
 }
+.container .container-page .panel-fix p.info .alert {
+  color: #F44336;
+  font-weight: bold;
+}
 .container .container-page .panel-fix p.info .sharing {
   float: right;
   padding: 1% 3%;
@@ -895,6 +899,14 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #000000;
   color: #FFFFFF;
 }
+.container .container-page .panel-fix .action .action-items .buy .buy-btn-disable {
+  border: 1px solid #FFFFFF;
+  color: #CCCCCC;
+}
+.container .container-page .panel-fix .action .action-items .buy .buy-btn-disable:hover {
+  border: 1px solid #FFFFFF;
+  color: #CCCCCC;
+}
 .container .container-page .panel-fix .order-state {
   width: 100%;
   float: left;
@@ -943,6 +955,34 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   line-height: 1.7em;
   color: #777777;
+}
+.container .container-page .panel-fix .control {
+  margin-top: 3%;
+  padding-top: 3%;
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-top: 1px dotted #EEEEEE;
+}
+.container .container-page .panel-fix .control a {
+  color: #555555;
+  font-size: 0.8em;
+  border: 1px solid #555555;
+  padding: 2px 5px;
+  text-decoration: none;
+}
+.container .container-page .panel-fix .control a i {
+  margin-right: 5px;
+  font-size: 0.8em;
+}
+.container .container-page .panel-fix .control a:hover {
+  color: #000000;
+  border: 1px solid #000000;
+}
+.container .container-page .panel-fix .control a:active {
+  background: #000000;
+  border: 1px solid #000000;
+  color: #FFFFFF;
 }
 .container .container-page .panel-fix p.icon {
   color: #DDDDDD;
@@ -1048,6 +1088,9 @@ Copyright (c) 2015 Daniel Eden
   margin-right: 10px;
 }
 .container .container-page .panel-fix p.link {
+  width: 100%;
+  float: left;
+  display: inline-block;
   margin-top: 5%;
   padding-top: 5%;
   font-size: 0.75em;
@@ -1122,7 +1165,7 @@ Copyright (c) 2015 Daniel Eden
   margin: auto;
   margin: 3% 0%;
   display: inline-block;
-  color: #555555;
+  color: #333333;
   text-align: right;
   font-size: 0.9em;
 }
@@ -1131,7 +1174,12 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 .container .container-page .product-items .product-items-detail .buy-btn i {
-  margin-right: 5px;
+  margin-right: 10px;
+  color: #777777;
+}
+.container .container-page .product-items .product-items-detail .buy-btn .currency {
+  font-size: 0.7em;
+  color: #777777;
 }
 .container .container-page .product-items .product-items-detail .buy-btn-active {
   font-style: italic;
@@ -1139,6 +1187,10 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .product-items .product-items-detail .buy-btn-active:hover {
   color: #000000;
+}
+.container .container-page .product-items .product-items-detail .buy-btn-disable {
+  font-style: italic;
+  color: #CCCCCC;
 }
 .container-fix {
   margin: 0px 0px;
@@ -1660,6 +1712,32 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .container-page .panel-fix p {
     font-size: 1em;
     line-height: 1.5em;
+  }
+  .container .container-page .panel-fix .control {
+    margin-top: 3%;
+    padding-top: 3%;
+    border-top: 1px dotted #EEEEEE;
+  }
+  .container .container-page .panel-fix .control a {
+    float: right;
+    color: #555555;
+    font-size: 0.8em;
+    border: 1px solid #555555;
+    padding: 0px 5px;
+    text-decoration: none;
+  }
+  .container .container-page .panel-fix .control a i {
+    margin-right: 5px;
+    font-size: 0.8em;
+  }
+  .container .container-page .panel-fix .control a:hover {
+    color: #000000;
+    border: 1px solid #000000;
+  }
+  .container .container-page .panel-fix .control a:active {
+    background: #000000;
+    border: 1px solid #000000;
+    color: #FFFFFF;
   }
   .container .container-page .panel-fix p.icon {
     font-size: 0.8em;

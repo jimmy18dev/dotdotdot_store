@@ -20,6 +20,10 @@ else{
 		<p><?php echo $var['pd_description'];?></p>
 	</div>
 	<div class="buy">
+		<?php if($var['pd_quantity'] > 0){?>
 		<div class="buy-btn animated <?php echo (!empty($var['odt_id'])?'buy-btn-active':'');?>" id="buy-button-<?php echo $var['pd_id'];?>" onclick="javascript:<?php echo $js_function;?>"><?php echo $button_msg;?></div>
+		<?php }else{?>
+		<div class="buy-btn buy-btn-disable"><i class="fa fa-hand-paper-o"></i>สินค้าหมด</div>
+		<?php }?>
 	</div>
 </div>

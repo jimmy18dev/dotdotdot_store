@@ -60,6 +60,12 @@ $current_page = "profile";
 					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
 					<a href="logout.php" class="signout">ออกจากระบบ</a>
 				</p>
+
+				<?php if($user->type == "administrator"){?>
+				<div class="control">
+					<a href="store/" class="btn"><i class="fa fa-mouse-pointer"></i>Login to Store</a>
+				</div>
+				<?php }?>
 			</div>
 		</div>
 

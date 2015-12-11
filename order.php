@@ -329,7 +329,7 @@ $current_page = "order";
 
 							<div class="summary-items">
 								<div class="summary-items-detail">
-									ค่าบริการส่ง : 
+									ส่งสินค้า : 
 									<?php if($order->status == "Shopping"){?>
 									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
 										<option value="Ems">พัสดุ EMS</option>

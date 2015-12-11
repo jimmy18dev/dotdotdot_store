@@ -148,9 +148,6 @@ Copyright (c) 2015 Daniel Eden
 .header .menu .btn:active {
   background: #000000;
 }
-.header .menu .btn-active {
-  background: #000000;
-}
 .header .menu a {
   float: left;
   display: inline-block;
@@ -656,6 +653,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1.5em;
   color: #000000;
   font-weight: bold;
+  margin-bottom: 1%;
 }
 .container .content .detail header.info h2 {
   font-size: 1em;
@@ -665,7 +663,17 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .detail header.info p {
   font-size: 0.8em;
-  color: rgba(0, 0, 0, 0.44);
+  color: #AAAAAA;
+}
+.container .content .detail header.info a {
+  color: #777777;
+  text-decoration: none;
+}
+.container .content .detail header.info a:hover {
+  color: #333333;
+}
+.container .content .detail header.info a i {
+  margin-right: 5px;
 }
 .container .content .detail h4 {
   font-size: 0.8em;
@@ -696,6 +704,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   margin-right: 1%;
+  margin-bottom: 2%;
 }
 .container .content .detail section.photo .photo-container .photo-items img {
   width: 100%;
@@ -704,10 +713,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .detail section.photo .photo-container .photo-items .setcover-btn {
   width: 90%;
-  padding: 3% 0%;
+  padding: 4% 0%;
   float: left;
   display: inline-block;
-  text-align: center;
   font-size: 0.7em;
   color: #AAAAAA;
 }
@@ -721,7 +729,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .detail section.photo .photo-container .photo-items .photodelete-btn {
   width: 10%;
-  padding: 3% 0%;
+  padding: 4% 0%;
   float: left;
   display: inline-block;
   text-align: center;
@@ -1556,7 +1564,7 @@ Copyright (c) 2016 Puwadon Sricharoen
     width: 25%;
     padding: 3% 0%;
     margin-left: 0%;
-    border-top: 2px solid transparent;
+    border-top: 1px solid transparent;
   }
   .container .tab-filter .filter-items .filter-items-caption {
     font-size: 0.75em;
@@ -1565,7 +1573,7 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container .tab-filter .filter-items-active {
     color: #333333;
     background: #FFFFFF;
-    border-top: 2px solid #333333;
+    border-top: 1px solid #CCCCCC;
   }
   .container .content {
     width: 100%;
@@ -1980,11 +1988,11 @@ Copyright (c) 2016 Puwadon Sricharoen
     border: 0px;
   }
   .container .content .create-btn .icon {
-    width: 10%;
+    width: 12%;
     font-size: 2em;
   }
   .container .content .create-btn .caption {
-    width: 80%;
+    width: 78%;
     padding: 0% 5%;
   }
   .container .content .create-btn .caption p {

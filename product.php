@@ -94,7 +94,11 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 						<p>อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</p>
 					</div>
 					<div class="buy">
+						<?php if($product->quantity > 0){?>
 						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
+						<?php }else{?>
+						<div class="buy-btn buy-btn-disable"><i class="fa fa-hand-paper-o"></i>สินค้าหมด</div>
+						<?php }?>
 					</div>
 				</div>
 				<?php }else{
@@ -108,7 +112,9 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 			<div class="description"><?php echo $product->description;?></div>
 
 			<p class="info">
-				<?php if($product->quantity > 5 || $product->type == "root"){?>
+				<?php if($product->type == "normal" && $product->quantity == 0){?>
+				<span class="view alert">ตอนนี้สินค้าหมดชั่วคราวค่ะ</span>
+				<?php }else if($product->quantity > 5 || $product->type == "root"){?>
 				<span class="view">แสดงสินค้าแล้ว <?php echo number_format($product->read);?> ครั้ง</span>
 				<?php }else{?>
 				<span class="view">มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
@@ -118,6 +124,12 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
 				<span class="sharing" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
 			</p>
+
+			<?php if($user->type == "administrator"){?>
+			<div class="control">
+				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>เปิดคลังสินค้า</a>
+			</div>
+			<?php }?>
 		</div>
 
 		<!-- Photo -->

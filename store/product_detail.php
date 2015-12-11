@@ -60,7 +60,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 				<h2><?php echo $product->parent_title;?></h2>
 				<?php }?>
 				<h1><?php echo $product->title;?></h1>
-				<p>เริ่มขาย <?php echo $product->create_time;?></p>
+				<p><a href="../product-<?php echo $product->id?>.html"><i class="fa fa-tv"></i>ดูหน้าเพจ</a> | เริ่มขาย <?php echo $product->create_time;?></p>
 			</header>
 
 			<?php if(empty($_GET['tab'])){?>
