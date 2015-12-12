@@ -1,6 +1,10 @@
+<?php
+$notif_count = $order->NotificationChecking();
+?>
+
 <header class="header">
 	<div class="menu">
-		<a href="index.php"><div class="btn">สั่งซื้อ<span class="notif"><?php echo $order->NotificationChecking();?></span></div></a>
+		<a href="index.php"><div class="btn">สั่งซื้อ <?php if($notif_count > 0){?><span class="notif"><?php echo $notif_count;?></span><?php }?></div></a>
 	</div>
 
 	<div class="logo"><a href="index.php">Store</a></div>

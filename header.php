@@ -1,5 +1,8 @@
 <header class="header <?php echo ($current_page == "order" || $current_page == "profile"?"header-fix":"");?>">
-	<div class="header-items logo"><a href="index.php">dotdotdot limited<span class="beta"></span></a></div>
+	<div class="header-items logo">
+		<a href="index.php">dotdotdot limited <div class="mini">Born and made in thailand</div>
+		</a>
+	</div>
 
 	<?php if(MEMBER_ONLINE){?>
 	<a href="profile.php">

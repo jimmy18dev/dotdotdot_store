@@ -102,9 +102,9 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .header .logo {
-  padding: 18px 2%;
-  height: 24px;
-  font-size: 1.5em;
+  padding: 13px 2%;
+  height: 34px;
+  font-size: 1.4em;
   color: #000000;
   letter-spacing: 0.05em;
 }
@@ -113,6 +113,14 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .logo a:active {
   color: #555555;
+}
+.header .logo div {
+  padding-right: 1%;
+  font-size: 0.5em;
+  letter-spacing: 0.1em;
+  color: #AAAAAA;
+  text-align: right;
+  line-height: 1.5em;
 }
 .header .cart {
   float: right;
@@ -1343,9 +1351,14 @@ Copyright (c) 2015 Puwadon Sricharoen
     height: 50px;
   }
   .header .logo {
-    padding: 16px 3%;
-    height: 18px;
-    font-size: 1.2em;
+    padding: 11px 3%;
+    height: 28px;
+    font-size: 1.1em;
+  }
+  .header .logo div {
+    padding-right: 1%;
+    font-size: 0.5em;
+    letter-spacing: 0.1em;
   }
   .header .cart {
     padding: 18px 1%;
