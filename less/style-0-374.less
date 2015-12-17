@@ -1,0 +1,661 @@
+/*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2015 Puwadon Sricharoen
+*/
+
+@page_width: 100%;
+.header{
+    width: @page_width;
+    padding: 0% ((100 - @page_width) / 2);
+    height: 50px;
+
+    .logo{
+        padding: 11px 3%;
+        height: 28px;
+        font-size: 1.1em;
+
+        div{
+            padding-right: 1%;
+            font-size: 0.5em;
+            letter-spacing: 0.17em;
+        }
+    }
+
+    .cart{
+        padding: 18px 1%;
+        height: 14px !important;
+        font-size: 1em;
+    }
+
+    .avatar{
+        padding: 13px 3%;
+        height: 24px;
+
+        img{
+            height: 24px;
+            width: 24px;
+        }
+
+        .notifications{
+            top: 9px;
+            right: 9px;
+            font-size: 0.8em;
+            border: 0px;
+            border-radius: 50%;
+        }
+    }
+
+    .login{
+        margin: 10px 3%;
+        padding: 2.5% 2%;
+        font-size: 0.8em;
+
+        i{
+            margin-right: 5px;
+        }
+    }
+
+    .btn-admin{
+        width: 96%;
+        padding: 2%;
+        font-size: 0.7em;
+
+        i{
+            margin-right: 5px;
+        }
+    }
+}
+
+
+
+// Login,Register style
+.login-container{
+    width: 90%;
+    margin: 0% 0%;
+    padding: 5%;
+    border: 0px;
+
+    .navi{
+        width: 100%;
+        margin: 5% 0%;
+        margin-bottom: 10%;
+    }
+
+    .form{
+        .caption{
+            line-height: 1.5em;
+            font-size: 0.9em;
+        }
+
+        .input-text{
+            width: 96%;
+            padding: 2% 2%;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-bottom: 7%;
+        }
+
+        .status{
+            padding: 10% 0%;
+            font-size: 0.9em;
+            line-height: 1.5em;
+            margin-bottom: 5%;
+        }
+
+        .button-submit{
+            padding: 4% 0%;
+            font-size: 0.9em;
+        }
+
+        .mini-caption{
+            padding: 6% 0%;
+        }
+
+        .facebook-button{
+            padding: 4% 0%;
+            font-size: 0.9em;
+        }
+
+        p.signup{
+            font-size: 1em;
+        }
+
+        p.forget{
+            padding-bottom: 5%;
+            font-size: 0.8em;
+        }
+    }
+}
+// END Login,Register style
+
+
+.container{
+    width: @page_width;
+    padding: 0% ((100 - @page_width) / 2);
+    margin: 50px 0px;
+    margin-bottom: 0px;
+
+    .container-page{
+        .currency{
+            font-size: 0.5em;
+            margin-left: 3px;
+        }
+
+        // Product page detail style
+        .panel{
+            width: 100%;
+            margin-bottom: 0%;
+            img{margin-bottom: 1%;}
+
+            .panel-topic{
+                width: 94%;
+                padding: 3%;
+                font-size: 0.9em;
+
+                .icon{margin-right: 5%;}
+            }
+
+            .bank{
+                margin: 3% 0%;
+                .bank-items{
+                    padding: 3% 0%;
+                    .bank-items-icon{
+                        width: 6%;
+                        padding-top: 2%;
+                    }
+                    .bank-items-info{
+                        width: 90%;
+                        margin-left: 4%;
+
+                        p{font-size: 0.9em;}
+                        p.zoom{font-size: 1.2em;}
+                    }
+                }
+            }
+
+            .box-items{
+                width: 94%;
+                padding: 5% 3%;
+                margin-bottom: 0%;
+                border-top: 1px dotted #DDDDDD;
+
+                .icon{
+                    width: 12%;
+                    font-size: 1.5em;
+                }
+                .box{
+                    width: 88%;
+
+                    p{
+                        font-size: 0.9em;
+                        line-height: 1.5em;
+                    }
+                    p.caption{
+                        font-size: 0.7em;
+                        i{margin: 0px 5px;}
+                    }
+                    p.big{font-size: 1.15em;}
+                    p.limit{font-size: 0.9em;}
+
+                    p.edit{
+                        padding: 1% 2%;
+                        font-size: 0.65em;
+                    }
+
+                    .image{
+                        margin: 3% 0%;
+                    }
+
+                    .order-list{
+                        .topic-caption{
+                            padding-bottom: 3%;
+                            font-size: 0.8em;
+
+                            .detail{width: 80%;}
+                            .quantity{
+                                width: 20%;
+                                text-align: right;
+                            }
+                            .total{display: none;}
+                        }
+
+                        .items-in-order{
+                            line-height: 1.5em;
+                            border-top: 0px;
+                            font-size: 1em;
+                            margin-bottom: 7%;
+
+                            .items-in-order-thumbnail{
+                                width: 15%;
+                            }
+                            .items-in-order-detail{
+                                width: 64%;
+                                padding: 0% 3%;
+
+                                p.detail-title{
+                                    margin-bottom: 1%;
+                                }
+                                p.detail-description{
+                                    font-size: 0.6em;
+
+                                    .remove-btn{
+                                        padding: 0.1% 1%;
+                                        padding-bottom: 0.2%;
+                                    }
+                                }
+                            }
+
+                            .input-select{
+                                padding: 10% 0%;
+                                font-size: 1em;
+                            }
+
+                            .items-in-order-quantity{
+                                width: 15%;
+                                padding: 1% 0%;
+                                text-align: right;
+                            }
+                            .items-in-order-total{
+                                display: none;
+                            }
+                        }
+
+                        // Summary items style
+                        .summary-items{
+                            font-size: 1em;
+                            margin-bottom: 5%;
+
+                            .summary-items-detail{
+                                width: 70%;
+                                margin-left: 0%;
+                                padding: 3% 0%;
+
+                                .shipping-select{
+                                    margin-left: 5px;
+                                    font-size: 0.9em;
+                                }
+                            }
+                            .summary-items-total{
+                                width: 30%;
+                                padding: 3% 0%;
+                            }
+                        }
+
+                        .summary-total{
+                            font-size: 1.2em;
+                        }
+                    }
+
+                    .form-control{
+                        padding-top: 5%;
+                        margin-bottom: 5%;
+                        border-top: 3px solid #EEEEEE;
+
+                        .submit-btn{
+                            width: 90%;
+                            float: left;
+                            display: inline-block;
+                            font-size: 1em;
+                            padding: 6% 5%;
+
+                            i{margin-left: 10px;}
+                        }
+                    }
+                }
+            }
+
+            #product-list{
+                .icon{display: none;}
+                .box{width: 100%;}
+            }
+
+            .cancel-btn{
+                float: right;
+                display: inline-block;
+                margin: 2% 0%;
+                padding: 1% 1%;
+                font-size: 0.7em;
+                border: 1px solid #F44336;
+                color: #F44336;
+
+                &:hover{
+                    cursor: pointer;
+                    background: #FFCDD2;
+                }
+
+                &:active{
+                    background: #F44336;
+                    color: #FFFFFF;
+                }
+
+                i{
+                    margin-right: 5px;
+                }
+            }
+
+            // Note style on profile edit
+            .note{
+                width: 92%;
+                padding: 4%;
+                padding-top: 10%;
+                float: left;
+                display: inline-block;
+                color: #555555;
+                line-height: 1.7em;
+
+                h2{
+                    color: #000000;
+                }
+
+                p{
+                    font-size: 0.95em;
+                }
+            }
+        }
+
+        // Panel box fix
+        .panel-fix{
+            position: inherit;
+            top: 0px;
+            right: 0%;
+            width: 94%;
+            padding: 3%;
+            line-height: 1.5em;
+
+            // Product page style
+            h1{
+                font-size: 1.5em;
+                padding-bottom: 5%;
+                padding-top: 5%;
+                margin-bottom: 5%;
+                border-bottom: 1px solid #EEEEEE;
+            }
+            p.info{
+                font-size: 0.9em;
+
+                .view{
+                    padding: 1% 0%;
+                }
+
+                .sharing{
+                    padding: 1% 3%;
+                }
+            }
+
+            .description{
+                padding: 3% 0%;
+                font-size: 1em;
+                margin-bottom: 3%;
+            }
+
+            .action{
+                .action-items{
+                    padding: 3% 0%;
+                    line-height: 1.1em;
+                    margin-bottom: 1%;
+
+                    .detail{
+                        width: 70%;
+
+                        h3{
+                            font-size: 0.9em;
+                        }
+                        p{
+                            font-size: 0.7em;
+                        }
+                    }
+                    .buy{
+                        width: 29%;
+
+                        .buy-btn{
+                            border: 1px solid #EEEEEE;
+                            padding: 7% 0%;
+                            font-size: 0.8em;
+
+                            i{
+                                margin-right: 10px;
+                            }
+                        }
+                        .buy-btn-active{
+                            border: 1px solid #000000;
+                        }
+                    }
+                }
+            }
+
+            // END Product page style
+
+            // Box style
+            .order-state{
+                margin-bottom: 3%;
+
+                .state-items{
+                    width: 25%;
+                    padding: 1% 0%;
+                    border-bottom: 1px solid #EEEEEE;
+
+                    .icon{
+                        font-size: 1.5em;
+                        margin-bottom: 3%;
+                    }
+                    .caption{
+                        font-size: 0.6em;
+                        line-height: 2em;
+                    }
+                }
+
+                .state-active{
+                    border-bottom: 1px solid #000000;
+                }
+            }
+            .box{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                // box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+            }
+
+            p{
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+
+            .control{
+                margin-top: 3%;
+                padding-top: 3%;
+                border-top: 1px dotted #EEEEEE;
+
+                a{
+                    float: right;
+                    color: #555555;
+                    font-size: 0.8em;
+                    border: 1px solid #555555;
+                    padding: 0px 5px;
+                    text-decoration: none;
+                    i{
+                        margin-right: 5px;
+                        font-size: 0.8em;
+                    }
+
+                    &:hover{
+                        color: #000000;
+                        border: 1px solid #000000;
+                    }
+
+                    &:active{
+                        background: #000000;
+                        border: 1px solid #000000;
+                        color: #FFFFFF;
+                    }
+                }
+            }
+
+            p.icon{
+                font-size: 0.8em;
+                margin-bottom: 5%;
+
+                i{
+                    margin-right: 5px;
+                }
+            }
+
+            p.big{
+                font-size: 1.5em;
+            }
+
+            .message{
+                width: 90%;
+                padding: 10% 5%;
+
+                i{
+                    font-size: 2em;
+                    line-height: 2em;
+                }
+
+                p.msg{
+                    font-size: 0.8em;
+                }
+            }
+
+            .message-success{
+                background: #FFFFFF;
+            }
+
+            .form{
+
+                p.caption{
+                    font-size: 0.9em;
+                }
+
+                .input-text{
+                    width: 96%;
+                    padding: 3% 2%;
+                    font-size: 1em;
+                    line-height: 1.5em;
+                    margin-bottom: 7%;
+                }
+
+                .input-file{
+                    margin-bottom: 5%;
+                }
+
+                .submit-btn{
+                    width: 100%;
+                    font-size: 0.9em;
+                    padding: 5%;
+
+                    i{
+                        margin-right: 10px;
+                    }
+                }
+            }
+
+            p.link{
+                margin-top: 5%;
+                padding-top: 5%;
+                font-size: 0.7em;
+
+                a{
+                    margin-right: 10px;
+                }
+            }
+        }
+        // END Product page detail style
+
+        // Product item style
+        .product-items{
+            width: 100%;
+            margin-left: 0%;
+            margin-top: 0%;
+            margin-bottom: 3%;
+
+            .product-items-detail{
+                padding: 3% 0%;
+
+                h2{
+                    font-size: 1em;
+                    line-height: 1.5em;
+                }
+
+                // Buy button in product item style
+                .buy-btn{
+                    margin: 3% 0%;
+                    font-size: 0.9em;
+                }
+            }
+        }
+    }
+}
+.container-fix{
+    margin: 0px 0px;
+}
+
+#filter{
+    #loading-message{
+        margin-top: 50%;
+        padding: 3% 0%;
+        font-size: 0.8em;
+    }
+
+    .cancel{
+        margin-top: 40%;
+        font-size: 0.7em;
+    }
+}
+
+.footer{
+    .about{
+        width: 94%;
+        padding: 5% 3%;
+    }
+    .developer{
+        width: 94%;
+        padding: 2% 3%;
+        text-align: left;
+    }
+
+    h2{
+        font-size: 0.9em;
+        line-height: 1.5em;
+    }
+    h3{
+        font-size: 0.75em;
+        line-height: 1.5em;
+        margin-bottom: 3%;
+    }
+
+    p{
+        font-size: 0.7em;
+        line-height: 1.5em;
+    }
+
+    p.dev{
+        font-size: 0.6em;
+    }
+
+    i{
+        margin-right: 5px;
+    }
+}
+
+.dialog-box{
+    .icon{
+        width: 100%;
+        padding-top: 50%;
+
+        i{
+            font-size: 2em;
+            margin-bottom: 2%;
+        }
+
+        p{
+            font-size: 0.8em;
+        }
+    }
+}
+
+#loading-status{
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.5em;
+}

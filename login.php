@@ -43,12 +43,13 @@ include'facebook.php';
 		<form action="javascript:LoginUser();">
 			<div class="caption">อีเมล:</div>
 			<input type="email" class="input-text" id="username" placeholder="">
-			<div class="caption">รหัสผ่าน: <a href="forget.php">ฉันลืมรหัสผ่าน!</a></div>
+			<div class="caption">รหัสผ่าน:</div>
 			<input type="password" class="input-text" id="password" placeholder="">
 			<div class="status" id="status-message"></div>
 			<button type="submit" class="button-submit"><span id="login-status"><i class="fa fa-arrow-right"></i>เข้าสู่ระบบ</span></button>
 		</form>
 		<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php">สมัครสมาชิก</a></p>
+		<p class="forget"><a href="forget.php">ฉันลืมรหัสผ่าน!</a></p>
 	</div>
 </div>
 

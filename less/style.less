@@ -214,17 +214,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             line-height: 2em;
             font-size: 0.9em;
             color: #555555;
-
-            a{
-                float: right;
-                text-decoration: none;
-                color: #CCCCCC;
-
-                &:hover{
-                    color: @PrimaryTextColor;
-                    text-decoration: underline;
-                }
-            }
         }
 
         .input-text{
@@ -337,7 +326,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         p.signup{
             width: 100%;
-            padding-top: 10%;
+            padding: 10% 0%;
             float: left;
             display: inline-block;
             text-align: center;
@@ -352,6 +341,24 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                 &:hover{
                     text-decoration: underline;
+                }
+            }
+        }
+
+        p.forget{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+            font-size: 0.8em;
+
+            a{
+                color: #AAAAAA;
+                text-decoration: none;
+
+                &:hover{
+                    text-decoration: underline;
+                    color: #333333;
                 }
             }
         }
@@ -1478,6 +1485,13 @@ Copyright (c) 2015 Puwadon Sricharoen
 }
 
 /**** OTHER DEVICE AND SCREEN ****/
+
+// @media only screen and (min-width:0px) and (max-width :374px){@import "style-0-374";} // iPhone 4s,5s
+// @media only screen and (min-width:375px) and (max-width :767px){@import "style-0-519";} // iPhone 6
+// @media only screen and (min-width:768px) and (max-width :1365px){@import "style-0-519";} // iPhone 6s
+// @media only screen and (min-width:1366px) and (max-width :1920px){@import "style-0-519";} // 720p, 1080p Desktop
+// @media only screen and (min-width:1921px) and (max-width :519px){@import "style-0-519";} // 2k and 4k resolution
+
 @media only screen and (min-width:1024px) and (max-width:1365px){@import "style-1024-1366";}
 @media only screen and (min-width:760px) and (max-width:1023px){@import "style-760-1023";}
 @media only screen and (min-width:520px) and (max-width:759px){@import "style-520-759";}
