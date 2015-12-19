@@ -1447,11 +1447,11 @@ Copyright (c) 2015 Daniel Eden
   font-style: italic;
 }
 #filter #loading-message i {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 #filter .cancel {
   width: 100%;
-  margin-top: 20%;
+  margin-top: 10%;
   float: left;
   display: inline-block;
   text-align: center;

@@ -60,10 +60,16 @@ $current_page = "order";
 
 <div class="container container-fix">
 	<div class="container-page">
+		<a href="profile.php">
+		<div class="head-bar">
+			<div class="icon"><i class="fa fa-arrow-left"></i></div>
+			<div class="caption">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
+		</div>
+		</a>
+
 		<div class="panel-fix">
 			<div class="box">
-				<p class="icon"><i class="fa fa-file-o"></i>ใบสั่งซื้อหมายเลข <?php echo $order->id;?></p>
-				<?php if($order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+				<?php if($order->status != "Shopping" && $order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
 					<a href="#product-list">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
@@ -116,16 +122,18 @@ $current_page = "order";
 					</div>
 					<?php }else{?>
 					<div class="message">
-						<p class="msg">กำลังตรวจสอบหลักฐานการโอนเงิน...</p>
+						<p><i class="fa fa-hourglass-start"></i></p>
+						<p class="msg">เรากำลังตรวจสอบหลักฐานการโอนเงิน...</p>
 					</div>
 					<?php }?>
 				<?php }else if($order->status == "TransferSuccess"){?>
 				<div class="message">
+					<p><i class="fa fa-cube"></i></p>
 					<p class="msg">กำลังจัดส่งสินค้า...</p>
 				</div>
 				<?php }else if($order->status == "Complete"){?>
 				<div class="message message-success">
-					<p><i class="fa fa-check"></i></p>
+					<p><i class="fa fa-check-circle"></i></p>
 					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
 				</div>
 				<?php }else if($order->status == "Cencel"){?>
@@ -170,8 +178,8 @@ $current_page = "order";
 				</div>
 				<?php }else if($order->status == "Shipping"){?>
 				<div class="form">
-					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้วค่ะ</p>
-					<p>ขออนุญาติสอบถาม ตอนนี้ได้รับสินค้ารึยังคะ?</p>
+					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว ขออนุญาติสอบถาม ตอนนี้ได้รับสินค้ารึยังคะ?</p>
+					<br>
 					<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
 				</div>
 				<?php }?>
@@ -180,13 +188,6 @@ $current_page = "order";
 
 
 		<div class="panel">
-			<div class="panel-topic">
-				<a href="profile.php">
-				<div class="icon"><i class="fa fa-arrow-left"></i></div>
-				</a>
-				<div class="caption">ใบสั่งซื้อ: <?php echo $order->id;?></div>
-			</div>
-
 			<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
@@ -206,8 +207,8 @@ $current_page = "order";
 				<div class="box-items" id="shipping">
 					<div class="icon"><i class="fa fa-truck"></i></div>
 					<div class="box">
-						<p class="big"><?php echo $order->ems;?></p>
-						<p>จัดส่งสินค้าเรียบร้อยแล้วค่ะ</p>
+						<p class="big">พัสดุหมายเลข <?php echo $order->ems;?></p>
+						<p>เราจัดส่งสินค้าตามที่อยู่เรียบร้อยแล้วค่ะ</p>
 						<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
 					</div>
 				</div>
@@ -230,7 +231,7 @@ $current_page = "order";
 					<div class="icon"><i class="fa fa-check"></i></div>
 					<div class="box">
 						<p class="big">ชำระเงินแล้ว</p>
-						<p>ยืนยันการโอนเงินเรียบร้อย กำลังจัดส่งสินค้าค่ะ</p>
+						<p>ยืนยันการโอนเงินเรียบร้อย เรากำลังจัดส่งสินค้าให้นะคะ</p>
 						<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
 					</div>
 				</div>
@@ -260,7 +261,7 @@ $current_page = "order";
 				<div class="box-items" id="transfer">
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
-						<p class="big">ยอดโอน <span class="highlight"><?php echo number_format($order->m_total);?></span> บาท</p>
+						<p class="big">แจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
 						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
 
@@ -329,14 +330,13 @@ $current_page = "order";
 
 							<div class="summary-items">
 								<div class="summary-items-detail">
-									ส่งสินค้า : 
 									<?php if($order->status == "Shopping"){?>
 									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
 										<option value="Ems">พัสดุ EMS</option>
 										<option value="Register">พัสดุลงทะเบียน</option>
 									</select>
 									<?php }else{
-										echo $order->shipping_type;
+										echo ($order->shipping_type == "Ems"?"พัสดุด่วนพิเศษ (EMS)":"พัสดุลงทะเบียน");
 									}?>
 								</div>
 								<div class="summary-items-total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments);?></span><span class="currency">บาท</span></div>
@@ -350,7 +350,7 @@ $current_page = "order";
 
 						<?php if($order->status == "Shopping"){?>
 						<div class="form-control" id="paying-button">
-							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน : <span id="payments-btn-display"><?php echo number_format($order->summary_payments);?></span> บาท<i class="fa fa-arrow-right"></i></div>
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">จ่าย <span id="payments-btn-display"><?php echo number_format($order->summary_payments,2);?></span> บาท<i class="fa fa-arrow-right"></i></div>
 						</div>
 						<?php }?>
 
@@ -361,7 +361,6 @@ $current_page = "order";
 				<div class="box-items">
 					<div class="icon"><i class="fa fa-file-o"></i></div>
 					<div class="box">
-						<p class="caption">ตะกร้าสินค้าของคุณ</p>
 						<p class="big">ไม่พบสินค้า!</p>
 						<p>กรุณาเลือกสินค้าที่คุณต้องการก่อนนะคะ...</p>
 					</div>

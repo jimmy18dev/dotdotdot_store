@@ -34,10 +34,10 @@ require_once'config/autoload.php';
 
 </head>
 
-<body class="bg-full-screen">
+<body>
+<?php include'header.php';?>
 <div class="login-dialog">
 	<div class="login-container">
-		<div class="navi"><a href="index.php">dotdotdot limited </a> <i class="fa fa-angle-right"></i> ลืมรหัสผ่าน</div>
 		<div class="form">
 			<div class="caption">อีเมล:</div>
 			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">

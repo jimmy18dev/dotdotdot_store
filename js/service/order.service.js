@@ -107,7 +107,8 @@ function RemoveItemInOrder(order_id,product_id){
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
     var shipping_type = $('#shipping_type').val();
-    
+
+    $('#dialog-message').html('กรุณารอสักครู่...');
     $('#dialog-box').fadeIn(300);
 
     $.ajax({
@@ -171,6 +172,7 @@ function EditAddress(order_id){
     var address     = $('#customer_address').val();
     var phone       = $('#customer_phone').val();
 
+    $('#dialog-message').html('กำลังบันทึก...');
     $('#dialog-box').fadeIn(300);
 
     $.ajax({
@@ -198,6 +200,7 @@ function EditAddress(order_id){
 function CencelTransfer(order_id){
     var href = 'api.order.php';
 
+    $('#dialog-message').html('กำลังยกเลิกการโอนเงิน...');
     $('#dialog-box').fadeIn(300);
 
     $.ajax({

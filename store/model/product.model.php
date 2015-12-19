@@ -7,7 +7,7 @@ class ProductModel extends Database{
 		parent::bind(':parent', 		$param['parent']);
 		parent::bind(':code', 			$param['code']);
 		parent::bind(':title', 			$param['title']);
-		parent::bind(':description', 	nl2br($param['description']));
+		parent::bind(':description', 	$param['description']);
 		parent::bind(':price', 			$param['price']);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));

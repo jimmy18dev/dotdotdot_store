@@ -34,9 +34,9 @@ include'facebook.php';
 
 </head>
 
-<body class="bg-full-screen">
+<body>
+<?php include'header.php';?>
 <div class="login-container">
-	<div class="navi"><a href="index.php">dotdotdot limited</a> <i class="fa fa-angle-right"></i> เข้าสู่ระบบ</div>
 	<div class="form">
 		<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
 		<div class="mini-caption">หรือ</div>
@@ -54,7 +54,10 @@ include'facebook.php';
 </div>
 
 <div class="dialog-box" id="dialog-box">
-	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+	<div class="dialog">
+		<div class="icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+		<p id="dialog-message"></p>
+	</div>
 </div>
 
 <script type="text/javascript" src="js/service/min/user.service.min.js"></script>

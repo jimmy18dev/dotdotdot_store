@@ -6,14 +6,14 @@
 	// define("DB_NAME", "igensit2_demo");
 
 	//Localhost
-	// define("DB_USER", "admin");
-	// define("DB_PASS", "1234");
-	// define("DB_NAME", "dotdotdot_store");
+	define("DB_USER", "admin");
+	define("DB_PASS", "1234");
+	define("DB_NAME", "dotdotdot_store");
 
 	// dotdotdot Hosing
-	define("DB_USER", "dotdotdo_store");
-	define("DB_PASS", "ntq78TZf83B9");
-	define("DB_NAME", "dotdotdo_store");
+	// define("DB_USER", "dotdotdo_store");
+	// define("DB_PASS", "ntq78TZf83B9");
+	// define("DB_NAME", "dotdotdo_store");
 
 	// Email Config
 	$email_settig = array(
@@ -52,20 +52,20 @@
 
 	// Photo upload resize ///////////////////////
 	$size = array(
-		'thumbnail' => 150,
-		'mini' 		=> 400,
-		'square' 	=> 500,
-		'normal' 	=> 700,
+		'thumbnail' => 200,
+		'mini' 		=> 500,
+		'square' 	=> 900,
+		'normal' 	=> 900,
 		'large' 	=> 1200,
 	);
 
 	// Photo Quality
 	$quality = array(
-		'thumbnail' => 65,
-		'mini' 		=> 65,
-		'square' 	=> 65,
-		'normal' 	=> 65,
-		'large' 	=> 65,
+		'thumbnail' => 70,
+		'mini' 		=> 80,
+		'square' 	=> 90,
+		'normal' 	=> 100,
+		'large' 	=> 80,
 	);
 
 	// Facebook App Setting

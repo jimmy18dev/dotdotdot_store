@@ -27,6 +27,7 @@ function CreateBank(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        setTimeout(function(){window.location = 'bank.php';},1000);
     }).error();
 }
 

@@ -32,7 +32,10 @@ function LoginUser(){
         console.log('Callback: '+data.return+' , '+data.message);
 
         if(data.return){
+
+            $('#dialog-message').html('กำลังเข้าสู่ระบบ...');
             $('#dialog-box').fadeIn(300);
+
             setTimeout(function(){window.location = 'index.php';},3000);
         }
         else{
@@ -88,6 +91,7 @@ function RegisterUser(){
         console.log('Return: '+data.message);
 
         if(data.return){
+            $('#dialog-message').html('กำลังสมัครสมาชิกใหม่...');
             $('#dialog-box').fadeIn(300);
             setTimeout(function(){window.location = 'index.php';},3000);
         }
@@ -125,7 +129,9 @@ function ForgetPassword(){
     }).done(function(data){
         console.log('Return: '+data.message);
 
+        $('#dialog-message').html('กำลังส่งอีเมล...');
         $('#dialog-box').fadeIn(300);
+        
         setTimeout(function(){window.location = 'forget_success.php';},3000);
     }).error();
 }
@@ -141,6 +147,8 @@ function SubmitAddress(){
     if(!address){
         return false;
     }
+
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังเปลี่ยนรหัสผ่าน...');
 
     $.ajax({
         url         :href,
@@ -158,6 +166,9 @@ function SubmitAddress(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+
+        $('#dialog-message').html('กำลังเปลี่ยนรหัสผ่าน...');
+        $('#dialog-box').fadeIn(300);
 
         // Redirect page after submit address.
         if(order_id)
@@ -179,6 +190,8 @@ function EditInfo(){
         return false;
     }
 
+    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังบันทึก...');
+
     $.ajax({
         url         :href,
         cache       :false,
@@ -196,6 +209,9 @@ function EditInfo(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+
+        $('#dialog-message').html('กำลังบันทึก...');
+        $('#dialog-box').fadeIn(300);
 
         // Redirect page after submit address.
         setTimeout(function(){window.location = 'profile.php'},1000);
@@ -230,6 +246,7 @@ function ChangePassword(){
     }).done(function(data){
         console.log('Return: '+data.message);
 
+        $('#dialog-message').html('กำลังเปลี่ยนรหัสผ่าน...');
         $('#dialog-box').fadeIn(300);
         setTimeout(function(){window.location = 'change_password_success.php';},3000);
     }).error();

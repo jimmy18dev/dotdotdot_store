@@ -11,6 +11,7 @@ $(document).ready(function(){
 
             $('#filter').fadeIn();
             $('#loading-bar').width('0%');
+            $('#loading-message').html('<i class="fa fa-spinner fa-spin"></i>Uploading...');
         },
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
@@ -19,8 +20,8 @@ $(document).ready(function(){
             $('#loading-bar').animate({width:percent+'%'},300);
 
             if(percent == 100){
-                $('#loading-bar').fadeOut();
-                $('#loading-message').html('<i class="fa fa-spinner fa-spin"></i> กำลังเผยแพร่ ...');
+                // $('#loading-bar').fadeOut();
+                $('#loading-message').html('<i class="fa fa-circle-o-notch fa-spin"></i>Saving...');
             }
 
             console.clear();
@@ -37,7 +38,7 @@ $(document).ready(function(){
             console.log(xhr.responseText);
             console.log('complete => Success');
 
-            $('#loading-message').html('<i class="fa fa-check"></i> เผยแพร่เรียบร้อยแล้ว');
+            $('#loading-message').html('<i class="fa fa-check"></i>Published');
 
             // Page Redirect
             if(parent == 0 && product_id && product_id > 0){

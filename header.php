@@ -21,6 +21,14 @@
 	</div>
 	</a>
 
+	<?php if($user->type == "administrator" && ($current_page == "index" || $current_page == "product")){?>
+	<a href="/store">
+	<div class="header-items admin-btn">
+		<i class="fa fa-cogs"></i>
+	</div>
+	</a>
+	<?php }?>
+
 	<a href="order-<?php echo $user->current_order_id;?>.html#product-list">
 	<div class="header-items cart animated" id="my-cart" title="สินค้า <?php echo $user->current_order_amount;?> ชิ้น <?php echo $user->current_order_total;?> รายการ">
 		<?php if($current_page != "order"){?>
@@ -35,13 +43,7 @@
 	</a>
 	<?php }else{?>
 	<a href="login.php">
-	<div class="header-items login"><i class="fa fa-user"></i>เข้าสู่ระบบ</div>
-	</a>
-	<?php }?>
-
-	<?php if($user->type == "administrator" && ($current_page == "index" || $current_page == "product")){?>
-	<a href="/store">
-	<div class="btn-admin"><i class="fa fa-mouse-pointer"></i>Click to Store panel(Admin only)</div>
+	<div class="header-items login"><i class="fa fa-shopping-cart"></i>เข้าสู่ระบบ</div>
 	</a>
 	<?php }?>
 </header>

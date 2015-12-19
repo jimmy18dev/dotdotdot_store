@@ -82,22 +82,22 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<?php
 				if($product->type == "normal"){
 					if(empty($product->in_order)){
-						$button_msg = '<i class="fa fa-shopping-cart"></i>สั่งซื้อ';
+						$button_msg = 'ซื้อสินค้า';
 					}
 					else{
-						$button_msg = '<i class="fa fa-arrow-right"></i>ชำระเงิน';
+						$button_msg = 'จ่ายเงิน<i class="fa fa-arrow-right"></i>';
 					}
 				?>
 				<div class="action-items">
 					<div class="detail">
-						<h3>ราคา <strong><?php echo number_format($product->price);?></strong> บาท</h3>
+						<h3><span class="price">฿<?php echo number_format($product->price,2);?></span></h3>
 						<p>อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</p>
 					</div>
 					<div class="buy">
 						<?php if($product->quantity > 0){?>
 						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
 						<?php }else{?>
-						<div class="buy-btn buy-btn-disable"><i class="fa fa-hand-paper-o"></i>สินค้าหมด</div>
+						<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
 						<?php }?>
 					</div>
 				</div>
@@ -113,7 +113,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 
 			<p class="info">
 				<?php if($product->type == "normal" && $product->quantity == 0){?>
-				<span class="view alert">ตอนนี้สินค้าหมดชั่วคราวค่ะ</span>
+				<span class="view alert">สินค้าหมดชั่วคราวค่ะ!</span>
 				<?php }else if($product->quantity > 5 || $product->type == "root"){?>
 				<span class="view">แสดงสินค้าแล้ว <?php echo number_format($product->read);?> ครั้ง</span>
 				<?php }else{?>
@@ -127,14 +127,18 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 
 			<?php if($user->type == "administrator"){?>
 			<div class="control">
-				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>เปิดคลังสินค้า</a>
+				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>ดูคลังสินค้า</a>
 			</div>
 			<?php }?>
 		</div>
 
 		<!-- Photo -->
 		<div class="panel">
+			<?php if(empty($product->image_filename)){?>
+			<img src="image/no-image.jpg" alt="">
+			<?php }else{?>
 			<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
+			<?php }?>
 			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
 		</div>
 

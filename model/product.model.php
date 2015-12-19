@@ -10,7 +10,7 @@ class ProductModel extends Database{
 	}
 
 	public function ListProductProcess($param){
-		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename,odt_id FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id LEFT JOIN dd_order_detail ON pd_id = odt_product_id AND odt_order_id = :order_id WHERE (pd_type = "normal" OR pd_type = "root") AND (im_type = "cover") AND pd_status = "active" ORDER BY pd_sort ASC');
+		parent::query('SELECT pd_id,pd_parent,pd_code,pd_title,pd_description,pd_quantity,pd_price,pd_create_time,pd_update_time,pd_group,pd_type,pd_status,im_id,im_filename,odt_id FROM dd_product LEFT JOIN dd_image ON pd_id = im_product_id AND (im_type = "cover") LEFT JOIN dd_order_detail ON pd_id = odt_product_id AND odt_order_id = :order_id WHERE (pd_type = "normal" OR pd_type = "root")AND pd_status = "active" ORDER BY pd_sort ASC');
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 		$dataset = parent::resultset();

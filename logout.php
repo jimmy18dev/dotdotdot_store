@@ -37,11 +37,14 @@ session_destroy();
 
 <body>
 <div class="dialog-box dialog-box-show">
-	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+	<div class="dialog">
+		<div class="icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
+		<p id="dialog-message">กำลังออกจากระบบ...</p>
+	</div>
 </div>
 
 <script type="text/javascript">
-setTimeout(function(){window.location = 'index.php';},3000);
+	setTimeout(function(){window.location = 'index.php';},3000);
 </script>
 
 </body>

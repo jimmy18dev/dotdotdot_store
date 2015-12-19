@@ -48,10 +48,12 @@ $current_page = "profile";
 
 <div class="container container-fix">
 	<div class="container-page">
+		<div class="head-bar">
+			<div class="icon"><i class="fa fa-user"></i></div>
+			<div class="caption">คุณ <?php echo $user->name;?></div>
+		</div>
 		<div class="panel-fix">
 			<div class="box">
-				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
-				<p>คุณ <?php echo $user->name;?></p>
 				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment);?></strong> บาท</p>
 				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
 
@@ -60,18 +62,11 @@ $current_page = "profile";
 					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
 					<a href="logout.php" class="signout">ออกจากระบบ</a>
 				</p>
-
-				<?php if($user->type == "administrator"){?>
-				<div class="control">
-					<a href="store/" class="btn"><i class="fa fa-mouse-pointer"></i>Login to Store</a>
-				</div>
-				<?php }?>
 			</div>
 		</div>
 
 		<!-- Photo -->
 		<div class="panel">
-			<div class="panel-topic">รายการสั่งซื้อสินค้า</div>
 			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 		</div>
 	</div>
