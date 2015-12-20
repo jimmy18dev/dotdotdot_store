@@ -69,7 +69,7 @@ $current_page = "order";
 
 		<div class="panel-fix">
 			<div class="box">
-				<?php if($order->status != "Shopping" && $order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+				<?php if(false && $order->status != "Shopping" && $order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<div class="order-state">
 					<a href="#product-list">
 					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
@@ -145,42 +145,44 @@ $current_page = "order";
 				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 				<div class="form">
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
-					<p class="caption">ภาพถ่ายสลิปใบโอนเงิน</p>
-					<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
-					<div class="input-image">
-						<span id="photo_files_div"></span>
-						<span id="photo_thumbnail">
-							<div class="btn">
-								<p><i class="fa fa-camera"></i>เลือกภาพ</p>
-							</div>
-						</span>
-					</div>
+						<p class="caption">ภาพถ่ายสลิปใบโอนเงิน</p>
+						<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
+						<div class="input-image">
+							<span id="photo_files_div"></span>
+							<span id="photo_thumbnail">
+								<div class="btn">
+									<p><i class="fa fa-camera"></i>เลือกภาพ</p>
+								</div>
+							</span>
+						</div>
 
-					<p class="caption">โอนเข้าธนาคาร:</p>
-					<select name="to_bank" id="to_bank" class="input-text input-select">
-						<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
-						<?php $bank->ListBank(array('mode' => 'select'));?>
-					</select>
-					<p class="caption">ยอดเงินที่โอน:</p>
-					<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00">
-					<p class="caption">ชื่อผู้รับสินค้า</p>
-					<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
-					<p class="caption">ที่อยู่</p>
-					<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
-					<p class="caption">เบอร์โทรศัพท์</p>
-					<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
+						<p class="caption">โอนเข้าธนาคาร:</p>
+						<select name="to_bank" id="transfer_bank" class="input-text input-select">
+							<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
+							<?php $bank->ListBank(array('mode' => 'select'));?>
+						</select>
+						<p class="caption">ยอดเงินที่โอน:</p>
+						<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00">
+						<p class="caption">ชื่อผู้รับสินค้า</p>
+						<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
+						<p class="caption">ที่อยู่</p>
+						<textarea name="address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
+						<p class="caption">เบอร์โทรศัพท์</p>
+						<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
 
-					<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->
+						<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->
 
-					<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
-					<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
+						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
+						<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
 					</form>
 				</div>
 				<?php }else if($order->status == "Shipping"){?>
-				<div class="form">
-					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว ขออนุญาติสอบถาม ตอนนี้ได้รับสินค้ารึยังคะ?</p>
-					<br>
-					<button class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
+				<div class="message">
+					<p><i class="fa fa-truck"></i></p>
+					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว</p>
+					<p>คุณ<?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+
+					<button class="btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
 				</div>
 				<?php }?>
 			</div>
@@ -375,9 +377,7 @@ $current_page = "order";
 	</div>
 </div>
 
-<div class="dialog-box" id="dialog-box">
-	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
-</div>
+<?php include'template/loading.dialog.box.php';?>
 
 <?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
 <!-- Loading process submit photo to uploading. -->

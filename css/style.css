@@ -1032,6 +1032,29 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel-fix .message p.msg {
   font-size: 1em;
 }
+.container .container-page .panel-fix .message .btn {
+  width: 30%;
+  margin: 5% 35%;
+  padding: 2% 0%;
+  text-align: center;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  background: #000000;
+  color: #FFFFFF;
+  border: 0px;
+}
+.container .container-page .panel-fix .message .btn i {
+  font-size: 1em;
+  margin-right: 10px;
+}
+.container .container-page .panel-fix .message .btn:hover {
+  background: #333333;
+  cursor: pointer;
+}
+.container .container-page .panel-fix .message .btn:active {
+  background: #555555;
+}
 .container .container-page .panel-fix .message-success i,
 .container .container-page .panel-fix .message-success p.msg {
   color: #00ab6b;

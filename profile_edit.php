@@ -77,6 +77,8 @@ if(!empty($user->current_order_id)){
 	</div>
 </div>
 
+<?php include'template/loading.dialog.box.php';?>
+
 <script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>
 </html>

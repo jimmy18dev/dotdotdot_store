@@ -1,6 +1,4 @@
 $(document).ready(function(){
-    // Textarea Autosize
-    // $('.normal').autosize();
     $('.animated').autosize({append: "\n"});
 
     var $body = window.document.body;
@@ -52,37 +50,45 @@ $(document).ready(function(){
         var phone           = $('#transfer_phone').val();
 
         if(bank == 0){
+            console.log('Bank is empty!');
             return false;
         }
         if(value == ""){
+            console.log('Money is empty!');
             return false;
         }
         if(realname == ""){
+            console.log('Realname is empty!');
             return false;
         }
         if(address == ""){
+            console.log('Address is empty!');
             return false;
         }
         if(phone == ""){
+            console.log('Phone is empty!');
             return false;
         }
 
         if(!BeforePostSubmit()){
+            console.log('Photo is empty!');
             return false;
-            console.log('return false');
+        }else{
+            console.log('Form is Process!');
         }
-        $(this).ajaxSubmit(optionsActivity);
+
+        // $(this).ajaxSubmit(optionsActivity);
         return false; 
     });
 });
 
 
 function BeforePostSubmit(){
-    console.log('Check whether browser fully supports all File API');
+    console.log('Check whether browser fully supports all File API...');
 
     if(window.File && window.FileReader && window.FileList && window.Blob){
-        if(!$('#post_files').val()){
-            $("#output").html('<i class="fa fa-exclamation"></i>กรุณาเลือกภาพถ่ายของคุณ').slideDown(700).delay(3000).slideUp(700);
+        if(!$('#photo_files').val()){
+            console.log('Photo not found!');
             return true;
         }
         else{
@@ -93,24 +99,23 @@ function BeforePostSubmit(){
                 case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
                     break;
                 default:
-                    $("#output").html('<i class="fa fa-exclamation"></i>ระบบไม่รองรับไฟล์ภาพที่คุณเลือก').slideDown(700).delay(3000).slideUp(700);
+                    console.log('ระบบไม่รองรับไฟล์ภาพที่คุณเลือก');
                     return false
             }
 
             //Allowed file size is less than 15 MB (15728640)
             if(fsize > 15728640){
-                $("#output").html('<i class="fa fa-exclamation"></i>ไฟล์ที่คุณเลือกมาขนาดใหญ่เกิน 15 MB').slideDown(700).delay(3000).slideUp(700);
+                console.log('ไฟล์ที่คุณเลือกมาขนาดใหญ่เกิน 15 MB');
                 return false
             }
 
-            $("#output").html('');
-            console.log('Result: Pass');
+            console.log('BeforePostSubmit(): Pass');
             return true;
         }
     }
     else{
         //Output error to older unsupported browsers that doesn't support HTML5 File API
-        $("#output").html('<i class="fa fa-exclamation"></i>Browser ของคุณ ไม่รอบรับการทำงานนี้ กรุณาอัพเกรดหรือใช้ Google Chrome').slideDown(700).delay(3000).slideUp(700);
+        console.log('Browser ของคุณ ไม่รอบรับการทำงานนี้ กรุณาอัพเกรดหรือใช้ Google Chrome');
         return true;
     }
 }
