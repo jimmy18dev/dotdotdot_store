@@ -54,8 +54,10 @@ $current_page = "profile";
 		</div>
 		<div class="panel-fix">
 			<div class="box">
-				<p class="big" title="ไม่รวมค่าจัดส่งสินค้า">ยอดสั่งซื้อรวม <strong><?php echo number_format($user->total_payment);?></strong> บาท</p>
-				<p>เป็นสมาชิกเมื่อ <?php echo $user->create_time_facebook_format;?></p>
+				<div class="message">
+					<p><i class="fa fa-file-text-o"></i></p>
+					<p class="msg">รายการสั่งซื้อของคุณ</p>
+				</div>
 
 				<p class="link">
 					<a href="profile_edit.php">แก้ไขข้อมูล</a>

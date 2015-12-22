@@ -1,4 +1,4 @@
-<header class="header <?php echo ($current_page == "order" || $current_page == "profile"?"header-fix":"");?>">
+<header class="header <?php echo ($current_page == "order" || $current_page == "profile" || $current_page == "login" || $current_page == "register" || $current_page == "forget"?"header-fix":"");?>">
 	<div class="header-items logo">
 		<a href="index.php">dotdotdot limited <div class="mini">Born and made in thailand</div>
 		</a>
@@ -42,8 +42,10 @@
 	</div>
 	</a>
 	<?php }else{?>
+	<?php if($current_page != 'login'){?>
 	<a href="login.php">
 	<div class="header-items login"><i class="fa fa-shopping-cart"></i>เข้าสู่ระบบ</div>
 	</a>
+	<?php }?>
 	<?php }?>
 </header>

@@ -737,6 +737,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .container-page .panel .box-items .box .form-control .submit-btn {
   float: right;
+  display: inline-block;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
   font-size: 0.9em;
@@ -1065,10 +1066,22 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .panel-fix .form p.caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
   line-height: 2em;
   font-size: 0.9em;
   color: #333333;
-  font-weight: bold;
+}
+.container .container-page .panel-fix .form p.caption .check {
+  float: right;
+  color: #FFFFFF;
+}
+.container .container-page .panel-fix .form p.caption .check-active {
+  color: #00ab6b;
+}
+.container .container-page .panel-fix .form p.caption .input-caption-alert {
+  color: #F44336;
 }
 .container .container-page .panel-fix .form .input-text {
   width: 98%;
@@ -1084,6 +1097,7 @@ Copyright (c) 2015 Daniel Eden
   resize: none;
   color: #000000;
   font-weight: bold;
+  background: #FFFFFF;
 }
 .container .container-page .panel-fix .form .input-text:hover {
   border: 1px solid #CCCCCC;
@@ -1091,6 +1105,9 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel-fix .form .input-text:focus {
   border: 1px solid #000000;
   font-weight: normal;
+}
+.container .container-page .panel-fix .form .input-alert {
+  border: 1px solid #F44336;
 }
 .container .container-page .panel-fix .form .input-select {
   width: 100%;
@@ -1108,6 +1125,7 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel-fix .form .submit-btn {
   width: 20%;
   float: right;
+  display: inline-block;
   border: 0px;
   font-family: sans-serif, 'Open Sans';
   font-size: 0.9em;
@@ -2671,34 +2689,30 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
     padding: 0% 0%;
     height: 50px;
-    z-index: 99;
   }
   .header .logo {
-    padding: 10px 2%;
+    padding: 10px 3%;
     height: 30px;
     font-size: 1.1em;
     letter-spacing: 0.05em;
   }
   .header .logo div {
     font-size: 0.5em;
-    letter-spacing: 0.2em;
+    letter-spacing: 0.18em;
     line-height: 1.5em;
   }
   .header .cart {
-    padding: 17px 3%;
-    height: 16px;
+    padding: 18px 3%;
+    height: 14px;
     font-size: 1em;
   }
   .header .cart i {
     margin-right: 5px;
   }
   .header .avatar {
-    float: right;
     padding: 10px 3%;
     height: 30px;
-    position: relative;
     margin-right: 0%;
-    border-left: 1px solid #F7F7F7;
     border-right: 0px solid #F7F7F7;
   }
   .header .avatar img {
@@ -2715,34 +2729,31 @@ Copyright (c) 2015 Puwadon Sricharoen
     border-radius: 50%;
   }
   .header .admin-btn {
-    padding: 17px 3%;
-    height: 16px;
+    float: right;
+    padding: 18px 3%;
+    height: 14px;
     font-size: 1em;
   }
   .header .login {
-    padding: 17px 3%;
-    height: 16px;
+    padding: 18px 3%;
     margin-right: 0%;
+    height: 14px;
     font-size: 1em;
-    border-left: 1px solid #F7F7F7;
     border-right: 0px solid #F7F7F7;
   }
-  .header .login i {
-    margin-right: 10px;
+  .header .login:hover {
+    border-right: 0px solid #EEEEEE;
   }
-  .header-fix {
-    position: inherit;
+  .header .login:active {
+    border-right: 0px solid #000000;
+  }
+  .header .login i {
+    margin-right: 5px;
   }
   .login-container {
-    width: 90%;
-    margin: 0% 0%;
-    padding: 5%;
-    border: 0px;
-  }
-  .login-container .navi {
-    width: 100%;
-    margin: 5% 0%;
-    margin-bottom: 10%;
+    width: 94%;
+    margin: 5% 3%;
+    margin-top: 5%;
   }
   .login-container .form .caption {
     line-height: 2em;
@@ -2750,10 +2761,10 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .login-container .form .input-text {
     width: 96%;
-    padding: 3.5% 2%;
-    font-size: 1em;
+    padding: 4% 2%;
+    font-size: 0.95em;
     line-height: 1.5em;
-    margin-bottom: 10%;
+    margin-bottom: 7%;
   }
   .login-container .form .status {
     padding: 10% 0%;
@@ -2762,29 +2773,50 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-bottom: 5%;
   }
   .login-container .form .button-submit {
-    padding: 5.5% 0%;
-    font-size: 0.9em;
+    padding: 5% 0%;
+    font-size: 0.85em;
+  }
+  .login-container .form .button-submit i {
+    margin-right: 10px;
   }
   .login-container .form .mini-caption {
-    padding: 6% 0%;
+    padding: 3% 0%;
   }
   .login-container .form .facebook-button {
-    padding: 5.5% 0%;
+    padding: 5% 0%;
     font-size: 0.9em;
   }
+  .login-container .form .facebook-button i {
+    margin-right: 10px;
+  }
   .login-container .form p.signup {
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding: 7% 0%;
     font-size: 1em;
+  }
+  .login-container .form p.forget {
+    font-size: 0.8em;
   }
   .container {
     width: 100%;
     padding: 0% 0%;
-    margin: 50px 0px;
+    margin-top: 50px;
   }
   .container .container-page .currency {
     font-size: 0.5em;
     margin-left: 3px;
+  }
+  .container .container-page .head-bar {
+    width: 94%;
+    padding: 4% 3%;
+    font-size: 1em;
+    line-height: 1.5em;
+    background: #F7F7F7;
+  }
+  .container .container-page .head-bar .icon {
+    width: 10%;
+  }
+  .container .container-page .head-bar .caption {
+    width: 90%;
   }
   .container .container-page .panel {
     width: 100%;
@@ -2793,78 +2825,101 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-bottom: 1%;
   }
   .container .container-page .panel .panel-topic {
-    width: 94%;
-    padding: 3%;
+    width: 92%;
+    padding: 4%;
+    float: left;
+    display: inline-block;
     font-size: 0.9em;
+    color: #CCCCCC;
+    background: #FAFAAA;
   }
   .container .container-page .panel .panel-topic .icon {
+    float: left;
+    display: inline-block;
+    color: #CCCCCC;
     margin-right: 5%;
   }
+  .container .container-page .panel .panel-topic .icon:hover {
+    color: #555555;
+  }
+  .container .container-page .panel .panel-topic .caption {
+    float: left;
+    display: inline-block;
+  }
   .container .container-page .panel .bank {
-    margin: 3% 0%;
+    width: 100%;
+    margin: 2% 0%;
   }
   .container .container-page .panel .bank .bank-items {
     padding: 3% 0%;
   }
   .container .container-page .panel .bank .bank-items .bank-items-icon {
-    width: 6%;
-    padding-top: 2%;
+    width: 8%;
+    padding-top: 1%;
   }
   .container .container-page .panel .bank .bank-items .bank-items-info {
-    width: 90%;
+    width: 88%;
     margin-left: 4%;
   }
   .container .container-page .panel .bank .bank-items .bank-items-info p {
-    font-size: 0.9em;
+    font-size: 1em;
   }
   .container .container-page .panel .bank .bank-items .bank-items-info p.zoom {
-    font-size: 1.2em;
+    font-size: 1.4em;
   }
   .container .container-page .panel .box-items {
     width: 94%;
     padding: 5% 3%;
-    margin-bottom: 0%;
-    border-top: 1px dotted #DDDDDD;
+    border-bottom: 1px solid #EEEEEE;
   }
   .container .container-page .panel .box-items .icon {
-    width: 12%;
-    font-size: 1.5em;
+    width: 10%;
+    font-size: 1em;
+    line-height: 1.5em;
   }
   .container .container-page .panel .box-items .box {
-    width: 88%;
+    width: 90%;
   }
   .container .container-page .panel .box-items .box p {
-    font-size: 0.9em;
+    font-size: 1em;
     line-height: 1.5em;
   }
   .container .container-page .panel .box-items .box p.caption {
     font-size: 0.7em;
   }
   .container .container-page .panel .box-items .box p.caption i {
-    margin: 0px 5px;
+    margin: 0px 10px;
   }
   .container .container-page .panel .box-items .box p.big {
-    font-size: 1.15em;
+    font-size: 1.4em;
+    line-height: 1em;
+    margin-bottom: 1%;
+  }
+  .container .container-page .panel .box-items .box .status-box {
+    font-size: 0.7em;
+    padding: 2px 5px;
+    margin-right: 5px;
   }
   .container .container-page .panel .box-items .box p.limit {
     font-size: 0.9em;
   }
   .container .container-page .panel .box-items .box p.edit {
-    padding: 1% 2%;
-    font-size: 0.65em;
+    margin-top: 3%;
+    padding: 1% 4%;
+    font-size: 0.7em;
   }
   .container .container-page .panel .box-items .box .image {
     margin: 3% 0%;
   }
   .container .container-page .panel .box-items .box .order-list .topic-caption {
-    padding-bottom: 3%;
+    padding: 2% 0%;
     font-size: 0.8em;
   }
   .container .container-page .panel .box-items .box .order-list .topic-caption .detail {
-    width: 80%;
+    width: 85%;
   }
   .container .container-page .panel .box-items .box .order-list .topic-caption .quantity {
-    width: 20%;
+    width: 15%;
     text-align: right;
   }
   .container .container-page .panel .box-items .box .order-list .topic-caption .total {
@@ -2872,70 +2927,69 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order {
     line-height: 1.5em;
-    border-top: 0px;
+    border-top: 1px solid #EEEEEE;
     font-size: 1em;
-    margin-bottom: 7%;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-thumbnail {
-    width: 15%;
+    width: 20%;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-detail {
-    width: 64%;
-    padding: 0% 3%;
+    width: 59%;
+    padding: 3%;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-detail p.detail-title {
-    margin-bottom: 1%;
+    margin-bottom: 2%;
+    line-height: 1.1em;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-detail p.detail-description {
-    font-size: 0.6em;
+    font-size: 0.8em;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-detail p.detail-description .remove-btn {
-    padding: 0.1% 1%;
-    padding-bottom: 0.2%;
+    padding: 0.5% 2%;
+    padding-bottom: 0.5%;
+    margin-left: 5px;
+    font-size: 0.7em;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .input-select {
-    padding: 10% 0%;
+    padding: 15% 0%;
     font-size: 1em;
+    line-height: 1.5em;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-quantity {
     width: 15%;
-    padding: 1% 0%;
-    text-align: right;
+    padding: 3% 0%;
   }
   .container .container-page .panel .box-items .box .order-list .items-in-order .items-in-order-total {
     display: none;
   }
   .container .container-page .panel .box-items .box .order-list .summary-items {
     font-size: 1em;
-    margin-bottom: 5%;
   }
   .container .container-page .panel .box-items .box .order-list .summary-items .summary-items-detail {
     width: 70%;
     margin-left: 0%;
-    padding: 3% 0%;
+    padding: 4% 0%;
   }
   .container .container-page .panel .box-items .box .order-list .summary-items .summary-items-detail .shipping-select {
-    margin-left: 5px;
-    font-size: 0.9em;
+    padding: 2%;
+    font-size: 1em;
+    line-height: 1.5em;
   }
   .container .container-page .panel .box-items .box .order-list .summary-items .summary-items-total {
     width: 30%;
-    padding: 3% 0%;
+    padding: 4% 0%;
   }
   .container .container-page .panel .box-items .box .order-list .summary-total {
     font-size: 1.2em;
+    border-top: 5px solid #EEEEEE;
   }
   .container .container-page .panel .box-items .box .form-control {
     padding-top: 5%;
-    margin-bottom: 5%;
-    border-top: 3px solid #EEEEEE;
   }
   .container .container-page .panel .box-items .box .form-control .submit-btn {
     width: 90%;
-    float: left;
-    display: inline-block;
     font-size: 1em;
-    padding: 6% 5%;
+    padding: 5%;
   }
   .container .container-page .panel .box-items .box .form-control .submit-btn i {
     margin-left: 10px;
@@ -2947,115 +3001,114 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
   }
   .container .container-page .panel .cancel-btn {
-    float: right;
-    display: inline-block;
-    margin: 2% 0%;
-    padding: 1% 1%;
+    margin: 5% 3%;
+    padding: 2% 5%;
     font-size: 0.7em;
-    border: 1px solid #F44336;
-    color: #F44336;
-  }
-  .container .container-page .panel .cancel-btn:hover {
-    cursor: pointer;
-    background: #FFCDD2;
-  }
-  .container .container-page .panel .cancel-btn:active {
-    background: #F44336;
-    color: #FFFFFF;
   }
   .container .container-page .panel .cancel-btn i {
     margin-right: 5px;
   }
   .container .container-page .panel .note {
-    width: 92%;
-    padding: 4%;
+    width: 94%;
+    padding: 3%;
     padding-top: 10%;
-    float: left;
-    display: inline-block;
-    color: #555555;
-    line-height: 1.7em;
-  }
-  .container .container-page .panel .note h2 {
-    color: #000000;
+    line-height: 1.5em;
   }
   .container .container-page .panel .note p {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   .container .container-page .panel-fix {
     position: inherit;
-    top: 0px;
-    right: 0%;
     width: 94%;
     padding: 3%;
-  }
-  .container .container-page .panel-fix h1 {
-    font-size: 1.4em;
-    padding-bottom: 5%;
+    float: left;
+    display: inline-block;
     line-height: 1.5em;
   }
-  .container .container-page .panel-fix p.info {
-    font-size: 0.9em;
-  }
-  .container .container-page .panel-fix p.info .view {
-    padding: 1% 0%;
-  }
-  .container .container-page .panel-fix p.info .sharing {
-    padding: 1% 3%;
-  }
-  .container .container-page .panel-fix .description {
-    padding: 3% 0%;
-    font-size: 1em;
-    margin-bottom: 3%;
+  .container .container-page .panel-fix h1 {
+    font-size: 1.5em;
+    padding: 8% 0%;
+    padding-bottom: 8%;
   }
   .container .container-page .panel-fix .action .action-items {
-    padding: 4% 0%;
+    padding: 3% 0%;
     line-height: 1.2em;
     margin-bottom: 1%;
+    border-bottom: 1px dotted #EEEEEE;
   }
   .container .container-page .panel-fix .action .action-items .detail {
-    width: 65%;
-    margin-right: 5%;
+    width: 70%;
   }
   .container .container-page .panel-fix .action .action-items .detail h3 {
-    font-size: 0.95em;
+    font-size: 1em;
   }
   .container .container-page .panel-fix .action .action-items .detail p {
-    font-size: 0.8em;
+    font-size: 0.75em;
   }
   .container .container-page .panel-fix .action .action-items .buy {
     width: 29%;
   }
   .container .container-page .panel-fix .action .action-items .buy .buy-btn {
-    padding: 9% 0%;
-    padding-top: 10%;
-    font-size: 0.9em;
+    padding: 8% 0%;
+    padding-top: 8%;
+    font-size: 0.85em;
   }
   .container .container-page .panel-fix .action .action-items .buy .buy-btn i {
-    margin-left: 5px;
+    margin-left: 10px;
+  }
+  .container .container-page .panel-fix .description {
+    padding: 5% 0%;
+    font-size: 1em;
+    margin-bottom: 5%;
+  }
+  .container .container-page .panel-fix p.info {
+    font-size: 0.8em;
+  }
+  .container .container-page .panel-fix p.info .view {
+    padding: 1% 0%;
+  }
+  .container .container-page .panel-fix p.info .sharing {
+    float: right;
+    padding: 1% 3%;
   }
   .container .container-page .panel-fix .order-state {
+    width: 100%;
+    float: left;
+    display: inline-block;
     margin-bottom: 3%;
   }
   .container .container-page .panel-fix .order-state .state-items {
     width: 25%;
-    padding: 1% 0%;
+    padding: 3% 0%;
+    float: left;
+    display: inline-block;
+    text-align: center;
     border-bottom: 1px solid #EEEEEE;
   }
   .container .container-page .panel-fix .order-state .state-items .icon {
+    width: 100%;
+    float: left;
+    display: inline-block;
     font-size: 1.5em;
-    margin-bottom: 3%;
+    margin-bottom: 5%;
+    color: #EEEEEE;
   }
   .container .container-page .panel-fix .order-state .state-items .caption {
-    font-size: 0.6em;
+    width: 100%;
+    float: left;
+    display: inline-block;
+    font-size: 0.7em;
     line-height: 2em;
+    color: #EEEEEE;
   }
   .container .container-page .panel-fix .order-state .state-active {
     border-bottom: 1px solid #000000;
   }
-  .container .container-page .panel-fix .box {
-    width: 100%;
-    float: left;
-    display: inline-block;
+  .container .container-page .panel-fix .order-state .state-active .icon {
+    color: #000000;
+  }
+  .container .container-page .panel-fix .order-state .state-active .caption {
+    color: #000000;
   }
   .container .container-page .panel-fix p {
     font-size: 1em;
@@ -3064,16 +3117,33 @@ Copyright (c) 2015 Puwadon Sricharoen
   .container .container-page .panel-fix .control {
     margin-top: 3%;
     padding-top: 3%;
+    width: 100%;
+    float: left;
+    display: inline-block;
+    border-top: 1px dotted #EEEEEE;
   }
   .container .container-page .panel-fix .control a {
-    font-size: 0.8em;
-    padding: 5px 10px;
+    float: right;
+    color: #AAAAAA;
+    font-size: 0.9em;
+    border: 1px solid #F7F7F7;
+    padding: 3px 10px;
   }
   .container .container-page .panel-fix .control a i {
-    margin-right: 5px;
+    margin-right: 10px;
     font-size: 0.8em;
   }
+  .container .container-page .panel-fix .control a:hover {
+    color: #000000;
+    border: 1px solid #DDDDDD;
+  }
+  .container .container-page .panel-fix .control a:active {
+    background: #000000;
+    border: 1px solid #000000;
+    color: #FFFFFF;
+  }
   .container .container-page .panel-fix p.icon {
+    color: #DDDDDD;
     font-size: 0.8em;
     margin-bottom: 5%;
   }
@@ -3085,46 +3155,84 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .container .container-page .panel-fix .message {
     width: 90%;
-    padding: 10% 5%;
+    padding: 5%;
   }
   .container .container-page .panel-fix .message i {
-    font-size: 2em;
+    font-size: 3em;
     line-height: 2em;
   }
   .container .container-page .panel-fix .message p.msg {
-    font-size: 0.8em;
+    font-size: 1em;
   }
-  .container .container-page .panel-fix .message-success {
-    background: #FFFFFF;
+  .container .container-page .panel-fix .message .btn {
+    width: 30%;
+    margin: 5% 35%;
+    padding: 2% 0%;
+    text-align: center;
+    float: left;
+    display: inline-block;
+    font-size: 0.8em;
+    background: #000000;
+    color: #FFFFFF;
+    border: 0px;
+  }
+  .container .container-page .panel-fix .message .btn i {
+    font-size: 1em;
+    margin-right: 10px;
   }
   .container .container-page .panel-fix .form p.caption {
-    font-size: 0.9em;
+    line-height: 2em;
+    font-size: 1em;
   }
   .container .container-page .panel-fix .form .input-text {
-    width: 96%;
-    padding: 3% 2%;
+    width: 98%;
+    padding: 3% 1%;
     font-size: 1em;
     line-height: 1.5em;
-    margin-bottom: 7%;
+    margin-bottom: 10%;
   }
   .container .container-page .panel-fix .form .input-file {
-    margin-bottom: 5%;
+    margin-bottom: 10%;
   }
   .container .container-page .panel-fix .form .submit-btn {
     width: 100%;
-    font-size: 0.9em;
+    font-size: 1em;
     padding: 5%;
   }
   .container .container-page .panel-fix .form .submit-btn i {
     margin-right: 10px;
   }
   .container .container-page .panel-fix p.link {
+    width: 100%;
+    float: left;
+    display: inline-block;
     margin-top: 5%;
     padding-top: 5%;
-    font-size: 0.7em;
+    font-size: 0.8em;
   }
   .container .container-page .panel-fix p.link a {
-    margin-right: 10px;
+    float: left;
+    display: inline-block;
+    text-decoration: none;
+    color: #cccccc;
+    margin-right: 20px;
+  }
+  .container .container-page .panel-fix p.link a:hover {
+    color: #000000;
+    cursor: pointer;
+  }
+  .container .container-page .panel-fix p.link a:active {
+    text-decoration: underline;
+  }
+  .container .container-page .panel-fix p.link .signout {
+    margin-right: 0px;
+    float: right;
+  }
+  .container .container-page .panel-fix p.link .signout:hover {
+    color: #F44336;
+  }
+  .container .container-page .panel-fix-margin-top {
+    top: 100px;
   }
   .container .container-page .product-items {
     width: 100%;
@@ -3140,29 +3248,38 @@ Copyright (c) 2015 Puwadon Sricharoen
     padding: 3%;
   }
   .container .container-page .product-items .product-items-detail h2 {
-    font-size: 1em;
+    font-size: 1.2em;
     line-height: 1.5em;
   }
   .container .container-page .product-items .product-items-detail p {
-    font-size: 0.9em;
-    line-height: 2em;
+    font-size: 1em;
+    line-height: 1.5em;
   }
   .container-fix {
     margin: 0px 0px;
   }
   #filter #loading-message {
     margin-top: 50%;
-    padding: 3% 0%;
+    padding: 1% 0%;
+    line-height: 2em;
+    font-size: 1em;
+  }
+  #filter #loading-message i {
+    margin-right: 10px;
     font-size: 0.8em;
   }
+  #filter #loading-bar {
+    width: 60%;
+    height: 1px;
+  }
   #filter .cancel {
-    margin-top: 40%;
-    font-size: 0.7em;
+    margin-top: 30%;
+    font-size: 0.8em;
   }
   .footer {
     width: 94%;
-    padding: 4% 3%;
-    margin-top: 1%;
+    padding: 12% 3%;
+    margin-top: 0%;
   }
   .footer .footer-left {
     width: 100%;
@@ -3171,18 +3288,16 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .footer .footer-right {
     width: 100%;
-    margin-bottom: 5%;
   }
   .footer .contact-items {
-    width: 100%;
-    padding: 4% 0%;
+    padding: 5% 0%;
   }
   .footer .contact-items .icon {
-    width: 13%;
-    font-size: 2em;
+    width: 12%;
+    font-size: 1.7em;
   }
   .footer .contact-items .detail {
-    width: 82%;
+    width: 88%;
     line-height: 1em;
   }
   .footer .contact-items .detail p {
@@ -3198,40 +3313,39 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .footer p {
     font-size: 0.8em;
-    line-height: 1.8em;
+    line-height: 1.5em;
   }
   .footer i {
-    margin-right: 5px;
+    margin-right: 10px;
   }
   .footer p.company {
     line-height: 1.3em;
   }
   .footer p.company a {
-    font-size: 0.9em;
+    font-size: 0.8em;
   }
   .developer {
     width: 94%;
-    padding: 3%;
-    font-size: 0.6em;
+    padding: 2% 3%;
+    font-size: 0.5em;
     line-height: 1.5em;
   }
-  .developer .credit {
-    display: none;
+  .developer i {
+    margin-right: 5px;
   }
-  .dialog-box .icon {
-    width: 100%;
+  .dialog-box .dialog {
     padding-top: 50%;
   }
-  .dialog-box .icon i {
-    font-size: 2em;
-    margin-bottom: 2%;
+  .dialog-box .dialog i {
+    font-size: 3em;
+    margin-bottom: 10%;
   }
-  .dialog-box .icon p {
-    font-size: 0.8em;
+  .dialog-box .dialog p {
+    font-size: 1em;
   }
   #loading-status {
     bottom: 5px;
     right: 5px;
-    font-size: 0.5em;
+    font-size: 0.6em;
   }
 }

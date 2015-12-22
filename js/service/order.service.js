@@ -108,8 +108,9 @@ function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
     var shipping_type = $('#shipping_type').val();
 
-    $('#dialog-message').html('กรุณารอสักครู่...');
+    $('#dialog-message').html('กำลังส่งคำสั่งซื้อ่...');
     $('#dialog-box').fadeIn(300);
+    console.log('OrderProcess() with '+order_id+','+order_action);
 
     $.ajax({
         url         :href,

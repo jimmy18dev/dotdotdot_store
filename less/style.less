@@ -759,6 +759,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                         .submit-btn{
                             float: right;
+                            display: inline-block;
                             border: 0px;
                             font-family: @FontStylePrimary;
                             font-size: 0.9em;
@@ -1148,10 +1149,21 @@ Copyright (c) 2015 Puwadon Sricharoen
                 display: inline-block;
 
                 p.caption{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
                     line-height: 2em;
                     font-size: 0.9em;
                     color: #333333;
-                    font-weight: bold;
+
+                    // Form Checking.
+                    .check{
+                        float: right;
+                        color: #FFFFFF;
+                    }
+                    .check-active{color: #00ab6b;}
+
+                    .input-caption-alert{color: #F44336;}
                 }
 
                 .input-text{
@@ -1168,6 +1180,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                     resize: none;
                     color: #000000;
                     font-weight: bold;
+                    background: #FFFFFF;
 
                     &:hover{
                         border: 1px solid #CCCCCC;
@@ -1177,6 +1190,10 @@ Copyright (c) 2015 Puwadon Sricharoen
                         border: 1px solid #000000;
                         font-weight: normal;
                     }
+                }
+
+                .input-alert{
+                    border: 1px solid #F44336;
                 }
 
                 .input-select{
@@ -1198,6 +1215,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                 .submit-btn{
                     width: 20%;
                     float: right;
+                    display: inline-block;
                     border: 0px;
                     font-family: @FontStylePrimary;
                     font-size: 0.9em;
