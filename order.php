@@ -60,46 +60,20 @@ $current_page = "order";
 
 <div class="container container-fix">
 	<div class="container-page">
-		<a href="profile.php">
-		<div class="head-bar">
-			<div class="icon"><i class="fa fa-arrow-left"></i></div>
-			<div class="caption">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></div>
-		</div>
+		<?php if($order->status == "Shopping"){?>
+		<a href="index.php" class="head-bar" id="head-bar">
+			<span class="icon"><i class="fa fa-arrow-left"></i></span>
+			<span class="caption">เลือกสินค้าเพิ่ม</span>
 		</a>
+		<?php }else{?>
+		<a href="profile.php" class="head-bar" id="head-bar">
+			<span class="icon"><i class="fa fa-arrow-left"></i></span>
+			<span class="caption">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></span>
+		</a>
+		<?php }?>
 
 		<div class="panel-fix">
 			<div class="box">
-				<?php if(false && $order->status != "Shopping" && $order->status != "Paying" && $order->status != "Complete" && $order->status != "TransferRequest" && $order->status != "TransferAgain" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
-				<div class="order-state">
-					<a href="#product-list">
-					<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
-						<div class="icon"><i class="fa fa-barcode"></i></div>
-						<div class="caption">1. สั่งสินค้า</div>
-					</div>
-					</a>
-					<a href="#transfer">
-					<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
-						<div class="icon"><i class="fa fa-money"></i></div>
-						<div class="caption">2. โอนเงิน</div>
-					</div>
-					</a>
-
-					<a href="#success">
-					<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
-						<div class="icon"><i class="fa fa-check"></i></div>
-						<div class="caption">3. ชำระเงินแล้ว</div>
-					</div>
-					</a>
-
-					<a href="#shipping">
-					<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
-						<div class="icon"><i class="fa fa-truck"></i></div>
-						<div class="caption">4. รอรับของ</div>
-					</div>
-					</a>
-				</div>
-				<?php }?>
-
 				<?php if($order->status == "Shopping"){?>
 				<div class="message">
 					<p><i class="fa fa-file-o"></i></p>
@@ -331,12 +305,12 @@ $current_page = "order";
 							<?php if($order->total > 1){?>
 							<div class="summary-items">
 								<div class="summary-items-detail">รวมราคาสินค้า : </div>
-								<div class="summary-items-total"><span id="subpayments-display"><?php echo number_format($order->payments);?></span><span class="currency">บาท</span></div>
+								<div class="summary-items-total"><span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
 							</div>
 							<?php }?>
 
 							<div class="summary-items">
-								<div class="summary-items-detail">
+								<div class="summary-items-detail"><i class="fa fa-truck"></i> 
 									<?php if($order->status == "Shopping"){?>
 									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
 										<option value="Ems">พัสดุ EMS</option>
@@ -346,18 +320,18 @@ $current_page = "order";
 										echo ($order->shipping_type == "Ems"?"พัสดุด่วนพิเศษ (EMS)":"พัสดุลงทะเบียน");
 									}?>
 								</div>
-								<div class="summary-items-total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments);?></span><span class="currency">บาท</span></div>
+								<div class="summary-items-total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
 							</div>
 
 							<div class="summary-items summary-total">
 								<div class="summary-items-detail">ยอดเงินที่ต้องชำระ : </div>
-								<div class="summary-items-total"><span id="payments-display"><?php echo number_format($order->summary_payments);?></span><span class="currency">บาท</span></div>
+								<div class="summary-items-total">฿ <span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
 							</div>
 						</div>
 
 						<?php if($order->status == "Shopping"){?>
 						<div class="form-control" id="paying-button">
-							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">จ่าย <span id="payments-btn-display"><?php echo number_format($order->summary_payments,2);?></span> บาท<i class="fa fa-arrow-right"></i></div>
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">฿ <span id="payments-btn-display"><?php echo number_format($order->summary_payments,2);?></span> ชำระเงิน<i class="fa fa-arrow-right"></i></div>
 						</div>
 						<?php }?>
 
@@ -399,6 +373,7 @@ $current_page = "order";
 <script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 <script type="text/javascript" src="js/min/money.transfer.min.js"></script>
 <script type="text/javascript" src="js/min/order.app.min.js"></script>
+<script type="text/javascript" src="js/min/init.min.js"></script>
 
 </body>
 </html>

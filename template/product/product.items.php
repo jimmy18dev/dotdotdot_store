@@ -13,7 +13,7 @@
 		<?php if($var['pd_quantity'] == 0 && $var['pd_type'] == "normal"){?>
 		<p class="empty">สินค้าหมด</p>
 		<?php }else{?>
-		<p><?php echo '฿'.number_format($var['pd_price'],2);?></p>
+		<p><?php echo '฿ '.number_format($var['pd_price'],2);?></p>
 		<?php }?>
 	</div>
 </div>

@@ -41,7 +41,7 @@ $current_page = "forget";
 	<div class="login-container">
 		<div class="form">
 			<div class="caption">อีเมล:</div>
-			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
+			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ" autofocus>
 
 			<div class="status" id="status-message"></div>
 

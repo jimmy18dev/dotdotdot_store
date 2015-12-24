@@ -64,5 +64,6 @@ $current_page = "index";
 <?php include'footer.php';?>
 
 <script type="text/javascript" src="js/service/order.service.js"></script>
+<script type="text/javascript" src="js/min/init.min.js"></script>
 </body>
 </html>

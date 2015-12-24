@@ -1,7 +1,10 @@
-function AddItemToOrder(product_id){
-    // Clear animation
-    $('#buy-button-price-'+product_id).removeClass('pulse');
-    $('#buy-button-msg-'+product_id).html('<i class="fa fa-spinner fa-spin"></i>');
+function AddCart(product_id){
+    var product_id = $('#product_id').val();
+    var subproduct_id = $('#subproduct_id').val();
+
+    if(subproduct_id){
+        product_id = subproduct_id
+    }
 
     var href = 'api.order.php';
     var amount = 1;
@@ -23,11 +26,9 @@ function AddItemToOrder(product_id){
     }).done(function(data){
         console.log('Return: '+data.message+','+data.return);
 
-        $('#buy-button-'+product_id).html('<i class="fa fa-arrow-right"></i> ชำระเงิน');
-
         // Add animation
-        $('#buy-button-'+product_id).addClass('pulse buy-btn-active');
-
+        $('#buy-button').html('ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>').addClass('buy-btn-active');
+        
         if(data.message){
             MyCurrentOrder();
         }
@@ -70,7 +71,7 @@ function EditItemInOrder(order_id,product_id){
 
             // Include alert.app.js
             $paying_btn.hide();
-            ToggleAlert('<i class="fa fa-quote-left"></i>สินค้าไม่พอ!<i class="fa fa-quote-right"></i>');
+            // ToggleAlert('<i class="fa fa-quote-left"></i>สินค้าไม่พอ!<i class="fa fa-quote-right"></i>');
         }
     }).error();
 }
@@ -150,7 +151,7 @@ function MyCurrentOrder(){
             console.log("Request Error");
         }
     }).done(function(data){
-        var payments = numeral(data.data.payments).format('0,0');
+        var payments = numeral(data.data.payments).format('0,0.00');
         $('#my-cart').addClass('pulse');
         $('#amount').html(data.data.amount);
         $('#payments').html(payments+' ฿');
@@ -169,7 +170,7 @@ function MyCurrentOrder(){
 function EditAddress(order_id){
     var href = 'api.order.php';
 
-    var realname        = $('#customer_name').val();
+    var realname    = $('#customer_name').val();
     var address     = $('#customer_address').val();
     var phone       = $('#customer_phone').val();
 
@@ -194,7 +195,7 @@ function EditAddress(order_id){
         }
     }).done(function(data){
         console.log('Message: '+data.message+' Return:'+data.return);
-        setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
+        setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
     }).error();
 }
 
@@ -219,6 +220,6 @@ function CencelTransfer(order_id){
         }
     }).done(function(data){
         console.log('Message: '+data.message+' Return:'+data.return);
-        setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
+        setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
     }).error();
 }

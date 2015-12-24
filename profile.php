@@ -74,4 +74,7 @@ $current_page = "profile";
 	</div>
 </div>
 </body>
+
+<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/min/init.min.js"></script>
 </html>

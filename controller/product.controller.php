@@ -96,5 +96,25 @@ class ProductController extends ProductModel{
         }
         unset($data);
     }
+
+    // Export to json
+	public function ExportJson($product_id,$current_order_id){
+		$dataset = parent::GetProductProcess(array('product_id' => $product_id,'order_id' => $current_order_id,));
+
+		$data = array(
+			"apiVersion" => "1.0",
+			"data" => array(
+				// "update" => time(),
+				"time_now" => date('Y-m-d H:i:s'),
+				"message" => 'message',
+				"execute" => round(microtime(true)-StTime,4)."s",
+				"totalFeeds" => floatval(count($dataset)),
+				"items" => $dataset,
+			),
+		);
+
+	    // JSON Encode and Echo.
+	    echo json_encode($data);
+	}
 }
 ?>

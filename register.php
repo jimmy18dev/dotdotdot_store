@@ -41,7 +41,7 @@ $current_page = "register";
 	<div class="login-container">
 		<div class="form">
 			<div class="caption">อีเมล:</div>
-			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
+			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ" autofocus>
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
@@ -58,8 +58,6 @@ $current_page = "register";
 			<div class="status" id="status-message"></div>
 
 			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status"><i class="fa fa-arrow-up"></i>สมัครสมาชิก</span></button>
-			<div class="mini-caption">หรือ</div>
-			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
 
 			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
 		</div>

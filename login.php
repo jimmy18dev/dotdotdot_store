@@ -43,7 +43,7 @@ $current_page = "login";
 		<div class="mini-caption">หรือ</div>
 		<form action="javascript:LoginUser();">
 			<div class="caption">อีเมล:</div>
-			<input type="email" class="input-text" id="username" placeholder="">
+			<input type="email" class="input-text" id="username" placeholder="" autofocus>
 			<div class="caption">รหัสผ่าน:</div>
 			<input type="password" class="input-text" id="password" placeholder="">
 			<div class="status" id="status-message"></div>

@@ -29,9 +29,10 @@ if($_POST['calling'] != ''){
 // API Request $_GET
 else if($_GET['calling'] != ''){
 	switch ($_GET['calling']) {
-		case 'Order':
+		case 'Product':
 			switch ($_GET['action']) {
-				case 'LiveComment':
+				case 'ProductData':
+					$product->ExportJson($_GET['product_id'],$user->current_order_id);
 					break;
 				default:
 					break;

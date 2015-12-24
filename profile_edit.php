@@ -38,9 +38,6 @@ if(!empty($user->current_order_id)){
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
-<!-- JS Lib -->
-<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-
 </head>
 
 <body>
@@ -48,12 +45,19 @@ if(!empty($user->current_order_id)){
 
 <div class="container">
 	<div class="container-page">
+
+		<a href="profile.php">
+		<div class="head-bar" id="head-bar">
+			<div class="icon"><i class="fa fa-arrow-left"></i></div>
+			<div class="caption">ไปที่โปรไฟล์</div>
+		</div>
+		</a>
+
 		<div class="panel-fix">
 			<div class="box">
-				<p class="icon"><i class="fa fa-user"></i>ข้อมูลส่วนตัว</p>
 				<div class="form">
 					<p class="caption">ชื่อ - นามกลุล</p>
-					<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>">
+					<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>" autofocus>
 					<p class="caption">เบอร์โทรศัพท์</p>
 					<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
 					<p class="caption">อีเมล</p>
@@ -79,6 +83,8 @@ if(!empty($user->current_order_id)){
 
 <?php include'template/loading.dialog.box.php';?>
 
+<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/min/init.min.js"></script>
 <script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>
 </html>

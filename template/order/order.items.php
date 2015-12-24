@@ -30,7 +30,7 @@ else{
 }
 ?>
 
-<div class="box-items <?php echo ($var['od_owner_read']=="open"?"box-items-unread":"");?>">
+<div class="box-items <?php echo ($var['od_owner_read']=="open"?"box-items-unread":"");?> order-items">
 	<div class="icon"><?php echo ($var['od_status'] == "Complete"?'<i class="fa fa-check-circle"></i>':'<i class="fa fa-file-text-o"></i>');?></div>
 
 	<a href="order-<?php echo $var['od_id'];?>.html">

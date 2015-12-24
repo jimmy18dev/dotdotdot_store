@@ -32,11 +32,9 @@ function LoginUser(){
         console.log('Callback: '+data.return+' , '+data.message);
 
         if(data.return){
-
             $('#dialog-message').html('กำลังเข้าสู่ระบบ...');
             $('#dialog-box').fadeIn(300);
-
-            setTimeout(function(){window.location = 'index.php';},3000);
+            setTimeout(function(){window.location = 'index.php';},300);
         }
         else{
             $('#status-message').html('อีเมลและรหัสผ่านของคุณไม่ถูกต้อง!').slideDown(500).delay(3000).slideUp(300);
@@ -93,7 +91,7 @@ function RegisterUser(){
         if(data.return){
             $('#dialog-message').html('กำลังสมัครสมาชิกใหม่...');
             $('#dialog-box').fadeIn(300);
-            setTimeout(function(){window.location = 'index.php';},3000);
+            setTimeout(function(){window.location = 'index.php';},300);
         }
         else{
             $('#status-message').html('อีเมลนี้ถูกใช้แล้ว!').slideDown(500).delay(3000).slideUp(300);
@@ -132,7 +130,7 @@ function ForgetPassword(){
         $('#dialog-message').html('กำลังส่งอีเมล...');
         $('#dialog-box').fadeIn(300);
         
-        setTimeout(function(){window.location = 'forget_success.php';},3000);
+        setTimeout(function(){window.location = 'forget_success.php';},300);
     }).error();
 }
 
@@ -174,7 +172,7 @@ function SubmitAddress(){
         if(order_id)
             setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
         else
-            setTimeout(function(){window.location = 'me.php'},1000);
+            setTimeout(function(){window.location = 'me.php'},300);
 
     }).error();
 }
@@ -214,7 +212,7 @@ function EditInfo(){
         $('#dialog-box').fadeIn(300);
 
         // Redirect page after submit address.
-        setTimeout(function(){window.location = 'profile.php'},1000);
+        setTimeout(function(){window.location = 'profile.php'},300);
 
     }).error();
 }
@@ -248,7 +246,7 @@ function ChangePassword(){
 
         $('#dialog-message').html('กำลังเปลี่ยนรหัสผ่าน...');
         $('#dialog-box').fadeIn(300);
-        setTimeout(function(){window.location = 'change_password_success.php';},3000);
+        setTimeout(function(){window.location = 'change_password_success.php';},300);
     }).error();
 }
 
@@ -284,7 +282,7 @@ function NewPassword(){
 
         // Redirect page after submit address.
         $('#dialog-box').fadeIn(300);
-        setTimeout(function(){window.location = 'change_password_success.php';},3000);
+        setTimeout(function(){window.location = 'change_password_success.php';},300);
 
     }).error();
 }

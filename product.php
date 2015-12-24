@@ -78,52 +78,46 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<!-- Detail -->
 		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>
+			<p class="price">฿ <?php echo number_format($product->price,2);?></p>
+			<div class="description"><?php echo $product->description;?></div>
 			<div class="action">
 				<?php
 				if($product->type == "normal"){
 					if(empty($product->in_order)){
-						$button_msg = 'ซื้อสินค้า';
+						$button_msg = 'ใส่ตะกร้า<i class="fa fa-cart-plus">';
 					}
 					else{
-						$button_msg = 'จ่ายเงิน<i class="fa fa-arrow-right"></i>';
+						$button_msg = 'ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>';
 					}
 				?>
-				<div class="action-items">
-					<div class="detail">
-						<h3><span class="price">฿<?php echo number_format($product->price,2);?></span></h3>
-						<p>อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</p>
-					</div>
-					<div class="buy">
-						<?php if($product->quantity > 0){?>
-						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button-<?php echo $product->id;?>" onclick="javascript:AddItemToOrder(<?php echo $product->id;?>)"><?php echo $button_msg;?></div>
-						<?php }else{?>
-						<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
-						<?php }?>
-					</div>
-				</div>
-				<?php }else{
-					$product->ListSubProduct(array(
-						'product_id' 	=> $product->id,
-						'order_id' 		=> $user->current_order_id,
-					));
-				}?>
-			</div>
 
-			<div class="description"><?php echo $product->description;?></div>
-
-			<p class="info">
-				<?php if($product->type == "normal" && $product->quantity == 0){?>
-				<span class="view alert">สินค้าหมดชั่วคราวค่ะ!</span>
-				<?php }else if($product->quantity > 5 || $product->type == "root"){?>
-				<span class="view">แสดงสินค้าแล้ว <?php echo number_format($product->read);?> ครั้ง</span>
+				<?php if($product->quantity > 0){?>
+				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()"><?php echo $button_msg;?></i></div>
 				<?php }else{?>
-				<span class="view">มีเพียง <?php echo $product->quantity;?> ชิ้นเท่านั้น</span>
+				<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
 				<?php }?>
 
-				<span class="sharing" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
-				<span class="sharing" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
-				<span class="sharing" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
-			</p>
+				<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
+				<?php }else{?>
+
+				<div class="mini-caption">เลือกสินค้า <i class="fa fa-caret-down"></i></div>
+				<div class="subproduct-list">
+					<select id="subproduct_id" class="input-select">
+					<?php $product->ListSubProduct(array('product_id' => $product->id,'order_id' => $user->current_order_id));?>
+					</select>
+				</div>
+				<div class="subproduct-info" id="subproduct_info">n/a</div>
+				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
+				<?php }?>
+			</div>
+
+			
+
+			<div class="sharing">
+				<div class="sharing-items" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></div>
+				<div class="sharing-items" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></div>
+				<div class="sharing-items" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></div>
+			</div>
 
 			<?php if($user->type == "administrator"){?>
 			<div class="control">
@@ -158,6 +152,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 <script type="text/javascript" src="js/service/min/order.service.min.js"></script>
 <script type="text/javascript" src="js/min/product.app.min.js"></script>
 <script type="text/javascript" src="js/min/sharing.app.min.js"></script>
+<script type="text/javascript" src="js/min/init.min.js"></script>
 
 </body>
 </html>

@@ -37,7 +37,7 @@ $(document).ready(function(){
             console.log('complete => Success');
 
             $('#loading-message').html('<i class="fa fa-check"></i>สำเร็จ');
-            setTimeout(function(){window.location = 'order-'+order_id+'.html';},1000);
+            setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
         },
         resetForm:true
     };
