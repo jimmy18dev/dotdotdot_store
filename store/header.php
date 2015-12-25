@@ -68,6 +68,9 @@ $notif_count = $order->NotificationChecking();
 			<a href="product.php">
 				<li class="navi-items <?php echo ($current_page == "product"?'active':'');?>"><span class="icon"><i class="fa fa-th"></i></span><span class="caption">สินค้า</span></li>
 			</a>
+			<a href="setting.php">
+				<li class="navi-items <?php echo ($current_page == "setting.php"?'active':'');?>"><span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">ตั้งค่า</span></li>
+			</a>
 			<a href="analytics.php">
 				<li class="navi-items <?php echo ($current_page == "analytics"?'active':'');?>"><span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">วิเคราะห์</span></li>
 			</a>

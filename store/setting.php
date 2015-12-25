@@ -30,45 +30,35 @@ $current_page = "setting";
 <link rel="stylesheet" type="text/css" href="css/style.css"/>
 <link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
 
-<!-- JS Lib -->
-<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
-
 </head>
 
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="topic">
-		<div class="topic-caption">Setting</div>
-	</div>
-
 	<div class="content">
-		<a href="customer.php">
-		<div class="setting-btn">
-			<div class="setting-btn-icon"><i class="fa fa-users"></i></div>
-			<div class="setting-btn-caption">ลูกค้า</div>
-		</div>
-		</a>
 
-		<a href="bank.php">
-		<div class="setting-btn">
-			<div class="setting-btn-icon"><i class="fa fa-university"></i></div>
-			<div class="setting-btn-caption">บัญชีธนาคาร</div>
-		</div>
-		</a>
-
-		<div class="setting-btn">
-			<div class="setting-btn-icon"><i class="fa fa-cog"></i></div>
-			<div class="setting-btn-caption">ตั้งค่า</div>
+		<div class="setting-container">
+			<h3>Metadata</h3>
+			<?php $config->ListConfig('meta');?>
+			<button onclick="javascript:MetaConfigSave();">บันทึก</button>
 		</div>
 
-		<a href="version-log.php">
-		<div class="setting-btn">
-			<div class="setting-btn-icon"><i class="fa fa-flag"></i></div>
-			<div class="setting-btn-caption">อัพเดท</div>
+		<div class="setting-container">
+			<h3>Facebook SDK</h3>
+			<?php $config->ListConfig('facebook_sdk');?>
+			<button onclick="javascript:FacebookConfigSave();">บันทึก</button>
 		</div>
-		</a>
+
+		<div class="setting-container">
+			<h3>ตั้งค่าอีเมล</h3>
+			<?php $config->ListConfig('email');?>
+			<button onclick="javascript:EmailConfigSave();">บันทึก</button>
+		</div>
 	</div>
 </div>
+
+<!-- JS Lib -->
+<script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/config.service.js"></script>
 </body>
 </html>

@@ -1,0 +1,78 @@
+<?php
+class ConfigController extends ConfigModel{
+
+    public $email_host;
+    public $email_username;
+    public $email_password;
+    public $email_port;
+    public $email_address;
+    public $email_name;
+
+    public $facebook_app_id;
+    public $facebook_app_secret;
+
+    public $meta_title;
+    public $meta_description;
+    public $meta_sitename;
+    public $meta_author;
+    public $meta_keyword;
+
+    public function GetConfig(){
+        $dataset = parent::GetConfigProcess();
+
+        foreach ($dataset as $var){
+            if($var['cf_key'] == 'email_host')
+                $this->email_host = $var['cf_value'];
+            else if($var['cf_key'] == 'email_username')
+                $this->email_username = $var['cf_value'];
+            else if($var['cf_key'] == 'email_password')
+                $this->email_password = $var['cf_value'];
+            else if($var['cf_key'] == 'email_port')
+                $this->email_port = $var['cf_value'];
+            else if($var['cf_key'] == 'email_address')
+                $this->email_address = $var['cf_value'];
+            else if($var['cf_key'] == 'email_name')
+                $this->email_name = $var['cf_value'];
+            else if($var['cf_key'] == 'facebook_app_id')
+                $this->facebook_app_id = $var['cf_value'];
+            else if($var['cf_key'] == 'facebook_app_secret')
+                $this->facebook_app_secret = $var['cf_value'];
+            else if($var['cf_key'] == 'meta_title')
+                $this->meta_title = $var['cf_value'];
+            else if($var['cf_key'] == 'meta_description')
+                $this->meta_description = $var['cf_value'];
+            else if($var['cf_key'] == 'meta_sitename')
+                $this->meta_sitename = $var['cf_value'];
+            else if($var['cf_key'] == 'meta_author')
+                $this->meta_author = $var['cf_value'];
+            else if($var['cf_key'] == 'meta_keyword')
+                $this->meta_keyword = $var['cf_value'];
+        }
+    }
+
+    public function ListConfig($group){
+        $dataset = parent::ListConfigProcess($group);
+        $this->Render('null',$dataset);
+    }
+
+    private function Render($mode,$data){
+        foreach ($data as $var){
+            include'template/setting/setting.items.php';
+        }
+        unset($data);
+    }
+
+    // Config Update
+    public function UpdateEmailConfig($param){
+        parent::UpdateEmailConfigProcess($param);
+    }
+
+    public function UpdateFacebookConfig($param){
+        parent::UpdateFacebookSDKConfigProcess($param);
+    }
+
+    public function UpdateMetaConfig($param){
+        parent::UpdateMetaConfigProcess($param);
+    }
+}
+?>

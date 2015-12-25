@@ -25,6 +25,7 @@ include_once'plugin/mobile-detect/desktop_detect.php';
 
 // Site Setting include /////////////
 // Model ////////////////////////////
+include_once'model/config.model.php';
 include_once'model/product.model.php';
 include_once'model/image.model.php';
 include_once'model/user.model.php';
@@ -32,6 +33,7 @@ include_once'model/order.model.php';
 include_once'model/bank.model.php';
 
 // Controller ///////////////////////
+include_once'controller/config.controller.php';
 include_once'controller/product.controller.php';
 include_once'controller/image.controller.php';
 include_once'controller/user.controller.php';
@@ -40,6 +42,7 @@ include_once'controller/order.controller.php';
 include_once'controller/bank.controller.php';
 
 // Object of Controller
+$config 		= new ConfigController;
 $detect 		= new Mobile_Detect;
 $product 		= new ProductController;
 $image 			= new ImageController;

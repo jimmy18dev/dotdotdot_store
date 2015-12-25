@@ -92,14 +92,17 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				?>
 
 				<?php if($product->quantity > 0){?>
+				<?php if(MEMBER_ONLINE){?>
 				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()"><?php echo $button_msg;?></i></div>
+				<?php }?>
 				<?php }else{?>
+				<?php if(MEMBER_ONLINE){?>
 				<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
+				<?php }?>
 				<?php }?>
 
 				<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
 				<?php }else{?>
-
 				<div class="mini-caption">เลือกสินค้า <i class="fa fa-caret-down"></i></div>
 				<div class="subproduct-list">
 					<select id="subproduct_id" class="input-select">
@@ -107,7 +110,10 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 					</select>
 				</div>
 				<div class="subproduct-info" id="subproduct_info">n/a</div>
+
+				<?php if(MEMBER_ONLINE){?>
 				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
+				<?php }?>
 				<?php }?>
 			</div>
 
