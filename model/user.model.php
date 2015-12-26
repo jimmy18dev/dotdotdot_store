@@ -258,5 +258,12 @@ class UserModel extends Database{
 
 		parent::execute();
 	}
+
+
+	// Set First member to Administrator
+	public function SetAdminProcess(){
+		parent::query('UPDATE dd_member SET me_type = "administrator" WHERE me_id = 1');
+		parent::execute();
+	}
 }
 ?>

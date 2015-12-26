@@ -1,5 +1,11 @@
 <?php
 require_once'config/autoload.php';
+
+if(MEMBER_ONLINE){
+	header("Location: index.php");
+	die();
+}
+
 $current_page = "register";
 ?>
 
@@ -57,7 +63,10 @@ $current_page = "register";
 
 			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status"><i class="fa fa-arrow-up"></i>สมัครสมาชิก</span></button>
 
-			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
+			<!-- Product return after login success. -->
+			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">
+
+			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">เข้าสู่ระบบ</a></p>
 		</div>
 	</div>
 </div>

@@ -51,6 +51,11 @@ if($_POST['calling'] != ''){
 							$registered = false;
 						}
 
+						// Set First member to Administrator
+						if($register == 1){
+							$user->SetAdminProcess();
+						}
+
 						$api->successMessage('New user Registered.',$registered,'');
 					}
 					else{

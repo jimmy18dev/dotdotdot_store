@@ -518,7 +518,6 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   line-height: 1.5em;
   border: 1px solid #EEEEEE;
-  font-weight: bold;
   color: #333333;
   outline: 0;
 }
@@ -527,7 +526,6 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .content .order-dialog .input-text:focus {
   border: 1px solid #333333;
-  font-weight: normal;
 }
 .container .content .order-dialog .order-list {
   width: 100%;
@@ -956,7 +954,6 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #EEEEEE;
   line-height: 1.5em;
   outline: 0;
-  font-weight: bold;
   color: #333333;
   resize: none;
 }
@@ -964,8 +961,8 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #CCCCCC;
 }
 .container .content .form .input-text:focus {
+  color: #000000;
   border: 1px solid #333333;
-  font-weight: normal;
 }
 .container .content .form .input-select {
   width: 100%;
@@ -979,7 +976,7 @@ Copyright (c) 2015 Daniel Eden
   font-family: 'Open Sans', sans-serif;
   font-size: 0.9em;
   line-height: 1.5em;
-  padding: 1.5% 7%;
+  padding: 1.5% 5%;
 }
 .container .content .form .submit-button:hover {
   background: #444444;
@@ -1053,6 +1050,19 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   line-height: 1.5em;
   color: #000000;
+}
+.container .content .user-items .user-items-info p .admin {
+  font-size: 0.8em;
+  font-style: italic;
+}
+.container .content .user-items .user-items-info p .control-btn {
+  float: right;
+  display: inline-block;
+  color: #DDDDDD;
+}
+.container .content .user-items .user-items-info p .control-btn:hover {
+  cursor: pointer;
+  color: #AAAAAA;
 }
 .container .content .user-items .user-items-info p.mini {
   font-size: 0.8em;

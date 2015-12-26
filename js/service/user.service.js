@@ -2,6 +2,7 @@ function LoginUser(){
     var href = 'api.user.php';
     var username = $('#username').val();
     var password = $('#password').val();
+    var product_return = $('#product_return').val();
 
     if(username == ""){
         $('#status-message').html('กรอกอีเมลของคุณ!').slideDown(500).delay(1000).slideUp(300);
@@ -34,7 +35,11 @@ function LoginUser(){
         if(data.return){
             $('#dialog-message').html('กำลังเข้าสู่ระบบ...');
             $('#dialog-box').fadeIn(300);
-            setTimeout(function(){window.location = 'index.php';},300);
+
+            if(product_return == "")
+                setTimeout(function(){window.location = 'index.php';},300);
+            else
+                setTimeout(function(){window.location = 'product-'+product_return+'.html';},300);
         }
         else{
             $('#status-message').html('อีเมลและรหัสผ่านของคุณไม่ถูกต้อง!').slideDown(500).delay(3000).slideUp(300);
@@ -52,6 +57,8 @@ function RegisterUser(){
     var name        = $('#name').val();
     var fb_name     = $('#fb_name').val();
     var password    = $('#password').val();
+
+    var product_return = $('#product_return').val();
 
     if(email == ""){
         $('#status-message').html('กรอกอีเมลของคุณ!').slideDown(500).delay(1000).slideUp(300);
@@ -91,7 +98,11 @@ function RegisterUser(){
         if(data.return){
             $('#dialog-message').html('กำลังสมัครสมาชิกใหม่...');
             $('#dialog-box').fadeIn(300);
-            setTimeout(function(){window.location = 'index.php';},300);
+            
+            if(product_return == "")
+                setTimeout(function(){window.location = 'index.php';},300);
+            else
+                setTimeout(function(){window.location = 'product-'+product_return+'.html';},300);
         }
         else{
             $('#status-message').html('อีเมลนี้ถูกใช้แล้ว!').slideDown(500).delay(3000).slideUp(300);

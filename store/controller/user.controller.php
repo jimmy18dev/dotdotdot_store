@@ -15,6 +15,19 @@ class UserController extends UserModel{
     public $create_time_facebook_format;
     public $create_time_thai_format;
 
+
+    // Set and Unset administrator
+    public function SetAdmin($param){
+        parent::SetAdminProcess($param);
+    }
+    public function UnsetAdmin($param){
+        parent::UnsetAdminProcess($param);
+    }
+
+
+
+
+
     public function GetUser($param){
         
         $param['device']        = DEVICE_TYPE;
@@ -134,10 +147,10 @@ class UserController extends UserModel{
     // List all Member
     public function ListAllMember($param){
         $data = parent::ListAllMemberProcess($param);
-        $this->Render('customer-items',$data);
+        $this->Render('customer-items',$param['current_id'],$data);
     }
 
-    private function Render($mode,$data){
+    private function Render($mode,$current_id,$data){
         foreach ($data as $var){
             if($mode == "customer-items"){
                 include'template/user/user.items.php';

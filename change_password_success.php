@@ -30,11 +30,9 @@ require_once'config/autoload.php';
 </head>
 
 <body>
-<div class="dialog-box dialog-box-show">
-	<div class="icon" id="dialog-box-icon">
-		<i class="fa fa-key"></i>
-		<p>ตั้งรหัสผ่านใหม่แล้ว...</p>
-	</div>
+<div class="error-page">
+	<i class="fa fa-key"></i>
+	<p>ตั้งรหัสผ่านใหม่แล้ว...</p>
 </div>
 
 <script type="text/javascript">

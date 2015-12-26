@@ -1,7 +1,11 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
+
+if(MEMBER_ONLINE){
+	header("Location: index.php");
+	die();
+}
+
 $current_page = "forget";
 ?>
 

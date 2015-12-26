@@ -32,6 +32,7 @@ $current_page = "customer";
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="js/service/user.service.js"></script>
 
 </head>
 
@@ -39,7 +40,7 @@ $current_page = "customer";
 <?php include'header.php';?>
 <div class="container">
 	<div class="content">
-		<?php $user->ListAllMember(array('id' => 0));?>
+		<?php $user->ListAllMember(array('current_id' => $user->id));?>
 	</div>
 </div>
 </body>

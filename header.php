@@ -31,7 +31,7 @@
 	</a>
 	<?php }else{?>
 	<?php if($current_page != 'login'){?>
-	<a href="login.php" class="header-items login"><span class="icon"><i class="fa fa-shopping-cart"></i></span>เข้าสู่ระบบ</a>
+	<a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login"><span class="icon"><i class="fa fa-shopping-cart"></i></span>เข้าสู่ระบบ</a>
 	<?php }?>
 	<?php }?>
 </header>

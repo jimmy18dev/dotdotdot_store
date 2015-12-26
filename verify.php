@@ -34,16 +34,14 @@ $verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_G
 </head>
 
 <body>
-<div class="dialog-box dialog-box-show">
-	<div class="icon" id="dialog-box-icon">
-		<?php if($verified){?>
-		<i class="fa fa-check-circle-o"></i>
-		<p>ยืนยันอีเมล <?php echo $_GET['email'];?> เรียบร้อยแล้ว</p>
-		<?php }else{?>
-		<i class="fa fa-exclamation-circle"></i>
-		<p>ยืนยันอีเมลไม่สำเร็จ กรุณาเลือกอีกครั้งค่ะ</p>
-		<?php }?>
-	</div>
+<div class="error-page">
+	<?php if($verified){?>
+	<i class="fa fa-check-circle-o"></i>
+	<p>ยืนยันอีเมล <?php echo $_GET['email'];?> เรียบร้อยแล้ว</p>
+	<?php }else{?>
+	<i class="fa fa-exclamation-circle"></i>
+	<p>ยืนยันอีเมลไม่สำเร็จ กรุณาเลือกอีกครั้งค่ะ</p>
+	<?php }?>
 </div>
 
 <script type="text/javascript">

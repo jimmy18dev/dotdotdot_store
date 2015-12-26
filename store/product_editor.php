@@ -59,31 +59,31 @@ else
 	<div class="content content-container">
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
 		<div class="form">
-			<div class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
+			<div id="image" class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
 				<div class="caption">ภาพสินค้า</div>
 				<div class="image-input-button">
 					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
 				</div>
 			</div>
-			<div class="form-items">
+			<div id="title" class="form-items">
 				<div class="caption">ชื่อสินค้า <span class="required">*</span></div>
 				<div class="input">
-					<input type="text" class="input-text" name="title" placeholder="" value="<?php echo $product->title;?>">
+					<input type="text" class="input-text" name="title" placeholder="" value="<?php echo $product->title;?>" autofocus>
 				</div>
 			</div>
-			<div class="form-items">
+			<div id="description" class="form-items">
 				<div class="caption">รายละเอียดสินค้า</div>
 				<div class="input">
 					<textarea class="input-text input-textarea animated" name="description" placeholder=""><?php echo $product->description;?></textarea>
 				</div>
 			</div>
-			<div class="form-items form-items-half">
+			<div id="price" class="form-items form-items-half">
 				<div class="caption">ราคาต่อชิ้น (บาท)</div>
 				<div class="input">
 					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
 				</div>
 			</div>
-			<div class="form-items form-items-half">
+			<div id="code" class="form-items form-items-half">
 				<div class="caption">Code</div>
 				<div class="input">
 					<input type="text" class="input-text" name="code" placeholder="อักษรพิมพ์ใหญ่" value="<?php echo $product->code;?>">
@@ -108,5 +108,7 @@ else
 	<div id="loading-message">กรุณารอสักครู่ ...</div>
 	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
 </div>
+
+
 </body>
 </html>

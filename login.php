@@ -1,6 +1,11 @@
 <?php
 require_once'config/autoload.php';
 
+if(MEMBER_ONLINE){
+	header("Location: index.php");
+	die();
+}
+
 if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret)){
 	include'sdk/facebook-sdk/autoload.php';
 	include'facebook.php';
@@ -54,8 +59,11 @@ $current_page = "login";
 			<input type="password" class="input-text" id="password" placeholder="">
 			<div class="status" id="status-message"></div>
 			<button type="submit" class="button-submit"><span id="login-status"><i class="fa fa-arrow-right"></i>เข้าสู่ระบบ</span></button>
+
+			<!-- Product return after login success. -->
+			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">
 		</form>
-		<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php">สมัครสมาชิก</a></p>
+		<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">สมัครสมาชิก</a></p>
 		<p class="forget"><a href="forget.php">ฉันลืมรหัสผ่าน!</a></p>
 	</div>
 </div>

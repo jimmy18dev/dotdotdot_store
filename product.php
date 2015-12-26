@@ -79,46 +79,48 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>
 			<p class="price">฿ <?php echo number_format($product->price,2);?></p>
-			<div class="description"><?php echo nl2br($product->description);?></div>
+			<div class="description"><?php echo nl2br($product->description);?>
+				<?php if($user->type == "administrator"){?>
+				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
+				 <?php }?>
+			</div>
 			<div class="action">
 				<?php
 				if($product->type == "normal"){
-					if(empty($product->in_order)){
-						$button_msg = 'ใส่ตะกร้า<i class="fa fa-cart-plus">';
-					}
-					else{
-						$button_msg = 'ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>';
-					}
-				?>
+					if(MEMBER_ONLINE){
+						if(empty($product->in_order))
+							$button_msg = 'ใส่ตะกร้า<i class="fa fa-cart-plus"></i>';
+						else
+							$button_msg = 'ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>';
 
-				<?php if($product->quantity > 0){?>
-				<?php if(MEMBER_ONLINE){?>
-				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()"><?php echo $button_msg;?></i></div>
-				<?php }?>
-				<?php }else{?>
-				<?php if(MEMBER_ONLINE){?>
-				<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
-				<?php }?>
-				<?php }?>
+						if($product->quantity > 0){?>
+							<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()"><?php echo $button_msg;?></div>
+						<?php }else{?>
+						<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
+						<?php }?>
+					<?php }else{?>
+						<a href="register.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
+					<?php }?>
+					<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
+				<?php
+				// END Product type "normal"
 
-				<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
-				<?php }else{?>
-				<div class="mini-caption">เลือกสินค้า <i class="fa fa-caret-down"></i></div>
-				<div class="subproduct-list">
-					<select id="subproduct_id" class="input-select">
-					<?php $product->ListSubProduct(array('product_id' => $product->id,'order_id' => $user->current_order_id));?>
-					</select>
-				</div>
-				<div class="subproduct-info" id="subproduct_info">n/a</div>
-
-				<?php if(MEMBER_ONLINE){?>
-				<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
-				<?php }?>
+				}else{?>
+					<div class="mini-caption">เลือกสินค้า <i class="fa fa-caret-down"></i></div>
+					<div class="subproduct-list">
+						<select id="subproduct_id" class="input-select">
+							<?php $product->ListSubProduct(array('product_id' => $product->id,'order_id' => $user->current_order_id));?>
+						</select>
+					</div>
+					<div class="subproduct-info" id="subproduct_info">n/a</div>
+					<?php if(MEMBER_ONLINE){?>
+						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
+					<?php }else{?>
+						<a href="register.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
+					<?php }?>
 				<?php }?>
 			</div>
-
 			
-
 			<div class="sharing">
 				<div class="sharing-items" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></div>
 				<div class="sharing-items" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></div>

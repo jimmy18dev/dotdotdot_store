@@ -820,6 +820,19 @@ Copyright (c) 2015 Daniel Eden
   margin-bottom: 5%;
   line-height: 1.7em;
 }
+.container .container-page .panel-fix .description a.edit-btn {
+  text-decoration: none;
+  color: #777777;
+  background: #EEEEEE;
+  font-size: 0.8em;
+  padding: 2px 5px;
+  border-radius: 3px;
+}
+.container .container-page .panel-fix .description a.edit-btn:hover {
+  cursor: pointer;
+  background: #DDDDDD;
+  color: #333333;
+}
 .container .container-page .panel-fix .action {
   width: 100%;
   float: left;
@@ -843,6 +856,7 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   text-align: center;
   border: 1px solid #000000;
+  text-decoration: none;
 }
 .container .container-page .panel-fix .action .buy-btn i {
   margin-left: 10px;

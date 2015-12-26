@@ -1,5 +1,11 @@
 <?php
 require_once'config/autoload.php';
+
+if(MEMBER_ONLINE){
+	header("Location: index.php");
+	die();
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -30,11 +36,9 @@ require_once'config/autoload.php';
 </head>
 
 <body>
-<div class="dialog-box dialog-box-show">
-	<div class="icon" id="dialog-box-icon">
-		<i class="fa fa-envelope-o"></i>
-		<p>ระบบส่งอีเมลให้คุณแล้ว... <a href="index.php">หน้าแรก</a></p>
-	</div>
+<div class="error-page">
+	<i class="fa fa-envelope-o"></i>
+	<p>ระบบส่งอีเมลให้คุณแล้ว... <a href="index.php">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

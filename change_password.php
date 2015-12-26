@@ -35,29 +35,21 @@ require_once'config/autoload.php';
 </head>
 
 <body>
-<div class="login-dialog">
-	<div class="login-container">
-		<div class="logo">Change Password</div>
-		<div class="form">
-			<div class="caption">กำหนดรหัสผ่านใหม่</div>
-			<input type="hidden" id="email" value="<?php echo $_GET['email'];?>">
-			<input type="hidden" id="forget_code" value="<?php echo $_GET['code'];?>">
-			<input type="text" class="input-text" id="password" placeholder="Password...">
 
-			<button class="button-submit" onclick="javascript:NewPassword();"><span id="login-status">ตั้งรหัสผ่านใหม่</span></button>
+<?php include'header.php';?>
+<div class="login-container">
+	<div class="form">
+		<div class="caption">กำหนดรหัสผ่านใหม่</div>
+		<input type="email" class="input-text" id="password" placeholder="Password..." autofocus>
+		<input type="hidden" id="email" value="<?php echo $_GET['email'];?>">
+		<input type="hidden" id="forget_code" value="<?php echo $_GET['code'];?>">
 
-			<div class="option">
-				<a href="login.php">เข้าระบบ</a>
-				 · <a href="register.php">สมัครสมาชิก</a>
-				 · <a href="index.php">หน้าหลัก</a>
-			</div>
-		</div>
+		<div class="status" id="status-message"></div>
+		<button onclick="javascript:NewPassword();" class="button-submit"><span id="login-status">ตั้งรหัสผ่านใหม่</span></button>
 	</div>
 </div>
 
-<div class="dialog-box" id="dialog-box">
-	<div class="icon" id="dialog-box-icon"><i class="fa fa-circle-o-notch fa-spin"></i></div>
-</div>
+<?php include'template/loading.dialog.box.php';?>
 
 <script type="text/javascript" src="js/service/min/user.service.min.js"></script>
 </body>

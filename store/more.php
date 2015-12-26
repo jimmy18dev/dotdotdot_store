@@ -53,6 +53,13 @@ $current_page = "more";
 		</div>
 		</a>
 
+		<a href="analytics.php">
+		<div class="setting-btn">
+			<div class="setting-btn-icon"><i class="fa fa-area-chart"></i></div>
+			<div class="setting-btn-caption">วิเคราะห์</div>
+		</div>
+		</a>
+
 		<!-- <div class="setting-btn">
 			<div class="setting-btn-icon"><i class="fa fa-cog"></i></div>
 			<div class="setting-btn-caption">ตั้งค่า</div>

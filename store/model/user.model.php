@@ -1,6 +1,22 @@
 <?php
 class UserModel extends Database{
 
+	// Set to Administartor
+	public function SetAdminProcess($param){
+		parent::query('UPDATE dd_member SET me_type = "administrator", me_update_time = :update_time WHERE me_id = :member_id');
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+	}
+
+	// Set to Member,Customer
+	public function UnsetAdminProcess($param){
+		parent::query('UPDATE dd_member SET me_type = "member", me_update_time = :update_time WHERE me_id = :member_id');
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+	}
+
 	// Create New Post /////////////
 	public function RegisterUserProcess($param){
 		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:ip,:type,:status)');

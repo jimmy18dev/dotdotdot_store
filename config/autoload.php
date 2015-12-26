@@ -6,6 +6,9 @@ ob_start();
 // Starttime /////////////////////
 define('StTime', microtime(true));
 
+// Cookie Time (1 year)
+define('COOKIE_TIME', time() + 3600 * 24 * 12);
+
 // Time Zone ////////////////////////////
 date_default_timezone_set('Asia/Bangkok');
 
