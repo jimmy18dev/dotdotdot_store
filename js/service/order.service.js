@@ -1,4 +1,7 @@
 function AddCart(product_id){
+
+    $('#buy-button').html('รอสักครู่<i class="fa fa-spinner fa-spin"></i>');
+
     var product_id = $('#product_id').val();
     var subproduct_id = $('#subproduct_id').val();
 

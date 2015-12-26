@@ -26,11 +26,9 @@
 </head>
 
 <body>
-<div class="dialog-box dialog-box-show">
-	<div class="icon" id="dialog-box-icon">
-		<i class="fa fa-frown-o"></i>
-		<p>หน้าที่คุณต้องการไม่มีในระบบ... <a href="index.php">หน้าแรก</a></p>
-	</div>
+<div class="error-page">
+	<i class="fa fa-frown-o"></i>
+	<p>หน้าที่คุณต้องการไม่มีในระบบ... ไปที่<a href="index.php">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

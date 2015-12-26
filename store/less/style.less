@@ -1451,6 +1451,105 @@ Copyright (c) 2016 Puwadon Sricharoen
                 margin-left: 5px;
             }
         }
+
+        .setting-container{
+            width: 94%;
+            padding: 3%;
+            float: left;
+            display: inline-block;
+            margin-bottom: 3%;
+            background: #FFFFFF;
+
+            h3{
+                font-size: 0.9em;
+                text-align: right;
+                line-height: 2em;
+                color: #CCCCCC;
+            }
+
+            .config-items{
+                width: 100%;
+                padding-top: 3%;
+                float: left;
+                display: inline-block;
+
+                .cogfig-caption{
+                    width: 37%;
+                    margin-right: 3%;
+                    float: left;
+                    display: inline-block;
+                    line-height: 1.5em;
+                    text-align: right;
+                    font-size: 0.9em;
+                    color: #777777;
+                }
+                .config-input{
+                    width: 60%;
+                    float: right;
+                    display: inline-block;
+
+                    .input-text{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                        border: 0px;font-size: 0.9em;
+                        border-bottom: 1px solid #EEEEEE;
+                        outline: 0;
+                        resize: none;
+                        font-weight: bold;
+
+                        &:hover{
+                            border-bottom: 1px solid #AAAAAA;
+                        }
+
+                        &:focus{
+                            border-bottom: 1px solid #000000;
+                        }
+                    }
+                }
+            }
+
+            .save-btn{
+                float: right;
+                display: inline-block;
+                margin-top: 5%;
+                border: 0px;
+                font-size: 0.8em;
+                padding: 1% 4%;
+                background: #FFFFFF;
+                color: #AAAAAA;
+                border: 1px solid #AAAAAA;
+
+                &:hover{
+                    cursor: pointer;
+                    border: 1px solid #555555;
+                    color: #555555;
+                }
+
+                &:active{
+                    background: #000000;
+                    color: #FFFFFF;
+                    border: 1px solid #000000;
+                }
+
+            }
+
+            .save-state{
+                float: right;
+                display: inline-block;
+                margin-top: 5%;
+                border: 0px;
+                font-size: 0.8em;
+                padding: 1% 4%;
+                line-height: 1.5em;
+                color: #4CAF50;
+                display: none;
+
+                i{
+                    margin-right: 10px;
+                }
+            }
+        }
     }
 
     .content-container{

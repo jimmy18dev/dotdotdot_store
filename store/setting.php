@@ -40,19 +40,22 @@ $current_page = "setting";
 		<div class="setting-container">
 			<h3>Metadata</h3>
 			<?php $config->ListConfig('meta');?>
-			<button onclick="javascript:MetaConfigSave();">บันทึก</button>
+			<button class="save-btn" onclick="javascript:MetaConfigSave();">บันทึก</button>
+			<div class="save-state" id="meta-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
 
 		<div class="setting-container">
 			<h3>Facebook SDK</h3>
 			<?php $config->ListConfig('facebook_sdk');?>
-			<button onclick="javascript:FacebookConfigSave();">บันทึก</button>
+			<button class="save-btn" onclick="javascript:FacebookConfigSave();">บันทึก</button>
+			<div class="save-state" id="facebook-sdk-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
 
 		<div class="setting-container">
 			<h3>ตั้งค่าอีเมล</h3>
 			<?php $config->ListConfig('email');?>
-			<button onclick="javascript:EmailConfigSave();">บันทึก</button>
+			<button class="save-btn" onclick="javascript:EmailConfigSave();">บันทึก</button>
+			<div class="save-state" id="email-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
 	</div>
 </div>

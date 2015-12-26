@@ -29,6 +29,7 @@ function EmailConfigSave(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        $('#email-save-state').fadeIn().delay(1000).fadeOut();
     }).error();
 }
 
@@ -55,6 +56,7 @@ function FacebookConfigSave(){
         }
     }).done(function(data){
         console.log('Return: '+data.message);
+        $('#facebook-sdk-save-state').fadeIn().delay(1000).fadeOut();
     }).error();
 }
 
@@ -86,6 +88,7 @@ function MetaConfigSave(){
             console.log("Request Error");
         }
     }).done(function(data){
+        $('#meta-save-state').fadeIn().delay(1000).fadeOut();
         console.log('Return: '+data.message);
     }).error();
 }

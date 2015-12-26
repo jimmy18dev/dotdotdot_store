@@ -58,7 +58,7 @@ $config->GetConfig();
 $metadata = array(
 	'title' 		=> $config->meta_title,
 	'description' 	=> $config->meta_description,
-	'image' 		=> '/image/logo.png',
+	'image' 		=> '/image/logo.jpg',
 	'type' 			=> 'website',
 	'site_name' 	=> $config->meta_sitename,
 	'fb_app_id' 	=> '218590748331719',

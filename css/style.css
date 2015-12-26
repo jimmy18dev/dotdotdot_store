@@ -726,15 +726,15 @@ Copyright (c) 2015 Daniel Eden
   padding: 3% 5%;
   outline: 0;
   text-align: center;
-  background: #000000;
+  background: #00ab6b;
   color: #FFFFFF;
 }
 .container .container-page .panel .box-items .box .form-control .submit-btn:hover {
-  background: #333333;
+  background: #19b379;
   cursor: pointer;
 }
 .container .container-page .panel .box-items .box .form-control .submit-btn:active {
-  background: #555555;
+  background: #008855;
 }
 .container .container-page .panel .box-items .box .form-control .submit-btn i {
   margin-left: 10px;
@@ -1374,6 +1374,26 @@ Copyright (c) 2015 Daniel Eden
 }
 .dialog-box-show {
   display: inline-block;
+}
+.error-page {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  padding-top: 15%;
+}
+.error-page i {
+  font-size: 4em;
+  margin-bottom: 3%;
+  color: #AAAAAA;
+}
+.error-page p {
+  font-size: 1em;
+  color: #777777;
+}
+.error-page p a {
+  color: #000000;
+  text-decoration: underline;
 }
 #loading-status {
   position: fixed;
