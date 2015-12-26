@@ -81,7 +81,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 			<section class="description">
 				<h4>คำอธิบาย <a href="product_editor.php?id=<?php echo $product->id;?>#description">[แก้ไข]</a></h4>
-				<div class="description-text"><?php echo (empty($product->description)?'ยังไม่มีคำอธิบายสำหรับสินค้าชิ้นนี้':$product->description);?></div>
+				<div class="description-text"><?php echo (empty($product->description)?'ยังไม่มีคำอธิบายสำหรับสินค้าชิ้นนี้':nl2br($product->description));?></div>
 			</section>
 
 			<?php if($product->type != "root"){?>

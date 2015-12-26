@@ -42,7 +42,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 <!-- Meta Tag Main -->
 <meta name="description" content="<?php echo $page_description;?>"/>
 <meta property="og:title" content="<?php echo $page_title;?>"/>
-<meta property="og:description" content="<?php echo $page_description;?>"/>
+<meta property="og:description" content="<?php echo strip_tags($page_description);?>"/>
 <meta property="og:url" content="<?php echo $page_url;?>"/>
 <meta property="og:image" content="<?php echo $page_image;?>"/>
 <meta property="og:type" content="website"/>
@@ -79,7 +79,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>
 			<p class="price">฿ <?php echo number_format($product->price,2);?></p>
-			<div class="description"><?php echo $product->description;?></div>
+			<div class="description"><?php echo nl2br($product->description);?></div>
 			<div class="action">
 				<?php
 				if($product->type == "normal"){
