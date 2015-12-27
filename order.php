@@ -96,7 +96,7 @@ $current_page = "order";
 					</div>
 					<?php }else{?>
 					<div class="message">
-						<p><i class="fa fa-hourglass-start"></i></p>
+						<p><i class="fa fa-hourglass-start fa-spin"></i></p>
 						<p class="msg">เรากำลังตรวจสอบหลักฐานการโอนเงิน...</p>
 					</div>
 					<?php }?>
@@ -120,8 +120,8 @@ $current_page = "order";
 				<div class="form">
 					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
 						<p class="caption">
-							<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปใบโอนเงิน</span>
 							<span id="transfer_photo_icon" class="check"><i class="fa fa-check"></i></span>
+							<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปโอนเงิน</span>
 						</p>
 						<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
 						<div class="input-image">
@@ -133,20 +133,20 @@ $current_page = "order";
 							</span>
 						</div>
 
-						<p class="caption">ยอดเงินที่โอน: <span id="transfer_total_icon" class="check"><i class="fa fa-check"></i></span></p>
+						<p class="caption"><span id="transfer_total_icon" class="check"><i class="fa fa-check"></i></span>ยอดเงินที่โอน:</p>
 						<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00" autofocus>
 
-						<p class="caption">โอนเข้าธนาคาร: <span id="transfer_bank_icon" class="check"><i class="fa fa-check"></i></span></p>
+						<p class="caption"><span id="transfer_bank_icon" class="check"><i class="fa fa-check"></i></span>โอนเข้าธนาคาร:</p>
 						<select name="to_bank" id="transfer_bank" class="input-text input-select">
 							<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
 							<?php $bank->ListBank(array('mode' => 'select'));?>
 						</select>
 						
-						<p class="caption">ชื่อผู้รับสินค้า <span id="transfer_name_icon" class="check"><i class="fa fa-check"></i></span></p>
+						<p class="caption"><span id="transfer_name_icon" class="check"><i class="fa fa-check"></i></span>ชื่อผู้รับสินค้า</p>
 						<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
-						<p class="caption">ที่อยู่ <span id="transfer_address_icon" class="check"><i class="fa fa-check"></i></span></p>
+						<p class="caption"><span id="transfer_address_icon" class="check"><i class="fa fa-check"></i></span>ที่อยู่</p>
 						<textarea name="address" id="transfer_address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
-						<p class="caption">เบอร์โทรศัพท์ <span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span></p>
+						<p class="caption"><span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span>เบอร์โทรศัพท์</p>
 						<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
 
 						<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->

@@ -35,7 +35,7 @@ else{
 
 	<a href="order-<?php echo $var['od_id'];?>.html">
 	<div class="box">
-		<p class="big">ใบสั่งซื้อหมายเลข: <?php echo $var['od_id'];?></p>
+		<p class="big">ใบสั่งซื้อที่ <?php echo $var['od_id'];?></p>
 		<p>ยอดชำระ <?php echo number_format($var['od_payments']+50);?> บาท รวมสินค้า <?php echo $var['od_amount'];?> ชิ้น <?php echo $var['od_amount'];?> รายการ</p>
 		<p class="caption"><span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span> <?php echo $var['order_update_time_facebook_format'];?></p>
 	</div>

@@ -95,7 +95,6 @@ Copyright (c) 2015 Puwadon Sricharoen
         .button-submit{
             padding: 5% 0%;
             font-size: 0.85em;
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 
             i{
                 margin-right: 10px;
@@ -109,7 +108,6 @@ Copyright (c) 2015 Puwadon Sricharoen
         .facebook-button{
             padding: 5% 0%;
             font-size: 0.9em;
-            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 
             i{
                 margin-right: 10px;
@@ -133,6 +131,25 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: @page_width;
     padding: 0% ((100 - @page_width) / 2);
     margin-top: 50px;
+
+    .order-in-progress{
+        .order-progress-items{
+            width: 96%;
+            padding: 5% 2%;
+            font-size: 0.9em;
+
+            i{
+                margin-right: 5px;
+            }
+
+            .status-box{
+                float: right;
+                font-size: 0.8em;
+                padding: 1% 2%;
+                border-radius: 0px;
+            }
+        }
+    }
 
     .container-page{
         .currency{
@@ -239,7 +256,6 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                     .image{
                         margin: 3% 0%;
-                        box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
                     }
                     
                     .order-list{
@@ -339,7 +355,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                             width: 90%;
                             font-size: 1em;
                             padding: 6% 5%;
-                            box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 
                             i{
                                 margin-left: 10px;
@@ -425,7 +440,6 @@ Copyright (c) 2015 Puwadon Sricharoen
                     padding: 4% 3%;
                     font-size: 1em;
                     line-height: 1.5em;
-                    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
 
                     i{
                         margin-left: 15px;
@@ -524,29 +538,49 @@ Copyright (c) 2015 Puwadon Sricharoen
             // Money transfer form style
             .form{
                 p.caption{
-                    line-height: 2em;
-                    font-size: 1em;
+                    width: 100%;
+                    margin-right: 0%;
+                    font-size: 0.9em;
+                    text-align: left;
+                    line-height: 1.7em;
+
+                    // Form Checking.
+                    .check{
+                        float: right;
+                        font-size: 1em;
+                        margin-right: 0px;
+                    }
                 }
 
                 .input-text{
-                    width: 98%;
-                    padding: 3% 1%;
+                    width: 100%;
+                    padding: 1% 0%;
                     font-size: 1em;
-                    line-height: 1.5em;
                     margin-bottom: 10%;
+                    line-height: 1.5em;
+                }
+
+                .input-textarea{
+                    width: 100%;
+                }
+
+                .input-select{
+                    width: 100%;
                 }
 
                 .input-file{
                     margin-bottom: 10%;
+                    width: 100%;
                 }
 
                 .submit-btn{
                     width: 100%;
                     font-size: 1em;
-                    padding: 5%;
-                    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+                    padding: 5% 0%;
 
-                    i{margin-right: 10px;}
+                    i{
+                        margin-right: 10px;
+                    }
                 }
             }
             // END Money transfer form style

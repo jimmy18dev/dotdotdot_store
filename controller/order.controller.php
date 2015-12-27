@@ -202,8 +202,13 @@ class OrderController extends OrderModel{
 
 	public function ListMyOrder($param){
 		$data = parent::ListMyOrderProcess($param);
-		$this->RenderOrder('null',$data);
+		$this->RenderOrder('my-order',$data);
 	}
+
+    public function OrderProgress($param){
+        $dataset = parent::OrderProgressProcess($param);
+        $this->RenderOrder('order-in-progress',$dataset);
+    }
 
 	public function ListItemsInOrder($param){
 		$data = parent::ListItemsInOrderProcess($param);
@@ -288,7 +293,12 @@ class OrderController extends OrderModel{
 
     private function RenderOrder($mode,$data){
         foreach ($data as $var){
-        	include'template/order/order.items.php';
+            if($mode == "my-order"){
+                include'template/order/order.items.php';
+            }
+            else if($mode == "order-in-progress"){
+                include'template/order/order.progress.items.php';
+            }
         }
         unset($data);
     }

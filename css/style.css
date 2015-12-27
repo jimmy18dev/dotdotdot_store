@@ -357,6 +357,55 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
+.container .order-in-progress {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .order-in-progress .order-progress-items {
+  width: 96%;
+  padding: 1% 2%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  font-size: 0.9em;
+  border-bottom: 1px dotted #EEEEEE;
+  color: #AAAAAA;
+  text-decoration: none;
+}
+.container .order-in-progress .order-progress-items:hover {
+  cursor: pointer;
+  background: #F7F7F7;
+  color: #000000;
+}
+.container .order-in-progress .order-progress-items i {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
+.container .order-in-progress .order-progress-items .status-box {
+  background: #DDDDDD;
+  font-size: 0.7em;
+  padding: 0.2% 0.5%;
+  border-radius: 2px;
+  color: #FFFFFF;
+}
+.container .order-in-progress .order-progress-items .status-box i {
+  margin-right: 5px;
+}
+.container .order-in-progress .order-progress-items .status-paying,
+.container .order-in-progress .order-progress-items .status-transferagain {
+  background: #F44336;
+}
+.container .order-in-progress .order-progress-items .status-transfersuccess,
+.container .order-in-progress .order-progress-items .status-shipping {
+  background: #00ab6b;
+}
+.container .order-in-progress .order-progress-items .status-expire {
+  background: #EEEEEE;
+}
+.container .order-in-progress .order-progress-items .status-cancel {
+  background: #F44336;
+}
 .container .container-page {
   width: 100%;
   float: left;
@@ -1045,18 +1094,22 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+  margin-top: 1%;
 }
 .container .container-page .panel-fix .form p.caption {
-  width: 100%;
+  width: 31%;
+  margin-right: 3%;
   float: left;
   display: inline-block;
-  line-height: 2em;
-  font-size: 0.9em;
-  color: #333333;
+  font-size: 1em;
+  color: #555555;
+  text-align: right;
+  line-height: 1.7em;
 }
 .container .container-page .panel-fix .form p.caption .check {
-  float: right;
   color: #FFFFFF;
+  font-size: 0.6em;
+  margin-right: 7px;
 }
 .container .container-page .panel-fix .form p.caption .check-active {
   color: #00ab6b;
@@ -1065,33 +1118,35 @@ Copyright (c) 2015 Daniel Eden
   color: #F44336;
 }
 .container .container-page .panel-fix .form .input-text {
-  width: 98%;
-  padding: 1%;
+  width: 65%;
   float: left;
   display: inline-block;
   font-family: sans-serif, 'Open Sans';
-  font-size: 0.9em;
-  line-height: 1.5em;
-  margin-bottom: 4%;
-  border: 1px solid #EEEEEE;
+  font-size: 1em;
+  margin-bottom: 5%;
+  border: 0px;
+  border-bottom: 1px solid #EEEEEE;
   outline: 0;
   resize: none;
   color: #000000;
-  font-weight: bold;
   background: #FFFFFF;
+  line-height: 1.5em;
 }
 .container .container-page .panel-fix .form .input-text:hover {
-  border: 1px solid #CCCCCC;
+  border-bottom: 1px solid #CCCCCC;
 }
 .container .container-page .panel-fix .form .input-text:focus {
-  border: 1px solid #000000;
+  border-bottom: 1px solid #000000;
   font-weight: normal;
+}
+.container .container-page .panel-fix .form .input-textarea {
+  width: 65%;
 }
 .container .container-page .panel-fix .form .input-alert {
   border: 1px solid #F44336;
 }
 .container .container-page .panel-fix .form .input-select {
-  width: 100%;
+  width: 65%;
   -webkit-appearance: none;
   border-radius: 0px;
 }
@@ -1101,12 +1156,12 @@ Copyright (c) 2015 Daniel Eden
 .container .container-page .panel-fix .form .input-file {
   margin-bottom: 4%;
   text-align: center;
-  width: 100%;
+  width: 65%;
   float: left;
   display: inline-block;
 }
 .container .container-page .panel-fix .form .submit-btn {
-  width: 20%;
+  width: 22%;
   float: right;
   display: inline-block;
   border: 0px;
@@ -1123,7 +1178,7 @@ Copyright (c) 2015 Daniel Eden
   cursor: pointer;
 }
 .container .container-page .panel-fix .form .submit-btn:active {
-  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  background: #555555;
 }
 .container .container-page .panel-fix .form .submit-btn i {
   margin-right: 10px;
@@ -2772,7 +2827,6 @@ Copyright (c) 2015 Puwadon Sricharoen
   .login-container .form .button-submit {
     padding: 5% 0%;
     font-size: 0.85em;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   }
   .login-container .form .button-submit i {
     margin-right: 10px;
@@ -2783,7 +2837,6 @@ Copyright (c) 2015 Puwadon Sricharoen
   .login-container .form .facebook-button {
     padding: 5% 0%;
     font-size: 0.9em;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   }
   .login-container .form .facebook-button i {
     margin-right: 10px;
@@ -2799,6 +2852,20 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 100%;
     padding: 0% 0%;
     margin-top: 50px;
+  }
+  .container .order-in-progress .order-progress-items {
+    width: 96%;
+    padding: 5% 2%;
+    font-size: 0.9em;
+  }
+  .container .order-in-progress .order-progress-items i {
+    margin-right: 5px;
+  }
+  .container .order-in-progress .order-progress-items .status-box {
+    float: right;
+    font-size: 0.8em;
+    padding: 1% 2%;
+    border-radius: 0px;
   }
   .container .container-page .currency {
     font-size: 0.5em;
@@ -2887,7 +2954,6 @@ Copyright (c) 2015 Puwadon Sricharoen
   }
   .container .container-page .panel .box-items .box .image {
     margin: 3% 0%;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   }
   .container .container-page .panel .box-items .box .order-list .topic-caption {
     padding: 2% 0%;
@@ -2970,7 +3036,6 @@ Copyright (c) 2015 Puwadon Sricharoen
     width: 90%;
     font-size: 1em;
     padding: 6% 5%;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   }
   .container .container-page .panel .box-items .box .form-control .submit-btn i {
     margin-left: 10px;
@@ -3037,7 +3102,6 @@ Copyright (c) 2015 Puwadon Sricharoen
     padding: 4% 3%;
     font-size: 1em;
     line-height: 1.5em;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
   }
   .container .container-page .panel-fix .action .buy-btn i {
     margin-left: 15px;
@@ -3115,24 +3179,38 @@ Copyright (c) 2015 Puwadon Sricharoen
     margin-right: 10px;
   }
   .container .container-page .panel-fix .form p.caption {
-    line-height: 2em;
+    width: 100%;
+    margin-right: 0%;
+    font-size: 0.9em;
+    text-align: left;
+    line-height: 1.7em;
+  }
+  .container .container-page .panel-fix .form p.caption .check {
+    float: right;
     font-size: 1em;
+    margin-right: 0px;
   }
   .container .container-page .panel-fix .form .input-text {
-    width: 98%;
-    padding: 3% 1%;
+    width: 100%;
+    padding: 1% 0%;
     font-size: 1em;
-    line-height: 1.5em;
     margin-bottom: 10%;
+    line-height: 1.5em;
+  }
+  .container .container-page .panel-fix .form .input-textarea {
+    width: 100%;
+  }
+  .container .container-page .panel-fix .form .input-select {
+    width: 100%;
   }
   .container .container-page .panel-fix .form .input-file {
     margin-bottom: 10%;
+    width: 100%;
   }
   .container .container-page .panel-fix .form .submit-btn {
     width: 100%;
     font-size: 1em;
-    padding: 5%;
-    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    padding: 5% 0%;
   }
   .container .container-page .panel-fix .form .submit-btn i {
     margin-right: 10px;

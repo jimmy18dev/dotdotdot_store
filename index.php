@@ -55,6 +55,9 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
+	<div class="order-in-progress">
+		<?php $order->OrderProgress(array('member_id' => $user->id));?>
+	</div>
 	<div class="container-page">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
 	</div>
