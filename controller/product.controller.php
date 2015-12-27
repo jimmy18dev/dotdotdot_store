@@ -49,17 +49,17 @@ class ProductController extends ProductModel{
 
 	public function ListProduct($param){
 		$dataset = parent::ListProductProcess($param);
-		$this->RenderProduct('product',$dataset);
+		$this->RenderProduct('product','',$dataset);
 	}
 
 	public function ListSubProduct($param){
 		$dataset = parent::ListSubProductProcess($param);
-		$this->RenderProduct('subproduct',$dataset);
+		$this->RenderProduct('subproduct','',$dataset);
 	}
 
 	public function ListSubPhoto($param){
 		$dataset = parent::ListSubPhotoProcess($param);
-		$this->RenderProduct('subphoto',$dataset);
+		$this->RenderProduct('subphoto',$param['page_title'],$dataset);
 	}
 
 	public function CreateProduct($param){
@@ -82,7 +82,7 @@ class ProductController extends ProductModel{
 		parent::DeleteProductProcess($param);
 	}
 
-	private function RenderProduct($mode,$data){
+	private function RenderProduct($mode,$page_title,$data){
         foreach ($data as $var){
         	if($mode == "product"){
         		include'template/product/product.items.php';

@@ -137,11 +137,11 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 		<!-- Photo -->
 		<div class="panel">
 			<?php if(empty($product->image_filename)){?>
-			<img src="image/no-image.jpg" alt="">
+			<img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/image/no-image.jpg" alt="image not avalable">
 			<?php }else{?>
-			<img src="image/upload/square/<?php echo $product->image_filename;?>" alt="">
+			<img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/image/upload/square/<?php echo $product->image_filename;?>" alt="<?php echo $page_title;?>">
 			<?php }?>
-			<?php $product->ListSubPhoto(array('product_id' => $product->id));?>
+			<?php $product->ListSubPhoto(array('product_id' => $product->id,'page_title' => $page_title));?>
 		</div>
 
 		<!-- Product ID -->

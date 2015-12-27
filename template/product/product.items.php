@@ -2,9 +2,9 @@
 	<div class="product-items-thumbnail">
 		<a href="product-<?php echo $var['pd_id'];?>.html" target="_parent">
 			<?php if(empty($var['im_filename'])){?>
-			<img src="image/no-image.jpg" alt="">
+			<img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/image/no-image.jpg" alt="<?php echo $var['pd_title'];?>">
 			<?php }else{?>
-			<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">
+			<img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/image/upload/square/<?php echo $var['im_filename'];?>" alt="<?php echo $var['pd_title'];?>">
 			<?php }?>
 		</a>
 	</div>

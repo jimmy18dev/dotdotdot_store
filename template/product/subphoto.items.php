@@ -1,1 +1,1 @@
-<img src="image/upload/square/<?php echo $var['im_filename'];?>" alt="">
+<img src="http://<?php echo $_SERVER['SERVER_NAME'];?>/image/upload/square/<?php echo $var['im_filename'];?>" alt="<?php echo $page_title;?>">
