@@ -83,7 +83,7 @@ if($_POST['calling'] != ''){
 						if($_POST['order_action'] == "Expire"){}
 						else if($_POST['order_action'] == "Cancel"){}
 						else if($_POST['order_action'] == "Paying"){
-							// Sending to Customer
+							// Email Sending to Customer ///////////////////////////
 							if(!empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
@@ -103,6 +103,7 @@ if($_POST['calling'] != ''){
 								else
 									$email_send = "Message has been sent";
 							}
+							// End Email Process.
 						}
 						else if($_POST['order_action'] == "TransferRequest"){
 							// Call Money Transfer file.
@@ -112,7 +113,7 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "Shipping"){}
 						else if($_POST['order_action'] == "Complete"){
 
-							// Sending to Customer
+							// Email Sending to Customer ///////////////////////////
 							if(!empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ขอบคุณที่ใช่อุดหนุนสินค้าของเรา';
@@ -128,6 +129,26 @@ if($_POST['calling'] != ''){
 								else
 									$email_send = "Message has been sent";
 							}
+							// End Email Process.
+
+							// Email Sending to Administrator /////////////////
+						    $admin_data = $user->ListAllAdministratorProcess();
+						    foreach ($admin_data as $var){
+						        $mail->addAddress($var['me_email']);
+						        $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | ลูกค้าได้รับสินค้าแล้ว';
+						        $message        = file_get_contents('template/email/complete.admin.html');
+						        $message        = str_replace('%domain%' ,$metadata['domain'], $message);
+						        $message        = str_replace('%name%', $user->name, $message);
+						        $message        = str_replace('%order_id%', $_POST['order_id'], $message);
+						        $mail->Body     = $message;
+						        $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
+
+						        if(!$mail->send())
+						            $email_send = $mail->ErrorInfo;
+						        else
+						            $email_send = "Message has been sent";
+						    }
+						    // End Email Process.
 						}
 
 						// Save activity log

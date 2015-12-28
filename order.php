@@ -124,6 +124,7 @@ $current_page = "order";
 							<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปโอนเงิน</span>
 						</p>
 						<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
+						
 						<div class="input-image">
 							<span id="photo_files_div"></span>
 							<span id="photo_thumbnail">

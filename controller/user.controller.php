@@ -167,6 +167,9 @@ class UserController extends UserModel{
         parent::ChangePasswordProcess($param);
     }
 
+    public function ListAllAdministrator($param){
+        $dataset = parent::ListAllAdministratorProcess($param);
+    }
 
 
     // Update user info by Customer edit on website

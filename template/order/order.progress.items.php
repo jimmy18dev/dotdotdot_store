@@ -19,8 +19,18 @@ else{
 	// Expire
 	$status = '<i class="fa fa-frown-o"></i>เกินกำหนด';
 }
+
+if($var['od_shipping_type'] == "Ems"){
+	$shipping_pay = 50;
+}
+else if($var['od_shipping_type'] == "Register"){
+	$shipping_pay = 30;
+}
+else{
+	$shipping_pay = 0;
+}
 ?>
 
 <a href="order-<?php echo $var['od_id'];?>.html" class="order-progress-items">
-	<i class="fa fa-file-text-o"></i>ใบสั่งซื้อที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments']+50,2);?> บาท <span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
+	<i class="fa fa-file-text-o"></i>ใบสั่งซื้อที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> บาท <span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
 </a>

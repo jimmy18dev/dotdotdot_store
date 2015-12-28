@@ -62,7 +62,7 @@ class OrderModel extends Database{
 	}
 	
 	public function ListOrderProcess($param){
-		$select = 'SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status FROM dd_order';
+		$select = 'SELECT od_id,od_total,od_amount,od_payments,od_shipping_type,od_create_time,od_update_time,od_type,od_status FROM dd_order';
 		$where = ' WHERE (od_status = "Paying" OR od_status = "Expire")';
 		$order = ' ORDER BY od_update_time DESC';
 		$limit = '';
@@ -77,7 +77,7 @@ class OrderModel extends Database{
 	}
 
 	public function ListMyOrderProcess($param){
-		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE (od_member_id = :member_id AND od_status != "Shopping" AND od_status != "Cancel") ORDER BY od_update_time DESC');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_shipping_type,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE (od_member_id = :member_id AND od_status != "Shopping" AND od_status != "Cancel") ORDER BY od_update_time DESC');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();
@@ -101,7 +101,7 @@ class OrderModel extends Database{
 	}
 
 	public function OrderProgressProcess($param){
-		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE od_member_id = :member_id AND (od_status != "Shopping" AND od_status != "Cancel" AND od_status != "Complete" AND od_status != "Expire") ORDER BY od_update_time DESC');
+		parent::query('SELECT od_id,od_total,od_amount,od_payments,od_shipping_type,od_create_time,od_update_time,od_paying_time,od_expire_time,od_confirm_time,od_shipping_time,od_type,od_status,od_owner_read FROM dd_order WHERE od_member_id = :member_id AND (od_status != "Shopping" AND od_status != "Cancel" AND od_status != "Complete" AND od_status != "Expire") ORDER BY od_update_time DESC');
 		parent::bind(':member_id', 		$param['member_id']);
 		parent::execute();
 		$dataset = parent::resultset();

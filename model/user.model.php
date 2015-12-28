@@ -265,5 +265,13 @@ class UserModel extends Database{
 		parent::query('UPDATE dd_member SET me_type = "administrator" WHERE me_id = 1');
 		parent::execute();
 	}
+
+	// List all Administator
+	public function ListAllAdministratorProcess(){
+		parent::query('SELECT * FROM dd_member WHERE me_type = "administrator"');
+		parent::execute();
+		$dataset = parent::resultset();
+		return $dataset;
+	}
 }
 ?>
