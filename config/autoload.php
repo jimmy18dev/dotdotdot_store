@@ -75,7 +75,6 @@ $metadata = array(
 // Photo Upload config ///////////////////////
 // Photo desctination folder /////////////////
 $destination_folder = array(
-	'temp' => 'image/upload/temp/',
 	'thumbnail' => 'image/upload/thumbnail/',
 	'mini' 		=> 'image/upload/mini/',
 	'square' 	=> 'image/upload/square/',

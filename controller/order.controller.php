@@ -342,7 +342,7 @@ class OrderController extends OrderModel{
 
     	$payments = 0;
     	foreach ($dataset as $var){
-    		$payments += $var['pd_price'];
+    		$payments += ($var['pd_price']*$var['odt_amount']);
     	}
 
     	$data = array(
