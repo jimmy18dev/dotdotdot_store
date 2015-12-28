@@ -123,8 +123,10 @@ $current_page = "order";
 							<span id="transfer_photo_icon" class="check"><i class="fa fa-check"></i></span>
 							<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปโอนเงิน</span>
 						</p>
+
+						<!-- Input file select -->
 						<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
-						
+
 						<div class="input-image">
 							<span id="photo_files_div"></span>
 							<span id="photo_thumbnail">
@@ -153,6 +155,7 @@ $current_page = "order";
 						<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->
 
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
+						<input type="hidden" id="max_filesize" value="<?php echo (int)(ini_get('upload_max_filesize'))*1048576;?>">
 						<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
 					</form>
 				</div>

@@ -22,7 +22,7 @@ $(document).ready(function(){
                 $('#loading-message').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่ง...');
             }
 
-            console.clear();
+            // console.clear();
             for (i = 0; i < percent; i++) { 
                 loadingProcess += '|';
             }
@@ -37,14 +37,14 @@ $(document).ready(function(){
             console.log('complete => Success');
 
             $('#loading-message').html('<i class="fa fa-check"></i>สำเร็จ');
-            setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
+            // setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
         },
         resetForm:true
     };
 
     $('#MoneyTransfer').submit(function(){
         var check = true;
-        console.clear();
+        // console.clear();
 
         if(!BankValidation()){
             console.log('BankValidation: Fail!');
@@ -103,6 +103,7 @@ $(document).ready(function(){
 
 function BeforePostSubmit(){
     $caption = $('#photo-input-caption');
+    var max_filesize = $('#max_filesize').val();
 
     if(window.File && window.FileReader && window.FileList && window.Blob){
         if(!$('#photo_files').val()){
@@ -125,8 +126,8 @@ function BeforePostSubmit(){
             }
 
             //Allowed file size is less than 15 MB (15728640)
-            if(fsize > 15728640){
-                $caption.html('ไฟล์ของคุณมีขนาดใหญ่เกิน 15 MB!').addClass('input-caption-alert');
+            if(fsize > max_filesize){
+                $caption.html('ไฟล์ของคุณมีขนาดใหญ่เกิน '+ (max_filesize/1048576) +' MB!').addClass('input-caption-alert');
                 $('#transfer_photo_icon').removeClass('check-active');
                 return false
             }
