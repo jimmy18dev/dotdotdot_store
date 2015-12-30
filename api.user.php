@@ -30,7 +30,7 @@ if($_POST['calling'] != ''){
 							$user->GetUser(array('member_id' => $register));
 
 							// Sending to Customer
-							if(!empty($user->email) && !empty($user->verify_code) && $user->status == "pending"){
+							if($config->email_status && !empty($user->email) && !empty($user->verify_code) && $user->status == "pending"){
 								$mail->addAddress($user->email);
 								$mail->Subject 	= 'ยืนยันอีเมลของคุณ';
 								$message 		= file_get_contents('template/email/email_verify.html');
@@ -128,7 +128,7 @@ if($_POST['calling'] != ''){
 						$api->successMessage('Forget Code Sending to email!','','');
 
 						// Sending to Customer
-						if(!empty($dataset['email']) && !empty($dataset['forget_code'])){
+						if($config->email_status && !empty($dataset['email']) && !empty($dataset['forget_code'])){
 							$mail->addAddress($dataset['email']);
 							$mail->Subject 	= 'กู้คืนรหัสผ่านในบัญชีของคุณ';
 							$message 		= file_get_contents('template/email/forget_password.html');

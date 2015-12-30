@@ -17,6 +17,9 @@ class ConfigController extends ConfigModel{
     public $meta_author;
     public $meta_keyword;
 
+    public $email_status;
+    public $facebook_status;
+
 	public function GetConfig(){
         $dataset = parent::GetConfigProcess();
 
@@ -48,6 +51,27 @@ class ConfigController extends ConfigModel{
             else if($var['cf_key'] == 'meta_keyword')
                 $this->meta_keyword = $var['cf_value'];
     	}
+
+        $this->facebook_status = $this->FacebookEnable();
+        $this->email_status = $this->EmailEnable();
+    }
+
+    private function FacebookEnable(){
+        if(!empty($this->facebook_app_id) && !empty($this->facebook_app_secret)){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    private function EmailEnable(){
+        if(!empty($this->email_host) && !empty($this->email_username) && !empty($this->email_password) && !empty($this->email_port) && !empty($this->email_address) && !empty($this->email_name)){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 }
 ?>

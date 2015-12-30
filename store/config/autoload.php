@@ -6,6 +6,9 @@ ob_start();
 // Starttime /////////////////////
 define('StTime', microtime(true));
 
+// Cookie Time (1 year)
+define('COOKIE_TIME', time() + 3600 * 24 * 12);
+
 // Time Zone ////////////////////////////
 date_default_timezone_set('Asia/Bangkok');
 
@@ -51,6 +54,56 @@ $order 			= new OrderController;
 $bank 			= new BankController;
 $user 			= new UserController;
 
+// Set Config data
+$config->GetConfig();
+
+// Metatag setup
+$metadata = array(
+	'title' 		=> $config->meta_title,
+	'description' 	=> $config->meta_description,
+	'image' 		=> '/image/logo.jpg',
+	'type' 			=> 'website',
+	'site_name' 	=> $config->meta_sitename,
+	'fb_app_id' 	=> '218590748331719',
+	'fb_admins' 	=> '1818320188',
+	'author' 		=> $config->meta_author,
+	'generator' 	=> 'iGenGoods 1.0',
+	'keywords' 		=> $config->meta_keyword,
+	'domain' 		=> 'http://'.$_SERVER['SERVER_NAME'],
+);
+
+// Photo Upload config ///////////////////////
+// Photo desctination folder /////////////////
+$destination_folder = array(
+	'thumbnail' => '../image/upload/thumbnail/',
+	'mini' 		=> '../image/upload/mini/',
+	'square' 	=> '../image/upload/square/',
+	'normal' 	=> '../image/upload/normal/',
+	'large' 	=> '../image/upload/large/',
+);
+
+// Photo upload resize ///////////////////////
+$size = array(
+	'thumbnail' => 200,
+	'mini' 		=> 500,
+	'square' 	=> 900,
+	'normal' 	=> 900,
+	'large' 	=> 1200,
+);
+
+// Photo Quality
+$quality = array(
+	'thumbnail' => 70,
+	'mini' 		=> 80,
+	'square' 	=> 90,
+	'normal' 	=> 100,
+	'large' 	=> 80,
+);
+
+// Facebook App Setting
+define("APP_ID" 		,$config->facebook_app_id);
+define("APP_SECRET" 	,$config->facebook_app_secret);
+
 // Device access detact process
 include'device.access.php';
 
@@ -60,15 +113,15 @@ define('DEVICE_MODEL',		$deviceModel);
 define('DEVICE_OS', 		$deviceOS);
 define('DEVICE_BROWSER',	$deviceBrowser);
 
-// Mailer
+// Email Config (Mailer)
 $mail 			= new PHPMailer;
 $mail->isSMTP();
-$mail->Host 	= $email_settig['host'];
+$mail->Host 	= $config->email_host;
 $mail->SMTPAuth = true;
-$mail->Username = $email_settig['username'];
-$mail->Password = $email_settig['password'];
-$mail->Port 	= $email_settig['port'];
-$mail->setFrom($email_settig['email_address'],$email_settig['name']);
+$mail->Username = $config->email_username;
+$mail->Password = $config->email_password;
+$mail->Port 	= $config->email_port;
+$mail->setFrom($config->email_address,$config->email_name);
 $mail->isHTML(true);
 $mail->CharSet 	= 'UTF-8';
 

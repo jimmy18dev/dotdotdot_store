@@ -31,7 +31,7 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
         'description'   => '',
     ));
     // Email Sending to Customer ///////////////////////////
-    if(!empty($user->email) && $user->status == "verified"){
+    if($config->email_status && !empty($user->email) && $user->status == "verified"){
         $mail->addAddress($user->email);
         $mail->Subject  = 'กำลังตรวจสอบหลักฐานการโอนเงิน...';
         $message        = file_get_contents('template/email/confirm.html');
@@ -52,23 +52,25 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
     // End Email Process.
     // Email Sending to Administrator /////////////////
     $admin_data = $user->ListAllAdministratorProcess();
-    foreach ($admin_data as $var){
-        $mail->addAddress($var['me_email']);
-        $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | ส่งหลักฐานการโอนเงินแล้ว';
-        $message        = file_get_contents('template/email/transfer.request.admin.html');
-        $message        = str_replace('%domain%' ,$metadata['domain'], $message);
-        $message        = str_replace('%name%', $user->name, $message);
-        $message        = str_replace('%order_id%', $_POST['order_id'], $message);
-        $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
-        $message        = str_replace('%customer_name%',$order->customer_name, $message);
-        $message        = str_replace('%customer_address%',$order->customer_address, $message);
-        $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
-        $mail->Body     = $message;
-        $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
-        if(!$mail->send())
-            $email_send = $mail->ErrorInfo;
-        else
-            $email_send = "Message has been sent";
+    if($config->email_status && !empty($var['me_email'])){
+        foreach ($admin_data as $var){
+            $mail->addAddress($var['me_email']);
+            $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | ส่งหลักฐานการโอนเงินแล้ว';
+            $message        = file_get_contents('template/email/transfer.request.admin.html');
+            $message        = str_replace('%domain%' ,$metadata['domain'], $message);
+            $message        = str_replace('%name%', $user->name, $message);
+            $message        = str_replace('%order_id%', $_POST['order_id'], $message);
+            $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
+            $message        = str_replace('%customer_name%',$order->customer_name, $message);
+            $message        = str_replace('%customer_address%',$order->customer_address, $message);
+            $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
+            $mail->Body     = $message;
+            $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
+            if(!$mail->send())
+                $email_send = $mail->ErrorInfo;
+            else
+                $email_send = "Message has been sent";
+        }
     }
     // End Email Process
     if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
