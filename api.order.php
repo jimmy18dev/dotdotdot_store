@@ -86,15 +86,20 @@ if($_POST['calling'] != ''){
 							// Email Sending to Customer ///////////////////////////
 							if($config->email_status && !empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
-								$mail->Subject 	= 'ยืนยันการสั่งซื้อสินค้า';
+								$mail->Subject 	= 'ใบสั่งซื้อที่ '.$order->id.' | ยืนยันการสั่งซื้อสินค้า';
 								$message 		= file_get_contents('template/email/paying.html');
 								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%order_id%' ,$order->id, $message);
 								$message 		= str_replace('%summary_payment%' ,number_format($order->summary_payments,2), $message);
+
+								$message 		= str_replace('%shpping_type%' ,($order->shipping_type == "Ems"?"พัสดุด่วนพิเศษ (EMS)":"พัสดุลงทะเบียน"), $message);
 								$message 		= str_replace('%expire_date%' ,$order->expire_time_thai_format, $message);
 								$message 		= str_replace('%expire_count%' ,$order->expire_time_datediff, $message);
 								$message 		= str_replace('%bank_list%' ,$bank->ListBankToEmail(array('id' => 0)), $message);
+								$message 		= str_replace('%sitename%' ,$config->meta_sitename, $message);
+								$message 		= str_replace('%copyrightyear%' ,date("Y"), $message);
+
 								$mail->Body    	= $message;
 								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
@@ -116,11 +121,13 @@ if($_POST['calling'] != ''){
 							// Email Sending to Customer ///////////////////////////
 							if($config->email_status && !empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
-								$mail->Subject 	= 'ขอบคุณที่ใช่อุดหนุนสินค้าของเรา';
+								$mail->Subject 	= 'ใบสั่งซื้อที่ '.$order->id.' | ขอบคุณที่ใช่อุดหนุนสินค้าของเรา';
 								$message 		= file_get_contents('template/email/complete.html');
 								$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%order_id%', $order->id, $message);
+								$message 		= str_replace('%sitename%' ,$config->meta_sitename, $message);
+								$message 		= str_replace('%copyrightyear%' ,date("Y"), $message);
 								$mail->Body    	= $message;
 								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 

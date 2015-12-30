@@ -33,7 +33,7 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
     // Email Sending to Customer ///////////////////////////
     if($config->email_status && !empty($user->email) && $user->status == "verified"){
         $mail->addAddress($user->email);
-        $mail->Subject  = 'กำลังตรวจสอบหลักฐานการโอนเงิน...';
+        $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | เรากำลังตรวจสอบหลักฐานการโอนเงิน...';
         $message        = file_get_contents('template/email/confirm.html');
         $message        = str_replace('%domain%' ,$metadata['domain'], $message);
         $message        = str_replace('%name%', $user->name, $message);
@@ -42,6 +42,9 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
         $message        = str_replace('%customer_name%',$order->customer_name, $message);
         $message        = str_replace('%customer_address%',$order->customer_address, $message);
         $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
+        $message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
+        $message        = str_replace('%copyrightyear%' ,date("Y"), $message);
+
         $mail->Body     = $message;
         $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
         if(!$mail->send())
@@ -64,6 +67,9 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
             $message        = str_replace('%customer_name%',$order->customer_name, $message);
             $message        = str_replace('%customer_address%',$order->customer_address, $message);
             $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
+            $message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
+            $message        = str_replace('%copyrightyear%' ,date("Y"), $message);
+
             $mail->Body     = $message;
             $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
             if(!$mail->send())

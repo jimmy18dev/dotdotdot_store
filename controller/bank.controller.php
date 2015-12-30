@@ -21,7 +21,7 @@ class BankController extends BankModel{
 
         foreach ($dataset as $var){
             $var['bk_name'] = $this->BankName($var['bk_code']);
-            $str .= '<p><b>'.$var['bk_name'].'</b><br> เลขบัญชี '.$var['bk_account_number'].' ชื่อบัญชี '.$var['bk_account_name'].' สาขา'.$var['bk_account_branch'].'</p>';
+            $str .= '<p><b>'.$var['bk_name'].'</b> สาขา'.$var['bk_account_branch'].' – ชื่อบัญชี '.$var['bk_account_name'].'<br><b>'.$var['bk_account_number'].'</b></p>';
         }
 
         return $str;

@@ -38,6 +38,9 @@ if($_POST['calling'] != ''){
 								$message 		= str_replace('%name%' ,$user->name, $message);
 								$message 		= str_replace('%email%' ,$user->email, $message);
 								$message 		= str_replace('%code%' ,$user->verify_code, $message);
+								$message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
+								$message        = str_replace('%copyrightyear%' ,date("Y"), $message);
+								
 								$mail->Body    	= $message;
 								$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
@@ -135,6 +138,9 @@ if($_POST['calling'] != ''){
 							$message 		= str_replace('%domain%' ,$metadata['domain'], $message);
 							$message 		= str_replace('%email%' ,$dataset['email'], $message);
 							$message 		= str_replace('%code%' ,$dataset['forget_code'], $message);
+							$message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
+							$message        = str_replace('%copyrightyear%' ,date("Y"), $message);
+
 							$mail->Body    	= $message;
 							$mail->AltBody 	= 'This is the body in plain text for non-HTML mail clients';
 
