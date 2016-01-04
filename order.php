@@ -336,7 +336,7 @@ $current_page = "order";
 
 						<?php if($order->status == "Shopping"){?>
 						<div class="form-control" id="paying-button">
-							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">฿ <span id="payments-btn-display"><?php echo number_format($order->summary_payments,2);?></span> ชำระเงิน<i class="fa fa-arrow-right"></i></div>
+							<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน<i class="fa fa-arrow-right"></i></div>
 						</div>
 						<?php }?>
 

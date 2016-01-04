@@ -87,28 +87,31 @@ $(document).ready(function(){
 function ImageFileCheck(){
     $caption = $('#photo-input-caption');
     var max_filesize = $('#max_filesize').val();
+    $file = $('#photo_files');
 
     if(window.File && window.FileReader && window.FileList && window.Blob){
-        if(!$('#photo_files').val()){
-
+        if(!$file.val()){
             $('#transfer_photo_icon').removeClass('check-active');
             $caption.html('ขอภาพใบสลิปด้วยค่ะ!').addClass('input-caption-alert');
             return false;
         }
         else{
-            var fsize = $('#photo_files')[0].files[0].size; //get file size
-            var ftype = $('#photo_files')[0].files[0].type; // get file type
+            var fsize = $file[0].files[0].size; // get file size
+            var ftype = $file[0].files[0].type; // get file type
+
+            if(ftype == "")
+                ftype = $file.val().substr(($file.val().lastIndexOf('.') + 1));
 
             switch(ftype){
-                case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+                case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg': case 'image/jpg': case 'png': case 'jpg': case 'jpeg':
                     break;
                 default:
-                    $caption.html('เลือกไฟล์รูปภาพเท่านั้น!').addClass('input-caption-alert');
+                    $caption.html('เลือกไฟล์รูปภาพเท่านั้น!'+ftype).addClass('input-caption-alert');
                     $('#transfer_photo_icon').removeClass('check-active');
                     return false
             }
 
-            //Allowed file size is less than 15 MB (15728640)
+            // Allowed file size is less than 15 MB (15728640)
             if(fsize > max_filesize){
                 $caption.html('ไฟล์ใหญ่เกิน '+ (max_filesize/1048576) +' MB!').addClass('input-caption-alert');
                 $('#transfer_photo_icon').removeClass('check-active');
