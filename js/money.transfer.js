@@ -100,10 +100,10 @@ function ImageFileCheck(){
             var ftype = $('#photo_files')[0].files[0].type; // get file type
 
             switch(ftype){
-                case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
+                case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg': case 'image/jpg':
                     break;
                 default:
-                    $caption.html('เลือกไฟล์รูปภาพเท่านั้น!').addClass('input-caption-alert');
+                    $caption.html('เลือกไฟล์รูปภาพเท่านั้น! :: ' +ftype).addClass('input-caption-alert');
                     $('#transfer_photo_icon').removeClass('check-active');
                     return false
             }
