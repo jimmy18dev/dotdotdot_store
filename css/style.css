@@ -83,8 +83,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .header {
   position: inherit;
-  width: 100%;
-  padding: 0% 0%;
+  width: 80%;
+  padding: 0% 10%;
   height: 70px;
   float: left;
   display: inline-block;
@@ -101,7 +101,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .header .logo {
-  padding: 15px 2%;
+  padding: 15px 0%;
   height: 40px;
   font-size: 1.4em;
   color: #000000;
@@ -149,7 +149,6 @@ Copyright (c) 2015 Daniel Eden
   padding: 18px 1%;
   height: 34px;
   position: relative;
-  margin-right: 2%;
   border-left: 1px solid #F7F7F7;
   border-right: 1px solid #F7F7F7;
 }
@@ -179,7 +178,6 @@ Copyright (c) 2015 Daniel Eden
 .header .login {
   float: right;
   padding: 28px 1%;
-  margin-right: 2%;
   height: 14px;
   font-size: 1em;
   color: #555555;
@@ -207,14 +205,15 @@ Copyright (c) 2015 Daniel Eden
   left: 0%;
 }
 .login-container {
-  width: 20%;
-  margin: 0% 40%;
+  width: 80%;
+  margin: 0% 10%;
   margin-top: 10%;
   float: left;
   display: inline-block;
 }
 .login-container .form {
-  width: 100%;
+  width: 30%;
+  margin: 0% 35%;
   float: left;
   display: inline-block;
 }
@@ -352,8 +351,18 @@ Copyright (c) 2015 Daniel Eden
 }
 .container {
   width: 100%;
-  padding: 0% 0%;
   margin-top: 70px;
+  float: left;
+  display: inline-block;
+}
+.container .banner-photo {
+  width: 80%;
+  margin: 0% 10%;
+  float: left;
+  display: inline-block;
+}
+.container .banner-photo img {
+  width: 100%;
   float: left;
   display: inline-block;
 }
@@ -363,23 +372,20 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .order-in-progress .email-alert {
-  width: 96%;
-  padding: 0.5% 2%;
+  width: 80%;
+  padding: 1% 10%;
   float: left;
   display: inline-block;
-  font-size: 0.8em;
+  font-size: 0.9em;
   background: #F7F7F7;
   line-height: 1.5em;
   color: #AAAAAA;
+  text-align: center;
 }
-.container .order-in-progress .email-alert i {
-  margin-right: 10px;
-  font-size: 0.8em;
-}
-.container .order-in-progress .order-progress-items {
-  width: 96%;
+.container .order-in-progress a.order-progress-items {
+  width: 80%;
+  margin: 0% 10%;
   padding: 1% 0%;
-  margin: 0% 2%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -388,40 +394,41 @@ Copyright (c) 2015 Daniel Eden
   color: #AAAAAA;
   text-decoration: none;
 }
-.container .order-in-progress .order-progress-items:hover {
+.container .order-in-progress a.order-progress-items:hover {
   cursor: pointer;
   color: #000000;
 }
-.container .order-in-progress .order-progress-items i {
-  margin-right: 10px;
-  font-size: 0.8em;
+.container .order-in-progress a.order-progress-items .status-box {
+  float: right;
+  color: #CCCCCC;
 }
-.container .order-in-progress .order-progress-items .status-box {
-  background: #DDDDDD;
-  font-size: 0.7em;
-  padding: 0.2% 0.5%;
-  border-radius: 2px;
-  color: #FFFFFF;
+.container .order-in-progress a.order-progress-items .status-transfersuccess,
+.container .order-in-progress a.order-progress-items .status-shipping {
+  color: #00ab6b;
 }
-.container .order-in-progress .order-progress-items .status-box i {
-  margin-right: 5px;
+.container .head-bar {
+  width: 80%;
+  padding: 2% 10%;
+  float: left;
+  display: inline-block;
+  background: #F7F7F7;
 }
-.container .order-in-progress .order-progress-items .status-paying,
-.container .order-in-progress .order-progress-items .status-transferagain {
-  background: #F44336;
+.container .head-bar h1 {
+  font-size: 2.5em;
+  line-height: 1.5em;
+  color: #000000;
 }
-.container .order-in-progress .order-progress-items .status-transfersuccess,
-.container .order-in-progress .order-progress-items .status-shipping {
-  background: #00ab6b;
+.container .head-bar p {
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #555555;
 }
-.container .order-in-progress .order-progress-items .status-expire {
-  background: #EEEEEE;
-}
-.container .order-in-progress .order-progress-items .status-cancel {
-  background: #F44336;
+.container .head-bar:active {
+  background: #F7F7F7;
 }
 .container .container-page {
-  width: 100%;
+  width: 80%;
+  margin: 0% 10%;
   float: left;
   display: inline-block;
 }
@@ -429,27 +436,59 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.5em;
   margin-left: 3px;
 }
-.container .container-page .head-bar {
-  width: 96%;
-  padding: 1% 2%;
+.container .container-page .order-items {
+  width: 100%;
+  padding: 2% 0%;
   float: left;
   display: inline-block;
+  text-decoration: none;
   color: #555555;
-  font-size: 1em;
   line-height: 1.5em;
+  border-bottom: 1px solid #F7F7F7;
 }
-.container .container-page .head-bar .icon {
-  width: 3%;
+.container .container-page .order-items .status-box {
+  float: right;
+  color: #CCCCCC;
+}
+.container .container-page .order-items .status-complete,
+.container .container-page .order-items .status-success,
+.container .container-page .order-items .status-shipping {
+  color: #00ab6b;
+}
+.container .container-page .order-items p.time {
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.container .container-page .order-items:hover {
+  cursor: pointer;
+  color: #000000;
+}
+.container .container-page .order-items:active {
+  background: #FAFAFA;
+}
+.container .container-page .order-items-unread {
+  font-weight: bold;
+  color: #000000;
+}
+.container .container-page .order-items-unread p.time {
+  color: #000000;
+}
+.container .container-page .profile-control {
+  width: 100%;
+  padding: 5% 0%;
   float: left;
   display: inline-block;
 }
-.container .container-page .head-bar .caption {
-  width: 97%;
-  float: left;
-  display: inline-block;
+.container .container-page .profile-control a {
+  float: right;
+  margin-left: 2%;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #AAAAAA;
 }
-.container .container-page .head-bar:active {
-  background: #F7F7F7;
+.container .container-page .profile-control a:hover {
+  text-decoration: underline;
+  color: #000000;
 }
 .container .container-page .panel {
   width: 50%;
@@ -1231,18 +1270,22 @@ Copyright (c) 2015 Daniel Eden
   top: 100px;
 }
 .container .container-page .product-items {
-  width: 30.66%;
-  margin-left: 2%;
-  margin-top: 2%;
+  width: 31.33%;
+  margin-top: 3%;
+  margin-right: 3%;
   float: left;
   display: inline-block;
+}
+.container .container-page .product-items:nth-child(3n) {
+  margin-right: 0%;
+  float: right;
 }
 .container .container-page .product-items .product-items-thumbnail {
   width: 100%;
   float: left;
   display: inline-block;
   overflow: hidden;
-  min-height: 400px;
+  min-height: 200px;
   background: #F7F7F7;
 }
 .container .container-page .product-items .product-items-thumbnail img {
@@ -1362,8 +1405,8 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
 }
 .footer {
-  width: 96%;
-  padding: 2%;
+  width: 80%;
+  padding: 5% 10%;
   margin-top: 3%;
   float: left;
   display: inline-block;

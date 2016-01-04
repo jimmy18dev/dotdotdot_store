@@ -40,14 +40,6 @@ else{
 }
 ?>
 
-<div class="box-items <?php echo ($var['od_owner_read']=="open"?"box-items-unread":"");?> order-items">
-	<div class="icon"><?php echo ($var['od_status'] == "Complete"?'<i class="fa fa-check-circle"></i>':'<i class="fa fa-file-text-o"></i>');?></div>
-
-	<a href="order-<?php echo $var['od_id'];?>.html">
-	<div class="box">
-		<p class="big">ใบสั่งซื้อที่ <?php echo $var['od_id'];?></p>
-		<p>ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay);?> บาท รวมสินค้า <?php echo $var['od_amount'];?> ชิ้น <?php echo $var['od_amount'];?> รายการ</p>
-		<p class="caption"><span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span> <?php echo $var['order_update_time_facebook_format'];?></p>
-	</div>
-	</a>
-</div>
+<a href="order-<?php echo $var['od_id'];?>.html" class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">รายการที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay);?> บาท<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
+	<p class="time"><?php echo $var['order_update_time_facebook_format'];?></p>
+</a>

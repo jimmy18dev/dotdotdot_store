@@ -47,30 +47,18 @@ $current_page = "profile";
 <?php include'header.php';?>
 
 <div class="container container-fix">
+	<div class="head-bar">
+		<h1><?php echo $user->name;?></h1>
+		<p>รายการสั่งซื้อ</p>
+	</div>
 	<div class="container-page">
-		<div class="head-bar">
-			<div class="icon"><i class="fa fa-user"></i></div>
-			<div class="caption">คุณ <?php echo $user->name;?></div>
-		</div>
-		<div class="panel-fix">
-			<div class="box">
-				<div class="message">
-					<p><i class="fa fa-file-text-o"></i></p>
-					<p class="msg">รายการสั่งซื้อของคุณ</p>
-				</div>
+		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 
-				<p class="link">
-					<a href="profile_edit.php">แก้ไขข้อมูล</a>
-					<a href="profile_change_password.php">เปลี่ยนรหัส</a>
-					<a href="logout.php" class="signout">ออกจากระบบ</a>
-				</p>
-			</div>
-		</div>
-
-		<!-- Photo -->
-		<div class="panel">
-			<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
-		</div>
+		<div class="profile-control">
+			<a href="profile_edit.php">แก้ไขข้อมูล</a>
+			<a href="profile_change_password.php">เปลี่ยนรหัส</a>
+			<a href="logout.php" class="signout">ออกจากระบบ</a>
+		</p>
 	</div>
 </div>
 </body>

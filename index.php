@@ -57,9 +57,12 @@ $current_page = "index";
 <div class="container">
 	<div class="order-in-progress">
 		<?php if($user->status == "pending"){?>
-		<div class="email-alert"><i class="fa fa-exclamation-triangle"></i>คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
+		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
 		<?php }?>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
+	</div>
+	<div class="banner-photo">
+		<img src="image/banner.png" alt="">
 	</div>
 	<div class="container-page">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
