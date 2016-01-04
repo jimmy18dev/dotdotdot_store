@@ -59,121 +59,32 @@ $current_page = "order";
 <?php include'header.php';?>
 
 <div class="container container-fix">
+	<div class="head-bar">
+		<h1>รายการสั่งซื้อที่ <?php echo $order->id;?></h1>
+		<p>รายการสั่งซื้อ</p>
+	</div>
+
 	<div class="container-page">
-		<?php if($order->status == "Shopping"){?>
-		<a href="index.php" class="head-bar" id="head-bar">
-			<span class="icon"><i class="fa fa-arrow-left"></i></span>
-			<span class="caption">เลือกสินค้าเพิ่ม</span>
-		</a>
-		<?php }else{?>
-		<a href="profile.php" class="head-bar" id="head-bar">
-			<span class="icon"><i class="fa fa-arrow-left"></i></span>
-			<span class="caption">ใบสั่งซื้อหมายเลข: <?php echo $order->id;?></span>
-		</a>
-		<?php }?>
-
-		<div class="panel-fix">
-			<div class="box">
-				<?php if($order->status == "Shopping"){?>
-				<div class="message">
-					<p><i class="fa fa-file-o"></i></p>
-					<p class="msg">กรุณาเลือกสินค้าและชำระเงินค่ะ</p>
-				</div>
-				<?php }else if($order->status == "TransferRequest"){?>
-					<?php if($_GET['edit'] == "address"){?>
-					<!-- Edit Name Address and Phone number of Customer -->
-					<div class="form">
-						<p class="topic">แก้ไขที่อยู่</p>
-						<p class="caption">ชื่อ-นามสกุล</p>
-						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
-						
-						<p class="caption">ที่อยู่ปัจจุบัน</p>
-						<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>
-						
-						<p class="caption">เบอร์โทรศัพท์</p>
-						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
-						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
-					</div>
-					<?php }else{?>
-					<div class="message">
-						<p><i class="fa fa-hourglass-start"></i></p>
-						<p class="msg">เรากำลังตรวจสอบหลักฐานการโอนเงิน...</p>
-					</div>
-					<?php }?>
-				<?php }else if($order->status == "TransferSuccess"){?>
-				<div class="message">
-					<p><i class="fa fa-cube"></i></p>
-					<p class="msg">กำลังจัดส่งสินค้า...</p>
-				</div>
-				<?php }else if($order->status == "Complete"){?>
-				<div class="message message-success">
-					<p><i class="fa fa-check-circle"></i></p>
-					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
-				</div>
-				<?php }else if($order->status == "Cencel"){?>
-				<div class="message">
-					<p><i class="fa fa-check"></i></p>
-					<p class="msg">เกินกำหนดการชำระเงิน</p>
-					<p class="msg">กรุณาเลือกสินค้าแล้วชำระเงินอีกครั้งค่ะ</p>
-				</div>
-				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
-				<div class="form">
-					<form id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
-						<p class="caption">
-							<span id="transfer_photo_icon" class="check"><i class="fa fa-check"></i></span>
-							<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปโอนเงิน</span>
-						</p>
-
-						<!-- Input file select -->
-						<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
-
-						<div class="input-image">
-							<span id="photo_files_div"></span>
-							<span id="photo_thumbnail">
-								<div class="btn">
-									<p><i class="fa fa-camera"></i>เลือกภาพ</p>
-								</div>
-							</span>
-						</div>
-
-						<p class="caption"><span id="transfer_total_icon" class="check"><i class="fa fa-check"></i></span>ยอดเงินที่โอน:</p>
-						<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00" autofocus>
-
-						<p class="caption"><span id="transfer_bank_icon" class="check"><i class="fa fa-check"></i></span>โอนเข้าธนาคาร:</p>
-						<select name="to_bank" id="transfer_bank" class="input-text input-select">
-							<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
-							<?php $bank->ListBank(array('mode' => 'select'));?>
-						</select>
-						
-						<p class="caption"><span id="transfer_name_icon" class="check"><i class="fa fa-check"></i></span>ชื่อผู้รับสินค้า</p>
-						<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
-						<p class="caption"><span id="transfer_address_icon" class="check"><i class="fa fa-check"></i></span>ที่อยู่</p>
-						<textarea name="address" id="transfer_address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
-						<p class="caption"><span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span>เบอร์โทรศัพท์</p>
-						<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
-
-						<!-- <textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea> -->
-
-						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
-						<input type="hidden" id="max_filesize" value="<?php echo (int)(ini_get('upload_max_filesize'))*1048576;?>">
-						<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
-					</form>
-				</div>
-				<?php }else if($order->status == "Shipping"){?>
-				<div class="message">
-					<p><i class="fa fa-truck"></i></p>
-					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว</p>
-					<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
-
-					<button class="btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
-				</div>
-				<?php }?>
-			</div>
+		<div class="order-state">
+			<a href="#product-list" class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
+				<div class="icon"><i class="fa fa-barcode"></i></div>
+				<div class="caption">1. สั่งซื้อ</div>
+			</a>
+			<a href="#transfer" class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
+				<div class="icon"><i class="fa fa-money"></i></div>
+				<div class="caption">2. โอนเงิน</div>
+			</a>
+			<a href="#success" class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
+				<div class="icon"><i class="fa fa-check"></i></div>
+				<div class="caption">3. ชำระเงินแล้ว</div>
+			</a>
+			<a href="#shipping" class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
+				<div class="icon"><i class="fa fa-truck"></i></div>
+				<div class="caption">4. รอรับของ</div>
+			</a>
 		</div>
-
-
-		<div class="panel">
-			<div class="order-detail">
+		
+		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 				<?php if($order->status == "Complete"){?>
 				<!-- Shipping -->
@@ -198,6 +109,55 @@ $current_page = "order";
 					</div>
 				</div>
 				<?php }?>
+
+				<div class="box-items" id="complete">
+					<div class="icon"><i class="fa fa-info-circle"></i></div>
+					<div class="box">
+						<p class="big">ส่งหลักฐานโอนเงินอีกครั้ง!</p>
+						<p>เราไม่พบยอดโอนเงินที่คุณส่งหลักฐาน กรุณาตรวจสอบอีกครั้งค่ะ</p>
+
+						<form class="form" id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
+							<p class="caption">
+								<span id="transfer_photo_icon" class="check"><i class="fa fa-check"></i></span>
+								<span id="photo-input-caption" class="input-caption">ภาพถ่ายสลิปโอนเงิน</span>
+							</p>
+
+							<!-- Input file select -->
+							<input type="file" class="input-file" id="photo_files" name="image_file" accept="image/*">
+
+							<div class="input-image">
+								<span id="photo_files_div"></span>
+								<span id="photo_thumbnail">
+									<div class="btn">
+										<p><i class="fa fa-camera"></i>เลือกภาพ</p>
+									</div>
+								</span>
+							</div>
+
+							<p class="caption"><span id="transfer_total_icon" class="check"><i class="fa fa-check"></i></span>ยอดเงินที่โอน:</p>
+							<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00" autofocus>
+
+							<p class="caption"><span id="transfer_bank_icon" class="check"><i class="fa fa-check"></i></span>โอนเข้าธนาคาร:</p>
+							<select name="to_bank" id="transfer_bank" class="input-text input-select">
+								<option value="0">เลือกบัญชีที่คุณโอนเข้า...</option>
+								<?php $bank->ListBank(array('mode' => 'select'));?>
+							</select>
+							
+							<p class="caption"><span id="transfer_name_icon" class="check"><i class="fa fa-check"></i></span>ชื่อผู้รับสินค้า</p>
+							<input type="text" class="input-text" name="realname" id="transfer_realname" placeholder="ชื่อ-นามสกุล..." value="<?php echo $user->name;?>">
+							<p class="caption"><span id="transfer_address_icon" class="check"><i class="fa fa-check"></i></span>ที่อยู่</p>
+							<textarea name="address" id="transfer_address" class="input-text input-textarea animated" placeholder="ที่อยู่สำหรับส่งสินค้า..." id="transfer_address"><?php echo (empty($order->address)?$order->customer_address_history:$order->customer_address);?></textarea>
+							<p class="caption"><span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span>เบอร์โทรศัพท์</p>
+							<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
+							<p class="caption">เพิ่มเติม</p>
+							<textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เพิ่มเติม..."><?php echo $order->description;?></textarea>
+
+							<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
+							<input type="hidden" id="max_filesize" value="<?php echo (int)(ini_get('upload_max_filesize'))*1048576;?>">
+							<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
+						</form>
+					</div>
+				</div>
 
 				<?php if($order->status == "TransferAgain"){?>
 				<div class="box-items" id="complete">
@@ -273,7 +233,6 @@ $current_page = "order";
 					<div class="icon"><i class="fa fa-barcode"></i></div>
 					<div class="box">
 						<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
-						<p class="caption">ส่งหลักฐานการโอนเงิน</p>
 						<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
 
 						<div class="bank">
@@ -289,7 +248,7 @@ $current_page = "order";
 
 						<?php if($order->status != "Shopping"){?>
 						<p class="big">รายการสินค้า</p>
-						<p class="caption">รายการสินค้า · <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
+						<p class="caption"><span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
 						<?php }?>
 
 						<!-- Order list -->
@@ -355,6 +314,59 @@ $current_page = "order";
 
 				<? if($order->status == "Paying"){?>
 				<div class="cancel-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');"><i class="fa fa-times"></i>ยกเลิกการสั่งซื้อ</div>
+				<?php }?>
+			</div>
+		
+		<div class="panel-fixห">
+			<div class="box">
+				<?php if($order->status == "Shopping"){?>
+				<?php }else if($order->status == "TransferRequest"){?>
+					<?php if($_GET['edit'] == "address"){?>
+					<!-- Edit Name Address and Phone number of Customer -->
+					<div class="form">
+						<p class="topic">แก้ไขที่อยู่</p>
+						<p class="caption">ชื่อ-นามสกุล</p>
+						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
+						
+						<p class="caption">ที่อยู่ปัจจุบัน</p>
+						<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>
+						
+						<p class="caption">เบอร์โทรศัพท์</p>
+						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
+						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
+					</div>
+					<?php }else{?>
+					<div class="message">
+						<p><i class="fa fa-hourglass-start"></i></p>
+						<p class="msg">เรากำลังตรวจสอบหลักฐานการโอนเงิน...</p>
+					</div>
+					<?php }?>
+				<?php }else if($order->status == "TransferSuccess"){?>
+				<div class="message">
+					<p><i class="fa fa-cube"></i></p>
+					<p class="msg">กำลังจัดส่งสินค้า...</p>
+				</div>
+				<?php }else if($order->status == "Complete"){?>
+				<div class="message message-success">
+					<p><i class="fa fa-check-circle"></i></p>
+					<p class="msg">การสั่งซื้อเสร็จสมบูรณ์</p>
+				</div>
+				<?php }else if($order->status == "Cencel"){?>
+				<div class="message">
+					<p><i class="fa fa-check"></i></p>
+					<p class="msg">เกินกำหนดการชำระเงิน</p>
+					<p class="msg">กรุณาเลือกสินค้าแล้วชำระเงินอีกครั้งค่ะ</p>
+				</div>
+				<?php }else if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
+				<!-- FROM -->
+				<?php }else if($order->status == "Shipping"){?>
+				<div class="message">
+					<p><i class="fa fa-truck"></i></p>
+					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว</p>
+					<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+
+					<button class="btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
+				</div>
 				<?php }?>
 			</div>
 		</div>

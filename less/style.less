@@ -410,177 +410,223 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
     }
 
-    // Container Page Style
-    .container-page{
-        width: @page_width;
-        margin: 0% ((100 - @page_width) / 2);
+    .order-state{
+        width: 70%;
+        margin: 0% 15%;
         float: left;
         display: inline-block;
 
-        .currency{
-            font-size: 0.5em;
-            margin-left: 3px;
-        }
-
-        .order-items{
-            width: 100%;
-            padding: 2% 0%;
+        .state-items{
+            width: 25%;
+            padding: 5% 0%;
             float: left;
             display: inline-block;
             text-decoration: none;
-            color: #555555;
-            line-height: 1.5em;
+            text-align: center;
+            color: #CCCCCC;
             border-bottom: 1px solid #F7F7F7;
 
-            .status-box{
-                float: right;
-                color: #CCCCCC;
-            }
-            .status-complete,
-            .status-success,
-            .status-shipping{color: #00ab6b;}
-
-            p.time{
-                font-size: 0.8em;
-                color: #AAAAAA;
+            .icon{
+                font-size: 2.5em;
+                margin-bottom: 5%;
             }
 
-            &:hover{
-                cursor: pointer;
-                color: #000000;
-            }
-
-            &:active{
-                background: #FAFAFA;
-            }
-
-        }
-        .order-items-unread{
-            font-weight: bold;
-            color: #000000;
-
-            p.time{
-                color: #000000;
-            }
-        }
-
-        .profile-control{
-            width: 100%;
-            padding: 5% 0%;
-            float: left;display: inline-block;
-
-            a{
-                float: right;
-                margin-left: 2%;
+            .caption{
                 font-size: 0.9em;
-                text-decoration: none;
-                color: #AAAAAA;
-
-                &:hover{
-                    text-decoration: underline;
-                    color: #000000;
-                }
             }
         }
 
+        .state-active{
+            color: #000000;
+            font-weight: bold;
+            border-bottom: 1px solid #000000;
+        }
+    }
 
+    .order-detail{
+        width: 70%;
+        margin: 0% 15%;
+        float: left;
+        display: inline-block;
 
-        
-
-        // Product page detail style
-        .panel{
-            width: 50%;
+        .box-items{
+            width: 100%;
+            padding: 6% 0%;
             float: left;
             display: inline-block;
 
-            img{
-                width: 100%;
+            .icon{
+                width: 7%;
                 float: left;
                 display: inline-block;
-                margin-bottom: 1%;
+                font-size: 2em;
+                line-height: 1.5em;
+                color: #EEEEEE;
+
+                .fa-check-circle{
+                    color: #00ab6b;
+                }
             }
-
-            .bank{
-                width: 100%;
-                margin: 2% 0%;
+            .box{
+                width: 93%;
                 float: left;
                 display: inline-block;
-                color: @PrimaryTextColor;
 
-                .bank-items{
+                .bank{
                     width: 100%;
-                    padding: 2% 0%;
+                    margin: 2% 0%;
                     float: left;
                     display: inline-block;
+                    color: @PrimaryTextColor;
 
-                    .bank-items-icon{
-                        width: 6%;
-                        padding-top: 1%;
+                    .bank-items{
+                        width: 100%;
+                        padding: 2% 0%;
                         float: left;
                         display: inline-block;
 
-                        img{
-                            width: 100%;
+                        .bank-items-icon{
+                            width: 7%;
+                            padding-top: 1%;
                             float: left;
                             display: inline-block;
-                        }
-                    }
-                    .bank-items-info{
-                        width: 90%;
-                        margin-left: 4%;
-                        float: left;
-                        display: inline-block;
 
-                        p{
-                            font-size: 1em;
+                            img{
+                                width: 100%;
+                                float: left;
+                                display: inline-block;
+                            }
                         }
-                        p.zoom{
-                            font-size: 1.2em;
+                        .bank-items-info{
+                            width: 90%;
+                            margin-left: 3%;
+                            float: left;
+                            display: inline-block;
+
+                            p{
+                                font-size: 1em;
+                            }
+                            p.zoom{
+                                font-size: 1.5em;
+                            }
                         }
                     }
                 }
-            }
 
-            .box-items{
-                width: 92%;
-                padding: 4%;
+                // Money transfer form style
+            .form{
+                width: 100%;
                 float: left;
                 display: inline-block;
+                margin-top: 1%;
 
-                &:first-child{
-                    background: #F7F7F7;
-                }
-
-                &:hover{
-                    background: #FAFAFA;
-                }
-                &:active{
-                    background: #F7F7F7;
-                }
-
-                .icon{
-                    width: 7%;
+                p.caption{
+                    width: 31%;
+                    margin-right: 3%;
                     float: left;
                     display: inline-block;
                     font-size: 1em;
-                    line-height: 1.5em;
-                    color: @SecondaryTextColor;
+                    color: #555555;
+                    text-align: right;
+                    line-height: 1.7em;
 
-                    .fa-check-circle{
-                        color: #00ab6b;
+                    // Form Checking.
+                    .check{
+                        color: #FFFFFF;
+                        font-size: 0.6em;
+                        margin-right: 7px;
                     }
+                    .check-active{color: #00ab6b;}
+                    .input-caption-alert{color: #F44336;}
                 }
-                .box{
-                    width: 93%;
+
+                .input-text{
+                    width: 65%;
                     float: left;
                     display: inline-block;
+                    font-family: @FontStylePrimary;
+                    font-size: 1em;
+                    margin-bottom: 5%;
+                    border: 0px;
+                    border-bottom: 1px solid #EEEEEE;
+                    outline: 0;
+                    resize: none;
+                    color: #000000;
+                    background: #FFFFFF;
+                    line-height: 1.5em;
 
-                    p{
-                        font-size: 1em;
-                        line-height: 1.5em;
-                        color: @PrimaryTextColor;
-                        color: #333333;
+                    &:hover{
+                        border-bottom: 1px solid #CCCCCC;
                     }
+
+                    &:focus{
+                        border-bottom: 1px solid #000000;
+                        font-weight: normal;
+                    }
+                }
+
+                .input-textarea{
+                    width: 65%;
+                }
+
+                .input-alert{
+                    border: 1px solid #F44336;
+                }
+
+                .input-select{
+                    width: 65%;
+                    -webkit-appearance: none;
+                    border-radius: 0px;
+                }
+
+                .input-image{
+                    display: none;
+                }
+
+                .input-file{
+                    margin-bottom: 4%;
+                    text-align: center;
+                    width: 65%;
+                    float: left;
+                    display: inline-block;
+                }
+
+                .submit-btn{
+                    width: 22%;
+                    float: right;
+                    display: inline-block;
+                    border: 0px;
+                    font-family: @FontStylePrimary;
+                    font-size: 0.9em;
+                    font-weight: bold;
+                    padding: 2% 0%;
+                    outline: 0;
+                    background: #000000;
+                    color: #FFFFFF;
+                    font-weight: bold;
+
+                    &:hover{
+                        background: #333333;
+                        cursor: pointer;
+                    }
+
+                    &:active{
+                        background: #555555;
+                    }
+
+                    i{
+                        margin-right: 10px;
+                    }
+                }
+            }
+            // END Money transfer form style
+
+                p{
+                    font-size: 1em;
+                    line-height: 1.5em;
+                    color: @PrimaryTextColor;
+                    color: #333333;
+                }
 
                     p.caption{
                         font-size: 0.8em;
@@ -592,10 +638,9 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
 
                     p.big{
-                        font-size: 1.4em;
-                        line-height: 1em;
+                        font-size: 1.5em;
+                        margin-bottom: 0.5%;
                         color: #000000;
-                        margin-bottom: 2%;
                     }
 
 
@@ -654,7 +699,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                         display: inline-block;
 
                         img{
-                            width: 100%;
+                            width: 70%;
                             float: left;
                             display: inline-block;
                         }
@@ -847,13 +892,13 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                         .summary-total{
                             font-size: 1.2em;
-                            border-top: 2px solid #EEEEEE;
+                            border-top: 5px solid #F7F7F7;
                         }
                     }
 
                     .form-control{
                         width: 100%;
-                        padding-top: 3%;
+                        padding-top: 10%;
                         float: left;
                         display: inline-block;
 
@@ -862,8 +907,8 @@ Copyright (c) 2015 Puwadon Sricharoen
                             display: inline-block;
                             border: 0px;
                             font-family: @FontStylePrimary;
-                            font-size: 0.9em;
-                            padding: 3% 5%;
+                            font-size: 1em;
+                            padding: 2% 5%;
                             outline: 0;
                             text-align: center;
                             background: #00ab6b;
@@ -889,6 +934,97 @@ Copyright (c) 2015 Puwadon Sricharoen
             .box-items-unread{
                 .icon{color: #F7F7F7;}
                 font-weight: bold;
+            }
+    }
+
+    // Container Page Style
+    .container-page{
+        width: @page_width;
+        margin: 0% ((100 - @page_width) / 2);
+        float: left;
+        display: inline-block;
+
+        .currency{
+            font-size: 0.5em;
+            margin-left: 3px;
+        }
+
+        .order-items{
+            width: 100%;
+            padding: 2% 0%;
+            float: left;
+            display: inline-block;
+            text-decoration: none;
+            color: #555555;
+            line-height: 1.5em;
+            border-bottom: 1px solid #F7F7F7;
+
+            .status-box{
+                float: right;
+                color: #CCCCCC;
+            }
+            .status-complete,
+            .status-success,
+            .status-shipping{color: #00ab6b;}
+
+            p.time{
+                font-size: 0.8em;
+                color: #AAAAAA;
+            }
+
+            &:hover{
+                cursor: pointer;
+                color: #000000;
+            }
+
+            &:active{
+                background: #FAFAFA;
+            }
+
+        }
+        .order-items-unread{
+            font-weight: bold;
+            color: #000000;
+
+            p.time{
+                color: #000000;
+            }
+        }
+
+        .profile-control{
+            width: 100%;
+            padding: 5% 0%;
+            float: left;display: inline-block;
+
+            a{
+                float: right;
+                margin-left: 2%;
+                font-size: 0.9em;
+                text-decoration: none;
+                color: #AAAAAA;
+
+                &:hover{
+                    text-decoration: underline;
+                    color: #000000;
+                }
+            }
+        }
+
+
+
+        
+
+        // Product page detail style
+        .panel{
+            width: 50%;
+            float: left;
+            display: inline-block;
+
+            img{
+                width: 100%;
+                float: left;
+                display: inline-block;
+                margin-bottom: 1%;
             }
 
             .cancel-btn{
@@ -1241,114 +1377,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             .message-success{
                 i,p.msg{color: #00ab6b;}
             }
-
-            // Money transfer form style
-            .form{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                margin-top: 1%;
-
-                p.caption{
-                    width: 31%;
-                    margin-right: 3%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 1em;
-                    color: #555555;
-                    text-align: right;
-                    line-height: 1.7em;
-
-                    // Form Checking.
-                    .check{
-                        color: #FFFFFF;
-                        font-size: 0.6em;
-                        margin-right: 7px;
-                    }
-                    .check-active{color: #00ab6b;}
-                    .input-caption-alert{color: #F44336;}
-                }
-
-                .input-text{
-                    width: 65%;
-                    float: left;
-                    display: inline-block;
-                    font-family: @FontStylePrimary;
-                    font-size: 1em;
-                    margin-bottom: 5%;
-                    border: 0px;
-                    border-bottom: 1px solid #EEEEEE;
-                    outline: 0;
-                    resize: none;
-                    color: #000000;
-                    background: #FFFFFF;
-                    line-height: 1.5em;
-
-                    &:hover{
-                        border-bottom: 1px solid #CCCCCC;
-                    }
-
-                    &:focus{
-                        border-bottom: 1px solid #000000;
-                        font-weight: normal;
-                    }
-                }
-
-                .input-textarea{
-                    width: 65%;
-                }
-
-                .input-alert{
-                    border: 1px solid #F44336;
-                }
-
-                .input-select{
-                    width: 65%;
-                    -webkit-appearance: none;
-                    border-radius: 0px;
-                }
-
-                .input-image{
-                    display: none;
-                }
-
-                .input-file{
-                    margin-bottom: 4%;
-                    text-align: center;
-                    width: 65%;
-                    float: left;
-                    display: inline-block;
-                }
-
-                .submit-btn{
-                    width: 22%;
-                    float: right;
-                    display: inline-block;
-                    border: 0px;
-                    font-family: @FontStylePrimary;
-                    font-size: 0.9em;
-                    font-weight: bold;
-                    padding: 2% 0%;
-                    outline: 0;
-                    background: #000000;
-                    color: #FFFFFF;
-                    font-weight: bold;
-
-                    &:hover{
-                        background: #333333;
-                        cursor: pointer;
-                    }
-
-                    &:active{
-                        background: #555555;
-                    }
-
-                    i{
-                        margin-right: 10px;
-                    }
-                }
-            }
-            // END Money transfer form style
 
             p.link{
                 width: 100%;
