@@ -96,7 +96,7 @@ $current_page = "order";
 					</div>
 					<?php }else{?>
 					<div class="message">
-						<p><i class="fa fa-hourglass-start fa-spin"></i></p>
+						<p><i class="fa fa-hourglass-start"></i></p>
 						<p class="msg">เรากำลังตรวจสอบหลักฐานการโอนเงิน...</p>
 					</div>
 					<?php }?>
@@ -362,12 +362,18 @@ $current_page = "order";
 
 <?php include'template/loading.dialog.box.php';?>
 
-<?php if($order->status == "Paying" || $order->status == "TransferAgain"){?>
+<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 <!-- Loading process submit photo to uploading. -->
-<div id="filter">
-	<div id="loading-message">กำลังส่งภาพ</div>
-	<div id="loading-bar"></div>
-	<div class="cancel"><a href="me.php" target="_parent">ยกเลิก</a></div>
+<div class="progress-panel" id="progress-panel">
+	<div class="message">
+		<div class="icon" id="progress-icon"><i class="fa fa-cloud-upload"></i></div>
+		<div class="caption" id="progress-message">กำลังส่งหลักฐาน...</div>
+	</div>
+	<div class="progress">
+		<div class="progress-bar" id="progress-bar"></div>
+	</div>
+
+	<a href="profile.php" target="_parent" class="cancel">ยกเลิก</a>
 </div>
 
 <script type="text/javascript" src="js/min/image.thumbnail.min.js"></script>

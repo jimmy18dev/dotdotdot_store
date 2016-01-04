@@ -1,88 +1,72 @@
 $(document).ready(function(){
     $('.animated').autosize({append: "\n"});
 
-    var $body = window.document.body;
-    var order_id = $('#order_id').val();
+    $panel   = $('#progress-panel');
+    $bar     = $('#progress-bar');
+    $icon    = $('#progress-icon');
+    $message = $('#progress-message');
 
-    var optionsActivity = {
-        beforeSend: function() {
-            console.log('beforeSend => 0%');
+    $('#MoneyTransfer').ajaxForm({
+        beforeSubmit: function(){
+            console.log('Process: BeforeSubmit...');
 
-            $('#filter').fadeIn();
-            $('#loading-bar').width('0%');
+            if(!ImageFileCheck()){
+                console.log('Process: Photo is empty!');
+                return false;
+            }
+            else if(!TotalValidation()){
+                $('#transfer_total').focus();
+                console.log('Process: TotalValidation: Fail!');
+                return false;
+            }
+            else if(!BankValidation()){
+                $('#transfer_bank').focus();
+                console.log('Process: BankValidation: Fail!');
+                return false;
+            }
+            else if(!NameValidation()){
+                $('#transfer_realname').focus();
+                console.log('Process: NameValidation: Fail!');
+                return false;
+            }
+            else if(!AddressValidation()){
+                $('#transfer_address').focus();
+                console.log('Process: AddressValidation: Fail!');
+                return false;
+            }
+            else if(!PhoneValidation()){
+                $('#transfer_phone').focus();
+                console.log('Process: PhoneValidation: Fail!');
+                return false;
+            }
+            
+
+            $panel.fadeIn();
+            $bar.width('0%');
         },
         uploadProgress: function(event,position,total,percentComplete) {
             var percent = percentComplete;
             var loadingProcess = '';
+            
+            $bar.animate({width:percent+'%'},300);
 
-            $('#loading-bar').animate({width:percent+'%'},300);
-
-            if(percent == 100){
-                // $('#loading-bar').fadeOut();
-                $('#loading-message').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่ง...');
+            if(percent == 80){
+                $message.html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่งอีเมล...');
             }
-
             // console.clear();
             for (i = 0; i < percent; i++) { 
                 loadingProcess += '|';
             }
-
             console.log('Photo Upload => '+percent+'% ' + loadingProcess);
         },
-        success: function(){
-            console.log('success => waiting...');
+        success: function() {
+            console.log('Upload Successed and Waiting...');
+            $message.html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังบันทึก...');
         },
         complete: function(xhr) {
-            console.log(xhr.responseText);
-            console.log('complete => Success');
-
-            $('#loading-message').html('<i class="fa fa-check"></i>สำเร็จ');
-            // setTimeout(function(){window.location = 'order-'+order_id+'.html';},300);
-        },
-        resetForm:true
-    };
-
-    $('#MoneyTransfer').submit(function(){
-        var check = true;
-        // console.clear();
-
-        if(!BankValidation()){
-            console.log('BankValidation: Fail!');
-            check = false;
-        }
-
-        if(!NameValidation()){
-            console.log('NameValidation: Fail!');
-            check = false;
-        }
-
-        if(!AddressValidation()){
-            console.log('AddressValidation: Fail!');
-            check = false;
-        }
-
-        if(!PhoneValidation()){
-            console.log('PhoneValidation: Fail!');
-            check = false;
-        }
-        if(!TotalValidation()){
-            console.log('TotalValidation: Fail!');
-            check = false;
-        }
-        
-        if(!BeforePostSubmit()){
-            console.log('Photo is empty!');
-            return false;
-        }
-
-        if(check){
-            console.log('Money Transfer: Sending...');
-            $(this).ajaxSubmit(optionsActivity);
-            return true; 
-        }
-        else{
-            console.log('Money Transfer Error!');
-            return false; 
+            console.log('Complete!');
+            $message.html('<i class="fa fa-check"></i>ส่งหลักฐานการโอนเงินแล้ว');
+            location.reload();
         }
     });
 
@@ -97,11 +81,10 @@ $(document).ready(function(){
     $('#transfer_realname').blur(NameValidation);
     $('#transfer_address').blur(AddressValidation);
     $('#transfer_phone').blur(PhoneValidation);
-
-    $('#photo_files').on("change",BeforePostSubmit);
+    $('#photo_files').on("change",ImageFileCheck);
 });
 
-function BeforePostSubmit(){
+function ImageFileCheck(){
     $caption = $('#photo-input-caption');
     var max_filesize = $('#max_filesize').val();
 
@@ -109,7 +92,7 @@ function BeforePostSubmit(){
         if(!$('#photo_files').val()){
 
             $('#transfer_photo_icon').removeClass('check-active');
-            $caption.html('แนบภาพถ่ายสลิปใบโอนเงินด้วยนะคะ!').addClass('input-caption-alert');
+            $caption.html('ขอภาพใบสลิปด้วยค่ะ!').addClass('input-caption-alert');
             return false;
         }
         else{
@@ -127,7 +110,7 @@ function BeforePostSubmit(){
 
             //Allowed file size is less than 15 MB (15728640)
             if(fsize > max_filesize){
-                $caption.html('ไฟล์ของคุณมีขนาดใหญ่เกิน '+ (max_filesize/1048576) +' MB!').addClass('input-caption-alert');
+                $caption.html('ไฟล์ใหญ่เกิน '+ (max_filesize/1048576) +' MB!').addClass('input-caption-alert');
                 $('#transfer_photo_icon').removeClass('check-active');
                 return false
             }

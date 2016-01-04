@@ -44,14 +44,14 @@ $current_page = "register";
 <div class="login-dialog">
 	<div class="login-container">
 		<div class="form">
+			<div class="caption">ชื่อและนามสกุล:</div>
+			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ">
+			
 			<div class="caption">อีเมล:</div>
 			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ" autofocus>
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
-
-			<div class="caption">ชื่อและนามสกุล:</div>
-			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ">
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">
