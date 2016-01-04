@@ -163,7 +163,7 @@ $current_page = "order";
 				<div class="message">
 					<p><i class="fa fa-truck"></i></p>
 					<p>ทางเราได้จัดส่งสินค้าให้คุณ <?php echo $user->name;?> เรียบร้อยแล้ว</p>
-					<p>คุณ<?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+					<p>คุณ <?php echo $user->name;?> ได้รับสินค้าแล้วใช่หรือไม่ ?</p>
 
 					<button class="btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>รับสินค้าแล้ว</button>
 				</div>
@@ -247,7 +247,6 @@ $current_page = "order";
 					<div class="icon"><i class="fa fa-file-text"></i></div>
 					<div class="box">
 						<p class="big">แจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
-						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 						<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
 
 						<?php if(!empty($order->m_message)){?>
@@ -259,6 +258,8 @@ $current_page = "order";
 							<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
 						</div>
 						<?php }?>
+
+						<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 
 						<?php if($order->status == "TransferRequest"){?>
 						<p class="edit"><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>

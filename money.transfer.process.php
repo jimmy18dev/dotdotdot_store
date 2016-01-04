@@ -55,27 +55,29 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
     // End Email Process.
     // Email Sending to Administrator /////////////////
     $admin_data = $user->ListAllAdministratorProcess();
-    if($config->email_status && !empty($var['me_email'])){
+    if($config->email_status){
         foreach ($admin_data as $var){
-            $mail->addAddress($var['me_email']);
-            $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | ส่งหลักฐานการโอนเงินแล้ว';
-            $message        = file_get_contents('template/email/transfer.request.admin.html');
-            $message        = str_replace('%domain%' ,$metadata['domain'], $message);
-            $message        = str_replace('%name%', $user->name, $message);
-            $message        = str_replace('%order_id%', $_POST['order_id'], $message);
-            $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
-            $message        = str_replace('%customer_name%',$order->customer_name, $message);
-            $message        = str_replace('%customer_address%',$order->customer_address, $message);
-            $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
-            $message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
-            $message        = str_replace('%copyrightyear%' ,date("Y"), $message);
+            if(!empty($var['me_email'])){
+                $mail->addAddress($var['me_email']);
+                $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' – ส่งหลักฐานการโอนเงินแล้ว';
+                $message        = file_get_contents('template/email/transfer.request.admin.html');
+                $message        = str_replace('%domain%' ,$metadata['domain'], $message);
+                $message        = str_replace('%name%', $user->name, $message);
+                $message        = str_replace('%order_id%', $_POST['order_id'], $message);
+                $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
+                $message        = str_replace('%customer_name%',$order->customer_name, $message);
+                $message        = str_replace('%customer_address%',$order->customer_address, $message);
+                $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
+                $message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
+                $message        = str_replace('%copyrightyear%' ,date("Y"), $message);
 
-            $mail->Body     = $message;
-            $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
-            if(!$mail->send())
-                $email_send = $mail->ErrorInfo;
-            else
-                $email_send = "Message has been sent";
+                $mail->Body     = $message;
+                $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
+                if(!$mail->send())
+                    $email_send = $mail->ErrorInfo;
+                else
+                    $email_send = "Message has been sent";
+            }
         }
     }
     // End Email Process

@@ -50,7 +50,7 @@ $(document).ready(function(){
             
             $bar.animate({width:percent+'%'},300);
 
-            if(percent == 80){
+            if(percent > 80){
                 $message.html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังส่งอีเมล...');
             }
             // console.clear();

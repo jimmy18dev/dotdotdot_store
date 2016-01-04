@@ -117,7 +117,6 @@ if($_POST['calling'] != ''){
 						else if($_POST['order_action'] == "TransferSuccess"){}
 						else if($_POST['order_action'] == "Shipping"){}
 						else if($_POST['order_action'] == "Complete"){
-
 							// Email Sending to Customer ///////////////////////////
 							if($config->email_status && !empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);
