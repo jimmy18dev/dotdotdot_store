@@ -61,7 +61,7 @@ $current_page = "order";
 <div class="container container-fix">
 	<div class="head-bar">
 		<h1>รายการสั่งซื้อที่ <?php echo $order->id;?></h1>
-		<p>รายการสั่งซื้อ</p>
+		<p>Step <?php echo $order->state;?> of 6 – <?php echo $order->status_text;?></p>
 	</div>
 
 	<div class="container-page">
@@ -232,7 +232,7 @@ $current_page = "order";
 							
 						<p class="caption">เบอร์โทรศัพท์</p>
 						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
-						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก</button>
+						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);"><i class="fa fa-check"></i>บันทึก</button>
 					</div>
 				</div>
 			</div>
@@ -333,7 +333,7 @@ $current_page = "order";
 
 					<?php if($order->status == "Shopping"){?>
 					<div class="form-control" id="paying-button">
-						<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');">ชำระเงิน<i class="fa fa-arrow-right"></i></div>
+						<div class="submit-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Paying');"><i class="fa fa-arrow-right"></i>ชำระเงิน</div>
 					</div>
 					<?php }?>
 

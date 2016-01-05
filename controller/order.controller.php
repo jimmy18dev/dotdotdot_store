@@ -25,6 +25,8 @@ class OrderController extends OrderModel{
     public $ems;
     public $type;
     public $status;
+    public $status_text;
+    public $state;
 
     // Datatime facebook format
     public $create_time_fb;
@@ -269,6 +271,36 @@ class OrderController extends OrderModel{
         $this->ems = $data['od_ems'];
         $this->type = $data['od_type'];
         $this->status = $data['od_status'];
+
+        if($this->status == "Shopping"){
+            $this->status_text = "เลือกสินค้า";
+            $this->state = 1;
+        }else if($this->status == "Paying"){
+            $this->status_text = "รอโอนเงิน";
+            $this->state = 2;
+        }else if($this->status == "TransferRequest"){
+            $this->status_text = "รอตรวจสอบหลักฐาน";
+            $this->state = 3;
+        }else if($this->status == "TransferAgain"){
+            $this->status_text = "ส่งหลักฐานอีกครั้ง";
+            $this->state = 3;
+        }else if($this->status == "TransferSuccess"){
+            $this->status_text = "ชำระเงินแล้ว";
+            $this->state = 4;
+        }else if($this->status == "Shipping"){
+            $this->status_text = "จัดส่งสินค้าแล้ว";
+            $this->state = 5;
+        }else if($this->status == "Complete"){
+            $this->status_text = "เสร็จสมบูรณ์";
+            $this->state = 6;
+        }else if($this->status == "Expire"){
+            $this->status_text = "เกินเวลาชำระเงิน";
+        }else if($this->status == "Cancel"){
+            $this->status_text = "ยกเลิกการสั่งซ์้อ";
+        }else{
+            $this->status_text = "ไม่ทราบ";
+        }
+
 
         $this->shipping_type = $data['od_shipping_type'];
 

@@ -28,7 +28,7 @@
 <body>
 <div class="error-page">
 	<i class="fa fa-frown-o"></i>
-	<p>หน้าที่คุณต้องการไม่มีในระบบ... ไปที่<a href="index.php">หน้าแรก</a></p>
+	<p>หน้าที่คุณต้องการไม่มีในระบบ... กลับไปที่<a href="index.php">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

@@ -49,16 +49,13 @@ $current_page = "profile";
 <div class="container container-fix">
 	<div class="head-bar">
 		<h1><?php echo $user->name;?></h1>
-		<p>รายการสั่งซื้อ</p>
+		<p>สมัครสมาชิกเมื่อ <?php echo $user->create_time_thai_format;?> 
+			<a href="logout.php" class="signout">ออกจากระบบ</a>
+			<a href="profile_edit.php">แก้ไข</a>
+		</p>
 	</div>
 	<div class="container-page">
 		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
-
-		<div class="profile-control">
-			<a href="profile_edit.php">แก้ไขข้อมูล</a>
-			<a href="profile_change_password.php">เปลี่ยนรหัส</a>
-			<a href="logout.php" class="signout">ออกจากระบบ</a>
-		</p>
 	</div>
 </div>
 </body>

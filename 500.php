@@ -32,7 +32,7 @@ require_once'config/autoload.php';
 <body>
 <div class="error-page">
 	<i class="fa fa-cogs"></i>
-	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... ไปที่<a href="index.php">หน้าแรก</a></p>
+	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... กลับไปที่<a href="index.php">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

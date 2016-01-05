@@ -46,7 +46,9 @@ if(!empty($user->current_order_id)){
 <div class="container container-fix">
 	<div class="head-bar">
 		<h1><?php echo $user->name;?></h1>
-		<p>รายการสั่งซื้อ</p>
+		<p>ข้อมูลส่วนตัว 
+			<a href="profile_edit.php">แก้ไขข้อมูล</a>
+		</p>
 	</div>
 	<div class="container-page">
 		<div class="order-detail">

@@ -387,6 +387,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
     }
 
+    // Head bar style
     .head-bar{
         width: @page_width;
         padding: 2% ((100 - @page_width) / 2);
@@ -408,8 +409,31 @@ Copyright (c) 2015 Puwadon Sricharoen
         &:active{
             background: #F7F7F7;
         }
+
+        a{
+            float: right;
+            text-decoration: none;
+            font-size: 0.7em;
+            border: 1px solid #CCCCCC;
+            padding: 0px 4px;
+            line-height: 1.5em;
+            color: #AAAAAA;
+            margin-left: 0.5%;
+
+            &:hover{
+                border: 1px solid #555555;
+                color: #555555; 
+            }
+
+            &:active{
+                background: #555555;
+                color: #FFFFFF;
+                border: 1px solid #555555;
+            }
+        }
     }
 
+    // Order state style
     .order-state{
         width: 70%;
         margin: 0% 15%;
@@ -444,6 +468,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
     }
 
+    // Order Detail stlye at Order page.
     .order-detail{
         width: 70%;
         margin: 0% 15%;
@@ -626,7 +651,7 @@ Copyright (c) 2015 Puwadon Sricharoen
                     border: 0px;
                     font-family: @FontStylePrimary;
                     font-size: 0.9em;
-                    padding: 2% 5%;
+                    padding: 2%;
                     outline: 0;
                     background: #000000;
                     color: #FFFFFF;
@@ -643,6 +668,18 @@ Copyright (c) 2015 Puwadon Sricharoen
 
                     i{
                         margin-right: 10px;
+                    }
+                }
+                .submit-btn-payment{
+                    background: #00ab6b;
+                    color: #FFFFFF;
+
+                    &:hover{
+                        background: #19b379;
+                        cursor: pointer;
+                    }
+                    &:active{
+                        background: #008855;
                     }
                 }
                 .submit-btn-left{
@@ -720,236 +757,215 @@ Copyright (c) 2015 Puwadon Sricharoen
                     }
                 }
 
-                    .order-list{
+                // Items in order container
+                .order-list{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+
+                    .topic-caption{
+                        width: 100%;
+                        padding: 2% 0%;
+                        float: left;
+                        display: inline-block;
+                        font-size: 0.8em;
+                        color: @ThirdTextColor;
+                        font-style: italic;
+
+                        .detail{
+                            width: 75%;
+                            float: left;
+                            display: inline-block;
+                        }
+                        .quantity{
+                            width: 10%;
+                            float: left;
+                            display: inline-block;
+                            text-align: center;
+                        }
+                        .total{
+                            width: 15%;
+                            float: left;
+                            display: inline-block;
+                            text-align: right;
+                        }
+                    }
+
+                    // Items in order style
+                    .items-in-order{
                         width: 100%;
                         float: left;
                         display: inline-block;
+                        line-height: 1.5em;
+                        border-top: 1px solid #FAFAFA;
+                        font-size: 1em;
 
-                        .topic-caption{
-                            width: 100%;
-                            padding: 2% 0%;
+                        .items-in-order-thumbnail{
+                            width: 12%;
                             float: left;
                             display: inline-block;
-                            font-size: 0.8em;
-                            color: @ThirdTextColor;
-                            font-style: italic;
 
-                            .detail{
-                                width: 75%;
+                            img{
+                                width: 100%;
                                 float: left;
                                 display: inline-block;
+
+                                &:hover{
+                                    opacity: 0.8;
+                                }
                             }
-                            .quantity{
-                                width: 10%;
-                                float: left;
-                                display: inline-block;
-                                text-align: center;
+                        }
+                        
+                        .items-in-order-detail{
+                            width: 57%;
+                            padding: 2% 3%;
+                            float: left;
+                            display: inline-block;
+
+                            p.detail-title{
+                                margin-bottom: 1%;
+                                
+                                a{
+                                    color: @PrimaryTextColor;
+                                    text-decoration: none;
+
+                                    &:hover{
+                                        text-decoration: underline;
+                                    }
+                                }
+                                color: @PrimaryTextColor;
                             }
-                            .total{
-                                width: 15%;
-                                float: left;
-                                display: inline-block;
-                                text-align: right;
+                            
+                            p.detail-description{
+                                font-size: 0.9em;
+
+                                .remove-btn{
+                                    border: 1px solid #F44336;
+                                    color: #F44336;
+                                    padding: 0.2% 1%;
+                                    padding-bottom: 0.5%;
+                                    margin-left: 5px;
+                                    font-size: 0.75em;
+
+                                    &:hover{
+                                        cursor: pointer;
+                                        background: #F44336;
+                                        color: #FFFFFF;
+                                    }
+
+                                    &:active{
+                                        background: #F44336;
+                                        color: #FFFFFF;
+                                    }
+                                }
                             }
                         }
 
-                        .items-in-order{
+                        .input-select{
                             width: 100%;
+                            padding: 1% 5%;
                             float: left;
                             display: inline-block;
+                            font-family: @FontStylePrimary;
+                            font-size: 0.8em;
                             line-height: 1.5em;
-                            border-top: 1px solid #FAFAFA;
-                            font-size: 1em;
+                            background: #FAFAFA;
+                            border: 1px solid #DDDDDD;
+                            text-align: center;
+                            outline: 0;
+                            font-weight: bold;
+                            -webkit-appearance: none;
+                            border-radius: 0px;
 
-                            .items-in-order-thumbnail{
-                                width: 12%;
-                                float: left;
-                                display: inline-block;
-
-                                img{
-                                    width: 100%;
-                                    float: left;
-                                    display: inline-block;
-
-                                    &:hover{
-                                        opacity: 0.8;
-                                    }
-                                }
+                            &:hover{
+                                cursor: pointer;
+                                border: 1px solid #000000;
                             }
-                            .items-in-order-detail{
-                                width: 57%;
-                                padding: 2% 3%;
-                                float: left;
-                                display: inline-block;
+                        }
 
-                                p.detail-title{
-                                    margin-bottom: 1%;
-                                    a{
-                                        color: @PrimaryTextColor;
-                                        text-decoration: none;
+                        .items-in-order-quantity{
+                            width: 10%;
+                            padding: 3% 0%;
+                            float: left;
+                            display: inline-block;
+                            text-align: center;
+                        }
+                        .items-in-order-total{
+                            width: 15%;
+                            padding: 3% 0%;
+                            float: left;
+                            display: inline-block;
+                            text-align: right;
+                        }
+                    }
 
-                                        &:hover{
-                                            text-decoration: underline;
-                                        }
-                                    }
-                                    color: @PrimaryTextColor;
-                                }
-                                p.detail-description{
-                                    font-size: 0.8em;
+                    // Summary items style
+                    .summary-items{
+                        width: 100%;
+                        float: left;
+                        display: inline-block;
+                        font-size: 1em;
+                        color: @PrimaryTextColor;
 
-                                    .remove-btn{
-                                        border: 1px solid #F44336;
-                                        color: #F44336;
-                                        padding: 0.2% 1%;
-                                        padding-bottom: 0.5%;
-                                        margin-left: 5px;
-                                        font-size: 0.75em;
+                        .summary-items-detail{
+                            width: 65%;
+                            margin-left: 15%;
+                            padding: 4% 0%;
+                            float: left;
+                            display: inline-block;
 
-                                        &:hover{
-                                            cursor: pointer;
-                                            background: #F44336;
-                                            color: #FFFFFF;
-                                        }
-
-                                        &:active{
-                                            background: #F44336;
-                                            color: #FFFFFF;
-                                        }
-                                    }
-                                }
+                            i{
+                                margin-right: 5px;
                             }
 
-                            .input-select{
-                                width: 100%;
-                                padding: 1% 5%;
-                                float: left;
+                            .shipping-select{
+                                padding: 0% 1%;
                                 display: inline-block;
                                 font-family: @FontStylePrimary;
-                                font-size: 0.8em;
-                                line-height: 1.5em;
+                                font-size: 0.9em;
                                 background: #FAFAFA;
                                 border: 1px solid #DDDDDD;
                                 text-align: center;
                                 outline: 0;
-                                font-weight: bold;
                                 -webkit-appearance: none;
                                 border-radius: 0px;
+                                line-height: 1.5em;
+                                font-weight: bold;
 
                                 &:hover{
                                     cursor: pointer;
                                     border: 1px solid #000000;
                                 }
                             }
-
-                            .items-in-order-quantity{
-                                width: 10%;
-                                padding: 3% 0%;
-                                float: left;
-                                display: inline-block;
-                                text-align: center;
-                            }
-                            .items-in-order-total{
-                                width: 15%;
-                                padding: 3% 0%;
-                                float: left;
-                                display: inline-block;
-                                text-align: right;
-                            }
                         }
-
-                        // Summary items style
-                        .summary-items{
-                            width: 100%;
+                        .summary-items-total{
+                            width: 20%;
+                            padding: 4% 0%;
                             float: left;
                             display: inline-block;
-                            font-size: 1em;
-                            color: @PrimaryTextColor;
-
-                            .summary-items-detail{
-                                width: 65%;
-                                margin-left: 15%;
-                                padding: 4% 0%;
-                                float: left;
-                                display: inline-block;
-
-                                i{
-                                    margin-right: 5px;
-                                }
-
-                                .shipping-select{
-                                    padding: 0% 1%;
-                                    display: inline-block;
-                                    font-family: @FontStylePrimary;
-                                    font-size: 0.9em;
-                                    background: #FAFAFA;
-                                    border: 1px solid #DDDDDD;
-                                    text-align: center;
-                                    outline: 0;
-                                    -webkit-appearance: none;
-                                    border-radius: 0px;
-                                    line-height: 1.5em;
-                                    font-weight: bold;
-
-                                    &:hover{
-                                        cursor: pointer;
-                                        border: 1px solid #000000;
-                                    }
-                                }
-                            }
-                            .summary-items-total{
-                                width: 20%;
-                                padding: 4% 0%;
-                                float: left;
-                                display: inline-block;
-                                text-align: right;
-                            }
-                        }
-
-                        .summary-total{
-                            font-size: 1.2em;
-                            border-top: 5px solid #F7F7F7;
+                            text-align: right;
                         }
                     }
 
-                    .form-control{
-                        width: 100%;
-                        padding-top: 10%;
-                        float: left;
-                        display: inline-block;
-
-                        .submit-btn{
-                            float: right;
-                            display: inline-block;
-                            border: 0px;
-                            font-family: @FontStylePrimary;
-                            font-size: 1em;
-                            padding: 2% 5%;
-                            outline: 0;
-                            text-align: center;
-                            background: #00ab6b;
-                            color: #FFFFFF;
-
-                            &:hover{
-                                background: #19b379;
-                                cursor: pointer;
-                            }
-
-                            &:active{
-                                background: #008855;
-                            }
-
-                            i{
-                                margin-left: 10px;
-                            }
-                        }
+                    .summary-total{
+                        font-size: 1.2em;
+                        border-top: 5px solid #F7F7F7;
                     }
                 }
-            }
 
-            .box-items-unread{
-                .icon{color: #F7F7F7;}
-                font-weight: bold;
+                .form-control{
+                    width: 100%;
+                    padding-top: 10%;
+                    float: left;
+                    display: inline-block;
+                }
             }
+        }
+
+        .box-items-unread{
+            .icon{color: #F7F7F7;}
+            font-weight: bold;
+        }
 
         .box-items-success{
             .icon{
@@ -974,452 +990,6 @@ Copyright (c) 2015 Puwadon Sricharoen
             font-size: 0.5em;
             margin-left: 3px;
         }
-
-        .order-items{
-            width: 100%;
-            padding: 2% 0%;
-            float: left;
-            display: inline-block;
-            text-decoration: none;
-            color: #555555;
-            line-height: 1.5em;
-            border-bottom: 1px solid #F7F7F7;
-
-            .status-box{
-                float: right;
-                color: #CCCCCC;
-            }
-            .status-complete,
-            .status-success,
-            .status-shipping{color: #00ab6b;}
-
-            p.time{
-                font-size: 0.8em;
-                color: #AAAAAA;
-            }
-
-            &:hover{
-                cursor: pointer;
-                color: #000000;
-            }
-
-            &:active{
-                background: #FAFAFA;
-            }
-
-        }
-        .order-items-unread{
-            font-weight: bold;
-            color: #000000;
-
-            p.time{
-                color: #000000;
-            }
-        }
-
-        .profile-control{
-            width: 100%;
-            padding: 5% 0%;
-            float: left;display: inline-block;
-
-            a{
-                float: right;
-                margin-left: 2%;
-                font-size: 0.9em;
-                text-decoration: none;
-                color: #AAAAAA;
-
-                &:hover{
-                    text-decoration: underline;
-                    color: #000000;
-                }
-            }
-        }
-
-
-
-        
-
-        // Product page detail style
-        .panel{
-            width: 50%;
-            float: left;
-            display: inline-block;
-
-            img{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                margin-bottom: 1%;
-            }
-
-            // Note style on profile edit
-            .note{
-                width: 92%;
-                padding: 4%;
-                background: #F7F7F7;
-                float: left;
-                display: inline-block;
-                color: #555555;
-                line-height: 1.5em;
-
-                h2{
-                    color: #000000;
-                    font-size: 1em;
-                    margin-bottom: 2%;
-                    font-weight: bold;
-                }
-
-                p{
-                    font-size: 1em;
-                }
-            }
-        }
-
-        // Panel box fix
-        .panel-fix{
-            position: fixed;
-            top: 71px;
-            right: ((100 - @page_width) / 2);
-            width: (50% - ((100 - @page_width) / 2)) - (3*2);
-            padding: 3%;
-            float: right;
-            display: inline-block;
-            background: #FFFFFF;
-
-            // Product page style
-            h1{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                font-size: 2em;
-                font-weight: bold;
-                color: @PrimaryTextColor;
-                margin-bottom: 2%;
-            }
-
-            p{
-                font-size: 1em;
-                line-height: 1.5em;
-            }
-
-            p.price{
-                font-size: 1.2em;
-                color: #000000;
-            }
-
-            .description{
-                width: 100%;
-                padding: 3% 0%;
-                float: left;
-                display: inline-block;
-                font-size: 1em;
-                color: @PrimaryTextColor;
-                margin-bottom: 5%;
-                line-height: 1.7em;
-
-                a.edit-btn{
-                    text-decoration: none;
-                    color: #777777;
-                    background: #EEEEEE;
-                    font-size: 0.8em;
-                    padding: 2px 5px;
-                    border-radius: 3px;
-
-                    &:hover{
-                        cursor: pointer;
-                        background: #DDDDDD;
-                        color: #333333;
-                    }
-                }
-            }
-
-            .action{
-                width: 100%;
-                float: left;
-                display: inline-block;
-
-                .mini-caption{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    line-height: 2em;
-                    color: #CCCCCC;
-                }
-
-                .buy-btn{
-                    padding: 1% 3%;
-                    float: left;
-                    display: inline-block;
-                    background: #000000;
-                    color: #FFFFFF;
-                    font-size: 1em;
-                    line-height: 1.5em;
-                    text-align: center;
-                    border: 1px solid #000000;
-                    text-decoration: none;
-
-                    i{
-                        margin-left: 10px;
-                    }
-
-                    &:hover{
-                        cursor: pointer;
-                        background: #333333;
-                    }
-                }
-
-                .buy-btn-active{
-                    background: #00ab6b;
-                    color: #FFFFFF;
-                    border: 1px solid #00ab6b;
-
-                    &:hover{
-                        background: #19b379;
-                    }
-
-                    &:active{
-                        border: 1px solid #008855;
-                        background: #008855;
-                        color: #FFFFFF;
-                    }
-                }
-
-                .buy-btn-disable{
-                    border: 1px solid #F7F7F7;
-                    background: #F7F7F7;
-                    color: #AAAAAA;
-
-                    &:hover{
-                        background: #F7F7F7;
-                        color: #AAAAAA;
-                    }
-                }
-
-                .more{
-                    padding: 1% 2%;
-                    float: left;
-                    display: inline-block;
-                    color: #AAAAAA;
-                    font-size: 1em;
-                    line-height: 1.7em;
-                }
-
-                .subproduct-info{
-                    width: 100%;
-                    padding: 2% 0%;
-                    float: left;
-                    display: inline-block;
-                    font-size: 1em;
-                    line-height: 1.5em;
-                    color: #555555;
-                    margin-bottom: 5%;
-                }
-
-                .subproduct-list{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                }
-
-                .input-select{
-                    padding: 1% 2%;
-                    float: left;
-                    display: inline-block;
-                    -webkit-appearance: none;
-                    border-radius: 0px;
-                    font-size: 0.95em;
-                    font-family: @FontStylePrimary;
-                    line-height: 1.5em;
-                    border: 1px solid #AAAAAA;
-                    background: #FFFFFF;
-                    color: #333333;
-                    outline: 0;
-
-                    &:hover{
-                        border: 1px solid #555555;
-                        cursor: pointer;
-                    }
-
-                    &:focus{
-                        border: 1px solid #000000;
-                        color: #000000;
-                    }
-                }
-            }
-            .sharing{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                margin-top: 10%;
-
-                .sharing-items{
-                    float: right;
-                    display: inline-block;
-                    margin-left: 1%;
-                    padding: 2% 3%;
-                    color: #777777;
-                    font-size: 1em;
-
-                    &:hover{
-                        background: #F7F7F7;
-                    }
-                }
-            }
-            // END Product page style
-
-            // Box style
-            .box{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                // box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
-            }
-
-            p{
-                font-size: 1em;
-                line-height: 1.7em;
-                color: @SecondaryTextColor;
-            }
-
-            // Button for product page link to store
-            .control{
-                margin-top: 3%;
-                padding-top: 3%;
-                width: 100%;
-                float: left;
-                display: inline-block;
-                border-top: 1px dotted #EEEEEE;
-
-                a{
-                    float: right;
-                    display: inline-block;
-                    color: #AAAAAA;
-                    font-size: 0.8em;
-                    border: 1px solid #F7F7F7;
-                    padding: 2%;
-                    text-decoration: none;
-
-                    i{
-                        margin-right: 10px;
-                        font-size: 0.8em;
-                    }
-
-                    &:hover{
-                        color: #000000;
-                        border: 1px solid #555555;
-                    }
-
-                    &:active{
-                        background: #000000;
-                        border: 1px solid #000000;
-                        color: #FFFFFF;
-                    }
-                }
-            }
-
-            p.icon{
-                color: #DDDDDD;
-                font-size: 0.8em;
-                margin-bottom: 5%;
-
-                i{
-                    margin-right: 5px;
-                }
-            }
-            strong{
-                font-weight: bold;
-            }
-
-            .message{
-                width: 90%;
-                padding: 20% 5%;
-                float: left;
-                display: inline-block;
-                text-align: center;
-
-                i{
-                    font-size: 3em;
-                    line-height: 2em;
-                }
-
-                p.msg{
-                    font-size: 1em;
-                }
-
-                .btn{
-                    width: 30%;
-                    margin: 5% 35%;
-                    padding: 2% 0%;
-                    text-align: center;
-                    float: left;
-                    display: inline-block;
-                    font-size: 0.8em;
-                    background: #000000;
-                    color: #FFFFFF;
-                    border: 0px;
-
-                    i{
-                        font-size: 1em;
-                        margin-right: 10px;
-                    }
-
-                    &:hover{
-                        background: #333333;
-                        cursor: pointer;
-                    }
-
-                    &:active{
-                        background: #555555;
-                    }
-                }
-            }
-
-            .message-success{
-                i,p.msg{color: #00ab6b;}
-            }
-
-            p.link{
-                width: 100%;
-                float: left;
-                display: inline-block;
-                margin-top: 5%;
-                padding-top: 5%;
-                font-size: 0.75em;
-                border-top: 1px solid #EEEEEE;
-
-                a{
-                    float: left;
-                    display: inline-block;
-                    text-decoration: none;
-                    color: @ThirdTextColor;
-                    margin-right: 20px;
-
-                    &:hover{
-                        color: #000000;
-                        cursor: pointer;
-                    }
-
-                    &:active{
-                        text-decoration: underline;
-                    }
-                }
-
-                .signout{
-                    margin-right: 0px;
-                    float: right;
-
-                    &:hover{
-                        color: #F44336;
-                    }
-                }
-            }
-        }
-        .panel-fix-margin-top{
-            top: 100px;
-        }
-        // END Product page detail style
 
         // Product item style
         .product-items{
@@ -1490,11 +1060,304 @@ Copyright (c) 2015 Puwadon Sricharoen
                 }
             }
         }
+
+        // Order items style at Profile page.
+        .order-items{
+            width: 70%;
+            margin: 0% 15%;
+            padding: 2% 0%;
+            float: left;
+            display: inline-block;
+            text-decoration: none;
+            color: #555555;
+            line-height: 1.5em;
+            border-bottom: 1px solid #F7F7F7;
+
+            .status-box{
+                float: right;
+                color: #CCCCCC;
+            }
+            .status-complete,
+            .status-success,
+            .status-shipping{color: #00ab6b;}
+
+            p.time{
+                font-size: 0.8em;
+                color: #AAAAAA;
+            }
+
+            &:hover{
+                cursor: pointer;
+                color: #000000;
+            }
+
+            &:active{
+                font-weight: bold;
+            }
+
+        }
+        .order-items-unread{
+            font-weight: bold;
+            color: #000000;
+
+            p.time{
+                color: #000000;
+            }
+        }
     }
 }
 .container-fix{
     margin: 0px 0px;
 }
+
+// PRODUCT PAGE //////////
+// Left Panel (Show photos of product)
+.panel{
+    width: 50%;
+    float: left;
+    display: inline-block;
+
+    img{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        margin-bottom: 2%;
+    }
+}
+// Right Panel (Product Detail and Buy Button)
+.panel-fix{
+    position: fixed;
+    top: 71px;
+    right: ((100 - @page_width) / 2);
+    width: (50% - ((100 - @page_width) / 2)) - (3*2);
+    padding: 3%;
+    float: right;
+    display: inline-block;
+    background: #FFFFFF;
+
+    h1{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        font-size: 2em;
+        font-weight: bold;
+        color: @PrimaryTextColor;
+        margin-bottom: 2%;
+    }
+
+    p{
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+
+    p.price{
+        font-size: 1.2em;
+        color: #000000;
+    }
+
+    .description{
+        width: 100%;
+        padding: 4% 0%;
+        float: left;
+        display: inline-block;
+        font-size: 1em;
+        color: @PrimaryTextColor;
+        margin-bottom: 5%;
+        line-height: 1.7em;
+
+        a.edit-btn{
+            text-decoration: none;
+            color: #777777;
+            background: #EEEEEE;
+            font-size: 0.8em;
+            padding: 2px 5px;
+            border-radius: 3px;
+
+            &:hover{
+                cursor: pointer;
+                background: #DDDDDD;
+                color: #333333;
+            }
+        }
+    }
+
+    .action{
+        width: 100%;
+        float: left;
+        display: inline-block;
+
+        .mini-caption{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            font-size: 0.8em;
+            line-height: 2em;
+            color: #CCCCCC;
+        }
+
+        .buy-btn{
+            padding: 2% 3%;
+            float: left;
+            display: inline-block;
+            background: #000000;
+            color: #FFFFFF;
+            font-size: 1em;
+            line-height: 1.5em;
+            text-align: center;
+            border: 1px solid #000000;
+            text-decoration: none;
+
+            i{
+                margin-left: 10px;
+            }
+
+            &:hover{
+                cursor: pointer;
+                background: #333333;
+            }
+        }
+
+        .buy-btn-active{
+            background: #00ab6b;
+            color: #FFFFFF;
+            border: 1px solid #00ab6b;
+
+            &:hover{
+                background: #19b379;
+            }
+
+            &:active{
+                border: 1px solid #008855;
+                background: #008855;
+                color: #FFFFFF;
+            }
+        }
+
+        .buy-btn-disable{
+            border: 1px solid #F7F7F7;
+            background: #F7F7F7;
+            color: #AAAAAA;
+
+            &:hover{
+                background: #F7F7F7;
+                color: #AAAAAA;
+            }
+        }
+
+        .more{
+            padding: 2% 3%;
+            float: left;
+            display: inline-block;
+            color: #AAAAAA;
+            font-size: 1em;
+            line-height: 1.7em;
+        }
+
+        .subproduct-info{
+            width: 100%;
+            padding: 3% 0%;
+            float: left;
+            display: inline-block;
+            font-size: 1em;
+            line-height: 1.5em;
+            color: #555555;
+            margin-bottom: 5%;
+        }
+
+        .subproduct-list{
+            width: 100%;
+            float: left;
+            display: inline-block;
+        }
+
+        .input-select{
+            padding: 2% 3%;
+            float: left;
+            display: inline-block;
+            -webkit-appearance: none;
+            border-radius: 0px;
+            font-size: 0.95em;
+            font-family: @FontStylePrimary;
+            line-height: 1.5em;
+            border: 1px solid #AAAAAA;
+            background: #FFFFFF;
+            color: #333333;
+            outline: 0;
+
+            &:hover{
+                border: 1px solid #555555;
+                cursor: pointer;
+            }
+
+            &:focus{
+                border: 1px solid #000000;
+                color: #000000;
+            }
+        }
+    }
+
+    // Social Sharing Button
+    .sharing{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        margin-top: 10%;
+
+        .sharing-items{
+            float: right;
+            display: inline-block;
+            margin-left: 1%;
+            padding: 2% 3%;
+            color: #777777;
+            font-size: 1em;
+
+            &:hover{
+                background: #F7F7F7;
+            }
+        }
+    }
+
+    // Button for product page link to store
+    .control{
+        margin-top: 3%;
+        padding-top: 3%;
+        width: 100%;
+        float: left;
+        display: inline-block;
+        border-top: 1px dotted #EEEEEE;
+
+        a{
+            float: right;
+            display: inline-block;
+            color: #AAAAAA;
+            font-size: 0.8em;
+            border: 1px solid #F7F7F7;
+            padding: 2%;
+            text-decoration: none;
+
+            i{
+                margin-right: 10px;
+                font-size: 0.8em;
+            }
+
+            &:hover{
+                color: #000000;
+                border: 1px solid #555555;
+            }
+
+            &:active{
+                background: #000000;
+                border: 1px solid #000000;
+                color: #FFFFFF;
+            }
+        }
+    }
+    // END Product page style
+}
+.panel-fix-margin-top{
+    top: 100px;
+}
+// END Product page detail style
 
 .progress-panel{
     position: fixed;
@@ -1724,8 +1587,8 @@ Copyright (c) 2015 Puwadon Sricharoen
     padding-top: 15%;
 
     i{
-        font-size: 4em;
-        margin-bottom: 3%;
+        font-size: 5em;
+        margin-bottom: 5%;
         color: #AAAAAA;
     }
 
@@ -1733,6 +1596,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         font-size: 1em;
         color: #777777;
         a{
+            margin-left: 5px;
             color: #000000;
             text-decoration: underline;
         }
@@ -1750,13 +1614,6 @@ Copyright (c) 2015 Puwadon Sricharoen
 }
 
 /**** OTHER DEVICE AND SCREEN ****/
-
-// @media only screen and (min-width:0px) and (max-width :374px){@import "style-0-374";} // iPhone 4s,5s
-// @media only screen and (min-width:375px) and (max-width :767px){@import "style-0-519";} // iPhone 6
-// @media only screen and (min-width:768px) and (max-width :1365px){@import "style-0-519";} // iPhone 6s
-// @media only screen and (min-width:1366px) and (max-width :1920px){@import "style-0-519";} // 720p, 1080p Desktop
-// @media only screen and (min-width:1921px) and (max-width :519px){@import "style-0-519";} // 2k and 4k resolution
-
 @media only screen and (min-width:1024px) and (max-width:1365px){@import "style-1024-1366";}
 @media only screen and (min-width:760px) and (max-width:1023px){@import "style-760-1023";}
 @media only screen and (min-width:520px) and (max-width:759px){@import "style-520-759";}
