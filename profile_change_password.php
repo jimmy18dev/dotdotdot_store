@@ -43,30 +43,28 @@ if(!empty($user->current_order_id)){
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
+	<div class="head-bar">
+		<h1><?php echo $user->name;?></h1>
+		<p>รายการสั่งซื้อ</p>
+	</div>
 	<div class="container-page">
-		<a href="profile.php">
-		<div class="head-bar" id="head-bar">
-			<div class="icon"><i class="fa fa-arrow-left"></i></div>
-			<div class="caption">ไปที่โปรไฟล์</div>
-		</div>
-		</a>
-		<div class="panel-fix">
-			<div class="box">
-				<div class="form">
-					<p class="caption">ตั้งหรัสผ่านใหม่</p>
-					<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร..." autofocus>
-					<button class="submit-btn" onclick="javascript:ChangePassword();"><i class="fa fa-floppy-o"></i>บันทึก</button>
-				</div>
-			</div>
-		</div>
+		<div class="order-detail">
+			<div class="box-items">
+				<div class="icon"><i class="fa fa-lock"></i></div>
+				<div class="box">
+					<p class="big">ตั้งหรัสผ่านใหม่</p>
+					<p>คำแนะนำ</p>
+					<p>1. รหัสผ่านควรมีความมากกว่า 6 ตัวอักษรขึ้น</p>
+					<p>2. ไม่ควรใช้คำที่เดาง่ายเช่น 123456 password 000000</p>
+					<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>
 
-		<div class="panel">
-			<div class="note">
-				<h2>คำแนะนำ</h2>
-				<p>1. รหัสผ่านควรมีความมากกว่า 6 ตัวอักษรขึ้น</p>
-				<p>2. ไม่ควรใช้คำที่เดาง่ายเช่น 123456 password 000000</p>
-				<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>
+					<div class="form">
+						<p class="caption">ตั้งหรัสผ่านใหม่</p>
+						<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร..." autofocus>
+						<button class="submit-btn" onclick="javascript:ChangePassword();"><i class="fa fa-floppy-o"></i>บันทึก</button>
+					</div>
+				</div>
 			</div>
 		</div>
 	</div>

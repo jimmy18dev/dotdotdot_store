@@ -43,39 +43,35 @@ if(!empty($user->current_order_id)){
 <body>
 <?php include'header.php';?>
 
-<div class="container">
+<div class="container container-fix">
+	<div class="head-bar">
+		<h1><?php echo $user->name;?></h1>
+		<p>รายการสั่งซื้อ</p>
+	</div>
 	<div class="container-page">
+		<div class="order-detail">
+			<div class="box-items">
+				<div class="icon"><i class="fa fa-user"></i></div>
+				<div class="box">
+					<p class="big">แก้ไขข้อมูลส่วนตัว</p>
+					<p>คำแนะนำ</p>
+					<p>1. เราแนะนำให้คุณใส่ชื่อที่ตรงกับบัตรประชาชน เพื่อระบุชื่อผู้รับสินค้าได้อย่างถูกต้อง</p>
+					<p>2. เบอร์ติดต่อ เราขอให้ท่านใส่เบอร์มือถือหรือเบอร์ส่วนตัวที่ติดต่อได้</p>
+					<p>3. เราแนะนำให้ท่านใช้อีเมลของ Gmail เพื่อความสะดวกในการใช้งาน</p>
+					<p>4. ใส่ข้อมูลตามความเป็นจริง ช่วยให้การสั่งซื้อสินค้าเป็นไปด้วยความเรียบร้อย</p>
+					<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>
 
-		<a href="profile.php">
-		<div class="head-bar" id="head-bar">
-			<div class="icon"><i class="fa fa-arrow-left"></i></div>
-			<div class="caption">ไปที่โปรไฟล์</div>
-		</div>
-		</a>
+					<div class="form">
+						<p class="caption">ชื่อ - นามกลุล</p>
+						<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>" autofocus>
+						<p class="caption">เบอร์โทรศัพท์</p>
+						<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
+						<p class="caption">อีเมล</p>
+						<input type="text" class="input-text" disabled id="email" value="<?php echo $user->email;?>">
 
-		<div class="panel-fix">
-			<div class="box">
-				<div class="form">
-					<p class="caption">ชื่อ - นามกลุล</p>
-					<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>" autofocus>
-					<p class="caption">เบอร์โทรศัพท์</p>
-					<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
-					<p class="caption">อีเมล</p>
-					<input type="text" class="input-text" disabled id="email" value="<?php echo $user->email;?>">
-
-					<button class="submit-btn" onclick="javascript:EditInfo();"><i class="fa fa-floppy-o"></i>บันทึก</button>
+						<button class="submit-btn" onclick="javascript:EditInfo();"><i class="fa fa-floppy-o"></i>บันทึก</button>
+					</div>
 				</div>
-			</div>
-		</div>
-
-		<div class="panel">
-			<div class="note">
-				<h2>คำแนะนำ</h2>
-				<p>1. เราแนะนำให้คุณใส่ชื่อที่ตรงกับบัตรประชาชน เพื่อระบุชื่อผู้รับสินค้าได้อย่างถูกต้อง</p>
-				<p>2. เบอร์ติดต่อ เราขอให้ท่านใส่เบอร์มือถือหรือเบอร์ส่วนตัวที่ติดต่อได้</p>
-				<p>3. เราแนะนำให้ท่านใช้อีเมลของ Gmail เพื่อความสะดวกในการใช้งาน</p>
-				<p>4. ใส่ข้อมูลตามความเป็นจริง ช่วยให้การสั่งซื้อสินค้าเป็นไปด้วยความเรียบร้อย</p>
-				<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>
 			</div>
 		</div>
 	</div>

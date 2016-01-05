@@ -29,8 +29,8 @@ Copyright (c) 2015 Puwadon Sricharoen
     }
 
     .logo{
-        padding: 15px 0%;
-        height: 40px;
+        padding: 17px 0%;
+        height: 36px;
         font-size: 1.4em;
         color: #000000;
         letter-spacing: 0.05em;
@@ -477,7 +477,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         .box-items{
             width: 100%;
-            padding: 6% 0%;
+            padding: 8% 0%;
             float: left;
             display: inline-block;
 
@@ -561,8 +561,8 @@ Copyright (c) 2015 Puwadon Sricharoen
                         // Form Checking.
                         .check{
                             color: #FFFFFF;
-                            font-size: 0.6em;
-                            margin-right: 7px;
+                            font-size: 0.8em;
+                            margin-right: 0px;
                         }
                         .check-active{color: #00ab6b;}
                         .input-caption-alert{color: #F44336;}
@@ -626,12 +626,11 @@ Copyright (c) 2015 Puwadon Sricharoen
                     border: 0px;
                     font-family: @FontStylePrimary;
                     font-size: 0.9em;
-                    font-weight: bold;
                     padding: 2% 5%;
                     outline: 0;
                     background: #000000;
                     color: #FFFFFF;
-                    font-weight: bold;
+                    text-decoration: none;
 
                     &:hover{
                         background: #333333;
@@ -646,11 +645,15 @@ Copyright (c) 2015 Puwadon Sricharoen
                         margin-right: 10px;
                     }
                 }
+                .submit-btn-left{
+                    float: left;
+                    margin-top: 3%;
+                }
                 // END Money transfer form style
 
                 p{
                     font-size: 1em;
-                    line-height: 1.5em;
+                    line-height: 1.7em;
                     color: @PrimaryTextColor;
                     color: #333333;
                 }
@@ -671,53 +674,51 @@ Copyright (c) 2015 Puwadon Sricharoen
                     color: #000000;
                 }
 
-                    p.limit{
-                        color: #F44336;
-                        font-size: 0.9em;
-                    }
+                p.limit{
+                    color: #F44336;
+                    font-size: 0.9em;
+                }
 
-                    p.message{
-                        width: 100%;
-                        float: left;
-                        display: inline-block;
-                        font-style: italic;
-                    }
+                p.message{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    font-style: italic;
+                }
+                
+                // Cancel Transfer or Edit Address
+                .edit-btn{
+                    float: right;
+                    display: inline-block;
+                    padding: 1%;
+                    font-size: 0.8em;
+                    color: #CCCCCC;
+                    border: 1px solid #F7F7F7;
 
-                    p.edit{
-                        float: right;
-                        display: inline-block;
-                        padding: 0.5% 2%;
-                        font-size: 0.65em;
-                        background: #F0F0F0;
+                    &:hover{
+                        cursor: pointer;
+                        border: 1px solid #CCCCCC;
                         color: #AAAAAA;
-
-                        &:hover{
-                            cursor: pointer;
-                            background: #DDDDDD;
-                        }
-
-                        a{
-                            color: #AAAAAA;
-                            text-decoration: none;
-                        }
                     }
+                }
 
-                    strong{
-                        font-weight: bold;
-                    }
+                strong{
+                    font-weight: bold;
+                }
 
-                    .image{
-                        width: 100%;
-                        margin: 3% 0%;
+
+                .image{
+                    width: 100%;
+                    margin: 3% 0%;
+                    float: left;
+                    display: inline-block;
+
+                    img{
+                        width: 70%;
                         float: left;
                         display: inline-block;
-
-                        img{
-                            width: 70%;
-                            float: left;
-                            display: inline-block;
-                        }
                     }
+                }
 
                     .order-list{
                         width: 100%;
@@ -949,6 +950,17 @@ Copyright (c) 2015 Puwadon Sricharoen
                 .icon{color: #F7F7F7;}
                 font-weight: bold;
             }
+
+        .box-items-success{
+            .icon{
+                color: #00ab6b;
+            }
+            .box{
+                p.big{
+                    color: #00ab6b;
+                }
+            }
+        }
     }
 
     // Container Page Style
