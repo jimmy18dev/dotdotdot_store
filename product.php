@@ -74,7 +74,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 <?php include'header.php';?>
 
 <div class="container">
-	<div class="container-page">
+	<div class="container-pages">
 		<!-- Detail -->
 		<div class="panel-fix">
 			<h1><?php echo $product->title;?></h1>

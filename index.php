@@ -55,17 +55,18 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="order-in-progress">
+	<!-- <div class="order-in-progress">
 		<?php if($user->status == "pending"){?>
 		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
 		<?php }?>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
-	</div>
-	<div class="banner-photo">
-		<img src="image/banner.png" alt="">
+	</div> -->
+	<div class="filter">
+		<a href="index.php" class="filter-items <?php echo (empty($_GET['filter'])?'filter-active':'');?>">ทั้งหมด</a>
+		<?php $category->ListCategory(array('current' => $_GET['filter']));?>
 	</div>
 	<div class="container-page">
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id));?>
+		<?php $product->ListProduct(array('order_id' => $user->current_order_id,'filter' => $_GET['filter']));?>
 	</div>
 </div>
 <?php include'footer.php';?>

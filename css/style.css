@@ -83,8 +83,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .header {
   position: inherit;
-  width: 80%;
-  padding: 0% 10%;
+  width: 100%;
+  padding: 0%;
   height: 70px;
   float: left;
   display: inline-block;
@@ -101,7 +101,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .header .logo {
-  padding: 17px 0%;
+  padding: 17px 1%;
   height: 36px;
   font-size: 1.4em;
   color: #000000;
@@ -122,7 +122,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .cart {
   float: right;
-  padding: 30px 2%;
+  padding: 30px 1%;
   height: 10px;
   font-size: 1em;
   color: #000000;
@@ -146,8 +146,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .avatar {
   float: right;
-  padding: 18px 2%;
-  height: 34px;
+  padding: 22px 1%;
+  height: 26px;
   position: relative;
   border-left: 1px solid #F7F7F7;
   border-right: 1px solid #F7F7F7;
@@ -156,20 +156,19 @@ Copyright (c) 2015 Daniel Eden
   background: #FAFAFA;
 }
 .header .avatar img {
-  height: 34px;
-  width: 34px;
+  height: 26px;
+  width: 26px;
   border-radius: 50%;
   overflow: hidden;
-  border: 1px solid transparent;
   background: #EEEEEE;
 }
 .header .avatar .notifications {
   position: absolute;
-  top: 8px;
-  right: 22px;
-  font-size: 0.8em;
+  top: 16px;
+  right: 13px;
+  font-size: 0.7em;
   color: #FF0000;
-  border: 3px solid #FFFFFF;
+  border: 1px solid #FFFFFF;
   border-radius: 50%;
 }
 .header .avatar-active {
@@ -177,7 +176,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .login {
   float: right;
-  padding: 28px 2%;
+  padding: 28px 1%;
   height: 14px;
   font-size: 1em;
   color: #555555;
@@ -205,8 +204,8 @@ Copyright (c) 2015 Daniel Eden
   left: 0%;
 }
 .login-container {
-  width: 80%;
-  margin: 0% 10%;
+  width: 72%;
+  margin: 0% 14%;
   margin-top: 10%;
   float: left;
   display: inline-block;
@@ -355,25 +354,14 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .banner-photo {
-  width: 80%;
-  margin: 0% 10%;
-  float: left;
-  display: inline-block;
-}
-.container .banner-photo img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
 .container .order-in-progress {
   width: 100%;
   float: left;
   display: inline-block;
 }
 .container .order-in-progress .email-alert {
-  width: 80%;
-  padding: 1% 10%;
+  width: 72%;
+  padding: 1% 14%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
@@ -383,8 +371,8 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
 }
 .container .order-in-progress a.order-progress-items {
-  width: 80%;
-  margin: 0% 10%;
+  width: 72%;
+  margin: 0% 14%;
   padding: 1% 0%;
   float: left;
   display: inline-block;
@@ -406,44 +394,66 @@ Copyright (c) 2015 Daniel Eden
 .container .order-in-progress a.order-progress-items .status-shipping {
   color: #00ab6b;
 }
+.container .filter {
+  width: 72%;
+  padding: 1% 14%;
+  margin-top: 2%;
+  float: left;
+  display: inline-block;
+}
+.container .filter a.filter-items {
+  float: left;
+  display: inline-block;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  margin-right: 3%;
+  padding-bottom: 2%;
+  color: #CCCCCC;
+  font-size: 0.9em;
+}
+.container .filter a.filter-items:hover {
+  cursor: pointer;
+  color: #555555;
+}
+.container .filter a.filter-active {
+  color: #000000;
+  border-bottom: 1px solid #000000;
+}
+.container .filter a.filter-active:hover {
+  color: #555555;
+}
 .container .head-bar {
-  width: 80%;
-  padding: 2% 10%;
+  width: 72%;
+  padding: 2% 14%;
   float: left;
   display: inline-block;
   background: #F7F7F7;
+  text-align: center;
 }
 .container .head-bar h1 {
   font-size: 2em;
-  line-height: 1.5em;
+  line-height: 1.7em;
   color: #000000;
 }
 .container .head-bar p {
   font-size: 1em;
-  line-height: 1.5em;
+  line-height: 1.7em;
   color: #555555;
 }
 .container .head-bar:active {
   background: #F7F7F7;
 }
-.container .head-bar a {
-  float: right;
+.container .head-bar p.link {
+  line-height: 2em;
+  font-size: 0.8em;
+}
+.container .head-bar p.link a {
+  padding: 0% 1%;
   text-decoration: none;
-  font-size: 0.7em;
-  border: 1px solid #CCCCCC;
-  padding: 0px 4px;
-  line-height: 1.5em;
   color: #AAAAAA;
-  margin-left: 0.5%;
 }
-.container .head-bar a:hover {
-  border: 1px solid #555555;
-  color: #555555;
-}
-.container .head-bar a:active {
-  background: #555555;
-  color: #FFFFFF;
-  border: 1px solid #555555;
+.container .head-bar p.link a:hover {
+  text-decoration: underline;
 }
 .container .order-state {
   width: 70%;
@@ -909,8 +919,8 @@ Copyright (c) 2015 Daniel Eden
   color: #00ab6b;
 }
 .container .container-page {
-  width: 80%;
-  margin: 0% 10%;
+  width: 72%;
+  margin: 0% 14%;
   float: left;
   display: inline-block;
 }
@@ -987,7 +997,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   text-decoration: none;
-  color: #555555;
+  color: #777777;
   line-height: 1.5em;
   border-bottom: 1px solid #F7F7F7;
 }
@@ -1035,9 +1045,9 @@ Copyright (c) 2015 Daniel Eden
 .panel-fix {
   position: fixed;
   top: 71px;
-  right: 10%;
-  width: 34%;
-  padding: 3%;
+  right: 0%;
+  width: 42%;
+  padding: 4%;
   float: right;
   display: inline-block;
   background: #FFFFFF;
@@ -1302,8 +1312,8 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
 }
 .footer {
-  width: 80%;
-  padding: 5% 10%;
+  width: 72%;
+  padding: 5% 14%;
   margin-top: 3%;
   float: left;
   display: inline-block;
