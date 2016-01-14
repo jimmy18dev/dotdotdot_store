@@ -5,7 +5,7 @@ Copyright (c) 2015 Puwadon Sricharoen
 
 // IMPORT Other Lib
 @import "default";
-@page_width: 72%;
+@page_width: 64%;
 
 .header{
     position: inherit;
@@ -369,6 +369,176 @@ Copyright (c) 2015 Puwadon Sricharoen
                 color: #CCCCCC;
             }
             .status-transfersuccess, .status-shipping{color: #00ab6b;}
+        }
+    }
+
+    .tip{
+        width: @page_width - 4%;
+        padding: 2% ((100 - @page_width) / 2) + 2%;
+        float: left;
+        display: inline-block;
+        text-align: center;
+        line-height: 1.7em;
+        font-size: 0.9em;
+        background: #FAFAFA;
+
+        i{
+            margin: 2% 0%;
+            color: #EEEEEE;
+            font-size: 2em;
+        }
+    }
+
+    .bestseller{
+        margin-top: 4% !important;
+        h2{
+            font-size: 1.5em;
+        }
+    }
+
+    .banner-cover{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 2%;
+        float: left;
+        display: inline-block;
+
+        img{
+            width: 100%;
+            float: left;
+            display: inline-block;
+        }
+    }
+
+    .category{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 4%;
+        float: left;
+        display: inline-block;
+
+        h2{
+            font-size: 1.5em;
+        }
+
+        .category-items{
+            width: 31.33%;
+            margin-top: 3%;
+            margin-right: 3%;
+            float: left;
+            display: inline-block;
+
+            &:nth-child(3n){
+                margin-right: 0%;
+                float: right;
+            }
+
+            img{
+                width: 100%;
+                float: left;
+                display: inline-block;
+            }
+
+            figcaption{
+                width: 90%;
+                padding: 5%;
+                float: left;
+                display: inline-block;
+                text-align: center;
+                background: #000000;
+                color: #FFFFFF;
+            }
+        }
+    }
+
+    .about{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 2%;
+        float: left;
+        display: inline-block;
+
+        .about-image{
+            width: 31.33%;
+            float: left;
+            display: inline-block;
+
+            img{
+                width: 100%;
+                float: left;
+                display: inline-block;
+            }
+        }
+        .about-content{
+            width: 65.67%;
+            float: right;
+            display: inline-block;
+
+            h2{
+                font-size: 1.2em;
+                margin-bottom: 3%;
+            }
+            p{
+                font-size: 0.9em;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .contact-us{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 2%;
+        float: left;
+        display: inline-block;
+
+        .contact-us-image{
+            width: 65.67%;
+            float: left;
+            display: inline-block;
+
+            img{
+                width: 100%;
+                float: left;
+                display: inline-block;
+            }
+        }
+        .contact-us-content{
+            width: 31.33%;
+            float: right;
+            display: inline-block;
+
+            h2{
+                font-size: 1.2em;
+                margin-bottom: 3%;
+            }
+            p{
+                font-size: 0.9em;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .google-map{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 2%;
+        float: left;
+        display: inline-block;
+
+        h2{
+            font-size: 0.8em;
+            margin-bottom: 1%;
+            text-align: right;
+            color: #AAAAAA;
+        }
+
+        iframe{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            height: 500px;
+            background: #EEEEEE;
         }
     }
 

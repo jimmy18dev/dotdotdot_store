@@ -52,6 +52,11 @@ class ProductController extends ProductModel{
 		$this->RenderProduct('product','',$dataset);
 	}
 
+	public function ListProductBestSeller($param){
+		$dataset = parent::ListProductBestSellerProcess($param);
+		$this->RenderProduct('product','',$dataset);
+	}
+
 	public function ListSubProduct($param){
 		$dataset = parent::ListSubProductProcess($param);
 		$this->RenderProduct('subproduct','',$dataset);

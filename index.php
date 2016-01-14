@@ -55,18 +55,72 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<!-- <div class="order-in-progress">
-		<?php if($user->status == "pending"){?>
-		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
-		<?php }?>
-		<?php $order->OrderProgress(array('member_id' => $user->id));?>
-	</div> -->
-	<div class="filter">
-		<a href="index.php" class="filter-items <?php echo (empty($_GET['filter'])?'filter-active':'');?>">ทั้งหมด</a>
-		<?php $category->ListCategory(array('current' => $_GET['filter']));?>
+	<div class="tip"><i class="fa fa-quote-left"></i><br>
+		dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
+		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture
+		<br><i class="fa fa-quote-right"></i></div>
+	<div class="banner-cover">
+		<a href="store.php">
+			<img src="image/banner.png" alt="">
+		</a>
 	</div>
-	<div class="container-page">
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id,'filter' => $_GET['filter']));?>
+
+	<div class="category">
+		<h2>SHOP BY CATEGORY</h2>
+		<div class="category-items">
+			<figure>
+				<img src="http://dotdotdot.local/image/upload/square/c63db589e5da83fb7ed2f9f203b846f9.png" alt="">
+				<figcaption>NOTEBOOK</figcaption>
+			</figure>
+		</div>
+		<div class="category-items">
+			<figure>
+				<img src="http://dotdotdot.local/image/upload/square/1e56c72d7fe38225aad3c17eae2a5667.png" alt="">
+				<figcaption>WATCH</figcaption>
+			</figure>
+		</div>
+		<div class="category-items">
+			<figure>
+				<img src="http://dotdotdot.local/image/upload/square/a171023ed2cd7b2820468e85977717ab.jpg" alt="">
+				<figcaption>SPORT</figcaption>
+			</figure>
+		</div>
+	</div>
+
+	<div class="container-page bestseller">
+		<h2>BEST SELLER</h2>
+		<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
+	</div>
+
+	<div class="about">
+		<div class="about-image">
+			<img src="image/about.jpg" alt="">
+		</div>
+		<div class="about-content">
+			<h2>about us</h2>
+			<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art], is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p><br>
+			<p>was established to harness the skills art learnt in a variety of management roles that spanned the hotel, television, advertising, telecommunications,film, retail, creative and design management industries.</p><br>
+			<p>"i set up the company, admittedly with a bit of an attitude" says art. "i believe that small local companies can be just as good as multi-national agencies, if not better, if they really put their mind to it."</p><br>
+			<p>"apart from that, i just hold three mantras close to my heart: one, 'be the change you wish to see in the world' [mahatma ghandi]; two, 'whatever you are, be a good one' [abraham lincoln]; and three, 'keep things simple... the simpler the better' [the laws of simplicity]."</p>
+		</div>
+	</div>
+
+	<div class="contact-us">
+		<div class="contact-us-image">
+			<img src="image/map.jpg" alt="">
+		</div>
+		<div class="contact-us-content">
+			<h2>contact us</h2>
+			<p>Office:</p>
+			<p>Suite 139 Artitra 68 Sukhumvit 26 Klongton, Klongteoy, Bangkok 10110</p>
+			<p>Phone: 02-2616588</p>
+			<p>Fax: 02-2616589</p>
+		</div>
+	</div>
+
+	<div class="google-map">
+		<h2>dotdotdot company limited in google map</h2>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.639777259452!2d100.5692872!3d13.7239018!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b48444336b3a26c!2z4Lin4Li04Lih4Liy4Lil4LiyIOC4quC4p-C4teC4lw!5e0!3m2!1sth!2sth!4v1452759916290" allowfullscreen></iframe>
 	</div>
 </div>
 <?php include'footer.php';?>

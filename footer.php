@@ -1,34 +1,34 @@
 <footer class="footer">
 	<div class="footer-left">
-		<h1><i class="fa fa-lightbulb-o"></i>Design Concept</h1>
-		<p><strong>Nation</strong> is your blood. don't forget,don't blame,don't sale. be grateful to your land.</p>
-		<p><strong>RELIGION</strong> CREATE TO HELP NOT TO HARM. RELIGION CONFLICT IS STUPID. BELIEVE IN GOODNESS IS UNIVERSAL.</p>
-		<p><strong>KING</strong> WHOEVER SACRIFICE TO HELP OTHERS WITHOUT THINKING ABOUT THEMSELVES BENEFIT THAT ONE CAN BE KING OF…WE GOT ONE. HE IS OUR KING, HE IS THE KING OF THAILAND.</p>
+		<h1><i class="fa fa-lightbulb-o"></i>design concept</h1>
+		<p><strong>NATION</strong> is your blood. don't forget,don't blame,don't sale. be grateful to your land.</p>
+		<p><strong>RELIGION</strong> create to help not to harm. religion conflict is stupid. believe in goodness is universal.</p>
+		<p><strong>KING</strong> whoever sacrifice to help others without thinking about themselves benefit that one can be king of…we got one. he is our king, he is the king of thailand.</p>
 	</div>
 	<div class="footer-right">
 		<h1><i class="fa fa-star"></i>dotdotdot company limited, founded in 2004</h1>
-		<p><i class="fa fa-user"></i>m.l. Apichit Vudhijaya [art], is a Creative Marketing</p>
+		<p><i class="fa fa-user"></i>m.l.apichit vudhijaya [art], is a managing director</p>
 
 		<div class="contact-items">
 			<div class="icon"><i class="fa fa-facebook-official"></i></div>
 			<div class="detail">
-				<p>BECOME A FAN</p>
+				<p>become a fan</p>
 				<p class="mini"><a href="https://www.facebook.com/dotdotdotlimited/">facebook.com/dotdotdotlimited</a></p>
 			</div>
 		</div>
 		<div class="contact-items">
 			<div class="icon"><i class="fa fa-instagram"></i></div>
 			<div class="detail">
-				<p>FOLLOW US</p>
+				<p>follow us</p>
 				<p class="mini"><a href="https://www.instagram.com/dotdotdotlimited/">instagram.com/dotdotdotlimited</a></p>
 			</div>
 		</div>
 
-		<p class="company"><strong>Our companies:</strong><br>
-			<a href="">ARTHIT TARA</a> , 
-			<a href="">VIMALA SUITES</a> , 
-			<a href="">DOTDOTDOT LIMITED</a> , 
-			<a href="">DOTDOTDOT BANGKOK</a>
+		<p class="company"><strong>our companies:</strong><br>
+			<a href="">artihit tara</a> , 
+			<a href="">vimala suites</a> , 
+			<a href="">dotdotdot limited</a> , 
+			<a href="">dotdotdot bangkok</a>
 		</p>
 	</div>
 </footer>
