@@ -27,11 +27,13 @@ function ReadUpdate(){
 function GetProductInfo(){
     var href = 'api.product.php';
     var product_id = $('#product_id').val();
+    var product_type = $('#product_type').val();
     var subproduct_id = $('#subproduct_id').val();
 
-    if(subproduct_id){
-        product_id = subproduct_id
-    }
+    if(product_type == 'normal')
+        return false;
+    else if(subproduct_id)
+        product_id = subproduct_id;
 
     $.ajax({
         url         :href,

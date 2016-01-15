@@ -115,7 +115,6 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 					<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
 				<?php
 				// END Product type "normal"
-
 				}else{?>
 					<div class="mini-caption">เลือกสินค้า <i class="fa fa-caret-down"></i></div>
 					<div class="subproduct-list">
@@ -156,6 +155,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 
 		<!-- Product ID -->
 		<input type="hidden" id="product_id" value="<?php echo $product->id;?>">
+		<input type="hidden" id="product_type" value="<?php echo $product->type;?>">
 
 		<!-- Microdata -->
 		<input type="hidden" id="microdata-link" value="<?php echo $page_url;?>">
