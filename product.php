@@ -84,6 +84,16 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<?php if($user->type == "administrator"){?>
 				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
 				 <?php }?>
+
+				 <div class="microdata">
+				 	<div class="sizeinfo">
+				 		<h4>ขนาดของไซต์เสื้อ</h4>
+					 	<p>ตัวยาว 25 นิ้ว รอบอก 34 นิ้ว แขนยาว 22 นิ้ว</p>
+					 	<p>ตัวยาว 26 นิ้ว รอบอก 36 นิ้ว แขนยาว 23 นิ้ว</p>
+					 	<p>ตัวยาว 27 นิ้ว รอบอก 38 นิ้ว แขนยาว 24 นิ้ว</p>
+					 	<p>ตัวยาว 28 นิ้ว รอบอก 40 นิ้ว แขนยาว 25 นิ้ว</p>
+				 	</div>
+				 </div>
 			</div>
 			<div class="action">
 				<?php
@@ -113,7 +123,6 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 							<?php $product->ListSubProduct(array('product_id' => $product->id,'order_id' => $user->current_order_id));?>
 						</select>
 					</div>
-					<div class="subproduct-info" id="subproduct_info">n/a</div>
 					<?php if(MEMBER_ONLINE){?>
 						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
 					<?php }else{?>

@@ -47,10 +47,6 @@ function GetProductInfo(){
             console.log("Request Error");
         }
     }).done(function(data){
-        if(data.data.items.pd_description != ""){
-            $('#subproduct_info').html(data.data.items.pd_description);
-        }
-
         // items's empty.
         if(data.data.items.pd_quantity > 1){
             // have items in order
