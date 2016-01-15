@@ -1,5 +1,5 @@
 <header class="header <?php echo ($current_page == "index" || $current_page == "product"?"header-fix":"");?>">
-	<a href="index.php" class="header-items logo">dotdotdot limited <div class="mini">Born and made in thailand</div>
+	<a href="index.php" class="header-items logo">dotdotdot limited <div class="mini">born and made in thailand</div>
 		</a>
 
 	<?php if(MEMBER_ONLINE){?>

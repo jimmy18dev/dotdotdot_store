@@ -1,1 +1,1 @@
-<option value="<?php echo $var['pd_id'];?>"><?php echo $var['pd_title'];?> – ฿ <?php echo number_format($var['pd_price'],2);?><?php echo ($var['pd_quantity'] < 0?' สินค้าหมด!':'');?></option>
+<option value="<?php echo $var['pd_id'];?>"><?php echo $var['pd_title'];?> – <?php echo number_format($var['pd_price'],2);?> ฿.<?php echo ($var['pd_quantity'] < 0?' สินค้าหมด!':'');?></option>

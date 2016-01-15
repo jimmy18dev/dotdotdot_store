@@ -55,18 +55,30 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="order-in-progress">
-		<?php if($user->status == "pending"){?>
-		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
-		<?php }?>
-		<?php $order->OrderProgress(array('member_id' => $user->id));?>
+	<div class="head-bar">
+		<h1>dotdotdot showcase</h1>
+		<p>NATION is your blood. don't forget,don't blame,don't sale. be grateful to your land.</p>
 	</div>
-	<div class="filter">
-		<a href="index.php" class="filter-items <?php echo (empty($_GET['filter'])?'filter-active':'');?>">ทั้งหมด</a>
-		<?php $category->ListCategory(array('current' => $_GET['filter']));?>
-	</div>
-	<div class="container-page">
-		<?php $product->ListProduct(array('order_id' => $user->current_order_id,'filter' => $_GET['filter']));?>
+
+	<div class="showcase">
+		<div class="showcase-items">
+			<div class="showcase-items-image">
+				<img src="http://dotdotdot.local/image/upload/square/73ffd29685ff1e83eaa988c3072619c5.jpg" alt="">
+			</div>
+			<div class="showcase-items-content"><i class="fa fa-caret-left"></i>Notebook Stamp Foiled ขนาด A5 ปกแข็งไม่มีเส้น เราออกแบบด้วยความรักและความคิดสร้างสรรค์ เราหวังว่าทุกท่านจะเข้าใจในสิ่งที่เราอยากจะสื่อออกไป</div>
+		</div>
+		<div class="showcase-items">
+			<div class="showcase-items-image">
+				<img src="http://dotdotdot.local/image/upload/square/1e56c72d7fe38225aad3c17eae2a5667.png" alt="">
+			</div>
+			<div class="showcase-items-content"><i class="fa fa-caret-left"></i>Notebook Stamp Foiled ขนาด A5</div>
+		</div>
+		<div class="showcase-items">
+			<div class="showcase-items-image">
+				<img src="http://dotdotdot.local/image/upload/square/e6f5b37d95e5642f52266a211c6fd270.png" alt="">
+			</div>
+			<div class="showcase-items-content"><i class="fa fa-caret-left"></i>ทุกวันนี้เราเครียดกันเกินไปรึเปล่า เคยย้อนถามตัวเองหรือไม่ เรามีสินค้าที่จะช่วยคุณเตือนความจำไว้เสมอว่า "ไม่เครียด"</div>
+		</div>
 	</div>
 </div>
 <?php include'footer.php';?>

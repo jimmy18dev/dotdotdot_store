@@ -327,7 +327,7 @@ $current_page = "order";
 
 						<div class="summary-items summary-total">
 							<div class="summary-items-detail">ยอดเงินที่ต้องชำระ : </div>
-							<div class="summary-items-total">฿ <span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span></div>
+							<div class="summary-items-total"><span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span> ฿.</div>
 						</div>
 					</div>
 

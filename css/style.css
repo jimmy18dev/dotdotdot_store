@@ -85,13 +85,12 @@ Copyright (c) 2015 Daniel Eden
   position: inherit;
   width: 100%;
   padding: 0%;
-  height: 70px;
+  height: 60px;
   float: left;
   display: inline-block;
   background: rgba(255, 255, 255, 0.95);
   border-bottom: 1px solid #F7F7F7;
   z-index: 99;
-  overflow: hidden;
 }
 .header a {
   text-decoration: none;
@@ -101,30 +100,27 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .header .logo {
-  padding: 17px 1%;
-  height: 36px;
-  font-size: 1.4em;
-  color: #000000;
+  padding: 14px 1%;
+  height: 32px;
+  font-size: 1.2em;
+  color: #555555;
   letter-spacing: 0.05em;
 }
-.header .logo a {
-  color: #000000;
-}
-.header .logo a:active {
-  color: #555555;
+.header .logo:hover {
+  color: #111111;
 }
 .header .logo div {
   font-size: 0.5em;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.16em;
   color: #AAAAAA;
   text-align: right;
   line-height: 1.5em;
 }
 .header .cart {
   float: right;
-  padding: 30px 1%;
+  padding: 25px 1%;
   height: 10px;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #000000;
 }
 .header .cart:hover {
@@ -146,8 +142,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .avatar {
   float: right;
-  padding: 22px 1%;
-  height: 26px;
+  padding: 18px 1%;
+  height: 24px;
   position: relative;
   border-left: 1px solid #F7F7F7;
   border-right: 1px solid #F7F7F7;
@@ -156,8 +152,8 @@ Copyright (c) 2015 Daniel Eden
   background: #FAFAFA;
 }
 .header .avatar img {
-  height: 26px;
-  width: 26px;
+  height: 24px;
+  width: 24px;
   border-radius: 50%;
   overflow: hidden;
   background: #EEEEEE;
@@ -178,7 +174,7 @@ Copyright (c) 2015 Daniel Eden
   float: right;
   padding: 28px 1%;
   height: 14px;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #555555;
   border-left: 1px solid #F7F7F7;
   border-right: 1px solid #F7F7F7;
@@ -250,7 +246,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .login-container .form .status {
   width: 100%;
-  padding: 10% 0%;
+  padding: 5% 0%;
   float: left;
   display: inline-block;
   text-align: center;
@@ -266,7 +262,7 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   padding: 5% 0%;
   float: left;
-  background: #333333;
+  background: #000000;
   border: 0px;
   color: #FFFFFF;
   font-family: sans-serif, 'Open Sans';
@@ -350,7 +346,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container {
   width: 100%;
-  margin-top: 70px;
+  margin-top: 60px;
   float: left;
   display: inline-block;
 }
@@ -371,16 +367,16 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
 }
 .container .order-in-progress a.order-progress-items {
-  width: 64%;
+  width: 63%;
   margin: 0% 18%;
-  padding: 1% 0%;
+  padding: 0.5%;
   float: left;
   display: inline-block;
-  background: #FFFFFF;
   font-size: 0.9em;
-  border-bottom: 1px dotted #EEEEEE;
   color: #AAAAAA;
   text-decoration: none;
+  background: #FAFAFA;
+  margin-top: 0.2%;
 }
 .container .order-in-progress a.order-progress-items:hover {
   cursor: pointer;
@@ -394,20 +390,74 @@ Copyright (c) 2015 Daniel Eden
 .container .order-in-progress a.order-progress-items .status-shipping {
   color: #00ab6b;
 }
+.container .showcase {
+  width: 64%;
+  margin: 0% 18%;
+  float: left;
+  display: inline-block;
+}
+.container .showcase .showcase-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 7%;
+}
+.container .showcase .showcase-items .showcase-items-image {
+  width: 40%;
+  float: left;
+  display: inline-block;
+}
+.container .showcase .showcase-items .showcase-items-image img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .showcase .showcase-items .showcase-items-content {
+  width: 55%;
+  float: right;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 2em;
+}
+.container .showcase .showcase-items .showcase-items-content i {
+  margin-right: 10px;
+  color: #AAAAAA;
+}
 .container .tip {
   width: 60%;
-  padding: 2% 20%;
+  padding: 1% 20%;
   float: left;
   display: inline-block;
   text-align: center;
-  line-height: 1.7em;
-  font-size: 0.9em;
-  background: #FAFAFA;
 }
-.container .tip i {
-  margin: 2% 0%;
+.container .tip i.fa-quote-left,
+.container .tip i.fa-quote-right {
+  margin: 1.5% 0%;
   color: #EEEEEE;
-  font-size: 2em;
+  font-size: 1.5em;
+}
+.container .tip p {
+  line-height: 2em;
+  font-size: 0.9em;
+}
+.container .tip p.link {
+  margin-top: 2%;
+}
+.container .tip a {
+  text-decoration: none;
+  margin: 0 3px;
+  padding: 5px 10px;
+  color: #555555;
+  border: 1px solid #EEEEEE;
+}
+.container .tip a:hover {
+  border: 1px solid #000000;
+  color: #000000;
+}
+.container .tip a:active {
+  background: #000000;
+  border: 1px solid #000000;
+  color: #FFFFFF;
 }
 .container .bestseller {
   margin-top: 4% !important;
@@ -417,8 +467,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .banner-cover {
   width: 64%;
-  padding: 1% 18%;
-  margin-top: 2%;
+  padding: 0% 18%;
   float: left;
   display: inline-block;
 }
@@ -426,11 +475,33 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+  margin-bottom: 5%;
+}
+.container .banner-cover p {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.container .banner-cover p a.shop-btn {
+  text-decoration: none;
+  color: #000000;
+  border: 1px solid #000000;
+  padding: 10px 20px;
+  font-size: 0.9em;
+  margin: 0% 1%;
+}
+.container .banner-cover p a.shop-btn i {
+  margin-left: 10px;
+}
+.container .banner-cover p a.shop-btn:hover {
+  background: #000000;
+  color: #FFFFFF;
 }
 .container .category {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 4%;
+  margin-top: 5%;
   float: left;
   display: inline-block;
 }
@@ -443,6 +514,7 @@ Copyright (c) 2015 Daniel Eden
   margin-right: 3%;
   float: left;
   display: inline-block;
+  position: relative;
 }
 .container .category .category-items:nth-child(3n) {
   margin-right: 0%;
@@ -454,18 +526,36 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .category .category-items figcaption {
-  width: 90%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  /* align horizontal */
+  align-items: center;
+  /* align vertical */
   text-align: center;
-  background: #000000;
+  background: rgba(0, 0, 0, 0.65);
+  color: #DDDDDD;
+  font-weight: bold;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -webkit-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+}
+.container .category .category-items figcaption:hover {
+  cursor: pointer;
   color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.9);
 }
 .container .about {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 2%;
+  margin-top: 5%;
   float: left;
   display: inline-block;
 }
@@ -495,7 +585,7 @@ Copyright (c) 2015 Daniel Eden
 .container .contact-us {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 2%;
+  margin-top: 5%;
   float: left;
   display: inline-block;
 }
@@ -525,7 +615,7 @@ Copyright (c) 2015 Daniel Eden
 .container .google-map {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 2%;
+  margin-top: 5%;
   float: left;
   display: inline-block;
 }
@@ -572,19 +662,20 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .head-bar {
   width: 64%;
-  padding: 2% 18%;
+  padding: 3% 18%;
   float: left;
   display: inline-block;
   background: #F7F7F7;
   text-align: center;
 }
 .container .head-bar h1 {
-  font-size: 2em;
+  font-size: 2.5em;
   line-height: 1.7em;
   color: #000000;
+  font-weight: bold;
 }
 .container .head-bar p {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.7em;
   color: #555555;
 }
@@ -596,7 +687,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
 }
 .container .head-bar p.link a {
-  padding: 0% 1%;
+  padding: 0 3px;
   text-decoration: none;
   color: #AAAAAA;
 }
@@ -612,17 +703,17 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-state .state-items {
   width: 25%;
-  padding: 7% 0%;
+  padding: 5% 0%;
   float: left;
   display: inline-block;
   text-decoration: none;
   text-align: center;
-  color: #CCCCCC;
+  color: #DDDDDD;
   border-bottom: 1px solid #F7F7F7;
 }
 .container .order-state .state-items .icon {
-  font-size: 2.5em;
-  margin-bottom: 5%;
+  font-size: 1.5em;
+  margin-bottom: 10%;
 }
 .container .order-state .state-items .caption {
   font-size: 0.9em;
@@ -668,7 +759,7 @@ Copyright (c) 2015 Daniel Eden
   width: 7%;
   float: left;
   display: inline-block;
-  font-size: 2em;
+  font-size: 1.5em;
   line-height: 1.5em;
   color: #EEEEEE;
 }
@@ -677,7 +768,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-detail .box-items .box {
   width: 93%;
-  float: left;
+  float: right;
   display: inline-block;
 }
 .container .order-detail .box-items .box .bank {
@@ -711,10 +802,10 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .order-detail .box-items .box .bank .bank-items .bank-items-info p {
-  font-size: 1em;
+  font-size: 0.9em;
 }
 .container .order-detail .box-items .box .bank .bank-items .bank-items-info p.zoom {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 .container .order-detail .box-items .box .form {
   width: 100%;
@@ -727,7 +818,7 @@ Copyright (c) 2015 Daniel Eden
   margin-right: 3%;
   float: left;
   display: inline-block;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #555555;
   text-align: right;
   line-height: 1.7em;
@@ -748,7 +839,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   font-family: sans-serif, 'Open Sans';
-  font-size: 1em;
+  font-size: 0.9em;
   margin-bottom: 5%;
   border: 0px;
   border-bottom: 1px solid #EEEEEE;
@@ -792,7 +883,7 @@ Copyright (c) 2015 Daniel Eden
   border: 0px;
   font-family: sans-serif, 'Open Sans';
   font-size: 0.9em;
-  padding: 2%;
+  padding: 2% 4%;
   outline: 0;
   background: #000000;
   color: #FFFFFF;
@@ -824,7 +915,7 @@ Copyright (c) 2015 Daniel Eden
   margin-top: 3%;
 }
 .container .order-detail .box-items .box p {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.7em;
   color: #000000;
   color: #333333;
@@ -855,7 +946,7 @@ Copyright (c) 2015 Daniel Eden
 .container .order-detail .box-items .box .edit-btn {
   float: right;
   display: inline-block;
-  padding: 1%;
+  padding: 0.5% 1%;
   font-size: 0.8em;
   color: #CCCCCC;
   border: 1px solid #F7F7F7;
@@ -1006,7 +1097,7 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #000000;
 }
 .container .order-detail .box-items .box .order-list .summary-items .summary-items-detail {
@@ -1116,7 +1207,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .container-page .product-items .product-items-detail h2 {
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.5em;
   color: #777777;
   font-family: sans-serif, 'Open Sans';
@@ -1148,6 +1239,7 @@ Copyright (c) 2015 Daniel Eden
   color: #777777;
   line-height: 1.5em;
   border-bottom: 1px solid #F7F7F7;
+  font-size: 0.9em;
 }
 .container .container-page .order-items .status-box {
   float: right;
@@ -1162,12 +1254,16 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
   color: #AAAAAA;
 }
+.container .container-page .order-items p.time i {
+  margin-left: 5px;
+  color: #EEEEEE;
+}
 .container .container-page .order-items:hover {
   cursor: pointer;
   color: #000000;
 }
 .container .container-page .order-items:active {
-  font-weight: bold;
+  background: #FAFAFA;
 }
 .container .container-page .order-items-unread {
   font-weight: bold;
@@ -1192,13 +1288,24 @@ Copyright (c) 2015 Daniel Eden
 }
 .panel-fix {
   position: fixed;
-  top: 71px;
+  top: 61px;
   right: 0%;
   width: 42%;
   padding: 4%;
   float: right;
   display: inline-block;
   background: #FFFFFF;
+}
+.panel-fix a.back {
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #AAAAAA;
+}
+.panel-fix a.back i {
+  margin-right: 10px;
+}
+.panel-fix a.back:hover {
+  color: #000000;
 }
 .panel-fix h1 {
   width: 100%;
@@ -1207,7 +1314,8 @@ Copyright (c) 2015 Daniel Eden
   font-size: 2em;
   font-weight: bold;
   color: #000000;
-  margin-bottom: 2%;
+  margin: 2% 0%;
+  margin-top: 4%;
 }
 .panel-fix p {
   font-size: 1em;
@@ -1222,7 +1330,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 4% 0%;
   float: left;
   display: inline-block;
-  font-size: 1em;
+  font-size: 0.9em;
   color: #000000;
   margin-bottom: 5%;
   line-height: 1.7em;
@@ -1233,7 +1341,6 @@ Copyright (c) 2015 Daniel Eden
   background: #EEEEEE;
   font-size: 0.8em;
   padding: 2px 5px;
-  border-radius: 3px;
 }
 .panel-fix .description a.edit-btn:hover {
   cursor: pointer;
@@ -1254,12 +1361,12 @@ Copyright (c) 2015 Daniel Eden
   color: #CCCCCC;
 }
 .panel-fix .action .buy-btn {
-  padding: 2% 3%;
+  padding: 1% 4%;
   float: left;
   display: inline-block;
   background: #000000;
   color: #FFFFFF;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.5em;
   text-align: center;
   border: 1px solid #000000;
@@ -1267,6 +1374,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .panel-fix .action .buy-btn i {
   margin-left: 10px;
+  font-size: 0.8em;
 }
 .panel-fix .action .buy-btn:hover {
   cursor: pointer;
@@ -1295,11 +1403,11 @@ Copyright (c) 2015 Daniel Eden
   color: #AAAAAA;
 }
 .panel-fix .action .more {
-  padding: 2% 3%;
+  padding: 1% 2%;
   float: left;
   display: inline-block;
   color: #AAAAAA;
-  font-size: 1em;
+  font-size: 0.9em;
   line-height: 1.7em;
 }
 .panel-fix .action .subproduct-info {
@@ -1318,12 +1426,12 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .panel-fix .action .input-select {
-  padding: 2% 3%;
+  padding: 1% 2%;
   float: left;
   display: inline-block;
   -webkit-appearance: none;
   border-radius: 0px;
-  font-size: 0.95em;
+  font-size: 0.9em;
   font-family: sans-serif, 'Open Sans';
   line-height: 1.5em;
   border: 1px solid #AAAAAA;
@@ -1462,7 +1570,7 @@ Copyright (c) 2015 Daniel Eden
 .footer {
   width: 64%;
   padding: 5% 18%;
-  margin-top: 3%;
+  margin-top: 5%;
   float: left;
   display: inline-block;
   background: #000000;
@@ -1503,7 +1611,7 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.8em;
 }
 .footer h1 {
-  font-size: 1.2em;
+  font-size: 0.9em;
   line-height: 2em;
   color: #DDDDDD;
   letter-spacing: 0.05em;
@@ -1514,7 +1622,6 @@ Copyright (c) 2015 Daniel Eden
   line-height: 2em;
 }
 .footer strong {
-  font-weight: bold;
   color: #EEEEEE;
 }
 .footer a {
@@ -1526,7 +1633,7 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .footer i {
-  margin-right: 10px;
+  margin-right: 5px;
 }
 .footer p.company {
   line-height: 1.3em;

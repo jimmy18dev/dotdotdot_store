@@ -77,8 +77,9 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 	<div class="container-pages">
 		<!-- Detail -->
 		<div class="panel-fix">
+			<a href="store.php" class="back"><i class="fa fa-arrow-left"></i>ดูสินค้าอื่น</a>
 			<h1><?php echo $product->title;?></h1>
-			<p class="price">฿ <?php echo number_format($product->price,2);?></p>
+			<p class="price"><?php echo number_format($product->price,2);?> ฿.</p>
 			<div class="description"><?php echo nl2br($product->description);?>
 				<?php if($user->type == "administrator"){?>
 				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>

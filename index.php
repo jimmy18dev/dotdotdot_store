@@ -55,14 +55,23 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
+	<div class="order-in-progress">
+		<?php if($user->status == "pending"){?>
+		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
+		<?php }?>
+		<?php $order->OrderProgress(array('member_id' => $user->id));?>
+	</div>
 	<div class="tip"><i class="fa fa-quote-left"></i><br>
-		dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
-		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture
+		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
+		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
+		<p class="link"><a href="showcase.php">showcase</a> <a href="#">contact us</a> <a href="">live chat <i class="fa fa-comment-o"></i></a></p>
 		<br><i class="fa fa-quote-right"></i></div>
 	<div class="banner-cover">
 		<a href="store.php">
 			<img src="image/banner.png" alt="">
 		</a>
+
+		<p><a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a></p>
 	</div>
 
 	<div class="category">
@@ -119,7 +128,7 @@ $current_page = "index";
 	</div>
 
 	<div class="google-map">
-		<h2>dotdotdot company limited in google map</h2>
+		<h2>dotdotdot company limited in google map <i class="fa fa-map-o"></i></h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.639777259452!2d100.5692872!3d13.7239018!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b48444336b3a26c!2z4Lin4Li04Lih4Liy4Lil4LiyIOC4quC4p-C4teC4lw!5e0!3m2!1sth!2sth!4v1452759916290" allowfullscreen></iframe>
 	</div>
 </div>
