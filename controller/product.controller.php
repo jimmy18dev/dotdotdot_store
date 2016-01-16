@@ -1,6 +1,8 @@
 <?php
 class ProductController extends ProductModel{
 	public $id;
+	public $category_id;
+	public $category_title;
 	public $title;
 	public $description;
 	public $price;
@@ -27,6 +29,8 @@ class ProductController extends ProductModel{
         $data = parent::GetProductProcess($param);
 
         $this->id = $data['pd_id'];
+        $this->category_id = $data['ca_id'];
+        $this->category_title = $data['ca_title'];
         $this->title = $data['pd_title'];
         $this->description = $data['pd_description'];
         $this->quantity = $data['pd_quantity'];

@@ -1,1 +1,1 @@
-<a href="index.php?filter=<?php echo $var['ca_id'];?>" class="filter-items <?php echo ($current == $var['ca_id']?'filter-active':'');?>"><?php echo $var['ca_title'];?></a>
+<a href="store.php?filter=<?php echo $var['ca_id'];?>" class="filter-items <?php echo ($current == $var['ca_id']?'filter-active':'');?>"><?php echo $var['ca_title'];?></a>

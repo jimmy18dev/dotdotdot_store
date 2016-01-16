@@ -64,7 +64,7 @@ $current_page = "index";
 	<div class="tip"><i class="fa fa-quote-left"></i><br>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
-		<p class="link"><a href="showcase.php">showcase</a> <a href="#">contact us</a> <a href="">live chat <i class="fa fa-comment-o"></i></a></p>
+		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="">live chat <i class="fa fa-comment-o"></i></a></p>
 		<br><i class="fa fa-quote-right"></i></div>
 	<div class="banner-cover">
 		<a href="store.php">
@@ -74,34 +74,17 @@ $current_page = "index";
 		<p><a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a></p>
 	</div>
 
-	<div class="category">
+	<div class="category" id="category">
 		<h2>SHOP BY CATEGORY</h2>
-		<div class="category-items">
-			<figure>
-				<img src="http://dotdotdot.local/image/upload/square/c63db589e5da83fb7ed2f9f203b846f9.png" alt="">
-				<figcaption>NOTEBOOK</figcaption>
-			</figure>
-		</div>
-		<div class="category-items">
-			<figure>
-				<img src="http://dotdotdot.local/image/upload/square/1e56c72d7fe38225aad3c17eae2a5667.png" alt="">
-				<figcaption>WATCH</figcaption>
-			</figure>
-		</div>
-		<div class="category-items">
-			<figure>
-				<img src="http://dotdotdot.local/image/upload/square/a171023ed2cd7b2820468e85977717ab.jpg" alt="">
-				<figcaption>SPORT</figcaption>
-			</figure>
-		</div>
+		<?php $category->ListCategory(array('mode' => 'index'));?>
 	</div>
 
-	<div class="container-page bestseller">
+	<div class="container-page bestseller" id="bestseller">
 		<h2>BEST SELLER</h2>
 		<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
 	</div>
 
-	<div class="about">
+	<div class="about" id="about">
 		<div class="about-image">
 			<img src="image/about.jpg" alt="">
 		</div>
@@ -114,7 +97,7 @@ $current_page = "index";
 		</div>
 	</div>
 
-	<div class="contact-us">
+	<div class="contact-us" id="contact-us">
 		<div class="contact-us-image">
 			<img src="image/map.jpg" alt="">
 		</div>
