@@ -24,7 +24,7 @@
 		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i>
 		</span>
 		<?php if($user->current_order_payments > 0){?>
-		<span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments,2);?> ฿</span></span>
+		<span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments,2);?> ฿.</span></span>
 		<?php }else{?>
 		<span class="payments"><span id="payments">ตะกร้า</span></span>
 		<?php }?>
