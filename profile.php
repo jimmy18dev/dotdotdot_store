@@ -47,10 +47,10 @@ $current_page = "profile";
 <?php include'header.php';?>
 
 <div class="container container-fix">
-	<div class="head-bar">
+	<div class="head-bar" id="start">
 		<h1><?php echo $user->name;?></h1>
 		<p>สมัครสมาชิกเมื่อ <?php echo $user->create_time_thai_format;?></p>
-		<p class="link"><a href="profile_edit.php">แก้ไข</a> / <a href="logout.php" class="signout">ออกจากระบบ</a></p>
+		<p class="link"><a href="profile_edit.php#start">แก้ไข</a> / <a href="logout.php" class="signout">ออกจากระบบ</a></p>
 	</div>
 	<div class="container-page">
 		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>

@@ -59,7 +59,7 @@ $current_page = "order";
 <?php include'header.php';?>
 
 <div class="container container-fix">
-	<div class="head-bar">
+	<div class="head-bar" id="start">
 		<h1>รายการสั่งซื้อที่ <?php echo $order->id;?></h1>
 		<p>Step <?php echo $order->state;?> of 6 – <?php echo $order->status_text;?></p>
 	</div>
@@ -348,7 +348,7 @@ $current_page = "order";
 				<div class="box">
 					<p class="big">ตะกร้าว่างเปล่า!</p>
 					<p>กรุณาเลือกสินค้าที่คุณต้องการก่อนนะคะ...</p>
-					<a href="index.php" class="submit-btn submit-btn-left">เลือกสินค้า</a>
+					<a href="store.php" class="submit-btn submit-btn-left">ดูสินค้าทั้งหมด</a>
 				</div>
 			</div>
 			<?php }?>

@@ -1598,7 +1598,8 @@ Copyright (c) 2015 Daniel Eden
   font-size: 2em;
 }
 .footer .contact-items .detail {
-  width: 93%;
+  width: 91%;
+  margin-left: 2%;
   float: left;
   display: inline-block;
   line-height: 1em;

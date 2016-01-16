@@ -44,10 +44,10 @@ if(!empty($user->current_order_id)){
 <?php include'header.php';?>
 
 <div class="container container-fix">
-	<div class="head-bar">
+	<div class="head-bar" id="start">
 		<h1><?php echo $user->name;?></h1>
 		<p>ข้อมูลส่วนตัว 
-			<a href="profile_change_password.php">เปลี่ยนรหัส</a>
+			<a href="profile_change_password.php#start">เปลี่ยนรหัส</a>
 		</p>
 	</div>
 	<div class="container-page">

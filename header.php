@@ -3,7 +3,7 @@
 		</a>
 
 	<?php if(MEMBER_ONLINE){?>
-	<a href="profile.php">
+	<a href="profile.php#start">
 	<div class="header-items avatar <?php echo ($current_page == 'profile'?'avatar-active':'');?>">
 		<?php if(empty($user->facebook_id)){?>
 		<img src="image/avatar.png" alt="">
