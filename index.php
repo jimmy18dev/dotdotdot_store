@@ -64,7 +64,7 @@ $current_page = "index";
 	<div class="tip"><i class="fa fa-quote-left"></i><br>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
-		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="">live chat <i class="fa fa-comment-o"></i></a></p>
+		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a></p>
 		<br><i class="fa fa-quote-right"></i></div>
 	<div class="banner-cover">
 		<a href="store.php">

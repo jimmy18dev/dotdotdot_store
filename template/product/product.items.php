@@ -9,7 +9,7 @@
 		</a>
 	</div>
 	<div class="product-items-detail">
-		<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'].' Read:'.$var['pd_read'];?></a></h2>
+		<h2><a href="product-<?php echo $var['pd_id'];?>.html" target="_parent"><?php echo $var['pd_title'];?></a></h2>
 		<?php if($var['pd_quantity'] == 0 && $var['pd_type'] == "normal"){?>
 		<p class="empty">สินค้าหมด</p>
 		<?php }else{?>

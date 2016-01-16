@@ -215,7 +215,7 @@ class OrderModel extends Database{
 		parent::query('UPDATE dd_order SET od_paying_time = :paying_time, od_expire_time = :expire_time WHERE od_id = :order_id');
 
 		parent::bind(':paying_time',	date('Y-m-d H:i:s'));
-		parent::bind(':expire_time',	date('Y-m-d H:i:s',time() + 86400)); // Order's Expire within 1 day.
+		parent::bind(':expire_time',	date('Y-m-d H:i:s',time() + (86400 * 3))); // Order's Expire within 3 day.
 		parent::bind(':order_id', 		$param['order_id']);
 		parent::execute();
 	}
