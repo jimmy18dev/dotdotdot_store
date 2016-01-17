@@ -142,7 +142,6 @@ class OrderController extends OrderModel{
 		$current_order = parent::CheckingAlreadyOrderProcess(array('member_id' => $param['member_id']));
 		
 		if(empty($current_order)){
-
             // Create empty order and set to current order 
 			$order_id = parent::CreateOrderProcess($param);
 			$param['order_id'] = $order_id;
@@ -151,8 +150,9 @@ class OrderController extends OrderModel{
 			$param['order_id'] = $current_order;
 		}
 
-		if(parent::CheckingAlreadyItemInOrderProcess($param)){
-
+        $quantity = parent::CheckProductQuantityProcess($param);
+        
+		if(parent::CheckingAlreadyItemInOrderProcess($param) && $quantity > 0){
 			// Add product items to Order
 			$items_id = parent::AddItemsInOrderProcess($param);
 

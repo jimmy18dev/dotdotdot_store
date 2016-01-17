@@ -110,7 +110,7 @@ $current_page = "index";
 		</div>
 	</div>
 
-	<div class="google-map">
+	<div class="google-map" id="map">
 		<h2>dotdotdot company limited in google map <i class="fa fa-map-o"></i></h2>
 		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.639777259452!2d100.5692872!3d13.7239018!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b48444336b3a26c!2z4Lin4Li04Lih4Liy4Lil4LiyIOC4quC4p-C4teC4lw!5e0!3m2!1sth!2sth!4v1452759916290" allowfullscreen></iframe>
 	</div>

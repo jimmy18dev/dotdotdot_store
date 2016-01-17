@@ -347,16 +347,16 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
 
         a.order-progress-items{
-            width: @page_width - 1%;
+            width: @page_width - 2%;
             margin: 0% ((100 - @page_width) / 2);
-            padding: 0.5%;
+            padding: 1%;
             float: left;
             display: inline-block;
             font-size: 0.9em;
             color: #AAAAAA;
             text-decoration: none;
             background: #FAFAFA;
-            margin-top: 0.2%;
+            margin-top: 0.5%;
 
             &:hover{
                 cursor: pointer;
@@ -371,6 +371,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
     }
 
+    // Showcase page style
     .showcase{
         width: @page_width;
         margin: 0% ((100 - @page_width) / 2);
@@ -451,7 +452,8 @@ Copyright (c) 2015 Puwadon Sricharoen
     }
 
     .bestseller{
-        margin-top: 4% !important;
+        padding-top: 7%;
+
         h2{
             font-size: @topic_size;
         }
@@ -499,7 +501,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     .category{
         width: @page_width;
         padding: 1% ((100 - @page_width) / 2);
-        margin-top: 5%;
+        padding-top: 7%;
         float: left;
         display: inline-block;
 
@@ -555,7 +557,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     .about{
         width: @page_width;
         padding: 1% ((100 - @page_width) / 2);
-        margin-top: 5%;
+        padding-top: 7%;
         float: left;
         display: inline-block;
 
@@ -589,7 +591,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     .contact-us{
         width: @page_width;
         padding: 1% ((100 - @page_width) / 2);
-        margin-top: 5%;
+        padding-top: 7%;
         float: left;
         display: inline-block;
 
@@ -623,7 +625,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     .google-map{
         width: @page_width;
         padding: 1% ((100 - @page_width) / 2);
-        margin-top: 5%;
+        padding-top: 7%;
         float: left;
         display: inline-block;
 
@@ -786,6 +788,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         .box-items{
             width: 100%;
             padding: 8% 0%;
+            padding-top: 10%;
             float: left;
             display: inline-block;
 
@@ -1424,7 +1427,7 @@ Copyright (c) 2015 Puwadon Sricharoen
     display: inline-block;
     background: #FFFFFF;
 
-    a.back{
+    a.back-link,a.category-link{
         font-size: 0.9em;
         text-decoration: none;
         color: #AAAAAA;
@@ -1435,6 +1438,10 @@ Copyright (c) 2015 Puwadon Sricharoen
         &:hover{
             color: #000000;
         }
+    }
+
+    a.category-link{
+        float: right;
     }
 
     h1{

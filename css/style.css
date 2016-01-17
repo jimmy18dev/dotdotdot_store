@@ -367,16 +367,16 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
 }
 .container .order-in-progress a.order-progress-items {
-  width: 63%;
+  width: 62%;
   margin: 0% 18%;
-  padding: 0.5%;
+  padding: 1%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
   color: #AAAAAA;
   text-decoration: none;
   background: #FAFAFA;
-  margin-top: 0.2%;
+  margin-top: 0.5%;
 }
 .container .order-in-progress a.order-progress-items:hover {
   cursor: pointer;
@@ -460,7 +460,7 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
 }
 .container .bestseller {
-  margin-top: 4% !important;
+  padding-top: 7%;
 }
 .container .bestseller h2 {
   font-size: 1.5em;
@@ -501,7 +501,7 @@ Copyright (c) 2015 Daniel Eden
 .container .category {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 5%;
+  padding-top: 7%;
   float: left;
   display: inline-block;
 }
@@ -555,7 +555,7 @@ Copyright (c) 2015 Daniel Eden
 .container .about {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 5%;
+  padding-top: 7%;
   float: left;
   display: inline-block;
 }
@@ -585,7 +585,7 @@ Copyright (c) 2015 Daniel Eden
 .container .contact-us {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 5%;
+  padding-top: 7%;
   float: left;
   display: inline-block;
 }
@@ -615,7 +615,7 @@ Copyright (c) 2015 Daniel Eden
 .container .google-map {
   width: 64%;
   padding: 1% 18%;
-  margin-top: 5%;
+  padding-top: 7%;
   float: left;
   display: inline-block;
 }
@@ -752,6 +752,7 @@ Copyright (c) 2015 Daniel Eden
 .container .order-detail .box-items {
   width: 100%;
   padding: 8% 0%;
+  padding-top: 10%;
   float: left;
   display: inline-block;
 }
@@ -1296,16 +1297,22 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
 }
-.panel-fix a.back {
+.panel-fix a.back-link,
+.panel-fix a.category-link {
   font-size: 0.9em;
   text-decoration: none;
   color: #AAAAAA;
 }
-.panel-fix a.back i {
+.panel-fix a.back-link i,
+.panel-fix a.category-link i {
   margin-right: 10px;
 }
-.panel-fix a.back:hover {
+.panel-fix a.back-link:hover,
+.panel-fix a.category-link:hover {
   color: #000000;
+}
+.panel-fix a.category-link {
+  float: right;
 }
 .panel-fix h1 {
   width: 100%;

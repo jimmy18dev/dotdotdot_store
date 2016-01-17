@@ -8,9 +8,11 @@ else if($var['od_status'] == "Paying"){
 }
 else if($var['od_status'] == "TransferRequest"){
 	$status = 'ยืนยันโอนเงิน';
+	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferAgain"){
 	$status = 'ยืนยันอีกครั้ง!';
+	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferSuccess"){
 	$status = 'รอส่งของ';
@@ -20,6 +22,7 @@ else if($var['od_status'] == "Shipping"){
 }
 else if($var['od_status'] == "Complete"){
 	$status = 'เรียบร้อย';
+	$hashtag = '#start';
 }
 else if($var['od_status'] == "Cancel"){
 	$status = 'ยกเลิก';
@@ -40,6 +43,6 @@ else{
 }
 ?>
 
-<a href="order-<?php echo $var['od_id'];?>.html" class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">รายการที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> ฿.<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
+<a href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>" class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">รายการที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> ฿.<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
 	<p class="time"><?php echo $var['order_update_time_facebook_format'];?><i class="fa fa-clock-o"></i></p>
 </a>

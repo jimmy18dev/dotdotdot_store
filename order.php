@@ -120,15 +120,15 @@ $current_page = "order";
 
 			<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 			<!-- Money Transfer dialog -->
-			<div class="box-items" id="complete">
+			<div class="box-items" id="money-transfer">
 				<div class="icon"><i class="fa fa-info-circle"></i></div>
 				<div class="box">
 					<?php if($order->status == "Paying"){?>
 					<p class="big">ส่งหลักฐานโอนเงิน</p>
-					<p>กรุณาตรวจสอบความถูกต้องก่อน "ส่งหลักฐาน" นะคะ</p>
+					<p>กรุณาตรวจสอบความถูกต้องก่อน "ส่งหลักฐาน" นะคะ <a href="#bank">[บัญชีโอนเงิน]</a></p>
 					<?php }else if($order->status == "TransferAgain"){?>
 					<p class="big">ส่งหลักฐานโอนเงินอีกครั้ง!</p>
-					<p>เราไม่พบยอดโอนเงินที่คุณส่งหลักฐาน กรุณาตรวจสอบอีกครั้งค่ะ</p>
+					<p>เราไม่พบยอดโอนเงินที่คุณส่งหลักฐาน กรุณาตรวจสอบอีกครั้งค่ะ <a href="#bank">[บัญชีโอนเงิน]</a></p>
 					<?php }?>
 
 					<form class="form" id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
@@ -267,11 +267,11 @@ $current_page = "order";
 			
 			<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 			<!-- Bank info for Money Transfer -->
-			<div class="box-items">
+			<div class="box-items" id="bank">
 				<div class="icon"><i class="fa fa-barcode"></i></div>
 				<div class="box">
 					<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
-					<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>)</p>
+					<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>) <a href="#money-transfer">[ยันยืนการโอน]</a></p>
 
 					<div class="bank">
 						<?php $bank->ListBank(array('mode' => 'items'));?>

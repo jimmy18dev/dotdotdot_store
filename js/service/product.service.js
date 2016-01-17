@@ -50,19 +50,19 @@ function GetProductInfo(){
         }
     }).done(function(data){
         // items's empty.
-        if(data.data.items.pd_quantity > 1){
+        if(data.data.items.pd_quantity > 0){
             // have items in order
             if(data.data.items.odt_id != null){
-                console.log(product_id+' already in order! '+data.data.items.odt_id);
+                console.log(product_id+' Already in Order! '+data.data.items.odt_id);
                 $('#buy-button').html('ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>').addClass('buy-btn-active');
             }
             else{
-                console.log(product_id+' i have this product.');
+                console.log(product_id+' We have this Product.');
                 $('#buy-button').html('ใส่ตะกร้า<i class="fa fa-cart-plus">').removeClass('buy-btn-disable buy-btn-active');
             }
         }
         else{
-            console.log(product_id+' product empty!');
+            console.log(product_id+' Product Empty!');
             $('#buy-button').html('สินค้าหมด').addClass('buy-btn-disable');
         }
 

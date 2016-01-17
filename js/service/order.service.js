@@ -29,16 +29,16 @@ function AddCart(product_id){
     }).done(function(data){
         console.log('Return: '+data.message+','+data.return);
 
-        // Add animation
-        $('#buy-button').html('ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>').addClass('buy-btn-active');
-        
         if(data.message){
+            // Add animation
+            $('#buy-button').html('ชำระเงินตอนนี้<i class="fa fa-arrow-right"></i>').addClass('buy-btn-active');
             MyCurrentOrder();
         }
         else{
+            // $('#buy-button').html('สินค้าหมด!');
             window.location='order-'+data.return+'.html';
         }
-
+        
     }).error();
 }
 
@@ -74,7 +74,6 @@ function EditItemInOrder(order_id,product_id){
 
             // Include alert.app.js
             $paying_btn.hide();
-            // ToggleAlert('<i class="fa fa-quote-left"></i>สินค้าไม่พอ!<i class="fa fa-quote-right"></i>');
         }
     }).error();
 }

@@ -274,7 +274,7 @@ class OrderModel extends Database{
 
 	public function CheckProductQuantityProcess($param){
 		parent::query('SELECT pd_quantity FROM dd_product WHERE pd_id = :product_id');
-		parent::bind(':product_id', 		$param['product_id']);
+		parent::bind(':product_id', 	$param['product_id']);
 		parent::execute();
 		$data = parent::single();
 		return $data['pd_quantity'];
