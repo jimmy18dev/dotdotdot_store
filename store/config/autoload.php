@@ -14,7 +14,7 @@ date_default_timezone_set('Asia/Bangkok');
 
 error_reporting(E_ALL ^ E_NOTICE);
 
-include'config.php';
+include'../config/config.php';
 
 // PHPMailer include
 require_once'plugin/mailer/PHPMailerAutoload.php';

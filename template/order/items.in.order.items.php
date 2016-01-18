@@ -16,7 +16,7 @@ $order_amount = $var['product_amount'];
 $product_quantity = $var['product_quantity'];
 ?>
 
-<div class="items-in-order" id="items-in-order-<?php echo $var['product_id'];?>">
+<div class="items-in-order <?php echo($product_quantity == 0?'items-in-order-empty':'');?>" id="items-in-order-<?php echo $var['product_id'];?>">
 	<div class="items-in-order-thumbnail">
 		<a href="product-<?php echo $link;?>.html">
 		<img src="image/upload/thumbnail/<?php echo $image;?>" alt="">
@@ -28,8 +28,9 @@ $product_quantity = $var['product_quantity'];
 		<p class="detail-description"><?php echo number_format($var['product_price'],2);?> ฿. <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
 	</div>
 	<div class="items-in-order-quantity">
-
-		<?php if($order_status != "Shopping"){?>
+		<?php if($product_quantity == 0){?>
+		<div class="value">หมด!</div>
+		<?php }else if($order_status != "Shopping"){?>
 		<div class="value"><?php echo $order_amount;?></div>
 		<?php }else{?>
 		<select class="input-select" id="product-quantity-<?php echo $reference_id;?>" onchange="javascript:ChangeQuantity(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">

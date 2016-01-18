@@ -1,10 +1,11 @@
 $(document).ready(function(){
     $('.animated').autosize({append: "\n"});
 
-    $panel   = $('#progress-panel');
-    $bar     = $('#progress-bar');
-    $icon    = $('#progress-icon');
-    $message = $('#progress-message');
+    $panel      = $('#progress-panel');
+    $bar        = $('#progress-bar');
+    $icon       = $('#progress-icon');
+    $message    = $('#progress-message');
+    var order_id   = $('#order_id').val();
 
     $('#MoneyTransfer').ajaxForm({
         beforeSubmit: function(){

@@ -2,10 +2,11 @@
 // icon display
 if($var['od_status'] == "Paying"){
 	$status = 'รอโอนเงิน';
+	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferRequest"){
 	$status = 'โอนเงินแล้ว';
-	$hashtag = '#money-transfer';
+	$hashtag = '#info-transfer';
 }
 else if($var['od_status'] == "TransferAgain"){
 	$status = 'ส่งอีกครั้ง!';
@@ -16,6 +17,7 @@ else if($var['od_status'] == "TransferSuccess"){
 }
 else if($var['od_status'] == "Shipping"){
 	$status = 'จัดส่งแล้ว';
+	$hashtag = '#shipping';
 }
 else{
 	// Expire

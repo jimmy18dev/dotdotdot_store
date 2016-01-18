@@ -79,7 +79,6 @@ class OrderController extends OrderModel{
         // Update Shipping Type (EMS,Register)
         if($param['order_action'] == 'Paying'){
             if($this->CheckingAllQuantityInOrder($param)){
-                
                 // Subtraction of Product
                 $param['action'] = 'subtraction';
                 $this->UpdateProductQuantity($param);
@@ -150,7 +149,7 @@ class OrderController extends OrderModel{
 			$param['order_id'] = $current_order;
 		}
 
-		if(parent::CheckingAlreadyItemInOrderProcess($param)){
+		if(parent::CheckingAlreadyItemInOrderProcess($param) && parent::CheckProductQuantityProcess($param) > 0){
 
 			// Add product items to Order
 			$items_id = parent::AddItemsInOrderProcess($param);
@@ -415,12 +414,11 @@ class OrderController extends OrderModel{
 		$dataset = parent::ListItemsInOrderProcess($param);
 
 		foreach ($dataset as $var){
-    		$unit = parent::CheckProductQuantityProcess(array('product_id' => $var['odt_product_id']));
+    		$unit = parent::CheckProductQuantityProcess(array('product_id' => $var['product_id']));
 
-    		if($var['odt_amount'] <= $unit){
+    		if($var['product_amount'] <= $unit){
     			$checking = true;
-    		}
-    		else{
+    		}else{
     			$checking = false;
     			break;
     		}

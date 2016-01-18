@@ -196,8 +196,6 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 	</div>
 </div>
 
-<div id="alert">
-	<div class="alert-message" id="alert-message"><i class="fa fa-circle-o-notch fa-spin"></i>รอสักครู่ ...</div>
-</div>
+<?php include'template/loading.dialog.box.php';?>
 </body>
 </html>

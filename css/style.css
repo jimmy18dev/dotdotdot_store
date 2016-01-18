@@ -172,8 +172,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .header .login {
   float: right;
-  padding: 28px 1%;
-  height: 14px;
+  padding: 25px 1%;
+  height: 10px;
   font-size: 0.9em;
   color: #555555;
   border-left: 1px solid #F7F7F7;
@@ -1015,13 +1015,15 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   line-height: 1.5em;
-  border-top: 1px solid #FAFAFA;
-  font-size: 1em;
+  font-size: 0.9em;
+  margin-top: 1%;
 }
 .container .order-detail .box-items .box .order-list .items-in-order .items-in-order-thumbnail {
   width: 12%;
+  min-height: 30px;
   float: left;
   display: inline-block;
+  background: #FAFAFA;
 }
 .container .order-detail .box-items .box .order-list .items-in-order .items-in-order-thumbnail img {
   width: 100%;
@@ -1033,7 +1035,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-detail .box-items .box .order-list .items-in-order .items-in-order-detail {
   width: 57%;
-  padding: 2% 3%;
+  padding: 0% 3%;
   float: left;
   display: inline-block;
 }
@@ -1090,17 +1092,18 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-detail .box-items .box .order-list .items-in-order .items-in-order-quantity {
   width: 10%;
-  padding: 3% 0%;
   float: left;
   display: inline-block;
   text-align: center;
 }
 .container .order-detail .box-items .box .order-list .items-in-order .items-in-order-total {
   width: 15%;
-  padding: 3% 0%;
   float: left;
   display: inline-block;
   text-align: right;
+}
+.container .order-detail .box-items .box .order-list .items-in-order-empty {
+  opacity: 0.4;
 }
 .container .order-detail .box-items .box .order-list .summary-items {
   width: 100%;
@@ -1108,11 +1111,11 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   font-size: 0.9em;
   color: #000000;
+  margin-top: 5%;
 }
 .container .order-detail .box-items .box .order-list .summary-items .summary-items-detail {
   width: 65%;
   margin-left: 15%;
-  padding: 4% 0%;
   float: left;
   display: inline-block;
 }
@@ -1139,12 +1142,12 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-detail .box-items .box .order-list .summary-items .summary-items-total {
   width: 20%;
-  padding: 4% 0%;
   float: left;
   display: inline-block;
   text-align: right;
 }
 .container .order-detail .box-items .box .order-list .summary-total {
+  padding-top: 5%;
   font-size: 1.2em;
   border-top: 5px solid #F7F7F7;
 }

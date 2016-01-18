@@ -130,13 +130,13 @@ if($_POST['calling'] != ''){
 						}
 
 						// Save order activity log
-						$order->CreateOrderActivity(array(
-							'token' 		=> $user->token,
-							'member_id' 	=> $user->id,
-							'order_id' 		=> $order->id,
-							'order_action' 	=> $_POST['order_action'],
-							'description' 	=> '',
-						));
+						// $order->CreateOrderActivity(array(
+						// 	'token' 		=> $user->token,
+						// 	'member_id' 	=> $user->id,
+						// 	'order_id' 		=> $order->id,
+						// 	'order_action' 	=> $_POST['order_action'],
+						// 	'description' 	=> '',
+						// ));
 
 						$api->successMessage('Order '.$_POST['order_id'].' is '.$_POST['order_action'].' Successed!','','');
 					}

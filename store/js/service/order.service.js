@@ -1,5 +1,7 @@
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
+    $('#dialog-message').html('กำลังดำเนินการ...');
+    $('#dialog-box').fadeIn(300);
 
     console.log(order_id+order_action);
 
@@ -27,6 +29,8 @@ function OrderProcess(order_id,order_action){
 
 function EmsUpdate(order_id){
     var href = 'api.order.php';
+    $('#dialog-message').html('กำลังดำเนินการ...');
+    $('#dialog-box').fadeIn(300);
 
     var ems = $('#ems').val();
 

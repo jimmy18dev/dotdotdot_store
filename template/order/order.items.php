@@ -5,10 +5,11 @@ if($var['od_status'] == "Shopping"){
 }
 else if($var['od_status'] == "Paying"){
 	$status = 'ชำระเงิน';
+	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferRequest"){
 	$status = 'ยืนยันโอนเงิน';
-	$hashtag = '#money-transfer';
+	$hashtag = '#info-transfer';
 }
 else if($var['od_status'] == "TransferAgain"){
 	$status = 'ยืนยันอีกครั้ง!';
@@ -19,6 +20,7 @@ else if($var['od_status'] == "TransferSuccess"){
 }
 else if($var['od_status'] == "Shipping"){
 	$status = 'จัดส่งแล้ว';
+	$hashtag = '#shipping';
 }
 else if($var['od_status'] == "Complete"){
 	$status = 'เรียบร้อย';

@@ -239,7 +239,7 @@ $current_page = "order";
 			<?php }?>
 
 			<!-- Money Transfer Detail -->
-			<div class="box-items" id="transfer">
+			<div class="box-items" id="info-transfer">
 				<div class="icon"><i class="fa fa-file-text"></i></div>
 				<div class="box">
 					<p class="big">แจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
