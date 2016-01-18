@@ -48,7 +48,7 @@ $current_page = "login";
 <?php include'header.php';?>
 <div class="login-container">
 	<div class="form">
-		<?php if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret)){?>
+		<?php if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret) || true){?>
 		<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
 		<div class="mini-caption">หรือ</div>
 		<?php }?>

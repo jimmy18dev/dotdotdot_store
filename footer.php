@@ -33,5 +33,5 @@
 	</div>
 </footer>
 <div class="developer">
-	<p class="dev"><i class="fa fa-server"></i><?php echo DEVICE_TYPE.', Model: '.DEVICE_MODEL.', OS: '.DEVICE_OS.', Browser: '.DEVICE_BROWSER;?>, <span class="credit">Develop and Design Puwadon Sricharoen</span></p>
+	<p class="dev"><i class="fa fa-server"></i><?php echo DEVICE_TYPE.', Model: '.DEVICE_MODEL.', OS: '.DEVICE_OS.', Browser: '.DEVICE_BROWSER;?></p>
 </div>

@@ -1,6 +1,6 @@
 /*!
 Licensed under the MIT license - http://opensource.org/licenses/MIT
-Copyright (c) 2015 Puwadon Sricharoen
+Copyright (c) 2016 Puwadon Sricharoen
 */
 
 // IMPORT Other Lib
@@ -409,6 +409,7 @@ Copyright (c) 2015 Puwadon Sricharoen
         }
     }
 
+    // Home page style
     .tip{
         width: @page_width - 4%;
         padding: 1% ((100 - @page_width) / 2) + 2%;
@@ -516,6 +517,8 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             position: relative;
+            min-height: 200px;
+            text-align: center;
 
             &:nth-child(3n){
                 margin-right: 0%;
@@ -644,7 +647,10 @@ Copyright (c) 2015 Puwadon Sricharoen
             background: #EEEEEE;
         }
     }
+    // END Home page style
 
+
+    // Categroy all product page
     .filter{
         width: @page_width;
         padding: 1% ((100 - @page_width) / 2);
@@ -656,9 +662,8 @@ Copyright (c) 2015 Puwadon Sricharoen
             float: left;
             display: inline-block;
             text-decoration: none;
-            border-bottom: 1px solid transparent;
-            margin-right: 3%;
-            padding-bottom: 2%;
+            border: 1px solid transparent;
+            padding: 1% 2%;
             color: #CCCCCC;
             font-size: 0.9em;
 
@@ -670,12 +675,13 @@ Copyright (c) 2015 Puwadon Sricharoen
 
         a.filter-active{
             color: #000000;
-            border-bottom: 1px solid #000000;
+            border: 1px solid #000000;
             &:hover{
                 color: #555555;
             }
         }
     }
+    // END Categroy all product page
 
     // Head bar style
     .head-bar{
