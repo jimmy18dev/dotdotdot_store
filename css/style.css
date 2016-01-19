@@ -422,42 +422,6 @@ Copyright (c) 2015 Daniel Eden
   margin-right: 10px;
   color: #AAAAAA;
 }
-.container .tip {
-  width: 60%;
-  padding: 1% 20%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-}
-.container .tip i.fa-quote-left,
-.container .tip i.fa-quote-right {
-  margin: 1.5% 0%;
-  color: #EEEEEE;
-  font-size: 1.5em;
-}
-.container .tip p {
-  line-height: 2em;
-  font-size: 0.9em;
-}
-.container .tip p.link {
-  margin-top: 2%;
-}
-.container .tip a {
-  text-decoration: none;
-  margin: 0 3px;
-  padding: 5px 10px;
-  color: #555555;
-  border: 1px solid #EEEEEE;
-}
-.container .tip a:hover {
-  border: 1px solid #000000;
-  color: #000000;
-}
-.container .tip a:active {
-  background: #000000;
-  border: 1px solid #000000;
-  color: #FFFFFF;
-}
 .container .bestseller {
   padding-top: 7%;
 }
@@ -474,7 +438,9 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  margin-bottom: 5%;
+  margin-bottom: 10%;
+  background: #FAFAFA;
+  border-bottom: 1px solid #FAFAFA;
 }
 .container .banner-cover p {
   width: 100%;
@@ -485,16 +451,54 @@ Copyright (c) 2015 Daniel Eden
 .container .banner-cover p a.shop-btn {
   text-decoration: none;
   color: #000000;
-  border: 1px solid #000000;
-  padding: 10px 20px;
+  border: 2px solid #000000;
+  padding: 15px 25px;
   font-size: 0.9em;
   margin: 0% 1%;
+  font-weight: bold;
 }
 .container .banner-cover p a.shop-btn i {
   margin-left: 10px;
 }
 .container .banner-cover p a.shop-btn:hover {
   background: #000000;
+  color: #FFFFFF;
+}
+.container .tip {
+  width: 60%;
+  padding: 1% 20%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  margin-top: 5%;
+}
+.container .tip i.fa-quote-left,
+.container .tip i.fa-quote-right {
+  margin: 1.5% 0%;
+  color: #EEEEEE;
+  font-size: 1.5em;
+}
+.container .tip p {
+  line-height: 2em;
+  font-size: 0.9em;
+}
+.container .tip p.link {
+  margin-top: 5%;
+}
+.container .tip a {
+  text-decoration: none;
+  margin: 0 3px;
+  padding: 10px 20px;
+  color: #555555;
+  border: 1px solid #EEEEEE;
+}
+.container .tip a:hover {
+  border: 1px solid #000000;
+  color: #000000;
+}
+.container .tip a:active {
+  background: #000000;
+  border: 1px solid #000000;
   color: #FFFFFF;
 }
 .container .category {
@@ -1304,21 +1308,26 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
 }
-.panel-fix a.back-link,
-.panel-fix a.category-link {
+.panel-fix .page-link {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.panel-fix .page-link a.back-link,
+.panel-fix .page-link a.category-link {
   font-size: 0.9em;
   text-decoration: none;
   color: #AAAAAA;
 }
-.panel-fix a.back-link i,
-.panel-fix a.category-link i {
+.panel-fix .page-link a.back-link i,
+.panel-fix .page-link a.category-link i {
   margin-right: 10px;
 }
-.panel-fix a.back-link:hover,
-.panel-fix a.category-link:hover {
+.panel-fix .page-link a.back-link:hover,
+.panel-fix .page-link a.category-link:hover {
   color: #000000;
 }
-.panel-fix a.category-link {
+.panel-fix .page-link a.category-link {
   float: right;
 }
 .panel-fix h1 {
@@ -3147,9 +3156,43 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container .showcase .showcase-items .showcase-items-content i {
     margin-right: 5px;
   }
+  .container .bestseller {
+    padding-top: 20%;
+  }
+  .container .bestseller h2 {
+    font-size: 1.3em;
+  }
+  .container .banner-cover {
+    width: 100%;
+    padding: 0%;
+  }
+  .container .banner-cover img {
+    margin-bottom: 20%;
+  }
+  .container .banner-cover p {
+    width: 100%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+  }
+  .container .banner-cover p a.shop-btn {
+    border: 2px solid #000000;
+    padding: 15px 25px;
+    font-size: 1em;
+    margin: 0% 1%;
+    font-weight: bold;
+  }
+  .container .banner-cover p a.shop-btn i {
+    margin-left: 10px;
+  }
+  .container .banner-cover p a.shop-btn:hover {
+    background: #000000;
+    color: #FFFFFF;
+  }
   .container .tip {
     width: 92%;
     padding: 4%;
+    padding-top: 15%;
   }
   .container .tip i.fa-quote-left,
   .container .tip i.fa-quote-right {
@@ -3174,39 +3217,6 @@ Copyright (c) 2016 Puwadon Sricharoen
   }
   .container .tip a:active {
     border: 2px solid #000000;
-  }
-  .container .bestseller {
-    padding-top: 20%;
-  }
-  .container .bestseller h2 {
-    font-size: 1.3em;
-  }
-  .container .banner-cover {
-    width: 100%;
-    padding: 0%;
-  }
-  .container .banner-cover img {
-    margin-bottom: 10%;
-  }
-  .container .banner-cover p {
-    width: 100%;
-    float: left;
-    display: inline-block;
-    text-align: center;
-  }
-  .container .banner-cover p a.shop-btn {
-    border: 2px solid #000000;
-    padding: 10px 20px;
-    font-size: 0.9em;
-    margin: 0% 1%;
-    font-weight: bold;
-  }
-  .container .banner-cover p a.shop-btn i {
-    margin-left: 10px;
-  }
-  .container .banner-cover p a.shop-btn:hover {
-    background: #000000;
-    color: #FFFFFF;
   }
   .container .category {
     width: 92%;
@@ -3644,34 +3654,52 @@ Copyright (c) 2016 Puwadon Sricharoen
     position: inherit;
     top: 0px;
     right: 0%;
-    width: 94%;
-    padding: 3%;
-    padding-top: 5%;
+    width: 100%;
+    padding: 0%;
+    padding-top: 0px;
   }
-  .panel-fix a.back-link,
-  .panel-fix a.category-link {
+  .panel-fix .page-link {
+    background: #000000;
+  }
+  .panel-fix .page-link a.back-link,
+  .panel-fix .page-link a.category-link {
+    padding: 4%;
+    float: left;
+    display: inline-block;
     font-size: 0.9em;
+    color: #FFFFFF;
   }
-  .panel-fix a.back-link i,
-  .panel-fix a.category-link i {
+  .panel-fix .page-link a.back-link i,
+  .panel-fix .page-link a.category-link i {
     margin-right: 10px;
   }
+  .panel-fix .page-link a.back-link:hover,
+  .panel-fix .page-link a.category-link:hover {
+    color: #FFFFFF;
+    background: #333333;
+  }
+  .panel-fix .page-link a.category-link {
+    float: right;
+  }
   .panel-fix h1 {
+    width: 92%;
+    padding: 4%;
     font-size: 1.5em;
-    margin: 5% 0%;
-    margin-top: 8%;
-    line-height: 1.2em;
+    margin: 0%;
+    line-height: 1.3em;
   }
   .panel-fix p {
     font-size: 1em;
     line-height: 1.5em;
   }
   .panel-fix p.price {
+    width: 92%;
+    padding: 4%;
     font-size: 1.2em;
   }
   .panel-fix .description {
-    width: 100%;
-    padding: 4% 0%;
+    width: 92%;
+    padding: 4%;
     float: left;
     display: inline-block;
     font-size: 0.9em;
@@ -3688,6 +3716,10 @@ Copyright (c) 2016 Puwadon Sricharoen
   }
   .panel-fix .description .sizeinfo .size {
     width: 18%;
+  }
+  .panel-fix .action {
+    width: 92%;
+    padding: 4%;
   }
   .panel-fix .action .mini-caption {
     font-size: 0.8em;
@@ -3733,16 +3765,12 @@ Copyright (c) 2016 Puwadon Sricharoen
     border: 2px solid #000000;
   }
   .panel-fix .sharing {
-    margin-top: 7%;
-  }
-  .panel-fix .sharing .sharing-items {
-    margin-left: 1%;
-    padding: 4%;
-    font-size: 1.2em;
+    display: none;
   }
   .panel-fix .control {
-    margin-top: 3%;
-    padding-top: 3%;
+    width: 92%;
+    padding: 4%;
+    margin-top: 0%;
   }
   .panel-fix .control a {
     font-size: 0.8em;

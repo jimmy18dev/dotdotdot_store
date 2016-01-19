@@ -185,10 +185,52 @@ Copyright (c) 2016 Puwadon Sricharoen
         }
     }
 
+    .bestseller{
+        padding-top: 20%;
+
+        h2{
+            font-size: @topic_size;
+        }
+    }
+
+    .banner-cover{
+        width: 100%;
+        padding: 0%;
+
+        img{
+            margin-bottom: 20%;
+        }
+
+        p{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+
+            a.shop-btn{
+                border: 2px solid #000000;
+                padding: 15px 25px;
+                font-size: 1em;
+                margin: 0% 1%;
+                font-weight: bold;
+
+                i{
+                    margin-left: 10px;
+                }
+
+                &:hover{
+                    background: #000000;
+                    color: #FFFFFF;
+                }
+            }
+        }
+    }
+
     // Home page style
     .tip{
         width: 92%;
         padding: 4%;
+        padding-top: 15%;
 
         i.fa-quote-left,i.fa-quote-right{
             margin: 1.5% 0%;
@@ -216,47 +258,6 @@ Copyright (c) 2016 Puwadon Sricharoen
 
             &:active{
                 border: 2px solid #000000;
-            }
-        }
-    }
-
-    .bestseller{
-        padding-top: 20%;
-
-        h2{
-            font-size: @topic_size;
-        }
-    }
-
-    .banner-cover{
-        width: 100%;
-        padding: 0%;
-
-        img{
-            margin-bottom: 10%;
-        }
-
-        p{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            text-align: center;
-
-            a.shop-btn{
-                border: 2px solid #000000;
-                padding: 10px 20px;
-                font-size: 0.9em;
-                margin: 0% 1%;
-                font-weight: bold;
-
-                i{
-                    margin-left: 10px;
-                }
-
-                &:hover{
-                    background: #000000;
-                    color: #FFFFFF;
-                }
             }
         }
     }
@@ -798,22 +799,39 @@ Copyright (c) 2016 Puwadon Sricharoen
     position: inherit;
     top: 0px;
     right: 0%;
-    width: 94%;
-    padding: 3%;
-    padding-top: 5%;
+    width: 100%;
+    padding: 0%;
+    padding-top: 0px;
 
-    a.back-link,a.category-link{
-        font-size: 0.9em;
-        i{
-            margin-right: 10px;
+    .page-link{
+        background: #000000;
+
+        a.back-link,a.category-link{
+            padding: 4%;
+            float: left;
+            display: inline-block;
+            font-size: 0.9em;
+            color: #FFFFFF;
+            i{
+                margin-right: 10px;
+            }
+            &:hover{
+                color: #FFFFFF;
+                background: #333333;
+            }
+        }
+
+        a.category-link{
+            float: right;
         }
     }
 
     h1{
+        width: 92%;
+        padding: 4%;
         font-size: 1.5em;
-        margin: 5% 0%;
-        margin-top: 8%;
-        line-height: 1.2em;
+        margin: 0%;
+        line-height: 1.3em;
     }
 
     p{
@@ -822,12 +840,14 @@ Copyright (c) 2016 Puwadon Sricharoen
     }
 
     p.price{
+        width: 92%;
+        padding: 4%;
         font-size: 1.2em;
     }
 
     .description{
-        width: 100%;
-        padding: 4% 0%;
+        width: 92%;
+        padding: 4%;
         float: left;
         display: inline-block;
         font-size: 0.9em;
@@ -850,6 +870,9 @@ Copyright (c) 2016 Puwadon Sricharoen
     }
 
     .action{
+        width: 92%;
+        padding: 4%;
+
         .mini-caption{
             font-size: 0.8em;
             line-height: 2em;
@@ -904,19 +927,14 @@ Copyright (c) 2016 Puwadon Sricharoen
 
     // Social Sharing Button
     .sharing{
-        margin-top: 7%;
-
-        .sharing-items{
-            margin-left: 1%;
-            padding: 4%;
-            font-size: 1.2em;
-        }
+        display: none;
     }
 
     // Button for product page link to store
     .control{
-        margin-top: 3%;
-        padding-top: 3%;
+        width: 92%;
+        padding: 4%;
+        margin-top: 0%;
 
         a{
             font-size: 0.8em;

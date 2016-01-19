@@ -61,17 +61,18 @@ $current_page = "index";
 		<?php }?>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>
-	<div class="tip"><i class="fa fa-quote-left"></i><br>
-		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
-		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
-		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a></p>
-		<br><i class="fa fa-quote-right"></i></div>
 	<div class="banner-cover">
 		<a href="store.php">
 			<img src="image/banner.png" alt="">
 		</a>
 
 		<p><a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a></p>
+	</div>
+
+	<div class="tip">
+		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
+		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
+		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a></p>
 	</div>
 
 	<div class="category" id="category">

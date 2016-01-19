@@ -77,10 +77,13 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 	<div class="container-pages">
 		<!-- Detail -->
 		<div class="panel-fix">
-			<a href="store.php" class="back-link"><i class="fa fa-arrow-left"></i>ดูสินค้าอื่น</a>
-			<?php if(!empty($product->category_id)){?>
-			<a href="store.php?filter=<?php echo $product->category_id;?>" class="category-link"><?php echo $product->category_title;?></a>
-			<?php }?>
+
+			<div class="page-link">
+				<a href="store.php" class="back-link"><i class="fa fa-arrow-left"></i>ดูสินค้าอื่น</a>
+				<?php if(!empty($product->category_id)){?>
+				<a href="store.php?filter=<?php echo $product->category_id;?>" class="category-link"><?php echo $product->category_title;?></a>
+				<?php }?>
+			</div>
 
 			<h1><?php echo $product->title;?></h1>
 			<p class="price"><?php echo number_format($product->price,2);?> ฿.</p>
