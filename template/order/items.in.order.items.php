@@ -24,8 +24,10 @@ $product_quantity = $var['product_quantity'];
 	</div>
 
 	<div class="items-in-order-detail">
-		<p class="detail-title"><?php echo $title;?></p>
-		<p class="detail-description"><?php echo number_format($var['product_price'],2);?> ฿. <?php if($order_status == "Shopping"){?><span class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);">ลบรายการ</span><?php }?></p>
+		<div class="text"><?php echo $title;?> <?php echo number_format($var['product_price'],2);?> ฿.</div>
+		<?php if($order_status == "Shopping"){?>
+		<div class="remove-btn" onclick="javascript:RemoveItemInOrder(<?php echo $var['order_id'];?>,<?php echo $var['product_id'];?>);"><i class="fa fa-times"></i> ลบรายการ</div>
+		<?php }?>
 	</div>
 	<div class="items-in-order-quantity">
 		<?php if($product_quantity == 0){?>

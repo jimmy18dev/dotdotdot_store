@@ -206,7 +206,7 @@ $current_page = "order";
 					<p class="caption">อัพเดทล่าสุด <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
 
 					<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
-					<a href="order-<?php echo $order->id;?>.html?edit=address">
+					<a href="order-<?php echo $order->id;?>.html?edit=address#address">
 					<p class="edit-btn">แก้ไขที่อยู่</p>
 					</a>
 					<?php }?>
@@ -225,7 +225,7 @@ $current_page = "order";
 					<!-- Edit Name Address and Phone number of Customer -->
 					<div class="form">
 						<p class="caption">ชื่อ-นามสกุล</p>
-						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>">
+						<input type="text" class="input-text" id="customer_name" value="<?php echo $order->customer_name;?>" autofocus>
 							
 						<p class="caption">ที่อยู่ปัจจุบัน</p>
 						<textarea class="input-text input-textarea" id="customer_address"><?php echo $order->customer_address;?></textarea>

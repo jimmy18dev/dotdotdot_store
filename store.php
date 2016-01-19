@@ -57,7 +57,7 @@ $current_page = "index";
 <div class="container">
 	<div class="order-in-progress">
 		<?php if($user->status == "pending" || true){?>
-		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
+		<div class="email-alert"><i class="fa fa-exclamation-circle"></i> กรุณายืนยันอีเมลของคุณด้วยค่ะ</div>
 		<?php }?>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>

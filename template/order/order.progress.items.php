@@ -36,5 +36,5 @@ else{
 ?>
 
 <a href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>" class="order-progress-items">
-	ใบสั่งซื้อที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> ฿.<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
+	<i class="fa fa-file-text"></i>ใบสั่งซื้อที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> ฿.<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
 </a>
