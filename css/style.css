@@ -356,41 +356,34 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .order-in-progress .email-alert {
   width: 64%;
+  padding: 0.5% 18%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  background: #FFCDD2;
+  line-height: 1.5em;
+  color: #B71C1C;
+}
+.container .order-in-progress .email-alert i {
+  margin-right: 5px;
+}
+.container .order-in-progress a.order-progress-items {
+  width: 64%;
   padding: 1% 18%;
   float: left;
   display: inline-block;
-  font-size: 0.9em;
-  background: #F7F7F7;
-  line-height: 1.5em;
-  color: #AAAAAA;
-  text-align: center;
-}
-.container .order-in-progress .email-alert i {
-  margin-right: 10px;
-}
-.container .order-in-progress a.order-progress-items {
-  width: 62%;
-  margin: 0% 18%;
-  padding: 1%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  color: #AAAAAA;
+  font-size: 0.8em;
+  color: #FFFFFF;
   text-decoration: none;
-  background: #FAFAFA;
-  margin-top: 0.5%;
+  background: #000000;
 }
 .container .order-in-progress a.order-progress-items:hover {
   cursor: pointer;
-  color: #000000;
+  background: #333333;
 }
 .container .order-in-progress a.order-progress-items .status-box {
   float: right;
-  color: #CCCCCC;
-}
-.container .order-in-progress a.order-progress-items .status-transfersuccess,
-.container .order-in-progress a.order-progress-items .status-shipping {
-  color: #00ab6b;
+  color: #FFFFFF;
 }
 .container .order-in-progress a.order-progress-items i {
   margin-right: 5px;
@@ -3050,9 +3043,9 @@ Copyright (c) 2016 Puwadon Sricharoen
     border-radius: 50%;
   }
   .header .avatar .notifications {
-    top: 16px;
-    right: 13px;
-    font-size: 0.7em;
+    top: 12px;
+    right: 7px;
+    font-size: 0.8em;
     border: 1px solid #FFFFFF;
   }
   .header .login {
@@ -3119,10 +3112,9 @@ Copyright (c) 2016 Puwadon Sricharoen
   }
   .container .order-in-progress .email-alert {
     width: 92%;
-    padding: 3% 4%;
-    font-size: 0.9em;
+    padding: 2% 4%;
+    font-size: 0.8em;
     line-height: 1.5em;
-    text-align: left;
   }
   .container .order-in-progress .email-alert i {
     margin-right: 5px;
@@ -3130,9 +3122,11 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container .order-in-progress a.order-progress-items {
     width: 92%;
     padding: 4%;
-    margin: 0%;
-    font-size: 0.9em;
-    margin-top: 0.5%;
+    font-size: 0.8em;
+  }
+  .container .order-in-progress a.order-progress-items i {
+    margin-right: 5px;
+    font-size: 0.8em;
   }
   .container .showcase {
     width: 92%;

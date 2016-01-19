@@ -13,10 +13,10 @@ else if($var['od_status'] == "TransferAgain"){
 	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferSuccess"){
-	$status = 'ชำระแล้ว';
+	$status = '<i class="fa fa-check"></i>ชำระแล้ว';
 }
 else if($var['od_status'] == "Shipping"){
-	$status = 'จัดส่งแล้ว';
+	$status = '<i class="fa fa-truck"></i>จัดส่งแล้ว';
 	$hashtag = '#shipping';
 }
 else{
