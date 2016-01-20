@@ -55,12 +55,18 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
+	<?php if($user->status == "pending"){?>
+	<!-- Email Verify Alert -->
+	<div class="email-alert"><i class="fa fa-exclamation-circle"></i> กรุณายืนยันอีเมลของคุณด้วยค่ะ</div>
+	<?php }?>
+
+	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
-		<?php if($user->status == "pending"){?>
-		<div class="email-alert">คุณยังไม่ได้ยืนยันอีเมล! (ตรวจสอบอีเมลในกล่องข้อความของคุณ)</div>
-		<?php }?>
+		<div class="mini-caption">ใบสั่งซื้อของคุณ</div>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>
+	<?php }?>
+
 	<div class="banner-cover">
 		<a href="store.php">
 			<img src="image/banner.png" alt="">
@@ -69,20 +75,25 @@ $current_page = "index";
 		<p><a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a></p>
 	</div>
 
-	<div class="tip">
+	<div class="quote">
+		<h1>Good morning , have a good day.</h1>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
 		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a></p>
 	</div>
 
 	<div class="category" id="category">
-		<h2>SHOP BY CATEGORY</h2>
-		<?php $category->ListCategory(array('mode' => 'index'));?>
+		<h2 class="topic">SHOP BY CATEGORY</h2>
+		<div>
+			<?php $category->ListCategory(array('mode' => 'index'));?>
+		</div>
 	</div>
 
 	<div class="container-page bestseller" id="bestseller">
-		<h2>BEST SELLER</h2>
-		<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
+		<h2 class="topic">BEST SELLER</h2>
+		<div>
+			<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
+		</div>
 	</div>
 
 	<div class="about" id="about">

@@ -30,7 +30,7 @@ $product_quantity = $var['product_quantity'];
 		<?php }?>
 	</div>
 	<div class="items-in-order-quantity">
-		<?php if($product_quantity == 0){?>
+		<?php if($product_quantity == 0 && false){?>
 		<div class="value">หมด!</div>
 		<?php }else if($order_status != "Shopping"){?>
 		<div class="value"><?php echo $order_amount;?></div>

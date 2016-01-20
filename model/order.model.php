@@ -124,6 +124,17 @@ class OrderModel extends Database{
 		return $dataset;
 	}
 
+	public function OrderProgressCounting($param){
+		if(empty($param['member_id']))
+			return 0;
+		
+		parent::query('SELECT COUNT(od_id) FROM dd_order WHERE od_member_id = :member_id AND (od_status != "Shopping" AND od_status != "Cancel" AND od_status != "Complete" AND od_status != "Expire") ORDER BY od_update_time DESC');
+		parent::bind(':member_id', 		$param['member_id']);
+		parent::execute();
+		$data = parent::single();
+		return $data['COUNT(od_id)'];
+	}
+
 	public function ListItemsInOrderProcess($param){
 		parent::query('SELECT odt_id,odt_order_id order_id,odt_amount product_amount,product.pd_id product_id,product.pd_title product_title,product.pd_description product_description,product.pd_price product_price,product.pd_quantity product_quantity,product.pd_type product_type,p_image.im_id product_image_id,p_image.im_filename product_image_filename,parent.pd_id parent_id,parent.pd_title parent_title,parent.pd_description parent_description,parent_image.im_id parent_image_id,parent_image.im_filename parent_image_filename 
 			FROM dd_order_detail 

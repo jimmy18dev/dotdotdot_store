@@ -251,7 +251,9 @@ $current_page = "order";
 
 					<?php if(!empty($order->m_photo)){?>
 					<div class="image">
-						<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
+						<a href="../image/upload/normal/<?php echo $order->m_photo;?>" target="_blank">
+							<img src="../image/upload/normal/<?php echo $order->m_photo;?>" alt="">
+						</a>
 					</div>
 					<?php }?>
 

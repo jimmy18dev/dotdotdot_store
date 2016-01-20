@@ -349,12 +349,7 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .order-in-progress {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .order-in-progress .email-alert {
+.container .email-alert {
   width: 64%;
   padding: 0.5% 18%;
   float: left;
@@ -364,8 +359,23 @@ Copyright (c) 2015 Daniel Eden
   line-height: 1.5em;
   color: #B71C1C;
 }
-.container .order-in-progress .email-alert i {
+.container .email-alert i {
   margin-right: 5px;
+}
+.container .order-in-progress {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+}
+.container .order-in-progress .mini-caption {
+  width: 64%;
+  padding: 0.5% 18%;
+  float: left;
+  display: inline-block;
+  font-size: 0.7em;
+  line-height: 2em;
+  color: #CCCCCC;
 }
 .container .order-in-progress a.order-progress-items {
   width: 64%;
@@ -373,17 +383,16 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   font-size: 0.8em;
-  color: #FFFFFF;
+  color: #AAAAAA;
   text-decoration: none;
-  background: #000000;
+  background: #FAFAFA;
 }
 .container .order-in-progress a.order-progress-items:hover {
   cursor: pointer;
-  background: #333333;
+  color: #000000;
 }
 .container .order-in-progress a.order-progress-items .status-box {
   float: right;
-  color: #FFFFFF;
 }
 .container .order-in-progress a.order-progress-items i {
   margin-right: 5px;
@@ -425,7 +434,7 @@ Copyright (c) 2015 Daniel Eden
 .container .bestseller {
   padding-top: 7%;
 }
-.container .bestseller h2 {
+.container .bestseller h2.topic {
   font-size: 1.5em;
 }
 .container .banner-cover {
@@ -464,7 +473,7 @@ Copyright (c) 2015 Daniel Eden
   background: #000000;
   color: #FFFFFF;
 }
-.container .tip {
+.container .quote {
   width: 60%;
   padding: 1% 20%;
   float: left;
@@ -472,31 +481,39 @@ Copyright (c) 2015 Daniel Eden
   text-align: center;
   margin-top: 5%;
 }
-.container .tip i.fa-quote-left,
-.container .tip i.fa-quote-right {
+.container .quote h1 {
+  font-size: 2em;
+  font-weight: bold;
+  line-height: 1.5em;
+  color: #000000;
+  margin-bottom: 1%;
+}
+.container .quote i.fa-quote-left,
+.container .quote i.fa-quote-right {
   margin: 1.5% 0%;
   color: #EEEEEE;
   font-size: 1.5em;
 }
-.container .tip p {
-  line-height: 2em;
+.container .quote p {
+  line-height: 1.5em;
   font-size: 0.9em;
 }
-.container .tip p.link {
+.container .quote p.link {
   margin-top: 5%;
 }
-.container .tip a {
+.container .quote a {
   text-decoration: none;
   margin: 0 3px;
   padding: 10px 20px;
-  color: #555555;
-  border: 1px solid #EEEEEE;
+  color: #AAAAAA;
+  border: 2px solid #EEEEEE;
+  font-weight: bold;
 }
-.container .tip a:hover {
-  border: 1px solid #000000;
+.container .quote a:hover {
+  border: 2px solid #000000;
   color: #000000;
 }
-.container .tip a:active {
+.container .quote a:active {
   background: #000000;
   border: 1px solid #000000;
   color: #FFFFFF;
@@ -508,51 +525,57 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
 }
-.container .category h2 {
+.container .category h2.topic {
   font-size: 1.5em;
 }
 .container .category .category-items {
   width: 31.33%;
-  margin-top: 3%;
-  margin-right: 3%;
+  margin-top: 2%;
+  margin-right: 2%;
   float: left;
-  display: inline-block;
   position: relative;
   min-height: 200px;
-  text-align: center;
-}
-.container .category .category-items:nth-child(3n) {
-  margin-right: 0%;
-  float: right;
 }
 .container .category .category-items img {
   width: 100%;
   float: left;
   display: inline-block;
 }
-.container .category .category-items figcaption {
+.container .category .category-items:nth-child(3n) {
+  margin-right: 0%;
+  float: right;
+}
+.container .category .category-items a.figcaption {
   position: absolute;
   top: 0px;
   left: 0px;
   width: 100%;
   height: 100%;
-  display: flex;
-  justify-content: center;
-  /* align horizontal */
-  align-items: center;
-  /* align vertical */
-  text-align: center;
   background: rgba(0, 0, 0, 0.65);
   color: #DDDDDD;
   font-weight: bold;
-  font-size: 1.2em;
+  font-size: 1.4em;
   letter-spacing: 0.1em;
+  text-decoration: none;
   transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -webkit-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
+  text-align: center;
+  display: -moz-box;
+  display: -webkit-box;
+  display: box;
+  -moz-box-orient: horizontal;
+  -webkit-box-orient: horizontal;
+  box-orient: horizontal;
+  -moz-box-pack: center;
+  -moz-box-align: center;
+  -webkit-box-pack: center;
+  -webkit-box-align: center;
+  box-pack: center;
+  box-align: center;
 }
-.container .category .category-items figcaption:hover {
+.container .category .category-items a.figcaption:hover {
   cursor: pointer;
   color: #FFFFFF;
   background: rgba(0, 0, 0, 0.9);
@@ -3119,19 +3142,30 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container {
     margin-top: 50px;
   }
-  .container .order-in-progress .email-alert {
+  .container .email-alert {
     width: 92%;
     padding: 2% 4%;
     font-size: 0.8em;
     line-height: 1.5em;
   }
-  .container .order-in-progress .email-alert i {
+  .container .email-alert i {
     margin-right: 5px;
+  }
+  .container .order-in-progress {
+    margin-bottom: 0%;
+  }
+  .container .order-in-progress .mini-caption {
+    display: none;
   }
   .container .order-in-progress a.order-progress-items {
     width: 92%;
     padding: 4%;
     font-size: 0.8em;
+    color: #FFFFFF;
+    background: #000000;
+  }
+  .container .order-in-progress a.order-progress-items:hover {
+    color: #FFFFFF;
   }
   .container .order-in-progress a.order-progress-items i {
     margin-right: 5px;
@@ -3156,11 +3190,38 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container .showcase .showcase-items .showcase-items-content i {
     margin-right: 5px;
   }
-  .container .bestseller {
-    padding-top: 20%;
+  .container .quote {
+    width: 92%;
+    padding: 4%;
+    padding-top: 15%;
   }
-  .container .bestseller h2 {
-    font-size: 1.3em;
+  .container .quote i.fa-quote-left,
+  .container .quote i.fa-quote-right {
+    margin: 1.5% 0%;
+    font-size: 1.5em;
+  }
+  .container .quote h1 {
+    font-size: 1.5em;
+    line-height: 1.3em;
+  }
+  .container .quote p {
+    line-height: 1.5em;
+    font-size: 0.9em;
+  }
+  .container .quote p.link {
+    margin-top: 10%;
+  }
+  .container .quote a {
+    margin: 0 3px;
+    padding: 10px 15px;
+    border: 2px solid #EEEEEE;
+    font-weight: bold;
+  }
+  .container .quote a:hover {
+    border: 2px solid #000000;
+  }
+  .container .quote a:active {
+    border: 2px solid #000000;
   }
   .container .banner-cover {
     width: 100%;
@@ -3189,87 +3250,38 @@ Copyright (c) 2016 Puwadon Sricharoen
     background: #000000;
     color: #FFFFFF;
   }
-  .container .tip {
-    width: 92%;
-    padding: 4%;
-    padding-top: 15%;
-  }
-  .container .tip i.fa-quote-left,
-  .container .tip i.fa-quote-right {
-    margin: 1.5% 0%;
-    font-size: 1.5em;
-  }
-  .container .tip p {
-    line-height: 1.5em;
-    font-size: 0.9em;
-  }
-  .container .tip p.link {
-    margin-top: 10%;
-  }
-  .container .tip a {
-    margin: 0 3px;
-    padding: 10px 15px;
-    border: 2px solid #EEEEEE;
-    font-weight: bold;
-  }
-  .container .tip a:hover {
-    border: 2px solid #000000;
-  }
-  .container .tip a:active {
-    border: 2px solid #000000;
-  }
-  .container .category {
-    width: 92%;
-    padding: 4%;
+  .container .bestseller {
     padding-top: 20%;
   }
-  .container .category h2 {
+  .container .bestseller h2.topic {
+    width: 92%;
+    padding: 0% 4%;
+    font-size: 1.3em;
+  }
+  .container .category {
+    width: 100%;
+    padding: 0%;
+    padding-top: 20%;
+  }
+  .container .category h2.topic {
+    width: 92%;
+    padding: 0% 4%;
+    padding-bottom: 5%;
     font-size: 1.3em;
   }
   .container .category .category-items {
-    width: 48.5%;
-    margin-top: 3%;
-    margin-right: 3%;
-    float: left;
-    display: inline-block;
-    position: relative;
-    min-height: 100px;
-    text-align: center;
-  }
-  .container .category .category-items:nth-child(2n) {
+    width: 50%;
+    margin-top: 0%;
     margin-right: 0%;
-    float: right;
+    min-height: 100px;
   }
   .container .category .category-items:nth-child(3n) {
-    margin-right: 3%;
+    margin-right: 0%;
     float: left;
   }
-  .container .category .category-items figcaption {
-    position: absolute;
-    top: 0px;
-    left: 0px;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    /* align horizontal */
-    align-items: center;
-    /* align vertical */
-    text-align: center;
-    background: rgba(0, 0, 0, 0.65);
-    color: #DDDDDD;
-    font-weight: bold;
-    font-size: 1.2em;
+  .container .category .category-items a.figcaption {
+    font-size: 1.3em;
     letter-spacing: 0.1em;
-    transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -webkit-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-  }
-  .container .category .category-items figcaption:hover {
-    cursor: pointer;
-    color: #FFFFFF;
-    background: rgba(0, 0, 0, 0.9);
   }
   .container .about {
     width: 92%;

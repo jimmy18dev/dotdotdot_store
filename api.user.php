@@ -51,7 +51,15 @@ if($_POST['calling'] != ''){
 							}
 						}
 						else{
-							$registered = false;
+							$login = $user->LoginUserProcess(array(
+								'username' 	=> $_POST['email'],
+								'password'	=> $_POST['password'],
+							));
+
+							if($login)
+								$registered = true;
+							else
+								$registered = false;
 						}
 
 						// Set First member to Administrator
