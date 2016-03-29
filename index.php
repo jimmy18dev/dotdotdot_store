@@ -79,7 +79,12 @@ $current_page = "index";
 		<h1>Good morning , have a good day.</h1>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
-		<p class="link"><a href="showcase.php">showcase</a> <a href="#contact-us">contact us</a> <a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a></p>
+		<p class="link">
+			<a href="about-us.php">about us</a> 
+			<a href="store.php?filter=5">showcase</a> 
+			<a href="contact-us.php">contact us</a> 
+			<a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a>
+		</p>
 	</div>
 
 	<div class="category" id="category">
@@ -94,37 +99,6 @@ $current_page = "index";
 		<div>
 			<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
 		</div>
-	</div>
-
-	<div class="about" id="about">
-		<div class="about-image">
-			<img src="image/about.jpg" alt="">
-		</div>
-		<div class="about-content">
-			<h2>about us</h2>
-			<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art], is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p><br>
-			<p>was established to harness the skills art learnt in a variety of management roles that spanned the hotel, television, advertising, telecommunications,film, retail, creative and design management industries.</p><br>
-			<p>"i set up the company, admittedly with a bit of an attitude" says art. "i believe that small local companies can be just as good as multi-national agencies, if not better, if they really put their mind to it."</p><br>
-			<p>"apart from that, i just hold three mantras close to my heart: one, 'be the change you wish to see in the world' [mahatma ghandi]; two, 'whatever you are, be a good one' [abraham lincoln]; and three, 'keep things simple... the simpler the better' [the laws of simplicity]."</p>
-		</div>
-	</div>
-
-	<div class="contact-us" id="contact-us">
-		<div class="contact-us-image">
-			<img src="image/map.jpg" alt="">
-		</div>
-		<div class="contact-us-content">
-			<h2>contact us</h2>
-			<p>Office:</p>
-			<p>Suite 139 Artitra 68 Sukhumvit 26 Klongton, Klongteoy, Bangkok 10110</p>
-			<p>Phone: 02-2616588</p>
-			<p>Fax: 02-2616589</p>
-		</div>
-	</div>
-
-	<div class="google-map" id="map">
-		<h2>dotdotdot company limited in google map <i class="fa fa-map-o"></i></h2>
-		<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15503.639777259452!2d100.5692872!3d13.7239018!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x3b48444336b3a26c!2z4Lin4Li04Lih4Liy4Lil4LiyIOC4quC4p-C4teC4lw!5e0!3m2!1sth!2sth!4v1452759916290" allowfullscreen></iframe>
 	</div>
 </div>
 <?php include'footer.php';?>

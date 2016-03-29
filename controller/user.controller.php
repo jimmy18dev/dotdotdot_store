@@ -29,6 +29,53 @@ class UserController extends UserModel{
     public $current_order_amount;
     public $current_order_payment;
 
+    // Facebook login process (Regsiter new user or update user info)
+    public function facebookLogin($email,$facebook_id,$facebook_name){
+        $password   = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
+        $type       = 'member';
+        $status     = 'active';
+        $name       = '';
+
+        // Already member registed checking...
+        $userdata = parent::getUserInfoByFacebook($email,$facebook_id);
+
+        if(empty($userdata['me_id'])){
+            $name = $facebook_name;
+            // Member Registing...
+            $member_id = parent::facebookRegister($email,$name,$facebook_id,$facebook_name,$password,$type,$status);
+        }
+        else{
+            // Name setup
+            if(empty($userdata['me_name']))
+                $name = $facebook_name;
+            else
+                $name = $userdata['me_name'];
+
+            // Email setup
+            if(!empty($userdata['me_email']))
+                $email = $userdata['me_email'];
+
+            // User Information updating...
+            parent::facebookInfoUpdate($userdata['me_id'],$email,$name,$facebook_id,$facebook_name);
+
+            $member_id = $userdata['me_id'];
+        }
+
+        return $member_id;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function GetUser($param){
         // Setup
         $param['device']        = DEVICE_TYPE;
@@ -113,24 +160,29 @@ class UserController extends UserModel{
 
     public function RegisterUser($param){
 
-        // User already checking send (id,facebook_id,email,phone)
-        $member_id = parent::AlreadyUserProcess($param);
-
-        if(empty($member_id)){
-            // Register new user
-            if($param['refer'] == "form"){
-                $param['password']      = $this->PasswordEncrypt($param['password']);
-                $param['verify_code']   = $this->EmailCodeGenerate($param['email']);
-            }
-
-            $member_id = parent::RegisterUserProcess($param);
+        if(empty($param['email'])){
+            return false;
         }
-        else{
-            if($param['refer'] == "facebook"){
-                // Update userinfo by Login with Facebook button
-                if(!empty($param['fb_id'])){
-                    parent::UpdateInfoByFacebookProcess($param);
+
+        if($param['refer'] == 'facebook'){
+            $member_id = parent::AlreadyUserProcess($param['email'],$param['fb_id']);
+
+            if(empty($member_id)){
+                $member_id = parent::RegisterUserProcess($param);
+            }else{
+                parent::UpdateInfoByFacebookProcess($param);
+            }
+        }else if($param['refer'] == 'form'){
+            $member_id = parent::AlreadyUserProcess($param['email'],$param['fb_id']);
+
+            if(empty($member_id)){
+                // Register new user
+                if($param['refer'] == "form"){
+                    $param['password']      = $this->PasswordEncrypt($param['password']);
+                    $param['verify_code']   = $this->EmailCodeGenerate($param['email']);
                 }
+
+                $member_id = parent::RegisterUserProcess($param);
             }
         }
 

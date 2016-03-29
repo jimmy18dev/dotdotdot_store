@@ -5,6 +5,10 @@ if(MEMBER_ONLINE){
 	header("Location: index.php");
 	die();
 }
+if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret)){
+	include'sdk/facebook-sdk-v5/autoload.php';
+	include'facebook.php';
+}
 
 $current_page = "register";
 ?>
@@ -44,11 +48,15 @@ $current_page = "register";
 <div class="login-dialog">
 	<div class="login-container">
 		<div class="form">
+			<?php if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret) || true){?>
+			<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> สมัครสมาชิกด้วย Facebook</div></a>
+			<div class="mini-caption">หรือใช้อีเมลของคุณ</div>
+			<?php }?>
 			<div class="caption">ชื่อและนามสกุล:</div>
-			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ">
+			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ" autofocus>
 			
 			<div class="caption">อีเมล:</div>
-			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ" autofocus>
+			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
 
 			<!-- <div class="caption">Phone Number</div>
 			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->

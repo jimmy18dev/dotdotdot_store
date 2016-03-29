@@ -1,73 +1,78 @@
 <?php
-use Facebook\FacebookSession;
-use Facebook\FacebookRequest;
-use Facebook\FacebookResponse;
-use Facebook\FacebookRedirectLoginHelper;
-use Facebook\FacebookRequestException;
-use Facebook\GraphObject;
-use Facebook\GraphUser;
+$fb = new Facebook\Facebook([
+	'app_id' 				=> APP_ID,
+	'app_secret' 			=> APP_SECRET,
+	'default_graph_version' => 'v2.5',
+]);
 
-// use Facebook\FacebookSDKException;
-// use Facebook\FacebookAuthorizationException;
+$helper = $fb->getRedirectLoginHelper();
+$permissions = ['email','user_birthday']; // optional
 
-// Facebook Login Process API (ver 2.1)
-if(!MEMBER_ONLINE){
-	// Initialize application by Application ID and Secret
-	FacebookSession::setDefaultApplication(APP_ID,APP_SECRET);
-	// Login Healper with reditect URI
-	$helper = new FacebookRedirectLoginHelper('http://'.$_SERVER['SERVER_NAME'].'/index.php');
-
-	try{
-		$session = $helper->getSessionFromRedirect();
+try{
+	if(isset($_SESSION['facebook_access_token'])){
+		$accessToken = $_SESSION['facebook_access_token'];
+	}else{
+		$accessToken = $helper->getAccessToken();
 	}
-	catch(FacebookRequestException $ex ) {
-		// Exception
+}catch(Facebook\Exceptions\FacebookResponseException $e) {
+	// When Graph returns an error
+	$error_log = 'Graph returned an error: '.$e->getMessage();
+	exit;
+}catch(Facebook\Exceptions\FacebookSDKException $e) {
+	// When validation fails or other local issues
+	$error_log = 'Facebook SDK returned an error: ' . $e->getMessage();
+  	exit;
+}
+
+if(isset($accessToken)) {
+	if(isset($_SESSION['facebook_access_token'])) {
+		$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
+	}else{
+		// getting short-lived access token
+		$_SESSION['facebook_access_token'] = (string) $accessToken;
+
+	  	// OAuth 2.0 client handler
+		$oAuth2Client = $fb->getOAuth2Client();
+		
+		// Exchanges a short-lived access token for a long-lived one
+		$longLivedAccessToken = $oAuth2Client->getLongLivedAccessToken($_SESSION['facebook_access_token']);
+		// $_SESSION['facebook_access_token'] = (string) $longLivedAccessToken;
+		$_SESSION['facebook_longlived_token'] = (string) $longLivedAccessToken;
+
+		// setting default access token to be used in script
+		$fb->setDefaultAccessToken($_SESSION['facebook_access_token']);
 	}
-	catch( Exception $ex ) {
+
+	// redirect the user back to the same page if it has "code" GET variable
+	if(isset($_GET['code'])){
+		// header('Location: index.php?msg=error');
+		$error_log = "isset(code) is Fail!";
+	}
+
+	// getting basic info about user
+	try {
+		$profile_request = $fb->get('/me?fields=id,email,name,first_name,last_name');
+		$profile = $profile_request->getGraphNode()->asArray();
+	} catch(Facebook\Exceptions\FacebookResponseException $e) {
+		// When Graph returns an error
+		$error_log = 'Graph returned an error: ' . $e->getMessage();
+		session_destroy();
+		// redirecting user back to app login page
+		// header("Location: index.php");
+		exit;
+	} catch(Facebook\Exceptions\FacebookSDKException $e) {
 		// When validation fails or other local issues
+		$error_log = 'Facebook SDK returned an error: ' . $e->getMessage();
+		exit;
 	}
-
-	// Checking Session
-	if(isset($session)){
-  		$user_profile 		= (new FacebookRequest($session,'GET','/me'))->execute()->getGraphObject(GraphUser::className());
-
-  		// Create New or Update Member info
-		// $me->Register(array(
-		// 	'facebook_id' 	=> $user_profile->getProperty('id'),
-		// 	'email' 		=> $user_profile->getProperty('email'),
-		// 	'birthday' 		=> $user_profile->getProperty('birthday'),
-		// 	'about' 		=> $user_profile->getProperty('bio'),
-		// 	'name' 			=> $user_profile->getProperty('name'),
-		// 	'fname' 		=> $user_profile->getProperty('first_name'),
-		// 	'lname' 		=> $user_profile->getProperty('last_name'),
-		// 	'link' 			=> $user_profile->getProperty('link'),
-		// 	'verified' 		=> $user_profile->getProperty('verified'),
-		// 	'gender' 		=> $user_profile->getProperty('gender'),
-		// ));
-
-		$member_id = $user->RegisterUser(array(
-			'email' 	=> $user_profile->getProperty('email'),
-			'phone' 	=> '',
-			'name' 		=> '',
-			'fb_id' 	=> $user_profile->getProperty('id'),
-			'fb_name' 	=> $user_profile->getProperty('name'),
-			'password' 	=> '',
-			'type' 		=> 'member',
-			'status' 	=> 'active',
-			'refer' 	=> 'facebook',
-		));
-
-		// Set session
-		$_SESSION['member_id'] = $member_id;
-		// Set Cookie (1 year)
-		setcookie('member_id',$member_id, COOKIE_TIME);
-
-		// Redirect page after Login.
-		header('Location: index.php');
-	}
-	else{
-		// Login URL if session not found
-		$fbLogin = str_replace('&','&amp;',$helper->getLoginUrl(array('email')));
-	}
+	
+	// printing $profile array on the screen which holds the basic info about user'
+	// echo'<pre>';
+	// print_r($profile_request);
+	// echo'</pre>';
+  	// Now you can redirect to another page and use the access token from $_SESSION['facebook_access_token']
+}else{
+	// replace your website URL same as added in the developers.facebook.com/apps e.g. if you used http instead of https and you used non-www version or www version of your website then you must add the same here
+	$fbLogin = $helper->getLoginUrl('http://'.$_SERVER['SERVER_NAME'].'/fb-callback.php',$permissions);
 }
 ?>

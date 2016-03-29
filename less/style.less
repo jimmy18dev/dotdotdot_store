@@ -386,44 +386,6 @@ Copyright (c) 2016 Puwadon Sricharoen
         }
     }
 
-    // Showcase page style
-    .showcase{
-        width: @page_width;
-        margin: 0% ((100 - @page_width) / 2);
-        float: left;
-        display: inline-block;
-
-        .showcase-items{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            margin-top: 7%;
-
-            .showcase-items-image{
-                width: 40%;
-                float: left;
-                display: inline-block;
-                img{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                }
-            }
-            .showcase-items-content{
-                width: 55%;
-                float: right;
-                display: inline-block;
-                font-size: 0.9em;
-                line-height: 2em;
-
-                i{
-                    margin-right: 10px;
-                    color: #AAAAAA;
-                }
-            }
-        }
-    }
-
     .bestseller{
         padding-top: 7%;
 
@@ -521,7 +483,7 @@ Copyright (c) 2016 Puwadon Sricharoen
 
             &:active{
                 background: #000000;
-                border: 1px solid #000000;
+                border: 2px solid #000000;
                 color: #FFFFFF;
             }
         }
@@ -540,8 +502,8 @@ Copyright (c) 2016 Puwadon Sricharoen
 
         .category-items{
             width: 31.33%;
-            margin-top: 2%;
-            margin-right: 2%;
+            margin-top: 3%;
+            margin-right: 3%;
             float: left;
             position: relative;
             min-height: 200px;
@@ -1522,9 +1484,30 @@ Copyright (c) 2016 Puwadon Sricharoen
         line-height: 1.5em;
     }
 
-    p.price{
-        font-size: 1.2em;
+    .price{
+        width: 100%;
+        float: left;
+        display: inline-block;
+        font-size: 1.3em;
         color: #000000;
+
+
+        .price-val{
+            float: left;
+            display: inline-block;
+        }
+
+        .sharing-items{
+            float: right;
+            display: inline-block;
+            margin-left: 3%;
+            color: #AAAAAA;
+
+            &:hover{
+                cursor: pointer;
+                color: #000000;
+            }
+        }
     }
 
     .description{
@@ -1674,27 +1657,6 @@ Copyright (c) 2016 Puwadon Sricharoen
             &:focus{
                 border: 1px solid #000000;
                 color: #000000;
-            }
-        }
-    }
-
-    // Social Sharing Button
-    .sharing{
-        width: 100%;
-        float: left;
-        display: inline-block;
-        margin-top: 10%;
-
-        .sharing-items{
-            float: right;
-            display: inline-block;
-            margin-left: 1%;
-            padding: 2% 3%;
-            color: #777777;
-            font-size: 1em;
-
-            &:hover{
-                background: #F7F7F7;
             }
         }
     }

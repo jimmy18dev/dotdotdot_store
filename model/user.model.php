@@ -1,13 +1,63 @@
 <?php
 class UserModel extends Database{
 
+	// Register by Facebook SDK ///////////////////////////
+	public function facebookRegister($email,$name,$facebook_id,$facebook_name,$password,$type,$status){
+		parent::query('INSERT INTO dd_member(me_email,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_ip,me_type,me_status) VALUE(:email,:name,:facebook_id,:facebook_name,:password,:create_time,:update_time,:ip,:type,:status)');
+
+		parent::bind(':email', 			$email);
+		parent::bind(':name', 			$name);
+		parent::bind(':facebook_id', 	$facebook_id);
+		parent::bind(':facebook_name', 	$facebook_name);
+		parent::bind(':password', 		$password);
+		parent::bind(':create_time',	date('Y-m-d H:i:s'));
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':ip',				parent::GetIpAddress());
+		parent::bind(':type', 			$type);
+		parent::bind(':status', 		$status);
+
+		parent::execute();
+		return parent::lastInsertId();
+	}
+
+	public function getUserInfoByFacebook($email,$facebook_id){
+		parent::query('SELECT * FROM dd_member WHERE me_fb_id = :facebook_id OR me_email = :email');
+		parent::bind(':email',			$email);
+		parent::bind(':facebook_id',	$facebook_id);
+		parent::execute();
+		$dataset = parent::single();
+		return $dataset;
+	}
+
+	public function facebookInfoUpdate($user_id,$email,$name,$facebook_id,$facebook_name){
+		parent::query('UPDATE dd_member SET me_email = :email,me_name = :name,me_fb_id = :facebook_id,me_fb_name = :facebook_name,me_update_time = :update_time WHERE me_id = :user_id');
+		parent::bind(':user_id', 		$user_id);
+		parent::bind(':name', 			$name);
+		parent::bind(':email', 			$email);
+		parent::bind(':facebook_id', 	$facebook_id);
+		parent::bind(':facebook_name', 	$facebook_name);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::execute();
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	// Check Member ID already
-	public function AlreadyUserProcess($param){
-		parent::query('SELECT me_id FROM dd_member WHERE me_id = :member_id OR me_fb_id = :facebook_id OR me_email = :email OR me_phone = :phone');
-		parent::bind(':member_id',		$param['member_id']);
-		parent::bind(':facebook_id',	$param['facebook_id']);
-		parent::bind(':email',			$param['email']);
-		parent::bind(':phone',			$param['phone']);
+	public function AlreadyUserProcess($email,$facebook_id){
+		parent::query('SELECT me_id FROM dd_member WHERE me_fb_id = :facebook_id OR me_email = :email');
+		parent::bind(':email',			$email);
+		parent::bind(':facebook_id',	$facebook_id);
 		parent::execute();
 		$data = parent::single();
 		return $data['me_id'];

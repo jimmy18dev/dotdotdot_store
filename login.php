@@ -7,7 +7,7 @@ if(MEMBER_ONLINE){
 }
 
 if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret)){
-	include'sdk/facebook-sdk/autoload.php';
+	include'sdk/facebook-sdk-v5/autoload.php';
 	include'facebook.php';
 }
 
@@ -50,7 +50,7 @@ $current_page = "login";
 	<div class="form">
 		<?php if(!empty($config->facebook_app_id) && !empty($config->facebook_app_secret) || true){?>
 		<a href="<?php echo $fbLogin;?>"><div class="facebook-button"><i class="fa fa-facebook"></i> เข้าสู่ระบบด้วย Facebook</div></a>
-		<div class="mini-caption">หรือ</div>
+		<div class="mini-caption">หรือคุณมีบัญชีอยู่แล้ว</div>
 		<?php }?>
 		<form action="javascript:LoginUser();">
 			<div class="caption">อีเมล:</div>

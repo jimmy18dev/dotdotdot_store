@@ -1,7 +1,5 @@
 <?php
 require_once'config/autoload.php';
-include'sdk/facebook-sdk/autoload.php';
-include'facebook.php';
 
 // Get Order information.
 $order->GetOrder(array('order_id' => $_GET['id']));
@@ -61,7 +59,11 @@ $current_page = "order";
 <div class="container container-fix">
 	<div class="head-bar" id="start">
 		<h1>รายการสั่งซื้อที่ <?php echo $order->id;?></h1>
+		<?php if($order->status == "Cancel"){?>
+		<p>การสั่งซื้อถูกยกเลิก เนื่องจากเกินเวลาชำระเงินค่ะ</p>
+		<?php }else{?>
 		<p>Step <?php echo $order->state;?> of 6 – <?php echo $order->status_text;?></p>
+		<?php }?>
 	</div>
 
 	<div class="container-page">
@@ -192,6 +194,17 @@ $current_page = "order";
 			</div>
 			<?php }?>
 
+			<?php if($order->status == "TransferRequest"){?>
+			<!-- Address Dialog -->
+			<div class="box-items" id="address">
+				<div class="icon"><i class="fa fa-file-text-o"></i></div>
+				<div class="box">
+					<p class="big">แจ้งการโอนเงินแล้ว</p>
+					<p>เราได้รับหลักฐานการโอนเงินแล้วคุณแล้ว ตอนนี้อยู่ในระหว่างการตรวจสอบ ซึ่งจะใช้เวลาไม่เกิน 24 ชั่วโมงค่ะ หลังจากที่เราตรวจสอบหลักฐานแล้ว จะมีอีเมลแจ้งให้ทราบอีกครั้งค่ะ</p>
+				</div>
+			</div>
+			<?php }?>
+
 			
 			<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 
@@ -200,7 +213,8 @@ $current_page = "order";
 			<div class="box-items" id="address">
 				<div class="icon"><i class="fa fa-map-pin"></i></div>
 				<div class="box">
-					<p class="big">คุณ <?php echo $order->customer_name;?></p>
+					<p class="big">ที่อยู่ในการจัดส่งสินค้า</p>
+					<p>คุณ <?php echo $order->customer_name;?></p>
 					<p><?php echo $order->customer_address;?></p>
 					<p><?php echo $order->customer_phone?></p>
 					<p class="caption">อัพเดทล่าสุด <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
@@ -306,31 +320,33 @@ $current_page = "order";
 						));
 						?>
 
-						<?php if($order->total > 1){?>
-						<div class="summary-items">
-							<div class="summary-items-detail">รวมราคาสินค้า : </div>
-							<div class="summary-items-total"><span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
-						</div>
-						<?php }?>
-
-						<div class="summary-items">
-							<div class="summary-items-detail"><i class="fa fa-truck"></i> 
-								<?php if($order->status == "Shopping"){?>
-								<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
-									<option value="Ems">พัสดุ EMS</option>
-									<option value="Register">พัสดุลงทะเบียน</option>
-								</select>
-								<?php }else{
-									echo ($order->shipping_type == "Ems"?"พัสดุด่วนพิเศษ (EMS)":"พัสดุลงทะเบียน");
-								}?>
+						<?php if($order->status != "Cancel"){?>
+							<?php if($order->total > 1){?>
+							<div class="summary-items">
+								<div class="summary-items-detail">รวมราคาสินค้า : </div>
+								<div class="summary-items-total"><span id="subpayments-display"><?php echo number_format($order->payments,2);?></span></div>
 							</div>
-							<div class="summary-items-total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
-						</div>
+							<?php }?>
 
-						<div class="summary-items summary-total">
-							<div class="summary-items-detail">ยอดเงินที่ต้องชำระ : </div>
-							<div class="summary-items-total"><span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span> ฿.</div>
-						</div>
+							<div class="summary-items">
+								<div class="summary-items-detail"><i class="fa fa-truck"></i> 
+									<?php if($order->status == "Shopping"){?>
+									<select id="shipping_type" class="shipping-select" onchange="javascript:SummaryPayments();">
+										<option value="Ems">พัสดุ EMS</option>
+										<option value="Register">พัสดุลงทะเบียน</option>
+									</select>
+									<?php }else{
+										echo ($order->shipping_type == "Ems"?"พัสดุด่วนพิเศษ (EMS)":"พัสดุลงทะเบียน");
+									}?>
+								</div>
+								<div class="summary-items-total"><span id="shipping_payments"><?php echo number_format($order->shipping_payments,2);?></span></div>
+							</div>
+
+							<div class="summary-items summary-total">
+								<div class="summary-items-detail">ยอดเงินที่ต้องชำระ : </div>
+								<div class="summary-items-total"><span id="payments-display"><?php echo number_format($order->summary_payments,2);?></span> ฿.</div>
+							</div>
+						<?php }?>
 					</div>
 
 					<?php if($order->status == "Shopping"){?>

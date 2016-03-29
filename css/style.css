@@ -398,39 +398,6 @@ Copyright (c) 2015 Daniel Eden
   margin-right: 5px;
   font-size: 0.8em;
 }
-.container .showcase {
-  width: 64%;
-  margin: 0% 18%;
-  float: left;
-  display: inline-block;
-}
-.container .showcase .showcase-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-top: 7%;
-}
-.container .showcase .showcase-items .showcase-items-image {
-  width: 40%;
-  float: left;
-  display: inline-block;
-}
-.container .showcase .showcase-items .showcase-items-image img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .showcase .showcase-items .showcase-items-content {
-  width: 55%;
-  float: right;
-  display: inline-block;
-  font-size: 0.9em;
-  line-height: 2em;
-}
-.container .showcase .showcase-items .showcase-items-content i {
-  margin-right: 10px;
-  color: #AAAAAA;
-}
 .container .bestseller {
   padding-top: 7%;
 }
@@ -515,7 +482,7 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .quote a:active {
   background: #000000;
-  border: 1px solid #000000;
+  border: 2px solid #000000;
   color: #FFFFFF;
 }
 .container .category {
@@ -530,8 +497,8 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .category .category-items {
   width: 31.33%;
-  margin-top: 2%;
-  margin-right: 2%;
+  margin-top: 3%;
+  margin-right: 3%;
   float: left;
   position: relative;
   min-height: 200px;
@@ -1368,8 +1335,25 @@ Copyright (c) 2015 Daniel Eden
   font-size: 1em;
   line-height: 1.5em;
 }
-.panel-fix p.price {
-  font-size: 1.2em;
+.panel-fix .price {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 1.3em;
+  color: #000000;
+}
+.panel-fix .price .price-val {
+  float: left;
+  display: inline-block;
+}
+.panel-fix .price .sharing-items {
+  float: right;
+  display: inline-block;
+  margin-left: 3%;
+  color: #AAAAAA;
+}
+.panel-fix .price .sharing-items:hover {
+  cursor: pointer;
   color: #000000;
 }
 .panel-fix .description {
@@ -1501,23 +1485,6 @@ Copyright (c) 2015 Daniel Eden
 .panel-fix .action .input-select:focus {
   border: 1px solid #000000;
   color: #000000;
-}
-.panel-fix .sharing {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-top: 10%;
-}
-.panel-fix .sharing .sharing-items {
-  float: right;
-  display: inline-block;
-  margin-left: 1%;
-  padding: 2% 3%;
-  color: #777777;
-  font-size: 1em;
-}
-.panel-fix .sharing .sharing-items:hover {
-  background: #F7F7F7;
 }
 .panel-fix .control {
   margin-top: 3%;
@@ -3174,21 +3141,18 @@ Copyright (c) 2016 Puwadon Sricharoen
   .container .showcase {
     width: 92%;
     margin: 4%;
+    margin-top: 0%;
   }
   .container .showcase .showcase-items {
     width: 100%;
+    margin: 0%;
     margin-top: 10%;
   }
-  .container .showcase .showcase-items .showcase-items-image {
-    width: 50%;
-  }
   .container .showcase .showcase-items .showcase-items-content {
-    width: 45%;
+    width: 92%;
+    padding: 4%;
     font-size: 0.9em;
     line-height: 1.5em;
-  }
-  .container .showcase .showcase-items .showcase-items-content i {
-    margin-right: 5px;
   }
   .container .quote {
     width: 92%;

@@ -21,7 +21,7 @@
 
 	<a href="order-<?php echo $user->current_order_id;?>.html#product-list" target="_parent" class="header-items cart <?php echo ($current_page == 'order'?'cart-active':'');?> animated" id="my-cart" title="สินค้า <?php echo $user->current_order_amount;?> ชิ้น <?php echo $user->current_order_total;?> รายการ">
 		<span class="icon">
-		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0?'animated infinite pulse':'');?>"></i>
+		<i class="fa fa-shopping-cart <?php echo ($order->payments > 0 && $order->status == "Shopping"?'animated infinite pulse':'');?>"></i>
 		</span>
 		<?php if($user->current_order_payments > 0){?>
 		<span class="payments"><span id="payments"><?php echo number_format($user->current_order_payments,2);?> ฿.</span></span>
@@ -30,8 +30,12 @@
 		<?php }?>
 	</a>
 	<?php }else{?>
-	<?php if($current_page != 'login'){?>
-	<a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login"><span class="icon"><i class="fa fa-shopping-cart"></i></span>เข้าสู่ระบบ</a>
-	<?php }?>
+		<?php if($current_page != 'login'){?>
+		<a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login">เข้าสู่ระบบ</a>
+		<?php }?>
+
+		<?php if($current_page != 'register'){?>
+		<a href="register.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login" id="register-btn">สมัครสมาชิก</a>
+		<?php }?>
 	<?php }?>
 </header>

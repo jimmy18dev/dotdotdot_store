@@ -86,7 +86,14 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 			</div>
 
 			<h1><?php echo $product->title;?></h1>
-			<p class="price"><?php echo number_format($product->price,2);?> ฿.</p>
+			<div class="price">
+				<span class="price-val"><?php echo number_format($product->price,2);?> ฿.</span>
+				<span class="sharing">
+					<span class="sharing-items" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></span>
+					<span class="sharing-items" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></span>
+					<span class="sharing-items" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></span>
+				</span>
+			</div>
 			<div class="description"><?php echo nl2br($product->description);?>
 				<?php if($user->type == "administrator"){?>
 				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
@@ -137,12 +144,6 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 						<a href="register.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
 					<?php }?>
 				<?php }?>
-			</div>
-			
-			<div class="sharing">
-				<div class="sharing-items" id="pinterest-sharing-btn"><i class="fa fa-pinterest-p"></i></div>
-				<div class="sharing-items" id="twitter-sharing-btn"><i class="fa fa-twitter"></i></div>
-				<div class="sharing-items" id="facebook-sharing-btn"><i class="fa fa-facebook"></i></div>
 			</div>
 
 			<?php if($user->type == "administrator"){?>
