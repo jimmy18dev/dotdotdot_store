@@ -78,6 +78,9 @@ if(isset($accessToken)) {
 	// Return member id after user registed.
 	$member_id = $user->facebookLogin($profile['email'],$profile['id'],$profile['name']);
 
+	// Set First member to Administrator
+	if($member_id == 1){ $user->firstUserToAdministrator(); }
+
 	// Set session
 	$_SESSION['member_id'] = $member_id;
 	// Set Cookie (1 year)

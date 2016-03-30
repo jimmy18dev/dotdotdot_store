@@ -690,84 +690,140 @@ Copyright (c) 2016 Puwadon Sricharoen
 
     // Head bar style
     .head-bar{
-        width: @page_width;
-        padding: 3% ((100 - @page_width) / 2);
+        width: 50%;
+        padding: 0% 25%;
         float: left;
         display: inline-block;
         background: #F7F7F7;
-        text-align: center;
 
-        h1{
-            font-size: @head_size;
-            line-height: 1.7em;
+        h1.name{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            font-size: 2.5em;
+            line-height: 1.5em;
             color: #000000;
             font-weight: bold;
-        }
-        p{
-            font-size: 0.9em;
-            line-height: 1.7em;
-            color: #555555;
+            border-bottom: 1px solid #EEEEEE;
+            padding-bottom: 1%;
         }
 
-        &:active{
-            background: #F7F7F7;
-        }
+        .info-items{
+            width: 100%;
+            padding-top: 1%;
+            float: left;
+            display: inline-block;
+            font-size: 1em;
+            line-height: 1.5em;
 
-        p.link{
-            line-height: 2em;
-            font-size: 0.8em;
+            .icon{
+                width: 4%;
+                float: left;
+                display: inline-block;
+                min-width: 4%;
+                color: #AAAAAA;
+            }
+            .content{
+                width: 96%;
+                float: left;
+                display: inline-block;
+                font-size: 0.9em;
+                color: #555555;
+            }
 
-            a{
-                padding: 0 3px;
+            .content-margin-left{
+                margin-left: 4%;
+            }
+
+            a.btn{
+                background: #EEEEEE;
+                font-size: 0.8em;
+                padding: 1px 6px;
+                float: left;
+                display: inline-block;
                 text-decoration: none;
+                margin-right: 5px;
                 color: #AAAAAA;
 
                 &:hover{
+                    cursor: pointer;
                     text-decoration: underline;
                 }
             }
+
+            a.logout-btn{
+                color: #e74c3c;
+                background: #F7F7F7;
+
+                &:hover{
+                    background: #e74c3c;
+                    color: #FFFFFF;
+                }
+            }
         }
-    }
 
-    // Order state style
-    .order-state{
-        width: 70%;
-        margin: 0% 15%;
-        margin-bottom: 5%;
-        float: left;
-        display: inline-block;
+        .info-items-btn{
+            margin-top: 1%;
+        }
 
-        .state-items{
-            width: 25%;
-            padding: 5% 0%;
+        .head-content{
+            width: 100%;
             float: left;
             display: inline-block;
-            text-decoration: none;
-            text-align: center;
-            color: #DDDDDD;
-            border-bottom: 1px solid #F7F7F7;
+            margin-top: 4%;
 
-            .icon{
+            h1{
                 font-size: 1.5em;
-                margin-bottom: 10%;
+                line-height: 1.5em;
+                margin-bottom: 1%;
+                color: rgba(0, 0, 0, 0.8);
             }
 
-            .caption{
+            p{
                 font-size: 0.9em;
+                line-height: 1.5em;
+                color: rgba(0, 0, 0, 0.6);
             }
         }
 
-        .state-active{
-            color: #000000;
-            font-weight: bold;
-            border-bottom: 1px solid #000000;
+        // Order state style
+        .order-state{
+            width: 100%;
+            float: left;
+            display: inline-block;
+            margin-top: 4%;
+
+            .state-items{
+                width: 20%;
+                padding: 4% 0%;
+                float: left;
+                display: inline-block;
+                text-decoration: none;
+                text-align: center;
+                color: rgba(0, 0, 0, 0.2);
+                border-top: 1px dotted rgba(0, 0, 0, 0.2);
+
+                .caption{
+                    font-size: 0.8em;
+                    line-height: 1.5em;
+                    margin-bottom: 4%;
+                }
+
+                .icon{
+                    font-size: 2em;
+                }
+            }
+
+            .state-active{
+                color: #2ecc71;
+                border-top: 1px solid #2ecc71;
+            }
         }
     }
 
     // Order Detail stlye at Order page.
     .order-detail{
-        width: 70%;
-        margin: 0% 15%;
+        width: 100%;
         float: left;
         display: inline-block;
 
@@ -796,36 +852,108 @@ Copyright (c) 2016 Puwadon Sricharoen
             }
         }
 
+        // Box items style
         .box-items{
-            width: 100%;
-            padding: 8% 0%;
-            padding-top: 10%;
+            width: 96%;
+            padding: 2%;
             float: left;
             display: inline-block;
+            border-bottom: 1px solid #EEEEEE;
 
-            .icon{
-                width: 7%;
+            &:last-child{
+                border-bottom: 0px;
+            }
+
+            .datetime{
+                width: 25%;
                 float: left;
                 display: inline-block;
-                font-size: 1.5em;
-                line-height: 1.5em;
-                color: #EEEEEE;
-
-                .fa-check-circle{
-                    color: #00ab6b;
-                }
+                line-height: 1.7em;
+                font-size: 0.9em;
+                color: rgba(0, 0, 0, 0.5);
             }
             .box{
-                width: 93%;
+                width: 75%;
                 float: right;
                 display: inline-block;
+                color: rgba(0, 0, 0, 0.8);
+                line-height: 1.7em;
+                font-size: 0.9em;
+
+                a{
+                    color: #000000;
+                    text-decoration: underline;
+                }
+
+                .message{
+                    width: 96%;
+                    float: left;
+                    display: inline-block;
+                    background: #FAFAFA;
+                    padding: 3% 2%;
+                    text-align: center;
+                    margin-top: 3%;
+                    color: rgba(0, 0, 0, 0.5);
+                }
+
+                .control{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    margin-top: 1%;
+
+                    a{
+                        float: right;
+                        display: inline-block;
+                    }
+
+                    .btn{
+                        float: right;
+                        display: inline-block;
+                        font-size: 1em;
+                        padding: 1% 2%;
+                        text-decoration: none;
+                        margin-left: 10px;
+
+                        i{
+                            margin-left: 10px;
+                        }
+
+                        &:hover{
+                            cursor: pointer;
+                            opacity: 0.8;
+                        }
+                    }
+
+                    .btn-delete{
+                        background: #e74c3c;
+                        color: #FFFFFF;
+                    }
+
+                    .btn-edit{
+                        background: #EEEEEE;
+                        color: #AAAAAA;
+                    }
+
+                    .btn-confirm{
+                        background: #000000;
+                        color: #FFFFFF;
+                        box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+                    }
+
+                    .control-caption{
+                        float: right;
+                        display: inline-block;
+                        padding: 1% 0%;
+                    }
+                }
 
                 .bank{
                     width: 100%;
                     margin: 2% 0%;
                     float: left;
                     display: inline-block;
-                    color: @PrimaryTextColor;
+                    font-size: 1em;
 
                     .bank-items{
                         width: 100%;
@@ -835,7 +963,6 @@ Copyright (c) 2016 Puwadon Sricharoen
 
                         .bank-items-icon{
                             width: 7%;
-                            padding-top: 1%;
                             float: left;
                             display: inline-block;
 
@@ -850,32 +977,26 @@ Copyright (c) 2016 Puwadon Sricharoen
                             margin-left: 3%;
                             float: left;
                             display: inline-block;
-
-                            p{
-                                font-size: 0.9em;
-                            }
-                            p.zoom{
-                                font-size: 1.2em;
-                            }
+                            line-height: 1.5em;
                         }
                     }
                 }
-                
-
 
                 // Money transfer form style
                 .form{
                     width: 100%;
                     float: left;
                     display: inline-block;
-                    margin-top: 5%;
+                    margin-top: 3%;
+                    padding-top: 3%;
+                    border-top: 1px solid #EEEEEE;
 
                     p.caption{
                         width: 31%;
                         margin-right: 3%;
                         float: left;
                         display: inline-block;
-                        font-size: 0.9em;
+                        font-size: 1em;
                         color: #555555;
                         text-align: right;
                         line-height: 1.7em;
@@ -884,7 +1005,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                         .check{
                             color: #FFFFFF;
                             font-size: 0.8em;
-                            margin-right: 0px;
+                            margin-right: 10px;
                         }
                         .check-active{color: #00ab6b;}
                         .input-caption-alert{color: #F44336;}
@@ -895,7 +1016,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                         float: left;
                         display: inline-block;
                         font-family: @FontStylePrimary;
-                        font-size: 0.9em;
+                        font-size: 1em;
                         margin-bottom: 5%;
                         border: 0px;
                         border-bottom: 1px solid #EEEEEE;
@@ -947,12 +1068,13 @@ Copyright (c) 2016 Puwadon Sricharoen
                     display: inline-block;
                     border: 0px;
                     font-family: @FontStylePrimary;
-                    font-size: 0.9em;
-                    padding: 2% 4%;
+                    font-size: 1em;
+                    padding: 2% 5%;
                     outline: 0;
                     background: #000000;
                     color: #FFFFFF;
                     text-decoration: none;
+                    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 
                     &:hover{
                         background: #333333;
@@ -964,7 +1086,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                     }
 
                     i{
-                        margin-right: 10px;
+                        margin-left: 10px;
                     }
                 }
                 .submit-btn-payment{
@@ -983,72 +1105,8 @@ Copyright (c) 2016 Puwadon Sricharoen
                     float: left;
                     margin-top: 3%;
                 }
-                // END Money transfer form style
 
-                p{
-                    font-size: 0.9em;
-                    line-height: 1.7em;
-                    color: @PrimaryTextColor;
-                    color: #333333;
-
-                    a{
-                        color: #777777;
-                        text-decoration: none;
-
-                        &:hover{
-                            color: #000000;
-                            text-decoration: underline;
-                        }
-                    }
-                }
-
-                p.caption{
-                    font-size: 0.8em;
-                    line-height: 2em;
-                    color: #CCCCCC;
-
-                    i{
-                        margin: 0px 10px;
-                    }
-                }
-
-                p.big{
-                    font-size: @topic_size;
-                    margin-bottom: 0.5%;
-                    color: #000000;
-                }
-
-                p.limit{
-                    color: #F44336;
-                    font-size: 0.9em;
-                }
-
-                p.message{
-                    width: 100%;
-                    float: left;
-                    display: inline-block;
-                    font-style: italic;
-                }
-                
-                // Cancel Transfer or Edit Address
-                .edit-btn{
-                    float: right;
-                    display: inline-block;
-                    padding: 0.5% 1%;
-                    font-size: 0.8em;
-                    color: #CCCCCC;
-                    border: 1px solid #F7F7F7;
-
-                    &:hover{
-                        cursor: pointer;
-                        border: 1px solid #CCCCCC;
-                        color: #AAAAAA;
-                    }
-                }
-
-                strong{
-                    font-weight: bold;
-                }
+                strong{ font-weight: bold; }
 
 
                 .image{
@@ -1058,7 +1116,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                     display: inline-block;
 
                     img{
-                        width: 70%;
+                        width: 100%;
                         float: left;
                         display: inline-block;
                     }
@@ -1069,13 +1127,16 @@ Copyright (c) 2016 Puwadon Sricharoen
                     width: 100%;
                     float: left;
                     display: inline-block;
+                    margin-top: 3%;
+                    padding-top: 2%;
+                    border-top: 1px solid #EEEEEE;
 
                     .topic-caption{
                         width: 100%;
                         padding: 2% 0%;
                         float: left;
                         display: inline-block;
-                        font-size: 0.8em;
+                        font-size: 1em;
                         color: @ThirdTextColor;
                         font-style: italic;
 
@@ -1103,7 +1164,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                         width: 100%;
                         float: left;
                         display: inline-block;
-                        font-size: 0.9em;
+                        font-size: 1em;
                         margin-top: 2%;
 
                         .items-in-order-thumbnail{
@@ -1202,9 +1263,9 @@ Copyright (c) 2016 Puwadon Sricharoen
                         width: 100%;
                         float: left;
                         display: inline-block;
-                        font-size: 0.9em;
+                        font-size: 1em;
                         color: @PrimaryTextColor;
-                        margin-top: 5%;
+                        margin-top: 3%;
 
                         .summary-items-detail{
                             width: 65%;
@@ -1245,44 +1306,118 @@ Copyright (c) 2016 Puwadon Sricharoen
                     }
 
                     .summary-total{
-                        padding-top: 5%;
-                        font-size: 1.2em;
+                        padding-top: 3%;
+                        font-size: 1em;
                         border-top: 5px solid #F7F7F7;
                     }
                 }
 
                 .form-control{
                     width: 100%;
-                    padding-top: 10%;
+                    padding-top: 5%;
                     float: left;
                     display: inline-block;
                 }
             }
         }
 
-        .box-items-unread{
-            .icon{color: #F7F7F7;}
-            font-weight: bold;
+        .box-items-fix{
+            background: #F5F5F5;
+            padding: 1% 2%;
         }
+    }
 
-        .box-items-success{
-            .icon{
-                color: #00ab6b;
-            }
-            .box{
-                p.big{
-                    color: #00ab6b;
-                }
-            }
-        }
+    .topic{
+        width: 50%;
+        margin: 0% 25%;
+        margin-top: 2%;
+        float: left;
+        display: inline-block;
+        font-size: 0.9em;
+        line-height: 1.5em;
+        text-align: right;
+        color: #CCCCCC;
     }
 
     // Container Page Style
     .container-page{
-        width: @page_width;
-        margin: 0% ((100 - @page_width) / 2);
+        width: 50%;
+        margin: 2% 25%;
         float: left;
         display: inline-block;
+        border: 1px solid #EEEEEE;
+
+        // Order items style at Profile page.
+        .order-items{
+            width: 96%;
+            padding: 2%;
+            float: left;
+            display: inline-block;
+            color: #777777;
+            line-height: 1.5em;
+            border-bottom: 1px solid #EEEEEE;
+
+            &:last-child{
+                border-bottom: 0px;
+            }
+
+            .content{
+                width: 80%;
+                float: left;
+                display: inline-block;
+
+                p{
+                    font-size: 1em;
+                    line-height: 1.7em;
+
+                    .id{
+                        color: #000000;
+                    }
+                }
+                p.time{
+                    font-size: 0.8em;
+                }
+            }
+
+            .status{
+                width: 20%;
+                line-height: 3em;
+                float: right;
+                display: inline-block;
+                text-align: right;
+
+                i{
+                    margin-left: 10px;
+                }
+
+                i.fa-angle-right{
+                    margin-left: 20px;
+                }
+
+                i.fa-check-circle-o{
+                    color: #2ecc71;
+                }
+            }
+
+            &:hover{
+                cursor: pointer;
+                color: #000000;
+                background: #F5F5F5;
+            }
+
+            &:active{
+                background: #EEEEEE;
+            }
+        }
+
+        .order-items-unread{
+            font-weight: bold;
+            color: #000000;
+
+            p.time{
+                color: #000000;
+            }
+        }
 
         .currency{
             font-size: 0.5em;
@@ -1356,61 +1491,6 @@ Copyright (c) 2016 Puwadon Sricharoen
                     font-style: italic;
                     color: #AAAAAA;
                 }
-            }
-        }
-
-        // Order items style at Profile page.
-        .order-items{
-            width: 70%;
-            margin: 0% 15%;
-            padding: 2% 0%;
-            float: left;
-            display: inline-block;
-            text-decoration: none;
-            color: #777777;
-            line-height: 1.5em;
-            border-bottom: 1px solid #F7F7F7;
-            font-size: 0.9em;
-
-            .status-box{
-                float: right;
-                color: #CCCCCC;
-            }
-            .status-complete,
-            .status-success,
-            .status-shipping{color: #00ab6b;}
-
-            i{
-                margin-right: 5px;
-                font-size: 0.8em;
-            }
-
-            p.time{
-                font-size: 0.8em;
-                color: #AAAAAA;
-
-                i{
-                    margin-left: 5px;
-                    color: #EEEEEE;
-                }
-            }
-
-            &:hover{
-                cursor: pointer;
-                color: #000000;
-            }
-
-            &:active{
-                background: #FAFAFA;
-            }
-
-        }
-        .order-items-unread{
-            font-weight: bold;
-            color: #000000;
-
-            p.time{
-                color: #000000;
             }
         }
     }

@@ -9,18 +9,8 @@ if($_POST['calling'] != ''){
 			switch ($_POST['action']) {
 				case 'RegisterUser':
 					if(true){
-						$register = $user->RegisterUser(array(
-							'email' 	=> $_POST['email'],
-							'phone' 	=> $_POST['phone'],
-							'name' 		=> $_POST['name'],
-							'fb_id' 	=> $_POST['fb_id'],
-							'fb_name' 	=> $_POST['fb_name'],
-							'password' 	=> $_POST['password'],
-							'type' 		=> 'member',
-							'status' 	=> 'pending',
-							'refer' 	=> 'form',
-						));
-
+						$register = $user->emailRegister($_POST['email'],$_POST['name'],$_POST['password']);
+						
 						if(!empty($register)){
 							$_SESSION['member_id'] = $register;
             				setcookie('member_id', $register, COOKIE_TIME);
@@ -64,7 +54,7 @@ if($_POST['calling'] != ''){
 
 						// Set First member to Administrator
 						if($register == 1){
-							$user->SetAdminProcess();
+							$user->firstUserToAdministrator();
 						}
 
 						$api->successMessage('New user Registered.',$registered,'');
@@ -109,12 +99,7 @@ if($_POST['calling'] != ''){
 					break;
 				case 'EditInfo':
 					if(true){
-						$user->UpdateUserInfo(array(
-							'name' 	=> $_POST['name'],
-							'phone'	=> $_POST['phone'],
-							'email'	=> $_POST['email'],
-							'member_id' => MEMBER_ID,
-						));
+						$user->editUser(MEMBER_ID,$_POST['name'],$_POST['phone'],$_POST['email'],$_POST['address']);
 						$api->successMessage('Information updated!','','');
 					}
 					else{

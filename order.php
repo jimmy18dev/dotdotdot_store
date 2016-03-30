@@ -58,63 +58,69 @@ $current_page = "order";
 
 <div class="container container-fix">
 	<div class="head-bar" id="start">
-		<h1>รายการสั่งซื้อที่ <?php echo $order->id;?></h1>
-		<?php if($order->status == "Cancel"){?>
-		<p>การสั่งซื้อถูกยกเลิก เนื่องจากเกินเวลาชำระเงินค่ะ</p>
-		<?php }else{?>
-		<p>Step <?php echo $order->state;?> of 6 – <?php echo $order->status_text;?></p>
+		<div class="head-content">
+			<h1>ติดตามสถานะคำสั่งซื้อ</h1>
+			<p>หมายเลขของคำสั่งซื้อ <?php echo $order->id;?> | สั่งเมื่อวันที่ <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span> | <?php echo $order->state;?> จาก 6 (<?php echo $order->status;?>)</p>
+
+			<?php if($order->status == "Cancel"){?>
+			<p>การสั่งซื้อถูกยกเลิก เนื่องจากเกินเวลาชำระเงินค่ะ</p>
+			<?php }?>
+		</div>
+
+		<?php if($order->status != "Shopping" && $order->status != "Cancel"){?>
+		<div class="order-state">
+			<a href="#product-list" class="state-items <?php echo ($order->state >= 2 ?'state-active':'');?>">
+				<div class="caption">สั่งซื้อ</div>
+				<div class="icon"><i class="fa fa-barcode"></i></div>
+			</a>
+			<a href="#transfer" class="state-items <?php echo ($order->state >= 3 ?'state-active':'');?>">
+				<div class="caption">โอนเงิน</div>
+				<div class="icon"><i class="fa fa-money"></i></div>
+			</a>
+			<a href="#success" class="state-items <?php echo ($order->state >= 4 ?'state-active':'');?>">
+				<div class="caption">ชำระเงินแล้ว</div>
+				<div class="icon"><i class="fa fa-check"></i></div>
+			</a>
+			<a href="#shipping" class="state-items <?php echo ($order->state >= 5 ?'state-active':'');?>">
+				<div class="caption">ส่งของแล้ว</div>
+				<div class="icon"><i class="fa fa-truck"></i></div>
+			</a>
+			<a href="#complete" class="state-items <?php echo ($order->state >= 6 ?'state-active':'');?>">
+				<div class="caption">เรียบร้อย</div>
+				<div class="icon"><i class="fa fa-check-circle-o"></i></div>
+			</a>
+		</div>
 		<?php }?>
 	</div>
 
 	<div class="container-page">
-		<?php if($order->status != "Shopping" && $order->status != "Cancel" && $order->status != "Complete"){?>
-		<div class="order-state">
-			<a href="#product-list" class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-barcode"></i></div>
-				<div class="caption">1. สั่งซื้อ</div>
-			</a>
-			<a href="#transfer" class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-money"></i></div>
-				<div class="caption">2. โอนเงิน</div>
-			</a>
-			<a href="#success" class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="caption">3. ชำระเงินแล้ว</div>
-			</a>
-			<a href="#shipping" class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-truck"></i></div>
-				<div class="caption">4. รอรับของ</div>
-			</a>
-		</div>
-		<?php }?>
-		
 		<div class="order-detail">
 			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
+
+			<div class="box-items box-items-fix">
+				<div class="datetime">วันที่/เวลา</div>
+				<div class="box">รายละเอียด</div>
+			</div>
 			
 			<?php if($order->status == "Complete"){?>
 			<!-- Order complete dialog -->
 			<div class="box-items box-items-success" id="complete">
-				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="box">
-					<p class="big">เรียบร้อย</p>
-					<p>การสั่งซื้อเสร็จสมบูรณ์ ขอบคุณที่ใช้บริการค่ะ</p>
-					<p class="caption"> <span class="time" title="<?php echo $order->complete_time_th;?>"><?php echo $order->complete_time_fb;?></span></p>
-				</div>
+				<div class="datetime"><span class="time"><?php echo $order->complete_time_th;?></span></div>
+				<div class="box"><i class="fa fa-check-circle-o"></i> เราหวังว่าคุณจะมีความสุขกับสินค้าใหม่ที่คุณได้รับไป ขอบคุณสำหรับการช้อปปิ้งสินค้าออนไลน์กับ <strong><?php echo $config->meta_sitename;?></strong> และหวังว่าจะได้รับโอกาสบริการคุณอีกครั้ง</div>
 			</div>
 			<?php }?>
 
 			<?php if($order->status == "Shipping" || $order->status == "Complete"){?>
 			<!-- Order Shipping Dialog -->
 			<div class="box-items" id="shipping">
-				<div class="icon"><i class="fa fa-truck"></i></div>
-				<div class="box">
-					<p class="big">พัสดุหมายเลข <?php echo $order->ems;?></p>
-					<p class="caption"><span class="time" title="<?php echo $order->shipping_time_th;?>"><?php echo $order->shipping_time_fb;?></span></p>
-					<p>เราได้จัดส่งสินค้าไปตามที่อยู่ของ คุณ <?php echo $user->name;?> เรียบร้อยแล้วค่ะ</p>
-					<p>ตอนนี้คุณได้รับสินค้าแล้วใช่หรือไม่ ?</p>
+				<div class="datetime"><span class="time"><?php echo $order->shipping_time_th;?></span></div>
+				<div class="box"><i class="fa fa-truck"></i> สินค้าของคุณกำลังอยู่ในระหว่างการจัดส่ง หมายเลขขนส่ง <strong>[<?php echo $order->ems;?>].</strong> คุณสามารถติดตามสถานะของสินค้าคุณได้ที่ <a href="http://track.thailandpost.co.th/tracking/default.aspx">Thailand Post Track & Trace</a> โปรดให้เวลา 24 - 48 ชม ในการอัพเดทข้อมูลจากเวปไซต์ของบริษัทขนส่ง
 
 					<?php if($order->status == "Shipping"){?>
-					<button class="submit-btn submit-btn-left" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');"><i class="fa fa-check"></i>ฉันรับสินค้าแล้ว</button>
+					<div class="control">
+						<div class="btn btn-confirm" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ได้รับสินค้าแล้ว<i class="fa fa-angle-right"></i></div>
+						<div class="control-caption">ตอนนี้คุณได้รับสินค้าแล้วใช่หรือไม่ ?</div>
+					</div>
 					<?php }?>
 				</div>
 			</div>
@@ -123,14 +129,12 @@ $current_page = "order";
 			<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 			<!-- Money Transfer dialog -->
 			<div class="box-items" id="money-transfer">
-				<div class="icon"><i class="fa fa-info-circle"></i></div>
+				<div class="datetime"><?php echo $order->paying_time_th;?></div>
 				<div class="box">
 					<?php if($order->status == "Paying"){?>
-					<p class="big">ส่งหลักฐานโอนเงิน</p>
-					<p>กรุณาตรวจสอบความถูกต้องก่อน "ส่งหลักฐาน" นะคะ <a href="#bank">[บัญชีโอนเงิน]</a></p>
+					ส่งหลักฐานโอนเงินที่นี่ กรุณาตรวจสอบความถูกต้องก่อน "ส่งหลักฐาน" นะคะ
 					<?php }else if($order->status == "TransferAgain"){?>
-					<p class="big">ส่งหลักฐานโอนเงินอีกครั้ง!</p>
-					<p>เราไม่พบยอดโอนเงินที่คุณส่งหลักฐาน กรุณาตรวจสอบอีกครั้งค่ะ <a href="#bank">[บัญชีโอนเงิน]</a></p>
+					<strong>ส่งหลักฐานโอนเงินอีกครั้ง</strong> เราไม่พบยอดโอนเงินที่คุณส่งหลักฐานเข้ามา กรุณาตรวจสอบอีกครั้งค่ะ ขอบคุณค่ะ
 					<?php }?>
 
 					<form class="form" id="MoneyTransfer" action="money.transfer.process.php" method="post" enctype="multipart/form-data">
@@ -175,7 +179,7 @@ $current_page = "order";
 
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
 						<input type="hidden" id="max_filesize" value="<?php echo (int)(ini_get('upload_max_filesize'))*1048576;?>">
-						<button class="submit-btn" type="submit"><i class="fa fa-arrow-up"></i>ส่งหลักฐาน</button>
+						<button class="submit-btn" type="submit">ส่งหลักฐาน<i class="fa fa-angle-right"></i></button>
 					</form>
 				</div>
 			</div>
@@ -185,23 +189,16 @@ $current_page = "order";
 			<?php if($order->status == "TransferSuccess" || $order->status == "Shipping" || $order->status == "Complete"){?>
 			<!-- Payment Success and Confirm Money Transfer -->
 			<div class="box-items box-items-success" id="success">
-				<div class="icon"><i class="fa fa-check"></i></div>
-				<div class="box">
-					<p class="big">ชำระเงินแล้ว</p>
-					<p>ยืนยันการโอนเงินเรียบร้อย เรากำลังจัดส่งสินค้าให้นะคะ</p>
-					<p class="caption"><span class="time" title="<?php echo $order->success_time_th;?>"><?php echo $order->success_time_fb;?></span></p>
-				</div>
+				<div class="datetime"><span class="time"><?php echo $order->success_time_th;?></span></div>
+				<div class="box"><strong><i class="fa fa-check"></i> คุณชำระเงินแล้ว</strong> สินค้าของคุณอยู่ระหว่างดำเนินการที่คลังสินค้าของเรา โดยจะพร้อมเพื่อเตรียมการจัดส่งภายในวันนี้</div>
 			</div>
 			<?php }?>
 
-			<?php if($order->status == "TransferRequest"){?>
+			<?php if($order->status == "TransferRequest" && $_GET['edit'] != 'address'){?>
 			<!-- Address Dialog -->
 			<div class="box-items" id="address">
-				<div class="icon"><i class="fa fa-file-text-o"></i></div>
-				<div class="box">
-					<p class="big">แจ้งการโอนเงินแล้ว</p>
-					<p>เราได้รับหลักฐานการโอนเงินแล้วคุณแล้ว ตอนนี้อยู่ในระหว่างการตรวจสอบ ซึ่งจะใช้เวลาไม่เกิน 24 ชั่วโมงค่ะ หลังจากที่เราตรวจสอบหลักฐานแล้ว จะมีอีเมลแจ้งให้ทราบอีกครั้งค่ะ</p>
-				</div>
+				<div class="datetime"><?php echo $order->confirm_time_th;?></div>
+				<div class="box"><strong>แจ้งการโอนเงินแล้ว</strong> เราได้รับหลักฐานการโอนเงินแล้วคุณแล้ว ตอนนี้อยู่ในระหว่างการตรวจสอบ ซึ่งจะใช้เวลาไม่เกิน 24 ชั่วโมงค่ะ หลังจากที่เราตรวจสอบหลักฐานแล้ว จะมีอีเมลแจ้งให้ทราบอีกครั้งค่ะ</div>
 			</div>
 			<?php }?>
 
@@ -211,30 +208,24 @@ $current_page = "order";
 			<?php if($_GET['edit'] != "address"){?>
 			<!-- Address Dialog -->
 			<div class="box-items" id="address">
-				<div class="icon"><i class="fa fa-map-pin"></i></div>
-				<div class="box">
-					<p class="big">ที่อยู่ในการจัดส่งสินค้า</p>
-					<p>คุณ <?php echo $order->customer_name;?></p>
-					<p><?php echo $order->customer_address;?></p>
-					<p><?php echo $order->customer_phone?></p>
-					<p class="caption">อัพเดทล่าสุด <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
+				<div class="datetime"><span class="time"><?php echo $order->confirm_time_th;?></span></div>
+				<div class="box">ที่อยู่สำหรับจำส่งสินค้าของคุณ
+					<strong><?php echo $order->customer_name;?></strong> ที่อยู่ <?php echo $order->customer_address;?> (เบอร์โทรศัพท์ <?php echo $order->customer_phone?>)
 
 					<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
-					<a href="order-<?php echo $order->id;?>.html?edit=address#address">
-					<p class="edit-btn">แก้ไขที่อยู่</p>
-					</a>
+					<div class="control">
+						<a class="btn btn-edit" href="order-<?php echo $order->id;?>.html?edit=address#address">แก้ไขที่อยู่</a>
+					</div>
 					<?php }?>
 				</div>
 			</div>
 			<?php }?>
 
-			<?php if($_GET['edit'] == "address"){?>
+			<?php if($_GET['edit'] == 'address'){?>
 			<!-- Edit Address Dialog -->
 			<div class="box-items" id="address">
-				<div class="icon"><i class="fa fa-map-pin"></i></div>
-				<div class="box">
-					<p class="big">ที่อยู่สำหรับจัดส่งสินค้า</p>
-					<p class="caption">บันทึกล่าสุด <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span> กรุณาตรวจสอบความถูกต้องก่อนบันทึก</p>
+				<div class="datetime"><?php echo $order->confirm_time_th;?></div>
+				<div class="box">แก้ไขที่อยู่สำหรับจัดส่งสินค้า กรุณาตรวจสอบความถูกต้องก่อนบันทึก
 
 					<!-- Edit Name Address and Phone number of Customer -->
 					<div class="form">
@@ -246,7 +237,7 @@ $current_page = "order";
 							
 						<p class="caption">เบอร์โทรศัพท์</p>
 						<input type="text" class="input-text" id="customer_phone" value="<?php echo $order->customer_phone;?>">
-						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);"><i class="fa fa-check"></i>บันทึก</button>
+						<button class="submit-btn" onclick="javascript:EditAddress(<?php echo $order->id?>);">บันทึก<i class="fa fa-angle-right"></i></button>
 					</div>
 				</div>
 			</div>
@@ -254,13 +245,12 @@ $current_page = "order";
 
 			<!-- Money Transfer Detail -->
 			<div class="box-items" id="info-transfer">
-				<div class="icon"><i class="fa fa-file-text"></i></div>
+				<div class="datetime"><?php echo $order->confirm_time_th;?></div>
 				<div class="box">
-					<p class="big">แจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</p>
-					<p>โอนเงินเข้า: <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> <?php echo $order->m_bank_number;?></p>
+					<strong>คุณแจ้งโอนเงินจำนวน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</strong> โดยโอนเงินเข้าบัญชีของ <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> เลขบัญชี <?php echo $order->m_bank_number;?>
 
-					<?php if(!empty($order->m_message)){?>
-					<p class="message">"<?php echo $order->m_message;?>"</p>
+					<?php if(!empty($order->m_description)){?>
+					<div class="message">"<?php echo $order->m_description;?>"</div>
 					<?php }?>
 
 					<?php if(!empty($order->m_photo)){?>
@@ -271,10 +261,10 @@ $current_page = "order";
 					</div>
 					<?php }?>
 
-					<p class="caption">หลักฐานการโอนเงิน · <span class="time" title="<?php echo $order->confirm_time_th;?>"><?php echo $order->confirm_time_fb;?></span></p>
-
 					<?php if($order->status == "TransferRequest"){?>
-					<p class="edit-btn"><span onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิก</span></p>
+					<div class="control">
+						<div class="btn btn-delete" onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ลบการสลิปนี้<i class="fa fa-times"></i></div>
+					</div>
 					<?php }?>
 				</div>
 			</div>
@@ -284,25 +274,26 @@ $current_page = "order";
 			<?php if($order->status == "Paying" || $order->status == "TransferAgain" || $order->status == "Expire"){?>
 			<!-- Bank info for Money Transfer -->
 			<div class="box-items" id="bank">
-				<div class="icon"><i class="fa fa-barcode"></i></div>
-				<div class="box">
-					<p class="big">ยอดชำระเงิน <?php echo number_format($order->summary_payments,2);?> บาท</p>
-					<p class="limit">กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>) <a href="#money-transfer">[ยันยืนการโอน]</a></p>
+				<div class="datetime"><?php echo $order->paying_time_th;?></div>
+				<div class="box">ยอดชำระเงิน <strong><?php echo number_format($order->summary_payments,2);?> บาท</strong> <span>กรุณาชำระภายในวันที่ <?php echo $order->expire_time_thai_format;?> (<?php echo $order->expire_time_datediff;?>) </span>
 
 					<div class="bank">
 						<?php $bank->ListBank(array('mode' => 'items'));?>
 					</div>
+
+					<div class="control"><a class="btn btn-edit" href="#money-transfer">ยันยืนการโอน</a></div>
 				</div>
 			</div>
 			<?php }?>
 
 			<!-- Product Items in Order -->
 			<div class="box-items" id="product-list">
-				<div class="icon"><i class="fa fa-shopping-cart"></i></div>
+				<div class="datetime"><?php echo ($order->status == 'Shopping'?'ปัจจุบัน':$order->paying_time_th)?></div>
 				<div class="box">
-					<?php if($order->status != "Shopping"){?>
-					<p class="big">รายการสินค้า</p>
-					<p class="caption"><span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span></p>
+					<?php if($order->status == "Shopping"){?>
+					<i class="fa fa-barcode"></i> สั่งซื้อสินค้ากับ <strong><?php echo $config->meta_sitename;?></strong> ...
+					<?php }else{?>
+					<i class="fa fa-barcode"></i> ขอขอบคุณสำหรับการช้อปปิ้งสินค้ากับ <strong><?php echo $config->meta_sitename;?></strong> เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว และกำลังดำเนินการตรวจสอบรายการคำสั่งซื้อนี้ ทางเราจะทำการส่งข้อมูลการอัพเดททางอีเมลให้คุณทราบโดยเร็ว
 					<?php }?>
 
 					<!-- Order list -->
@@ -362,7 +353,7 @@ $current_page = "order";
 
 			<!-- Cart is Empty -->
 			<div class="box-items">
-				<div class="icon"><i class="fa fa-file-o"></i></div>
+				<div class="datetime"><i class="fa fa-file-o"></i></div>
 				<div class="box">
 					<p class="big">ตะกร้าว่างเปล่า!</p>
 					<p>กรุณาเลือกสินค้าที่คุณต้องการก่อนนะคะ...</p>

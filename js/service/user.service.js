@@ -192,6 +192,7 @@ function EditInfo(){
     var href = 'api.user.php';
 
     var name = $('#name').val();
+    var address = $('#address').val();
     var email = $('#email').val();
     var phone = $('#phone').val();
 
@@ -212,6 +213,7 @@ function EditInfo(){
             name                :name,
             email               :email,
             phone               :phone,
+            address             :address,
         },
         error: function (request, status, error) {
             console.log("Request Error");
@@ -223,7 +225,7 @@ function EditInfo(){
         $('#dialog-box').fadeIn(300);
 
         // Redirect page after submit address.
-        setTimeout(function(){window.location = 'profile.php'},300);
+        // setTimeout(function(){window.location = 'profile.php'},300);
 
     }).error();
 }

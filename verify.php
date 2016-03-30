@@ -1,8 +1,5 @@
 <?php
 require_once'config/autoload.php';
-include'sdk/facebook-sdk/autoload.php';
-include'facebook.php';
-
 $verified = $user->Verified(array('email' => $_GET['email'],'verify_code' => $_GET['code']));
 ?>
 

@@ -5,6 +5,7 @@ class UserController extends UserModel{
     public $email;
     public $phone;
     public $name;
+    public $address;
     public $facebook_id;
     public $facebook_name;
     public $verify_code;
@@ -33,7 +34,7 @@ class UserController extends UserModel{
     public function facebookLogin($email,$facebook_id,$facebook_name){
         $password   = hash('sha512',uniqid(mt_rand(1,mt_getrandmax()),true));
         $type       = 'member';
-        $status     = 'active';
+        $status     = 'verified';
         $name       = '';
 
         // Already member registed checking...
@@ -62,6 +63,34 @@ class UserController extends UserModel{
         }
 
         return $member_id;
+    }
+
+
+    // Register new user by email
+    public function emailRegister($email,$name,$password){
+        if(empty($email))
+            return false;
+
+        $type       = 'member';
+        $status     = 'pending';
+
+        $already_id = parent::userAlready($email);
+
+        if(empty($already_id)){
+            $password       = $this->PasswordEncrypt($password);
+            $verify_code    = $this->EmailCodeGenerate($email);
+            $member_id      = parent::userRegister($email,$name,$password,$verify_code,$type,$status);
+            return $member_id;
+        }else{
+            return false;
+        }
+    }
+
+    public function editUser($member_id,$name,$phone,$email,$address){
+        if(empty($member_id) || empty($name) || empty($phone) || empty($email) || empty($address))
+            return false;
+
+        parent::saveUserInfo($member_id,$name,$phone,$email,$address);
     }
 
 
@@ -100,6 +129,7 @@ class UserController extends UserModel{
         $this->email                = $data['me_email'];
         $this->phone                = $data['me_phone'];
         $this->name                 = $data['me_name'];
+        $this->address              = $data['me_address'];
         $this->facebook_id          = $data['me_fb_id'];
         $this->facebook_name        = $data['me_fb_name'];
         $this->notification_count   = parent::CountNotificationProcess(array('member_id' => $this->id));
@@ -154,39 +184,6 @@ class UserController extends UserModel{
 
     private function GenerateMemberKey($param){
         return md5(time().$_SERVER['HTTP_USER_AGENT']);
-    }
-
-
-
-    public function RegisterUser($param){
-
-        if(empty($param['email'])){
-            return false;
-        }
-
-        if($param['refer'] == 'facebook'){
-            $member_id = parent::AlreadyUserProcess($param['email'],$param['fb_id']);
-
-            if(empty($member_id)){
-                $member_id = parent::RegisterUserProcess($param);
-            }else{
-                parent::UpdateInfoByFacebookProcess($param);
-            }
-        }else if($param['refer'] == 'form'){
-            $member_id = parent::AlreadyUserProcess($param['email'],$param['fb_id']);
-
-            if(empty($member_id)){
-                // Register new user
-                if($param['refer'] == "form"){
-                    $param['password']      = $this->PasswordEncrypt($param['password']);
-                    $param['verify_code']   = $this->EmailCodeGenerate($param['email']);
-                }
-
-                $member_id = parent::RegisterUserProcess($param);
-            }
-        }
-
-        return $member_id;
     }
 
     public function ForgetPassword($param){

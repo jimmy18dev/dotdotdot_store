@@ -48,10 +48,29 @@ $current_page = "profile";
 
 <div class="container container-fix">
 	<div class="head-bar" id="start">
-		<h1><?php echo $user->name;?></h1>
-		<p>สมัครสมาชิกเมื่อ <?php echo $user->create_time_thai_format;?></p>
-		<p class="link"><a href="profile_edit.php#start">แก้ไข</a> / <a href="logout.php" class="signout">ออกจากระบบ</a></p>
+		<h1 class="name"><?php echo $user->name;?></h1>
+		<div class="info-items">
+			<div class="icon"><i class="fa fa-home"></i></div>
+			<div class="content"><?php if(empty($user->address)){?><a href="profile_edit.php#start">เพิ่มที่อยู่</a><?}else{echo $user->address;}?></div>
+		</div>
+		<div class="info-items">
+			<div class="icon"><i class="fa fa-phone"></i></div>
+			<div class="content"><?php if(empty($user->phone)){?><a href="profile_edit.php#start">เพิ่มเบอร์โทรศัพท์</a><?}else{echo $user->phone;}?></div>
+		</div>
+		<div class="info-items">
+			<div class="icon"><i class="fa fa-envelope"></i></div>
+			<div class="content"><?php if(empty($user->email)){?><a href="profile_edit.php#start">เพิ่มอีเมล</a><?}else{echo $user->email;}?></div>
+		</div>
+		<div class="info-items">
+			<div class="icon"><i class="fa fa-clock-o"></i></div>
+			<div class="content">สมัครสมาชิกเมื่อ <?php echo $user->create_time_thai_format;?></div>
+		</div>
+
+		<div class="info-items info-items-btn">
+			<div class="cotent content-margin-left"><a href="profile_edit.php#start" class="btn">แก้ไขข้อมูลส่วนตัว</a><a href="logout.php" class="btn logout-btn">ออกจากระบบ</a></div>
+		</div>
 	</div>
+	<div class="topic">รายการสั่งซื้อสุดท้ายของฉัน</div>
 	<div class="container-page">
 		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 	</div>

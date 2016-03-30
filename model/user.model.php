@@ -41,72 +41,63 @@ class UserModel extends Database{
 	}
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-	// Check Member ID already
-	public function AlreadyUserProcess($email,$facebook_id){
-		parent::query('SELECT me_id FROM dd_member WHERE me_fb_id = :facebook_id OR me_email = :email');
-		parent::bind(':email',			$email);
-		parent::bind(':facebook_id',	$facebook_id);
-		parent::execute();
-		$data = parent::single();
-		return $data['me_id'];
-	}
-
-	// Create New Post /////////////
-	public function RegisterUserProcess($param){
-		parent::query('INSERT INTO dd_member(me_email,me_phone,me_name,me_fb_id,me_fb_name,me_password,me_create_time,me_update_time,me_verify_code,me_ip,me_type,me_status) VALUE(:email,:phone,:name,:fb_id,:fb_name,:password,:create_time,:update_time,:verify_code,:ip,:type,:status)');
-
-		parent::bind(':email', 			$param['email']);
-		parent::bind(':phone', 			$param['phone']);
-		parent::bind(':name', 			$param['name']);
-		parent::bind(':fb_id', 			$param['fb_id']);
-		parent::bind(':fb_name', 		$param['fb_name']);
-		parent::bind(':password', 		$param['password']);
+	// Register by Email
+	public function userRegister($email,$name,$password,$verify_code,$type,$status){
+		parent::query('INSERT INTO dd_member(me_email,me_name,me_password,me_create_time,me_update_time,me_verify_code,me_ip,me_type,me_status) VALUE(:email,:name,:password,:create_time,:update_time,:verify_code,:ip,:type,:status)');
+		parent::bind(':email', 			$email);
+		parent::bind(':name', 			$name);
+		parent::bind(':password', 		$password);
 		parent::bind(':create_time',	date('Y-m-d H:i:s'));
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':verify_code', 	$param['verify_code']);
+		parent::bind(':verify_code', 	$verify_code);
 		parent::bind(':ip',				parent::GetIpAddress());
-		parent::bind(':type', 			$param['type']);
-		parent::bind(':status', 		$param['status']);
-
+		parent::bind(':type', 			$type);
+		parent::bind(':status', 		$status);
 		parent::execute();
 		return parent::lastInsertId();
 	}
 
-	// Update by Facebook Login
-	public function UpdateInfoByFacebookProcess($param){
-		parent::query('UPDATE dd_member SET me_email = :email, me_fb_id = :fb_id, me_fb_name = :fb_name, me_update_time = :update_time WHERE me_email = :email');
+	// Member already checking by email
+	public function userAlready($email){
+		parent::query('SELECT me_id FROM dd_member WHERE me_email = :email');
+		parent::bind(':email', $email);
+		parent::execute();
+		$data = parent::single();
+		return $data['me_id'];
+	}
+	// User information update when user editing data on proflie page.
+	public function saveUserInfo($member_id,$name,$phone,$email,$address){
+		parent::query('UPDATE dd_member SET me_name = :name, me_address = :address, me_phone = :phone, me_email = :email, me_update_time = :update_time WHERE me_id = :member_id');
 
-		parent::bind(':fb_id', 			$param['fb_id']);
-		parent::bind(':fb_name', 		$param['fb_name']);
+		parent::bind(':name', 			$name);
+		parent::bind(':address', 		$address);
+		parent::bind(':phone', 			$phone);
+		parent::bind(':email', 			$email);
 		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':email', 			$param['email']);
+		parent::bind(':member_id', 		$member_id);
+
 		parent::execute();
 	}
 
-	// Update by User edit
-	public function UpdateUserInfoProcess($param){
-		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_email = :email, me_update_time = :update_time WHERE me_id = :member_id');
 
-		parent::bind(':name', 			$param['name']);
-		parent::bind(':phone', 			$param['phone']);
-		parent::bind(':email', 			$param['email']);
-		parent::bind(':update_time',	date('Y-m-d H:i:s'));
-		parent::bind(':member_id', 		$param['member_id']);
 
-		parent::execute();
-	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 	public function UpdateNamePhoneProcess($param){
 		parent::query('UPDATE dd_member SET me_name = :name, me_phone = :phone, me_update_time = :update_time WHERE me_id = :member_id');
@@ -311,7 +302,7 @@ class UserModel extends Database{
 
 
 	// Set First member to Administrator
-	public function SetAdminProcess(){
+	public function firstUserToAdministrator(){
 		parent::query('UPDATE dd_member SET me_type = "administrator" WHERE me_id = 1');
 		parent::execute();
 	}

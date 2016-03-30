@@ -46,9 +46,7 @@ if(!empty($user->current_order_id)){
 <div class="container container-fix">
 	<div class="head-bar" id="start">
 		<h1><?php echo $user->name;?></h1>
-		<p>ข้อมูลส่วนตัว 
-			<a href="profile_edit.php#start">แก้ไขข้อมูล</a>
-		</p>
+		<p><a href="profile_edit.php#start">แก้ไขข้อมูลส่วนตัว</a> | เปลี่ยนรหัสผ่าน</p>
 	</div>
 	<div class="container-page">
 		<div class="order-detail">
