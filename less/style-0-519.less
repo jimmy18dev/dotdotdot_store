@@ -2,130 +2,128 @@
 Licensed under the MIT license - http://opensource.org/licenses/MIT
 Copyright (c) 2016 Puwadon Sricharoen
 */
-
-// IMPORT Other Lib
 @page_width: 100%;
 
-@head_size: 1.5em;
-@topic_size: 1.3em;
+@head_size: 2.5em;
+@topic_size: 1.5em;
 @normal_size: 0.9em;
 
 .header{
-    height: 50px;
+    height: 46px;
 
     .logo{
-        padding: 14px 4%;
-        height: 22px;
-        font-size: 1.1em;
+        padding: 13px 4%;
+        height: 20px;
+        font-size: 0.9em;
         letter-spacing: 0.05em;
 
         div{
             font-size: 0.5em;
-            letter-spacing: 0.20em;
+            letter-spacing: 0.05em;
             line-height: 1.5em;
         }
     }
 
     .cart{
-        padding: 20px 4%;
+        padding: 18px 3%;
         height: 10px;
-        font-size: 0.9em;
+        font-size: 0.8em;
 
-        i{
-            margin-right: 10px;
-        }
+        i{ margin-right: 5px; }
     }
 
     .avatar{
-        padding: 13px 4%;
+        padding: 11px 4%;
         height: 24px;
-        border-right: 0px solid #F7F7F7;
+        border-right: 0px solid transparent;
 
         img{
             height: 24px;
             width: 24px;
-            border-radius: 50%;
         }
 
         .notifications{
-            top: 12px;
-            right: 7px;
-            font-size: 0.8em;
-            border: 1px solid #FFFFFF;
+            top: 8px;
+            right: 9px;
+            font-size: 0.7em;
+            border: 2px solid #FFFFFF;
         }
     }
 
     .login{
-        padding: 20px 4%;
+        float: right;
+        padding: 18px 4%;
         height: 10px;
-        font-size: 0.9em;
-        border-right: 0px solid #F7F7F7;
+        font-size: 0.8em;
+        border-right: 0px solid transparent;
 
-        i{
-            margin-right: 10px;
-        }
+        i{ margin-left: 10px; }
+        &:hover{ border-right: 0px solid transparent; }
     }
+
+    #register-btn{ display: none;}
 }
 
 // Login,Register style
 .login-container{
-    width: 92%;
-    margin: 4%;
-    margin-top: 7%;
+    width: 100%;
+    margin: 0%;
+    margin-top: 8%;
 
     .form{
-        width: 100%;
-        margin: 0%;
+        width: 90%;
+        margin: 0% 5%;
 
         .caption{
             line-height: 2em;
-            font-size: 1em;
+            font-size: 0.9em;
         }
 
         .input-text{
             width: 96%;
             padding: 3% 2%;
-            font-size: 1em;
+            font-size: 0.9em;
             line-height: 1.5em;
             margin-bottom: 7%;
         }
 
         .status{
-            padding: 5% 0%;
+            padding: 4% 0%;
             font-size: 0.9em;
             line-height: 1.5em;
-            margin-bottom: 5%;
+            margin-bottom: 4%;
         }
 
         .button-submit{
-            padding: 5% 0%;
-            font-size: 1em;
+            padding: 4% 0%;
+            font-size: 0.8em;
 
-            i{
-                margin-right: 10px;
-            }
+            i{ margin-left: 10px; }
         }
 
-        .mini-caption{
-            padding: 5% 0%;
-        }
+        .mini-caption{ padding: 10% 0%; }
 
         .facebook-button{
-            padding: 5% 0%;
-            font-size: 1em;
+            padding: 4% 0%;
+            font-size: 0.8em;
 
-            i{
-                margin-right: 10px;
-            }
+            i{ margin-right: 10px; }
         }
 
         p.signup{
             padding: 10% 0%;
-            font-size: 1em;
+            font-size: 0.9em;
         }
 
         p.forget{
             font-size: 0.8em;
+
+            a{
+                text-decoration: none;
+                border: 1px solid #EEEEEE;
+                padding: 5px 10px;
+                border-radius: 3px;
+            }
         }
     }
 }
@@ -133,103 +131,46 @@ Copyright (c) 2016 Puwadon Sricharoen
 
 
 .container{
-    margin-top: 50px;
+    margin-top: 46px;
 
     .email-alert{
         width: 92%;
-        padding: 2% 4%;
+        padding: 4%;
+        margin: 0%;
         font-size: 0.8em;
-        line-height: 1.5em;
+        line-height: 1.3em;
 
         i{
-            margin-right: 5px;
+            width: 100%;
+            float: left;
+            display: inline-block;
+            margin-right: 0px;
+            font-size: 2em;
+            margin-bottom: 2%;
         }
     }
 
     // Order in Progress style show on homepage
     .order-in-progress{
-        margin-bottom: 0%;
+        position: relative;
+        right: 0%;
+        bottom: 0%;
+        width: 100%;
+        box-shadow: 0px 0px 0px transparent;
+        border-radius: 0px;
 
         .mini-caption{
-            display: none;
+            font-size: 0.8em;
+            line-height: 3em;
         }
 
         a.order-progress-items{
             width: 92%;
-            padding: 4%;
+            padding: 5% 4%;
             font-size: 0.8em;
-            color: #FFFFFF;
-            background: #000000;
+            border-top: 1px solid #EEEEEE;
 
-            &:hover{
-                color: #FFFFFF;
-            }
-
-            i{
-                margin-right: 5px;
-                font-size: 0.8em;
-            }
-        }
-    }
-
-    // Showcase page style
-    .showcase{
-        width: 92%;
-        margin: 4%;
-        margin-top: 0%;
-
-        .showcase-items{
-            width: 100%;
-            margin: 0%;
-            margin-top: 10%;
-
-            .showcase-items-content{
-                width: 92%;
-                padding: 4%;
-                font-size: 0.9em;
-                line-height: 1.5em;
-            }
-        }
-    }
-
-    // Home page style
-    .quote{
-        width: 92%;
-        padding: 4%;
-        padding-top: 15%;
-
-        i.fa-quote-left,i.fa-quote-right{
-            margin: 1.5% 0%;
-            font-size: 1.5em;
-        }
-
-        h1{
-            font-size: 1.5em;
-            line-height: 1.3em;
-        }
-
-        p{
-            line-height: 1.5em;
-            font-size: 0.9em;
-        }
-
-        p.link{
-            margin-top: 10%;
-        }
-
-        a{
-            margin: 0 3px;
-            padding: 10px 15px;
-            border: 2px solid #EEEEEE;
-            font-weight: bold;
-
-            &:hover{
-                border: 2px solid #000000;
-            }
-
-            &:active{
-                border: 2px solid #000000;
-            }
+            i{ margin-left: 5px; }
         }
     }
 
@@ -237,135 +178,106 @@ Copyright (c) 2016 Puwadon Sricharoen
         width: 100%;
         padding: 0%;
 
-        img{
-            margin-bottom: 20%;
+        img{ margin-bottom: 15%; }
+
+        p{
+            a.shop-btn{
+                padding: 15px 30px;
+                font-size: 0.8em;
+                margin: 0% 1%;
+
+                i{ margin-left: 15px; }
+            }
+        }
+    }
+
+    // Home page style
+    .quote{
+        width: 94%;
+        padding: 3%;
+        margin-top: 10%;
+
+        h1{
+            font-size: 1.5em;
+            line-height: 1.2em;
+            margin-bottom: 4%;
+        }
+
+        i.fa-quote-left,i.fa-quote-right{
+            margin: 1.5% 0%;
+            font-size: 1.5em;
         }
 
         p{
-            width: 100%;
+            line-height: 1.5em;
+            font-size: 1em;
+        }
+
+        p.link{ margin-top: 5%; }
+
+        a{
+            width: 46%;
             float: left;
             display: inline-block;
-            text-align: center;
+            margin: 2%;
+            padding: 10px 0px;
+            font-size: 0.9em;
 
-            a.shop-btn{
-                border: 2px solid #000000;
-                padding: 15px 25px;
-                font-size: 1em;
-                margin: 0% 1%;
-                font-weight: bold;
-
-                i{
-                    margin-left: 10px;
-                }
-
-                &:hover{
-                    background: #000000;
-                    color: #FFFFFF;
-                }
-            }
-        }
-    }
-
-    .bestseller{
-        padding-top: 20%;
-
-        h2.topic{
-            width: 92%;
-            padding: 0% 4%;
-            font-size: @topic_size;
-        }
-    }
-
-    .category{
-        width: 100%;
-        padding: 0%;
-        padding-top: 20%;
-
-        h2.topic{
-            width: 92%;
-            padding: 0% 4%;
-            padding-bottom: 5%;
-            font-size: @topic_size;
-        }
-
-        .category-items{
-            width: 50%;
-            margin-top: 0%;
-            margin-right: 0%;
-            min-height: 100px;
-
-            &:nth-child(3n){
-                margin-right: 0%;
-                float: left;
-            }
-
-            a.figcaption{
-                font-size: 1.3em;
-                letter-spacing: 0.1em;
-            }
+            i{ margin-left: 5px; }
         }
     }
 
     .about{
-        width: 92%;
-        padding: 4%;
-        padding-top: 20%;
+        width: 94%;
+        padding: 3%;
 
-        .about-image{
-            width: 100%;
-            margin-bottom: 5%;
-        }
+        .about-image{ width: 100%; }
         .about-content{
             width: 100%;
+            margin-top: 10%;
 
             h2{
-                font-size: 1.2em;
-                margin-bottom: 3%;
+                font-size: 1.4em;
+                margin-bottom: 2%;
             }
             p{
-                font-size: 0.9em;
+                font-size: 1em;
                 line-height: 1.5em;
             }
         }
     }
 
     .contact-us{
-        width: 92%;
-        padding: 4%;
-        padding-top: 20%;
+        width: 94%;
+        padding: 3%;
 
-        .contact-us-image{
-            width: 100%;
-            margin-bottom: 5%;
-        }
+        .contact-us-image{ width: 100%; }
         .contact-us-content{
             width: 100%;
+            margin-top: 10%;
 
             h2{
-                font-size: 1.2em;
-                margin-bottom: 3%;
+                font-size: 1.4em;
+                margin-bottom: 2%;
             }
             p{
-                font-size: 0.9em;
+                font-size: 1em;
                 line-height: 1.5em;
             }
         }
     }
 
     .google-map{
-        width: 100%;
-        padding: 1% 0%;
-        padding-top: 20%;
+        width: 94%;
+        padding: 3%;
+        margin-top: 10%;
 
         h2{
             font-size: 0.8em;
-            margin-bottom: 2%;
-            padding: 0% 3%;
+            margin-bottom: 3%;
+            text-align: center;
         }
-
-        iframe{
-            height: 300px;
-        }
+        iframe{ height: 300px; }
     }
     // END Home page style
 
@@ -373,20 +285,14 @@ Copyright (c) 2016 Puwadon Sricharoen
     // Categroy all product page
     .filter{
         width: 92%;
-        padding: 4%;
-        margin-top: 2%;
+        padding: 0% 4%;
+        margin-top: 4%;
 
         a.filter-items{
-            border: 0px solid transparent;
-            padding: 0%;
-            font-size: 0.9em;
-            margin-right: 5%;
-            margin-top: 7%;
-        }
-
-        a.filter-active{
-            border: 0px solid #000000;
-            font-weight: bold;
+            padding: 8px 10px;
+            font-size: 0.8em;
+            margin-right: 3%;
+            margin-bottom: 3%;
         }
     }
     // END Categroy all product page
@@ -394,335 +300,314 @@ Copyright (c) 2016 Puwadon Sricharoen
     // Head bar style
     .head-bar{
         width: 92%;
-        padding: 6% 4%;
+        padding: 4%;
 
-        h1{
-            font-size: @head_size;
+        h1.name{
+            font-size: 1.5em;
             line-height: 1.5em;
         }
+
         p{
-            font-size: 0.9em;
+            font-size: 1em;
             line-height: 1.5em;
         }
 
-        p.link{
-            line-height: 2em;
-            font-size: 0.8em;
+        .info-items{
+            width: 100%;
+            padding-top: 1%;
+            font-size: 1em;
+            line-height: 1.5em;
 
-            a{
-                padding: 0 3px;
-            }
-        }
-    }
-
-    // Order state style
-    .order-state{
-        width: 100%;
-        margin: 0%;
-        margin-bottom: 5%;
-
-        .state-items{
-            width: 25%;
-            padding: 5% 0%;
-            border-bottom: 1px solid #F7F7F7;
-
-            .icon{
-                font-size: 1.5em;
-                margin-bottom: 15%;
+            .icon{ width: 10%; }
+            .content{
+                width: 90%;
+                font-size: 0.9em;
             }
 
-            .caption{
+            .content-margin-left{ margin-left: 4%; }
+
+            a.btn{
                 font-size: 0.8em;
+                padding: 4px 10px;
+                margin-left: 10px;
+                margin-bottom: 10px;
+
+                i{ margin-right: 5px; }
             }
         }
 
-        .state-active{
-            border-bottom: 1px solid #000000;
+        .info-items-btn{ margin-top: 3%; }
+
+        .head-content{
+
+            h1{
+                font-size: 1.5em;
+                line-height: 1.5em;
+                margin-bottom: 1%;
+                color: rgba(0, 0, 0, 0.8);
+            }
+
+            p{
+                font-size: 0.9em;
+                line-height: 1.5em;
+                color: rgba(0, 0, 0, 0.6);
+            }
+        }
+
+        // Order state style
+        .order-state{
+            .state-items{
+                width: 20%;
+                padding-top: 5%;
+
+                .caption{
+                    font-size: 0.7em;
+                    line-height: 1.5em;
+                    margin-bottom: 10%;
+                }
+
+                .icon{ font-size: 2em; }
+            }
         }
     }
 
     // Order Detail stlye at Order page.
     .order-detail{
-        width: 100%;
-        margin: 0%;
-
-        // Cancel Order
-        .cancel-btn{
-            margin: 4%;
-            margin-bottom: 10%;
-            padding: 4%;
-            font-size: 0.9em;
-
-            i{margin-right: 5px;}
-        }
-
+        // Box items style
         .box-items{
-            width: 100%;
-            padding: 8% 0%;
-            padding-top: 10%;
+            width: 92%;
+            padding: 4%;
 
-            .icon{
-                display: none;
+            .datetime{
+                width: 100%;
+                margin-right: 0%;
+                line-height: 2em;
+                font-size: 0.8em;
             }
+
             .box{
-                width: 92%;
-                padding: 4%;
+                width: 100%;
+                line-height: 1.5em;
+                font-size: 1em;
+
+                .message{
+                    width: 92%;
+                    padding: 4%;
+                    margin-top: 4%;
+                }
+
+                .control{
+                    margin-top: 4%;
+
+                    .btn{
+                        width: 100%;
+                        font-size: 1em;
+                        padding: 3% 0%;
+                        text-align: center;
+
+                        i{ margin-left: 10px; }
+                    }
+
+                    .control-caption{ padding: 1% 0%; }
+                }
 
                 .bank{
-                    margin: 3% 0%;
+                    width: 100%;
+                    margin: 2% 0%;
+                    font-size: 0.9em;
 
                     .bank-items{
-                        width: 100%;
-                        padding: 3% 0%;
+                        padding: 2% 0%;
 
-                        .bank-items-icon{
-                            width: 20%;
-                            padding-top: 1%;
-                        }
+                        .bank-items-icon{ width: 22%; }
                         .bank-items-info{
-                            width: 75%;
-                            margin-left: 5%;
-
-                            p{
-                                font-size: 0.9em;
-                            }
-                            p.zoom{
-                                font-size: 1.2em;
-                            }
+                            width: 74%;
+                            margin-left: 4%;
+                            line-height: 1.5em;
                         }
                     }
                 }
 
                 // Money transfer form style
                 .form{
+                    width: 100%;
                     margin-top: 5%;
+                    padding-top: 5%;
 
                     p.caption{
                         width: 100%;
                         margin-right: 0%;
-                        font-size: 0.9em;
+                        font-size: 0.8em;
+                        line-height: 1.7em;
                         text-align: left;
-                        line-height: 1.5em;
-
-                        // Form Checking.
-                        .check{
-                            font-size: 0.8em;
-                            margin-right: 0px;
-                            float: right;
-                        }
                     }
 
                     .input-text{
-                        width: 100%;
-                        font-size: 0.9em;
-                        margin-bottom: 10%;
+                        width: 90%;
+                        font-size: 1em;
+                        margin-bottom: 9%;
                         line-height: 1.5em;
                     }
 
-                    .input-textarea{
-                        width: 100%;
+                    .input-textarea{ width: 88%; }
+                    .input-select{ width: 90%; }
+                    .input-file{
+                        margin-bottom: 8%;
+                        width: 90%;
                     }
 
-                    .input-file{
-                        margin-bottom: 10%;
-                        width: 100%;
+
+                    .icon-checking{
+                        width: 10%;
+                        .check{ font-size: 1em; }
                     }
                 }
 
                 .submit-btn{
-                    width: 90%;
+                    width: 100%;
                     font-size: 1em;
-                    padding: 5%;
+                    padding: 4% 0px;
+                    margin-top: 2%;
                     text-align: center;
-                    font-weight: bold;
 
-                    i{
-                        margin-right: 10px;
-                    }
+                    i{ margin-left: 15px; }
                 }
                 .submit-btn-left{
                     float: left;
                     margin-top: 3%;
                 }
-                // END Money transfer form style
 
-                p{
-                    font-size: 0.9em;
-                    line-height: 1.7em;
-                }
-
-                p.caption{
-                    font-size: 0.8em;
-                    line-height: 2em;
-
-                    i{
-                        margin: 0px 10px;
-                    }
-                }
-
-                p.big{
-                    font-size: @topic_size;
-                    margin-bottom: 0.5%;
-                }
-
-                p.limit{
-                    font-size: 0.9em;
-                }
-                
-                // Cancel Transfer or Edit Address
-                .edit-btn{
-                    padding: 0.5% 1%;
-                    font-size: 0.8em;
-                    border: 2px solid #F7F7F7;
-                    font-weight: bold;
-
-                    &:hover{
-                        border: 2px solid #CCCCCC;
-                    }
-                }
-
-                .image{
-                    margin: 3% 0%;
-
-                    img{
-                        width: 100%;
-                    }
-                }
+                .image{ margin: 3% 0%; }
 
                 // Items in order container
                 .order-list{
-                    .topic-caption{
-                        padding: 3% 0%;
-                        font-size: 0.8em;
+                    margin-top: 3%;
+                    padding-top: 2%;
 
-                        .detail{
-                            width: 80%;
-                        }
-                        .quantity{
-                            width: 20%;
-                        }
-                        .total{
-                            display: none;
-                        }
+                    .topic-caption{
+                        width: 100%;
+                        padding: 2% 0%;
+                        font-size: 0.9em;
+
+                        .detail{ width: 65%; }
+                        .quantity{ width: 15%; }
+                        .total{ width: 20%; }
                     }
 
                     // Items in order style
                     .items-in-order{
-                        line-height: 1em;
-                        font-size: 0.9em;
+                        font-size: 0.8em;
                         margin-top: 4%;
+                        padding-bottom: 4%;
+                        border-bottom: 1px solid #EEEEEE;
 
                         .items-in-order-thumbnail{
-                            width: 14%;
+                            width: 10%;
                             min-height: 30px;
                         }
                         
                         .items-in-order-detail{
-                            width: 60%;
+                            width: 49%;
                             padding: 0% 3%;
 
-                            .text{
-                                line-height: 1.2em;
-                            }
-
-                            .remove-btn{
-                                color: #F44336;
-                                font-size: 0.8em;
-                                margin-top: 1%;
-                            }
+                            .text{ line-height: 1.3em; }
+                            .remove-btn{ font-size: 0.9em; }
                         }
 
                         .input-select{
-                            width: 100%;
-                            padding: 5% 0%;
+                            padding: 5%;
                             font-size: 1em;
                             line-height: 1.5em;
-                            border: 2px solid #DDDDDD;
-
-                            &:hover{
-                                border: 2px solid #000000;
-                            }
                         }
 
-                        .items-in-order-quantity{
-                            width: 20%;
-                        }
-                        .items-in-order-total{
-                            display: none;
-                        }
+                        .items-in-order-quantity{ width: 15%; }
+                        .items-in-order-total{ width: 20%; }
                     }
+
+                    .items-in-order-empty{ opacity: 0.4; }
 
                     // Summary items style
                     .summary-items{
                         font-size: 1em;
-                        margin-top: 10%;
+                        margin-top: 5%;
 
                         .summary-items-detail{
-                            width: 75%;
+                            width: 65%;
                             margin-left: 0%;
-
-                            i{
-                                margin-right: 10px;
-                            }
 
                             .shipping-select{
                                 padding: 0% 2%;
                                 font-size: 1em;
-                                border: 2px solid #DDDDDD;
-                                line-height: 2em;
-
-                                &:hover{
-                                    border: 2px solid #000000;
-                                }
+                                line-height: 1.5em;
                             }
                         }
                         .summary-items-total{
-                            width: 25%;
+                            width: 35%;
                         }
                     }
 
                     .summary-total{
                         padding-top: 5%;
-                        font-size: 1.2em;
-                        border-top: 5px solid #F7F7F7;
+                        font-size: 1em;
                     }
                 }
 
                 .form-control{
-                    padding-top: 10%;
+                    padding-top: 5%;
                 }
             }
+            .box-fullsize{ width: 100%; }
         }
+
+        .box-items-fix{ display: none; }
     }
 
-    // Container Page Style
-    .container-page{
-        width: @page_width;
-        margin: 0% ((100 - @page_width) / 2);
-        float: left;
-        display: inline-block;
+    .order-topic{
+        width: 92%;
+        margin: 0% 4%;
+        margin-top: 4%;
+        font-size: 0.9em;
+        line-height: 1.5em;
+    }
 
-        .currency{
-            font-size: 0.5em;
-            margin-left: 3px;
+    .container-product{
+        width: 100%;
+        padding: 1% 0%;
+
+        .container-topic{
+            width: 92%;
+            margin: 3% 4%;
+            margin-top: 5%;
+            font-size: 1em;
+            line-height: 1.5em;
+        }
+
+        // Category items style
+        .category-items{
+            width: 50%;
+            margin: 0%;
+            min-height: 150px;
+
+            a.figcaption{
+                font-size: 1em;
+                letter-spacing: 0em;
+            }
         }
 
         // Product item style
         .product-items{
-            width: 100%;
-            margin-top: 7%;
-            margin-right: 0%;
+            width: 92%;
+            margin: 4%;
+            margin-top: 0%;
 
-            .product-items-thumbnail{
-                min-height: 200px;
-            }
+            &:nth-child(3n){ margin-right: 4%; }
 
+            .product-items-thumbnail{ min-height: 150px; }
             .product-items-detail{
-                width: 92%;
-                padding: 4%;
+                padding: 3% 0%;
 
                 h2{
-                    font-size: 0.9em;
+                    font-size: 1em;
                     line-height: 1.5em;
                 }
 
@@ -732,96 +617,96 @@ Copyright (c) 2016 Puwadon Sricharoen
                 }
             }
         }
+    }
+
+    // Container Page Style
+    .container-page{
+        width: 100%;
+        margin: 3% 0%;
+        border: 0px;
+        border-top: 1px solid #EEEEEE;
+        border-bottom: 1px solid #EEEEEE;
+        box-shadow: 0px 0px 0px transparent;
 
         // Order items style at Profile page.
         .order-items{
             width: 92%;
-            margin: 0%;
             padding: 4%;
             line-height: 1.5em;
-            border-bottom: 1px solid #F7F7F7;
-            font-size: 0.9em;
 
-            p.time{
-                font-size: 0.8em;
-                color: #AAAAAA;
+            .content{
+                width: 60%;
 
-                i{
-                    margin-left: 5px;
-                    color: #EEEEEE;
+                p{
+                    font-size: 0.9em;
+                    line-height: 1.5em;
                 }
+                p.time{ font-size: 0.7em; }
             }
 
-            &:hover{
-                cursor: pointer;
-                color: #000000;
-            }
+            .status{
+                width: 40%;
+                line-height: 3em;
+                font-size: 0.8em;
 
-            &:active{
-                background: #FAFAFA;
+                i{ margin-left: 5px; }
+                i.fa-angle-right{ margin-left: 10px; }
             }
-
         }
-        .order-items-unread{
-            font-weight: bold;
-            color: #000000;
 
-            p.time{
-                color: #000000;
-            }
+        .currency{
+            font-size: 0.5em;
+            margin-left: 3px;
+        }
+    }
+
+    // Order page control
+    .order-control{
+        width: 100%;
+        margin: 0%;
+        
+        // Cancel Order
+        .cancel-btn{
+            width: 92%;
+            margin: 4%;
+            font-size: 1em;
+            padding: 3% 0%;
+            text-align: center;
+
+            i{ margin-right: 10px; }
         }
     }
 }
-.container-fix{
-    margin: 0px 0px;
-}
+
+.container-fix{ margin: 0px 0px; }
 
 // PRODUCT PAGE //////////
 // Left Panel (Show photos of product)
 .panel{
     width: 100%;
-    img{
-        margin-bottom: 3%;
-    }
+    img{ margin-bottom: 2%;}
 }
 // Right Panel (Product Detail and Buy Button)
 .panel-fix{
-    position: inherit;
+    position: relative;
     top: 0px;
     right: 0%;
-    width: 100%;
-    padding: 0%;
-    padding-top: 0px;
+    width: 92%;
+    padding: 4%;
 
     .page-link{
-        background: #000000;
-
         a.back-link,a.category-link{
-            padding: 4%;
-            float: left;
-            display: inline-block;
             font-size: 0.9em;
-            color: #FFFFFF;
-            i{
-                margin-right: 10px;
-            }
-            &:hover{
-                color: #FFFFFF;
-                background: #333333;
-            }
-        }
 
-        a.category-link{
-            float: right;
+            i{ margin-right: 10px; }
         }
     }
 
     h1{
-        width: 92%;
-        padding: 4%;
         font-size: 1.5em;
-        margin: 0%;
-        line-height: 1.3em;
+        line-height: 1.2em;
+        margin: 4% 0%;
+        margin-top: 5%;
     }
 
     p{
@@ -829,168 +714,124 @@ Copyright (c) 2016 Puwadon Sricharoen
         line-height: 1.5em;
     }
 
-    p.price{
-        width: 92%;
-        padding: 4%;
-        font-size: 1.2em;
+    .price{
+        font-size: 1em;
+
+        .sharing-items{
+            float: right;
+            margin-left: 10%;
+        }
     }
 
     .description{
-        width: 92%;
-        padding: 4%;
-        float: left;
-        display: inline-block;
-        font-size: 0.9em;
-        color: @PrimaryTextColor;
+        padding: 7% 0%;
+        font-size: 1em;
         margin-bottom: 2%;
-        line-height: 1.7em;
+        line-height: 1.5em;
 
         a.edit-btn{
             font-size: 0.8em;
-            padding: 2px 8px;
+            padding: 2px 5px;
         }
 
         .sizeinfo{
             margin-top: 5%;
 
-            .size{
-                width: 18%;
+            h4{ font-size: 0.8em; }
+
+            .sizeinfo-box{
+                width: 92%;
+                padding: 4%;
+                font-size: 0.8em;
+
+                .items{
+                    .k{ width: 10%; }
+                    .v{ width: 90%; }
+                }
             }
         }
     }
 
     .action{
-        width: 92%;
-        padding: 4%;
-
-        .mini-caption{
-            font-size: 0.8em;
-            line-height: 2em;
-        }
+        .mini-caption{ font-size: 0.8em; }
 
         .buy-btn{
-            width: 90%;
-            padding: 5%;
+            width: 100%;
+            padding: 10px 0px;
             font-size: 1em;
             line-height: 1.5em;
-            border: 0px solid #000000;
-            font-weight: bold;
 
             i{
                 margin-left: 10px;
-                font-size: 1em;
+                font-size: 0.8em;
             }
         }
 
         .more{
             width: 100%;
-            padding: 3% 0%;
+            padding: 20px 0px;
             font-size: 0.9em;
-            line-height: 2em;
+            line-height: 1.5em;
             text-align: center;
         }
 
-        .subproduct-list{
-            width: 100%;
-            float: left;
-            display: inline-block;
-            margin-bottom: 4%;
-        }
+        .subproduct-list{ width: 100%; }
 
         .input-select{
             width: 100%;
-            padding: 3%;
+            padding: 10px 5%;
+            margin-bottom: 5%;
             font-size: 1em;
             line-height: 1.5em;
-            border: 2px solid #AAAAAA;
-            font-weight: bold;
-
-            &:hover{
-                border: 2px solid #555555;
-            }
-
-            &:focus{
-                border: 2px solid #000000;
-            }
+            margin-right: 0px;
         }
-    }
-
-    // Social Sharing Button
-    .sharing{
-        display: none;
     }
 
     // Button for product page link to store
     .control{
-        width: 92%;
-        padding: 4%;
-        margin-top: 0%;
+        margin-top: 3%;
+        padding-top: 3%;
 
         a{
-            font-size: 0.8em;
-            border: 2px solid #F7F7F7;
-            padding: 3%;
-            font-weight: bold;
+            width: 100%;
+            font-size: 0.9em;
+            padding: 12px 0px;
+            text-align: center;
 
             i{
                 margin-right: 10px;
                 font-size: 0.8em;
             }
-
-            &:hover{
-                border: 2px solid #555555;
-            }
-
-            &:active{
-                border: 2px solid #000000;
-            }
         }
     }
     // END Product page style
-}
-.panel-fix-margin-top{
-    top: 50px;
 }
 // END Product page detail style
 
 .progress-panel{
     .message{
-        margin-top: 45%;
+        margin-top: 50%;
         line-height: 2em;
         font-size: 1em;
         margin-bottom: 5%;
 
         .icon{
-            font-size: 4em;
-            margin-bottom: 1%;
-        }
-
-        .caption{
-            i{
-                margin-right: 5px;
-            }
+            font-size: 3em;
+            margin-bottom: 2%;
         }
     }
 
     .progress{
         width: 80%;
         margin: 0% 10%;
-        border-radius: 20px;
-
-        .progress-bar{
-            width: 60%;
-            height: 2px;
-        }
     }
 
     .cancel{
         bottom: 10px;
         right: 10px;
-        padding: 1px 5px;
+        padding: 1% 2%;
         line-height: 1.5em;
         font-size: 0.8em;
-        border: 2px solid #F44336;
-        font-weight: bold;
     }
 }
 
@@ -1002,66 +843,58 @@ Copyright (c) 2016 Puwadon Sricharoen
     .footer-left{
         width: 100%;
         margin-right: 0%;
-        margin-bottom: 4%;
+        margin-top: 0%;
     }
     .footer-right{
         width: 100%;
+        margin-top: 5%;
     }
 
     .contact-items{
-        width: 100%;
-        padding: 3% 0%;
+        padding: 5% 0%;
 
         .icon{
-            width: 12%;
+            width: 14%;
+            float: left;
             font-size: 2em;
         }
         .detail{
-            width: 88%;
+            width: 86%;
             margin-left: 0%;
             line-height: 1em;
 
-            p{
-                line-height: 1.1em;
-            }
-
-            a{
-                font-size: 0.8em;
-            }
+            p{ line-height: 1.1em; }
+            a{ font-size: 0.8em; }
         }
     }
 
     h1{
-        font-size: 0.9em;
-        line-height: 2em;
-        letter-spacing: 0.05em;
+        font-size: 1em;
+        line-height: 1.4em;
+        letter-spacing: 0em;
+        margin-bottom: 2%;
     }
 
     p{
         font-size: 0.9em;
-        line-height: 2em;
+        line-height: 1.5em;
     }
 
-    i{
-        margin-right: 5px;
-    }
+    i{ margin-right: 5px; }
 
     p.company{
         line-height: 1.3em;
-        a{
-            font-size: 0.8em;
-        }
+        a{ font-size: 0.8em; }
     }
 }
 
 .developer{
     width: 92%;
     padding: 4%;
+    text-align: center;
     font-size: 0.5em;
 
-    i{
-        margin-right: 5px;
-    }
+    i{ margin-right: 10px; }
 }
 
 .dialog-box{
@@ -1069,36 +902,32 @@ Copyright (c) 2016 Puwadon Sricharoen
         padding-top: 50%;
 
         i{
-            font-size: 2.5em;
-            margin-bottom: 5%;
+            font-size: 3em;
+            margin-bottom: 10%;
         }
 
-        p{
-            font-size: 0.8em;
-        }
+        p{ font-size: 0.8em; }
     }
 }
 
 .error-page{
-    width: 92%;
-    padding: 4%;
-    padding-top: 35%;
+    width: 90%;
+    padding: 5%;
+    padding-top: 45%;
 
     i{
-        font-size: 10em;
+        font-size: 4em;
         margin-bottom: 10%;
     }
 
     p{
         font-size: 0.9em;
-        a{
-            margin-left: 5px;
-        }
+        line-height: 1.5em;
     }
 }
 
 #loading-status{
-    bottom: 3px;
-    right: 3px;
-    font-size: 0.5em;
+    bottom: 5px;
+    right: 5px;
+    font-size: 0.6em;
 }

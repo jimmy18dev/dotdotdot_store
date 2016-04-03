@@ -69,7 +69,7 @@ $current_page = "register";
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status"><i class="fa fa-arrow-up"></i>สมัครสมาชิก</span></button>
+			<button class="button-submit" onclick="javascript:RegisterUser();"><span id="login-status">สมัครสมาชิก<i class="fa fa-angle-right"></i></span></button>
 
 			<!-- Product return after login success. -->
 			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">

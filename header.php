@@ -11,7 +11,7 @@
 		<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
 		<?php }?>
 
-		<?php if($user->notification_count > 0){?>
+		<?php if($user->notification_count > 0 || true){?>
 		<div class="notifications">
 			<i class="fa fa-circle"></i>
 		</div>
@@ -31,7 +31,7 @@
 	</a>
 	<?php }else{?>
 		<?php if($current_page != 'login'){?>
-		<a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login">เข้าสู่ระบบ</a>
+		<a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>" class="header-items login">เข้าสู่ระบบ<i class="fa fa-angle-right"></i></a>
 		<?php }?>
 
 		<?php if($current_page != 'register'){?>

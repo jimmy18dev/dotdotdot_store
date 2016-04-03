@@ -11,7 +11,6 @@ class OrderController extends OrderModel{
     public $customer_id;
     public $customer_name;
     public $customer_address;
-    public $customer_address_history;
     public $customer_phone;
     public $customer_email;
 
@@ -235,8 +234,6 @@ class OrderController extends OrderModel{
         $this->customer_address = $data['od_address'];
         $this->customer_phone = $data['me_phone'];
         $this->customer_email = $data['me_email'];
-
-        $this->customer_address_history = parent::GetAddressHistoryProcess(array('member_id' => $this->customer_id));
 
         // time update
         $this->create_time = $data['od_create_time'];

@@ -1,7 +1,5 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +43,7 @@ require_once'config/autoload.php';
 		<input type="hidden" id="forget_code" value="<?php echo $_GET['code'];?>">
 
 		<div class="status" id="status-message"></div>
-		<button onclick="javascript:NewPassword();" class="button-submit"><span id="login-status">ตั้งรหัสผ่านใหม่</span></button>
+		<button onclick="javascript:NewPassword();" class="button-submit"><span id="login-status">ตั้งรหัสผ่านใหม่<i class="fa fa-angle-right"></i></span></button>
 	</div>
 </div>
 

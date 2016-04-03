@@ -330,15 +330,7 @@ class OrderModel extends Database{
 		parent::bind(':order_id', $param['order_id']);
 		parent::execute();
 	}
-
-	public function GetAddressHistoryProcess($param){
-		parent::query('SELECT od_address FROM dd_order WHERE (od_member_id = :member_id AND od_address != "") ORDER BY od_create_time DESC LIMIT 1');
-		parent::bind(':member_id', 		$param['member_id']);
-		parent::execute();
-		$data = parent::single();
-		return $data['od_address'];
-	}
-
+	
 	// Product Activity /////////////////////////////////
 	public function CreateProductActivityProcess($param){
 		parent::query('INSERT INTO dd_product_activity(pdac_token,pdac_admin_id,pdac_product_id,pdac_action,pdac_value,pdac_description,pdac_ref_id,pdac_ip,pdac_time) VALUE(:token,:admin_id,:product_id,:action,:value,:description,:ref_id,:ip,:time)');

@@ -67,10 +67,14 @@ $current_page = "profile";
 		</div>
 
 		<div class="info-items info-items-btn">
-			<div class="cotent content-margin-left"><a href="profile_edit.php#start" class="btn">แก้ไขข้อมูลส่วนตัว</a><a href="logout.php" class="btn logout-btn">ออกจากระบบ</a></div>
+			<div class="cotent">
+				<a class="btn btn-logout" href="logout.php">Logout</a>
+				<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
+				<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
+			</div>
 		</div>
 	</div>
-	<div class="topic">รายการสั่งซื้อสุดท้ายของฉัน</div>
+	<div class="order-topic">รายการสั่งซื้อสุดท้ายของฉัน</div>
 	<div class="container-page">
 		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 	</div>

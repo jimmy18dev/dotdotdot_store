@@ -57,12 +57,12 @@ $current_page = "index";
 <div class="container">
 	<?php if($user->status == "pending"){?>
 	<!-- Email Verify Alert -->
-	<div class="email-alert"><i class="fa fa-exclamation-circle"></i> กรุณายืนยันอีเมลของคุณด้วยค่ะ</div>
+	<div class="email-alert"><i class="fa fa-envelope"></i>คุณจะได้รับอีเมลล์ยืนยันในกล่องอีเมลล์ของคุณ, กรุณาคลิกที่ลิ้งในอีเมลล์ดังกล่าวเพื่อยืนยันบัญชีของคุณ</div>
 	<?php }?>
 
 	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
-		<div class="mini-caption">ใบสั่งซื้อของคุณ</div>
+		<div class="mini-caption">รายการสั่งซื้อของคุณ</div>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>
 	<?php }?>
@@ -72,7 +72,9 @@ $current_page = "index";
 			<img src="image/banner.png" alt="">
 		</a>
 
-		<p><a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a></p>
+		<p>
+			<a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a>
+		</p>
 	</div>
 
 	<div class="quote">
@@ -87,15 +89,15 @@ $current_page = "index";
 		</p>
 	</div>
 
-	<div class="category" id="category">
-		<h2 class="topic">SHOP BY CATEGORY</h2>
+	<div class="container-product" id="category">
+		<div class="container-topic">SHOP BY CATEGORY</div>
 		<div>
 			<?php $category->ListCategory(array('mode' => 'index'));?>
 		</div>
 	</div>
 
-	<div class="container-page bestseller" id="bestseller">
-		<h2 class="topic">BEST SELLER</h2>
+	<div class="container-product" id="bestseller">
+		<div class="container-topic">BEST SELLER</div>
 		<div>
 			<?php $product->ListProductBestSeller(array('order_id' => $user->current_order_id));?>
 		</div>

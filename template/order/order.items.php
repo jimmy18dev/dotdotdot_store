@@ -4,7 +4,7 @@ if($var['od_status'] == "Shopping"){
 	$status = 'เลือกสินค้า...';
 }
 else if($var['od_status'] == "Paying"){
-	$status = 'ชำระเงิน';
+	$status = 'รอโอนเงิน<i class="fa fa-credit-card"></i>';
 	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferRequest"){
@@ -12,7 +12,7 @@ else if($var['od_status'] == "TransferRequest"){
 	$hashtag = '#info-transfer';
 }
 else if($var['od_status'] == "TransferAgain"){
-	$status = 'ยืนยันอีกครั้ง';
+	$status = 'ยืนยันอีกครั้ง<i class="fa fa-exclamation-circle"></i>';
 	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferSuccess"){
@@ -23,11 +23,11 @@ else if($var['od_status'] == "Shipping"){
 	$hashtag = '#shipping';
 }
 else if($var['od_status'] == "Complete"){
-	$status = 'เรียบร้อย<i class="fa fa-check-circle-o"></i>';
+	$status = 'ปิดแล้ว<i class="fa fa-check-circle-o"></i>';
 	$hashtag = '#start';
 }
 else if($var['od_status'] == "Cancel"){
-	$status = 'ยกเลิก';
+	$status = 'ยกเลิก<i class="fa fa-ban"></i>';
 }
 else{
 	// Expire
@@ -47,7 +47,7 @@ else{
 <a href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>" target="_parent" class="order-items <?php echo ($var['od_owner_read']=="open"?"order-items-unread":"");?>">
 	<div class="content">
 		<p>หมายเลขของคำสั่งซื้อ <span class="id">#<?php echo $var['od_id'];?></span></p>
-		<p class="time">สั่งซื้อเมื่อวันที่ <?php echo $var['order_create_time_thai_format'];?></p>
+		<p class="time">สั่งซื้อเมื่อ <?php echo $var['order_create_time_thai_format'];?></p>
 	</div>
 	<div class="status">
 		<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span><i class="fa fa-angle-right"></i>

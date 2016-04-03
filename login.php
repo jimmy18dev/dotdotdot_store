@@ -58,7 +58,7 @@ $current_page = "login";
 			<div class="caption">รหัสผ่าน:</div>
 			<input type="password" class="input-text" id="password" placeholder="">
 			<div class="status" id="status-message"></div>
-			<button type="submit" class="button-submit"><span id="login-status"><i class="fa fa-arrow-right"></i>เข้าสู่ระบบ</span></button>
+			<button type="submit" class="button-submit"><span id="login-status">เข้าสู่ระบบ<i class="fa fa-angle-right"></i></span></button>
 
 			<!-- Product return after login success. -->
 			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">

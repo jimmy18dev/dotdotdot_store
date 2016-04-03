@@ -116,7 +116,8 @@ class Database{
 
     // Datetime to Thai Date format
     public function date_thaiformat($datetime){
-        $monthText = array('มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม');
+        // $monthText = array('มกราคม','กุมภาพันธ์','มีนาคม','เมษายน','พฤษภาคม','มิถุนายน','กรกฎาคม','สิงหาคม','กันยายน','ตุลาคม','พฤศจิกายน','ธันวาคม');
+        $monthText = array('ม.ค.','ก.พ.','มี.ค.','เม.ย.','พ.ค.','มิ.ย.','ก.ค.','ส.ค.','ก.ย.','ต.ค.','พ.ย.','ธ.ค.');
         $hour   = date("H",strtotime($datetime));
         $minute = date("i",strtotime($datetime));
         $year   = date('Y',strtotime($datetime))+543;
@@ -124,7 +125,7 @@ class Database{
         $date   = date('j',strtotime($datetime));
 
         $month  = $monthText[$month-1];
-        return $date.' '.$month.' '.$year.' เวลา '.$hour.':'.$minute;
+        return $date.' '.$month.' '.$year.' '.$hour.':'.$minute;
     }
 
     // Datetime to Facebook format

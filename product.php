@@ -77,7 +77,6 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 	<div class="container-pages">
 		<!-- Detail -->
 		<div class="panel-fix">
-
 			<div class="page-link">
 				<a href="store.php" class="back-link"><i class="fa fa-arrow-left"></i>ดูสินค้าอื่น</a>
 				<?php if(!empty($product->category_id)){?>
@@ -99,14 +98,31 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
 				 <?php }?>
 
-				<?php if($product->category_title == 'T-SHIRT'){?>
+				<?php if($product->category_title == 'T-SHIRT' || true){?>
 				<div class="sizeinfo">
-				 	<h4><i class="fa fa-scissors"></i>ขนาดของไซต์เสื้อ</h4>
-				 	<p><span class="size">Size SS</span> – ตัวยาว 24 นิ้ว รอบอก 34 นิ้ว</p>
-					<p><span class="size">Size S</span> – ตัวยาว 25 นิ้ว รอบอก 34 นิ้ว แขนยาว 22 นิ้ว</p>
-					<p><span class="size">Size M</span> – ตัวยาว 26 นิ้ว รอบอก 36 นิ้ว แขนยาว 23 นิ้ว</p>
-					<p><span class="size">Size L</span> – ตัวยาว 27 นิ้ว รอบอก 38 นิ้ว แขนยาว 24 นิ้ว</p>
-					<p><span class="size">Size XL</span> – ตัวยาว 28 นิ้ว รอบอก 40 นิ้ว แขนยาว 25 นิ้ว</p>
+					<h4><i class="fa fa-scissors"></i>ขนาดของไซต์เสื้อ</h4>
+					<div class="sizeinfo-box">
+						<div class="items">
+							<div class="k">SS</div>
+							<div class="v">ตัวยาว 24 นิ้ว รอบอก 34 นิ้ว</div>
+						</div>
+						<div class="items">
+							<div class="k">S</div>
+							<div class="v">ตัวยาว 25 นิ้ว รอบอก 34 นิ้ว แขนยาว 22 นิ้ว</div>
+						</div>
+						<div class="items">
+							<div class="k">M</div>
+							<div class="v">ตัวยาว 26 นิ้ว รอบอก 36 นิ้ว แขนยาว 23 นิ้ว</div>
+						</div>
+						<div class="items">
+							<div class="k">L</div>
+							<div class="v">ตัวยาว 27 นิ้ว รอบอก 38 นิ้ว แขนยาว 24 นิ้ว</div>
+						</div>
+						<div class="items">
+							<div class="k">XL</div>
+							<div class="v">ตัวยาว 28 นิ้ว รอบอก 40 นิ้ว แขนยาว 25 นิ้ว</div>
+						</div>
+					</div>
 				</div>
 				<?php }?>
 				
@@ -146,7 +162,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<?php }?>
 			</div>
 
-			<?php if($user->type == "administrator"){?>
+			<?php if($user->type == "administrator" || true){?>
 			<div class="control">
 				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>ดูคลังสินค้า</a>
 			</div>

@@ -45,24 +45,26 @@ if(!empty($user->current_order_id)){
 
 <div class="container container-fix">
 	<div class="head-bar" id="start">
-		<h1><?php echo $user->name;?></h1>
-		<p><a href="profile_edit.php#start">แก้ไขข้อมูลส่วนตัว</a> | เปลี่ยนรหัสผ่าน</p>
+		<h1 class="name"><?php echo $user->name;?></h1>
+		<p>เปลี่ยนรหัสผ่านของคุณ</p>
+
+		<div class="info-items info-items-btn">
+			<div class="cotent content-margin-left">
+				<a class="btn btn-active" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
+				<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
+			</div>
+		</div>
 	</div>
 	<div class="container-page">
 		<div class="order-detail">
 			<div class="box-items">
-				<div class="icon"><i class="fa fa-lock"></i></div>
-				<div class="box">
-					<p class="big">ตั้งหรัสผ่านใหม่</p>
-					<p>คำแนะนำ</p>
-					<p>1. รหัสผ่านควรมีความมากกว่า 6 ตัวอักษรขึ้น</p>
-					<p>2. ไม่ควรใช้คำที่เดาง่ายเช่น 123456 password 000000</p>
-					<p>ปล. หากมีข้อสงสัยในการใช้งานเว็บ กรุณาติดต่อ 080XXXXXXX หรือ email@gmail.com</p>
+				<div class="box box-fullsize">
+					<i class="fa fa-child"></i> <strong>คำแนะนำ</strong> รหัสผ่านควรมีความยาวมากกว่า 6 ตัวอักษรและคุรไม่ควรใช้คำที่เดาได้ง่าย เช่น 123456 password 000000
 
 					<div class="form">
 						<p class="caption">ตั้งหรัสผ่านใหม่</p>
 						<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร..." autofocus>
-						<button class="submit-btn" onclick="javascript:ChangePassword();"><i class="fa fa-floppy-o"></i>บันทึก</button>
+						<button class="submit-btn" onclick="javascript:ChangePassword();">บันทึก<i class="fa fa-angle-right"></i></button>
 					</div>
 				</div>
 			</div>

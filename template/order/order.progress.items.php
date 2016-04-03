@@ -13,10 +13,10 @@ else if($var['od_status'] == "TransferAgain"){
 	$hashtag = '#money-transfer';
 }
 else if($var['od_status'] == "TransferSuccess"){
-	$status = '<i class="fa fa-check"></i>ชำระแล้ว';
+	$status = 'ชำระแล้ว<i class="fa fa-check"></i>';
 }
 else if($var['od_status'] == "Shipping"){
-	$status = '<i class="fa fa-truck"></i>จัดส่งแล้ว';
+	$status = 'จัดส่งแล้ว<i class="fa fa-truck"></i>';
 	$hashtag = '#shipping';
 }
 else{
@@ -35,6 +35,7 @@ else{
 }
 ?>
 
-<a href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>" class="order-progress-items">
-	<i class="fa fa-file-text"></i>ใบสั่งซื้อที่ <?php echo $var['od_id'];?> – ยอดชำระ <?php echo number_format($var['od_payments'] + $shipping_pay,2);?> ฿.<span class="status-box status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
+<a class="order-progress-items" href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>">
+	<span class="content">หมายเลขคำสั่งซื้อ #<?php echo $var['od_id'];?></span>
+	<span class="status"><?php echo $status;?></span>
 </a>

@@ -55,17 +55,17 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
+	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
-		<?php if($user->status == "pending"){?>
-		<div class="email-alert"><i class="fa fa-exclamation-circle"></i> กรุณายืนยันอีเมลของคุณด้วยค่ะ</div>
-		<?php }?>
+		<div class="mini-caption">รายการสั่งซื้อของคุณ</div>
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>
+	<?php }?>
 	<div class="filter">
 		<a href="store.php" class="filter-items <?php echo (empty($_GET['filter'])?'filter-active':'');?>">ทั้งหมด</a>
 		<?php $category->ListCategory(array('mode' => 'filter','current' => $_GET['filter']));?>
 	</div>
-	<div class="container-page">
+	<div class="container-product">
 		<?php $product->ListProduct(array('order_id' => $user->current_order_id,'filter' => $_GET['filter']));?>
 	</div>
 </div>

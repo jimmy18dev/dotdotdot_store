@@ -49,7 +49,7 @@ $current_page = "forget";
 
 			<div class="status" id="status-message"></div>
 
-			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status"><i class="fa fa-arrow-right"></i>ตกลง</span></button>
+			<button class="button-submit" onclick="javascript:ForgetPassword();"><span id="login-status">ส่งอีเมลล์<i class="fa fa-angle-right"></i></span></button>
 
 			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php">เข้าสู่ระบบ</a></p>
 		</div>

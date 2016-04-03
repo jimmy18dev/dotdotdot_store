@@ -177,12 +177,9 @@ if($_POST['calling'] != ''){
 					break;
 				case 'EditAddress':
 					if($user->Authentication()){
+						
 						// Edit name and phone
-						$user->UpdateNamePhone(array(
-					        'member_id'     => MEMBER_ID,
-					        'name'          => $_POST['realname'],
-					        'phone'         => $_POST['phone'],
-					    ));
+					    $user->editAddressInfo(MEMBER_ID,$_POST['realname'],$_POST['phone'],$_POST['address']);
 
 					    // Edit address in order
 					    $order->EditAddress(array(
