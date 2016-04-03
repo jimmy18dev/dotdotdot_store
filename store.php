@@ -61,6 +61,7 @@ $current_page = "index";
 		<?php $order->OrderProgress(array('member_id' => $user->id));?>
 	</div>
 	<?php }?>
+	
 	<div class="filter">
 		<a href="store.php" class="filter-items <?php echo (empty($_GET['filter'])?'filter-active':'');?>">ทั้งหมด</a>
 		<?php $category->ListCategory(array('mode' => 'filter','current' => $_GET['filter']));?>

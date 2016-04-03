@@ -90,6 +90,15 @@ class UserModel extends Database{
 		parent::execute();
 	}
 
+	// Email update by order process
+	public function updateEmail($member_id,$email){
+		parent::query('UPDATE dd_member SET me_email = :email, me_update_time = :update_time WHERE me_id = :member_id');
+		parent::bind(':email', 			$email);
+		parent::bind(':update_time',	date('Y-m-d H:i:s'));
+		parent::bind(':member_id', 		$member_id);
+		parent::execute();
+	}
+
 
 
 

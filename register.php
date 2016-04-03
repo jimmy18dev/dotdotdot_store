@@ -56,10 +56,10 @@ $current_page = "register";
 			<input type="text" class="input-text" id="name" placeholder="กรอกชื่อและนามสกุลของคุณ" autofocus>
 			
 			<div class="caption">อีเมล:</div>
-			<input type="text" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
+			<input type="email" class="input-text" id="email" placeholder="กรอกอีเมลของคุณ">
 
 			<!-- <div class="caption">Phone Number</div>
-			<input type="text" class="input-text" id="phone" placeholder="Phone number"> -->
+			<input type="tel class="input-text" id="phone" placeholder="Phone number"> -->
 
 			<!-- <p>Facebook Name</p> -->
 			<input type="hidden" class="input-text" id="fb_name" placeholder="Facebook name">

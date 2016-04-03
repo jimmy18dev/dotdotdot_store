@@ -196,10 +196,6 @@ function EditInfo(){
     var email = $('#email').val();
     var phone = $('#phone').val();
 
-    if(!email || !name || !phone){
-        return false;
-    }
-
     $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังบันทึก...');
 
     $.ajax({
@@ -225,7 +221,7 @@ function EditInfo(){
         $('#dialog-box').fadeIn(300);
 
         // Redirect page after submit address.
-        // setTimeout(function(){window.location = 'profile.php'},300);
+        setTimeout(function(){window.location = 'profile.php'},300);
 
     }).error();
 }

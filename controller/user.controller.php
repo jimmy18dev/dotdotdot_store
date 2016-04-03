@@ -87,7 +87,7 @@ class UserController extends UserModel{
     }
 
     public function editUser($member_id,$name,$phone,$email,$address){
-        if(empty($member_id) || empty($name) || empty($phone) || empty($email) || empty($address))
+        if(empty($member_id) || empty($name))
             return false;
 
         parent::saveUserInfo($member_id,$name,$phone,$email,$address);
@@ -227,9 +227,9 @@ class UserController extends UserModel{
     }
 
     // Update name and phone by money confirm form
-    public function UpdateNamePhone($param){
-        parent::UpdateNamePhoneProcess($param);
-    }
+    // public function UpdateNamePhone($param){
+    //     parent::UpdateNamePhoneProcess($param);
+    // }
 
     public function LoginUserProcess($param){
         $param['email']     = $param['username'];

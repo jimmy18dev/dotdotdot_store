@@ -50,8 +50,11 @@ if(!empty($user->current_order_id)){
 
 		<div class="info-items info-items-btn">
 			<div class="cotent">
-				<a class="btn" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
-				<a class="btn btn-active" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
+				<div class="profile-control">
+					<a class="btn" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
+					<a class="btn btn-active" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
+				</div>
+				
 			</div>
 		</div>
 	</div>
@@ -61,16 +64,16 @@ if(!empty($user->current_order_id)){
 				<div class="box box-fullsize">ข้อมูลส่วนตัวของคุณ จะใช้ในการจัดส่งสินค้าเท่านั้น
 					<div class="form">
 						<p class="caption">ชื่อ - นามกลุล</p>
-						<input type="text" class="input-text" id="name" value="<?php echo $user->name;?>" autofocus>
+						<input type="text" class="input-text input-fullsize" id="name" value="<?php echo $user->name;?>" autofocus>
 						
 						<p class="caption">ที่อยู่ (สำหรับจัดส่งสินค้า)</p>
-						<textarea id="address" class="input-text"><?php echo $user->address;?></textarea>
+						<textarea id="address" class="input-text input-fullsize"><?php echo $user->address;?></textarea>
 
 						<p class="caption">เบอร์โทรศัพท์</p>
-						<input type="text" class="input-text" id="phone" value="<?php echo $user->phone;?>">
+						<input type="tel" class="input-text input-fullsize" id="phone" value="<?php echo $user->phone;?>">
 
 						<p class="caption">อีเมล</p>
-						<input type="text" class="input-text" disabled id="email" value="<?php echo $user->email;?>">
+						<input type="email" class="input-text input-fullsize" id="email" value="<?php echo $user->email;?>">
 
 						<button class="submit-btn" onclick="javascript:EditInfo();">บันทึก<i class="fa fa-angle-right"></i></button>
 					</div>

@@ -59,12 +59,15 @@ $current_page = "order";
 <div class="container container-fix">
 	<div class="head-bar" id="start">
 		<div class="head-content">
+			<?php if($order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 			<h1>ติดตามสถานะคำสั่งซื้อ</h1>
 			<p>หมายเลขของคำสั่งซื้อ <?php echo $order->id;?> | สั่งเมื่อวันที่ <span class="time" title="<?php echo $order->paying_time_th;?>"><?php echo $order->paying_time_fb;?></span> | <?php echo ($order->status == 'Complete'?'<span class="complete">ปิดการขายแล้ว</span>':'ดำเนินการแล้ว '.$order->state.' จาก 6');?></p>
 
 			<?php if($order->status == "Cancel"){?>
 			<p>การสั่งซื้อถูกยกเลิก เนื่องจากเกินเวลาชำระเงินค่ะ</p>
 			<?php }?>
+			<?php }?>
+
 		</div>
 
 		<?php if($order->status != "Shopping" && $order->status != "Cancel"){?>
@@ -154,7 +157,7 @@ $current_page = "order";
 						</div>
 
 						<p class="caption">ยอดเงินที่โอน:</p>
-						<input type="text" class="input-text" name="total" id="transfer_total" placeholder="0.00" autofocus>
+						<input type="number" class="input-text" name="total" id="transfer_total" placeholder="0.00" autocomplete="off" autofocus>
 						<div class="icon-checking"><span id="transfer_total_icon" class="check"><i class="fa fa-check"></i></span></div>
 
 						<p class="caption">โอนเข้าธนาคาร:</p>
@@ -173,7 +176,7 @@ $current_page = "order";
 						<div class="icon-checking"><span id="transfer_address_icon" class="check"><i class="fa fa-check"></i></span></div>
 						
 						<p class="caption">เบอร์โทรศัพท์:</p>
-						<input type="text" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
+						<input type="tel" class="input-text" id="transfer_phone" name="phone" placeholder="เบอร์โทรศัพท์..." value="<?php echo $user->phone;?>">
 						<div class="icon-checking"><span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span></div>
 							
 						<p class="caption">ฝากข้อความ:</p>
@@ -341,6 +344,13 @@ $current_page = "order";
 							</div>
 						<?php }?>
 					</div>
+
+					<?php if(empty($user->email)){?>
+					<div class="email-required">
+						<p class="caption"><i class="fa fa-envelope"></i>เราจำเป็นต้องขออีเมลของคุณ <?php echo $user->name;?> เพื่อแจ้งสถานะการส่งสินค้าและหมายเลขพัสดุของสินค้า ขอบคุณค่ะ</p>
+						<input type="email" id="email" class="email-input" placeholder="กรอกอีเมลของคุณ..." autofocus>
+					</div>
+					<?php }?>
 
 					<?php if($order->status == "Shopping"){?>
 					<div class="form-control" id="paying-button">

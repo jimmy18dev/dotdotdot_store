@@ -68,9 +68,12 @@ $current_page = "profile";
 
 		<div class="info-items info-items-btn">
 			<div class="cotent">
-				<a class="btn btn-logout" href="logout.php">Logout</a>
-				<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
-				<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
+				<div class="profile-control">
+					<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
+					<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
+
+					<a class="btn btn-logout" href="logout.php">Logout</a>
+				</div>
 			</div>
 		</div>
 	</div>

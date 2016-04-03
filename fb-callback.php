@@ -87,7 +87,11 @@ if(isset($accessToken)) {
 	setcookie('member_id',$member_id, COOKIE_TIME);
 
 	// Redirect page after Login.
-	header('Location: index.php?message=login_successful');
+	if(!empty($_GET['return'])){
+		header('Location: http://www.dotdotdotlimited.com/product-'.$_GET['return'].'.html');
+	}else{
+		header('Location: index.php?faceboook=login_successful');
+	}
 }else{
 	header('Location: login.php?');
 }

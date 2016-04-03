@@ -11,7 +11,7 @@
 		<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
 		<?php }?>
 
-		<?php if($user->notification_count > 0 || true){?>
+		<?php if($user->notification_count > 0){?>
 		<div class="notifications">
 			<i class="fa fa-circle"></i>
 		</div>

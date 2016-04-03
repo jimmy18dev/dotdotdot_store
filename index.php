@@ -60,6 +60,10 @@ $current_page = "index";
 	<div class="email-alert"><i class="fa fa-envelope"></i>คุณจะได้รับอีเมลล์ยืนยันในกล่องอีเมลล์ของคุณ, กรุณาคลิกที่ลิ้งในอีเมลล์ดังกล่าวเพื่อยืนยันบัญชีของคุณ</div>
 	<?php }?>
 
+	<?php if(empty($user->email)){?>
+	<a href="profile_edit.php#start" class="email-required-alert">เพิ่มอีเมลของคุณ<i class="fa fa-angle-right"></i></a>
+	<?php }?>
+
 	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
 		<div class="mini-caption">รายการสั่งซื้อของคุณ</div>

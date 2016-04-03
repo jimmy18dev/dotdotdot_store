@@ -19,16 +19,16 @@
 <title>404 Page Not Found</title>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>css/style.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>plugin/font-awesome/css/font-awesome.min.css"/>
 
 </head>
 
 <body>
 <div class="error-page">
 	<i class="fa fa-frown-o"></i>
-	<p>หน้าที่คุณต้องการไม่มีในระบบ... กลับไปที่<a href="index.php">หน้าแรก</a></p>
+	<p>หน้าที่คุณต้องการไม่มีในระบบ... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

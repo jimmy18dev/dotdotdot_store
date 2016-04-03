@@ -110,6 +110,7 @@ function RemoveItemInOrder(order_id,product_id){
 function OrderProcess(order_id,order_action){
     var href = 'api.order.php';
     var shipping_type = $('#shipping_type').val();
+    var email = $('#email').val();
 
     $('#dialog-message').html('กำลังดำเนินการ...');
     $('#dialog-box').fadeIn(300);
@@ -126,6 +127,7 @@ function OrderProcess(order_id,order_action){
             order_id            :order_id,
             order_action        :order_action,
             order_shipping_type :shipping_type,
+            email               :email,
         },
         error: function (request, status, error) {
             console.log("Request Error");

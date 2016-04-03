@@ -9,18 +9,19 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
         'description'   => $_POST['description'],
         'type'          => 'bank_transfer',
     ));
+
     $order->OrderProcess(array(
         'member_id'     => MEMBER_ID,
         'order_id'      => $_POST['order_id'],
         'order_action'  => 'TransferRequest',
         'address'       => $_POST['address'],
     ));
+
     // Update Realname and Phone
-    $user->UpdateNamePhone(array(
-        'member_id'     => MEMBER_ID,
-        'name'          => $_POST['realname'],
-        'phone'         => $_POST['phone'],
-    ));
+    if(!empty($_POST['realname']) || !empty($_POST['address']) || !empty($_POST['phnoe'])){
+        $user->editAddressInfo(MEMBER_ID,$_POST['realname'],$_POST['phone'],$_POST['address']);
+    }
+
     $order->GetOrder(array('order_id' => $_POST['order_id']));
     // Save activity log
     $order->CreateOrderActivity(array(

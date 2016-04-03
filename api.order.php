@@ -83,6 +83,12 @@ if($_POST['calling'] != ''){
 						if($_POST['order_action'] == "Expire"){}
 						else if($_POST['order_action'] == "Cancel"){}
 						else if($_POST['order_action'] == "Paying"){
+
+							if(empty($user->email) && !empty($_POST['email'])){
+								$user->updateEmail(MEMBER_ID,$_POST['email']);
+								$user->GetUser(array('member_id' => MEMBER_ID));
+							}
+
 							// Email Sending to Customer ///////////////////////////
 							if($config->email_status && !empty($user->email) && $user->status == "verified"){
 								$mail->addAddress($user->email);

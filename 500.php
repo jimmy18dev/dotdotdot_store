@@ -23,16 +23,16 @@ require_once'config/autoload.php';
 <title>500 Internal Server Error</title>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>css/style.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>plugin/font-awesome/css/font-awesome.min.css"/>
 
 </head>
 
 <body>
 <div class="error-page">
 	<i class="fa fa-cogs"></i>
-	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... กลับไปที่<a href="index.php">หน้าแรก</a></p>
+	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก</a></p>
 </div>
 
 <script type="text/javascript">

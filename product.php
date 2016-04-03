@@ -98,7 +98,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
 				 <?php }?>
 
-				<?php if($product->category_title == 'T-SHIRT' || true){?>
+				<?php if($product->category_title == 'T-SHIRT'){?>
 				<div class="sizeinfo">
 					<h4><i class="fa fa-scissors"></i>ขนาดของไซต์เสื้อ</h4>
 					<div class="sizeinfo-box">
@@ -162,7 +162,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				<?php }?>
 			</div>
 
-			<?php if($user->type == "administrator" || true){?>
+			<?php if($user->type == "administrator"){?>
 			<div class="control">
 				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>ดูคลังสินค้า</a>
 			</div>

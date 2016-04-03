@@ -50,8 +50,10 @@ if(!empty($user->current_order_id)){
 
 		<div class="info-items info-items-btn">
 			<div class="cotent content-margin-left">
-				<a class="btn btn-active" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
-				<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
+				<div class="profile-control">
+					<a class="btn btn-active" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
+					<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -63,7 +65,7 @@ if(!empty($user->current_order_id)){
 
 					<div class="form">
 						<p class="caption">ตั้งหรัสผ่านใหม่</p>
-						<input type="password" id="password" class="input-text" placeholder="ไม่น้อยกว่า 6 ตัวอักษร..." autofocus>
+						<input type="password" id="password" class="input-text input-fullsize" placeholder="ไม่น้อยกว่า 6 ตัวอักษร..." autofocus>
 						<button class="submit-btn" onclick="javascript:ChangePassword();">บันทึก<i class="fa fa-angle-right"></i></button>
 					</div>
 				</div>

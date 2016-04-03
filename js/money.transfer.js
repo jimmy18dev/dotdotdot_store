@@ -93,7 +93,8 @@ function ImageFileCheck(){
     if(window.File && window.FileReader && window.FileList && window.Blob){
         if(!$file.val()){
             $('#transfer_photo_icon').removeClass('check-active');
-            $caption.html('ขอภาพใบสลิปด้วยค่ะ!').addClass('input-caption-alert');
+            // $caption.html('ขอภาพใบสลิปด้วยค่ะ!').addClass('input-caption-alert');
+            alert('เราขอภาพถ่ายใบสลิปโอนเงินด้วยนะคะ!');
             return false;
         }
         else{
