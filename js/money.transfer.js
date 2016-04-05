@@ -13,31 +13,37 @@ $(document).ready(function(){
 
             if(!ImageFileCheck()){
                 console.log('Process: Photo is empty!');
+                alert('เราขอภาพถ่ายใบสลิปโอนเงินด้วยนะคะ ขอบคุณค่ะ');
                 return false;
             }
             else if(!TotalValidation()){
                 $('#transfer_total').focus();
                 console.log('Process: TotalValidation: Fail!');
+                alert('ระบุจำนวนเงินที่โอนด้วยนะคะ ขอบคุณค่ะ');
                 return false;
             }
             else if(!BankValidation()){
                 $('#transfer_bank').focus();
                 console.log('Process: BankValidation: Fail!');
+                alert('เลือกธนาคารที่คุณโอนเงินด้วยนะคะ ขอบคุณค่ะ');
                 return false;
             }
             else if(!NameValidation()){
                 $('#transfer_realname').focus();
                 console.log('Process: NameValidation: Fail!');
+                alert('คุณยังไม่ได้ใส่ชื่อนามสกุลที่จะใช้ในการส่งสินค้าค่ะ!');
                 return false;
             }
             else if(!AddressValidation()){
                 $('#transfer_address').focus();
                 console.log('Process: AddressValidation: Fail!');
+                alert('คุณยังไม่ได้กรอกที่อยู่สำหรับจัดสั่งสินค้าค่ะ!');
                 return false;
             }
             else if(!PhoneValidation()){
                 $('#transfer_phone').focus();
                 console.log('Process: PhoneValidation: Fail!');
+                alert('รบกวนขอเบอร์ติดต่อกลับด้วยนะคะ ขอบคุณค่ะ');
                 return false;
             }
             

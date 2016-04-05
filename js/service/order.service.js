@@ -108,9 +108,14 @@ function RemoveItemInOrder(order_id,product_id){
 }
 
 function OrderProcess(order_id,order_action){
-    var href = 'api.order.php';
-    var shipping_type = $('#shipping_type').val();
-    var email = $('#email').val();
+    var href            = 'api.order.php';
+    var shipping_type   = $('#shipping_type').val();
+    var email           = $('#email').val();
+
+    if(order_action == 'Paying' && email == ''){
+        var del = confirm('คุณต้องการสั่งซื้อสินค้าโดยที่ไม่ใส่อีเมล ใช่หรือไม่?');
+        if(!del){return false;}
+    }
 
     $('#dialog-message').html('กำลังดำเนินการ...');
     $('#dialog-box').fadeIn(300);

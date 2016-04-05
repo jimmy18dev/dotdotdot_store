@@ -60,7 +60,7 @@ $current_page = "index";
 	<div class="email-alert"><i class="fa fa-envelope"></i>คุณจะได้รับอีเมลล์ยืนยันในกล่องอีเมลล์ของคุณ, กรุณาคลิกที่ลิ้งในอีเมลล์ดังกล่าวเพื่อยืนยันบัญชีของคุณ</div>
 	<?php }?>
 
-	<?php if(empty($user->email)){?>
+	<?php if(empty($user->email) && MEMBER_ONLINE){?>
 	<a href="profile_edit.php#start" class="email-required-alert">เพิ่มอีเมลของคุณ<i class="fa fa-angle-right"></i></a>
 	<?php }?>
 

@@ -49,6 +49,9 @@ $current_page = "profile";
 <div class="container container-fix">
 	<div class="head-bar" id="start">
 		<h1 class="name"><?php echo $user->name;?></h1>
+		<p>รายการสั่งซื้อสุดท้ายของฉัน</p>
+
+		<?php if(false){?>
 		<div class="info-items">
 			<div class="icon"><i class="fa fa-home"></i></div>
 			<div class="content"><?php if(empty($user->address)){?><a href="profile_edit.php#start">เพิ่มที่อยู่</a><?}else{echo $user->address;}?></div>
@@ -65,22 +68,22 @@ $current_page = "profile";
 			<div class="icon"><i class="fa fa-clock-o"></i></div>
 			<div class="content">สมัครสมาชิกเมื่อ <?php echo $user->create_time_thai_format;?></div>
 		</div>
-
-		<div class="info-items info-items-btn">
-			<div class="cotent">
-				<div class="profile-control">
-					<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
-					<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
-
-					<a class="btn btn-logout" href="logout.php">Logout</a>
-				</div>
-			</div>
-		</div>
+		<?php }?>
+		
 	</div>
-	<div class="order-topic">รายการสั่งซื้อสุดท้ายของฉัน</div>
 	<div class="container-page">
 		<?php $order->ListMyOrder(array('member_id' => MEMBER_ID));?>
 	</div>
+
+	<div class="info-items info-items-btn">
+			<div class="cotent">
+				<div class="profile-control">
+					<a class="btn btn-logout" href="logout.php">Logout</a>
+					<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
+					<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
+				</div>
+			</div>
+		</div>
 </div>
 </body>
 

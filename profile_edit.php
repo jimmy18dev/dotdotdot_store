@@ -47,21 +47,11 @@ if(!empty($user->current_order_id)){
 	<div class="head-bar" id="start">
 		<h1 class="name"><?php echo $user->name;?></h1>
 		<p>แก้ไขข้อมูลส่วนตัวของคุณ</p>
-
-		<div class="info-items info-items-btn">
-			<div class="cotent">
-				<div class="profile-control">
-					<a class="btn" href="profile_change_password.php#start"><i class="fa fa-key"></i>เปลี่ยนรหัสผ่าน</a>
-					<a class="btn btn-active" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูลส่วนตัว</a>
-				</div>
-				
-			</div>
-		</div>
 	</div>
 	<div class="container-page">
 		<div class="order-detail">
 			<div class="box-items">
-				<div class="box box-fullsize">ข้อมูลส่วนตัวของคุณ จะใช้ในการจัดส่งสินค้าเท่านั้น
+				<div class="box box-fullsize">
 					<div class="form">
 						<p class="caption">ชื่อ - นามกลุล</p>
 						<input type="text" class="input-text input-fullsize" id="name" value="<?php echo $user->name;?>" autofocus>

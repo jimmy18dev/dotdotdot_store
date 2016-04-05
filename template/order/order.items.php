@@ -4,26 +4,26 @@ if($var['od_status'] == "Shopping"){
 	$status = 'เลือกสินค้า...';
 }
 else if($var['od_status'] == "Paying"){
-	$status = 'รอโอนเงิน<i class="fa fa-credit-card"></i>';
-	$hashtag = '#money-transfer';
+	$status = 'รอโอนเงิน...';
+	$hashtag = '#start';
 }
 else if($var['od_status'] == "TransferRequest"){
-	$status = 'ยืนยันโอนเงิน';
-	$hashtag = '#info-transfer';
+	$status = 'โอนเงินแล้ว';
+	$hashtag = '#start';
 }
 else if($var['od_status'] == "TransferAgain"){
-	$status = 'ยืนยันอีกครั้ง<i class="fa fa-exclamation-circle"></i>';
-	$hashtag = '#money-transfer';
+	$status = 'ไม่พบยอดเงิน!';
+	$hashtag = '#start';
 }
 else if($var['od_status'] == "TransferSuccess"){
 	$status = 'ชำระแล้ว<i class="fa fa-check"></i>';
 }
 else if($var['od_status'] == "Shipping"){
 	$status = 'จัดส่งแล้ว<i class="fa fa-truck"></i>';
-	$hashtag = '#shipping';
+	$hashtag = '#start';
 }
 else if($var['od_status'] == "Complete"){
-	$status = 'ปิดแล้ว<i class="fa fa-check-circle-o"></i>';
+	$status = 'ปิดการขาย<i class="fa fa-check-circle-o"></i>';
 	$hashtag = '#start';
 }
 else if($var['od_status'] == "Cancel"){
