@@ -285,7 +285,7 @@ $current_page = "order";
 					<b class="topic"><i class="fa fa-file-text-o"></i>แจ้งโอนเงินแล้ว</b>
 					<div class="description"><strong>คุณแจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</strong> โดยโอนเงินเข้าบัญชีของ <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> เลขบัญชี <?php echo $order->m_bank_number;?></div>
 
-					<?php if(!empty($order->m_description) || true){?>
+					<?php if(!empty($order->m_description)){?>
 					<div class="message">"<?php echo $order->m_description;?>"</div>
 					<?php }?>
 
@@ -311,7 +311,7 @@ $current_page = "order";
 				<div class="datetime"><?php echo ($order->status == 'Shopping'?'ปัจจุบัน':$order->paying_time_th)?></div>
 				<div class="box">
 					<?php if($order->status == "Shopping"){?>
-					<b class="topic"><i class="fa fa-shopping-cart"></i>รายการสินค้าในตะกร้า <a href="store.php">เลือกสินค้าเพิ่ม<i class="fa fa-angle-right"></i></a></b>
+					<b class="topic"><i class="fa fa-shopping-cart"></i>สินค้าในตะกร้า <a href="store.php">เลือกสินค้าเพิ่ม<i class="fa fa-angle-right"></i></a></b>
 					<?php }else{?>
 					<b class="topic"><i class="fa fa-shopping-cart"></i>รายการสินค้าของคุณ</b>
 					<div class="description">เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว และกำลังดำเนินการตรวจสอบรายการคำสั่งซื้อนี้ ทางเราจะทำการส่งข้อมูลการอัพเดททางอีเมลให้คุณทราบโดยเร็ว</div>

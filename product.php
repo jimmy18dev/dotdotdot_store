@@ -111,27 +111,27 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 				</div>
 				<div class="row">
 					<div class="col">ยาว</div>
-					<div class="col">24</div>
-					<div class="col">25</div>
-					<div class="col">26</div>
-					<div class="col">27</div>
-					<div class="col">28</div>
+					<div class="col">24"</div>
+					<div class="col">25"</div>
+					<div class="col">26"</div>
+					<div class="col">27"</div>
+					<div class="col">28"</div>
 				</div>
 				<div class="row">
 					<div class="col">รอบอก</div>
-					<div class="col">32</div>
-					<div class="col">34</div>
-					<div class="col">36</div>
-					<div class="col">38</div>
-					<div class="col">40</div>
+					<div class="col">32"</div>
+					<div class="col">34"</div>
+					<div class="col">36"</div>
+					<div class="col">38"</div>
+					<div class="col">40"</div>
 				</div>
 				<div class="row">
 					<div class="col">แขน</div>
 					<div class="col">-</div>
-					<div class="col">22</div>
-					<div class="col">23</div>
-					<div class="col">24</div>
-					<div class="col">25</div>
+					<div class="col">22"</div>
+					<div class="col">23"</div>
+					<div class="col">24"</div>
+					<div class="col">25"</div>
 				</div>
 			</div>
 			<?php }?>
