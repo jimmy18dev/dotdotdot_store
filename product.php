@@ -95,38 +95,47 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 			</div>
 			<div class="description"><?php echo nl2br($product->description);?>
 				<?php if($user->type == "administrator"){?>
-				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข</a>
-				 <?php }?>
-
-				<?php if($product->category_title == 'T-SHIRT'){?>
-				<div class="sizeinfo">
-					<h4><i class="fa fa-scissors"></i>ขนาดของไซต์เสื้อ</h4>
-					<div class="sizeinfo-box">
-						<div class="items">
-							<div class="k">SS</div>
-							<div class="v">ตัวยาว 24 นิ้ว รอบอก 34 นิ้ว</div>
-						</div>
-						<div class="items">
-							<div class="k">S</div>
-							<div class="v">ตัวยาว 25 นิ้ว รอบอก 34 นิ้ว แขนยาว 22 นิ้ว</div>
-						</div>
-						<div class="items">
-							<div class="k">M</div>
-							<div class="v">ตัวยาว 26 นิ้ว รอบอก 36 นิ้ว แขนยาว 23 นิ้ว</div>
-						</div>
-						<div class="items">
-							<div class="k">L</div>
-							<div class="v">ตัวยาว 27 นิ้ว รอบอก 38 นิ้ว แขนยาว 24 นิ้ว</div>
-						</div>
-						<div class="items">
-							<div class="k">XL</div>
-							<div class="v">ตัวยาว 28 นิ้ว รอบอก 40 นิ้ว แขนยาว 25 นิ้ว</div>
-						</div>
-					</div>
-				</div>
-				<?php }?>
-				
+				 – <a href="store/product_editor.php?id=<?php echo $product->id;?>" class="edit-btn">แก้ไข<i class="fa fa-angle-right"></i></a>
+				 <?php }?>				
 			</div>
+			<?php if($product->category_title == 'T-SHIRT'){?>
+			<div class="sizeinfo">
+				<h4>มาตรฐานไซส์เสื้อที่ทางร้านใช้</h4>
+				<div class="row row-topic">
+					<div class="col">Size</div>
+					<div class="col">SS</div>
+					<div class="col">S</div>
+					<div class="col">M</div>
+					<div class="col">L</div>
+					<div class="col">XL</div>
+				</div>
+				<div class="row">
+					<div class="col">ยาว</div>
+					<div class="col">24</div>
+					<div class="col">25</div>
+					<div class="col">26</div>
+					<div class="col">27</div>
+					<div class="col">28</div>
+				</div>
+				<div class="row">
+					<div class="col">รอบอก</div>
+					<div class="col">32</div>
+					<div class="col">34</div>
+					<div class="col">36</div>
+					<div class="col">38</div>
+					<div class="col">40</div>
+				</div>
+				<div class="row">
+					<div class="col">แขน</div>
+					<div class="col">-</div>
+					<div class="col">22</div>
+					<div class="col">23</div>
+					<div class="col">24</div>
+					<div class="col">25</div>
+				</div>
+			</div>
+			<?php }?>
+			
 			<div class="action">
 				<?php
 				if($product->type == "normal"){
@@ -157,14 +166,14 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 					<?php if(MEMBER_ONLINE){?>
 						<div class="buy-btn animated <?php echo (!empty($product->in_order)?'buy-btn-active':'');?>" id="buy-button" onclick="javascript:AddCart()">ใส่ตะกร้า<i class="fa fa-cart-plus"></i></div>
 					<?php }else{?>
-						<a href="register.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
+						<a href="login.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
 					<?php }?>
 				<?php }?>
 			</div>
 
 			<?php if($user->type == "administrator"){?>
 			<div class="control">
-				<a href="store/product_detail.php?id=<?php echo $product->id;?>"><i class="fa fa-th"></i>ดูคลังสินค้า</a>
+				<a href="store/product_detail.php?id=<?php echo $product->id;?>">คลังสินค้า<i class="fa fa-angle-right"></i></a>
 			</div>
 			<?php }?>
 		</div>

@@ -63,8 +63,8 @@ $current_page = "login";
 			<!-- Product return after login success. -->
 			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">
 		</form>
-		<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">สมัครสมาชิก</a></p>
-		<p class="forget"><a href="forget.php">ฉันลืมรหัสผ่าน!</a></p>
+		<p class="signup">สมัครสมาชิกด้วยอีเมล? <a href="register.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">สมัครสมาชิก<i class="fa fa-angle-right"></i></a></p>
+		<p class="forget"><a href="forget.php">ฉันลืมรหัสผ่าน</a></p>
 	</div>
 </div>
 

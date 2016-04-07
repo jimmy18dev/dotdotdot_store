@@ -13,7 +13,7 @@ function LoginUser(){
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังเข้าสู่ระบบ...');
+    $('#login-status').html('กำลังเข้าสู่ระบบ...<i class="fa fa-circle-o-notch fa-spin"></i>');
 
     $.ajax({
         url         :href,
@@ -73,7 +73,7 @@ function RegisterUser(){
         return false;
     }
 
-    $('#login-status').html('<i class="fa fa-circle-o-notch fa-spin"></i>กำลังสมัครสมาชิก...');
+    $('#login-status').html('กำลังสมัครสมาชิก...<i class="fa fa-circle-o-notch fa-spin"></i>');
 
     $.ajax({
         url         :href,

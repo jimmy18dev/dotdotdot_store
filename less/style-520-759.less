@@ -1,0 +1,946 @@
+/*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2016 Puwadon Sricharoen
+*/
+
+// IMPORT Other Lib
+@page_width: 94%;
+.header{
+    height: 60px;
+
+    .logo{
+        padding: 14px 3%;
+        height: 32px;
+        font-size: 1.1em;
+        letter-spacing: 0.05em;
+
+        div{
+            font-size: 0.6em;
+            letter-spacing: 0.08em;
+            line-height: 1.5em;
+        }
+    }
+
+    .cart{
+        padding: 25px 3%;
+        height: 10px;
+        font-size: 0.9em;
+
+        i{ margin-right: 10px; }
+    }
+
+    .avatar{
+        padding: 18px 3%;
+        height: 24px;
+        border-right: 0px solid transparent;
+
+        img{
+            height: 24px;
+            width: 24px;
+        }
+
+        .notifications{
+            top: 14px;
+            right: 11px;
+            font-size: 1em;
+        }
+    }
+
+    .login{
+        padding: 25px 3%;
+        height: 10px;
+        font-size: 0.9em;
+        border-right: 0px solid transparent;
+        &:hover{ border-right: 0px solid transparent; }
+        &:active{ border-right: 0px solid transparent; }
+        i{ margin-left: 10px; }
+    }
+}
+
+// Login,Register style
+.login-container{
+    width: @page_width;
+    margin: 0% ((100 - @page_width) / 2);
+    margin-top: 15%;
+
+    .form{
+        width: 50%;
+        margin: 0% 25%;
+
+        .caption{
+            line-height: 2em;
+            font-size: 1em;
+        }
+
+        .input-text{
+            width: 96%;
+            padding: 3% 2%;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-bottom: 10%;
+        }
+
+        .status{
+            padding: 5% 0%;
+            font-size: 0.9em;
+            line-height: 1.5em;
+            margin-bottom: 5%;
+        }
+
+        .button-submit{
+            padding: 5% 0%;
+            font-size: 1em;
+
+            i{ margin-left: 10px; }
+        }
+
+        .mini-caption{
+            padding: 10% 0%;
+        }
+
+        .facebook-button{
+            padding: 6% 0%;
+            font-size: 1em;
+
+            i{ margin-right: 10px; }
+        }
+
+        p.signup{
+            padding: 10% 0%;
+            font-size: 1em;
+
+            a{
+                padding: 0% 2%;
+            }
+        }
+
+        p.forget{
+            font-size: 0.9em;
+        }
+    }
+}
+// END Login,Register style
+
+
+.container{
+    width: 100%;
+    margin-top: 60px;
+
+    .email-alert{
+        width: 94%;
+        padding: 3%;
+        margin: 0%;
+        font-size: 1em;
+        line-height: 1.5em;
+
+        i{ margin-right: 10px; }
+    }
+
+    a.email-required-alert{
+        width: 94%;
+        padding: 0.5% 0%;
+        margin: 3%;
+        font-size: 1em;
+        line-height: 1.5em;
+
+        i{ margin-left: 10px; }
+    }
+
+    // Order in Progress style show on homepage
+    .order-in-progress{
+        position: relative;
+        right: 0%;
+        bottom: 0%;
+        width: 100%;
+        box-shadow: 0px 0px 0px transparent;
+        border-radius: 0px;
+
+        .mini-caption{
+            width: 97%;
+            padding: 0%;
+            font-size: 0.8em;
+            line-height: 3em;
+            text-align: left;
+            margin-left: 3%;
+        }
+
+        a.order-progress-items{
+            width: 94%;
+            padding: 3%;
+            font-size: 1em;
+
+            i{ margin-left: 5px; }
+        }
+    }
+
+    .banner-cover{
+        width: 100%;
+        padding: 0%;
+
+        img{ margin-bottom: 10%; }
+
+        p{
+
+            a.shop-btn{
+                padding: 15px 25px;
+                font-size: 0.9em;
+                margin: 0% 1%;
+
+                i{ margin-left: 15px; }
+            }
+        }
+    }
+
+    // Home page style
+    .quote{
+        width: @page_width - 4%;
+        padding: 1% ((100 - @page_width) / 2) + 2%;
+        margin-top: 3%;
+
+        h1{
+            font-size: 2em;
+            line-height: 1.5em;
+            margin-bottom: 2%;
+        }
+
+        p{
+            line-height: 1.5em;
+            font-size: 0.9em;
+        }
+
+        p.link{ margin-top: 5%; }
+
+        a{
+            text-decoration: none;
+            margin: 0 5px;
+            padding: 10px 20px;
+            color: #555555;
+            background: #FAFAFA;
+            font-weight: bold;
+            box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 3px;
+            font-size: 1em;
+
+            &:hover{
+                cursor: pointer;
+                background: #EEEEEE;
+            }
+
+            i{ margin-left: 5px; }
+        }
+    }
+
+    .about{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        padding-top: 3%;
+
+        .about-image{
+            width: 31.33%;
+        }
+        .about-content{
+            width: 65.67%;
+
+            h2{
+                font-size: 1.5em;
+                margin-bottom: 2%;
+            }
+            p{
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .contact-us{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        padding-top: 3%;
+
+        .contact-us-image{ width: 65.67%; }
+        .contact-us-content{
+            width: 31.33%;
+
+            h2{
+                font-size: 1.5em;
+                margin-bottom: 2%;
+            }
+            p{
+                font-size: 1em;
+                line-height: 1.5em;
+            }
+        }
+    }
+
+    .google-map{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        padding-top: 5%;
+
+        h2{
+            font-size: 0.8em;
+            margin-bottom: 1%;
+        }
+
+        iframe{ height: 300px; }
+    }
+    // END Home page style
+
+
+    // Categroy all product page
+    .filter{
+        width: @page_width;
+        padding: 1% ((100 - @page_width) / 2);
+        margin-top: 2%;
+
+        a.filter-items{
+            padding: 10px 15px;
+            font-size: 0.9em;
+            margin-right: 2%;
+            margin-bottom: 2%;
+        }
+    }
+    // END Categroy all product page
+
+    // Head bar style
+    .head-bar{
+        width: 94%;
+        padding: 4% 3%;
+
+        h1.name{
+            font-size: 2em;
+            line-height: 1.5em;
+        }
+
+        p{
+            font-size: 1em;
+            line-height: 1.5em;
+        }
+
+        .head-content{
+            h1{
+                font-size: 1.5em;
+                line-height: 1.5em;
+            }
+
+            p{
+                font-size: 0.9em;
+                line-height: 1.5em;
+            }
+        }
+
+        // Order state style
+        .order-state{
+            .state-items{
+                width: 16%;
+                padding: 0%;
+                padding-top: 5%;
+
+                .caption{
+                    font-size: 1em;
+                    line-height: 1.5em;
+                    margin-bottom: 10%;
+                }
+
+                .icon{ font-size: 2em; }
+            }
+            .connect{
+                width: 5%;
+                margin-top: 13%;
+            }
+        }
+    }
+
+    // Order Detail stlye at Order page.
+    .order-detail{
+        // Box items style
+        .box-items{
+            width: 94%;
+            padding: 3%;
+
+            .datetime{
+                width: 29%;
+                margin-right: 1%;
+                line-height: 1.7em;
+                font-size: 0.9em;
+            }
+
+            .box{
+                width: 70%;
+                line-height: 1.7em;
+                font-size: 1em;
+
+                b.topic{
+                    font-size: 1.1em;
+                    line-height: 1.5em;
+
+                    i{
+                        margin-right: 10px;
+                        font-size: 0.8em;
+                    }
+                }
+
+                .description{
+                    font-size: 1em;
+                    line-height: 1.4em;
+                    margin-top: 1%;
+                }
+
+                .message{
+                    width: 96%;
+                    padding: 2%;
+                    margin-top: 3%;
+                    font-size: 0.8em;
+                }
+
+                .control{
+                    margin-top: 4%;
+
+                    .btn{
+                        font-size: 0.9em;
+                        padding: 5px 15px;
+
+                        i{ margin-left: 10px; }
+                    }
+
+                    .control-caption{
+                        float: right;
+                        display: inline-block;
+                        padding: 1% 0%;
+                    }
+                }
+
+                .bank{
+                    margin: 2% 0%;
+                    font-size: 0.9em;
+
+                    .bank-items{
+                        padding: 2% 0%;
+
+                        .bank-items-icon{
+                            width: 15%;
+                        }
+                        .bank-items-info{
+                            width: 82%;
+                            margin-left: 3%;
+                            line-height: 1.4em;
+                        }
+                    }
+                }
+
+                // Money transfer form style
+                .form{
+                    margin-top: 3%;
+                    padding-top: 3%;
+
+                    p.caption{
+                        width: 100%;
+                        margin-right: 0%;
+                        font-size: 0.9em;
+                        line-height: 1.7em;
+                        text-align: left;
+                    }
+
+                    .input-text{
+                        width: 93%;
+                        padding: 1% 0%;
+                        font-size: 1em;
+                        margin-bottom: 7%;
+                        line-height: 1.6em;
+                    }
+
+                    .input-textarea{ width: 92.5%; }
+                    .input-select{ width: 93%; }
+                    .input-file{
+                        margin-bottom: 7%;
+                        width: 93%;
+                    }
+
+
+                    .icon-checking{
+                        width: 5%;
+                        .check{
+                            font-size: 1em;
+                            line-height: 1.6em;
+                        }
+                    }
+                }
+
+                .submit-btn{
+                    font-size: 1em;
+                    padding: 15px 25px;
+                    margin-top: 1%;
+                    line-height: 1.6em;
+
+                    i{ margin-left: 10px; }
+                }
+                .submit-btn-left{ margin-top: 3%; }
+                .image{ margin: 3% 0%; }
+
+                // Items in order container
+                .order-list{
+                    margin-top: 3%;
+                    padding-top: 2%;
+
+                    .topic-caption{
+                        padding: 2% 0%;
+                        font-size: 0.8em;
+
+                        .detail{ width: 70%; }
+                        .quantity{ width: 10%; }
+                        .total{ width: 20%; }
+                    }
+
+                    // Items in order style
+                    .items-in-order{
+                        font-size: 0.9em;
+                        margin-top: 3%;
+
+                        .items-in-order-thumbnail{ width: 15%; }
+                        
+                        .items-in-order-detail{
+                            width: 47%;
+                            padding: 0% 4%;
+
+                            .text{
+                                line-height: 1.3em;
+                                margin-bottom: 1%;
+                            }
+
+                            .remove-btn{ font-size: 0.9em; }
+                        }
+
+                        .input-select{
+                            width: 100%;
+                            padding: 5%;
+                            font-size: 0.8em;
+                            line-height: 1.5em;
+                        }
+
+                        .items-in-order-quantity{ width: 10%; }
+                        .items-in-order-total{ width: 20%; }
+                    }
+
+                    // Summary items style
+                    .summary-items{
+                        font-size: 0.9em;
+                        margin-top: 3%;
+
+                        .summary-items-detail{
+                            width: 70%;
+                            margin-left: 0%;
+
+                            i{ margin-right: 5px; }
+
+                            .shipping-select{
+                                padding: 0% 2%;
+                                font-size: 1em;
+                                line-height: 2em;
+                            }
+                        }
+                        .summary-items-total{ width: 30%; }
+                    }
+
+                    .summary-total{
+                        padding-top: 3%;
+                        font-size: 1em;
+                    }
+                }
+
+                .email-required{
+                    width: 100%;
+                    padding-top: 5%;
+                    margin-left: 0%;
+
+                    p.caption{
+                        font-size: 1em;
+                        line-height: 1.2em;
+                        margin-bottom: 2%;
+
+                        i{
+                            margin-right: 10px;
+                            font-size: 0.8em;
+                        }
+                    }
+                    .email-input{
+                        width: 96%;
+                        padding: 1% 2%;
+                        font-size: 1em;
+                        line-height: 2em;
+                    }
+                }
+
+                .form-control{ padding-top: 5%; }
+            }
+        }
+
+        .box-items-fix{
+            padding: 1% 3%;
+            font-size: 0.8em;
+        }
+    }
+
+    .container-product{
+        width: 94%;
+        padding: 1% 3%;
+
+        .container-topic{
+            margin-top: 5%;
+            font-size: 1.5em;
+            line-height: 1.5em;
+        }
+
+        // Category items style
+        .category-items{
+            width: 31.33%;
+            margin-top: 3%;
+            margin-right: 3%;
+            min-height: 150px;
+
+            a.figcaption{
+                font-size: 1.4em;
+                letter-spacing: 0.1em;
+            }
+        }
+
+        // Product item style
+        .product-items{
+            width: 31.33%;
+            margin-top: 3%;
+            margin-right: 3%;
+
+            .product-items-thumbnail{ min-height: 150px; }
+
+            .product-items-detail{
+                width: 100%;
+                padding: 3% 0%;
+                float: left;
+                display: inline-block;
+                min-height: 90px;
+
+                h2{
+                    font-size: 1em;
+                    line-height: 1.2em;
+                }
+
+                p{
+                    font-size: 0.9em;
+                    line-height: 2em;
+                }
+            }
+        }
+    }
+
+    // Container Page Style
+    .container-page{
+        width: 94%;
+        margin: 3%;
+
+        // Order items style at Profile page.
+        .order-items{
+            width: 96%;
+            padding: 2%;
+            line-height: 1.5em;
+
+            .content{
+                width: 70%;
+
+                p{
+                    font-size: 1em;
+                    line-height: 1.7em;
+                }
+                p.time{ font-size: 0.8em; }
+            }
+
+            .status{
+                width: 30%;
+                line-height: 3em;
+
+                i{ margin-left: 10px; }
+                i.fa-angle-right{ margin-left: 20px; }
+            }
+        }
+
+        .currency{
+            font-size: 0.5em;
+            margin-left: 3px;
+        }
+    }
+
+    .profile-control{
+        width: 94%;
+        margin: 0% 3%;
+        margin-bottom: 10%;
+
+        a.btn{
+            font-size: 0.9em;
+            padding: 15px 20px;
+            margin-left: 20px;
+
+            i{ margin-right: 10px; }
+        }
+    }
+
+    // Order page control
+    .order-control{
+        width: 94%;
+        margin: 0% 3%;
+        margin-bottom: 5%;
+        
+        // Cancel Order
+        .cancel-btn{
+            font-size: 0.9em;
+            padding: 10px 20px;
+            line-height: 1.6em;
+
+            i{ margin-right: 5px; }
+        }
+    }
+}
+
+.container-fix{ margin: 0px 0px; }
+
+// PRODUCT PAGE //////////
+// Left Panel (Show photos of product)
+.panel{ width: 50%; }
+// Right Panel (Product Detail and Buy Button)
+.panel-fix{
+    top: 61px;
+    width: 42%;
+    padding: 4%;
+
+    .page-link{
+        a.back-link,a.category-link{
+            font-size: 0.9em;
+            i{ margin-right: 10px; }
+        }
+    }
+
+    h1{
+        font-size: 1.4em;
+        line-height: 1.2em;
+        margin: 2% 0%;
+        margin-top: 8%;
+    }
+
+    p{
+        font-size: 1em;
+        line-height: 1.5em;
+    }
+
+    .price{
+        font-size: 1.1em;
+
+        .sharing-items{
+            float: right;
+            margin-left: 5%;
+        }
+    }
+
+    .description{
+        padding: 5% 0%;
+        font-size: 1em;
+        margin-bottom: 3%;
+        line-height: 1.3em;
+
+        a.edit-btn{
+            font-size: 0.8em;
+            padding: 2px 5px;
+        }
+
+        .sizeinfo{
+            margin-top: 3%;
+
+            h4{ font-size: 0.8em; }
+
+            .sizeinfo-box{
+                padding: 0%;
+                font-size: 0.8em;
+
+                .items{
+                    .k{ width: 10%; }
+                    .v{ width: 90%; }
+                }
+            }
+        }
+    }
+
+    .action{
+        .mini-caption{
+            font-size: 0.8em;
+            line-height: 2em;
+        }
+
+        .buy-btn{
+            width: 100%;
+            padding: 3% 0%;
+            font-size: 1em;
+            line-height: 1.5em;
+
+            i{
+                margin-left: 10px;
+                font-size: 0.8em;
+            }
+        }
+
+        .more{
+            width: 100%;
+            padding: 3% 0%;
+            font-size: 1em;
+            line-height: 1.7em;
+        }
+
+        .subproduct-list{ width: 100%; }
+
+        .input-select{
+            width: 100%;
+            padding: 3%;
+            font-size: 1em;
+            line-height: 1.5em;
+            margin-right: 0px;
+            margin-bottom: 3%;
+        }
+    }
+
+    // Button for product page link to store
+    .control{
+        margin-top: 5%;
+        padding-top: 3%;
+
+        a{
+            width: 100%;
+            padding: 4% 0%;
+            text-align: center;
+
+            i{
+                margin-right: 10px;
+                font-size: 0.8em;
+            }
+        }
+    }
+    // END Product page style
+}
+// .panel-fix-margin-top{ top: 100px; }
+// END Product page detail style
+
+.progress-panel{
+    .message{
+        margin-top: 40%;
+        line-height: 2em;
+        font-size: 1em;
+        margin-bottom: 5%;
+
+        .icon{
+            font-size: 4em;
+            margin-bottom: 1%;
+        }
+
+        .caption{
+            i{ margin-right: 10px; }
+        }
+    }
+
+    .progress{
+        width: 80%;
+        margin: 0% 10%;
+
+        .progress-bar{ height: 3px; }
+    }
+
+    .cancel{
+        bottom: 20px;
+        right: 20px;
+        padding: 5px 10px;
+        line-height: 1.5em;
+        font-size: 0.8em;
+        i{ margin-right: 5px; }
+    }
+}
+
+.footer{
+    width: @page_width;
+    padding: 5% ((100 - @page_width) / 2);
+    margin-top: 5%;
+
+    .footer-left{
+        width: 45%;
+        margin-right: 5%;
+    }
+    .footer-right{ width: 50%; }
+
+    .contact-items{
+        padding: 2% 0%;
+
+        .icon{
+            width: 10%;
+            font-size: 2em;
+        }
+        .detail{
+            width: 86%;
+            margin-left: 4%;
+            line-height: 1em;
+
+            p{ line-height: 1.1em; }
+            a{ font-size: 0.8em; }
+        }
+    }
+
+    h1{
+        font-size: 0.9em;
+        line-height: 2em;
+        letter-spacing: 0.05em;
+    }
+
+    p{
+        font-size: 0.9em;
+        line-height: 2em;
+    }
+
+    i{ margin-right: 5px; }
+
+    p.company{
+        line-height: 1.3em;
+        a{ font-size: 0.8em; }
+    }
+}
+
+.developer{
+    width: 96%;
+    padding: 2%;
+    font-size: 0.7em;
+
+    i{ margin-right: 5px; }
+}
+
+.dialog-box{
+    .dialog{
+        padding-top: 50%;
+
+        i{
+            font-size: 4em;
+            margin-bottom: 5%;
+        }
+
+        p{ font-size: 1em; }
+    }
+}
+
+.error-page{
+    padding-top: 45%;
+
+    i{
+        font-size: 5em;
+        margin-bottom: 5%;
+    }
+
+    p{
+        font-size: 1em;
+        a{ margin-left: 5px; }
+    }
+}
+
+#loading-status{
+    bottom: 10px;
+    right: 10px;
+    font-size: 0.6em;
+}

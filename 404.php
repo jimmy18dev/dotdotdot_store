@@ -27,8 +27,8 @@
 
 <body>
 <div class="error-page">
-	<i class="fa fa-frown-o"></i>
-	<p>หน้าที่คุณต้องการไม่มีในระบบ... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก</a></p>
+	<p class="icon"><i class="fa fa-frown-o"></i></p>
+	<p>หน้าที่คุณต้องการไม่มีในระบบ... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก<i class="fa fa-angle-right"></i></a></p>
 </div>
 
 <script type="text/javascript">

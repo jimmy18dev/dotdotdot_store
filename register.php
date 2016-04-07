@@ -74,7 +74,7 @@ $current_page = "register";
 			<!-- Product return after login success. -->
 			<input type="hidden" id="product_return" value="<?php echo $_GET['product'];?>">
 
-			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">เข้าสู่ระบบ</a></p>
+			<p class="signup">ฉันเคยสมัครสมาชิกแล้ว? <a href="login.php?<?php echo (!empty($_GET['product'])?'product='.$_GET['product']:'');?>">เข้าสู่ระบบ<i class="fa fa-angle-right"></i></a></p>
 		</div>
 	</div>
 </div>

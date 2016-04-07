@@ -49,7 +49,7 @@ class OrderController extends OrderModel{
 
     // Money Transfer
     public $m_total;
-    public $m_message;
+    public $m_description;
     public $m_bank_code;
     public $m_bank_name;
     public $m_bank_number;
@@ -310,6 +310,7 @@ class OrderController extends OrderModel{
 
         // Get Money transfer
         $transfer = parent::GetMoneyTransferProcess(array('order_id' => $this->id));
+
         $this->m_total = $transfer['mf_total'];
         $this->m_description = $transfer['mf_description'];
         $this->m_bank_code = $transfer['bk_code'];

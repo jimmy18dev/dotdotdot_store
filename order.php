@@ -131,12 +131,12 @@ $current_page = "order";
 				<div class="datetime"><span class="time"><?php echo $order->shipping_time_th;?></span></div>
 				<div class="box">
 					<b class="topic"><i class="fa fa-truck"></i>จัดส่งสินค้าแล้ว</b>
-					<div class="description">สินค้าของคุณกำลังอยู่ระหว่างการจัดส่ง หมายเลขขนส่ง <strong>[<?php echo $order->ems;?>].</strong> คุณสามารถติดตามสถานะของสินค้าคุณได้ที่ <a href="http://track.thailandpost.co.th/tracking/default.aspx">Thailand Post Track & Trace</a></div>
+					<div class="description">สินค้าของคุณกำลังอยู่ระหว่างการจัดส่ง หมายเลขขนส่ง <strong>[<?php echo $order->ems;?>].</strong> คุณสามารถติดตามสถานะของสินค้าคุณได้ที่ <a href="http://track.thailandpost.co.th/tracking/default.aspx">Thailand Post Track & Trace<i class="fa fa-angle-right"></i></a></div>
 					
 					<?php if($order->status == "Shipping"){?>
 					<div class="control">
 						<div class="control-caption">ตอนนี้คุณได้รับสินค้าแล้วใช่หรือไม่ ?</div>
-						<div class="btn btn-confirm" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ได้รับสินค้าแล้ว<i class="fa fa-angle-right"></i></div>
+						<div class="btn btn-confirm" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Complete');">ใช่ ฉันได้รับสินค้าแล้ว<i class="fa fa-angle-right"></i></div>
 					</div>
 					<?php }?>
 				</div>
@@ -155,7 +155,7 @@ $current_page = "order";
 						<?php $bank->ListBank(array('mode' => 'items'));?>
 					</div>
 
-					<div class="control"><a class="btn btn-edit" href="#money-transfer">ยันยืนการโอน</a></div>
+					<div class="control"><a class="btn" href="#money-transfer">ยันยืนการโอน<i class="fa fa-angle-right"></i></a></div>
 				</div>
 			</div>
 			<?php }?>
@@ -212,7 +212,7 @@ $current_page = "order";
 						<div class="icon-checking"><span id="transfer_phone_icon" class="check"><i class="fa fa-check"></i></span></div>
 							
 						<p class="caption">ฝากข้อความ:</p>
-						<textarea name="description" id="transfer_description" class="input-text input-textarea animated" placeholder="เขียนข้อความที่นี่..."><?php echo $order->description;?></textarea>
+						<textarea name="description" id="transfer_description" class="input-text input-textarea input-fullsize animated" placeholder="เขียนข้อความที่นี่..."><?php echo $order->description;?></textarea>
 
 						<input type="hidden" id="order_id" name="order_id" value="<?php echo $order->id?>">
 						<input type="hidden" id="max_filesize" value="<?php echo (int)(ini_get('upload_max_filesize'))*1048576;?>">
@@ -247,7 +247,7 @@ $current_page = "order";
 
 					<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
 					<div class="control">
-						<a class="btn btn-edit" href="order-<?php echo $order->id;?>.html?edit=address#address">แก้ไขที่อยู่<i class="fa fa-cog"></i></a>
+						<a class="btn btn-edit" href="order-<?php echo $order->id;?>.html?edit=address#address">แก้ไขที่อยู่<i class="fa fa-angle-right"></i></a>
 					</div>
 					<?php }?>
 				</div>
@@ -285,7 +285,7 @@ $current_page = "order";
 					<b class="topic"><i class="fa fa-file-text-o"></i>แจ้งโอนเงินแล้ว</b>
 					<div class="description"><strong>คุณแจ้งโอนเงิน <span class="highlight"><?php echo number_format($order->m_total,2);?></span> บาท</strong> โดยโอนเงินเข้าบัญชีของ <strong><?php echo $bank->BankName($order->m_bank_code);?></strong> เลขบัญชี <?php echo $order->m_bank_number;?></div>
 
-					<?php if(!empty($order->m_description)){?>
+					<?php if(!empty($order->m_description) || true){?>
 					<div class="message">"<?php echo $order->m_description;?>"</div>
 					<?php }?>
 
@@ -299,7 +299,7 @@ $current_page = "order";
 
 					<?php if($order->status == "TransferRequest"){?>
 					<div class="control">
-						<div class="btn btn-delete" onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ลบการสลิปนี้<i class="fa fa-times"></i></div>
+						<div class="btn btn-delete" onclick="javascript:CencelTransfer(<?php echo $order->id;?>);">ยกเลิกสลิปนี้</div>
 					</div>
 					<?php }?>
 				</div>
@@ -311,7 +311,7 @@ $current_page = "order";
 				<div class="datetime"><?php echo ($order->status == 'Shopping'?'ปัจจุบัน':$order->paying_time_th)?></div>
 				<div class="box">
 					<?php if($order->status == "Shopping"){?>
-					<b class="topic"><i class="fa fa-shopping-cart"></i>รายการสินค้าในตะกร้า <a href="store.php">เลือกสินค้าเพิ่ม</a></b>
+					<b class="topic"><i class="fa fa-shopping-cart"></i>รายการสินค้าในตะกร้า <a href="store.php">เลือกสินค้าเพิ่ม<i class="fa fa-angle-right"></i></a></b>
 					<?php }else{?>
 					<b class="topic"><i class="fa fa-shopping-cart"></i>รายการสินค้าของคุณ</b>
 					<div class="description">เราได้รับคำสั่งซื้อของคุณเรียบร้อยแล้ว และกำลังดำเนินการตรวจสอบรายการคำสั่งซื้อนี้ ทางเราจะทำการส่งข้อมูลการอัพเดททางอีเมลให้คุณทราบโดยเร็ว</div>
@@ -382,7 +382,7 @@ $current_page = "order";
 			<!-- Cart is Empty -->
 			<div class="box-items">
 				<div class="box box-fullsize">ตะกร้าว่างเปล่า กรุณาเลือกสินค้าที่คุณต้องการก่อนนะคะ...
-					<div class="control"><a href="store.php" class="btn">ดูสินค้าทั้งหมด</a></div>
+					<div class="control"><a href="store.php" class="btn">ดูสินค้าทั้งหมด<i class="fa fa-angle-right"></i></a></div>
 				</div>
 			</div>
 			<?php }?>
@@ -392,7 +392,7 @@ $current_page = "order";
 	<?php if($order->status == "Paying"){?>
 	<!-- Cancel Order -->
 	<div class="order-control">
-		<div class="cancel-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');"><i class="fa fa-times"></i>ยกเลิกการสั่งซื้อ</div>
+		<div class="cancel-btn" onclick="javascript:OrderProcess(<?php echo $order->id?>,'Cancel');">ยกเลิกการสั่งซื้อ</div>
 	</div>
 	<?php }?>
 </div>
@@ -404,13 +404,13 @@ $current_page = "order";
 <div class="progress-panel" id="progress-panel">
 	<div class="message">
 		<div class="icon" id="progress-icon"><i class="fa fa-cloud-upload"></i></div>
-		<div class="caption" id="progress-message">กำลังส่งหลักฐานการโอน...</div>
+		<div class="caption" id="progress-message">กำลังส่งหลักฐานการโอนเงิน...</div>
 	</div>
 	<div class="progress">
 		<div class="progress-bar" id="progress-bar"></div>
 	</div>
 
-	<a href="profile.php" target="_parent" class="cancel"><i class="fa fa-times"></i>ยกเลิก</a>
+	<a href="profile.php" target="_parent" class="cancel">ยกเลิก</a>
 </div>
 
 <script type="text/javascript" src="js/min/image.thumbnail.min.js"></script>

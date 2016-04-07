@@ -49,6 +49,14 @@ $current_page = "index";
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
+<script tpye="text/javascript">
+$(document).ready(function(){
+	// Headbar loading
+    $('#in-progress-btn').click(function(){
+    	$('#in-progress-container').slideToggle();
+    });
+});
+</script>
 
 </head>
 
@@ -66,8 +74,10 @@ $current_page = "index";
 
 	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
-		<div class="mini-caption">รายการสั่งซื้อของคุณ</div>
-		<?php $order->OrderProgress(array('member_id' => $user->id));?>
+		<div class="mini-caption" id="in-progress-btn">รายการสั่งซื้อของคุณ<i class="fa fa-angle-down"></i></div>
+		<div id="in-progress-container">
+			<?php $order->OrderProgress(array('member_id' => $user->id));?>
+		</div>
 	</div>
 	<?php }?>
 
@@ -89,7 +99,7 @@ $current_page = "index";
 			<a href="about-us.php">about us</a> 
 			<a href="store.php?filter=5">showcase</a> 
 			<a href="contact-us.php">contact us</a> 
-			<a href="https://www.facebook.com/messages/dotdotdotlimited">live chat <i class="fa fa-comment-o"></i></a>
+			<a href="https://www.facebook.com/messages/dotdotdotlimited" class="live-chat">live chat <i class="fa fa-comment"></i></a>
 		</p>
 	</div>
 

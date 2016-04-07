@@ -80,7 +80,7 @@ $current_page = "profile";
 				<div class="profile-control">
 					<a class="btn btn-logout" href="logout.php">Logout</a>
 					<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
-					<a class="btn" href="profile_edit.php#start"><i class="fa fa-cog"></i>แก้ไขข้อมูล</a>
+					<a class="btn" href="profile_edit.php#start">แก้ไขข้อมูล</a>
 				</div>
 			</div>
 		</div>

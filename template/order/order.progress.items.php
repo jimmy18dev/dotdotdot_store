@@ -37,5 +37,5 @@ else{
 
 <a class="order-progress-items" href="order-<?php echo $var['od_id'];?>.html<?php echo $hashtag;?>">
 	<span class="content">หมายเลขคำสั่งซื้อ #<?php echo $var['od_id'];?></span>
-	<span class="status"><?php echo $status;?></span>
+	<span class="status"><?php echo $status;?><i class="fa fa-angle-right"></i></span>
 </a>

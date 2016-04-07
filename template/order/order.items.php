@@ -23,7 +23,7 @@ else if($var['od_status'] == "Shipping"){
 	$hashtag = '#start';
 }
 else if($var['od_status'] == "Complete"){
-	$status = 'ปิดการขาย<i class="fa fa-check-circle-o"></i>';
+	$status = 'ปิดการขาย<i class="fa fa-check-circle"></i>';
 	$hashtag = '#start';
 }
 else if($var['od_status'] == "Cancel"){

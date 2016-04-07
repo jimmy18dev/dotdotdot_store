@@ -31,8 +31,8 @@ require_once'config/autoload.php';
 
 <body>
 <div class="error-page">
-	<i class="fa fa-cogs"></i>
-	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก</a></p>
+	<p class="icon"><i class="fa fa-cogs"></i></p>
+	<p>เว็บไซต์กำลังปรับปรุง เราจะกลับมาเร็วๆนี้... กลับไปที่<a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>">หน้าแรก<i class="fa fa-angle-right"></i></a></p>
 </div>
 
 <script type="text/javascript">
