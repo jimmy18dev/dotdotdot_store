@@ -151,7 +151,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 						<div class="buy-btn buy-btn-disable">สินค้าหมด!</div>
 						<?php }?>
 					<?php }else{?>
-						<a href="register.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
+						<a href="login.php?product=<?php echo $product->id;?>" class="buy-btn">สั่งซื้อสินค้า<i class="fa fa-shopping-cart"></i></a>
 					<?php }?>
 					<div class="more">อีก <?php echo $product->read;?> คน กำลังสนใจสินค้าชิ้นนี้...</div>
 				<?php
