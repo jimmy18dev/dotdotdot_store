@@ -1,7 +1,5 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
 
 if(!MEMBER_ONLINE || MEMBER_ID != $user->id){
 	header("Location: login.php");

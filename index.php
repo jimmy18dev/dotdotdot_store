@@ -51,7 +51,7 @@ $current_page = "index";
 <script type="text/javascript" src="js/lib/numeral.min.js"></script>
 <script tpye="text/javascript">
 $(document).ready(function(){
-	// Headbar loading
+	$('#in-progress-container').hide();
     $('#in-progress-btn').click(function(){
     	$('#in-progress-container').slideToggle();
     });

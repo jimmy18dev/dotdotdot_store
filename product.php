@@ -1,7 +1,5 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
 
 $product->GetProduct(array(
 	'product_id' => $_GET['id'],
