@@ -96,10 +96,10 @@ $(document).ready(function(){
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>
 		<p class="link">
-			<a href="about-us.php">about us</a> 
-			<a href="store.php?filter=5">showcase</a> 
-			<a href="contact-us.php">contact us</a> 
-			<a href="https://www.facebook.com/messages/dotdotdotlimited" class="live-chat">live chat <i class="fa fa-comment"></i></a>
+			<a href="about-us.php" target="_parent">about us</a> 
+			<a href="store.php?filter=5" target="_parent">showcase</a> 
+			<a href="contact-us.php" target="_parent">contact us</a> 
+			<a href="https://www.facebook.com/messages/dotdotdotlimited" class="live-chat" target="_blank">live chat <i class="fa fa-comment"></i></a>
 		</p>
 	</div>
 
