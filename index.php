@@ -82,16 +82,17 @@ $(document).ready(function(){
 	<?php }?>
 
 	<div class="banner-cover">
-		<a href="store.php">
-			<img src="image/banner.png" alt="">
-		</a>
+		<img src="image/banner.jpg" alt="">
+		<div class="contents">
+			<h1>born and made in thailand.</h1>
+			<h2>you see. you like. you buy.</h2>
 
-		<p>
-			<a href="store.php" class="shop-btn">SHOP NOW<i class="fa fa-shopping-cart"></i></a>
-		</p>
+			<a href="store.php" class="shop-now">SHOP NOW<i class="fa fa-angle-right"></i></a>
+		</div>
 	</div>
 
 	<div class="quote">
+		<p class="promotion-message">Prommotion : <strong>สั่งซื้อวันนี้รับส่วนลดสูงสุด 50%</strong></p>
 		<h1>Good morning , have a good day.</h1>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>

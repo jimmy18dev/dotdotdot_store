@@ -55,11 +55,11 @@ $current_page = "index";
 <body>
 <?php include'header.php';?>
 <div class="container">
-	<div class="about" id="about">
-		<div class="about-image">
+	<div class="article" id="about">
+		<div class="article-image">
 			<img src="image/about.jpg" alt="">
 		</div>
-		<div class="about-content">
+		<div class="article-content">
 			<h2>about us</h2>
 			<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art], is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p><br>
 			<p>was established to harness the skills art learnt in a variety of management roles that spanned the hotel, television, advertising, telecommunications,film, retail, creative and design management industries.</p><br>
