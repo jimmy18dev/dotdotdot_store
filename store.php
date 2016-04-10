@@ -1,6 +1,6 @@
 <?php
 require_once'config/autoload.php';
-$current_page = "index";
+$current_page = 'store';
 ?>
 
 <!DOCTYPE html>
@@ -62,7 +62,7 @@ $(document).ready(function(){
 
 <body>
 <?php include'header.php';?>
-<div class="container">
+<div class="container container-fix">
 	<?php if($order->OrderProgressCounting(array('member_id' => $user->id)) > 0 && MEMBER_ONLINE){?>
 	<div class="order-in-progress">
 		<div class="mini-caption" id="in-progress-btn">รายการสั่งซื้อของคุณ<i class="fa fa-angle-down"></i></div>

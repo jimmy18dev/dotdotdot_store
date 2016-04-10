@@ -39,6 +39,8 @@ Copyright (c) 2016 Puwadon Sricharoen
             letter-spacing: 0.16em;
             color: #AAAAAA;
             line-height: 1.5em;
+
+            i{ margin-right: 5px; }
         }
     }
 
@@ -166,7 +168,7 @@ Copyright (c) 2016 Puwadon Sricharoen
         position: fixed;
         right: 1%;
         top: 9%;
-        width: 16%;
+        width: 17%;
         float: left;
         display: inline-block;
         border-radius: 3px;
@@ -228,26 +230,25 @@ Copyright (c) 2016 Puwadon Sricharoen
             float: left;
             display: inline-block;
             background: #AAAAAA;
-            border-bottom: 1px solid #FAFAFA;
         }
         .contents{
             position: absolute;
-            top: 20%;
+            top: 25%;
             left: 0px;
             width: 100%;
             color: #FFFFFF;
             text-align: center;
 
             h1{
-                font-size: 4em;
+                font-size: 3em;
                 line-height: 1.5em;
                 font-weight: bold;
                 text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
             }
             h2{
-                font-size: 2em;
+                font-size: 1.5em;
                 line-height: 1.5em;
-                color: #EEEEEE;
+                color: #FFFFFF;
             }
 
             a.shop-now{
@@ -257,12 +258,11 @@ Copyright (c) 2016 Puwadon Sricharoen
                 float: left;
                 display: inline-block;
                 margin-top: 7%;
-                font-size: 1em;
+                font-size: 1.1em;
                 line-height: 1.5em;
-                color: #FFFFFF;
-                background: rgba(255, 255, 255, 0.2);
+                color: #000000;
+                background: #FFFFFF;
                 text-decoration: none;
-                border: 3px solid #FFFFFF;
                 font-weight: bold;
                 border-radius: 3px;
                 box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
@@ -276,6 +276,21 @@ Copyright (c) 2016 Puwadon Sricharoen
                 }
             }
         }
+
+        .promotion-message{
+            width: 100%;
+            padding: 2% 0%;
+            float: left;
+            display: inline-block;
+            text-align: center;
+            font-size: 1em;
+            line-height: 1.5em;
+
+            strong{
+                font-weight: bold;
+                color: #F44336;
+            }
+        }
     }
 
     // Home page style
@@ -285,7 +300,7 @@ Copyright (c) 2016 Puwadon Sricharoen
         float: left;
         display: inline-block;
         text-align: center;
-        margin-top: 5%;
+        margin-top: 0%;
 
         h1{
             font-size: 2.5em;
@@ -300,8 +315,8 @@ Copyright (c) 2016 Puwadon Sricharoen
             font-size: 1em;
         }
 
-        strong{
-            font-weight: bold;
+        p.promotion-message{
+            line-height: 2em;
         }
 
         p.link{ margin-top: 5%; }
@@ -403,8 +418,7 @@ Copyright (c) 2016 Puwadon Sricharoen
     // Categroy all product page
     .filter{
         width: @page_width;
-        padding: 1% ((100 - @page_width) / 2);
-        margin-top: 2%;
+        padding: 3% ((100 - @page_width) / 2);
         float: left;
         display: inline-block;
 
@@ -416,7 +430,7 @@ Copyright (c) 2016 Puwadon Sricharoen
             color: #000000;
             font-size: 0.9em;
             background: #FFFFFF;
-            border: 2px solid #000000;
+            border: 1px solid #000000;
             border-radius: 3px;
             margin-right: 1%;
             font-weight: bold;
@@ -1063,7 +1077,7 @@ Copyright (c) 2016 Puwadon Sricharoen
 
     .container-product{
         width: @page_width;
-        padding: 1% ((100 - @page_width) / 2);
+        padding: 0% ((100 - @page_width) / 2);
         float: left;
         display: inline-block;
 
@@ -1097,7 +1111,7 @@ Copyright (c) 2016 Puwadon Sricharoen
                 float: right;
             }
 
-            a.figcaption{
+            .figcaption{
                 position: absolute;
                 top: 0px;
                 left: 0px;

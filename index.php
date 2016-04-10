@@ -89,10 +89,11 @@ $(document).ready(function(){
 
 			<a href="store.php" class="shop-now">SHOP NOW<i class="fa fa-angle-right"></i></a>
 		</div>
+
+		<div class="promotion-message">สั่งซื้อวันนี้ : <strong>รับส่วนลดสูงสุด 50%</strong></div>
 	</div>
 
 	<div class="quote">
-		<p class="promotion-message">Prommotion : <strong>สั่งซื้อวันนี้รับส่วนลดสูงสุด 50%</strong></p>
 		<h1>Good morning , have a good day.</h1>
 		<p>dotdotdot company limited, founded in 2004, by m.l. apichit vudhijaya [art],<br>
 		is a 'creative marketingcentre' that founded a niche agency, offering brand and product enhancement. the venture</p>

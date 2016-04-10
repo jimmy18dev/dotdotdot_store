@@ -1,4 +1,6 @@
 <div class="category-items <?php echo $spacail_style;?>">
+	<a href="store.php?filter=<?php echo $var['ca_id'];?>">
 		<img src="image/category/category-<?php echo $var['ca_id'];?>.jpg" alt="">
-		<a class="figcaption" href="store.php?filter=<?php echo $var['ca_id'];?>"><?php echo $var['ca_title'];?></a>
+		<div class="figcaption"><?php echo $var['ca_title'];?></div>
+	</a>
 </div>

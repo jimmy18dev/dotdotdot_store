@@ -1,6 +1,11 @@
 <header class="header <?php echo ($current_page == "index" || $current_page == "product"?"header-fix":"");?>">
-	<a href="index.php" class="header-items logo">dotdotdot limited <div class="mini">born and made in thailand</div>
-		</a>
+	<?php if($current_page == 'store'){?>
+	<a href="index.php" class="header-items logo">dotdotdot limited <div class="mini"><i class="fa fa-angle-left"></i>กลับไปหน้าแรก</div></a>
+	<?php }else if($current_page == 'index'){?>
+	<a href="index.php" class="header-items logo">dotdotdot limited <div class="mini">born and made in thailand</div></a>
+	<?php }else{?>
+	<a href="store.php" class="header-items logo">dotdotdot limited <div class="mini"><i class="fa fa-angle-left"></i>สินค้าทั้งหมด</div></a>
+	<?php }?>
 		
 	<?php if(MEMBER_ONLINE){?>
 	<a href="profile.php#start">
