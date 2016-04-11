@@ -171,7 +171,7 @@ $page_image = $metadata['domain'].'/image/upload/square/'.$product->image_filena
 
 			<?php if($user->type == "administrator"){?>
 			<div class="control">
-				<a href="store/product_detail.php?id=<?php echo $product->id;?>">คลังสินค้า<i class="fa fa-angle-right"></i></a>
+				<a href="admin/product_detail.php?id=<?php echo $product->id;?>">คลังสินค้า<i class="fa fa-angle-right"></i></a>
 			</div>
 			<?php }?>
 		</div>

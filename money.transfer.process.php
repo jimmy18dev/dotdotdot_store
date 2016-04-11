@@ -60,18 +60,15 @@ if($user->Authentication() && !empty($_POST['order_id']) && !empty($_POST['addre
         foreach ($admin_data as $var){
             if(!empty($var['me_email'])){
                 $mail->addAddress($var['me_email']);
-                $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' – ส่งหลักฐานการโอนเงินแล้ว';
+                $mail->Subject  = 'ใบสั่งซื้อ #'.$order->id.' – ส่งหลักฐานการโอนเงินแล้ว';
                 $message        = file_get_contents('template/email/transfer.request.admin.html');
-                $message        = str_replace('%domain%' ,$metadata['domain'], $message);
-                $message        = str_replace('%name%', $user->name, $message);
-                $message        = str_replace('%order_id%', $_POST['order_id'], $message);
-                $message        = str_replace('%summary_payment%', number_format($order->summary_payments,2), $message);
-                $message        = str_replace('%customer_name%',$order->customer_name, $message);
-                $message        = str_replace('%customer_address%',$order->customer_address, $message);
-                $message        = str_replace('%customer_phone%',$order->customer_phone, $message);
-                $message        = str_replace('%sitename%' ,$config->meta_sitename, $message);
-                $message        = str_replace('%copyrightyear%' ,date("Y"), $message);
-
+                $message        = str_replace('%domain%',       $metadata['domain'], $message);
+                $message        = str_replace('%admin_name%',   $var['me_name'], $message);
+                $message        = str_replace('%name%',         $user->name, $message);
+                $message        = str_replace('%order_id%',     $order->id, $message);
+                $message        = str_replace('%payment%',      number_format($order->m_total,2), $message);
+                $message        = str_replace('%image%',        $order->m_photo, $message);
+                $message        = str_replace('%time%',         $order->confirm_time_th, $message);
                 $mail->Body     = $message;
                 $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
                 if(!$mail->send())

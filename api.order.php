@@ -145,21 +145,24 @@ if($_POST['calling'] != ''){
 
 							// Email Sending to Administrator /////////////////
 						    $admin_data = $user->ListAllAdministratorProcess();
-						    if($config->email_status && !empty($var['me_email'])){
+						    if($config->email_status){
 							    foreach ($admin_data as $var){
-							        $mail->addAddress($var['me_email']);
-							        $mail->Subject  = 'ใบสั่งซื้อที่ '.$order->id.' | ลูกค้าได้รับสินค้าแล้ว';
-							        $message        = file_get_contents('template/email/complete.admin.html');
-							        $message        = str_replace('%domain%' ,$metadata['domain'], $message);
-							        $message        = str_replace('%name%', $user->name, $message);
-							        $message        = str_replace('%order_id%', $_POST['order_id'], $message);
-							        $mail->Body     = $message;
-							        $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
+							    	if(!empty($var['me_email'])){
+								        $mail->addAddress($var['me_email']);
+								        $mail->Subject  = 'ใบสั่งซื้อ #'.$order->id.' - ลูกค้าได้รับสินค้าแล้ว';
+								        $message        = file_get_contents('template/email/complete.admin.html');
+								        $message        = str_replace('%domain%',		$metadata['domain'], $message);
+								        $message        = str_replace('%admin_name%',   $var['me_name'], $message);
+								        $message        = str_replace('%name%', 		$user->name, $message);
+								        $message        = str_replace('%order_id%', 	$_POST['order_id'], $message);
+								        $mail->Body     = $message;
+								        $mail->AltBody  = 'This is the body in plain text for non-HTML mail clients';
 
-							        if(!$mail->send())
-							            $email_send = $mail->ErrorInfo;
-							        else
-							            $email_send = "Message has been sent";
+								        if(!$mail->send())
+								            $email_send = $mail->ErrorInfo;
+								        else
+								            $email_send = "Message has been sent";
+							    	}
 							    }
 							}
 						    // End Email Process.

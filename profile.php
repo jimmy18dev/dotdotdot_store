@@ -79,6 +79,10 @@ $current_page = "profile";
 					<a class="btn btn-logout" href="logout.php">Logout</a>
 					<a class="btn" href="profile_change_password.php#start">เปลี่ยนรหัสผ่าน</a>
 					<a class="btn" href="profile_edit.php#start">แก้ไขข้อมูล</a>
+
+					<?php if($user->type == 'administrator'){?>
+					<a class="btn" href="admin">Admin Tools</a>
+					<?php }?>
 				</div>
 			</div>
 		</div>

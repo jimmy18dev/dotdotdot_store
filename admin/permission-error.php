@@ -19,9 +19,9 @@
 <title>Order</title>
 
 <!-- CSS -->
-<link rel="stylesheet" type="text/css" href="css/reset.css"/>
-<link rel="stylesheet" type="text/css" href="css/style.css"/>
-<link rel="stylesheet" type="text/css" href="plugin/font-awesome/css/font-awesome.min.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/admin/css/reset.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/admin/css/style.css"/>
+<link rel="stylesheet" type="text/css" href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/admin/plugin/font-awesome/css/font-awesome.min.css"/>
 
 <!-- JS Lib -->
 <script type="text/javascript" src="js/lib/jquery-1.11.1.min.js"></script>
@@ -32,7 +32,7 @@
 
 <div class="container">
 	<div class="content">
-		คุณไม่ได้รับอนุญาตให้เข้าหน้าดังกล่าง!
+		คุณไม่ได้รับอนุญาตให้เข้าหน้าดังกล่าว! <a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/login.php">เข้าระบบ</a>
 	</div>
 </div>
 </body>

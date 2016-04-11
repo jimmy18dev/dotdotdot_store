@@ -2,6 +2,7 @@
 *.sql
 
 image/upload/*
+admin/image/upload/*
 store/image/upload/*
 
 # Windows image file caches

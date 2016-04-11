@@ -1,7 +1,5 @@
 <?php
 require_once'config/autoload.php';
-//include'sdk/facebook-sdk/autoload.php';
-//include'facebook.php';
 $current_page = "order_detail";
 
 $order->GetOrder(array('order_id' => $_GET['id']));
