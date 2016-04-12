@@ -301,6 +301,37 @@ Copyright (c) 2015 Daniel Eden
 .container .tab-filter .filter-items-active {
   color: #333333;
 }
+.container .error-page {
+  width: 100%;
+  padding-top: 25%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  line-height: 1.5em;
+}
+.container .error-page p.icon {
+  font-size: 3.5em;
+  margin-bottom: 5%;
+}
+.container .error-page h1 {
+  font-size: 1.8em;
+  margin-bottom: 1%;
+  color: #000000;
+}
+.container .error-page p {
+  font-size: 1em;
+  color: #333333;
+}
+.container .error-page a {
+  color: #0084ff;
+  text-decoration: none;
+}
+.container .error-page a:hover {
+  text-decoration: underline;
+}
+.container .error-page a i {
+  margin-left: 5px;
+}
 .container .content {
   width: 100%;
   float: left;
@@ -1704,6 +1735,27 @@ Copyright (c) 2016 Puwadon Sricharoen
     color: #333333;
     background: #FFFFFF;
     border-top: 1px solid #CCCCCC;
+  }
+  .container .error-page {
+    width: 94%;
+    padding: 0% 3%;
+    padding-top: 25%;
+    line-height: 1.5em;
+  }
+  .container .error-page p.icon {
+    font-size: 3.5em;
+    margin-bottom: 5%;
+  }
+  .container .error-page h1 {
+    font-size: 1.7em;
+    margin-bottom: 2%;
+    line-height: 1.3em;
+  }
+  .container .error-page p {
+    font-size: 1em;
+  }
+  .container .error-page a {
+    font-size: 1.1em;
   }
   .container .content {
     width: 100%;

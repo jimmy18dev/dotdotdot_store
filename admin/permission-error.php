@@ -31,8 +31,12 @@
 <body>
 
 <div class="container">
-	<div class="content">
-		คุณไม่ได้รับอนุญาตให้เข้าหน้าดังกล่าว! <a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/login.php">เข้าระบบ</a>
+	<div class="error-page">
+		<p class="icon"><i class="fa fa-exclamation-triangle" aria-hidden="true"></i></p>
+		<h1>ไม่สามารถเข้าลิ้งที่คุณต้องการได้!</h1>
+		<p>คุณจำเป็นต้องเข้าระบบก่อน เพื่อนยืนยันตัวตนว่าคุณเป็น Administrator ของเว็บจริง</p>
+		<br><br>
+		<p><a href="<?php echo 'http://'.$_SERVER['SERVER_NAME'].'/';?>/login.php">เข้าระบบ<i class="fa fa-angle-right" aria-hidden="true"></i></a></p>
 	</div>
 </div>
 </body>
