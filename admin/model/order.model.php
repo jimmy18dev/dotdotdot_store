@@ -3,7 +3,7 @@ class OrderModel extends Database{
 	
 	public function ListOrderProcess($param){
 
-		$SELECT = 'SELECT od_id,me_name,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read ';
+		$SELECT = 'SELECT od_id,me_name,me_fb_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read ';
 		$FROM = 'FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id ';
 		$WHERE = 'WHERE od_status != "Shopping" ';
 		$ORDER = 'ORDER BY od_update_time DESC ';

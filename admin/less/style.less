@@ -12,76 +12,43 @@ Copyright (c) 2016 Puwadon Sricharoen
     left: 0px;
     width: 60%;
     padding: 0% 20%;
-    height: 50px;
+    height: 60px;
     float: left;
     display: inline-block;
-    background: #333333;
+    background: #FFFFFF;
     z-index: 99;
 
-    .menu{
-        width: 30%;
+    .header-items{
         float: left;
         display: inline-block;
-        font-size: 0.9em;
-
-        .btn{
-            float: left;
-            display: inline-block;
-            padding: 17px 11px;
-            height: 16px;
-
-            .notif{
-                padding: 0% 3px;
-                background: #F44336;
-                color: #FFFFFF;
-                font-size: 0.75em;
-                border-radius: 2px;
-                margin-left: 5px;
-            }
-            &:active{
-                background: #000000;
-            }
-        }
-
-        a{
-            float: left;
-            display: inline-block;
-            color: #EEEEEE;
-            text-decoration: none;
-        }
     }
 
-    .logo{
-        width: 40%;
-        float: left;
-        display: inline-block;
-        font-size: 1em;
-        padding: 16px 0px;
+    a.logo{
+        padding: 22px 1%;
         height: 18px;
-        color: rgba(0, 0, 0, 0.9);
-        text-align: center;
+        font-size: 1.2em;
+        color: #000000;
+        text-decoration: none;
 
-        a{
-            color: #EEEEEE;
-            text-decoration: none;
+        i{
+            margin-right: 10px;
         }
     }
-    .account{
-        width: 30%;
-        float: right;
-        display: inline-block;
-        padding: 13px 0px;
-        height: 24px;
 
-        .avatar{
-            img{
-                height: 24px;
-                width: 24px;
-                float: right;
-                display: inline-block;
-                border-radius: 50%;
-                overflow: hidden;
-            }
+    a.orders{
+        float: right;
+        padding: 25px 1%;
+        height: 10px;
+        font-size: 0.9em;
+        color: #0084ff;
+        text-decoration: none;
+
+        i{
+            margin-left: 5px;
+        }
+
+        &:hover{
+            text-decoration: underline;
         }
     }
 }
@@ -92,40 +59,27 @@ Copyright (c) 2016 Puwadon Sricharoen
     float: left;
     display: inline-block;
     background: #FFFFFF;
-    margin-top: 50px;
+    margin-top: 60px;
+    border-bottom: 1px solid #EEEEEE;
 
     ul{
         width: 100%;
         float: left;
         display: inline-block;
+        border-top: 1px solid #EEEEEE;
 
         li.navi-items,li.navi-bar{
-            padding: 2%;
-            margin-right: 0%;
+            padding: 2% 0%;
+            margin-right: 2%;
             float: left;
             display: inline-block;
-            border-bottom: 2px solid transparent;
             font-size: 0.9em;
-            color: #777777;
+            color: #AAAAAA;
             text-align: center;
-
-            i{
-                margin-right: 10px;
-                font-size: 0.8em;
-            }
-
-            &:hover{
-                color: #333333;
-            }
-
-            &:active{
-                background: #F8F8F8;
-            }
         }
 
         li.active{
-            color: #333333;
-            border-bottom: 2px solid #333333;
+            color: #000000;
         }
 
         li.right{
@@ -253,8 +207,6 @@ Copyright (c) 2016 Puwadon Sricharoen
         display: inline-block;
         margin: 5% 0%;
 
-
-
         .tab{
             width: 100%;
             float: left;
@@ -344,19 +296,6 @@ Copyright (c) 2016 Puwadon Sricharoen
             i{
                 margin-right: 10px;
             }
-        }
-
-        .complete{
-            background: #00ab6b;
-            color: #FFFFFF;
-        }
-        .cancel{
-            background: #F44336;
-            color: #FFFFFF;
-        }
-        .expire{
-            background: #EEEEEE;
-            color: #777777;
         }
 
         // Order Detail page
@@ -1392,108 +1331,68 @@ Copyright (c) 2016 Puwadon Sricharoen
             opacity: 0.4;
         }
 
+        // Order items style at Order page (index)
         .order-items{
-            width: 96%;
-            padding: 2%;
+            width: 98%;
+            padding: 1%;
             float: left;
             display: inline-block;
             background: #FFFFFF;
-            line-height: 1.5em;
-            border-bottom: 2px solid #EEEEEE;
+            border-bottom: 1px solid #000000;
+            margin-top: 2px;
 
-            &:hover{
-                cursor: pointer;
-                opacity: 0.8;
-            }
-
-            p{
-                font-size: 0.9em;
-                color: #000000;
-            }
-
-            p.mini{
-                color: #777777;
-                font-size: 0.75em;
-
-                span{
-                    margin-right: 5px;
-                }
-
-                span.payment{
-                    font-weight: bold;
-                }
-
-                i{
-                    margin-right: 3px;
-                    color: #CCCCCC;
-                    font-size: 0.7em;
-                }
-            }
-            
-            .paying{background: #E91E63;}
-            .transferrequest{background: #3F51B5;}
-            .transferagain{background: #FFC107;}
-            .transfersuccess{background: #8BC34A;}
-            .shipping{background: #2196F3;}
-            .complete{background: #4CAF50;}
-            .cancel{background: #CCCCCC;}
-            .expire{background: #EEEEEE;}
-
-            .detail{
-                width: 80%;
+            .avatar{
+                width: 5%;
                 float: left;
                 display: inline-block;
+                margin-right: 2%;
 
-                .unread{
-                    font-size: 0.7em;
-                    color: #F44336;
-                    margin-right: 3px;
-                }
-
-                .status{
-                    color: #FFFFFF;
-                    padding: 1px 5px;
-                    border-radius: 2px;
-                    font-size: 0.65em;
-                    line-height: 1em;
-                    margin-left: 5px;
+                img{
+                    width: 100%;
+                    float: left;
+                    display: inline-block;
+                    border-radius: 50%;
                 }
             }
-            .summary{
-                width: 20%;
+            .info{
+                width: 63%;
+                float: left;
+                display: inline-block;
+                font-size: 1em;
+                line-height: 1.4em;
+                color: #000000;
+
+                .info-name{
+                    .order-id{
+                        background: #333333;
+                        color: #FFFFFF;
+                        font-size: 0.4em;
+                        padding: 0px 2px;
+                        border-radius: 2px;
+                        margin-right: 4px;
+                    }
+                }
+                .info-desc{
+                    font-size: 0.8em;
+                    color: #333333;
+                }
+            }
+            .payment{
+                width: 30%;
                 float: left;
                 display: inline-block;
                 text-align: right;
+                font-size: 1em;
+                line-height: 1.5em;
+                padding-top: 1%;
+                color: #AAAAAA;
 
-                .paid{
-                    color: #4CAF50;
-                    font-weight: bold;
-                    i{
-                        font-size: 0.8em;
-                        margin-right: 5px;
-                    }
-                }
-
-                .pay{
-                    color: #AAAAAA;
+                i{
+                    margin-left: 10px;
                 }
             }
-        }
-        .order-items-cencel{
-            opacity: 0.3;
-        }
-
-        .empty-items{
-            width: 100%;
-            padding: 5% 0%;
-            float: left;
-            display: inline-block;
-            text-align: center;
-            font-size: 0.9em;
-            color: #AAAAAA;
-
-            i{
-                margin-left: 5px;
+            .payment-paid{
+                color: #0084ff;
             }
         }
 

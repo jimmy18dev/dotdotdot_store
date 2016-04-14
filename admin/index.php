@@ -64,7 +64,7 @@ $current_page = "order";
 			</div>
 			</a>
 		</div>
-
+		
 		<?php $order->ListOrder(array('filter' => $_GET['filter'],));?>
 	</div>
 </div>

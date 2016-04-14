@@ -30,29 +30,24 @@ else{
 }
 ?>
 
-<a href="order_detail.php?id=<?php echo $var['od_id'];?>">
+<a href="order_detail.php?id=<?php echo $var['od_id'];?>" target="_parent">
 <div class="order-items <?php echo ($var['od_admin_read'] == "open"?'order-unread':'');?>">
-	<div class="detail">
-		<p>
-			<?php if($var['od_admin_read'] == "open"){?><span class="unread"><i class="fa fa-circle"></i></span><?php }?>
-			<?php echo $var['od_id'];?> – <?php echo $var['me_name'];?> <span class="status <?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span>
-		</p>
-		<p class="mini">
-			<span class="time"><?php echo $var['order_update_time_facebook_format'];?></span>
-			<span class="admin"><i class="fa fa-user"></i>Puwadon Sricharoen</span>
-		</p>
+	<div class="avatar">
+		<?php if(empty(!$var['me_fb_id'])){?>
+		<img src="https://graph.facebook.com/<?php echo $var['me_fb_id'];?>/picture?type=square" alt="">
+		<?php }else{?>
+		<img src="../image/avatar.png" alt="">
+		<?php }?>
 	</div>
-	<div class="summary">
-		<p>
-			<?php if($var['od_status'] == "TransferSuccess" || $var['od_status'] == "Shipping" || $var['od_status'] == "Complete"){?>
-			<span class="paid"><i class="fa fa-check"></i>จ่ายแล้ว</span>
-			<?php }else{?>
-			<span class="pay">ยังไม่จ่าย</span>
-			<?php }?>
-		</p>
-		<p class="mini">
-			<span class="payment"><?php echo number_format($var['od_payments']+50);?> บาท</span>
-		</p>
+
+	<div class="info">
+		<div class="info-name"><span class="order-id"><?php echo $var['od_id'];?></span><?php echo $var['me_name'];?></div>
+		<div class="info-desc"><?php echo $var['order_update_time_facebook_format'];?> <span class="status-<?php echo strtolower($var['od_status']);?>"><?php echo $status;?></span></div>
+	</div>
+
+	<div class="payment <?php echo ($var['od_status'] == "TransferSuccess" || $var['od_status'] == "Shipping" || $var['od_status'] == "Complete"?'payment-paid':'');?>">
+		<?php echo number_format($var['od_payments']+50);?> บาท
+		<i class="fa fa-angle-right"></i>
 	</div>
 </div>
 </a>

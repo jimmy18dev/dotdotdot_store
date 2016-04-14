@@ -3,23 +3,8 @@ $notif_count = $order->NotificationChecking();
 ?>
 
 <header class="header">
-	<div class="menu">
-		<a href="index.php"><div class="btn">สั่งซื้อ <?php if($notif_count > 0){?><span class="notif"><?php echo $notif_count;?></span><?php }?></div></a>
-	</div>
-
-	<div class="logo"><a href="index.php">Store</a></div>
-
-	<div class="account">
-		<div class="avatar">
-			<a href="../profile.php">
-			<?php if(empty($user->facebook_id)){?>
-			<img src="../image/avatar.png" alt="">
-			<?php }else{?>
-			<img src="https://graph.facebook.com/<?php echo $user->facebook_id;?>/picture?type=square" alt="">
-			<?php }?>
-			</a>
-		</div>
-	</div>
+	<a href="index.php" class="header-items logo"><i class="fa fa-cube" aria-hidden="true"></i>Administrator</a>
+	<a href="index.php" class="header-items orders"><?php echo $notif_count;?> รายการใหม่ <i class="fa fa-angle-right"></i></a>
 </header>
 <nav class="navigator">
 	<ul>
@@ -63,13 +48,13 @@ $notif_count = $order->NotificationChecking();
 			</a>
 		<?php }else{?>
 			<a href="index.php">
-				<li class="navi-items <?php echo ($current_page == "order"?'active':'');?>"><span class="icon"><i class="fa fa-comments-o"></i></span><span class="caption">สั่งซื้อ</span></li>
+				<li class="navi-items <?php echo ($current_page == "order"?'active':'');?>">สั่งซื้อ</li>
 			</a>
 			<a href="product.php">
-				<li class="navi-items <?php echo ($current_page == "product"?'active':'');?>"><span class="icon"><i class="fa fa-th"></i></span><span class="caption">สินค้า</span></li>
+				<li class="navi-items <?php echo ($current_page == "product"?'active':'');?>">สินค้า</li>
 			</a>
 			<a href="setting.php">
-				<li class="navi-items <?php echo ($current_page == "setting"?'active':'');?>"><span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">ตั้งค่า</span></li>
+				<li class="navi-items <?php echo ($current_page == "setting"?'active':'');?>">ตั้งค่า</li>
 			</a>
 			<!-- <a href="analytics.php">
 				<li class="navi-items <?php echo ($current_page == "analytics"?'active':'');?>"><span class="icon"><i class="fa fa-area-chart"></i></span><span class="caption">วิเคราะห์</span></li>
@@ -78,11 +63,11 @@ $notif_count = $order->NotificationChecking();
 				<li class="navi-items <?php echo ($current_page == "customer"?'active':'');?>"><span class="icon"><i class="fa fa-user"></i></span><span class="caption">ลูกค้า</span></li>
 			</a> -->
 			<a href="../">
-				<li class="navi-items "><span class="icon"><i class="fa fa-television"></i></span><span class="caption">หน้าร้าน</span></li>
+				<li class="navi-items ">หน้าร้าน</li>
 			</a>
 
 			<a href="more.php">
-				<li class="navi-items right <?php echo ($current_page == "more"?'active':'');?>"><span class="icon"><i class="fa fa-ellipsis-h"></i></span><span class="caption">เพิ่มเติม</span></li>
+				<li class="navi-items right <?php echo ($current_page == "more"?'active':'');?>">เพิ่มเติม</li>
 			</a>
 		<?php }?>
 	</ul>
