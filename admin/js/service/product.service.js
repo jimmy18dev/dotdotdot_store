@@ -97,11 +97,11 @@ function ChangeStatus(product_id,status){
 
         // value return
         if(data.return == "active"){
-            $('#status-'+product_id).addClass('status-active').html('<i class="fa fa-circle"></i> แสดง');
+            $('#status-'+product_id).addClass('status-active').html('แสดง');
             $('#product-'+product_id).removeClass('product-items-disable');
         }
         else if(data.return == "disable"){
-            $('#status-'+product_id).removeClass('status-active').html('<i class="fa fa-circle"></i> ไม่แสดง');
+            $('#status-'+product_id).removeClass('status-active').html('ซ่อน');
             $('#product-'+product_id).addClass('product-items-disable');
         }
 

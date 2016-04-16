@@ -35,38 +35,34 @@ $current_page = "order";
 
 <body>
 <?php include'header.php';?>
-
-<div class="container">
-	<div class="content">
-		<!-- Order filter -->
-		<div class="tab-filter">
-			<a href="index.php?filter=complete">
-			<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
-				<span class="filter-items-caption">เรียบร้อย</span>
-			</div>
-			</a>
-
-			<a href="index.php?filter=transfersuccess">
-			<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
-				<span class="filter-items-caption">ชำระแล้ว</span>
-			</div>
-			</a>
-
-			<a href="index.php?filter=transferrequest">
-			<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
-				<span class="filter-items-caption">โอนเงิน</span>
-			</div>
-			</a>
-
-			<a href="index.php?">
-			<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
-				<span class="filter-items-caption">ทั้งหมด</span>
-			</div>
-			</a>
+<div class="filter">
+	<a href="index.php?">
+		<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
+		<span class="filter-items-caption">ดูทั้งหมด</span>
 		</div>
-		
-		<?php $order->ListOrder(array('filter' => $_GET['filter'],));?>
-	</div>
+	</a>
+
+	<a href="index.php?filter=transferrequest">
+		<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
+			<span class="filter-items-caption">รอตรวจสอบ</span>
+		</div>
+	</a>
+
+	<a href="index.php?filter=transfersuccess">
+		<div class="filter-items <?php echo ($_GET['filter'] == "transfersuccess"?'filter-items-active':'');?>">
+			<span class="filter-items-caption">รอส่งของ</span>
+		</div>
+	</a>
+
+	<a href="index.php?filter=complete">
+		<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
+			<span class="filter-items-caption">ปิดการขาย</span>
+		</div>
+	</a>
+</div>
+
+<div class="list-container">
+	<?php $order->ListOrder(array('filter' => $_GET['filter'],));?>
 </div>
 </body>
 </html>

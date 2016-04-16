@@ -1,14 +1,14 @@
 <?php
 // Product status
-$status = '<i class="fa fa-circle"></i> แสดง';
+$status = 'แสดง';
 if($var['pd_status'] != "active"){
-	$status = '<i class="fa fa-circle"></i> ไม่แสดง';
+	$status = 'ซ่อน';
 }
 ?>
 
 <?php if($var['pd_type'] == "root"){?>
-<div class="product-items product-items-<?php echo $var['pd_status'];?> product-root-items" id="product-<?php echo $var['pd_id'];?>">
-	<div class="product-thumbnail">
+<div class="product-root-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
+	<div class="thumbnail">
 		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
 		<?php if(empty($var['im_filename'])){?>
 		<img src="image/no-image.jpg" alt="">
@@ -17,25 +17,24 @@ if($var['pd_status'] != "active"){
 		<?php }?>
 		</a>
 	</div>
-	<div class="product-content">
+	<div class="detail">
 		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
-		<p class="description"><?php echo (empty($var['pd_description'])?'...':$var['pd_description']);?></p>
+		<p><?php echo (empty($var['pd_description'])?'...':$var['pd_description']);?></p>
 		<p class="control">
-			<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
+			แสดงสินค้า : <span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
 
 			<?php if($var['pd_sort'] > 1){?>
 			<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
 			<?php }?>
 		</p>
 	</div>
-
-	<div class="product-quantity"><i class="fa fa-arrow-down"></i></div>
+	<div class="subitems">
+		<?php $this->ListSubProduct(array('product_id' => $var['pd_id'],'render' => 'list-subproduct-items'));?>	
+	</div>
 </div>
-<?php $this->ListSubProduct(array('product_id' => $var['pd_id'],'render' => 'list-subproduct-items'));?>
-
 <?php }else{?>
-<div class="product-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
-	<div class="product-thumbnail">
+<div class="product-normal-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
+	<div class="thumbnail">
 		<a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent">
 		<?php if(empty($var['im_filename'])){?>
 		<img src="image/no-image.jpg" alt="">
@@ -44,29 +43,23 @@ if($var['pd_status'] != "active"){
 		<?php }?>
 		</a>
 	</div>
-	<div class="product-content">
-		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
+	<div class="detail">
+		<h2 class="title"><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
 		<p>
-				<span class="price"><?php echo ($var['pd_type']=="root"?'':''.number_format($var['pd_price'],2).' บาท');?></span>
-				<?php if($var['pd_type'] != "root"){?>
-				<span class="id"> | รหัสสินค้า: <?php echo $var['pd_id'];?></span>
-				<?php }?>
+			<span class="price"><?php echo ($var['pd_type']=="root"?'':''.number_format($var['pd_price'],2).' ฿.');?></span>
+			<?php if($var['pd_type'] != "root"){?>
+			<span class="id"> | รหัสสินค้า: <?php echo $var['pd_id'];?></span>
+			<?php }?>
 		</p>
 		<p class="control">
-				<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
-				<?php if($var['pd_sort'] > 1){?>
-				<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
-				<?php }?>
-
-				<span class="option-control">
-					<a href="product_editor.php?id=<?php echo $var['pd_id'];?>" title="แก้ไขข้อมูล"><i class="fa fa-cog"></i> <span class="link-caption"></span></a>
-					<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=export" title="โอนสินค้าออก"><i class="fa fa-arrow-left"></i> <span class="link-caption"></span></a>
-					<a href="quantity.php?id=<?php echo $var['pd_id'];?>&action=import" title="นำเข้าสินค้า"><i class="fa fa-plus"></i> <span class="link-caption"></span></a>
-					<a href="product_editor.php?parent=<?php echo $var['pd_id'];?>"><i class="fa fa-files-o"></i> เพิ่มสินค้าย่อย</a>
-				</span>
+			แสดงสินค้า : 
+			<span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
+			
+			<?php if($var['pd_sort'] > 1){?>
+			<span class="status position-btn" onclick="javascript:ChangePosition(<?php echo $var['pd_id'];?>);" title="เลื่อนขึ้น"><i class="fa fa-arrow-up"></i> เลื่อนขึ้น</span>
+			<?php }?>
 		</p>
 	</div>
-
-	<div class="product-quantity <?php echo ($var['pd_quantity'] == 0?'quantity-empty':'');?>"><?php echo $var['pd_quantity'];?></div>
+	<div class="quantity <?php echo ($var['pd_quantity'] == 0?'quantity-empty':'');?>"><?php echo ($var['pd_quantity'] > 0?$var['pd_quantity']:'หมด');?></div>
 </div>
 <?php }?>

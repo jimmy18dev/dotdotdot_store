@@ -1,0 +1,104 @@
+/*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2016 Puwadon Sricharoen
+*/
+
+// IMPORT Other Lib
+@import "default";
+
+.header{
+    width: 100%;
+    padding: 0%;
+    height: 50px;
+    border-bottom: 1px solid #EEEEEE;
+
+    a.logo{
+        padding: 16px 3%;
+        height: 18px;
+        font-size: 1em;
+
+        i{
+            margin-right: 10px;
+        }
+    }
+
+    a.orders{
+        padding: 20px 3%;
+        height: 10px;
+        font-size: 0.9em;
+
+        i{ margin-left: 5px; }
+    }
+}
+
+.navigator{
+    width: 100%;
+    padding: 0%;
+    margin-top: 50px;
+    border-bottom: 0px solid transparent;
+    background: #0084ff;
+
+    ul{
+        li.navi-items,li.navi-bar{
+            padding: 5% 3%;
+            margin-right: 0%;
+            font-size: 0.9em;
+            color: #EEEEEE;
+            border-bottom: 3px solid transparent;
+        }
+        li.active{
+            color: #FFFFFF;
+            border-bottom: 3px solid #FFFFFF;
+        }
+        li.right{ padding: 5% 3%; }
+    }
+}
+
+.filter{
+    width: 100%;
+    margin: 0%;
+
+    .filter-items{
+        padding: 5% 3%;
+        margin-right: 0%;
+        font-size: 0.8em;
+        line-height: 1.5em;
+    }
+}
+
+.list-container{
+    width: 100%;
+    margin: 0%;
+
+    .order-items{
+        width: 94%;
+        padding: 3%;
+        margin-bottom: 0%;
+        font-size: 0.9em;
+        border-bottom: 1px solid #EEEEEE;
+
+        .unread{
+            border-top: 10px solid #f39c12;
+            border-right: 10px solid transparent;
+        }
+
+        .avatar{
+            width: 12%;
+            margin-right: 5%;
+        }
+        .info{
+            width: 60%;
+            margin-left: 0%;
+            line-height: 1.2em;
+            .info-desc{ font-size: 0.8em; }
+        }
+        .time{ display: none; }
+        .payment{
+            width: 23%;
+            padding-top: 3%;
+            line-height: 1.5em;
+
+            i{ margin-left: 5px; }
+        }
+    }
+}

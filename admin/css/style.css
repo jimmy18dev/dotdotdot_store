@@ -132,7 +132,7 @@ Copyright (c) 2015 Daniel Eden
 .header a.logo {
   padding: 22px 1%;
   height: 18px;
-  font-size: 1.2em;
+  font-size: 1.1em;
   color: #000000;
   text-decoration: none;
 }
@@ -144,7 +144,7 @@ Copyright (c) 2015 Daniel Eden
   padding: 25px 1%;
   height: 10px;
   font-size: 0.9em;
-  color: #0084ff;
+  color: #F44336;
   text-decoration: none;
 }
 .header a.orders i {
@@ -171,20 +171,421 @@ Copyright (c) 2015 Daniel Eden
 .navigator ul li.navi-items,
 .navigator ul li.navi-bar {
   padding: 2% 0%;
-  margin-right: 2%;
+  margin-right: 5%;
   float: left;
   display: inline-block;
   font-size: 0.9em;
-  color: #AAAAAA;
+  color: #555555;
   text-align: center;
 }
 .navigator ul li.active {
-  color: #000000;
+  color: #0084ff;
 }
 .navigator ul li.right {
   float: right;
   margin-right: 0%;
   padding: 2% 0%;
+}
+.filter {
+  width: 60%;
+  margin: 0% 20%;
+  float: left;
+  display: inline-block;
+}
+.filter .filter-items {
+  float: left;
+  padding: 2% 0%;
+  margin-right: 2%;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #DDDDDD;
+}
+.filter .filter-items-active {
+  color: #000000;
+  text-decoration: underline;
+}
+.list-container {
+  width: 60%;
+  margin: 0% 20%;
+  float: left;
+  display: inline-block;
+}
+.list-container .container-control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.list-container .container-control a.create-btn {
+  float: right;
+  display: inline-block;
+  border: 1px solid #0084ff;
+  font-size: 0.9em;
+  padding: 10px;
+  color: #0084ff;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.list-container .container-control a.create-btn i {
+  margin-right: 5px;
+}
+.list-container .empty-items {
+  width: 100%;
+  padding: 10% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: #555555;
+}
+.list-container .empty-items i {
+  margin-left: 10px;
+}
+.list-container .order-items {
+  width: 98%;
+  padding: 1%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-bottom: 0.5%;
+  font-size: 0.9em;
+  position: relative;
+}
+.list-container .order-items .unread {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 0;
+  height: 0;
+  border-top: 15px solid #f39c12;
+  border-right: 15px solid transparent;
+}
+.list-container .order-items:hover .info .info-name {
+  text-decoration: underline;
+}
+.list-container .order-items .avatar {
+  width: 4%;
+  float: left;
+  display: inline-block;
+  margin-right: 1%;
+}
+.list-container .order-items .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
+.list-container .order-items .info {
+  width: 54%;
+  float: left;
+  margin-left: 1%;
+  display: inline-block;
+  line-height: 1.2em;
+}
+.list-container .order-items .info .info-name {
+  color: #000000;
+}
+.list-container .order-items .info .info-name strong {
+  font-weight: bold;
+}
+.list-container .order-items .info .info-desc {
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.list-container .order-items .info .info-desc i {
+  margin-left: 5px;
+}
+.list-container .order-items .info .info-desc .status-complete {
+  color: #0084ff;
+}
+.list-container .order-items .time {
+  width: 25%;
+  float: left;
+  display: inline-block;
+  line-height: 2.5em;
+  color: #555555;
+}
+.list-container .order-items .payment {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  line-height: 2.5em;
+  text-align: right;
+  color: #555555;
+}
+.list-container .order-items .payment i {
+  margin-left: 10px;
+}
+.list-container .order-items .payment-paid {
+  color: #0084ff;
+}
+.list-container .order-unread {
+  font-weight: bold;
+  background: #E3F2FD;
+}
+.list-container .product-caption-fix {
+  width: 100%;
+  padding: 2% 0%;
+  margin-top: 1%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  background: #FAFAFA;
+  color: #CCCCCC;
+}
+.list-container .product-caption-fix .product-caption-img {
+  width: 13%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.list-container .product-caption-fix .product-caption-title {
+  width: 77%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.list-container .product-caption-fix .product-caption-quantity {
+  width: 10%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.list-container .product-root-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1%;
+  background: #FFFFFF;
+}
+.list-container .product-root-items .thumbnail {
+  width: 13%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+}
+.list-container .product-root-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-root-items .detail {
+  width: 83%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-root-items .detail h2 a {
+  font-size: 1em;
+  color: #000000;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+.list-container .product-root-items .detail h2 a:hover {
+  text-decoration: underline;
+}
+.list-container .product-root-items .detail p {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #555555;
+}
+.list-container .product-root-items .detail p .price {
+  color: #0084ff;
+}
+.list-container .product-root-items .detail p.control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.list-container .product-root-items .detail p.control .status {
+  border: 1px solid #EEEEEE;
+  padding: 1px 3px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #AAAAAA;
+}
+.list-container .product-root-items .detail p.control .status:hover {
+  cursor: pointer;
+  border: 1px solid #AAAAAA;
+  color: #555555;
+}
+.list-container .product-root-items .detail p.control .status-active {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-root-items .detail p.control .status-active:hover {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-root-items .subitems {
+  width: 85%;
+  margin-left: 15%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-root-items .subitems .subproduct-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail {
+  width: 86%;
+  padding: 2%;
+  padding-left: 0%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail h2 a {
+  font-size: 0.9em;
+  color: #000000;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail h2 a:hover {
+  text-decoration: underline;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail h2 a strong {
+  font-weight: bold;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #555555;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p .price {
+  color: #0084ff;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p.control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p.control .status {
+  border: 1px solid #EEEEEE;
+  padding: 1px 3px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #AAAAAA;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p.control .status:hover {
+  cursor: pointer;
+  border: 1px solid #AAAAAA;
+  color: #555555;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p.control .status-active {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail p.control .status-active:hover {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-root-items .subitems .subproduct-items .quantity {
+  width: 8%;
+  padding: 2%;
+  float: right;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 3em;
+  color: #555555;
+}
+.list-container .product-root-items .subitems .subproduct-items .quantity-empty {
+  color: #F44336;
+}
+.list-container .product-normal-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-bottom: 1%;
+  background: #FFFFFF;
+}
+.list-container .product-normal-items .thumbnail {
+  width: 13%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+}
+.list-container .product-normal-items .thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-normal-items .detail {
+  width: 73%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-normal-items .detail h2 a {
+  font-size: 1em;
+  color: #000000;
+  text-decoration: none;
+  line-height: 1.3em;
+}
+.list-container .product-normal-items .detail h2 a:hover {
+  text-decoration: underline;
+}
+.list-container .product-normal-items .detail p {
+  font-size: 0.8em;
+  line-height: 1.5em;
+  color: #555555;
+}
+.list-container .product-normal-items .detail p .price {
+  color: #0084ff;
+}
+.list-container .product-normal-items .detail p.control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 2%;
+}
+.list-container .product-normal-items .detail p.control .status {
+  border: 1px solid #EEEEEE;
+  padding: 1px 3px;
+  font-size: 0.8em;
+  border-radius: 3px;
+  margin-right: 5px;
+  color: #AAAAAA;
+}
+.list-container .product-normal-items .detail p.control .status:hover {
+  cursor: pointer;
+  border: 1px solid #AAAAAA;
+  color: #555555;
+}
+.list-container .product-normal-items .detail p.control .status-active {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-normal-items .detail p.control .status-active:hover {
+  color: #0084ff;
+  border: 1px solid #0084ff;
+}
+.list-container .product-normal-items .quantity {
+  width: 6%;
+  padding: 2%;
+  float: right;
+  display: inline-block;
+  text-align: center;
+  font-size: 1.5em;
+  line-height: 3em;
+  color: #555555;
+}
+.list-container .product-normal-items .quantity-empty {
+  color: #F44336;
+}
+.list-container .product-items-disable {
+  opacity: 0.5;
 }
 .versionlog {
   line-height: 1.6em;
@@ -240,16 +641,18 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
+  margin-top: 2%;
 }
 .container .tab-filter .filter-items {
-  float: right;
-  padding: 2%;
+  float: left;
+  margin-right: 3%;
+  padding: 2% 0%;
   display: inline-block;
   text-align: center;
-  color: #AAAAAA;
+  color: #CCCCCC;
 }
 .container .tab-filter .filter-items .filter-items-caption {
-  font-size: 0.9em;
+  font-size: 0.8em;
   line-height: 1.5em;
 }
 .container .tab-filter .filter-items:hover {
@@ -257,6 +660,70 @@ Copyright (c) 2015 Daniel Eden
 }
 .container .tab-filter .filter-items-active {
   color: #333333;
+}
+.container .lists-container {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.container .lists-container .order-items {
+  width: 98%;
+  padding: 1%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  border-top: 1px solid #EEEEEE;
+}
+.container .lists-container .order-items:first-child {
+  border-top: 0px;
+}
+.container .lists-container .order-items .avatar {
+  width: 5%;
+  float: left;
+  display: inline-block;
+  margin-right: 2%;
+}
+.container .lists-container .order-items .avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-radius: 50%;
+}
+.container .lists-container .order-items .info {
+  width: 63%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.3em;
+  color: #000000;
+}
+.container .lists-container .order-items .info .info-name .order-id {
+  border: 1px solid #CCCCCC;
+  color: #555555;
+  font-size: 0.5em;
+  padding: 0px 2px;
+  border-radius: 2px;
+  margin-right: 5px;
+}
+.container .lists-container .order-items .info .info-desc {
+  font-size: 0.8em;
+  color: #333333;
+}
+.container .lists-container .order-items .payment {
+  width: 30%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  color: #AAAAAA;
+  padding-top: 1%;
+}
+.container .lists-container .order-items .payment i {
+  margin-left: 10px;
+}
+.container .lists-container .order-items .payment-paid {
+  color: #0084ff;
 }
 .container .error-page {
   width: 100%;
@@ -293,13 +760,11 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  margin: 5% 0%;
 }
 .container .content .tab {
   width: 100%;
   float: left;
   display: inline-block;
-  background: #F7F7F7;
 }
 .container .content .tab a {
   padding: 2% 3%;
@@ -1151,180 +1616,6 @@ Copyright (c) 2015 Daniel Eden
   border: 1px solid #333333;
   color: #FFFFFF;
 }
-.container .content .product-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  margin-top: 1%;
-}
-.container .content .product-items a {
-  text-decoration: none;
-}
-.container .content .product-items a:hover {
-  text-decoration: underline;
-}
-.container .content .product-items .product-thumbnail {
-  width: 10%;
-  min-height: 50px;
-  float: left;
-  display: inline-block;
-}
-.container .content .product-items .product-thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .product-items .product-icon {
-  width: 10%;
-  padding-top: 4%;
-  text-align: center;
-  float: left;
-  display: inline-block;
-  font-size: 1.5em;
-  color: #EEEEEE;
-}
-.container .content .product-items .product-content {
-  width: 75.5%;
-  padding: 1.1% 2%;
-  float: left;
-  display: inline-block;
-  line-height: 1.3em;
-  border-right: 1px solid #EEEEEE;
-}
-.container .content .product-items .product-content h2 {
-  font-size: 0.9em;
-  color: #000000;
-  font-weight: bold;
-}
-.container .content .product-items .product-content h2 a {
-  color: #000000;
-}
-.container .content .product-items .product-content p {
-  font-size: 0.75em;
-  color: #777777;
-}
-.container .content .product-items .product-content p a {
-  color: #DDDDDD;
-  margin-left: 10px;
-  float: right;
-}
-.container .content .product-items .product-content p a:hover {
-  color: #777777;
-}
-.container .content .product-items .product-content p a:active {
-  color: #000000;
-  text-decoration: underline;
-}
-.container .content .product-items .product-content p .price {
-  font-weight: bold;
-}
-.container .content .product-items .product-content p .status {
-  color: #AAAAAA;
-  margin-right: 10px;
-}
-.container .content .product-items .product-content p .status i {
-  margin-right: 2px;
-  font-size: 0.7em;
-}
-.container .content .product-items .product-content p .status:hover {
-  color: #000000;
-  cursor: pointer;
-}
-.container .content .product-items .product-content p .status-active i {
-  color: #4CAF50;
-}
-.container .content .product-items .product-content p.control {
-  margin-top: 1%;
-}
-.container .content .product-items .product-content p.description {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-.container .content .product-items .product-quantity {
-  width: 10%;
-  padding-top: 3%;
-  float: right;
-  display: inline-block;
-  text-align: center;
-  line-height: 1.5em;
-  font-size: 1.5em;
-  color: #777777;
-}
-.container .content .product-items .product-quantity i {
-  color: #EEEEEE;
-}
-.container .content .product-items .quantity-empty {
-  color: #FF0000;
-}
-.container .content .product-root-items {
-  margin-top: 1%;
-}
-.container .content .subproduct-items {
-  border-top: 1px solid #EEEEEE;
-  margin-top: 0%;
-}
-.container .content .product-items-disable {
-  opacity: 0.4;
-}
-.container .content .order-items {
-  width: 98%;
-  padding: 1%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  border-bottom: 1px solid #000000;
-  margin-top: 2px;
-}
-.container .content .order-items .avatar {
-  width: 5%;
-  float: left;
-  display: inline-block;
-  margin-right: 2%;
-}
-.container .content .order-items .avatar img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-radius: 50%;
-}
-.container .content .order-items .info {
-  width: 63%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.4em;
-  color: #000000;
-}
-.container .content .order-items .info .info-name .order-id {
-  background: #333333;
-  color: #FFFFFF;
-  font-size: 0.4em;
-  padding: 0px 2px;
-  border-radius: 2px;
-  margin-right: 4px;
-}
-.container .content .order-items .info .info-desc {
-  font-size: 0.8em;
-  color: #333333;
-}
-.container .content .order-items .payment {
-  width: 30%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-  font-size: 1em;
-  line-height: 1.5em;
-  padding-top: 1%;
-  color: #AAAAAA;
-}
-.container .content .order-items .payment i {
-  margin-left: 10px;
-}
-.container .content .order-items .payment-paid {
-  color: #0084ff;
-}
 .container .content .setting-container {
   width: 94%;
   padding: 3%;
@@ -1522,3 +1813,101 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 /**** OTHER DEVICE AND SCREEN ****/
+@media only screen and (min-width: 0px) and (max-width: 519px) {
+  /*!
+Licensed under the MIT license - http://opensource.org/licenses/MIT
+Copyright (c) 2016 Puwadon Sricharoen
+*/
+  .header {
+    width: 100%;
+    padding: 0%;
+    height: 50px;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .header a.logo {
+    padding: 16px 3%;
+    height: 18px;
+    font-size: 1em;
+  }
+  .header a.logo i {
+    margin-right: 10px;
+  }
+  .header a.orders {
+    padding: 20px 3%;
+    height: 10px;
+    font-size: 0.9em;
+  }
+  .header a.orders i {
+    margin-left: 5px;
+  }
+  .navigator {
+    width: 100%;
+    padding: 0%;
+    margin-top: 50px;
+    border-bottom: 0px solid transparent;
+    background: #0084ff;
+  }
+  .navigator ul li.navi-items,
+  .navigator ul li.navi-bar {
+    padding: 5% 3%;
+    margin-right: 0%;
+    font-size: 0.9em;
+    color: #EEEEEE;
+    border-bottom: 3px solid transparent;
+  }
+  .navigator ul li.active {
+    color: #FFFFFF;
+    border-bottom: 3px solid #FFFFFF;
+  }
+  .navigator ul li.right {
+    padding: 5% 3%;
+  }
+  .filter {
+    width: 100%;
+    margin: 0%;
+  }
+  .filter .filter-items {
+    padding: 5% 3%;
+    margin-right: 0%;
+    font-size: 0.8em;
+    line-height: 1.5em;
+  }
+  .list-container {
+    width: 100%;
+    margin: 0%;
+  }
+  .list-container .order-items {
+    width: 94%;
+    padding: 3%;
+    margin-bottom: 0%;
+    font-size: 0.9em;
+    border-bottom: 1px solid #EEEEEE;
+  }
+  .list-container .order-items .unread {
+    border-top: 10px solid #f39c12;
+    border-right: 10px solid transparent;
+  }
+  .list-container .order-items .avatar {
+    width: 12%;
+    margin-right: 5%;
+  }
+  .list-container .order-items .info {
+    width: 60%;
+    margin-left: 0%;
+    line-height: 1.2em;
+  }
+  .list-container .order-items .info .info-desc {
+    font-size: 0.8em;
+  }
+  .list-container .order-items .time {
+    display: none;
+  }
+  .list-container .order-items .payment {
+    width: 23%;
+    padding-top: 3%;
+    line-height: 1.5em;
+  }
+  .list-container .order-items .payment i {
+    margin-left: 5px;
+  }
+}

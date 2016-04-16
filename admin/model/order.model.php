@@ -3,10 +3,10 @@ class OrderModel extends Database{
 	
 	public function ListOrderProcess($param){
 
-		$SELECT = 'SELECT od_id,me_name,me_fb_id,od_total,od_amount,od_payments,od_create_time,od_update_time,od_type,od_status,od_admin_read ';
+		$SELECT = 'SELECT od_id,me_name,me_fb_id,od_total,od_amount,od_payments,od_create_time,od_paying_time,od_update_time,od_type,od_status,od_admin_read ';
 		$FROM = 'FROM dd_order LEFT JOIN dd_member ON od_member_id = me_id ';
 		$WHERE = 'WHERE od_status != "Shopping" ';
-		$ORDER = 'ORDER BY od_update_time DESC ';
+		$ORDER = 'ORDER BY od_admin_read DESC,od_update_time DESC ';
 
 		if(!empty($param['filter'])){
 			$WHERE .= 'AND od_status = :filter ';
@@ -23,6 +23,7 @@ class OrderModel extends Database{
 		$dataset = parent::resultset();
 
 		foreach ($dataset as $k => $var) {
+			$dataset[$k]['order_paying_time_thai_format'] 		= parent::date_thaiformat($var['od_paying_time']);
 			$dataset[$k]['order_update_time_facebook_format'] 	= parent::date_facebookformat($var['od_update_time']);
 			$dataset[$k]['order_update_time_thai_format'] 		= parent::date_thaiformat($var['od_update_time']);
 		}
