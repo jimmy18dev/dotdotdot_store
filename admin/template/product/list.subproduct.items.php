@@ -8,7 +8,7 @@ if($var['pd_status'] != "active"){
 
 <div class="subproduct-items product-items-<?php echo $var['pd_status'];?>" id="product-<?php echo $var['pd_id'];?>">
 	<div class="detail">
-		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><strong><?php echo $var['pd_title'];?></strong> : <span class="description"><?php echo $var['pd_description'];?></span></a></h2>
+		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><strong><?php echo $var['pd_title'];?></strong> : <span class="description"><?php echo $var['pd_description'];?></span><i class="fa fa-angle-right"></i></a></h2>
 		<p>
 			<span class="price"><?php echo number_format($var['pd_price'],2);?> บาท</span>
 			<span class="id"> | รหัสสินค้า: <?php echo $var['pd_id'];?></span>

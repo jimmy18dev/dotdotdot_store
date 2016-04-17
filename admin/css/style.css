@@ -220,10 +220,10 @@ Copyright (c) 2015 Daniel Eden
 .list-container .container-control a.create-btn {
   float: right;
   display: inline-block;
-  border: 1px solid #0084ff;
+  background: #0084ff;
   font-size: 0.9em;
   padding: 10px;
-  color: #0084ff;
+  color: #FFFFFF;
   text-decoration: none;
   border-radius: 3px;
 }
@@ -242,6 +242,28 @@ Copyright (c) 2015 Daniel Eden
 }
 .list-container .empty-items i {
   margin-left: 10px;
+}
+.list-container a.setting-items {
+  width: 96%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  margin-top: 1%;
+  font-size: 1em;
+  text-decoration: none;
+  color: #555555;
+}
+.list-container a.setting-items:hover {
+  text-decoration: underline;
+}
+.list-container a.setting-items i {
+  margin-right: 10px;
+}
+.list-container a.setting-items .fa-angle-right {
+  float: right;
+  margin-right: 0px;
 }
 .list-container .order-items {
   width: 98%;
@@ -388,6 +410,9 @@ Copyright (c) 2015 Daniel Eden
 .list-container .product-root-items .detail h2 a:hover {
   text-decoration: underline;
 }
+.list-container .product-root-items .detail h2 a i {
+  margin-left: 10px;
+}
 .list-container .product-root-items .detail p {
   font-size: 0.8em;
   line-height: 1.5em;
@@ -453,6 +478,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .list-container .product-root-items .subitems .subproduct-items .detail h2 a strong {
   font-weight: bold;
+}
+.list-container .product-root-items .subitems .subproduct-items .detail h2 a i {
+  margin-left: 10px;
 }
 .list-container .product-root-items .subitems .subproduct-items .detail p {
   font-size: 0.8em;

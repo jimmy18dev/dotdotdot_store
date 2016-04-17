@@ -18,7 +18,7 @@ if($var['pd_status'] != "active"){
 		</a>
 	</div>
 	<div class="detail">
-		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?></a></h2>
+		<h2><a href="product_detail.php?id=<?php echo $var['pd_id'];?>" target="_parent"><?php echo $var['pd_title'];?><i class="fa fa-angle-right"></i></a></h2>
 		<p><?php echo (empty($var['pd_description'])?'...':$var['pd_description']);?></p>
 		<p class="control">
 			แสดงสินค้า : <span id="status-<?php echo $var['pd_id'];?>" class="status status-<?php echo $var['pd_status'];?>" onclick="javascript:ChangeStatus(<?php echo $var['pd_id'];?>,'<?php echo $var['pd_status'];?>');"><?php echo $status;?></span>
