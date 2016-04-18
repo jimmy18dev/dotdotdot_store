@@ -38,10 +38,8 @@ $current_page = "customer";
 
 <body>
 <?php include'header.php';?>
-<div class="container">
-	<div class="content">
-		<?php $user->ListAllMember(array('current_id' => $user->id));?>
-	</div>
+<div class="list-container">
+	<?php $user->ListAllMember(array('current_id' => $user->id));?>
 </div>
 </body>
 </html>

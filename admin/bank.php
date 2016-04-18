@@ -38,20 +38,12 @@ $current_page = "bank";
 
 <body>
 <?php include'header.php';?>
-<div class="container">
-	<div class="content">
-		<a href="bank-editor.php">
-		<div class="create-btn">
-			<div class="icon"><i class="fa fa-th"></i></div>
-			<div class="caption">
-				<p>เพิ่มบัญชีธนาคาร</p>
-				<p class="tip">กดปุ่มนี้ เพื่อเพิ่มบัญชีธนาคารใหม่ในร้านของคุณ</p>
-			</div>
-		</div>
-		</a>
+<div class="list-container">
+	<div class="container-control">
+		<a href="bank-editor.php" class="create-btn">เพิ่มบัญชีธนาคาร<i class="fa fa-angle-right"></i></a>
+	</div>
 
 		<?php echo $bank->ListBank(array('id' => 0));?>
-	</div>
 </div>
 </body>
 </html>

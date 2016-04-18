@@ -37,38 +37,40 @@ $current_page = "setting";
 
 <body>
 <?php include'header.php';?>
-<div class="container versionlog">
-	<h1>Version Change Log</h1>
-	<h2>Your Current version 2.3</h2>
-	<p>[ ! ] IMPORTANT: As of v3.3.0, You must visit /admin after upgrading, front end will be temporarily closed now after updates/installs until update/install is completed</p>
+<div class="list-container">
+	<div class="version-log">
+		<h1>Version Change Log</h1>
+		<h2>Your Current version 2.3</h2>
+		<p>[ ! ] IMPORTANT: As of v3.3.0, You must visit /admin after upgrading, front end will be temporarily closed now after updates/installs until update/install is completed</p>
 
-	<section>
-		<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
-		<p><span class="new">NEW</span> #1077 upload protection breaks on apache 1.3</p>
-		<p><span class="fix">FIX</span> #1074 Stored XSS in the USER profile SECURITY</p>
-		<p><span class="fix">FIX</span> #1071 disabled select text color</p>
-		<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
-		<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
-	</section>
+		<section>
+			<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
+			<p><span class="new">NEW</span> #1077 upload protection breaks on apache 1.3</p>
+			<p><span class="fix">FIX</span> #1074 Stored XSS in the USER profile SECURITY</p>
+			<p><span class="fix">FIX</span> #1071 disabled select text color</p>
+			<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
+			<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
+		</section>
 
-	<section>
-		<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
-		<p class="warning">WARNING DO NOT INSTALL IF ON APACHE 1.3, fixed in 3.3.7</p>
-		<p><span class="fix">FIX</span> #1077 upload protection breaks on apache 1.3</p>
-		<p><span class="new">NEW</span> #1074 Stored XSS in the USER profile SECURITY</p>
-		<p><span class="new">NEW</span> #1071 disabled select text color</p>
-		<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
-		<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
-	</section>
+		<section>
+			<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
+			<p class="warning">WARNING DO NOT INSTALL IF ON APACHE 1.3, fixed in 3.3.7</p>
+			<p><span class="fix">FIX</span> #1077 upload protection breaks on apache 1.3</p>
+			<p><span class="new">NEW</span> #1074 Stored XSS in the USER profile SECURITY</p>
+			<p><span class="new">NEW</span> #1071 disabled select text color</p>
+			<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
+			<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
+		</section>
 
-	<section>
-		<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
-		<p><span class="fix">FIX</span> #1077 upload protection breaks on apache 1.3</p>
-		<p><span class="fix">FIX</span> #1074 Stored XSS in the USER profile SECURITY</p>
-		<p><span class="fix">FIX</span> #1071 disabled select text color</p>
-		<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
-		<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
-	</section>
+		<section>
+			<h3>Version 3.3.7 <span class="date">(2015-08-23)</span></h3>
+			<p><span class="fix">FIX</span> #1077 upload protection breaks on apache 1.3</p>
+			<p><span class="fix">FIX</span> #1074 Stored XSS in the USER profile SECURITY</p>
+			<p><span class="fix">FIX</span> #1071 disabled select text color</p>
+			<p><span class="fix">FIX</span> #1067 Persistant/Stored XSS while creating page and also in backups SECURITY</p>
+			<p><span class="fix">FIX</span> #1065 uploadifybutton not themed</p>
+		</section>
+	</div>
 </div>
 </body>
 </html>

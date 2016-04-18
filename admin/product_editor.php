@@ -55,51 +55,49 @@ else
 <body>
 <?php include'header.php';?>
 
-<div class="container">
-	<div class="content content-container">
+<div class="list-container">
 		<form id="ProductCreate" action="product.process.php" method="post" enctype="multipart/form-data">
-		<div class="form">
-			<div id="image" class="form-image <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
-				<div class="caption">ภาพสินค้า</div>
-				<div class="image-input-button">
+		<div class="form-container">
+			<h3>Product Editor</h3>
+
+			<div id="image" class="config-items <?php echo (isset($_GET['parent'])||$product->type=="sub"?'form-hidden':'');?>">
+				<div class="config-caption">ภาพสินค้า</div>
+				<div class="config-input-image">
 					<input type="file" class="input-file" id="post_files" name="image_file[]" accept="image/*" multiple="multiple">
 				</div>
 			</div>
-			<div id="title" class="form-items">
-				<div class="caption">ชื่อสินค้า <span class="required">*</span></div>
-				<div class="input">
+			<div id="title" class="config-items">
+				<div class="config-caption">ชื่อสินค้า <span class="required">*</span></div>
+				<div class="config-input">
 					<input type="text" class="input-text" name="title" placeholder="" value="<?php echo $product->title;?>" autofocus>
 				</div>
 			</div>
-			<div id="description" class="form-items">
-				<div class="caption">รายละเอียดสินค้า</div>
-				<div class="input">
+			<div id="description" class="config-items">
+				<div class="config-caption">รายละเอียดสินค้า</div>
+				<div class="config-input">
 					<textarea class="input-text input-textarea animated" name="description" placeholder=""><?php echo $product->description;?></textarea>
 				</div>
 			</div>
-			<div id="price" class="form-items form-items-half">
-				<div class="caption">ราคาต่อชิ้น (บาท)</div>
-				<div class="input">
+			<div id="price" class="config-items">
+				<div class="config-caption">ราคาต่อชิ้น (บาท)</div>
+				<div class="config-input">
 					<input type="text" class="input-text" name="price" placeholder="price" value="<?php echo (isset($product->price)?$product->price:0);?>">
 				</div>
 			</div>
-			<div id="code" class="form-items form-items-half">
-				<div class="caption">Code</div>
-				<div class="input">
+			<div id="code" class="config-items">
+				<div class="config-caption">Code</div>
+				<div class="config-input">
 					<input type="text" class="input-text" name="code" placeholder="อักษรพิมพ์ใหญ่" value="<?php echo $product->code;?>">
 				</div>
 			</div>
 			
-			<div class="form-submit">
-				<button type="submit" class="submit-button"><i class="fa fa-check"></i>บันทึก</button>
-			</div>
+			<button type="submit" class="save-btn">บันทึก<i class="fa fa-angle-right"></i></button>
 
 			<input type="hidden" id="parent" name="parent" value="<?php echo $parent;?>">
 			<input type="hidden" id="product_id" name="product_id" value="<?php echo (isset($_GET['parent'])?'':$product->id);?>">
 			<input type="hidden" name="group" value="null">
 		</div>
 		</form>
-	</div>
 </div>
 
 <!-- Loading process submit photo to uploading. -->

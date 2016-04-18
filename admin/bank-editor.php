@@ -42,8 +42,7 @@ if(isset($_GET['id'])){
 
 <body>
 <?php include'header.php';?>
-<div class="container">
-	<div class="content content-container">
+<div class="list-container">
 		<div class="form">
 			<div class="form-items">
 				<div class="caption">ธนาคาร <span class="required">*</span></div>
@@ -84,7 +83,6 @@ if(isset($_GET['id'])){
 				<button class="submit-button" onclick="javascript:CreateBank();">บันทึก</button>
 			</div>
 		</div>
-	</div>
 </div>
 </body>
 </html>

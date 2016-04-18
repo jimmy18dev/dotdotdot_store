@@ -53,7 +53,7 @@ button {
 }
 body {
   font-family: 'Open Sans', sans-serif;
-  background: #FAFAFA;
+  background: #F5F5F5;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -124,6 +124,7 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   z-index: 99;
+  border-bottom: 1px solid #EEEEEE;
 }
 .header .header-items {
   float: left;
@@ -160,7 +161,6 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
   background: #FFFFFF;
   margin-top: 60px;
-  border-bottom: 1px solid #EEEEEE;
 }
 .navigator ul {
   width: 100%;
@@ -177,6 +177,10 @@ Copyright (c) 2015 Daniel Eden
   font-size: 0.9em;
   color: #555555;
   text-align: center;
+}
+.navigator ul li.navi-items i,
+.navigator ul li.navi-bar i {
+  margin-right: 10px;
 }
 .navigator ul li.active {
   color: #0084ff;
@@ -213,9 +217,9 @@ Copyright (c) 2015 Daniel Eden
 }
 .list-container .container-control {
   width: 100%;
+  margin: 2% 0%;
   float: left;
   display: inline-block;
-  margin-top: 2%;
 }
 .list-container .container-control a.create-btn {
   float: right;
@@ -226,36 +230,46 @@ Copyright (c) 2015 Daniel Eden
   color: #FFFFFF;
   text-decoration: none;
   border-radius: 3px;
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 .list-container .container-control a.create-btn i {
-  margin-right: 5px;
+  margin-left: 10px;
 }
 .list-container .empty-items {
   width: 100%;
-  padding: 10% 0%;
+  padding: 30% 0%;
   float: left;
   display: inline-block;
   text-align: center;
   font-size: 1em;
   line-height: 1.5em;
-  color: #555555;
+  color: #CCCCCC;
 }
 .list-container .empty-items i {
   margin-left: 10px;
 }
+.list-container .alert {
+  width: 94%;
+  padding: 30% 3%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 1em;
+  color: #CCCCCC;
+}
 .list-container a.setting-items {
-  width: 96%;
-  padding: 2%;
+  width: 94%;
+  padding: 3%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-  margin-top: 1%;
   font-size: 1em;
   text-decoration: none;
+  margin-top: 1%;
   color: #555555;
 }
 .list-container a.setting-items:hover {
+  color: #0084ff;
   text-decoration: underline;
 }
 .list-container a.setting-items i {
@@ -380,7 +394,6 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   margin-bottom: 1%;
   background: #FFFFFF;
 }
@@ -530,6 +543,50 @@ Copyright (c) 2015 Daniel Eden
 .list-container .product-root-items .subitems .subproduct-items .quantity-empty {
   color: #F44336;
 }
+.list-container .version-log {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-top: 3%;
+  border-radius: 3px;
+}
+.list-container .version-log h1 {
+  font-size: 2em;
+  margin-bottom: 2%;
+  color: #CCCCCC;
+}
+.list-container .version-log h2 {
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+.list-container .version-log p {
+  font-size: 0.9em;
+  line-height: 1.5em;
+}
+.list-container .version-log section {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 3%;
+}
+.list-container .version-log section h3 {
+  font-size: 1em;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+.list-container .version-log section p.warning {
+  padding: 1% 0%;
+  color: #F44336;
+}
+.list-container .version-log section .fix {
+  font-weight: bold;
+}
+.list-container .version-log section .new {
+  font-weight: bold;
+  color: #4CAF50;
+}
 .list-container .product-normal-items {
   width: 100%;
   float: left;
@@ -615,79 +672,610 @@ Copyright (c) 2015 Daniel Eden
 .list-container .product-items-disable {
   opacity: 0.5;
 }
-.versionlog {
-  line-height: 1.6em;
-  margin: 3% 0%;
+.list-container .user-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-top: 1%;
 }
-.versionlog h1 {
-  font-size: 1.5em;
-  line-height: 2em;
-  color: #333333;
+.list-container .user-items .user-items-avatar {
+  width: 10%;
+  float: left;
+  display: inline-block;
 }
-.versionlog h2 {
-  font-size: 1em;
-  line-height: 2em;
-  color: #333333;
+.list-container .user-items .user-items-avatar img {
+  width: 100%;
+  float: left;
+  display: inline-block;
 }
-.versionlog h3 {
+.list-container .user-items .user-items-info {
+  width: 86%;
+  padding: 2% 2%;
+  float: left;
+  display: inline-block;
+}
+.list-container .user-items .user-items-info p.name {
+  font-size: 1.2em;
+  line-height: 1.5em;
+  color: #0084ff;
+}
+.list-container .user-items .user-items-info p.name .admin {
+  font-size: 0.8em;
+  font-style: italic;
+  color: #000000;
+}
+.list-container .user-items .user-items-info p.mini {
   font-size: 0.9em;
+  color: #CCCCCC;
+}
+.list-container .user-items .user-items-info p.mini .control-btn {
+  float: right;
+  display: inline-block;
+  color: #CCCCCC;
+}
+.list-container .user-items .user-items-info p.mini .control-btn i {
+  margin-left: 5px;
+}
+.list-container .user-items .user-items-info p.mini .control-btn:hover {
+  cursor: pointer;
+  color: #AAAAAA;
+}
+.list-container .bank-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 1%;
+  background: #FFFFFF;
+}
+.list-container .bank-items .bank-items-icon {
+  width: 12%;
+  float: left;
+  display: inline-block;
+}
+.list-container .bank-items .bank-items-icon img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .bank-items .bank-items-detail {
+  width: 84%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.list-container .bank-items .bank-items-detail p.bank-name {
+  font-size: 0.9em;
+  color: #0084ff;
+}
+.list-container .bank-items .bank-items-detail p.bank-name a {
+  float: right;
+  color: #AAAAAA;
+  text-decoration: none;
+}
+.list-container .bank-items .bank-items-detail p.bank-name a:hover {
+  text-decoration: underline;
+}
+.list-container .bank-items .bank-items-detail p.bank-name a i {
+  margin-left: 5px;
+}
+.list-container .bank-items .bank-items-detail p.bank-number {
+  font-size: 1.4em;
   font-weight: bold;
-  color: #333333;
+  color: #000000;
+  line-height: 1.7em;
 }
-.versionlog h3 .date {
-  font-weight: normal;
-  color: #777777;
+.list-container .bank-items .bank-items-detail p.bank-info {
+  font-size: 0.8em;
+  color: #555555;
 }
-.versionlog p {
+.list-container .form-container {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  margin-top: 3%;
+  background: #FFFFFF;
+  border-radius: 3px;
+}
+.list-container .form-container h3 {
+  font-size: 2em;
+  color: #CCCCCC;
+}
+.list-container .form-container .config-items {
+  width: 100%;
+  padding-top: 3%;
+  float: left;
+  display: inline-block;
+}
+.list-container .form-container .config-items .config-caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 2em;
   font-size: 0.9em;
-  color: #333333;
+  color: #CCCCCC;
 }
-.versionlog p.warning {
-  padding: 1% 0%;
+.list-container .form-container .config-items .config-input {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .form-container .config-items .config-input .input-text {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border: 0px;
+  font-size: 1.2em;
+  line-height: 1.5em;
+  border-bottom: 1px solid #EEEEEE;
+  outline: 0;
+  resize: none;
+}
+.list-container .form-container .config-items .config-input .input-text:focus {
+  border-bottom: 1px solid #000000;
+}
+.list-container .form-container .save-btn {
+  float: right;
+  display: inline-block;
+  margin-top: 5%;
+  border: 0px;
+  font-size: 1em;
+  padding: 10px 15px;
+  background: #0084ff;
+  color: #FFFFFF;
+  border-radius: 3px;
+}
+.list-container .form-container .save-btn i {
+  margin-left: 5px;
+}
+.list-container .form-container .save-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.list-container .form-container .save-state {
+  float: right;
+  display: inline-block;
+  border: 0px;
+  margin-top: 5%;
+  font-size: 0.9em;
+  padding: 10px 20px;
+  line-height: 1.5em;
+  color: #0084ff;
+}
+.list-container .form-container .save-state i {
+  margin-right: 5px;
+}
+.list-container .form {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+  margin-top: 2%;
+  border-radius: 3px;
+}
+.list-container .form .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  line-height: 2em;
+  color: #333333;
+  font-weight: bold;
+}
+.list-container .form .caption .required {
   color: #F44336;
 }
-.versionlog .fix {
-  font-weight: bold;
+.list-container .form .input-text {
+  width: 98%;
+  padding: 1%;
+  float: left;
+  display: inline-block;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+  border: 1px solid #EEEEEE;
+  line-height: 1.5em;
+  outline: 0;
+  color: #333333;
+  resize: none;
 }
-.versionlog .new {
-  font-weight: bold;
-  color: #4CAF50;
+.list-container .form .input-text:focus {
+  color: #000000;
+  border: 1px solid #333333;
 }
-.versionlog section {
+.list-container .form .input-select {
+  width: 100%;
+}
+.list-container .form .submit-button {
+  float: right;
+  display: inline-block;
+  border: 0px;
+  background: #333333;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  padding: 1.5% 5%;
+}
+.list-container .form .submit-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.list-container .form .form-hidden {
+  display: none !important;
+}
+.list-container .form .form-image {
+  width: 94%;
+  margin: 2% 3%;
+  float: left;
+  display: inline-block;
+}
+.list-container .form .form-image .image-input-button {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  background: #FAFAFA;
+  color: #555555;
+  font-size: 1em;
+  line-height: 1.5em;
+  margin-bottom: 1%;
+}
+.list-container .form .form-items {
+  width: 94%;
+  padding: 2% 3%;
+  float: left;
+  display: inline-block;
+}
+.list-container .form .form-items-half {
+  width: 44%;
+}
+.list-container .form .form-submit {
+  width: 94%;
+  padding: 2% 3%;
+  float: left;
+  display: inline-block;
+}
+.list-container .form .form-submit i {
+  margin-right: 10px;
+}
+.list-container .tab {
   width: 100%;
   float: left;
   display: inline-block;
   margin-top: 3%;
+}
+.list-container .tab a {
+  padding: 15px;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  text-decoration: none;
+  color: #AAAAAA;
+}
+.list-container .tab a i {
+  margin-left: 5px;
+}
+.list-container .tab a:hover {
+  color: #000000;
+}
+.list-container .tab a.right {
+  float: right;
+  padding: 15px 0px;
+}
+.list-container .tab a.active {
+  color: #000000;
+  background: #FFFFFF;
+}
+.list-container .tab i {
+  margin-right: 5px;
+}
+.list-container .product-detail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #FFFFFF;
+}
+.list-container .product-detail header.info {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .product-detail header.info h1 {
+  font-size: 2em;
+  color: #000000;
+  font-weight: bold;
+  line-height: 1.5em;
+}
+.list-container .product-detail header.info h2 {
+  font-size: 1em;
+  color: #555555;
+  font-weight: bold;
+  margin-bottom: 1%;
+}
+.list-container .product-detail header.info p {
+  font-size: 0.9em;
+  color: #555555;
+}
+.list-container .product-detail header.info a {
+  color: #0084ff;
+  text-decoration: none;
+  margin-left: 10px;
+}
+.list-container .product-detail header.info a:hover {
+  text-decoration: underline;
+}
+.list-container .product-detail header.info a i {
+  margin-left: 5px;
+}
+.list-container .product-detail h4 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #CCCCCC;
+  line-height: 1.5em;
+  margin-bottom: 2%;
+}
+.list-container .product-detail h4 a {
+  color: #0084ff;
+  text-decoration: none;
+}
+.list-container .product-detail h4 a i {
+  margin-left: 5px;
+}
+.list-container .product-detail h4 a:hover {
+  text-decoration: underline;
+}
+.list-container .product-detail section.photo {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .product-detail section.photo .photo-container {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-detail section.photo .photo-container .photo-items {
+  width: 31.33%;
+  margin-bottom: 3%;
+  margin-right: 3%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-detail section.photo .photo-container .photo-items:nth-child(3n) {
+  margin-right: 0%;
+  float: right;
+}
+.list-container .product-detail section.photo .photo-container .photo-items img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  background: #EEEEEE;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .setcover-btn {
+  width: 90%;
+  padding: 4% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #AAAAAA;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .setcover-btn:hover {
+  cursor: pointer;
+  color: #555555;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .active {
+  color: #0084ff;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .active:hover {
+  color: #0084ff;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .photodelete-btn {
+  width: 10%;
+  padding: 4% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  font-size: 0.7em;
+  color: #CCCCCC;
+}
+.list-container .product-detail section.photo .photo-container .photo-items .photodelete-btn:hover {
+  cursor: pointer;
+  color: #F44336;
+}
+.list-container .product-detail section.photo .photo-container .empty-items {
+  display: none;
+}
+.list-container .product-detail section.description {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .product-detail section.description .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  padding-top: 3%;
+  margin-top: 3%;
+  border-top: 1px solid #EEEEEE;
+}
+.list-container .product-detail section.description .control a.control-btn {
+  float: right;
+  display: inline-block;
+  margin-right: 1%;
+  font-size: 0.9em;
+  background: #0084ff;
+  padding: 8px 10px;
+  color: #FFFFFF;
+  text-decoration: none;
+  border-radius: 3px;
+}
+.list-container .product-detail section.description .control a.control-btn i {
+  margin-left: 10px;
+}
+.list-container .product-detail section.description .control a.control-btn:hover {
+  opacity: 0.8;
+  cursor: pointer;
+}
+.list-container .product-detail .subproduct {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-detail .subproduct .subproduct-btn {
+  float: right;
+  display: inline-block;
+  padding: 10px;
+  background: #0084ff;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 0.9em;
+}
+.list-container .product-detail .subproduct .subproduct-btn:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+.list-container .product-detail .subproduct .subproduct-btn i {
+  margin-left: 10px;
+}
+.list-container .product-detail .subproduct .sub-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+  line-height: 1.5em;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail {
+  width: 83.5%;
+  padding: 1.5% 3%;
+  float: left;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.9);
+  border-right: 1px solid #EEEEEE;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail strong {
+  font-weight: bold;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail p {
+  font-size: 1em;
+  color: #333333;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail a {
+  color: #333333;
+  text-decoration: none;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail a:hover {
+  text-decoration: underline;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail p.mini {
+  font-size: 0.8em;
+  color: #777777;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail a.edit-btn {
+  float: right;
+  text-decoration: none;
+  color: #AAAAAA;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-detail a.edit-btn:hover {
+  color: #333333;
+  text-decoration: underline;
+}
+.list-container .product-detail .subproduct .sub-items .sub-items-summary {
+  width: 10%;
+  padding-top: 3%;
+  float: right;
+  display: inline-block;
+  font-size: 1.2em;
+  text-align: center;
+  color: #777777;
+}
+.list-container .product-detail .history {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .product-detail .history .history-items {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  border-top: 1px solid #EEEEEE;
+  line-height: 1.3em;
+}
+.list-container .product-detail .history .history-items .history-items-info {
+  width: 83.5%;
+  padding: 1.5% 3%;
+  float: left;
+  display: inline-block;
+  border-right: 1px solid #EEEEEE;
+  color: #333333;
+}
+.list-container .product-detail .history .history-items .history-items-info p {
+  font-size: 1em;
+}
+.list-container .product-detail .history .history-items .history-items-info p.mini {
+  font-size: 0.8em;
+  color: #777777;
+}
+.list-container .product-detail .history .history-items .history-items-info p.mini i {
+  margin-left: 5px;
+  color: #CCCCCC;
+  font-size: 0.8em;
+}
+.list-container .product-detail .history .history-items .history-items-info strong {
+  font-weight: bold;
+}
+.list-container .product-detail .history .history-items .history-items-amount {
+  width: 10%;
+  padding-top: 3%;
+  float: left;
+  display: inline-block;
+  font-size: 1.2em;
+  text-align: center;
+  color: #777777;
+}
+.list-container .product-detail .stat {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  border-top: 1px solid #EEEEEE;
+}
+.list-container .product-detail .stat .stat-items {
+  width: 15%;
+  padding: 5%;
+  float: left;
+  display: inline-block;
+  color: rgba(0, 0, 0, 0.9);
+}
+.list-container .product-detail .stat .stat-items .value {
+  font-size: 2em;
+}
+.list-container .product-detail .stat .stat-items .value .unit {
+  font-size: 0.4em;
+  margin-left: 5px;
+  color: rgba(0, 0, 0, 0.44);
+}
+.list-container .product-detail .stat .stat-items .green {
+  color: #4CAF50;
+}
+.list-container .product-detail .stat .stat-items .caption {
+  font-size: 0.9em;
+  color: rgba(0, 0, 0, 0.44);
 }
 .container {
   width: 60%;
   padding: 0% 20%;
   float: left;
   display: inline-block;
-}
-.container .tab-filter {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-top: 2%;
-}
-.container .tab-filter .filter-items {
-  float: left;
-  margin-right: 3%;
-  padding: 2% 0%;
-  display: inline-block;
-  text-align: center;
-  color: #CCCCCC;
-}
-.container .tab-filter .filter-items .filter-items-caption {
-  font-size: 0.8em;
-  line-height: 1.5em;
-}
-.container .tab-filter .filter-items:hover {
-  cursor: pointer;
-}
-.container .tab-filter .filter-items-active {
-  color: #333333;
 }
 .container .lists-container {
   width: 100%;
@@ -788,71 +1376,6 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-}
-.container .content .tab {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .tab a {
-  padding: 2% 3%;
-  float: left;
-  display: inline-block;
-  font-size: 0.9em;
-  text-decoration: none;
-  color: #AAAAAA;
-}
-.container .content .tab a:hover {
-  color: #000000;
-}
-.container .content .tab a.right {
-  float: right;
-}
-.container .content .tab a.active {
-  color: #000000;
-  background: #FFFFFF;
-}
-.container .content .tab i {
-  margin-right: 10px;
-}
-.container .content .alert {
-  width: 94%;
-  padding: 10% 3%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 0.9em;
-  color: #555555;
-}
-.container .content .setting-btn {
-  width: 20%;
-  padding: 5% 0%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  text-align: center;
-  color: #333333;
-}
-.container .content .setting-btn:hover {
-  background: #EEEEEE;
-}
-.container .content .setting-btn:active {
-  background: #000000;
-  color: #FFFFFF;
-}
-.container .content .setting-btn .setting-btn-icon {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 2em;
-  margin-bottom: 5%;
-}
-.container .content .setting-btn .setting-btn-caption {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  font-size: 0.9em;
 }
 .container .content .order-status-bar {
   width: 94%;
@@ -1104,480 +1627,6 @@ Copyright (c) 2015 Daniel Eden
   border-top: 2px solid #EEEEEE;
   font-weight: bold;
 }
-.container .content .detail {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail header.info {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-}
-.container .content .detail header.info h1 {
-  font-size: 1.5em;
-  color: #000000;
-  font-weight: bold;
-  margin-bottom: 1%;
-}
-.container .content .detail header.info h2 {
-  font-size: 1em;
-  color: #555555;
-  font-weight: bold;
-  margin-bottom: 1%;
-}
-.container .content .detail header.info p {
-  font-size: 0.8em;
-  color: #AAAAAA;
-}
-.container .content .detail header.info a {
-  color: #777777;
-  text-decoration: none;
-}
-.container .content .detail header.info a:hover {
-  color: #333333;
-}
-.container .content .detail header.info a i {
-  margin-right: 5px;
-}
-.container .content .detail h4 {
-  font-size: 0.8em;
-  font-weight: bold;
-  color: #AAAAAA;
-  line-height: 1.5em;
-  padding: 1% 0%;
-}
-.container .content .detail h4 a {
-  color: #3F51B5;
-  font-style: italic;
-  text-decoration: none;
-}
-.container .content .detail section.photo {
-  width: 94%;
-  padding: 0% 3%;
-  padding-bottom: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail section.photo .photo-container {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail section.photo .photo-container .photo-items {
-  width: 24%;
-  float: left;
-  display: inline-block;
-  margin-right: 1%;
-  margin-bottom: 2%;
-}
-.container .content .detail section.photo .photo-container .photo-items img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail section.photo .photo-container .photo-items .setcover-btn {
-  width: 90%;
-  padding: 4% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 0.7em;
-  color: #AAAAAA;
-}
-.container .content .detail section.photo .photo-container .photo-items .setcover-btn:hover {
-  cursor: pointer;
-  color: #555555;
-}
-.container .content .detail section.photo .photo-container .photo-items .active {
-  font-style: italic;
-  color: #4CAF50;
-}
-.container .content .detail section.photo .photo-container .photo-items .photodelete-btn {
-  width: 10%;
-  padding: 4% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  font-size: 0.7em;
-  color: #AAAAAA;
-}
-.container .content .detail section.photo .photo-container .photo-items .photodelete-btn:hover {
-  cursor: pointer;
-  color: #F44336;
-}
-.container .content .detail section.photo .photo-container .empty-items {
-  display: none;
-}
-.container .content .detail section.description {
-  width: 94%;
-  padding: 0% 3%;
-  padding-bottom: 3%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.5em;
-}
-.container .content .detail section.description .control {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-top: 2%;
-}
-.container .content .detail section.description .control a.control-btn {
-  float: left;
-  display: inline-block;
-  margin-right: 1%;
-  font-size: 0.8em;
-  background: #333333;
-  padding: 1% 2%;
-  color: #FFFFFF;
-  text-decoration: none;
-}
-.container .content .detail section.description .control a.control-btn i {
-  margin-right: 10px;
-}
-.container .content .detail section.description .control a.control-btn:hover {
-  background: #444444;
-  cursor: pointer;
-}
-.container .content .detail section.description .control a.control-btn:active {
-  background: #000000;
-}
-.container .content .detail .subproduct {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .subproduct .subproduct-btn {
-  width: 20%;
-  margin: 3% 40%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  background: #333333;
-  color: #FFFFFF;
-  text-align: center;
-  font-size: 0.9em;
-}
-.container .content .detail .subproduct .subproduct-btn:hover {
-  cursor: pointer;
-  background: #444444;
-}
-.container .content .detail .subproduct .subproduct-btn:active {
-  background: #000000;
-}
-.container .content .detail .subproduct .subproduct-btn i {
-  margin-right: 10px;
-  font-size: 0.8em;
-}
-.container .content .detail .subproduct .sub-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-top: 1px solid #EEEEEE;
-  line-height: 1.5em;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail {
-  width: 83.5%;
-  padding: 1.5% 3%;
-  float: left;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.9);
-  border-right: 1px solid #EEEEEE;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail strong {
-  font-weight: bold;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail p {
-  font-size: 1em;
-  color: #333333;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail a {
-  color: #333333;
-  text-decoration: none;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail a:hover {
-  text-decoration: underline;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail p.mini {
-  font-size: 0.8em;
-  color: #777777;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail a.edit-btn {
-  float: right;
-  text-decoration: none;
-  color: #AAAAAA;
-}
-.container .content .detail .subproduct .sub-items .sub-items-detail a.edit-btn:hover {
-  color: #333333;
-  text-decoration: underline;
-}
-.container .content .detail .subproduct .sub-items .sub-items-summary {
-  width: 10%;
-  padding-top: 3%;
-  float: right;
-  display: inline-block;
-  font-size: 1.2em;
-  text-align: center;
-  color: #777777;
-}
-.container .content .detail .history {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .detail .history .history-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border-top: 1px solid #EEEEEE;
-  line-height: 1.3em;
-}
-.container .content .detail .history .history-items .history-items-info {
-  width: 83.5%;
-  padding: 1.5% 3%;
-  float: left;
-  display: inline-block;
-  border-right: 1px solid #EEEEEE;
-  color: #333333;
-}
-.container .content .detail .history .history-items .history-items-info p {
-  font-size: 1em;
-}
-.container .content .detail .history .history-items .history-items-info p.mini {
-  font-size: 0.8em;
-  color: #777777;
-}
-.container .content .detail .history .history-items .history-items-info p.mini i {
-  margin-left: 5px;
-  color: #CCCCCC;
-  font-size: 0.8em;
-}
-.container .content .detail .history .history-items .history-items-info strong {
-  font-weight: bold;
-}
-.container .content .detail .history .history-items .history-items-amount {
-  width: 10%;
-  padding-top: 3%;
-  float: left;
-  display: inline-block;
-  font-size: 1.2em;
-  text-align: center;
-  color: #777777;
-}
-.container .content .detail .stat {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  border-top: 1px solid #EEEEEE;
-}
-.container .content .detail .stat .stat-items {
-  width: 15%;
-  padding: 5%;
-  float: left;
-  display: inline-block;
-  color: rgba(0, 0, 0, 0.9);
-}
-.container .content .detail .stat .stat-items .value {
-  font-size: 2em;
-}
-.container .content .detail .stat .stat-items .value .unit {
-  font-size: 0.4em;
-  margin-left: 5px;
-  color: rgba(0, 0, 0, 0.44);
-}
-.container .content .detail .stat .stat-items .green {
-  color: #4CAF50;
-}
-.container .content .detail .stat .stat-items .caption {
-  font-size: 0.9em;
-  color: rgba(0, 0, 0, 0.44);
-}
-.container .content .form {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .form .caption {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 2em;
-  color: #333333;
-  font-weight: bold;
-}
-.container .content .form .caption .required {
-  color: #F44336;
-}
-.container .content .form .input-text {
-  width: 98%;
-  padding: 1%;
-  float: left;
-  display: inline-block;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 1em;
-  border: 1px solid #EEEEEE;
-  line-height: 1.5em;
-  outline: 0;
-  color: #333333;
-  resize: none;
-}
-.container .content .form .input-text:hover {
-  border: 1px solid #CCCCCC;
-}
-.container .content .form .input-text:focus {
-  color: #000000;
-  border: 1px solid #333333;
-}
-.container .content .form .input-select {
-  width: 100%;
-}
-.container .content .form .submit-button {
-  float: right;
-  display: inline-block;
-  border: 0px;
-  background: #333333;
-  color: #FFFFFF;
-  font-family: 'Open Sans', sans-serif;
-  font-size: 0.9em;
-  line-height: 1.5em;
-  padding: 1.5% 5%;
-}
-.container .content .form .submit-button:hover {
-  background: #444444;
-  cursor: pointer;
-}
-.container .content .form .submit-button:active {
-  background: #000000;
-}
-.container .content .form .form-hidden {
-  display: none !important;
-}
-.container .content .form .form-image {
-  width: 94%;
-  margin: 2% 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .form .form-image .image-input-button {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  background: #FAFAFA;
-  color: #555555;
-  font-size: 1em;
-  line-height: 1.5em;
-  margin-bottom: 1%;
-}
-.container .content .form .form-items {
-  width: 94%;
-  padding: 2% 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .form .form-items-half {
-  width: 44%;
-}
-.container .content .form .form-submit {
-  width: 94%;
-  padding: 2% 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .form .form-submit i {
-  margin-right: 10px;
-}
-.container .content .user-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  margin-bottom: 1%;
-}
-.container .content .user-items .user-items-avatar {
-  width: 9%;
-  float: left;
-  display: inline-block;
-}
-.container .content .user-items .user-items-avatar img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .user-items .user-items-info {
-  width: 87%;
-  padding: 2% 2%;
-  float: left;
-  display: inline-block;
-}
-.container .content .user-items .user-items-info p {
-  font-size: 1em;
-  line-height: 1.5em;
-  color: #000000;
-}
-.container .content .user-items .user-items-info p .admin {
-  font-size: 0.8em;
-  font-style: italic;
-}
-.container .content .user-items .user-items-info p .control-btn {
-  float: right;
-  display: inline-block;
-  color: #DDDDDD;
-}
-.container .content .user-items .user-items-info p .control-btn:hover {
-  cursor: pointer;
-  color: #AAAAAA;
-}
-.container .content .user-items .user-items-info p.mini {
-  font-size: 0.8em;
-  color: #AAAAAA;
-}
-.container .content .bank-items {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 1%;
-  background: #FFFFFF;
-}
-.container .content .bank-items .bank-items-icon {
-  width: 9%;
-  float: left;
-  display: inline-block;
-}
-.container .content .bank-items .bank-items-icon img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .bank-items .bank-items-detail {
-  width: 87%;
-  padding: 1% 2%;
-  float: left;
-  display: inline-block;
-}
-.container .content .bank-items .bank-items-detail p {
-  font-size: 0.9em;
-  line-height: 1.5em;
-  color: #777777;
-}
-.container .content .bank-items .bank-items-detail a {
-  float: right;
-  color: #CCCCCC;
-  text-decoration: none;
-}
-.container .content .bank-items .bank-items-detail a:hover {
-  text-decoration: underline;
-}
-.container .content .bank-items .bank-items-detail strong {
-  font-weight: bold;
-  font-size: 1.2em;
-  color: #333333;
-}
 .container .content .product-topic-caption {
   width: 100%;
   padding: 1% 0%;
@@ -1643,93 +1692,6 @@ Copyright (c) 2015 Daniel Eden
   background: #333333;
   border: 1px solid #333333;
   color: #FFFFFF;
-}
-.container .content .setting-container {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 3%;
-  background: #FFFFFF;
-}
-.container .content .setting-container h3 {
-  font-size: 0.9em;
-  text-align: right;
-  line-height: 2em;
-  color: #CCCCCC;
-}
-.container .content .setting-container .config-items {
-  width: 100%;
-  padding-top: 3%;
-  float: left;
-  display: inline-block;
-}
-.container .content .setting-container .config-items .cogfig-caption {
-  width: 37%;
-  margin-right: 3%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  text-align: right;
-  font-size: 0.9em;
-  color: #777777;
-}
-.container .content .setting-container .config-items .config-input {
-  width: 60%;
-  float: right;
-  display: inline-block;
-}
-.container .content .setting-container .config-items .config-input .input-text {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  border: 0px;
-  font-size: 0.9em;
-  border-bottom: 1px solid #EEEEEE;
-  outline: 0;
-  resize: none;
-  font-weight: bold;
-}
-.container .content .setting-container .config-items .config-input .input-text:hover {
-  border-bottom: 1px solid #AAAAAA;
-}
-.container .content .setting-container .config-items .config-input .input-text:focus {
-  border-bottom: 1px solid #000000;
-}
-.container .content .setting-container .save-btn {
-  float: right;
-  display: inline-block;
-  margin-top: 5%;
-  border: 0px;
-  font-size: 0.8em;
-  padding: 1% 4%;
-  background: #FFFFFF;
-  color: #AAAAAA;
-  border: 1px solid #AAAAAA;
-}
-.container .content .setting-container .save-btn:hover {
-  cursor: pointer;
-  border: 1px solid #555555;
-  color: #555555;
-}
-.container .content .setting-container .save-btn:active {
-  background: #000000;
-  color: #FFFFFF;
-  border: 1px solid #000000;
-}
-.container .content .setting-container .save-state {
-  float: right;
-  display: inline-block;
-  margin-top: 5%;
-  border: 0px;
-  font-size: 0.8em;
-  padding: 1% 4%;
-  line-height: 1.5em;
-  color: #4CAF50;
-  display: none;
-}
-.container .content .setting-container .save-state i {
-  margin-right: 10px;
 }
 .container .content-container {
   background: #FFFFFF;

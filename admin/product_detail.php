@@ -42,32 +42,31 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 <?php include'header.php';?>
 
-<div class="container">
-	<div class="content content-container">
+<div class="list-container">
 		<div class="tab">
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>" class="<?php echo (empty($_GET['tab'])?'active':'');?>"><i class="fa fa-file-o"></i><span class="caption">ข้อมูลสินค้า</span></a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>" class="<?php echo (empty($_GET['tab'])?'active':'');?>">ข้อมูลสินค้า</a>
 			<?php if($product->type != "sub"){?>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=subproduct" class="<?php echo ($_GET['tab']=='subproduct'?'active':'');?>"><i class="fa fa-files-o"></i><span class="caption">สินค้าย่อย</span></a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=subproduct" class="<?php echo ($_GET['tab']=='subproduct'?'active':'');?>">สินค้าย่อย</a>
 			<?php }?>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=history" class="<?php echo ($_GET['tab']=='history'?'active':'');?>"><i class="fa fa-list"></i><span class="caption">ประวัติสินค้า</span></a>
-			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=stat" class="<?php echo ($_GET['tab']=='stat'?'active':'');?>"><i class="fa fa-pie-chart"></i><span class="caption">สถิติ</span></a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=history" class="<?php echo ($_GET['tab']=='history'?'active':'');?>">ประวัติสินค้า</a>
+			<a href="product_detail.php?id=<?php echo $_GET['id'];?>&tab=stat" class="<?php echo ($_GET['tab']=='stat'?'active':'');?>">สถิติ</a>
 
-			<a href="product_editor.php?id=<?php echo $product->id;?>" class="right"><i class="fa fa-cog"></i><span class="caption">แก้ไข</span></a>
+			<a href="product_editor.php?id=<?php echo $product->id;?>" class="right">แก้ไข<i class="fa fa-angle-right"></i></a>
 		</div>
-		<div class="detail">
+		<div class="product-detail">
 			<header class="info">
 				<?php if($product->type == "sub"){?>
 				<h2><?php echo $product->parent_title;?></h2>
 				<?php }?>
 				<h1><?php echo $product->title;?></h1>
-				<p><a href="../product-<?php echo $product->id?>.html"><i class="fa fa-tv"></i>ดูหน้าเพจ</a> | เริ่มขาย <?php echo $product->create_time;?></p>
+				<p>เพิ่มสินค้าเมื่อ <?php echo $product->create_time;?> <a href="../product-<?php echo $product->id?>.html">ดูหน้าเพจ<i class="fa fa-angle-right"></i></a></p>
 			</header>
 
 			<?php if(empty($_GET['tab'])){?>
 
 			<?php if($product->type != "sub" && !empty($product->image_filename)){?>
 			<section class="photo">
-				<h4>ภาพสินค้า <a href="product_editor.php?id=<?php echo $product->id;?>#photo">[เพิ่มรูปภาพ]</a></h4>
+				<h4>ภาพสินค้า <a href="product_editor.php?id=<?php echo $product->id;?>#photo">เพิ่มรูปภาพ<i class="fa fa-angle-right"></i></a></h4>
 				<div class="photo-container">
 					<div class="photo-items" id="image-<?php echo $var['im_id'];?>">
 						<img src="../image/upload/square/<?php echo $product->image_filename;?>" alt="">
@@ -80,13 +79,13 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			<?php }?>
 
 			<section class="description">
-				<h4>คำอธิบาย <a href="product_editor.php?id=<?php echo $product->id;?>#description">[แก้ไข]</a></h4>
+				<h4>คำอธิบาย <a href="product_editor.php?id=<?php echo $product->id;?>#description">แก้ไข<i class="fa fa-angle-right"></i></a></h4>
 				<div class="description-text"><?php echo (empty($product->description)?'ยังไม่มีคำอธิบายสำหรับสินค้าชิ้นนี้':nl2br($product->description));?></div>
 			</section>
 
 			<?php if($product->type != "root"){?>
 			<section class="description">
-				<h4>ราคาขาย <a href="product_editor.php?id=<?php echo $product->id;?>#price">[แก้ไข]</a></h4>
+				<h4>ราคาขาย <a href="product_editor.php?id=<?php echo $product->id;?>#price">แก้ไข<i class="fa fa-angle-right"></i></a></h4>
 				<div class="description-text"><?php echo number_format($product->price,2);?> บาท</div>
 			</section>
 
@@ -96,8 +95,8 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 
 				<!-- Product control -->
 				<div class="control">
-					<a href="quantity.php?id=<?php echo $product->id;?>&action=import" class="control-btn"><i class="fa fa-plus"></i>นำเข้าสินค้า</a>
-					<a href="quantity.php?id=<?php echo $product->id;?>&action=export" class="control-btn"><i class="fa fa-arrow-left"></i>โอนสินค้าออก</a>
+					<a href="quantity.php?id=<?php echo $product->id;?>&action=import" class="control-btn">นำเข้าสินค้า<i class="fa fa-angle-right"></i></a>
+					<a href="quantity.php?id=<?php echo $product->id;?>&action=export" class="control-btn">โอนสินค้าออก</a>
 				</div>
 			</section>
 			<?php }?>
@@ -106,7 +105,7 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			<!-- Subproduct -->
 			<div class="subproduct">
 				<a href="product_editor.php?parent=<?php echo $product->id;?>">
-				<div class="subproduct-btn"><i class="fa fa-plus"></i>เพิ่มสินค้าย่อย</div>
+				<div class="subproduct-btn">เพิ่มสินค้าย่อย<i class="fa fa-angle-right"></i></div>
 				</a>
 				<?php $product->ListSubProduct(array('product_id' => $product->id,'render' => 'subproduct-items'));?>
 			</div>
@@ -137,7 +136,6 @@ $product->GetProduct(array('product_id' => $_GET['id']));
 			</section>
 			<?php }?>
 		</div>
-	</div>
 </div>
 
 </body>

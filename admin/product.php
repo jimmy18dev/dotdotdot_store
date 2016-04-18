@@ -40,12 +40,7 @@ $current_page = "product";
 <?php include'header.php';?>
 <div class="list-container">
 	<div class="container-control">
-		<a href="product_editor.php" class="create-btn">เพิ่มสินค้าใหม่</a>
-	</div>
-	<div class="product-caption-fix">
-		<div class="product-caption-img">รูปภาพ</div>
-		<div class="product-caption-title">รายการ</div>
-		<div class="product-caption-quantity">จำนวน</div>
+		<a href="product_editor.php" class="create-btn">เพิ่มสินค้าใหม่<i class="fa fa-angle-right"></i></a>
 	</div>
 	<?php $product->ListProduct(array('null' => 0));?>
 </div>

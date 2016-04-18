@@ -34,30 +34,27 @@ $current_page = "setting";
 
 <body>
 <?php include'header.php';?>
-<div class="container">
-	<div class="content">
-
-		<div class="setting-container">
+<div class="list-container">
+		<div class="form-container">
 			<h3>Metadata</h3>
 			<?php $config->ListConfig('meta');?>
 			<button class="save-btn" onclick="javascript:MetaConfigSave();">บันทึก</button>
 			<div class="save-state" id="meta-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
 
-		<div class="setting-container">
+		<div class="form-container">
 			<h3>Facebook SDK</h3>
 			<?php $config->ListConfig('facebook_sdk');?>
 			<button class="save-btn" onclick="javascript:FacebookConfigSave();">บันทึก</button>
 			<div class="save-state" id="facebook-sdk-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
 
-		<div class="setting-container">
+		<div class="form-container">
 			<h3>ตั้งค่าอีเมล</h3>
 			<?php $config->ListConfig('email');?>
 			<button class="save-btn" onclick="javascript:EmailConfigSave();">บันทึก</button>
 			<div class="save-state" id="email-save-state"><i class="fa fa-check"></i>บันทึกแล้ว</div>
 		</div>
-	</div>
 </div>
 
 <!-- JS Lib -->

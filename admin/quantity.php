@@ -49,23 +49,19 @@ if($_GET['action'] == "export"){
 	$caption = "โอนสินค้าออก";
 }
 ?>
-<div class="container">
-	<div class="content content-container">
-		<div class="form">
-			<div class="form-items">
-				<div class="caption"><?php echo $product->title;?> <?php echo ($product->type == "sub"?'('.$product->parent_title.') เหลือสินค้า '.$product->quantity.' ชิ้น':'');?></div>
-				<div class="input">
-					<input type="text" class="input-text" id="quantity" name="quantity" placeholder="0">
-				</div>
-			</div>
-
-			<input type="hidden" id="product_id" value="<?php echo $_GET['id'];?>">
-			<input type="hidden" id="action" value="<?php echo $_GET['action'];?>">
-			
-			<div class="form-submit">
-				<button type="submit" class="submit-button" onclick="javascript:UpdateQuantity();"><i class="fa fa-check"></i>ตกลง</button>
+<div class="list-container">
+	<div class="form-container">
+		<div class="config-items">
+			<div class="config-caption"><?php echo $product->title;?> <?php echo ($product->type == "sub"?'('.$product->parent_title.') เหลือสินค้า '.$product->quantity.' ชิ้น':'');?></div>
+			<div class="config-input">
+				<input type="text" class="input-text" id="quantity" name="quantity" placeholder="0">
 			</div>
 		</div>
+
+		<input type="hidden" id="product_id" value="<?php echo $_GET['id'];?>">
+		<input type="hidden" id="action" value="<?php echo $_GET['action'];?>">
+
+		<button type="submit" class="save-btn" onclick="javascript:UpdateQuantity();">ยืนยัน<i class="fa fa-angle-right"></i></button>
 	</div>
 </div>
 
