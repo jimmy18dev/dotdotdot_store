@@ -4,7 +4,10 @@ $notif_count = $order->NotificationChecking();
 
 <header class="header">
 	<a href="index.php" class="header-items logo"><i class="fa fa-cube" aria-hidden="true"></i>Store</a>
+
+	<?php if($notif_count > 0){?>
 	<a href="index.php" class="header-items orders"><?php echo $notif_count;?> รายการใหม่ <i class="fa fa-angle-right"></i></a>
+	<?php }?>
 </header>
 <nav class="navigator">
 	<ul>

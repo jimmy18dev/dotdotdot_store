@@ -41,51 +41,48 @@ if(!empty($order->id)){$order->AdminReadOrder(array('order_id' => $order->id));}
 <body>
 <?php include'header.php';?>
 
-<div class="container">
-	<div class="content content-container">
-		<?php if($order->status == "Cancel" || $order->status == "Expire" || $order->status == "Complete"){?>
-		<div class="order-status-bar <?php echo strtolower($order->status);?>">
-			<?php if($order->status == "Cancel"){?>
-			<i class="fa fa-exclamation-triangle"></i>ยกเลิกการสั่งซื้อ
-			<?php }else if($order->status == "Expire"){?>
-			<i class="fa fa-clock-o"></i>เกินเวลาชำระเงิน
-			<?php }else if($order->status == "Complete"){?>
-			<i class="fa fa-check-circle"></i>เสร็จสมบูรณ์
-			<?php }?>
-		</div>
-		<?php }?>
+<div class="list-container">
+	<div class="order-detail">
 
 		<?php if($order->status != "Complete" && $order->status != "Cancel" && $order->status != "Expire" && $order->CountItemInOrder(array('order_id' => $order->id)) > 0){?>
 		<div class="order-state">
 			<a href="#product-list">
 			<div class="state-items <?php echo ($order->status == 'Paying'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-barcode"></i></div>
 				<div class="caption">1. สั่งสินค้า</div>
+				<div class="icon"><i class="fa fa-barcode"></i></div>
 			</div>
 			</a>
 			
 			<a href="#transfer">
 			<div class="state-items <?php echo ($order->status == 'TransferRequest' || $order->status == 'TransferAgain'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-money"></i></div>
 				<div class="caption">2. โอนเงิน</div>
+				<div class="icon"><i class="fa fa-money"></i></div>
 			</div>
 			</a>
 
 			<a href="#success">
 			<div class="state-items <?php echo ($order->status == 'TransferSuccess'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-check"></i></div>
 				<div class="caption">3. ชำระเงินแล้ว</div>
+				<div class="icon"><i class="fa fa-check"></i></div>
 			</div>
 			</a>
 
 			<a href="#shipping">
 			<div class="state-items <?php echo ($order->status == 'Shipping'?'state-active':'');?>">
-				<div class="icon"><i class="fa fa-truck"></i></div>
 				<div class="caption">4. รอรับของ</div>
+				<div class="icon"><i class="fa fa-truck"></i></div>
+			</div>
+			</a>
+
+			<a href="#shipping">
+			<div class="state-items <?php echo ($order->status == 'Complete'?'state-active':'');?>">
+				<div class="caption">ปิดการขาย</div>
+				<div class="icon"><i class="fa fa-check"></i></div>
 			</div>
 			</a>
 		</div>
 		<?php }?>
+
 
 		<?php if($order->status == "Complete"){?>
 		<!-- Complete -->

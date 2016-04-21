@@ -117,8 +117,8 @@ Copyright (c) 2015 Daniel Eden
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 60%;
-  padding: 0% 20%;
+  width: 50%;
+  padding: 0% 25%;
   height: 60px;
   float: left;
   display: inline-block;
@@ -155,8 +155,8 @@ Copyright (c) 2015 Daniel Eden
   text-decoration: underline;
 }
 .navigator {
-  width: 60%;
-  padding: 0% 20%;
+  width: 50%;
+  padding: 0% 25%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -191,27 +191,31 @@ Copyright (c) 2015 Daniel Eden
   padding: 2% 0%;
 }
 .filter {
-  width: 60%;
-  margin: 0% 20%;
+  width: 50%;
+  margin: 0% 25%;
   float: left;
   display: inline-block;
 }
 .filter .filter-items {
-  float: left;
+  float: right;
   padding: 2% 0%;
-  margin-right: 2%;
+  margin-left: 2%;
   display: inline-block;
   font-size: 0.8em;
   line-height: 1.5em;
   color: #DDDDDD;
+}
+.filter .filter-items:hover {
+  cursor: pointer;
+  color: #000000;
 }
 .filter .filter-items-active {
   color: #000000;
   text-decoration: underline;
 }
 .list-container {
-  width: 60%;
-  margin: 0% 20%;
+  width: 50%;
+  margin: 0% 25%;
   float: left;
   display: inline-block;
 }
@@ -285,81 +289,59 @@ Copyright (c) 2015 Daniel Eden
   float: left;
   display: inline-block;
   background: #FFFFFF;
-  margin-bottom: 0.5%;
-  font-size: 0.9em;
+  border-top: 1px solid #EEEEEE;
+  font-size: 1em;
   position: relative;
-}
-.list-container .order-items .unread {
-  position: absolute;
-  top: 0px;
-  left: 0px;
-  width: 0;
-  height: 0;
-  border-top: 15px solid #f39c12;
-  border-right: 15px solid transparent;
 }
 .list-container .order-items:hover .info .info-name {
   text-decoration: underline;
 }
 .list-container .order-items .avatar {
-  width: 4%;
+  width: 7%;
   float: left;
   display: inline-block;
-  margin-right: 1%;
 }
 .list-container .order-items .avatar img {
   width: 100%;
   float: left;
   display: inline-block;
   border-radius: 50%;
+  border: 2px solid transparent;
 }
 .list-container .order-items .info {
-  width: 54%;
+  width: 85%;
+  padding: 0.5% 1.5%;
   float: left;
-  margin-left: 1%;
   display: inline-block;
-  line-height: 1.2em;
+  line-height: 1.3em;
 }
 .list-container .order-items .info .info-name {
   color: #000000;
-}
-.list-container .order-items .info .info-name strong {
+  font-size: 1em;
   font-weight: bold;
 }
 .list-container .order-items .info .info-desc {
-  font-size: 0.8em;
-  color: #AAAAAA;
+  font-size: 0.9em;
+  color: #555555;
 }
 .list-container .order-items .info .info-desc i {
-  margin-left: 5px;
+  margin-left: 3px;
 }
 .list-container .order-items .info .info-desc .status-complete {
   color: #0084ff;
 }
-.list-container .order-items .time {
-  width: 25%;
+.list-container .order-items .icons {
+  width: 5%;
+  padding-top: 2%;
   float: left;
   display: inline-block;
-  line-height: 2.5em;
+  line-height: 2em;
   color: #555555;
+  font-size: 1em;
+  text-align: center;
 }
-.list-container .order-items .payment {
-  width: 15%;
-  float: left;
-  display: inline-block;
-  line-height: 2.5em;
-  text-align: right;
-  color: #555555;
-}
-.list-container .order-items .payment i {
-  margin-left: 10px;
-}
-.list-container .order-items .payment-paid {
-  color: #0084ff;
-}
-.list-container .order-unread {
-  font-weight: bold;
-  background: #E3F2FD;
+.list-container .order-unread .avatar img {
+  border: 2px solid #0084ff;
 }
 .list-container .product-caption-fix {
   width: 100%;
@@ -842,9 +824,251 @@ Copyright (c) 2015 Daniel Eden
   padding: 10px 20px;
   line-height: 1.5em;
   color: #0084ff;
+  display: none;
 }
 .list-container .form-container .save-state i {
   margin-right: 5px;
+}
+.list-container .order-detail {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 3%;
+  background: #FFFFFF;
+}
+.list-container .order-detail .order-state {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-bottom: 3%;
+}
+.list-container .order-detail .order-state .state-items {
+  width: 20%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+  border-bottom: 1px solid #EEEEEE;
+  color: #CCCCCC;
+}
+.list-container .order-detail .order-state .state-items .caption {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  margin-bottom: 5%;
+}
+.list-container .order-detail .order-state .state-items .icon {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  font-size: 2em;
+}
+.list-container .order-detail .order-state .state-active {
+  border-bottom: 1px solid #0084ff;
+  color: #0084ff;
+}
+.list-container .order-detail .order-dialog {
+  width: 94%;
+  padding: 3%;
+  float: left;
+  display: inline-block;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .order-detail .order-dialog h2 {
+  font-size: 0.9em;
+  font-weight: bold;
+  color: #777777;
+  margin-bottom: 2%;
+}
+.list-container .order-detail .order-dialog h2 i {
+  margin-right: 10px;
+}
+.list-container .order-detail .order-dialog p {
+  font-size: 1em;
+  color: #333333;
+  line-height: 1.5em;
+}
+.list-container .order-detail .order-dialog p.big {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+.list-container .order-detail .order-dialog strong {
+  font-weight: bold;
+}
+.list-container .order-detail .order-dialog .image {
+  width: 100%;
+  margin: 1% 0%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .image img {
+  width: 40%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .control {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  margin-top: 1%;
+}
+.list-container .order-detail .order-dialog .control button.button {
+  float: left;
+  display: inline-block;
+  padding: 1% 3%;
+  font-size: 0.9em;
+  line-height: 1.5em;
+  border: 1px solid #333333;
+  background: #333333;
+  color: #FFFFFF;
+  margin-right: 10px;
+}
+.list-container .order-detail .order-dialog .control button.button i {
+  margin-right: 10px;
+  font-size: 0.8em;
+}
+.list-container .order-detail .order-dialog .control button.button:hover {
+  cursor: pointer;
+  background: #444444;
+}
+.list-container .order-detail .order-dialog .control button.button:active {
+  background: #000000;
+}
+.list-container .order-detail .order-dialog .control button.fail-btn {
+  background: #EEEEEE;
+  color: #777777;
+  border: 1px solid #EEEEEE;
+}
+.list-container .order-detail .order-dialog .control button.fail-btn:hover {
+  background: #DDDDDD;
+  color: #333333;
+}
+.list-container .order-detail .order-dialog .input-text {
+  width: 48%;
+  padding: 1%;
+  float: left;
+  display: inline-block;
+  font-size: 1em;
+  line-height: 1.5em;
+  border: 1px solid #EEEEEE;
+  color: #333333;
+  outline: 0;
+}
+.list-container .order-detail .order-dialog .input-text:hover {
+  border: 1px solid #CCCCCC;
+}
+.list-container .order-detail .order-dialog .input-text:focus {
+  border: 1px solid #333333;
+}
+.list-container .order-detail .order-dialog .order-list {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .currency {
+  font-size: 0.7em;
+  color: #AAAAAA;
+}
+.list-container .order-detail .order-dialog .order-list .topic-caption {
+  width: 100%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  font-size: 0.8em;
+  color: #AAAAAA;
+  font-style: italic;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .order-detail .order-dialog .order-list .topic-caption .detail {
+  width: 70%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .topic-caption .quantity {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.list-container .order-detail .order-dialog .order-list .topic-caption .total {
+  width: 15%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order {
+  width: 100%;
+  float: left;
+  display: inline-block;
+  line-height: 1.5em;
+  border-bottom: 1px solid #EEEEEE;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-thumbnail {
+  width: 10%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-thumbnail img {
+  width: 100%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-detail {
+  width: 56%;
+  padding: 2%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-detail p {
+  font-size: 1em;
+  color: #333333;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-detail p.mini {
+  font-size: 0.8em;
+  color: #777777;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-detail strong {
+  font-weight: bold;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-quantity {
+  width: 15%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: center;
+}
+.list-container .order-detail .order-dialog .order-list .items-in-order .items-in-order-total {
+  width: 15%;
+  padding: 2% 0%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.list-container .order-detail .order-dialog .order-list .summary-items {
+  width: 88%;
+  margin-left: 12%;
+  padding: 3% 0%;
+  float: left;
+  display: inline-block;
+  color: #333333;
+  font-size: 1em;
+}
+.list-container .order-detail .order-dialog .order-list .summary-items .detail {
+  width: 80%;
+  float: left;
+  display: inline-block;
+}
+.list-container .order-detail .order-dialog .order-list .summary-items .total {
+  width: 20%;
+  float: left;
+  display: inline-block;
+  text-align: right;
+}
+.list-container .order-detail .order-dialog .order-list .summary-total {
+  border-top: 2px solid #EEEEEE;
+  font-weight: bold;
 }
 .list-container .form {
   width: 100%;
@@ -1283,8 +1507,8 @@ Copyright (c) 2015 Daniel Eden
   display: inline-block;
 }
 .container .lists-container .order-items {
-  width: 98%;
-  padding: 1%;
+  width: 96%;
+  padding: 2%;
   float: left;
   display: inline-block;
   background: #FFFFFF;
@@ -1376,256 +1600,6 @@ Copyright (c) 2015 Daniel Eden
   width: 100%;
   float: left;
   display: inline-block;
-}
-.container .content .order-status-bar {
-  width: 94%;
-  padding: 1% 3%;
-  float: left;
-  display: inline-block;
-  background: #FFFFFF;
-  color: #AAAAAA;
-  font-size: 0.8em;
-  line-height: 1.5em;
-}
-.container .content .order-status-bar i {
-  margin-right: 10px;
-}
-.container .content .order-state {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-bottom: 3%;
-}
-.container .content .order-state .state-items {
-  width: 25%;
-  padding: 5% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-  border-bottom: 1px solid #EEEEEE;
-  color: #CCCCCC;
-}
-.container .content .order-state .state-items .icon {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 2em;
-  margin-bottom: 3%;
-}
-.container .content .order-state .state-items .caption {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  line-height: 2em;
-}
-.container .content .order-state .state-active {
-  border-bottom: 1px solid #333333;
-  color: #333333;
-}
-.container .content .order-state .state-active .caption {
-  font-weight: bold;
-}
-.container .content .order-dialog {
-  width: 94%;
-  padding: 3%;
-  float: left;
-  display: inline-block;
-  border-bottom: 1px solid #EEEEEE;
-}
-.container .content .order-dialog h2 {
-  font-size: 0.9em;
-  font-weight: bold;
-  color: #777777;
-  margin-bottom: 2%;
-}
-.container .content .order-dialog h2 i {
-  margin-right: 10px;
-}
-.container .content .order-dialog p {
-  font-size: 1em;
-  color: #333333;
-  line-height: 1.5em;
-}
-.container .content .order-dialog p.big {
-  font-size: 1.5em;
-  font-weight: bold;
-}
-.container .content .order-dialog strong {
-  font-weight: bold;
-}
-.container .content .order-dialog .image {
-  width: 100%;
-  margin: 1% 0%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .image img {
-  width: 40%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .control {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  margin-top: 1%;
-}
-.container .content .order-dialog .control button.button {
-  float: left;
-  display: inline-block;
-  padding: 1% 3%;
-  font-size: 0.9em;
-  line-height: 1.5em;
-  border: 1px solid #333333;
-  background: #333333;
-  color: #FFFFFF;
-  margin-right: 10px;
-}
-.container .content .order-dialog .control button.button i {
-  margin-right: 10px;
-  font-size: 0.8em;
-}
-.container .content .order-dialog .control button.button:hover {
-  cursor: pointer;
-  background: #444444;
-}
-.container .content .order-dialog .control button.button:active {
-  background: #000000;
-}
-.container .content .order-dialog .control button.fail-btn {
-  background: #EEEEEE;
-  color: #777777;
-  border: 1px solid #EEEEEE;
-}
-.container .content .order-dialog .control button.fail-btn:hover {
-  background: #DDDDDD;
-  color: #333333;
-}
-.container .content .order-dialog .input-text {
-  width: 48%;
-  padding: 1%;
-  float: left;
-  display: inline-block;
-  font-size: 1em;
-  line-height: 1.5em;
-  border: 1px solid #EEEEEE;
-  color: #333333;
-  outline: 0;
-}
-.container .content .order-dialog .input-text:hover {
-  border: 1px solid #CCCCCC;
-}
-.container .content .order-dialog .input-text:focus {
-  border: 1px solid #333333;
-}
-.container .content .order-dialog .order-list {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .currency {
-  font-size: 0.7em;
-  color: #AAAAAA;
-}
-.container .content .order-dialog .order-list .topic-caption {
-  width: 100%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  font-size: 0.8em;
-  color: #AAAAAA;
-  font-style: italic;
-  border-bottom: 1px solid #EEEEEE;
-}
-.container .content .order-dialog .order-list .topic-caption .detail {
-  width: 70%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .topic-caption .quantity {
-  width: 15%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-}
-.container .content .order-dialog .order-list .topic-caption .total {
-  width: 15%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-}
-.container .content .order-dialog .order-list .items-in-order {
-  width: 100%;
-  float: left;
-  display: inline-block;
-  line-height: 1.5em;
-  border-bottom: 1px solid #EEEEEE;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-thumbnail {
-  width: 10%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-thumbnail img {
-  width: 100%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-detail {
-  width: 56%;
-  padding: 2%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-detail p {
-  font-size: 1em;
-  color: #333333;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-detail p.mini {
-  font-size: 0.8em;
-  color: #777777;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-detail strong {
-  font-weight: bold;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-quantity {
-  width: 15%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  text-align: center;
-}
-.container .content .order-dialog .order-list .items-in-order .items-in-order-total {
-  width: 15%;
-  padding: 2% 0%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-}
-.container .content .order-dialog .order-list .summary-items {
-  width: 88%;
-  margin-left: 12%;
-  padding: 3% 0%;
-  float: left;
-  display: inline-block;
-  color: #333333;
-  font-size: 1em;
-}
-.container .content .order-dialog .order-list .summary-items .detail {
-  width: 80%;
-  float: left;
-  display: inline-block;
-}
-.container .content .order-dialog .order-list .summary-items .total {
-  width: 20%;
-  float: left;
-  display: inline-block;
-  text-align: right;
-}
-.container .content .order-dialog .order-list .summary-total {
-  border-top: 2px solid #EEEEEE;
-  font-weight: bold;
 }
 .container .content .product-topic-caption {
   width: 100%;

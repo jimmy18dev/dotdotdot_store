@@ -36,15 +36,9 @@ $current_page = "order";
 <body>
 <?php include'header.php';?>
 <div class="filter">
-	<a href="index.php?">
-		<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
-		<span class="filter-items-caption">ดูทั้งหมด</span>
-		</div>
-	</a>
-
-	<a href="index.php?filter=transferrequest">
-		<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
-			<span class="filter-items-caption">รอตรวจสอบ</span>
+	<a href="index.php?filter=complete">
+		<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
+			<span class="filter-items-caption">ปิดการขาย</span>
 		</div>
 	</a>
 
@@ -54,9 +48,15 @@ $current_page = "order";
 		</div>
 	</a>
 
-	<a href="index.php?filter=complete">
-		<div class="filter-items <?php echo ($_GET['filter'] == "complete"?'filter-items-active':'');?>">
-			<span class="filter-items-caption">ปิดการขาย</span>
+	<a href="index.php?filter=transferrequest">
+		<div class="filter-items <?php echo ($_GET['filter'] == "transferrequest"?'filter-items-active':'');?>">
+			<span class="filter-items-caption">รอตรวจสอบ</span>
+		</div>
+	</a>
+
+	<a href="index.php?">
+		<div class="filter-items <?php echo (empty($_GET['filter'])?'filter-items-active':'');?>">
+		<span class="filter-items-caption">ดูทั้งหมด</span>
 		</div>
 	</a>
 </div>

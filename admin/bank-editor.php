@@ -43,10 +43,11 @@ if(isset($_GET['id'])){
 <body>
 <?php include'header.php';?>
 <div class="list-container">
-		<div class="form">
-			<div class="form-items">
-				<div class="caption">ธนาคาร <span class="required">*</span></div>
-				<div class="input">
+		<div class="form-container">
+			<h3>BANK</h3>
+			<div class="config-items">
+				<div class="config-caption">ธนาคาร <span class="required">*</span></div>
+				<div class="config-input">
 					<select id="code" class="input-text input-select">
 						<option value="BBL" <?php echo ($bank->code=="BBL"?'selected':'');?>>ธนาคารกรุงเทพ</option>
 						<option value="BAY" <?php echo ($bank->code=="BAY"?'selected':'');?>>ธนาคารกรุงศรีอยุธยา</option>
@@ -58,30 +59,27 @@ if(isset($_GET['id'])){
 					</select>
 				</div>
 			</div>
-			<div class="form-items">
-				<div class="caption">สาขา <span class="required">*</span></div>
-				<div class="input">
+			<div class="config-items">
+				<div class="config-caption">สาขา <span class="required">*</span></div>
+				<div class="config-input">
 					<input type="text" class="input-text" id="branch" value="<?php echo $bank->account_branch;?>">
 				</div>
 			</div>
-			<div class="form-items">
-				<div class="caption">ชื่อบัญชี <span class="required">*</span></div>
-				<div class="input">
+			<div class="config-items">
+				<div class="config-caption">ชื่อบัญชี <span class="required">*</span></div>
+				<div class="config-input">
 					<input type="text" class="input-text" id="name" value="<?php echo $bank->account_name;?>">
 				</div>
 			</div>
-			<div class="form-items">
-				<div class="caption">เลขบัญชี <span class="required">*</span></div>
-				<div class="input">
+			<div class="config-items">
+				<div class="config-caption">เลขบัญชี <span class="required">*</span></div>
+				<div class="config-input">
 					<input type="text" class="input-text" id="number" value="<?php echo $bank->account_number;?>">
 				</div>
 			</div>
 
 			<input type="hidden" id="bank_id" value="<?php echo $bank->id;?>">
-
-			<div class="form-submit">
-				<button class="submit-button" onclick="javascript:CreateBank();">บันทึก</button>
-			</div>
+			<button class="save-btn" onclick="javascript:CreateBank();">บันทึก</button>
 		</div>
 </div>
 </body>

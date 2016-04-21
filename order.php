@@ -242,8 +242,11 @@ $current_page = "order";
 				<div class="datetime"><span class="time"><?php echo $order->confirm_time_th;?></span></div>
 				<div class="box">
 					<b class="topic"><i class="fa fa-map-pin"></i>ที่อยู่สำหรับจัดส่ง</b>
-					<div class="description">ชื่อ <strong><?php echo $order->customer_name;?></strong><br>
-					ที่อยู่ : <?php echo $order->customer_address;?> (เบอร์โทรศัพท์ <?php echo $order->customer_phone?>)</div>
+					<div class="description">
+						<strong>ชื่อ : </strong><?php echo $order->customer_name;?><br>
+						<strong>ที่อยู่ : </strong><?php echo $order->customer_address;?><br>
+						<strong>โทรศัพท์ : </strong><?php echo $order->customer_phone?>
+					</div>
 
 					<?php if($order->status == "TransferRequest" || $order->status == "TransferSuccess"){?>
 					<div class="control">
